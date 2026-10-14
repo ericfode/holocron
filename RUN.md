@@ -17,6 +17,20 @@ into holocron's `data/` (or point the flags below at it).
 
 ## 2. Data
 
+**Answers to the three questions** (the coordinator can't reach you; only Eric's messages do):
+1. Code: section 1. Nothing is unpushed; holocron is the home of bots/jepa now. The tinygrad tx_train.py is gone
+   (tx_train_torch.py replaces it).
+2. pack-b (the old one, seeds 720000-731649) came from two runs of the real-deck branches.js, rush vs rush on the 27
+   real decks, defaults for --p and the move cap (12):
+   `--games 3000 --seed 720000` and `--games 2000 --seed 730000` (stopped at 1,004 games), each
+   `--bots rush,rush --decks decks/ash-meta-2026-09.json`, then branch_prep.py and pack_data.py with defaults.
+   That data has no settled boards. The new recipe below adds them (`st`), and the settle models need them.
+   **Please stop the random-deck chunk (rush vs random, rush vs rush, README recipe):** it has random decks and no
+   settled boards, so the plan below can't use it.
+3. Recorded rows: keep data/pack-r.npz as it is for this round (don't fetch the 12 runs). New strong-bot games from
+   WSL are worth making only if bigger branch data helps; I'll say so after the results.
+
+
 **Recorded rows:** reuse `data/pack-r.npz` (7,840 recorded gauntlet games, about 1M decisions). Those games live in
 the project folder, which this PC can't reach, so they stay as they are; the branch data is what scales.
 
