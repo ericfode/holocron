@@ -1,5 +1,5 @@
 'use strict';
-// node bot/analyze-game.js <game.jsonl>  -> steps, how many changed nothing visible, longest no-change streak, last actions.
+// node lab/runners/analyze-game.js <game.jsonl>  -> steps, how many changed nothing visible, longest no-change streak, last actions.
 const fs = require('fs');
 const L = fs.readFileSync(process.argv[2], 'utf8').trim().split('\n').map((l) => JSON.parse(l)).filter((e) => e.t === 'step');
 const sig = (s) => JSON.stringify([s.round, s.phase, s.initiative, Object.values(s.players).map((p) => [p.base.d, p.res.ready, p.res.total, p.hand.length, p.deck, p.ground.map((u) => [u.n, u.d, u.x]), p.space.map((u) => [u.n, u.d, u.x])])]);

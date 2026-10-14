@@ -1,9 +1,9 @@
 'use strict';
 /**
- * Parallel round-robin runner for evaluator research. Same game loop (bot/match.js) and output format as
+ * Parallel round-robin runner for evaluator research. Same game loop (engine/match.js) and output format as
  * bot/tournament.js, spread over several processes.
  *
- *   node bot/eval/arena.js --bots random,heuristic,h@linear --games 20 --seed 1000 --out <dir> [--workers 4]
+ *   node lab/eval/arena.js --bots random,heuristic,h@linear --games 20 --seed 1000 --out <dir> [--workers 4]
  *                          [--record full|positions|none] [--every 1] [--maxSteps 3000]
  *
  * Writes <out>/index.json (tournament index, updated live, readable by the viewer and the research dashboard),
@@ -50,18 +50,18 @@ function schedule(names, perPair, seed0) {
     return jobs;
 }
 
-/** The bots for one game; a bot program is handed out once per seat (see makeBot in bot/players/index.js). */
+/** The bots for one game; a bot program is handed out once per seat (see makeBot in bots/players/index.js). */
 function seatBots(names) {
-    const { makeBot } = require('../players');
+    const { makeBot } = require('../../bots/players');
     const bots = [];
     names.forEach((n) => bots.push(makeBot(n, bots)));
     return bots;
 }
 
 async function worker(out, shard, shards, jobs, record, maxSteps, every) {
-    const { Env, seededRng } = require('../env');
-    const { playGame } = require('../match');
-    const { snapshot } = require('../recorder');
+    const { Env, seededRng } = require('../../engine/env');
+    const { playGame } = require('../../engine/match');
+    const { snapshot } = require('../../engine/recorder');
     const env = new Env();
     env.engineRev = engineRev();
     const mine = jobs.filter((_, i) => i % shards === shard);
@@ -111,7 +111,7 @@ async function worker(out, shard, shards, jobs, record, maxSteps, every) {
         }
         console.log(`[${shard}] ${job.id}: ${r.outcome} ${winnerBot ?? ''} R${r.round} ${r.steps} steps ${r.ms}ms${r.error ? ' ' + r.error : ''}`);
     }
-    await require('../players').closeBots();
+    await require('../../bots/players').closeBots();
 }
 
 function engineRev() {

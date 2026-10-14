@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * Turn SWUSim / TCGEngine deck fixtures (one .txt file per deck) into one deck file for `bot/ladder.js --decks`.
+ * Turn SWUSim / TCGEngine deck fixtures (one .txt file per deck) into one deck file for `lab/runners/ladder.js --decks`.
  *
- *   node bot/decks/import-swusim.js <fixture dir> <out prefix>
+ *   node decks/import-swusim.js <fixture dir> <out prefix>
  *
  * Writes <out prefix>.json (the decks, named after their files, sideboards left out) and, when the folder has a
  * real_matchups.json, <out prefix>.human.json: the human results for the same decks with only the numbers kept
@@ -13,12 +13,12 @@
 
 const fs = require('fs');
 const path = require('path');
-const { parseDeckText } = require('../decklists');
+const { parseDeckText } = require('../engine/decklists');
 
 function main() {
     const [dir, prefix] = process.argv.slice(2);
     if (!dir || !prefix) {
-        console.error('usage: node bot/decks/import-swusim.js <fixture dir> <out prefix>');
+        console.error('usage: node decks/import-swusim.js <fixture dir> <out prefix>');
         process.exit(2);
     }
     const files = fs.readdirSync(dir).filter((f) => f.endsWith('.txt')).sort();

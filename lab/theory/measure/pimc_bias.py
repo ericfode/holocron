@@ -1,6 +1,6 @@
 """Summarize omni-pimc output: the PIMC (omniscient sampling) gap on real SWU endgames.
 
-    python3 theory/measure/pimc_bias.py <dir-or-jsonl>... [--json out.json] [--deals 8]
+    python3 lab/theory/measure/pimc_bias.py <dir-or-jsonl>... [--json out.json] [--deals 8]
 
 Input lines come from target/release/omni-pimc (bot/omni-rs/src/bin/omni-pimc.rs): one action window
 each, with f(deal, move) in {1, 0, null} from the mover's view. For a complete window

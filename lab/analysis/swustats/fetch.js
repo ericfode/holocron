@@ -3,7 +3,7 @@
 /**
  * Fetch SWU Stats' public meta tables (premier) and summarize them per leader, per base and per leader pair.
  *
- *   node analysis/swustats/fetch.js --out /mnt/project-files/human-meta/swustats [--format premier] [--delay 3000]
+ *   node lab/analysis/swustats/fetch.js --out /mnt/project-files/human-meta/swustats [--format premier] [--delay 3000]
  *
  * Polite: reads robots.txt first, two GETs at least 1 s apart (3 s by default), a User-Agent that names this project.
  * Writes <out>/human-summary.json (with the credit line every page showing these numbers must carry); the raw tables

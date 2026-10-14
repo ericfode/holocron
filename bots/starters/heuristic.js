@@ -13,7 +13,7 @@
  * lookahead cannot see the real draws or shuffles. The real RNG state comes back with the rollback.
  */
 
-// self-contained: same generator as seededRng in bot/env.js, so this folder needs nothing outside itself
+// self-contained: same generator as seededRng in engine/env.js, so this folder needs nothing outside itself
 function seededRng(seedStr) {
     let h = 1779033703 ^ String(seedStr).length;
     for (let i = 0; i < String(seedStr).length; i++) {

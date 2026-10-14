@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 'use strict';
-// Stress test of the Rust simulator against forceteki: bots play real games through the referee (bot/match.js) while
-// the Rust engine follows every real move and a sample of the moves bots try in their simulations (bot/omni/rs/mirror.js).
+// Stress test of the Rust simulator against forceteki: bots play real games through the referee (engine/match.js) while
+// the Rust engine follows every real move and a sample of the moves bots try in their simulations (bots/omni/rs/mirror.js).
 // forceteki decides every game; the Rust side only checks. Each disagreement is written with a trace file that
 // `omni-rs check` reproduces on its own.
 //
-//   node bot/omni/rs/stress.js --bots heuristic,aggro,control,rust-search,node-search --seeds 1-4 \
-//       --pool bot/omni/rs/pool.json --out replays/omni-rs-stress [--sim-every 10] [--workers 3] [--key none]
+//   node bots/omni/rs/stress.js --bots heuristic,aggro,control,rust-search,node-search --seeds 1-4 \
+//       --pool bots/omni/rs/pool.json --out replays/omni-rs-stress [--sim-every 10] [--workers 3] [--key none]
 // --catalogue FILE loads compiled card programs (bot/card-compiler/generated/catalog.json) for a pool beyond the 100
 // keyword-only cards. --selection-toggles plays forceteki with env.js's opt-in select-card rule, which a Rust engine
 // built for it follows.
@@ -32,8 +32,8 @@ function jobs(bots, seeds) {
 }
 
 async function worker(id, list, opts) {
-    const { Env, seededRng } = require('../../env');
-    const { playGame } = require('../../match');
+    const { Env, seededRng } = require('../../../engine/env');
+    const { playGame } = require('../../../engine/match');
     const { makeBot, closeBots } = require('../../players');
     const { loadPool } = require('./pool');
     const { createSimulator } = require('../wasm/node');

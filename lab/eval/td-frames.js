@@ -1,22 +1,22 @@
 'use strict';
-// node bot/eval/td-frames.js <firstSeed> <count> <out.jsonl> [--key K]
+// node lab/eval/td-frames.js <firstSeed> <count> <out.jsonl> [--key K]
 //
 // TD training data in the position-eval bench's feature space (features.js). Plays heuristic-bot games and, at every
 // action window, records the acting player's subjective frame and the frame of every child its one-ply search
 // looked at, seen by that same player (exactly what an h@<evaluator> bot scores). With this, a linear evaluator can
-// be fitted to its own one-step backup (theory/SwuTheory/Value.lean), anchored by game results and proven endgames
-// (theory/measure/anchored_fit.py).
+// be fitted to its own one-step backup (lab/theory/SwuTheory/Value.lean), anchored by game results and proven endgames
+// (lab/theory/measure/anchored_fit.py).
 //
 // Each frame is stored as the 30 side-feature differences me - opp (SIDE_KEYS order), then toAct and round; a child
 // that ends the game is stored as {t: 1|0} (1 = the actor won). Seats play heuristic profiles chosen by the seed
 // (mostly the sign-fixed default), so the data covers more than mirror matches. Recording reads getters only and
 // uses no randomness, so each seed plays exactly like the same game without recording.
 const fs = require('fs');
-const { Env } = require('../env');
-const { playGame } = require('../match');
-const { HeuristicBot, fingerprint } = require('../players/heuristic');
-const { PROFILES } = require('../players/profiles');
-const { snapshot } = require('../recorder');
+const { Env } = require('../../engine/env');
+const { playGame } = require('../../engine/match');
+const { HeuristicBot, fingerprint } = require('../../bots/players/heuristic');
+const { PROFILES } = require('../../bots/players/profiles');
+const { snapshot } = require('../../engine/recorder');
 const { frameFeatures, terminal, SIDE_KEYS } = require('./features');
 const { cardDb } = require('./cards');
 

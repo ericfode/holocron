@@ -1,8 +1,8 @@
 """Deck models in tinygrad: a deck encoder, a JEPA objective on partial decks, and a matchup value.
 
-    python3 bot/deckbuild/deck_jepa.py --runs DIR [DIR ...] --mode jepa-ft --out MODEL.npz [--steps 3000]
+    python3 lab/deckbuild/deck_jepa.py --runs DIR [DIR ...] --mode jepa-ft --out MODEL.npz [--steps 3000]
 
-Data (from the JS side): cards.json (export-cards.js), deck lists (bot/decks/*.json, a run's candidates.json or
+Data (from the JS side): cards.json (export-cards.js), deck lists (decks/*.json, a run's candidates.json or
 decks.jsonl) and games (results.jsonl rows from play.js: deck A against deck B, one pilot in both seats).
 
 The model
@@ -21,7 +21,7 @@ It needs no game results, and its predictor is what a drafter uses to score a pi
 Modes (--mode)
     linear      v = a value per card copy + per leader + per base (Bradley-Terry over decks); no matchup term
     sup         encoder and heads trained on game results only
-    jepa        stage 1 JEPA only, stage 2 heads on the frozen encoder (two stages, as bot/jepa found best)
+    jepa        stage 1 JEPA only, stage 2 heads on the frozen encoder (two stages, as bots/jepa found best)
     jepa-ft     stage 1 JEPA, stage 2 heads and encoder together, the JEPA loss kept on (weight --w-jepa-ft)
 Every mode early-stops on held-out decks (a share of the generated decks never seen in training).
 Writes MODEL.npz (numpy weights and the card index; numpy forward in deck_np.py) and MODEL.json (metrics).
@@ -119,7 +119,7 @@ def load_games(run_dirs):
 
 
 def deck_paths(run_dirs, real=True):
-    ps = [os.path.join(REPO, "bot/decks/ash-meta-2026-09.json")] if real else []
+    ps = [os.path.join(REPO, "decks/ash-meta-2026-09.json")] if real else []
     for r in run_dirs:
         ps += [os.path.join(r, "candidates.json"), os.path.join(r, "decks.jsonl")]
     return ps

@@ -4,7 +4,7 @@
  * Omniscient bot: a reference opponent that cheats on purpose.
  *
  * It searches with full information (both hands, both deck orders, the real engine RNG, so it knows every future
- * draw and shuffle in the lines it reads) using the alpha-beta search in `bot/omni/search.js`. It is not a fair
+ * draw and shuffle in the lines it reads) using the alpha-beta search in `bots/omni/search.js`. It is not a fair
  * bot; it exists to measure how much information and lookahead are worth, as an upper reference for fair bots and
  * position functions.
  *
@@ -21,16 +21,16 @@
  * the deck order or random results; it still sees both hands).
  *
  * With OMNI_LOG_DIR set, every action-window decision is appended to <dir>/<seed>-<bot>-<seat>.jsonl (value, depth,
- * principal variation, the top moves and their values). bot/omni/lens.js joins these with the replay: the k-th line
+ * principal variation, the top moves and their values). bots/omni/lens.js joins these with the replay: the k-th line
  * is the bot's k-th actionWindow step. Give each tournament run its own OMNI_LOG_DIR: two runs with the same bot
  * name and seeds would append to the same files.
  */
 
 const fs = require('fs');
 const path = require('path');
-const { seededRng } = require('../env');
+const { seededRng } = require('../../engine/env');
 const { OmniSearch, BudgetExceeded, ruleChoice, stateKey, same, isPass } = require('../omni/search');
-const { snapshot } = require('../recorder');
+const { snapshot } = require('../../engine/recorder');
 
 /** Search value (deciding side's points) as an uncalibrated P(p1 wins): logistic with a 15-point scale. */
 function toP1(v, seat) {

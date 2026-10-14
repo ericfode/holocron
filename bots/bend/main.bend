@@ -1,8 +1,8 @@
 # swu-bend: a Star Wars Unlimited bot in Bend 2, playing the forceteki engine
 # over the stdio protocol (spec/stdio-protocol.md): one JSON line in, one out.
 #
-#   bun <bend>/bend2/main.ts bot/bend/main.bend -o bot/bend/swu-bend   (see build.sh)
-#   bot/bend/swu-bend [--jev] [--name NAME] [--cards DIR/]
+#   bun <bend>/bend2/main.ts bots/bend/main.bend -o bots/bend/swu-bend   (see build.sh)
+#   bots/bend/swu-bend [--jev] [--name NAME] [--cards DIR/]
 #
 # The card tables (cards.tsv, cards-text.tsv) are read from --cards, else from
 # the folder of the program. --jev asks TypeSafe's Jev model to pick among the

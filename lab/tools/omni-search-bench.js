@@ -12,8 +12,8 @@ const { spawnSync } = require('child_process');
 const { performance } = require('perf_hooks');
 
 const HELP = `Usage:
-  node tools/omni-search-bench.js prepare <workloads.json> <new-output-directory>
-  node tools/omni-search-bench.js run <comparison.json> <new-output-directory>
+  node lab/tools/omni-search-bench.js prepare <workloads.json> <new-output-directory>
+  node lab/tools/omni-search-bench.js run <comparison.json> <new-output-directory>
 
 See bot/omni-rs/benchmarks/README.md for config, invariants and profiling commands.`;
 const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');

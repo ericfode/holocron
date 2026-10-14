@@ -1,10 +1,10 @@
 'use strict';
 // Worker thread for play.js: loads the engine once, then plays the deck-vs-deck games it is sent.
 const { parentPort, workerData } = require('worker_threads');
-const { Env } = require('../env');
-const { playGame } = require('../match');
-const { makeBot, closeBots } = require('../players');
-const { gameKey } = require('../rng');
+const { Env } = require('../../engine/env');
+const { playGame } = require('../../engine/match');
+const { makeBot, closeBots } = require('../../bots/players');
+const { gameKey } = require('../../engine/rng');
 
 const env = new Env();
 

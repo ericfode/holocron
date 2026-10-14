@@ -1,9 +1,9 @@
 'use strict';
-// node --test bot/test/   (no card data needed)
+// node --test engine/test/   (no card data needed)
 const test = require('node:test');
 const assert = require('node:assert');
 const { sequentialElo, bradleyTerry, wilson, roundRobin } = require('../ratings');
-const { summarize, scoreOf } = require('../ladder-report');
+const { summarize, scoreOf } = require('../../lab/runners/ladder-report');
 
 test('roundRobin plays each seed from both seats and rounds games up to even', () => {
     const s = roundRobin(['a', 'b', 'c'], 3, 10);

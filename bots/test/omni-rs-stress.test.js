@@ -36,7 +36,7 @@ test('stress jobs play every pair once per seed and swap seats on odd seeds', ()
 
 const { determinizeState } = require('../omni/rs/rust-sims');
 const { RustViews } = require('../omni/rs/rust-view');
-const { seededRng } = require('../rng');
+const { seededRng } = require('../../engine/rng');
 
 const card = (id, setCode = 'X_001') => ({ id, setCode, name: setCode.toLowerCase() });
 function board() {

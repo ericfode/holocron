@@ -3,20 +3,20 @@
 /**
  * Experiment 1: can our bots tell a good deck from a bad one?
  *
- * For each of the 27 real tournament decks (bot/decks/ash-meta-2026-09.json) we make other decks with the SAME leader
+ * For each of the 27 real tournament decks (decks/ash-meta-2026-09.json) we make other decks with the SAME leader
  * and base: `random` (aspect-legal random cards, two of them) and `stat` (decks.js statDeck). Every candidate plays every
  * real deck of the field on the same seed (both seats), with one pilot bot in both seats. If the real decks score well
  * above the random ones, deck quality is visible to the pilot and a deck builder can be measured with it.
  *
- *   node bot/deckbuild/exp-visible.js [--pilot c-clock] [--workers 4] [--out DIR] [--key K] [--only real,random,stat]
+ *   node lab/deckbuild/exp-visible.js [--pilot c-clock] [--workers 4] [--out DIR] [--key K] [--only real,random,stat]
  */
 const fs = require('fs');
 const path = require('path');
-const { Env } = require('../env');
+const { Env } = require('../../engine/env');
 const { CardPool } = require('./cards');
 const { fromList, toList, randomDeck, statDeck } = require('./decks');
 const { pairJobs, playDecks, scoreA } = require('./play');
-const { seededRng } = require('../rng');
+const { seededRng } = require('../../engine/rng');
 
 const arg = (n, d) => {
     const i = process.argv.indexOf(`--${n}`);
@@ -98,7 +98,7 @@ async function main() {
     const out = arg('out', path.join(fs.existsSync('/mnt/project-files') ? '/mnt/project-files/deckbuild' : 'replays/deckbuild', `exp1-${pilot}`));
     const env = new Env();
     const pool = new CardPool(env);
-    const real = require('../decks/ash-meta-2026-09.json').map((l) => fromList(l, pool));
+    const real = require('../../decks/ash-meta-2026-09.json').map((l) => fromList(l, pool));
     const rng = seededRng('exp1-decks');
     const cands = [];
     for (const d of real) {
@@ -134,7 +134,7 @@ async function main() {
     fs.writeFileSync(file, '');
     console.log(`exp1: ${cands.length} candidates x ${field.length} field decks x 2 seats = ${jobs.length} games, pilot ${pilot} -> ${out}`);
     const results = await playDecks(jobs, { workers, key, out: file });
-    const summary = { experiment: 'exp1-visible', pilot, key, field: 'bot/decks/ash-meta-2026-09.json', ...summarize(results) };
+    const summary = { experiment: 'exp1-visible', pilot, key, field: 'decks/ash-meta-2026-09.json', ...summarize(results) };
     fs.writeFileSync(path.join(out, 'summary.json'), JSON.stringify(summary, null, 1));
     console.log(JSON.stringify({ rows: summary.rows, paired: summary.paired, errors: summary.errors }, null, 1));
 }

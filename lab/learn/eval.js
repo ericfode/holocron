@@ -1,5 +1,5 @@
 'use strict';
-// node bot/learn/eval.js --bots rust-learned,random-a --games 200 [--seed 500000] [--workers 4] [--out results/learned-vs-random] [--record] [--key K|none]
+// node lab/learn/eval.js --bots rust-learned,random-a --games 200 [--seed 500000] [--workers 4] [--out results/learned-vs-random] [--record] [--key K|none]
 //
 // Head-to-head match between two bots, games split over worker processes, seats alternating by seed.
 // Prints the win rate over decided games (draws count half) with a 95% interval and, with --out, writes a tournament index.json (the format
@@ -16,13 +16,13 @@ function arg(name, dflt) {
     return i > 0 ? process.argv[i + 1] : dflt;
 }
 
-const { makeBot, closeBots } = require('../players');
-const { gameKey, runKey } = require('../rng');
+const { makeBot, closeBots } = require('../../bots/players');
+const { gameKey, runKey } = require('../../engine/rng');
 
 async function worker() {
-    const { Env } = require('../env');
-    const { playGame } = require('../match');
-    const { snapshot } = require('../recorder');
+    const { Env } = require('../../engine/env');
+    const { playGame } = require('../../engine/match');
+    const { snapshot } = require('../../engine/recorder');
     // the run key comes over IPC, not argv or the environment, which the bot programs could read
     const key = await new Promise((resolve) => process.once('message', (m) => resolve(m.key)));
     const names = arg('bots').split(',');

@@ -1,10 +1,10 @@
 'use strict';
-// node bot/learned/check-model.js [model.json]: the JS forward pass must reproduce train.py's outputs on the saved check cases.
+// node bots/learned/check-model.js [model.json]: the JS forward pass must reproduce train.py's outputs on the saved check cases.
 const fs = require('fs');
 const path = require('path');
 const { Model } = require('./model');
 
-const file = process.argv[2] ?? path.join(__dirname, '..', '..', 'models', 'learned', 'current.json');
+const file = process.argv[2] ?? path.join(__dirname, '..', '..', 'lab', 'models', 'learned', 'current.json');
 const json = JSON.parse(fs.readFileSync(file, 'utf8'));
 const m = new Model(json);
 let worst = 0;

@@ -1,5 +1,5 @@
 'use strict';
-// node bot/random-run.js [numGames] [startSeed] [maxSteps]
+// node engine/random-run.js [numGames] [startSeed] [maxSteps]
 const { Env, seededRng } = require('./env');
 
 async function main() {

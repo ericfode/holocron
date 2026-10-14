@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Resource choices learned from strong bots' recorded games.
 
-    python3 bot/jepa/resource_policy.py fit --out bot/jepa/models/resource-v1.json data/traj/replays [--teachers c-clock,rust-search]
+    python3 bots/jepa/resource_policy.py fit --out bots/jepa/models/resource-v1.json data/traj/replays [--teachers c-clock,rust-search]
 
 The planner cannot simulate the resource step (simulations are allowed only in action windows), and the imagined score
 answered it badly: in recorded games the JEPA bot often kept every card and sat on 3 resources while c-clock had 6. The
-strong bots' choices are in the replay data (bot/jepa/from_replays.js), so two small models copy them:
+strong bots' choices are in the replay data (bots/jepa/from_replays.js), so two small models copy them:
 
 - which card: a conditional logit over the hand cards on offer, from card features (cost band, type, aspects the
   leader and base do not have, a second copy in hand) plus a weight per card for the cards seen often enough;
@@ -104,7 +104,7 @@ def stop_features(msg):
 
 class ResourcePolicy:
     def __init__(self, path, meta=None):
-        # "rule": bot/players/heuristic.js instead of a fitted model (resource every time, lowest keepScore first)
+        # "rule": bots/players/heuristic.js instead of a fitted model (resource every time, lowest keepScore first)
         if path == "rule":
             self.m = {"w": [0.0] * len(FEATS), "card": {}, "stop": [-10.0, 0.0, 0.0, 0.0], "rule": True}
         else:
@@ -230,7 +230,7 @@ def fit(a):
         hit = 0
         for _, x, codes, k in rows:
             x = np.asarray(x)
-            if rule:  # bot/players/heuristic.js keepScore, lowest kept first
+            if rule:  # bots/players/heuristic.js keepScore, lowest kept first
                 u = x[:, 7] * 3 - x[:, 4] * 1.5 - (x[:, 0] * 8 <= 3) * 1.0 + x[:, 0] * 8 * 0.3
             else:
                 u = x @ w + (np.asarray([b[col[s]] if s in col else 0.0 for s in codes]) if use_card else 0.0)

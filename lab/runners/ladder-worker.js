@@ -4,7 +4,7 @@
  * workerData: { maxSteps, engineRev, capMs, key, control, base, decks, pool }. A game is dealt from gameKey(key, seed),
  * or from the job's own `key` when it has one (null = the seed alone; arena/play-seed.js sends the game key itself).
  *
- * Both bots are built here and guarded (players/guard.js) with the same capMs. While a bot loads or runs (its calls,
+ * Both bots are built here and guarded (bots/players/guard.js) with the same capMs. While a bot loads or runs (its calls,
  * and the timers and promise callbacks its code left behind) the worker writes its seat and start time into the
  * control array, so the parent's watchdog can stop a call that never returns and blame the right bot. The posted
  * result is playGame's (match.js: a bot that broke the game makes it an ERROR with `by` = its seat, and the other
@@ -13,7 +13,7 @@
  *   faultKind   with `by`: 'load' | 'error' | 'time' | 'hang' (game-pool.js); null otherwise
  *   think       { p1, p2 } guarded thinking time in ms (CPU for bots that run here); timing stays the referee's
  * A bot that cannot be built loses before the game starts; when neither can, the game is an ERROR with `by` null.
- * Bot programs from bot/external-bots.json keep running between games (players/index.js makeBot); every other bot is
+ * Bot programs from bots/external-bots.json keep running between games (bots/players/index.js makeBot); every other bot is
  * built for one game and closed after it.
  */
 const fs = require('fs');
@@ -26,13 +26,13 @@ for (const k of ['parentPort', 'workerData']) {
     Object.defineProperty(require('worker_threads'), k, { value: null, writable: false, configurable: false });
 }
 const { AsyncLocalStorage, createHook } = require('async_hooks');
-const { Env } = require('./env');
-const { playGame, timingSummary } = require('./match');
-const { snapshot } = require('./recorder');
-const { makeBot, closeBots, describeBot } = require('./players');
-const { guard } = require('./players/guard');
-const { gameKey } = require('./rng');
-const { workerControl, forfeit, PHASE } = require('./game-pool');
+const { Env } = require('../../engine/env');
+const { playGame, timingSummary } = require('../../engine/match');
+const { snapshot } = require('../../engine/recorder');
+const { makeBot, closeBots, describeBot } = require('../../bots/players');
+const { guard } = require('../../bots/players/guard');
+const { gameKey } = require('../../engine/rng');
+const { workerControl, forfeit, PHASE } = require('../../engine/game-pool');
 
 const env = new Env();
 env.engineRev = workerData.engineRev ?? null;

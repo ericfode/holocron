@@ -1,6 +1,6 @@
 'use strict';
 
-// Regression tests for the converter review (importer/karabast.js, importer/import.js).
+// Regression tests for the converter review (karabast/importer/karabast.js, karabast/importer/import.js).
 
 const test = require('node:test');
 const assert = require('node:assert');

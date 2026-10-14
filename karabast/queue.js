@@ -2,9 +2,9 @@
 'use strict';
 /**
  * Play quick-match games on a Karabast server as a bot: enter the queue with a deck list, play the match it gets
- * through bot/karabast/seat.js, then leave (no requeue, no rematch). One game at a time.
+ * through karabast/seat.js, then leave (no requeue, no rematch). One game at a time.
  *
- *   node bot/karabast/queue.js --bot c-clock --decks bot/decks/ash-meta-2026-09.json --deck <name> [--games 1]
+ *   node karabast/queue.js --bot c-clock --decks decks/ash-meta-2026-09.json --deck <name> [--games 1]
  *        [--server http://127.0.0.1:9500] [--allow-host <host>] [--username "swu-bot (bot)"]
  *        [--format premier] [--card-pool current] [--wait-minutes 10] [--chat "<line>"] [--out <dir>]
  *        [--ledger <file> --max-people 10|none] [--stop-file <file>] [--allow-undos 2] [--seed 1] [--gap 60] [--max-errors 3]
@@ -16,7 +16,7 @@
  * --desk <dir> is the Karabast desk's folder (desk.js; Eric's own live view writes it, live-view.js --manage). Before
  * each game the loop waits while <dir>/PAUSE exists (state "paused"), then plays the bots <dir>/bot names instead of
  * --bot when every one is in --allow-bots (default: the --bot list). status.json carries the allowed list, so the desk
- * offers only those. Every allowed bot must be a built program in bot/external-bots.json, or the run refuses to start.
+ * offers only those. Every allowed bot must be a built program in bots/external-bots.json, or the run refuses to start.
  *
  * With --games above 1 it is a loop: after each game it waits --gap seconds (at least 25: a finished lobby keeps its
  * users ~20 s) and queues again, until the games, the people cap, the stop file, --max-errors failures in a row or
@@ -39,7 +39,7 @@
  *   severe ones to its developers (KNOWN_ERRORS).
  *
  * Each game's frames as our seat saw them are saved scrubbed (frame.js makeScrubber) to <out>/frames/<hash>.jsonl,
- * for `node importer/import.js <out>/frames`, and a result line is appended to <out>/games.jsonl. <out>/status.json
+ * for `node karabast/importer/import.js <out>/frames`, and a result line is appended to <out>/games.jsonl. <out>/status.json
  * says what the run is doing (queued, playing which file, between games, stopped and why), rewritten every 30 s, so
  * live-view.js can show it and open a game from its first board.
  */
@@ -82,9 +82,9 @@ function writeStatus(out, status) {
  * Refuses a bot that is not a program in the bot list (seat.js loadClient) or whose program is not built, so the desk
  * never offers a bot that would fail its game.
  */
-function checkBots(names, file = process.env.SWU_EXTERNAL_BOTS ?? path.join(__dirname, '..', 'external-bots.json')) {
+function checkBots(names, file = process.env.SWU_EXTERNAL_BOTS ?? path.join(__dirname, '..', 'bots', 'external-bots.json')) {
     const programs = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {};
-    const root = path.join(__dirname, '..', '..');
+    const root = path.join(__dirname, '..');
     for (const name of names) {
         const base = name.split('#')[0];
         if (base === 'js-random') {

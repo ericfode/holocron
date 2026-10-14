@@ -3,9 +3,9 @@
  * Training data generator. Plays games and records, for every decision: state / prompt / action features,
  * the action played, the teacher's choice (when asked), the next state, and finally the game result.
  *
- *   node bot/learned/gen.js --out data/learned/run1/w0 --games 50 --seed 1000 [--teacher 0.35] [--follow 0.85] [--student models/learned/current.json] [--temp 1]
+ *   node bots/learned/gen.js --out data/learned/run1/w0 --games 50 --seed 1000 [--teacher 0.35] [--follow 0.85] [--student lab/models/learned/current.json] [--temp 1]
  *
- * Teacher = the heuristic bot (bot/players/heuristic.js). Its one-ply engine search is slow (1-3 s), so only a
+ * Teacher = the heuristic bot (bots/players/heuristic.js). Its one-ply engine search is slow (1-3 s), so only a
  * fraction (--teacher) of action windows get a search label; every other prompt gets its cheap rule-based label.
  * Behaviour: play the teacher's label with probability --follow, otherwise the student model (if given) or random.
  *
@@ -17,7 +17,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { Env, seededRng } = require('../env');
+const { Env, seededRng } = require('../../engine/env');
 const { HeuristicBot } = require('../players/heuristic');
 const { featurize, loadModel, softmax } = require('./bots');
 const F = require('./features');

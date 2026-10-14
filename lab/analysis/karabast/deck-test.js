@@ -4,19 +4,19 @@
  * A paired test on one deck: each --bots entry holds --deck against the reference bot holding every deck of the deck
  * file, on the same seeds and seats, so two bots compare game for game on the deck a live bot actually plays.
  *
- *   node analysis/karabast/deck-test.js --deck luke-skywalker_jtl_data-vault --bots c-clock,c-clock2 [--ref c-clock]
- *        [--seeds 6] [--decks bot/decks/ash-meta-2026-09.json] [--shard i/n] --out <file.jsonl>
- *   node analysis/karabast/deck-test.js --summary <file.jsonl>...
+ *   node lab/analysis/karabast/deck-test.js --deck luke-skywalker_jtl_data-vault --bots c-clock,c-clock2 [--ref c-clock]
+ *        [--seeds 6] [--decks decks/ash-meta-2026-09.json] [--shard i/n] --out <file.jsonl>
+ *   node lab/analysis/karabast/deck-test.js --summary <file.jsonl>...
  *
  * Games: every deck of the file (the mirror too) x --seeds x both seats, for each bot: 27 x 6 x 2 = 324 per bot by
  * default. --shard i/n plays every n-th game from i, for parallel processes; --summary joins the shards and prints
  * each bot's win rate and each bot minus the first one, paired by (opponent deck, seed, seat), with a 95% CI.
- * The standard test (analysis/realdeck/bot-test.js) stays the bar for a new bot; this one only zooms in on one deck.
+ * The standard test (lab/analysis/realdeck/bot-test.js) stays the bar for a new bot; this one only zooms in on one deck.
  */
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.join(__dirname, '..', '..');
+const ROOT = path.join(__dirname, '..', '..', '..');
 
 function arg(name, dflt) {
     const i = process.argv.indexOf(`--${name}`);
@@ -62,24 +62,24 @@ function summarize(rows) {
 }
 
 async function run() {
-    const { Env } = require('../../bot/env');
-    const { playGame } = require('../../bot/match');
-    const { StdioClient } = require('../../bot/stdio');
-    const { loadDecks } = require('../../bot/decklists');
+    const { Env } = require('../../../engine/env');
+    const { playGame } = require('../../../engine/match');
+    const { StdioClient } = require('../../../engine/stdio');
+    const { loadDecks } = require('../../../engine/decklists');
     const deckName = arg('deck');
     const bots = (arg('bots') ?? '').split(',').filter(Boolean);
     const refName = arg('ref', 'c-clock');
     const seeds = Number(arg('seeds', 6));
-    const deckFile = arg('decks', path.join(ROOT, 'bot', 'decks', 'ash-meta-2026-09.json'));
+    const deckFile = arg('decks', path.join(ROOT, 'decks', 'ash-meta-2026-09.json'));
     const [si, sn] = arg('shard', '0/1').split('/').map(Number);
     const outFile = arg('out');
     if (!deckName || !bots.length || !outFile) {
         throw new Error('usage: deck-test.js --deck <name> --bots a,b [--ref c-clock] [--seeds 6] [--shard i/n] --out <file.jsonl>');
     }
-    const programs = JSON.parse(fs.readFileSync(path.join(ROOT, 'bot', 'external-bots.json'), 'utf8'));
+    const programs = JSON.parse(fs.readFileSync(path.join(ROOT, 'bots', 'external-bots.json'), 'utf8'));
     for (const b of [...bots, refName]) {
         if (!programs[b]) {
-            throw new Error(`unknown bot program ${b} (bot/external-bots.json)`);
+            throw new Error(`unknown bot program ${b} (bots/external-bots.json)`);
         }
     }
     const env = new Env();

@@ -4,7 +4,7 @@
  * Play the decks of each draft pod (draft.py output) against each other: every pair in a pod on one seed, both seats,
  * one pilot bot in both seats. Scores drafters by how their decks do against the other decks of the same pod.
  *
- *   node bot/deckbuild/pod-eval.js --pods pods.json --out DIR [--pilot c-clock] [--workers 4] [--key K] [--seed 70000000]
+ *   node lab/deckbuild/pod-eval.js --pods pods.json --out DIR [--pilot c-clock] [--workers 4] [--key K] [--seed 70000000]
  *
  * Writes results.jsonl, candidates.json (every deck, for deck_jepa.py) and summary.json (score per drafter).
  */

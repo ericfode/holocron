@@ -1,11 +1,11 @@
 'use strict';
-// bot/karabast on hand-made Karabast frames: legal actions, socket messages, the privacy scrub and the host guard.
+// karabast on hand-made Karabast frames: legal actions, socket messages, the privacy scrub and the host guard.
 // No engine, no card data and no server needed.
 const test = require('node:test');
 const assert = require('node:assert');
-const { legalActions, gameMessage, decisionKey, makeScrubber, randomSplit } = require('../karabast/frame');
-const { checkHost } = require('../karabast/socket');
-const { seededRng } = require('../rng');
+const { legalActions, gameMessage, decisionKey, makeScrubber, randomSplit } = require('../frame');
+const { checkHost } = require('../socket');
+const { seededRng } = require('../../engine/rng');
 
 const unit = (uuid, extra = {}) => ({ uuid, name: uuid, zone: 'groundArena', hp: 4, damage: 1, ...extra });
 
@@ -149,9 +149,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { EventEmitter } = require('events');
-const { Observer } = require('../karabast/observe');
-const { KarabastSeat } = require('../karabast/seat');
-const { PeopleLedger } = require('../karabast/ledger');
+const { Observer } = require('../observe');
+const { KarabastSeat } = require('../seat');
+const { PeopleLedger } = require('../ledger');
 
 const noCards = { internal: new Map(), title: new Map() };
 
@@ -336,7 +336,7 @@ test('a quick-match run that fails after entering the queue keeps the place coun
     await new Promise((r) => server.listen(0, '127.0.0.1', r));
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-queue-'));
     const ledgerFile = path.join(dir, 'people.json');
-    const child = spawn(process.execPath, [path.join(__dirname, '..', 'karabast', 'queue.js'), '--server', `http://127.0.0.1:${server.address().port}`,
+    const child = spawn(process.execPath, [path.join(__dirname, '..', 'queue.js'), '--server', `http://127.0.0.1:${server.address().port}`,
         '--bot', 'js-random', '--deck', 'luke-skywalker_jtl_data-vault', '--games', '1', '--ledger', ledgerFile, '--max-people', '10'], { stdio: 'ignore' });
     const code = await new Promise((r) => child.on('exit', r));
     server.close();
@@ -398,7 +398,7 @@ function watchedStates() {
 }
 
 test('the live view serves a game being played without an end line, and refuses ids outside the runs folder', () => {
-    const { Games, LIVE_MS } = require('../karabast/live-view');
+    const { Games, LIVE_MS } = require('../live-view');
     const runs = fs.mkdtempSync(path.join(os.tmpdir(), 'runs-'));
     fs.mkdirSync(path.join(runs, 'w-1'));
     const file = path.join(runs, 'w-1', 'abcdef012345.jsonl');
@@ -430,7 +430,7 @@ test('the live view serves a game being played without an end line, and refuses 
 });
 
 test('the live view lists every game it can open, a game with only its first board included', () => {
-    const { Games } = require('../karabast/live-view');
+    const { Games } = require('../live-view');
     const runs = fs.mkdtempSync(path.join(os.tmpdir(), 'runs-'));
     const first = `${JSON.stringify(watchedStates()[0])}\n`;
     // a folder name a game id cannot carry is left out, so no listed game is a 404
@@ -451,7 +451,7 @@ test('the live view lists every game it can open, a game with only its first boa
 });
 
 test('the live view gzips only when the client allows it', () => {
-    const { acceptsGzip } = require('../karabast/live-view');
+    const { acceptsGzip } = require('../live-view');
     const cases = { 'gzip': true, 'gzip, deflate, br': true, 'br;q=1.0, gzip;q=0.8': true, '*': true, 'gzip;q=0': false, 'gzip;q=0.0, br': false, '*;q=0': false, 'br, *;q=0.5': true, 'identity': false, '': false };
     for (const [header, want] of Object.entries(cases)) {
         assert.strictEqual(acceptsGzip(header), want, header);
@@ -459,7 +459,7 @@ test('the live view gzips only when the client allows it', () => {
 });
 
 test('the live view answers only under its key', async () => {
-    const { Games, makeServer, checkBinding } = require('../karabast/live-view');
+    const { Games, makeServer, checkBinding } = require('../live-view');
     // beyond this machine a key is required: a live bot game shows our hand
     assert.throws(() => checkBinding('0.0.0.0', null), /--key/);
     assert.doesNotThrow(() => checkBinding('0.0.0.0', 'k3y-for-tests'));
@@ -484,7 +484,7 @@ test('the live view answers only under its key', async () => {
 });
 
 test('the desk: only the owner\'s local view takes a pick or a pause, with the X-Desk header, and every view shows the record', async () => {
-    const { Games, makeServer, checkBinding } = require('../karabast/live-view');
+    const { Games, makeServer, checkBinding } = require('../live-view');
     assert.throws(() => checkBinding('0.0.0.0', 'k3y-for-tests', null, '/tmp/desk'), /--manage/);
     assert.throws(() => checkBinding('127.0.0.1', 'k3y-for-tests', null, '/tmp/desk'), /--manage/);
     assert.doesNotThrow(() => checkBinding('127.0.0.1', null, null, '/tmp/desk'));
@@ -552,7 +552,7 @@ test('the desk: only the owner\'s local view takes a pick or a pause, with the X
 });
 
 test('the queue loop keeps going after a wait with no match, and stops after maxErrors failures in a row', async () => {
-    const { runLoop } = require('../karabast/queue');
+    const { runLoop } = require('../queue');
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-loop-'));
     const ledger = new PeopleLedger(path.join(out, 'people.json'), 10);
     const seen = [];
@@ -583,7 +583,7 @@ test('the queue loop keeps going after a wait with no match, and stops after max
 });
 
 test('the queue loop counts a game with no result as a failure and says why it stopped', async () => {
-    const { runLoop } = require('../karabast/queue');
+    const { runLoop } = require('../queue');
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-loop-'));
     const results = ['none', 'loss', 'none'];
     const play = async (g, hooks) => {
@@ -599,7 +599,7 @@ test('the queue loop counts a game with no result as a failure and says why it s
 });
 
 test('the queue loop takes turns between bots game by game, and every row and status names the bot of its game', async () => {
-    const { runLoop } = require('../karabast/queue');
+    const { runLoop } = require('../queue');
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-loop-'));
     const asked = [];
     const shown = [];
@@ -629,8 +629,8 @@ test('the queue loop takes turns between bots game by game, and every row and st
 });
 
 test('the queue loop waits while the desk says pause, between games only, and plays the desk\'s pick of the allowed bots', async () => {
-    const { runLoop, checkBots } = require('../karabast/queue');
-    const desk = require('../karabast/desk');
+    const { runLoop, checkBots } = require('../queue');
+    const desk = require('../desk');
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-loop-'));
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-desk-'));
     const status = () => JSON.parse(fs.readFileSync(path.join(out, 'status.json'), 'utf8'));
@@ -679,7 +679,7 @@ test('the queue loop waits while the desk says pause, between games only, and pl
 });
 
 test('the queue loop retries a wait with no match without using up a game, up to maxWaits in a row', async () => {
-    const { runLoop } = require('../karabast/queue');
+    const { runLoop } = require('../queue');
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-loop-'));
     const quiet = (n) => async (g, hooks) => {
         hooks.onQueued();
@@ -700,7 +700,7 @@ test('the queue loop retries a wait with no match without using up a game, up to
 });
 
 test('the queue loop stops at the people cap and on the stop file', async () => {
-    const { runLoop } = require('../karabast/queue');
+    const { runLoop } = require('../queue');
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-loop-'));
     const ledger = new PeopleLedger(path.join(out, 'people.json'), 2);
     let n = 0;
@@ -719,7 +719,7 @@ test('the queue loop stops at the people cap and on the stop file', async () => 
 });
 
 test('the live view names our bot in a bot game and reports the queue run', () => {
-    const { Games, STATUS_STALE_MS } = require('../karabast/live-view');
+    const { Games, STATUS_STALE_MS } = require('../live-view');
     const runs = fs.mkdtempSync(path.join(os.tmpdir(), 'runs-'));
     const dir = path.join(runs, 'q-1');
     fs.mkdirSync(path.join(dir, 'frames'), { recursive: true });
@@ -751,8 +751,8 @@ test('the live view names our bot in a bot game and reports the queue run', () =
 });
 
 test('opponent names go only to the private names file and the local live view that reads it', () => {
-    const { recordOpponent } = require('../karabast/queue');
-    const { Games, checkBinding } = require('../karabast/live-view');
+    const { recordOpponent } = require('../queue');
+    const { Games, checkBinding } = require('../live-view');
     const runs = fs.mkdtempSync(path.join(os.tmpdir(), 'runs-'));
     const dir = path.join(runs, 'q-1');
     fs.mkdirSync(path.join(dir, 'frames'), { recursive: true });
@@ -794,7 +794,7 @@ test('opponent names go only to the private names file and the local live view t
 });
 
 test('the watchdog restarts a stuck or dead loop, leaves a stopped-on-purpose loop alone, and alerts past its restart budget', () => {
-    const { judge, newestStatus } = require('../karabast/watchdog');
+    const { judge, newestStatus } = require('../watchdog');
     const now = Date.parse('2026-10-11T21:30:00Z');
     const ago = (min) => new Date(now - min * 60000).toISOString();
     const st = (state, sinceMin, extra = {}) => ({ state, since: ago(sinceMin), at: ago(0.5), ...extra });
@@ -825,7 +825,7 @@ test('the watchdog restarts a stuck or dead loop, leaves a stopped-on-purpose lo
 });
 
 test('one game at a time: a live run holds playing.pid, a dead one is taken over; the ledger can count with no cap', () => {
-    const { holdPlayLock, lockToken } = require('../karabast/queue');
+    const { holdPlayLock, lockToken } = require('../queue');
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'play-lock-'));
     const file = path.join(dir, 'playing.pid');
     const run = require('child_process').spawn(process.execPath, ['-e', 'setInterval(() => {}, 1000)'], { stdio: 'ignore' }); // a live bot run

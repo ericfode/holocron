@@ -1,7 +1,7 @@
 'use strict';
 
-// Review fixes for importer/merge.js (pairing after long gaps, captures without the log, failure frames) and for
-// analysis/analyze.js on merged replays whose frames did not all pair.
+// Review fixes for karabast/importer/merge.js (pairing after long gaps, captures without the log, failure frames) and for
+// lab/analysis/analyze.js on merged replays whose frames did not all pair.
 
 const test = require('node:test');
 const assert = require('node:assert');
@@ -164,8 +164,8 @@ test('merge skips the empty-players frame of a server serialization failure', ()
 });
 
 test('analysis skips the views that need a hand the merge left hidden, and tells the hindsight pass', () => {
-    const { buildRequests, usableViews, ALL_VIEWS } = require('../../analysis/analyze');
-    const { checkpoints } = require('../../analysis/lib/game');
+    const { buildRequests, usableViews, ALL_VIEWS } = require('../../../lab/analysis/analyze');
+    const { checkpoints } = require('../../../lab/analysis/lib/game');
     const states = truth();
     const m = mergeCaptures(view(states, 'u1'), without(view(states, 'u2'), 7));
     assert.strictEqual(m.unmatched, 1);

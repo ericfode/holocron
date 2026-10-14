@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * The same one-ply lookahead bot (bot/players/heuristic.js) with a swappable position evaluator, so evaluators
+ * The same one-ply lookahead bot (bots/players/heuristic.js) with a swappable position evaluator, so evaluators
  * compete under identical search. Bot names: `h@<evaluator>` (e.g. h@linear, h@race), `h2@<evaluator>` for depth 2.
  *
  * The evaluator sees the position the way the bot would: a recorder snapshot judged from its own seat, opponent
@@ -9,8 +9,8 @@
  */
 
 const path = require('path');
-const { HeuristicBot } = require('../players/heuristic');
-const { snapshot } = require('../recorder');
+const { HeuristicBot } = require('../../bots/players/heuristic');
+const { snapshot } = require('../../engine/recorder');
 const { loadEvaluator } = require('./evaluators');
 const { setCodeToString } = require(path.join(__dirname, '..', '..', 'forceteki', 'build/server', 'Util.js'));
 

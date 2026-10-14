@@ -2,7 +2,7 @@
 /**
  * Score evaluators by how well they predict the winner on held-out games.
  *
- *   node bot/eval/score.js --data <dir>[,<dir>...] [--evals base,material,...] [--json out.json]
+ *   node lab/eval/score.js --data <dir>[,<dir>...] [--evals base,material,...] [--json out.json]
  *                          [--llm analysis.claude.json --replay game.jsonl]
  *
  * Views (all reported as P(judge wins), scored against the result):
@@ -10,7 +10,7 @@
  *   objective   both hands visible
  * Metrics: Brier (mean squared error of P, 0.25 = coin flip), log loss, accuracy of the favourite.
  * Split by data source (one per dataset dir) and by round. --llm also scores the evaluators on the checkpoints of
- * an analysis/analyze.js file and puts the LLM's own views beside them on the same positions.
+ * an lab/analysis/analyze.js file and puts the LLM's own views beside them on the same positions.
  */
 const fs = require('fs');
 const path = require('path');
@@ -92,16 +92,16 @@ function scorePositions(ev, positions) {
     };
 }
 
-/** Same checkpoints as an analysis/analyze.js file: our evaluators beside the LLM's views. */
+/** Same checkpoints as an lab/analysis/analyze.js file: our evaluators beside the LLM's views. */
 function scoreLlm(evs, analysisFile, replayFile) {
     const a = JSON.parse(fs.readFileSync(analysisFile, 'utf8'));
     const steps = readJsonl(replayFile).filter((e) => e.t === 'step');
     const byN = new Map(steps.map((s, i) => [s.n, { state: s.state, next: steps[i + 1]?.pid ?? null }]));
     const y = a.game.winner === 'p1' ? 1 : 0;
-    // decklists: regenerate from the seed exactly as bot/match.js draws them
+    // decklists: regenerate from the seed exactly as engine/match.js draws them
     let decks = null;
     if (evs.some((e) => e.decks)) {
-        const { Env, seededRng } = require('../env');
+        const { Env, seededRng } = require('../../engine/env');
         const env = new Env();
         const rng = seededRng('bot' + a.game.seed);
         const flat = (d) => d.deck.flatMap((c) => Array(c.count).fill(c.id));

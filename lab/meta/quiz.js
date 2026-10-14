@@ -3,7 +3,7 @@
 /**
  * Visual review quiz with an answer key, built from meta.json. Reviewers see only screenshots; their answers are
  * graded against the data, so "is the essence clear" becomes a number we can track per theory version.
- *   node meta/quiz.js <meta.json> <quiz.json>
+ *   node lab/meta/quiz.js <meta.json> <quiz.json>
  */
 const fs = require('fs');
 

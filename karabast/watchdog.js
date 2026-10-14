@@ -6,7 +6,7 @@
  * watching agent reads from --out. It never starts a loop while the stop file exists, and leaves a loop that stopped
  * on purpose (people cap reached, games done) alone.
  *
- *   CAP=30 node bot/karabast/watchdog.js --runs ~/karabast/runs --stop-file ~/karabast/STOP \
+ *   CAP=30 node karabast/watchdog.js --runs ~/karabast/runs --stop-file ~/karabast/STOP \
  *     --start "bash /home/sprite/run-held.sh loop /home/sprite/karabast/loop.sh" --out ~/karabast/watchdog.json \
  *     [--viewer http://127.0.0.1:8080/status] [--every 60] [--max-restarts 3]
  *
@@ -24,7 +24,7 @@ const GRACE_MS = 5 * MIN; // after a restart, the new loop gets this long to wri
 const NO_MATCH_COOLDOWN_MS = 20 * MIN; // a loop that stopped for lack of opponents waits this long before queueing again
 const WINDOW_MS = 120 * MIN;
 /** A node process running queue.js as its script: never a shell or this watchdog that merely names it. */
-const LOOP_PATTERN = '^[^ ]*node [^ ]*bot/karabast/queue\\.js( |$)';
+const LOOP_PATTERN = '^[^ ]*node [^ ]*karabast/queue\\.js( |$)';
 
 /**
  * What to do now. `alive`: a queue.js process runs; `status`: the newest status.json (or null); `restarts`: times of

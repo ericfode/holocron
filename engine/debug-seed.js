@@ -1,5 +1,5 @@
 'use strict';
-// node bot/debug-seed.js <seed> [maxSteps]  -- replays a seed exactly like random-run and dumps context on error
+// node engine/debug-seed.js <seed> [maxSteps]  -- replays a seed exactly like random-run and dumps context on error
 const { Env, seededRng } = require('./env');
 
 (async () => {

@@ -4,11 +4,11 @@
  * The standard bot test on the real decks: one pass of the real Premier deck lists against c-clock, on the same deals
  * as every bot tested before, then one report on every bot tested so far.
  *
- *   node analysis/realdeck/bot-test.js --bot <bot> [--mirror] [--record] [--workers N] [--dir <folder>] [--panel <file>]
- *   node analysis/realdeck/bot-test.js --report [--dir <folder>] [--panel <file>]
+ *   node lab/analysis/realdeck/bot-test.js --bot <bot> [--mirror] [--record] [--workers N] [--dir <folder>] [--panel <file>]
+ *   node lab/analysis/realdeck/bot-test.js --report [--dir <folder>] [--panel <file>]
  *   (npm run realdeck:test -- ...; --dry-run prints the commands without playing)
  *
- * --bot plays `node bot/ladder.js --decks <deck file> --bots <bot> --vs c-clock --games 2P --seed 1 --key K` into
+ * --bot plays `node lab/runners/ladder.js --decks <deck file> --bots <bot> --vs c-clock --games 2P --seed 1 --key K` into
  * <dir>/test-<bot>-<n> (P = deck pairs: 702 games for 27 decks, every deck pair twice with the seats swapped). K is the
  * run key of the standard deals: the key <dir>/skill.json names (standard.keyId) when a finished gauntlet in <dir> has
  * it, else the key of the gauntlet against c-clock on the same deck file and seed that finished first. So every bot gets
@@ -44,9 +44,9 @@ const { spawnSync } = require('child_process');
 const { readDeckFile, deckMeta } = require('./compare');
 const { STYLES, readGauntlet, skillVsAgreement, summaryText } = require('./skill');
 
-const ROOT = path.join(__dirname, '..', '..');
+const ROOT = path.join(__dirname, '..', '..', '..');
 const REFERENCE = 'c-clock';
-const DECKS = path.join(ROOT, 'bot', 'decks', 'ash-meta-2026-09.json');
+const DECKS = path.join(ROOT, 'decks', 'ash-meta-2026-09.json');
 const SEED = 1;
 const COMPARE = 'compare-702.json';
 const SHARED = '/mnt/project-files/human-meta/realdeck';
@@ -505,8 +505,8 @@ function pinnedKeyId(dir, sha256) {
     }
 }
 
-const USAGE = 'usage: node analysis/realdeck/bot-test.js --bot <bot> [--mirror] [--record] [--workers N] [--resume <run id>] [--dir <folder>] [--panel <file>] [--dry-run]\n' +
-    '       node analysis/realdeck/bot-test.js --report [--dir <folder>] [--panel <file>]';
+const USAGE = 'usage: node lab/analysis/realdeck/bot-test.js --bot <bot> [--mirror] [--record] [--workers N] [--resume <run id>] [--dir <folder>] [--panel <file>] [--dry-run]\n' +
+    '       node lab/analysis/realdeck/bot-test.js --report [--dir <folder>] [--panel <file>]';
 
 function main() {
     let a;
@@ -551,12 +551,12 @@ function main() {
             }
         }
         const id = a.resume ?? nextId(dir, `test-${slug(a.bot)}`);
-        run([rel(path.join(ROOT, 'bot', 'ladder.js')), '--decks', rel(a.decks), '--bots', a.bot, '--vs', REFERENCE, '--games', String(games),
+        run([rel(path.join(ROOT, 'lab', 'runners', 'ladder.js')), '--decks', rel(a.decks), '--bots', a.bot, '--vs', REFERENCE, '--games', String(games),
             '--seed', String(SEED), ...(std.key ? ['--key', std.key] : []), '--id', id, '--out', dir, ...(a.resume ? ['--resume'] : []),
             ...(a.record ? ['--record'] : []), ...(a.workers ? ['--workers', a.workers] : [])], { dryRun: a.dryRun, secret: std.key });
         if (a.mirror) {
             const mid = nextId(dir, `mirror-${slug(a.bot)}`);
-            run([rel(path.join(ROOT, 'bot', 'ladder.js')), '--decks', rel(a.decks), '--bots', `${a.bot}#a,${a.bot}#b`, '--games', String(games),
+            run([rel(path.join(ROOT, 'lab', 'runners', 'ladder.js')), '--decks', rel(a.decks), '--bots', `${a.bot}#a,${a.bot}#b`, '--games', String(games),
                 '--seed', String(SEED), '--id', mid, '--out', dir, ...(a.record ? ['--record'] : []), ...(a.workers ? ['--workers', a.workers] : [])], { dryRun: a.dryRun });
             // the mirrors compare.js last used, with this bot's replaced by the new one
             const prev = fs.existsSync(compareFile) ? readJson(compareFile) : null;
@@ -578,7 +578,7 @@ function main() {
                 // the deck-type row's par comes from the reference's own deck model, so its mirror goes in too
                 const rid = nextId(dir, `mirror-${REFERENCE}`);
                 console.log(`${path.basename(compareFile)} has no mirror of ${REFERENCE}: playing it too (${rid})`);
-                run([rel(path.join(ROOT, 'bot', 'ladder.js')), '--decks', rel(a.decks), '--bots', `${REFERENCE}#a,${REFERENCE}#b`, '--games', String(games),
+                run([rel(path.join(ROOT, 'lab', 'runners', 'ladder.js')), '--decks', rel(a.decks), '--bots', `${REFERENCE}#a,${REFERENCE}#b`, '--games', String(games),
                     '--seed', String(SEED), '--id', rid, '--out', dir, ...(a.record ? ['--record'] : []), ...(a.workers ? ['--workers', a.workers] : [])], { dryRun: a.dryRun });
                 keep.unshift(path.join(dir, rid));
             }

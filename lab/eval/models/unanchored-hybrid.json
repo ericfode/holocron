@@ -68,7 +68,7 @@
  ],
  "wToAct": 0.09253700053136926,
  "fit": {
-  "by": "theory/measure/anchored_fit.py",
+  "by": "lab/theory/measure/anchored_fit.py",
   "mix": 0.5,
   "alpha": 0.0,
   "l2_to_base": 0.1,

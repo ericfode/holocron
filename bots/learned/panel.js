@@ -2,9 +2,9 @@
 /**
  * Writes the research dashboard's strategy panel for the learned bot (schema in /mnt/project-files/dashboard/README.md).
  *
- *   node bot/learned/panel.js --out /mnt/project-files/dashboard/panels/learned-world-model.json \
- *        [--model models/learned/current.json] [--results /mnt/project-files/results/learned-v1] \
- *        [--thoughts /tmp/learned-thoughts.json] [--state bot/learned/panel-state.json] [--watch 5]
+ *   node bots/learned/panel.js --out /mnt/project-files/dashboard/panels/learned-world-model.json \
+ *        [--model lab/models/learned/current.json] [--results /mnt/project-files/results/learned-v1] \
+ *        [--thoughts /tmp/learned-thoughts.json] [--state bots/learned/panel-state.json] [--watch 5]
  *
  * --state is a small JSON with the parts written by hand or by scripts: {status, now, plan, thoughts, history}.
  * --thoughts is the file the bots write while playing (SWU_LEARNED_THOUGHTS): the last decision's policy and value.
@@ -28,7 +28,7 @@ const readJson = (f) => {
 const pct = (x) => (x == null ? '-' : `${(x * 100).toFixed(1)}%`);
 
 function build() {
-    const model = readJson(path.resolve(arg('model', 'models/learned/current.json')));
+    const model = readJson(path.resolve(arg('model', 'lab/models/learned/current.json')));
     const rep = model?.meta?.report ?? {};
     const ladder = readJson(arg('results', null) && path.join(arg('results'), 'ladder.json'));
     const thought = readJson(arg('thoughts', null));

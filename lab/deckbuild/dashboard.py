@@ -1,6 +1,6 @@
 """Publish the deck-building experiments to the research dashboard (dashboard/README.md section 2).
 
-    python3 bot/deckbuild/dashboard.py [--root /mnt/project-files/deckbuild] [--builder report.json] [--draft DIR ...]
+    python3 lab/deckbuild/dashboard.py [--root /mnt/project-files/deckbuild] [--builder report.json] [--draft DIR ...]
 
 Writes dashboard/experiments/deckbuild-*.json (this thread is their only writer). Missing runs are skipped.
 """

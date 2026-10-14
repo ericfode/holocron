@@ -3,7 +3,7 @@
 /**
  * Do leaders that win for humans (SWU Stats) also win in our bot ladder?
  *
- *   node analysis/swustats/compare.js --human <dir with human-summary.json> --results <results dir> [--out compare.json] [--permute 300]
+ *   node lab/analysis/swustats/compare.js --human <dir with human-summary.json> --results <results dir> [--out compare.json] [--permute 300]
  *
  * One logistic model over every decided ladder game:
  *   P(p1 wins) = σ(bot1 − bot2 + leader1 − leader2 + base1 − base2 ± first)
@@ -321,7 +321,7 @@ function compare(allGames, summary, { permute = 0 } = {}) {
 function main() {
     const args = parseArgs(process.argv.slice(2));
     if (!args.human || !args.results) {
-        console.error('usage: node analysis/swustats/compare.js --human <dir with human-summary.json> --results <results dir> [--out file] [--permute N]');
+        console.error('usage: node lab/analysis/swustats/compare.js --human <dir with human-summary.json> --results <results dir> [--out file] [--permute N]');
         process.exit(2);
     }
     const summary = JSON.parse(fs.readFileSync(path.join(args.human, 'human-summary.json'), 'utf8'));

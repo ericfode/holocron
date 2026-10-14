@@ -11,7 +11,7 @@
  * fill a 50-card deck for every leader and base (checked: env.randomDeck refuses a pool that cannot).
  * The split is a seeded shuffle: the same seed gives the same pools.
  *
- *   node bot/cardpool.js --holdout 0.3 --seed <text> --out <dir>      writes train.json and holdout.json
+ *   node engine/cardpool.js --holdout 0.3 --seed <text> --out <dir>      writes train.json and holdout.json
  *
  * A pool file ({schema: 'swu-arena-pool/1', kind, fraction, counts, cards: [{id, setCode, internalName, types,
  * aspects}]}) is what ladder.js --pool and env.randomDeck({pool}) read.
@@ -134,7 +134,7 @@ if (require.main === module) {
     const seed = arg('seed');
     const out = arg('out');
     if (!seed || !out) {
-        console.error('usage: node bot/cardpool.js --holdout 0.3 --seed <text> --out <dir>');
+        console.error('usage: node engine/cardpool.js --holdout 0.3 --seed <text> --out <dir>');
         process.exit(2);
     }
     const { Env } = require('./env');

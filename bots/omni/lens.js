@@ -3,14 +3,14 @@
 /**
  * Card-value lens: what every card on the table is worth to the omniscient bot, step by step.
  *
- *   node bot/omni/lens.js <tournament dir> [--decisions dir] [--out dir] [--game id]
+ *   node bots/omni/lens.js <tournament dir> [--decisions dir] [--out dir] [--game id]
  *
  * Reads replays (<dir>/index.json + games/*.jsonl) and writes <out>/<gameId>.json in the `swu-lens/1` format
  * (see /mnt/project-files/omni/LENS.md). Needs no engine, only card data for unit costs, so it works on any replay.
  *
  * Two layers:
  *   - static: each card's share of the position score the omni search uses at its leaves
- *     (bot/omni/evaluate.js), for every step of the game;
+ *     (bots/omni/evaluate.js), for every step of the game;
  *   - search: at the omni bot's own action windows (from the OMNI_LOG_DIR decision logs), the searched value of
  *     the best move led by each card, relative to the move it played.
  */
@@ -18,7 +18,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// the omni leaf score (bot/omni/evaluate.js); the lens reads it from snapshots instead of the engine
+// the omni leaf score (bots/omni/evaluate.js); the lens reads it from snapshots instead of the engine
 const { W, baseTermHp } = require('./evaluate');
 
 let cards = null;
@@ -142,7 +142,7 @@ function searchLens(decision, state) {
 const EVALUATOR = {
     id: 'omni-linear-v1',
     label: 'Omni v1',
-    source: 'bot/omni/evaluate.js',
+    source: 'bots/omni/evaluate.js',
     description: 'Hand-set linear score from the original heuristic bot, with the low-base-HP penalty subtracted. Not fitted to data yet.',
     sees: 'public',
     constantWeights: true,
@@ -231,7 +231,7 @@ function buildLens(gameFile, decisionsDir) {
     return {
         schema: 'swu-lens/1', gameId, seed: header?.seed ?? null,
         players: (header?.players ?? []).map((p) => ({ id: p.id, bot: p.bot })),
-        source: 'bot/omni/lens.js: static = omni leaf evaluation (bot/omni/evaluate.js); search = omni decision logs',
+        source: 'bots/omni/lens.js: static = omni leaf evaluation (bots/omni/evaluate.js); search = omni decision logs',
         evaluator: EVALUATOR,
         weights: W,
         steps

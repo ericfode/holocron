@@ -1,8 +1,8 @@
 'use strict';
-// node bot/determinize-check.js [seed] -> determinization keeps zone sizes and ready counts, games keep running, rollback restores exactly
-const { Env, seededRng } = require('./env');
-const { snapshot } = require('./recorder');
-const { BeliefModel, determinize } = require('./players/belief');
+// node lab/runners/determinize-check.js [seed] -> determinization keeps zone sizes and ready counts, games keep running, rollback restores exactly
+const { Env, seededRng } = require('../../engine/env');
+const { snapshot } = require('../../engine/recorder');
+const { BeliefModel, determinize } = require('../../bots/players/belief');
 
 const key = (eg, pid) => JSON.stringify([snapshot(eg), eg.legalActions(pid).map((a) => [a.kind, a.label, a.cardUuid, a.arg]),
     eg.ids.map((id) => [eg.player(id).hand.map((c) => c.uuid), eg.player(id).drawDeck.map((c) => c.uuid), eg.player(id).resources.map((c) => c.uuid + c.exhausted)])]);

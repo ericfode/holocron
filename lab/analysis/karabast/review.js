@@ -4,7 +4,7 @@
  * Strategy review of the live Karabast bot: compare the bots that played (c-clock, c-clock2, ...) on the games
  * games.js wrote, with the facts losses.js reads per game.
  *
- *   node analysis/karabast/review.js --games <games.js out dir> [--since <ISO time>] [--json review.json]
+ *   node lab/analysis/karabast/review.js --games <games.js out dir> [--since <ISO time>] [--json review.json]
  *
  * Per bot: wins and losses (all games, and games that reached round 2) with a 95% range; the same split by 6-hour
  * block of the UTC day, since opponents change with the time of day and a bot that played only in the afternoon

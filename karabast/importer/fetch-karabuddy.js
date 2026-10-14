@@ -3,7 +3,7 @@
 /**
  * Fetch the replays KaraBuddy users chose to publish (its public list, at most 200) and import them.
  *
- *   node importer/fetch-karabuddy.js --out replays/karabuddy-public [--limit 200] [--delay 3000] [--dry-run]
+ *   node karabast/importer/fetch-karabuddy.js --out replays/karabuddy-public [--limit 200] [--delay 3000] [--dry-run]
  *
  * Polite by design:
  *   - reads robots.txt first and stops if it disallows the API;

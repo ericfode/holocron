@@ -31,7 +31,7 @@ const { Worker } = require('worker_threads');
 const { spawnSync } = require('child_process');
 const { gameKey } = require('./rng');
 
-const WORKER = path.join(__dirname, 'ladder-worker.js');
+const WORKER = path.join(__dirname, '..', 'lab', 'runners', 'ladder-worker.js');
 const SLOT = { phase: 0, seat: 1, since: 2, steps: 3, round: 4, think1: 5, think2: 6 };
 const SLOTS = 7;
 const PHASE = { idle: 0, engine: 1, load: 2, choose: 3, stale: 4 };

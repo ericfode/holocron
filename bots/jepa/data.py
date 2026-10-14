@@ -1,6 +1,6 @@
 """Builds JEPA training arrays from "swu-traj/1" games (see /mnt/project-files/learn/README.md).
 
-    python3 bot/jepa/data.py --out data/jepa/mix-v1.npz data/traj/rr data/traj/rush-random ...
+    python3 bots/jepa/data.py --out data/jepa/mix-v1.npz data/traj/rr data/traj/rush-random ...
 
 Every recorded decision becomes one row: the state vector, card tokens, the chosen action, who won, and the
 row index of the same seat's next recorded decision (+1) and its 4th next decision (+4), which are the targets

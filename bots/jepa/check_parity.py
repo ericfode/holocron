@@ -1,6 +1,6 @@
 """Checks that the numpy forward pass (what the bot runs) matches the tinygrad one (what was trained).
 
-    python3 bot/jepa/check_parity.py --model bot/jepa/models/jepa-v1.safetensors --data data/jepa/mix-v1.npz
+    python3 bots/jepa/check_parity.py --model bots/jepa/models/jepa-v1.safetensors --data data/jepa/mix-v1.npz
 """
 import argparse
 import os

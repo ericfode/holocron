@@ -1,9 +1,9 @@
 'use strict';
 // Random bot speaking the bot protocol (spec/protocol.md). The same object plays in process or as a program:
-//   in process:  playGame(env, { seed, bots: [require('./bot/examples/random-bot').create(), other] })
-//   as a program: register {"cmd": "node", "args": ["bot/examples/random-bot.js"]} in bot/external-bots.json
-const { seededRng } = require('../rng');
-const { serve } = require('../stdio');
+//   in process:  playGame(env, { seed, bots: [require('./bots/examples/random-bot').create(), other] })
+//   as a program: register {"cmd": "node", "args": ["bots/examples/random-bot.js"]} in bots/external-bots.json
+const { seededRng } = require('../../engine/rng');
+const { serve } = require('../../engine/stdio');
 
 function create(name = 'js-random') {
     let rng = null; // seeded at hello

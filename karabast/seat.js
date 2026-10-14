@@ -24,8 +24,8 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { answer, StdioClient } = require('../stdio');
-const { seededRng } = require('../rng');
+const { answer, StdioClient } = require('../engine/stdio');
+const { seededRng } = require('../engine/rng');
 const { gameMessage, decisionKey, legalActions, randomSplit } = require('./frame');
 const { Observer, lineText } = require('./observe');
 
@@ -356,21 +356,21 @@ class KarabastSeat {
 }
 
 /**
- * A protocol client by name, without the engine: a program from $SWU_EXTERNAL_BOTS or bot/external-bots.json (c-clock,
+ * A protocol client by name, without the engine: a program from $SWU_EXTERNAL_BOTS or bots/external-bots.json (c-clock,
  * rust-greedy2, ...) or the in-process js-random. Bots that need simulations cannot search here: Karabast keeps the
  * deck order and the other hand, so they get `sim: false` at every decision.
  */
 function loadClient(name) {
-    const file = process.env.SWU_EXTERNAL_BOTS ?? path.join(__dirname, '..', 'external-bots.json');
+    const file = process.env.SWU_EXTERNAL_BOTS ?? path.join(__dirname, '..', 'bots', 'external-bots.json');
     const programs = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {};
     const base = name.split('#')[0];
     if (Object.hasOwn(programs, base)) {
         const spec = programs[base];
-        const Client = spec.adapter ? require(path.join(__dirname, '..', '..', spec.adapter)) : StdioClient;
+        const Client = spec.adapter ? require(path.join(__dirname, '..', spec.adapter)) : StdioClient;
         return new Client(name, spec);
     }
     if (base === 'js-random') {
-        return require('../examples/random-bot').create(name);
+        return require('../bots/examples/random-bot').create(name);
     }
     throw new Error(`unknown bot "${name}" (programs in ${file}, or js-random)`);
 }

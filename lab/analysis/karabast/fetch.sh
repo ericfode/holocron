@@ -1,7 +1,7 @@
 #!/bin/bash
 # Copy every queue run (frames + games.jsonl) from the Karabast Sprite into <dest>/runs, through the Sprites API
 # (the egress proxy adds the key). Opponents' names stay on the Sprite: ~/karabast/private is never read.
-#   bash analysis/karabast/fetch.sh <dest>
+#   bash lab/analysis/karabast/fetch.sh <dest>
 set -euo pipefail
 dest=${1:?usage: fetch.sh <dest>}
 api=https://api.sprites.dev/v1/sprites/mcp-swu-karabast

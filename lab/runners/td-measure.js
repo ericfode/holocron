@@ -1,19 +1,19 @@
 'use strict';
-// node bot/td-measure.js <firstSeed> <count> <outFile.jsonl>
+// node lab/runners/td-measure.js <firstSeed> <count> <outFile.jsonl>
 //
 // Plays heuristic-vs-heuristic games and, at every action window, records the position's features and the
 // features of every child the acting bot looked at (its one-ply playouts). This is the data needed to measure
 // an evaluator's TD residual h(s) - backup_h(s), where backup = max over children at player 1's windows and
-// min at player 2's (theory/SwuTheory/Value.lean). Features are from player 1's side, so any linear evaluator
+// min at player 2's (lab/theory/SwuTheory/Value.lean). Features are from player 1's side, so any linear evaluator
 // (the heuristic, its sign-fixed version, or a fitted one) can be scored offline.
 //
 // Recording reads only getters and uses no randomness, so each seed plays out exactly as a plain game between two
 // bots with the same evaluation profile (default `legacy`, the evaluation the omni solver's solve-hh games used).
 const fs = require('fs');
-const { Env } = require('./env');
-const { playGame } = require('./match');
-const { HeuristicBot, evaluate, fingerprint, arenaUnits } = require('./players/heuristic');
-const { PROFILES } = require('./players/profiles');
+const { Env } = require('../../engine/env');
+const { playGame } = require('../../engine/match');
+const { HeuristicBot, evaluate, fingerprint, arenaUnits } = require('../../bots/players/heuristic');
+const { PROFILES } = require('../../bots/players/profiles');
 
 const UNIT_KEYS = ['units', 'power', 'hp', 'cost', 'shields', 'upgrades', 'sentinels', 'exhausted', 'unitValue'];
 

@@ -86,7 +86,7 @@ function bobView(states) {
 
 // KaraBuddy names manual downloads <time>_<leader>-<base>_<username>_vs_<leader>-<base>_<username>.karareplay
 const KB_NAME = '261001-1200_Luke-Skywalker-Echo-Base_alice_vs_Darth-Vader-Capital-City_bob.karareplay';
-const ROOT = path.join(__dirname, '..', '..');
+const ROOT = path.join(__dirname, '..', '..', '..');
 const sha = (...bufs) => bufs.reduce((h, b) => h.update(b), crypto.createHash('sha1')).digest('hex').slice(0, 10);
 
 function tmpDir(t) {
@@ -152,7 +152,7 @@ test('import --keep-file-names: ids from the file name without its last extensio
     assert.strictEqual(pair.events[0].source.pairedWith, 'game.p2.karareplay');
 });
 
-const importCli = (...args) => spawnSync(process.execPath, [path.join(ROOT, 'importer', 'import.js'), ...args], { cwd: ROOT, encoding: 'utf8' });
+const importCli = (...args) => spawnSync(process.execPath, [path.join(ROOT, 'karabast', 'importer', 'import.js'), ...args], { cwd: ROOT, encoding: 'utf8' });
 
 test('import CLI: a directory picks up .karareplay files; no file name reaches the output', (t) => {
     const dir = tmpDir(t);
@@ -182,8 +182,8 @@ const engineReady = fs.existsSync(path.join(ROOT, 'forceteki', 'build', 'server'
 
 test('capture CLI: a reversed --seeds range is rejected with the usage message', { skip: !engineReady && 'needs forceteki/build and card data' }, (t) => {
     const out = path.join(tmpDir(t), 'cap');
-    const res = spawnSync(process.execPath, [path.join(ROOT, 'importer', 'capture.js'), '--bots', 'rush,random', '--seeds', '5-3', '--out', out], { cwd: ROOT, encoding: 'utf8' });
+    const res = spawnSync(process.execPath, [path.join(ROOT, 'karabast', 'importer', 'capture.js'), '--bots', 'rush,random', '--seeds', '5-3', '--out', out], { cwd: ROOT, encoding: 'utf8' });
     assert.strictEqual(res.status, 2);
-    assert.match(res.stderr, /^usage: node importer\/capture\.js/);
+    assert.match(res.stderr, /^usage: node karabast\/importer\/capture\.js/);
     assert.ok(!fs.existsSync(out), 'nothing is created');
 });

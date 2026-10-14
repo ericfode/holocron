@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Games between two protocol bots on a LOCAL Karabast server, each seat played through bot/karabast/seat.js over the
+ * Games between two protocol bots on a LOCAL Karabast server, each seat played through karabast/seat.js over the
  * same socket messages the web client sends. It tests the Karabast client end to end and gives spectate.js games to
  * watch. Local only: socket.js refuses other hosts.
  *
- *   node bot/karabast/selfplay.js [--bots js-random,js-random] [--games 1] [--seed 1] [--server http://127.0.0.1:9500]
+ *   node karabast/selfplay.js [--bots js-random,js-random] [--games 1] [--seed 1] [--server http://127.0.0.1:9500]
  *                                 [--cards <card json dir>] [--private] [--pester-undo 0.3] [--max-minutes 15]
  *                                 [--out results.jsonl] [--start-after-ms 500] [--verbose]
- *                                 [--decks bot/decks/ash-meta-2026-09.json [--pair <deck name>,<deck name>]]
+ *                                 [--decks decks/ash-meta-2026-09.json [--pair <deck name>,<deck name>]]
  *
- * Bots: names from bot/external-bots.json (programs such as c-clock, rust-greedy2) or js-random. Decks come from
+ * Bots: names from bots/external-bots.json (programs such as c-clock, rust-greedy2) or js-random. Decks come from
  * --decks (a list of deck lists; two at random per game, or the two named by --pair). Otherwise they are random
  * 50-card decks (one leader, one base, at most 3 copies) from the card json that `npm run get-cards` writes (default
  * forceteki/test/json, or SWU_CARD_JSON). Lobbies are public by default, so the server runs the public-game timer
@@ -22,7 +22,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { seededRng } = require('../rng');
+const { seededRng } = require('../engine/rng');
 const { KarabastSocket, post } = require('./socket');
 const { KarabastSeat, loadClient } = require('./seat');
 const { legalActions } = require('./frame');
@@ -129,7 +129,7 @@ async function playOne({ server, cardDir, seed, bots, isPrivate, pester, maxMs, 
             host.send('lobby', 'updateSetting', 'allowSpectators', true);
         }
         if (verbose) {
-            console.error(`lobby ${lobby.id}; spectate with: node bot/karabast/spectate.js --lobby ${lobby.id} --out <dir>`);
+            console.error(`lobby ${lobby.id}; spectate with: node karabast/spectate.js --lobby ${lobby.id} --out <dir>`);
         }
         await sleep(startAfterMs);
 
@@ -172,7 +172,7 @@ async function main() {
     }
     const opts = {
         server: arg('server', 'http://127.0.0.1:9500'),
-        cardDir: arg('cards', process.env.SWU_CARD_JSON ?? path.join(__dirname, '..', '..', 'forceteki', 'test', 'json')),
+        cardDir: arg('cards', process.env.SWU_CARD_JSON ?? path.join(__dirname, '..', 'forceteki', 'test', 'json')),
         bots,
         isPrivate: process.argv.includes('--private'),
         pester: Number(arg('pester-undo', 0)),

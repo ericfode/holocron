@@ -28,7 +28,7 @@
  * plus the two known decklists, and reseeds the engine RNG in every iteration.
  */
 
-const { seededRng } = require('../env');
+const { seededRng } = require('../../engine/env');
 const { evaluate, defaultChoose, fingerprint } = require('./heuristic');
 const { windowPriority, attackChoice } = require('./rush');
 const { BeliefModel, determinize } = require('./belief');
@@ -107,7 +107,7 @@ class IsmctsBot {
         this.value = value;
         this.profile = profile;
         this.thoughts = thoughts;
-        this.snapshotFn = thoughts ? require('../recorder').snapshot : null;
+        this.snapshotFn = thoughts ? require('../../engine/recorder').snapshot : null;
         this.belief = new BeliefModel(beta);
         this.rng = null;
         this.cursor = null;

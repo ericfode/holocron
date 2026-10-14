@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Writes one reviewer prompt per persona for a screenshot folder: node meta/review-prompts.js <shotsDir>
+ * Writes one reviewer prompt per persona for a screenshot folder: node lab/meta/review-prompts.js <shotsDir>
  * Output: <shotsDir>/prompt-<persona>.txt. Each is handed to a fresh reviewer agent that sees only the images.
  */
 const fs = require('fs');

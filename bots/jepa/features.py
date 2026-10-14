@@ -1,7 +1,7 @@
 """Turns one stdio `decide` message (prompt, state, actions) into numbers for the JEPA.
 
 The state vector (73) and action vector (62) and the hashed card/label id (2048 buckets) are a line-by-line
-port of the Rust learned bot's encoder (bot/rust-learned/src/features.rs), so the two learned bots share one
+port of the Rust learned bot's encoder (bots/rust-learned/src/features.rs), so the two learned bots share one
 encoding and one data format ("swu-traj/1", /mnt/project-files/learn/README.md). On top of that the JEPA reads
 a set of card tokens (hand, both boards, leaders, bases), each with its hashed identity, which the summary
 vector alone cannot see.

@@ -2,11 +2,11 @@
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
-const { Env, seededRng } = require('../../env');
+const { Env, seededRng } = require('../../../engine/env');
 const { makeBot } = require('../../players');
 const { loadPool } = require('./pool');
 const { fullState, canonicalAction, expandActions } = require('./state');
-const { placedRef } = require('../../view');
+const { placedRef } = require('../../../engine/view');
 const arg = (name, fallback) => { const i = process.argv.indexOf(`--${name}`); return i < 0 ? fallback : process.argv[i + 1]; };
 const seedList = (spec) => spec.split(',').flatMap((part) => { const [a, b] = part.split('-').map(Number); return b === undefined ? [a] : Array.from({ length: b - a + 1 }, (_, i) => a + i); });
 

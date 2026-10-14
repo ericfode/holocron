@@ -1,7 +1,7 @@
 'use strict';
-// node analysis/fixtures/sim.js [--seed 23] [--out analysis/fixtures/fixture-game.jsonl] [--scan 40]
+// node lab/analysis/fixtures/sim.js [--seed 23] [--out lab/analysis/fixtures/fixture-game.jsonl] [--scan 40]
 //
-// A small SWU-like simulator that writes a game in the exact replay format bot/recorder.js produces
+// A small SWU-like simulator that writes a game in the exact replay format engine/recorder.js produces
 // (header, step* with a full board snapshot, end). It exists only so the analysis pipeline can be built and
 // demoed without the forceteki engine and card data. It is NOT the real rules: cards are a simplified pool
 // (units, a few removal/heal events, leader deploy), no card text beyond that, set codes are null so the
@@ -12,7 +12,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// same PRNG as bot/env.js seededRng (copied so this file runs without the engine build)
+// same PRNG as engine/env.js seededRng (copied so this file runs without the engine build)
 function seededRng(seedStr) {
     let h = 1779033703 ^ String(seedStr).length;
     for (let i = 0; i < String(seedStr).length; i++) {

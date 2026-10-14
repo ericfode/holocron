@@ -4,7 +4,7 @@
  * Why our bot lost to people on Karabast: per-game facts read from the replays games.js wrote, and a summary that
  * compares lost games with won ones.
  *
- *   node analysis/karabast/losses.js --games <games.js out dir> [--json facts.json]
+ *   node lab/analysis/karabast/losses.js --games <games.js out dir> [--json facts.json]
  *
  * Only games that reached round 2 count (an opponent who leaves at the start is no game). Per game it reads the log
  * lines and the board at the start of each action phase:

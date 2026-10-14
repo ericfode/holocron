@@ -15,7 +15,7 @@
  *   linear          logistic regression on feature differences, fitted on game outcomes (fit.js)
  *   mlp             tiny antisymmetric neural net, logit = g(me, opp) - g(opp, me), fitted on game outcomes
  * Hand-made kinds have one fitted number, the logistic scale, so their P(win) is calibrated like the others.
- * Fitted model files live in bot/eval/models/<name>.json; `decks: true` in a model file means it was fitted
+ * Fitted model files live in lab/eval/models/<name>.json; `decks: true` in a model file means it was fitted
  * with known decklists, and it should be given `decks` when predicting.
  */
 

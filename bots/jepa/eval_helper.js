@@ -1,10 +1,10 @@
 'use strict';
-// Scores protocol `state`s with a bot/eval evaluator, for jepa_bot.py's oracle modes (--score sim-eval, --log).
-//   node bot/jepa/eval_helper.js [linear-deck-g4]
+// Scores protocol `state`s with a lab/eval evaluator, for jepa_bot.py's oracle modes (--score sim-eval, --log).
+//   node bots/jepa/eval_helper.js [linear-deck-g4]
 // stdin: one request per line {"judge":"p1","decks":{"p1":[...],"p2":[...]}|null,"states":[...],"toAct":[...]}
 // stdout: one line {"logits":[...]} per request: logit of P(judge wins), judged from the judge's own seat.
 const readline = require('readline');
-const { loadEvaluator } = require('../eval/evaluators');
+const { loadEvaluator } = require('../../lab/eval/evaluators');
 
 const ev = loadEvaluator(process.argv[2] || 'linear-deck-g4');
 const HIDDEN = { id: 'hidden', n: 'hidden card', s: null };

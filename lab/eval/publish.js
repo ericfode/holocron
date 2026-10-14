@@ -2,7 +2,7 @@
 /**
  * Write the research dashboard files for the position-evaluation study (contract: dashboard/README.md).
  *
- *   node bot/eval/publish.js --brier brier.json [--ladder results/<run>/index.json] [--dash /mnt/project-files/dashboard]
+ *   node lab/eval/publish.js --brier brier.json [--ladder results/<run>/index.json] [--dash /mnt/project-files/dashboard]
  *                            [--now "..."] [--thought "..."] [--plan plan.json] [--status running|done]
  *
  * Writes dashboard/panels/position-eval.json (strategy panel) and dashboard/experiments/position-eval-*.json.

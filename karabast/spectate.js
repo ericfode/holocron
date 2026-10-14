@@ -2,20 +2,20 @@
 'use strict';
 /**
  * Spectate Karabast games and save each one as JSON Lines of scrubbed `gamestate` frames, which
- * `node importer/import.js <dir> --out <replays>` turns into replays (seen as a spectator: both hands hidden).
+ * `node karabast/importer/import.js <dir> --out <replays>` turns into replays (seen as a spectator: both hands hidden).
  *
- *   node bot/karabast/spectate.js --out captures [--lobby <id> | --public] [--games 1] [--gap 30]
+ *   node karabast/spectate.js --out captures [--lobby <id> | --public] [--games 1] [--gap 30]
  *                                 [--server http://127.0.0.1:9500] [--predict mlp-g5] [--max-minutes 90]
  *                                 [--allow-host <host> --token-env KARABAST_TOKEN --ledger <file> [--max-people 10]]
  *                                 [--stop-file <file>]
  *
  * --lobby watches one game by its lobby id (from a spectate link `.../spectate?lobbyId=<id>`). --public watches
  * games listed by `/api/ongoing-games` that allow spectators, one at a time, oldest listing skipped once seen.
- * --predict prints P(win) after each decision with a bot/eval evaluator (card data: SWU_CARD_JSON or
- * forceteki/test/json), using bot/eval's spectator view (both hands hidden, only their counts). `mlp-g5` is the best
+ * --predict prints P(win) after each decision with a lab/eval evaluator (card data: SWU_CARD_JSON or
+ * forceteki/test/json), using lab/eval's spectator view (both hands hidden, only their counts). `mlp-g5` is the best
  * one without decklists: Brier 0.213 on 181 real KaraBuddy games, 0.171 on engine games.
  *
- * People cap: a run against a non-local server needs --ledger (bot/karabast/ledger.js). Two places under --max-people
+ * People cap: a run against a non-local server needs --ledger (karabast/ledger.js). Two places under --max-people
  * are reserved before joining a game, or the run stops; both players are counted in them when the first frame
  * arrives. The run stops before the next game when --stop-file exists.
  *
@@ -47,8 +47,8 @@ function predictor(name) {
     if (!name) {
         return null;
     }
-    const { loadEvaluator } = require('../eval/evaluators');
-    const { assignSeats, compactSnapshot, messageText } = require('../../importer/karabast');
+    const { loadEvaluator } = require('../lab/eval/evaluators');
+    const { assignSeats, compactSnapshot, messageText } = require('./importer/karabast');
     const ev = loadEvaluator(name);
     let round = 0;
     let last = null;

@@ -3,7 +3,7 @@
 /**
  * Held-out fit of a lens file's score -> P(p1 wins) map, scored next to the bench evaluators on the same positions.
  *
- *   node bot/eval/lensfit.js --lens /mnt/project-files/dashboard/lens --replays /mnt/project-files/results \
+ *   node lab/eval/lensfit.js --lens /mnt/project-files/dashboard/lens --replays /mnt/project-files/results \
  *       [--field edge] [--k 0.08] [--json out.json]
  *
  * Reads <lens>/<gameId>.json (swu-lens/1, steps[].<field> = score from p1's side) and finds the replay

@@ -1,4 +1,4 @@
-//! Training from "swu-traj/1" trajectory shards (written by bot/learn/collect.js).
+//! Training from "swu-traj/1" trajectory shards (written by lab/learn/collect.js).
 //!
 //! Labels come from the game result only: every decision of the winner is labelled 1, the loser's 0.
 //! With a random behaviour policy this makes Q(s, a) the win rate of "take a, then play randomly",

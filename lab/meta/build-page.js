@@ -2,7 +2,7 @@
 
 /**
  * Inlines meta.json, theory.json, the Atlas kit (atlas-kit.js) and the shared viewer kit into page.html:
- *   node meta/build-page.js <meta.json> <theory.json> <out.html> [viewer-kit.js]
+ *   node lab/meta/build-page.js <meta.json> <theory.json> <out.html> [viewer-kit.js]
  */
 const fs = require('fs');
 const path = require('path');

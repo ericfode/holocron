@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Test-only writers for the capture formats importer/sources.js reads, built from plain Karabast gamestate frames.
+ * Test-only writers for the capture formats karabast/importer/sources.js reads, built from plain Karabast gamestate frames.
  * They follow the formats as documented (KaraBuddy .karareplay v2, SWU Forge PersistedTimeline v3, socket.io text
  * frames); none of their code is copied. Used to check that every reader gives the same replay as the raw frames.
  */

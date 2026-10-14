@@ -1,4 +1,4 @@
-;;;; Unit tests on mock boards (no engine, no card files):  sbcl --script bot/lisp/test.lisp
+;;;; Unit tests on mock boards (no engine, no card files):  sbcl --script bots/lisp/test.lisp
 
 (load (merge-pathnames "load.lisp" (directory-namestring *load-truename*)))
 (in-package :swu)

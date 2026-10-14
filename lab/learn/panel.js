@@ -1,5 +1,5 @@
 'use strict';
-// node bot/learn/panel.js [--state /mnt/project-files/learn/panel-state.json] [--thoughts /tmp/learned-thoughts.json] [--out /mnt/project-files/dashboard/panels/rust-learned.json]
+// node lab/learn/panel.js [--state /mnt/project-files/learn/panel-state.json] [--thoughts /tmp/learned-thoughts.json] [--out /mnt/project-files/dashboard/panels/rust-learned.json]
 //
 // Writes the research-dashboard strategy panel (dashboard/README.md, section 5) for the Rust learned bot from:
 // - a small state file kept by hand or by scripts: now, plan, thoughts, model generations with their win rates,

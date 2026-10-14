@@ -1,10 +1,10 @@
 'use strict';
-// node bot/learn/collect.js --games 2000 --seed 100000 --workers 4 --out data/traj/random [--bots random,random] [--all] [--key K|none]
+// node lab/learn/collect.js --games 2000 --seed 100000 --workers 4 --out data/traj/random [--bots random,random] [--all] [--key K|none]
 //
 // Plays games with the normal match loop and writes, for every decision, what a stdio bot would have seen
 // (the `decide` body: prompt, state, actions) plus the action that was chosen and, at the end, who won.
-// Output: <out>/shard-<k>.jsonl.gz, format "swu-traj/1" (see bot/rust-learned/README.md).
-// Bots: any name tournament.js knows (random*, heuristic*, a bot program from bot/external-bots.json).
+// Output: <out>/shard-<k>.jsonl.gz, format "swu-traj/1" (see bots/rust-learned/README.md).
+// Bots: any name tournament.js knows (random*, heuristic*, a bot program from bots/external-bots.json).
 // Games are dealt from a secret run key (rng.js runKey); each `end` line has the game's key, which plays it again.
 // The same --key and --seed give the same games. --key none: seed alone.
 const fs = require('fs');
@@ -17,16 +17,16 @@ function arg(name, dflt) {
     return i > 0 ? process.argv[i + 1] : dflt;
 }
 
-const { view, promptView, actionView, actionKey } = require('../view');
-const { answer } = require('../stdio');
+const { view, promptView, actionView, actionKey } = require('../../engine/view');
+const { answer } = require('../../engine/stdio');
 
-/** The body of the `decide` message a bot program would get (as bot/protocol.js builds it). */
+/** The body of the `decide` message a bot program would get (as engine/protocol.js builds it). */
 function decideBody(eg, pid, actions) {
     return { you: eg.seatOf(pid), prompt: promptView(eg, pid), state: view(eg, eg.seatOf(pid)), actions: actions.map((a, i) => actionView(eg, a, i, pid)) };
 }
 
-const { makeBot, closeBots } = require('../players');
-const { gameKey, runKey } = require('../rng');
+const { makeBot, closeBots } = require('../../bots/players');
+const { gameKey, runKey } = require('../../engine/rng');
 
 /**
  * Index of the chosen action in the legal list. Search bots (heuristic) roll the game back and return a refetched copy,
@@ -84,8 +84,8 @@ function recording(bot, write, all) {
 async function worker(first, count, out, botNames, all) {
     // the run key comes over IPC, not argv or the environment, which the bot programs could read
     const key = process.send ? await new Promise((resolve) => process.once('message', (m) => resolve(m.key))) : runKey(arg('key', null));
-    const { Env } = require('../env');
-    const { playGame } = require('../match');
+    const { Env } = require('../../engine/env');
+    const { playGame } = require('../../engine/match');
     const env = new Env();
     // a rerun of the same seed range replaces the shard instead of appending duplicate games
     fs.writeFileSync(out, '');

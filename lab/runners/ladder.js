@@ -2,16 +2,16 @@
 /**
  * Round-robin ladder with ratings, run on worker threads.
  *
- *   node bot/ladder.js --bots rush,aggro,tempo,control,heuristic,random --games 10
+ *   node lab/runners/ladder.js --bots rush,aggro,tempo,control,heuristic,random --games 10
  *       [--seed 1] [--workers 3] [--max-steps 6000] [--id my-run] [--out <dir>] [--record] [--vs a,b,c] [--key K|none]
  *       [--resume] [--cap-ms 60000] [--hang-ms 600000]
  * --resume keeps the finished games of an earlier run with the same id and config and plays only the rest (same engine,
  * uncommitted engine source changes included (config.engineDiff), and same bot code and models: config.harness is the
- * git trees of bot/ and models/, plus a hash of uncommitted changes there, of the $SWU_LEARNED_MODEL file and of the
- * other $SWU_* settings when set;
+ * git trees of the harness and bot folders (HARNESS_DIRS), plus a hash of uncommitted changes there, of the
+ * $SWU_LEARNED_MODEL file and of the other $SWU_* settings when set;
  * config.programs hashes the bot programs' entries and the files they name). Without the earlier run's --key, the rest is dealt from a
  * new run key; the games kept have their own keys in their entries, and a seed not played out is played again whole.
- * --cap-ms caps each bot's thinking per game (players/guard.js; default none): over it, that bot loses. --hang-ms is the
+ * --cap-ms caps each bot's thinking per game (bots/players/guard.js; default none): over it, that bot loses. --hang-ms is the
  * watchdog (game-pool.js): one bot call running longer than that (wall clock) loses the game, and its worker is
  * replaced. A bot that fails to load, throws or answers wrong also loses. Such a game is an ERROR with `by` set to the
  * bot's seat (as match.js reports one), and `faultKind` says how it failed: load, error, time or hang.
@@ -28,7 +28,7 @@
  * it), and the run key into ladder.json when the run is done: give it as
  * --key to play the same games again (two runs with the same --key and --seed get the same decks). --key none: seed alone.
  * --out defaults to /mnt/project-files/results when that folder exists, else results/ in the repo.
- * --decks <file> plays fixed deck lists instead of random decks (bot/decklists.js: format, checks and how decks are
+ * --decks <file> plays fixed deck lists instead of random decks (engine/decklists.js: format, checks and how decks are
  * dealt). Seed --seed + s plays deck pair s mod P (P = n(n-1)/2 pairs, in round-robin rounds), so the deal depends on
  * the seed minus --seed, not on the seed alone; both games of a seed give each bot the same deck. Give each bot pair a
  * whole number of passes (--games a multiple of 2P) or some deck pairs play more than others (a warning says so).
@@ -43,13 +43,13 @@ const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
-const { describeBot, programSpec } = require('./players');
-const { runKey, gameKey } = require('./rng');
-const { roundRobin, gauntlet } = require('./ratings');
+const { describeBot, programSpec } = require('../../bots/players');
+const { runKey, gameKey } = require('../../engine/rng');
+const { roundRobin, gauntlet } = require('../../engine/ratings');
 const { summarize } = require('./ladder-report');
-const { runPool, killChildren } = require('./game-pool');
-const { loadDecks, dealDecks, deckPairs } = require('./decklists');
-const { loadPool, checkPool } = require('./cardpool');
+const { runPool, killChildren } = require('../../engine/game-pool');
+const { loadDecks, dealDecks, deckPairs } = require('../../engine/decklists');
+const { loadPool, checkPool } = require('../../engine/cardpool');
 
 function arg(name, dflt) {
     const i = process.argv.indexOf(`--${name}`);
@@ -65,7 +65,7 @@ function arg(name, dflt) {
 
 function engineRev() {
     try {
-        return execFileSync('git', ['-C', path.join(__dirname, '..', 'forceteki'), 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim();
+        return execFileSync('git', ['-C', path.join(__dirname, '..', '..', 'forceteki'), 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim();
     } catch {
         return null;
     }
@@ -77,7 +77,7 @@ function engineRev() {
  * generated from that source, so it is not hashed.
  */
 function engineDiff() {
-    const dir = path.join(__dirname, '..', 'forceteki');
+    const dir = path.join(__dirname, '..', '..', 'forceteki');
     const git = (...a) => execFileSync('git', ['-C', dir, ...a], { encoding: 'utf8', maxBuffer: 64 << 20 });
     try {
         const diff = git('diff', 'HEAD');
@@ -95,17 +95,20 @@ function engineDiff() {
     }
 }
 
+/** The folders that hold the game player, the ladder, the built-in bots and what they load (evaluators, models, decks). */
+const HARNESS_DIRS = ['engine', 'bots', 'decks', 'lab/eval', 'lab/runners', 'lab/models'];
+
 /**
- * The revision of the harness and the built-in bots with their models: the git tree ids of bot/ and models/ at HEAD,
+ * The revision of the harness and the built-in bots with their models: the git tree ids of HARNESS_DIRS at HEAD,
  * plus a hash of uncommitted changes and new files there, of the file $SWU_LEARNED_MODEL names (the learned bots
- * read it instead of models/learned/current.json) and of the other $SWU_* settings bots read ($SWU_LEARNED_BLEND,
+ * read it instead of lab/models/learned/current.json) and of the other $SWU_* settings bots read ($SWU_LEARNED_BLEND,
  * $SWU_CARD_JSON, ...; not the *_THOUGHTS and *_TRACE outputs), when there are any. Arena versions live outside the
  * repo and never change. null without git.
  */
 function harnessRev() {
-    const root = path.join(__dirname, '..');
+    const root = path.join(__dirname, '..', '..');
     const git = (...a) => execFileSync('git', ['-C', root, ...a], { encoding: 'utf8', maxBuffer: 64 << 20 });
-    const dirs = ['bot', 'models'].filter((d) => fs.existsSync(path.join(root, d)));
+    const dirs = HARNESS_DIRS.filter((d) => fs.existsSync(path.join(root, d)));
     try {
         const tree = dirs.map((d) => git('rev-parse', '--short', `HEAD:${d}`).trim()).join('.');
         const extra = git('ls-files', '--others', '--exclude-standard', '-z', '--', ...dirs).split('\0').filter(Boolean).sort();
@@ -135,14 +138,14 @@ function harnessRev() {
 }
 
 /**
- * A hash of the bot programs in this ladder ($SWU_EXTERNAL_BOTS or bot/external-bots.json): each one's entry and the
+ * A hash of the bot programs in this ladder ($SWU_EXTERNAL_BOTS or bots/external-bots.json): each one's entry and the
  * files it names (its program, the scripts and model files in its arguments, its adapter), which may be built files git
- * does not track (bot/c/swu-c) or live outside the repo. For a named file outside the repo (harnessRev covers bot/ and
- * models/) the other files in its folder count too, as a program may import or load them; an entry lists anything
+ * does not track (bots/c/swu-c) or live outside the repo. For a named file outside the repo (harnessRev covers
+ * HARNESS_DIRS) the other files in its folder count too, as a program may import or load them; an entry lists anything
  * else its program reads in `inputs` (files or folders, from its cwd). null when no bot program plays.
  */
 function programsRev(names) {
-    const root = path.join(__dirname, '..');
+    const root = path.join(__dirname, '..', '..');
     const h = crypto.createHash('sha256');
     let any = false;
     for (const n of [...new Set(names.map((x) => x.split('#')[0]))].sort()) {
@@ -244,7 +247,7 @@ function readPrevious(file, config, engine) {
         || (c.keyId === null) !== (config.keyId === null) || (config.record && !c.record) || !same(c.decks ?? null, config.decks ?? null)
         || !same(c.pool ?? null, config.pool ?? null)) {
         // a run that records needs a replay of every game: the kept games of a run that did not record have none
-        console.log('resume: the earlier run used other bots, seeds, format, limits, engine, bot/ code, bot programs, deck lists, card pool, seeding (--key none) or did not record, starting over');
+        console.log('resume: the earlier run used other bots, seeds, format, limits, engine, harness or bot code, bot programs, deck lists, card pool, seeding (--key none) or did not record, starting over');
         return null;
     }
     if (c.keyId !== config.keyId) {
@@ -254,7 +257,7 @@ function readPrevious(file, config, engine) {
 }
 
 function defaultOut() {
-    return fs.existsSync('/mnt/project-files') ? '/mnt/project-files/results' : path.join(__dirname, '..', 'results');
+    return fs.existsSync('/mnt/project-files') ? '/mnt/project-files/results' : path.join(__dirname, '..', '..', 'results');
 }
 
 async function main() {
@@ -288,7 +291,7 @@ async function main() {
     const key = runKey(arg('key', null));
     const decksFile = arg('decks', null);
     // the engine loads in this thread only to check the deck lists before any game starts (and before <out> is made)
-    const deckSet = decksFile ? loadDecks(decksFile, new (require('./env').Env)()) : null;
+    const deckSet = decksFile ? loadDecks(decksFile, new (require('../../engine/env').Env)()) : null;
     const decks = deckSet?.decks ?? null;
     const poolFile = arg('pool', null);
     if (poolFile && decksFile) {
@@ -297,7 +300,7 @@ async function main() {
     // likewise a card pool is checked against the card data first: it must fill a deck for every leader and base it has
     const pool = poolFile ? loadPool(poolFile) : null;
     if (pool) {
-        checkPool(new (require('./env').Env)(), pool);
+        checkPool(new (require('../../engine/env').Env)(), pool);
     }
     if (decks) {
         const seeds = (perPair + (perPair % 2)) / 2;

@@ -11,7 +11,7 @@ const bt = require('../realdeck/bot-test');
 const { readDeckFile, deckMeta } = require('../realdeck/compare');
 const { skillVsAgreement } = require('../realdeck/skill');
 
-const DECKS = path.join(__dirname, '..', '..', 'bot', 'decks', 'ash-meta-2026-09.json');
+const DECKS = path.join(__dirname, '..', '..', '..', 'decks', 'ash-meta-2026-09.json');
 const SCRIPT = path.join(__dirname, '..', 'realdeck', 'bot-test.js');
 
 // 1. arguments
@@ -173,8 +173,8 @@ const SCRIPT = path.join(__dirname, '..', 'realdeck', 'bot-test.js');
     assert.match(table.html, /coloured against 50%/, 'no mirror model: cells against 50%, and the note says so');
     assert(!table.html.includes('itself'), 'no reference row without a model');
     assert.match(bt.styleTableHtml([{ bot: 'z', skill: { winRate: 0.5, byStyle: { midrange: { decided: 2, score: 1, winRate: 0.5, expected: 0.504, edge: -0.004, par: 0.504, vsPar: -0.004, expectedGames: 2 } } } }], 'c-clock'), /50%<small>\+0<\/small>/, 'no −0');
-    assert.strictEqual(bt.shownCommand(['bot/ladder.js', '--key', 'K', '--id', 'x y']), `node bot/ladder.js --key K --id "x y"`);
-    assert.strictEqual(bt.shownCommand(['bot/ladder.js', '--key', 'K'], 'K'), `node bot/ladder.js --key <key id ${bt.keyId('K')}>`);
+    assert.strictEqual(bt.shownCommand(['lab/runners/ladder.js', '--key', 'K', '--id', 'x y']), `node lab/runners/ladder.js --key K --id "x y"`);
+    assert.strictEqual(bt.shownCommand(['lab/runners/ladder.js', '--key', 'K'], 'K'), `node lab/runners/ladder.js --key <key id ${bt.keyId('K')}>`);
 }
 
 // 5. the command line on run folders like ladder.js writes them
@@ -206,11 +206,11 @@ const SCRIPT = path.join(__dirname, '..', 'realdeck', 'bot-test.js');
         fs.mkdirSync(path.join(dir, 'test-rust-search-1'));
         const panel = path.join(dir, 'panel.json');
         const dry = execFileSync(process.execPath, [SCRIPT, '--bot', 'rust-search', '--mirror', '--dir', dir, '--dry-run'], { encoding: 'utf8' });
-        assert.match(dry, new RegExp(`\\$ node bot/ladder\\.js --decks bot/decks/ash-meta-2026-09\\.json --bots rust-search --vs c-clock --games 702 --seed 1 --key <key id ${bt.keyId('secret')}> --id test-rust-search-2 --out `));
+        assert.match(dry, new RegExp(`\\$ node lab/runners/ladder\\.js --decks decks/ash-meta-2026-09\\.json --bots rust-search --vs c-clock --games 702 --seed 1 --key <key id ${bt.keyId('secret')}> --id test-rust-search-2 --out `));
         assert(!dry.includes('secret'), 'the key itself is never printed');
         assert.match(dry, /--bots rust-search#a,rust-search#b --games 702 --seed 1 --id mirror-rust-search-1/);
-        assert.match(dry, /has no mirror of c-clock: playing it too \(mirror-c-clock-1\)\n\$ node bot\/ladder\.js .*--bots c-clock#a,c-clock#b --games 702 --seed 1 --id mirror-c-clock-1/);
-        assert.match(dry, /analysis\/realdeck\/compare\.js --runs \S*mirror-c-clock-1,\S*mirror-rust-search-1 --decks bot\/decks\/ash-meta-2026-09\.json --human bot\/decks\/ash-meta-2026-09\.human\.json/);
+        assert.match(dry, /has no mirror of c-clock: playing it too \(mirror-c-clock-1\)\n\$ node lab\/runners\/ladder\.js .*--bots c-clock#a,c-clock#b --games 702 --seed 1 --id mirror-c-clock-1/);
+        assert.match(dry, /lab\/analysis\/realdeck\/compare\.js --runs \S*mirror-c-clock-1,\S*mirror-rust-search-1 --decks decks\/ash-meta-2026-09\.json --human decks\/ash-meta-2026-09\.human\.json/);
         assert(!fs.existsSync(path.join(dir, 'skill.json')), 'a dry run writes nothing');
         const out = execFileSync(process.execPath, [SCRIPT, '--report', '--dir', dir, '--panel', panel], { encoding: 'utf8' });
         assert.match(out, /left out: g-other \(another key, so other deals\)/);

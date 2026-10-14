@@ -6,7 +6,7 @@
  * blunders). The board is judged by an evaluator in the spectator view (neither hand visible), so the same check can
  * run on a live spectated game.
  *
- *   node bot/eval/flags.js --data <dataset dir>[,...] [--eval mlp-g5] [--drop 0.25] [--ahead 0.5] [--lethal 0]
+ *   node lab/eval/flags.js --data <dataset dir>[,...] [--eval mlp-g5] [--drop 0.25] [--ahead 0.5] [--lethal 0]
  *                          [--tournament karabuddy-public] [--json out.json]
  *
  * Datasets are replays.js output. A game "ends by concession" when the loser's base still has more than --lethal HP
@@ -60,7 +60,7 @@ function flagGame(ps, pOf, { drop = 0.25, ahead = 0.5, lethal = 0 } = {}) {
 function main() {
     const dirs = arg('data', '').split(',').filter(Boolean);
     if (!dirs.length) {
-        console.error('usage: node bot/eval/flags.js --data <dataset dir>[,...] [--eval mlp-g5] [--json out.json]');
+        console.error('usage: node lab/eval/flags.js --data <dataset dir>[,...] [--eval mlp-g5] [--json out.json]');
         process.exit(2);
     }
     const evName = arg('eval', 'mlp-g5');

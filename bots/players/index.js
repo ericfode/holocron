@@ -10,13 +10,13 @@
  *   aggro|tempo|control[-dN]    same search with a different evaluation profile (players/profiles.js)
  *   ismcts[-bB][-hH][-nN][-eP][-vV] known-decklist ISMCTS (players/ismcts.js): belief sharpness B (default 1, 0 = uniform),
  *                               horizon H exchanges (default 1), N iterations per legal action (default 6).
- *                               `-v<evaluator>` scores leaves with a calibrated P(win) from bot/eval (`-vlinear-deck`).
+ *                               `-v<evaluator>` scores leaves with a calibrated P(win) from lab/eval (`-vlinear-deck`).
  *                               `-e<profile>` scores leaves with an evaluation profile (`-etempo`, `-eaggro`, ...).
  *                               `-peek` is an UNFAIR control that searches the real hidden cards (no sampling), to
  *                               measure what hidden information is worth; keep it out of competitive ladders.
  *
  *   h@<evaluator>, hN@<evaluator>  the heuristic search scoring positions with a fitted or hand-made evaluator
- *                               from bot/eval (h@linear, h@mlp-deck, h@race, ...); N = depth
+ *                               from lab/eval (h@linear, h@mlp-deck, h@race, ...); N = depth
  *   omni[-dN][-nN][-blind]      UNFAIR reference bot (players/omniscient.js): full-information alpha-beta, depth N windows
  *                               (default 2), -n node budget per window, -blind hides future draws from its search.
  *                               Keep it out of competitive ladders.
@@ -24,16 +24,16 @@
  * `-dN` sets search depth (my next N actions). Anything after `#` is ignored, so the same bot can be entered twice
  * (`aggro#1,aggro#2`) as a sanity check: the two copies should rate about equal.
  *
- * Bot programs (spec/protocol.md) are listed by name in $SWU_EXTERNAL_BOTS or bot/external-bots.json and take
+ * Bot programs (spec/protocol.md) are listed by name in $SWU_EXTERNAL_BOTS or bots/external-bots.json and take
  * precedence over the built-in names. A program serves game after game until closeBots(); a second copy is started
- * only when one game needs two. `js-random` and `js-search` are the in-process example clients (bot/examples).
+ * only when one game needs two. `js-random` and `js-search` are the in-process example clients (bots/examples).
  */
 const fs = require('fs');
 const path = require('path');
 const { createRandomBot } = require('./random');
 const { createRushBot } = require('./rush');
 const { HeuristicBot } = require('./heuristic');
-const { StdioClient } = require('../stdio');
+const { StdioClient } = require('../../engine/stdio');
 const examples = { 'js-random': require('../examples/random-bot').create, 'js-search': require('../examples/search-bot').create };
 const { PROFILES } = require('./profiles');
 const { IsmctsBot } = require('./ismcts');
@@ -61,16 +61,16 @@ function parseOmni(kindAndOpts) {
 }
 
 /**
- * `-v<name>`: score ISMCTS leaves with an evaluator from the position-evaluation bench (bot/eval/evaluators.js:
+ * `-v<name>`: score ISMCTS leaves with an evaluator from the position-evaluation bench (lab/eval/evaluators.js:
  * base, material-fixed, race, linear, linear-deck, mlp, mlp-deck, ...). Returns (eg, pid) -> P(pid wins).
  */
 function benchValue(name) {
     let ev, snapshotEvaluate;
     try {
-        ({ snapshotEvaluate } = require('../eval/bot'));
-        ev = require('../eval/evaluators').loadEvaluator(name);
+        ({ snapshotEvaluate } = require('../../lab/eval/bot'));
+        ev = require('../../lab/eval/evaluators').loadEvaluator(name);
     } catch (e) {
-        throw new Error(`ismcts -v${name}: cannot load evaluator "${name}" from bot/eval (${String(e.message).split('\n')[0]})`);
+        throw new Error(`ismcts -v${name}: cannot load evaluator "${name}" from lab/eval (${String(e.message).split('\n')[0]})`);
     }
     const logit = snapshotEvaluate(ev); // decided games are handled by the bot itself
     return (eg, pid) => 1 / (1 + Math.exp(-logit(eg, pid)));
@@ -121,7 +121,7 @@ function program(name, taken) {
     let c = pool.find((x) => !taken.includes(x));
     if (!c) {
         const spec = programOf(name);
-        // an entry may name its own bot class, built as new Class(name, entry) (bot/jev/look.js)
+        // an entry may name its own bot class, built as new Class(name, entry) (bots/jev/look.js)
         const Client = spec.adapter ? require(path.join(__dirname, '..', '..', spec.adapter)) : StdioClient;
         c = new Client(name, spec);
         pool.push(c);
@@ -145,7 +145,7 @@ function parseName(name) {
 
 /**
  * With ISMCTS_THOUGHTS=<dir> set, ISMCTS bots write their latest search summary to <dir>/<name>.json (at most once
- * a second, atomically) for the dashboard panel (bot/ismcts-panel.js). Off by default; it never changes play.
+ * a second, atomically) for the dashboard panel (lab/runners/ismcts-panel.js). Off by default; it never changes play.
  */
 function thoughtsWriter(name) {
     const dir = process.env.ISMCTS_THOUGHTS;
@@ -197,7 +197,7 @@ function describeBot(name) {
         return { name, kind: 'rules', profile: 'rush', depth: 0, lang: 'js' };
     }
     if (kind === 'learned-pi' || kind === 'learned-v' || kind === 'learned-vh') {
-        // bot/learned: tinygrad-trained network, model file from $SWU_LEARNED_MODEL (default models/learned/current.json).
+        // bots/learned: tinygrad-trained network, model file from $SWU_LEARNED_MODEL (default lab/models/learned/current.json).
         // learned-vh scores lookahead positions with the heuristic score plus a learned correction
         return { name, kind: 'learned', profile: kind, depth: kind === 'learned-pi' ? 0 : depth, lang: 'js' };
     }
@@ -225,7 +225,7 @@ function makeBot(name, taken) {
         return examples[parseName(name).kind](name);
     }
     if (info.profile?.startsWith('eval:')) {
-        return require('../eval/bot').makeEvalBot(name.split('#')[0], name);
+        return require('../../lab/eval/bot').makeEvalBot(name.split('#')[0], name);
     }
     if (info.kind === 'omniscient') {
         return new OmniscientBot(name, parseOmni(name.split('#')[0]));

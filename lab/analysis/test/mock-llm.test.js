@@ -1,5 +1,5 @@
 'use strict';
-// node analysis/test/mock-llm.test.js -- runs the Claude evaluator path end to end against a fake client (no network).
+// node lab/analysis/test/mock-llm.test.js -- runs the Claude evaluator path end to end against a fake client (no network).
 const assert = require('assert');
 const fs = require('fs');
 const os = require('os');

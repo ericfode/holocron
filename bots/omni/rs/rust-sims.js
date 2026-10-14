@@ -2,7 +2,7 @@
 // Simulations on the Rust engine, for a bot that asks for them in hello ("simEngine": "rust", spec/protocol.md#sim).
 // The real game always runs on forceteki. A decision gets Rust simulations only when the Rust pool knows every card in
 // the game; otherwise the referee serves forceteki simulations as usual. Positions come from the Rust state, in the
-// protocol's shapes (rust-view.js). bot/omni/rs/stress.js checks the Rust engine and these views against forceteki.
+// protocol's shapes (rust-view.js). bots/omni/rs/stress.js checks the Rust engine and these views against forceteki.
 const path = require('path');
 const { fullState } = require('./state');
 

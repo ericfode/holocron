@@ -1,7 +1,7 @@
 'use strict';
-// node bot/eval/proven-frames.js <positions.jsonl>[,<positions.jsonl>...] <out.jsonl>
+// node lab/eval/proven-frames.js <positions.jsonl>[,<positions.jsonl>...] <out.jsonl>
 //
-// The omni solver's proven positions (bot/omni/export-positions.js rows with `proven` set) as frames in the same
+// The omni solver's proven positions (bots/omni/export-positions.js rows with `proven` set) as frames in the same
 // format as td-frames.js: the side to move's subjective view, side-feature differences me - opp, then toAct and round.
 // y = 1 when the side to move has the forced win.
 const fs = require('fs');

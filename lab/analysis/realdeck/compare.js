@@ -3,15 +3,15 @@
 /**
  * Do decks that win for humans also win for our bots? Real tournament deck lists, played by one bot against itself.
  *
- *   node analysis/realdeck/compare.js --runs <run dir>[,<run dir>...] --decks bot/decks/ash-meta-2026-09.json \
- *        --human bot/decks/ash-meta-2026-09.human.json [--online <human-summary.json or its dir>] [--out file.json] \
+ *   node lab/analysis/realdeck/compare.js --runs <run dir>[,<run dir>...] --decks decks/ash-meta-2026-09.json \
+ *        --human decks/ash-meta-2026-09.human.json [--online <human-summary.json or its dir>] [--out file.json] \
  *        [--permute 1000] [--min-games 10] [--max-incomplete 0.10]
  *
- * A run is one `node bot/ladder.js --decks <file> --bots <bot>#a,<bot>#b` directory (index.json, ladder.json). Both
+ * A run is one `node lab/runners/ladder.js --decks <file> --bots <bot>#a,<bot>#b` directory (index.json, ladder.json). Both
  * seats run the same bot, so the decks are what differs between games. A run is keyed by its index.json id (or its
  * directory name); its bot ('#a' tags dropped) is a separate field.
  *
- * Decks are read the way bot/decklists.js normalizeDeck reads them (padded ids, the same default name), and the deck
+ * Decks are read the way engine/decklists.js normalizeDeck reads them (padded ids, the same default name), and the deck
  * file's sha256 (of the raw bytes, as loadDecks hashes it) is checked against the one in each run's ladder.json.
  *
  * Games: only decided games count (winnerSeat p1 or p2; a draw counts half). Games that ended with ERROR, STEP_CAP,
@@ -43,7 +43,7 @@
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
-const { normalizeDeck, padId } = require('../../bot/decklists');
+const { normalizeDeck, padId } = require('../../../engine/decklists');
 const { weightedCorr, ranks, humanStrength } = require('../swustats/compare');
 
 const CREDIT_DECKS = 'Tournament deck lists and match results: TCGEngine / SWU Stats (github.com/TCG-Engine/TCGEngine, MIT), from public melee.gg Premier events (event list via swu-competitivehub.com)';
@@ -54,7 +54,7 @@ const LOOSE = 0.01; // the seat term is almost free
 const MIN_GAMES = 10; // decided games a deck (or leader) needs to enter a correlation
 const MAX_INCOMPLETE = 0.1; // share of a deck's finished games that may end incomplete before it leaves the correlations
 const NEAR = 0.02; // favourite agreement ignores win rates within 2 points of 50%
-const ONLINE_MIN_PLAYS = 200; // the same cut as analysis/swustats (humanStrength)
+const ONLINE_MIN_PLAYS = 200; // the same cut as lab/analysis/swustats (humanStrength)
 const Z95 = 1.959964;
 
 function parseArgs(argv) {
@@ -96,7 +96,7 @@ function parseArgs(argv) {
 
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 
-/** The deck file, parsed, and the sha256 of its raw bytes (the hash bot/decklists.js loadDecks puts in ladder.json). */
+/** The deck file, parsed, and the sha256 of its raw bytes (the hash engine/decklists.js loadDecks puts in ladder.json). */
 function readDeckFile(file) {
     const bytes = fs.readFileSync(file);
     return { raw: JSON.parse(bytes.toString('utf8')), sha256: crypto.createHash('sha256').update(bytes).digest('hex') };
@@ -129,7 +129,7 @@ function readRun(dir) {
     };
 }
 
-/** Deck file (array or {decks}) -> [{name, leader, base, style}] in file order, read as bot/decklists.js reads it. */
+/** Deck file (array or {decks}) -> [{name, leader, base, style}] in file order, read as engine/decklists.js reads it. */
 function deckMeta(raw) {
     const list = Array.isArray(raw) ? raw : raw?.decks;
     if (!Array.isArray(list) || !list.length) {
@@ -655,7 +655,7 @@ function pairAgreement(meta, decided, cells, { near = NEAR, permute = 0, seed = 
 
 /**
  * 4. Decks pooled by leader id (games-weighted mean strength) vs the SWU Stats online leader strength (centred logit
- * of the win rate, leaders with >= 200 plays; see analysis/swustats humanStrength). Left-out decks are not pooled.
+ * of the win rate, leaders with >= 200 plays; see lab/analysis/swustats humanStrength). Left-out decks are not pooled.
  */
 function leaderAgreement(meta, tallies, fit, online, { minGames = MIN_GAMES, permute = 0, left = new Map() } = {}) {
     const hs = humanStrength((online?.leaders ?? []).map((l) => ({ ...l, id: padId(l.id) })));
@@ -955,7 +955,7 @@ function summaryText(r) {
     return L.join('\n');
 }
 
-const USAGE = 'usage: node analysis/realdeck/compare.js --runs <run dir>[,<run dir>...] --decks <deck file> --human <.human.json> ' +
+const USAGE = 'usage: node lab/analysis/realdeck/compare.js --runs <run dir>[,<run dir>...] --decks <deck file> --human <.human.json> ' +
     '[--online <human-summary.json or dir>] [--out file.json] [--permute N] [--min-games N] [--max-incomplete 0.10]';
 
 function main() {

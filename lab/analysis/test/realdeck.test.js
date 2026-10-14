@@ -444,7 +444,7 @@ const res = rd.compareRuns([runA, runB, runS], deckFile, human, online, { permut
     assert.strictEqual(bt.strength[2], null);
     assert.deepStrictEqual([bt.summary.pairs, bt.summary.thinPairs, bt.summary.games, bt.summary.drawnGames], [1, 1, 10, 2]);
     assert.deepStrictEqual(bt.games, [10, 10, 0]);
-    // deck lists are read as bot/decklists.js reads them: padded ids, the same default name, unique names
+    // deck lists are read as engine/decklists.js reads them: padded ids, the same default name, unique names
     assert.deepStrictEqual(rd.deckMeta([{ metadata: { style: 'midrange' }, leader: { id: 'LAW_8' }, base: { id: 'ASH_19' }, deck: [{ id: 'LAW_3', count: 3 }] }]),
         [{ name: 'LAW_008 / ASH_019', leader: 'LAW_008', base: 'ASH_019', style: 'midrange' }]);
     assert.throws(() => rd.deckMeta([deckFile[0], deckFile[0]]), /used twice/);

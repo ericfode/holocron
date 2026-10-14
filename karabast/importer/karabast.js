@@ -6,7 +6,7 @@
  * Karabast (the forceteki server) pushes a `gamestate` object to every player and spectator after each change:
  * Game.getState(viewerId) = { players: { <playerId>: Player.getStateSummary(viewer) }, phase, newMessages, winners, ... }.
  * A viewer sees its own hand and resources; the other hand is a list of stubs { controllerId, ownerId, zone }.
- * Capture tools (KaraBuddy, a saved socket log, importer/capture.js) store a sequence of these objects.
+ * Capture tools (KaraBuddy, a saved socket log, karabast/importer/capture.js) store a sequence of these objects.
  *
  * Pure: no engine and no card data. Seats: p1 is the player holding the initiative when the game starts (the first
  * player), unless `seats` names them.
@@ -329,7 +329,7 @@ function splitGames(frames) {
 
 /**
  * Walk the frames once: per frame, the compact snapshot, the new log lines and the action-phase player.
- * Shared by convertFrames and importer/verify.js. One game: see splitGames for captures holding several.
+ * Shared by convertFrames and karabast/importer/verify.js. One game: see splitGames for captures holding several.
  *
  * Usernames are replaced in log text by seats ('a spectator' for spectators); opts.hideNames adds names to replace,
  * as [{name, seat?, id?}] (id: the player id, giving the seat), and opts.decks (KaraBuddy's lobby lists, keyed by player id) adds their usernames.

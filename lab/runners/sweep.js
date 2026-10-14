@@ -1,13 +1,13 @@
 'use strict';
-// Bug hunt: node bot/sweep.js --from 1 --count 200 --out replays/bugs-a
+// Bug hunt: node lab/runners/sweep.js --from 1 --count 200 --out replays/bugs-a
 // Plays recorded random-vs-random games and keeps only the ones that end in ERROR / STUCK / STEP_CAP,
 // as a viewer-readable tournament folder. Also writes sweep-summary.json (outcome + error text per seed).
 const fs = require('fs');
 const path = require('path');
-const { Env } = require('./env');
-const { playGame } = require('./match');
-const { snapshot } = require('./recorder');
-const { createRandomBot } = require('./players/random');
+const { Env } = require('../../engine/env');
+const { playGame } = require('../../engine/match');
+const { snapshot } = require('../../engine/recorder');
+const { createRandomBot } = require('../../bots/players/random');
 
 function arg(name, dflt) {
     const i = process.argv.indexOf(`--${name}`);

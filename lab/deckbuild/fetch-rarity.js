@@ -4,7 +4,7 @@
  * Card rarity and set membership from the official card database (admin.starwarsunlimited.com, the same API
  * forceteki's `npm run get-cards` reads). The engine's card data has no rarity, and drafting needs it to build packs.
  *
- *   node bot/deckbuild/fetch-rarity.js [out.json]     # default /mnt/project-files/deckbuild/rarity.json
+ *   node lab/deckbuild/fetch-rarity.js [out.json]     # default /mnt/project-files/deckbuild/rarity.json
  *
  * Behind a proxy, run with NODE_USE_ENV_PROXY=1 (Node's fetch ignores HTTPS_PROXY otherwise).
  * Polite: one request every 3 s, pages of 100, variants left out (31 requests of ~6 MB each, ~12 minutes). Writes

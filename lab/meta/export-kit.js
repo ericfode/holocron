@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Publishes the Atlas kit for other pages: node meta/export-kit.js [out dir]   (default /mnt/project-files/meta/kit)
+ * Publishes the Atlas kit for other pages: node lab/meta/export-kit.js [out dir]   (default /mnt/project-files/meta/kit)
  * Writes atlas-kit.js, kit.json (all words and data, no code), kit.css, README.md, demo.html and spots/<id>[-full][-anim].svg.
  * refresh.sh runs it every hour, so the shared copy always matches the Atlas.
  */

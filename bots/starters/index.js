@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Starting strategies for new arena agents. Each one is the shared heuristic.js / rush.js (self-contained copies of
- * bot/players/*.js) plus a bot.js that picks the strategy. api.register copies them into the agent's folder.
+ * bots/players/*.js) plus a bot.js that picks the strategy. api.register copies them into the agent's folder.
  */
 const PROFILES = {
     heuristic: null,

@@ -47,11 +47,11 @@ let cardsCache = null;
 
 /**
  * From the card json that `npm run get-cards` writes (SWU_CARD_JSON or forceteki/test/json): `internal`, card id
- * (forceteki cardData.id, the `id` of a card summary) -> internal name, which labels card actions as bot/env.js does;
+ * (forceteki cardData.id, the `id` of a card summary) -> internal name, which labels card actions as engine/env.js does;
  * `title`, set code -> title, for shown cards the frame has no summary of (cards in a deck). Empty maps when there is
  * no card json: labels are then card titles, and such shown cards keep their internal names.
  */
-function cardIndex(dir = process.env.SWU_CARD_JSON ?? path.join(__dirname, '..', '..', 'forceteki', 'test', 'json')) {
+function cardIndex(dir = process.env.SWU_CARD_JSON ?? path.join(__dirname, '..', 'forceteki', 'test', 'json')) {
     if (!cardsCache) {
         cardsCache = { internal: new Map(), title: new Map() };
         const cards = path.join(dir, 'Card');

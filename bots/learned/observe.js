@@ -2,10 +2,10 @@
 
 /**
  * Observation of an EnvGame from one seat, in the shape the stdio protocol sends as `state`:
- * the replay snapshot (bot/recorder.js) plus card uuids (`id`) and `handCount`, with the opponent's hand removed.
+ * the replay snapshot (engine/recorder.js) plus card uuids (`id`) and `handCount`, with the opponent's hand removed.
  * The learned bot builds its features from this, so the same features work in-process, over stdio and on replays.
  */
-const { snapshot } = require('../recorder');
+const { snapshot } = require('../../engine/recorder');
 
 const ZONES = { hand: 'hand', ground: 'groundArena', space: 'spaceArena', discard: 'discard' };
 

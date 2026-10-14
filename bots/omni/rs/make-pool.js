@@ -37,7 +37,7 @@ function legacyPoolKeywords(card) {
     return values!==null && Object.keys(values).every(k=>LEGACY_POOL_ALLOWED.has(k)) ? values : null;
 }
 function main() {
-    const { Env } = require('../../env');
+    const { Env } = require('../../../engine/env');
     const env = new Env();
     const all = env.cardDataGetter.cardIds.map((id) => env.cardDataGetter.getCardSync(id))
         .filter((c) => !env.mockNames.has(c.internalName) && env.isImplemented(c));

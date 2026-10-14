@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
-const { Env, seededRng } = require('../../env');
+const { Env, seededRng } = require('../../../engine/env');
 const { makeBot } = require('../../players');
 const { loadPool } = require('./pool');
 const { traceGame } = require('./trace');

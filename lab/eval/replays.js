@@ -4,7 +4,7 @@
  * Turn recorded replays (tournament.js / arena.js / ladder format) into a position dataset that fit.js and score.js
  * read, so games recorded by other bots can be used for fitting and scoring.
  *
- *   node bot/eval/replays.js --from /mnt/project-files/results/omni-ref-1,... --out data/omni [--every 2]
+ *   node lab/eval/replays.js --from /mnt/project-files/results/omni-ref-1,... --out data/omni [--every 2]
  *
  * Writes <out>/positions/0.jsonl ({id, winner, outcome, n, round, toAct, state, endLeft, hidden?}; endLeft = base HP left
  * per seat on the final frame) and <out>/decks/0.jsonl. Positions
@@ -23,7 +23,7 @@ function arg(name, dflt) {
 }
 
 let envCache = null;
-const env = () => (envCache ??= new (require('../env').Env)());
+const env = () => (envCache ??= new (require('../../engine/env').Env)());
 
 let revCache;
 /** Full commit of the forceteki checkout the decks are redrawn with (null when git cannot tell). */
@@ -55,7 +55,7 @@ function deckLists(seed, header, lines = []) {
     if (header.decks?.p1?.deck && header.decks?.p2?.deck) {
         return { p1: flat(header.decks.p1), p2: flat(header.decks.p2) };
     }
-    // imported human games (importer/karabast.js) keep lobby lists here; often only the recorder's own list is full
+    // imported human games (karabast/importer/karabast.js) keep lobby lists here; often only the recorder's own list is full
     const lobby = header.source?.decklists;
     if (lobby?.p1?.cards && lobby?.p2?.cards) {
         return { p1: flat({ deck: lobby.p1.cards }), p2: flat({ deck: lobby.p2.cards }) };
@@ -67,7 +67,7 @@ function deckLists(seed, header, lines = []) {
     if (!header.engine || !rev || !rev.startsWith(header.engine)) {
         return null;
     }
-    const { seededRng } = require('../env');
+    const { seededRng } = require('../../engine/env');
     const rng = seededRng('bot' + seed);
     const d = [env().randomDeck(rng), env().randomDeck(rng)];
     if (d.some((x, i) => x.metadata.name !== header.players?.[i]?.deck)) {
@@ -142,7 +142,7 @@ function main() {
     const out = arg('out', null);
     const every = Number(arg('every', '2'));
     if (!from.length || !out || !Number.isInteger(every) || every < 1) {
-        console.error('usage: node bot/eval/replays.js --from <tournament dir>[,...] --out <dataset dir> [--every N, a positive integer: keep every N-th action-window checkpoint]');
+        console.error('usage: node lab/eval/replays.js --from <tournament dir>[,...] --out <dataset dir> [--every N, a positive integer: keep every N-th action-window checkpoint]');
         process.exit(2);
     }
     for (const d of ['positions', 'decks']) {

@@ -24,7 +24,7 @@
       "val_world": 0.2756612002849579
     }
   ],
-  "model": "bot/rust-learned/models/learned-v3td.safetensors",
+  "model": "bots/rust-learned/models/learned-v3td.safetensors",
   "rows": 2090049,
   "stateDim": 73,
   "worldDim": 40

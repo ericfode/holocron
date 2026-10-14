@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """JEPA bot: plays over the stdio protocol (spec/stdio-protocol.md) by planning in a learned latent space.
 
-    python3 bot/jepa/jepa_bot.py --model bot/jepa/models/jepa-v1.safetensors [--mix 0.5] [--temp 0] [--name jepa]
+    python3 bots/jepa/jepa_bot.py --model bots/jepa/models/jepa-v1.safetensors [--mix 0.5] [--temp 0] [--name jepa]
 
 For each decision: z = E(observation); for every legal action a, imagine the latent future ẑ_1 = z + P(z, a, 1)
 (my next decision) and ẑ_4 (four of my decisions later), and score a by the value head on those imagined
@@ -10,14 +10,14 @@ back into a board: the plan lives entirely in the embedding space, as in a JEPA.
 
 Inference is numpy only (the weights were trained in tinygrad, see train.py). Logs go to stderr.
 SWU_JEPA_THOUGHTS=<file> writes the latest decision (scores, imagined board read back by linear probes,
-2-D latent map coordinates) for the research dashboard panel (bot/jepa/panel.py).
+2-D latent map coordinates) for the research dashboard panel (bots/jepa/panel.py).
 
 Oracle modes, to find the weak part (each swaps one part for a perfect stand-in; protocol v2 simulations):
   --score sim-v     play each move on the referee's copy of the game, then both seats like rush to the end of this
                     round's action phase (--judge), and score that REAL position with the same value head: a perfect
                     predictor.
-  --score sim-eval  the same real next positions, scored by a bot/eval evaluator (--evaluator, default
-                    linear-deck-g4) through bot/jepa/eval_helper.js: a perfect predictor and a better scorer.
+  --score sim-eval  the same real next positions, scored by a lab/eval evaluator (--evaluator, default
+                    linear-deck-g4) through bots/jepa/eval_helper.js: a perfect predictor and a better scorer.
   --log <file>      every decision with more than one move appends one JSON line with all three scores per move
                     (imagined, sim-v, sim-eval), whatever --score picks with.
 
@@ -123,7 +123,7 @@ class JepaPlayer:
         return {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0])}
 
     def rush_move(self, r, target, seen):
-        """A move inside a simulation for the seat to act, played like bot/players/rush.js (the training data's main
+        """A move inside a simulation for the seat to act, played like bots/players/rush.js (the training data's main
         opponent): in its action window a card from hand first, then an attack with a ready unit, then the leader,
         else pass, passing when the same window keeps coming back; attacks go at `target`'s base when it can be
         picked. Other prompts are random, never Cancel when something else is legal."""
@@ -397,7 +397,7 @@ class JepaPlayer:
                 else:
                     pos.append({"you": me, "prompt": WAIT_PROMPT, "state": r.get("state"), "actions": acts})
         if live and self.plan_cfg.get("scorer") == "eval":
-            # the fitted bot/eval evaluator in place of the value head (a yardstick for the value head)
+            # the fitted lab/eval evaluator in place of the value head (a yardstick for the value head)
             to_act = [leaves[k][2].get("actor") if (leaves[k][2].get("prompt") or {}).get("actionWindow") else None for k in live]
             vals[live] = M.sigmoid(np.asarray(self.evaluator.logits(me, self.decks, [m["state"] for m in pos], to_act)))
         elif live:
@@ -502,7 +502,7 @@ class JepaPlayer:
 
 
 class EvalHelper:
-    """bot/eval evaluator in a Node child process (bot/jepa/eval_helper.js), one JSON line per batch of states."""
+    """lab/eval evaluator in a Node child process (bots/jepa/eval_helper.js), one JSON line per batch of states."""
 
     def __init__(self, name):
         here = os.path.dirname(os.path.abspath(__file__))
@@ -545,10 +545,10 @@ def main():
                     help="what ranks the moves: the imagined next latent (the bot), the real next position from a simulation, "
                          "or the planner (whole moves with their follow-up choices, simulated)")
     ap.add_argument("--plan", default="", help="planner settings as k=v,... (roots, follow, follow2, depth, lines, secs, floor)")
-    ap.add_argument("--resource", default=None, help="answer resource prompts with this model (bot/jepa/resource_policy.py)")
+    ap.add_argument("--resource", default=None, help="answer resource prompts with this model (bots/jepa/resource_policy.py)")
     ap.add_argument("--plan-scorer", choices=["v", "eval"], default="v",
                     help="what scores the planner's settled positions: the value head, or the --evaluator (a yardstick)")
-    ap.add_argument("--evaluator", default="linear-deck-g4", help="bot/eval evaluator for sim-eval and --log")
+    ap.add_argument("--evaluator", default="linear-deck-g4", help="lab/eval evaluator for sim-eval and --log")
     ap.add_argument("--deals", type=int, default=1, help="deals of the hidden cards per move in sim modes")
     ap.add_argument("--judge", choices=["round", "window"], default="round",
                     help="when a simulated move is judged: after this round's action phase (round) or at my next action window")

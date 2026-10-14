@@ -2,7 +2,7 @@
 
 /**
  * Writes the research dashboard panel for the meta-analyzer (contract: /mnt/project-files/dashboard/README.md §5).
- *   node meta/panel.js <meta.json> <theory.json> <out panel.json> [artifact url]
+ *   node lab/meta/panel.js <meta.json> <theory.json> <out panel.json> [artifact url]
  */
 const fs = require('fs');
 

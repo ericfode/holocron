@@ -6,9 +6,9 @@
  * actions, distribute targets, lower-cased strings, printed card stats), calls `decide()`, and sends back the index
  * (and damage split) the module wrote. Memory offsets and field numbers come from the module's own exports.
  *
- *   node bot/wasm/host.js            card data from $SWU_CARD_JSON/Card or forceteki/test/json/Card
+ *   node bots/wasm/host.js            card data from $SWU_CARD_JSON/Card or forceteki/test/json/Card
  *   SWU_WASM_TRACE=1 node ...        print the module's trace calls on stderr
- *   node bot/wasm/host.js --check    compile and validate bot.wat, then exit
+ *   node bots/wasm/host.js --check    compile and validate bot.wat, then exit
  */
 
 const fs = require('fs');

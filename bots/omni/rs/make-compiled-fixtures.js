@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
-const { Env } = require('../../env');
+const { Env } = require('../../../engine/env');
 const { loadPool } = require('./pool');
 const { traceGame, seedList } = require('./trace');
 const arg = (name, fallback) => { const i=process.argv.indexOf(`--${name}`); return i<0?fallback:process.argv[i+1]; };

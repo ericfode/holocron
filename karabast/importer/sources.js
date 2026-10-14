@@ -9,9 +9,9 @@
  *   - a JSON array of gamestate objects, or JSON Lines with one gamestate per line
  *   - socket.io frames as saved from browser devtools: lines like 42["gamestate",{...}], or a devtools HAR export
  *   - SWU Forge Battle Log "PersistedTimeline" v2/v3: { v, base, steps: [{timestamp, patch}], chat? }
- *   - importer/capture.js output: JSON Lines {t:"gamestate", view, state}
+ *   - karabast/importer/capture.js output: JSON Lines {t:"gamestate", view, state}
  *
- * SWU-PGN game files (.swupgn) are not frame captures: importer/import.js sends them to importer/swupgn.js, and
+ * SWU-PGN game files (.swupgn) are not frame captures: karabast/importer/import.js sends them to karabast/importer/swupgn.js, and
  * readText() refuses them with a pointer there.
  */
 
@@ -337,7 +337,7 @@ function readHar(har) {
 
 function readText(text) {
     if (isSwuPgn(text)) {
-        throw new Error('SWU-PGN game file, not a Karabast capture: import it on its own (importer/swupgn.js); it already holds both hands');
+        throw new Error('SWU-PGN game file, not a Karabast capture: import it on its own (karabast/importer/swupgn.js); it already holds both hands');
     }
     const trimmed = text.trim();
     // whole-file JSON first

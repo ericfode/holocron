@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Starts the Clojure bot on stdin/stdout. Needs Java 11+ and nothing else: the first run downloads Clojure and
-# data.json from Maven Central into bot/clojure/lib/ (gitignored). With the Clojure CLI you can instead run
+# data.json from Maven Central into bots/clojure/lib/ (gitignored). With the Clojure CLI you can instead run
 # `clojure -M -m swu.main` from this folder (deps.edn). `./run.sh test` runs the unit tests.
 set -euo pipefail
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

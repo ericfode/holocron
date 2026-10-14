@@ -3,9 +3,9 @@
 /**
  * Summarise the omniscient experiments and publish them to the research dashboard.
  *
- *   node bot/omni/report.js [--root /mnt/project-files]
+ *   node bots/omni/report.js [--root /mnt/project-files]
  *
- * Reads:  <root>/omni/solve-*\/*.json        (bot/omni/solve-games.js)
+ * Reads:  <root>/omni/solve-*\/*.json        (bots/omni/solve-games.js)
  *         <root>/results/omni-ref-*\/index.json (bot/tournament.js runs with the omni bots)
  *         <root>/omni/decisions/*.jsonl      (OMNI_LOG_DIR decision logs)
  * Writes: <root>/omni/summary.json, <root>/dashboard/panels/omni.json,

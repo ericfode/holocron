@@ -3,7 +3,7 @@
  * Convert "swu-traj/1" trajectories (/mnt/project-files/learn/README.md: gzipped JSONL of stdio `decide` messages
  * plus the chosen index) into gen.js training arrays, so train.py can learn from games other threads collected.
  *
- *   node bot/learned/from-traj.js --in /mnt/project-files/learn/traj/random-v1-sample --out data/learned/traj-random/w0 [--labels played|none]
+ *   node bots/learned/from-traj.js --in /mnt/project-files/learn/traj/random-v1-sample --out data/learned/traj-random/w0 [--labels played|none]
  *
  * The played action becomes the policy label only with --labels played (use it for games by bots worth copying).
  * swu-traj has no "state after the action", so these rows are marked (step = -1) and left out of dynamics training.

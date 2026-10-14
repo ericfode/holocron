@@ -13,7 +13,7 @@
  * lookahead cannot see the real draws or shuffles. The real RNG state comes back with the rollback.
  */
 
-const { seededRng } = require('../env');
+const { seededRng } = require('../../engine/env');
 
 const HARM = /defeat|damage|attack|exhaust|capture|return|discard|take control|destroy|deal|disable/i;
 const HELP = /heal|shield|give|ready|attach|experience|restore|buff|\+\d/i;
@@ -240,7 +240,7 @@ class HeuristicBot {
     constructor(name = 'heuristic', { maxCandidates = 40, maxBranch = 8, depth = 1, beam = 3, maxFollowUps = 12, profile = null, evaluate: evalFn = null } = {}) {
         this.name = name;
         this.profile = profile;
-        // optional (eg, pid) -> score that replaces the profile evaluation, to compare evaluators under the same search (bot/eval/)
+        // optional (eg, pid) -> score that replaces the profile evaluation, to compare evaluators under the same search (lab/eval/)
         this.evaluate = evalFn;
         this.depth = depth;
         this.beam = beam;

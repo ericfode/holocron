@@ -12,7 +12,7 @@ Standard library only. stdout carries protocol lines; logs go to stderr.
 
     node bot/tournament.js --bots jev,heuristic --games 4 --out replays/jev-test
 
-With --look (registered as `jev-look`, adapter bot/jev/look.js) it can imagine before acting: at an action window where
+With --look (registered as `jev-look`, adapter bots/jev/look.js) it can imagine before acting: at an action window where
 Jev's favourite move has less than JEV_LOOK_CONFIDENT probability, it asks Jev which situation to imagine from a small
 vocabulary (the board right after one of its top moves, the opponent's board reply to it, or the rest of the round),
 the adapter simulates it on the engine and rolls back, the outcome is added to the state as `imagined`, and Jev is

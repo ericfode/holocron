@@ -3,7 +3,7 @@
  * Writes the research dashboard's strategy panel for the ISMCTS bots (schema in /mnt/project-files/dashboard/README.md,
  * section 5) from ladder results and the bots' live thoughts.
  *
- *   node bot/ismcts-panel.js --runs <ladderDir>[,<ladderDir>...] [--thoughts <dir>] [--out <panel.json>] [--watch 10]
+ *   node lab/runners/ismcts-panel.js --runs <ladderDir>[,<ladderDir>...] [--thoughts <dir>] [--out <panel.json>] [--watch 10]
  *
  * --runs: ladder.js run folders (each has ladder.json). --thoughts: the ISMCTS_THOUGHTS folder the bots write to.
  * --out defaults to /mnt/project-files/dashboard/panels/ismcts.json. --watch N rewrites it every N seconds until every
@@ -11,7 +11,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { W } = require('./players/heuristic');
+const { W } = require('../../bots/players/heuristic');
 
 function arg(name, dflt) {
     const i = process.argv.indexOf(`--${name}`);

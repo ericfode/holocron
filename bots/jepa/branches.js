@@ -1,5 +1,5 @@
 'use strict';
-// node bot/jepa/branches.js --games 400 --seed 700000 --workers 4 --out data/branch/rush-random [--bots rush,random] [--p 0.35]
+// node bots/jepa/branches.js --games 400 --seed 700000 --workers 4 --out data/branch/rush-random [--bots rush,random] [--p 0.35]
 //
 // Training data for the JEPA predictor with MANY moves per position. Recorded games show one move per position, so
 // the predictor never sees two moves from the same place and learns roughly the average future (the oracle test in
@@ -12,7 +12,7 @@
 //   {"t":"game","seed","bots":[p1,p2]}
 //   {"t":"b","seed","you","prompt","state","actions","main":i,"br":[{"i","h1":decide|null,"h4":decide|null,"over":winner|null,"err"?}]}
 //   {"t":"end","seed","winner","outcome","round","steps"}
-// A `decide` body is what a stdio bot would get ({you, prompt, state, actions}), so bot/jepa/features.py encodes it.
+// A `decide` body is what a stdio bot would get ({you, prompt, state, actions}), so bots/jepa/features.py encodes it.
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
@@ -23,7 +23,7 @@ function arg(name, dflt) {
     return i > 0 ? process.argv[i + 1] : dflt;
 }
 
-const { view, promptView, actionView, actionKey } = require('../view');
+const { view, promptView, actionView, actionKey } = require('../../engine/view');
 
 function decideBody(eg, pid, actions) {
     return { you: eg.seatOf(pid), prompt: promptView(eg, pid), state: view(eg, eg.seatOf(pid)), actions: actions.map((a, i) => actionView(eg, a, i, pid)) };
@@ -74,7 +74,7 @@ function playOn(eg, pid, makeBots, rng, maxSteps) {
 }
 
 async function worker(first, count, file, botNames, p, maxBranch) {
-    const { Env, seededRng } = require('../env');
+    const { Env, seededRng } = require('../../engine/env');
     const { makeBot } = require('../players');
     const env = new Env();
     fs.writeFileSync(file, '');

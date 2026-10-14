@@ -2,9 +2,9 @@
 'use strict';
 /**
  * Our bot's games against people on Karabast, as replays: every finished game under the queue runs' frame folders
- * (bot/karabast/queue.js --out) goes through the importer, the way live-view.js shows it.
+ * (karabast/queue.js --out) goes through the importer, the way live-view.js shows it.
  *
- *   node analysis/karabast/games.js --runs <folder of q-* runs> --out <dir>
+ *   node lab/analysis/karabast/games.js --runs <folder of q-* runs> --out <dir>
  *
  * Writes <dir>/games/<run>_<game>.jsonl (the replay format; our seat named "<bot> (ours)", the other "opponent") and
  * <dir>/index.json (one row per game: run, result, rounds, our seat, both decks, how it ended). Frames are already
@@ -12,7 +12,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { Games } = require('../../bot/karabast/live-view');
+const { Games } = require('../../../karabast/live-view');
 
 function arg(name, dflt) {
     const i = process.argv.indexOf(`--${name}`);

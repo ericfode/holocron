@@ -2,11 +2,11 @@
 'use strict';
 /**
  * Ask bots again at every decision our seat faced in recorded Karabast bot games, from the same frames the seat read
- * (bot/karabast/observe.js builds the same `decide` messages), and report where they disagree.
+ * (karabast/observe.js builds the same `decide` messages), and report where they disagree.
  *
- *   node analysis/karabast/redecide.js --bots c-clock,c-clock2 --deck <deck name> --out <file.jsonl> <frame file>...
+ *   node lab/analysis/karabast/redecide.js --bots c-clock,c-clock2 --deck <deck name> --out <file.jsonl> <frame file>...
  *
- * --deck names our deck in bot/decks/ash-meta-2026-09.json (the hello's deck list; default luke-skywalker_jtl_data-vault).
+ * --deck names our deck in decks/ash-meta-2026-09.json (the hello's deck list; default luke-skywalker_jtl_data-vault).
  * Each output line is one decision: { game, k, round, prompt, labels, picks: { bot: action index } }; a bot that
  * answers anything but an action stops the run. With --stderr <dir>, each bot's stderr goes to
  * <dir>/<bot>.<game>.log, so SWU_C_DEBUG=1 shows c-clock's reasons there.
@@ -15,11 +15,11 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { answer, StdioClient } = require('../../bot/stdio');
-const { Observer } = require('../../bot/karabast/observe');
-const { legalActions, decisionKey } = require('../../bot/karabast/frame');
+const { answer, StdioClient } = require('../../../engine/stdio');
+const { Observer } = require('../../../karabast/observe');
+const { legalActions, decisionKey } = require('../../../karabast/frame');
 
-const ROOT = path.join(__dirname, '..', '..');
+const ROOT = path.join(__dirname, '..', '..', '..');
 const noSim = async (req) => ({ t: 'simulated', op: req?.op ?? null, error: 'simulations are off on Karabast' });
 
 function args(argv) {
@@ -137,13 +137,13 @@ async function redecide(file, { bots, programs, deck, sink, stderr }) {
 
 async function main() {
     const a = args(process.argv.slice(2));
-    const programs = JSON.parse(fs.readFileSync(path.join(ROOT, 'bot', 'external-bots.json'), 'utf8'));
+    const programs = JSON.parse(fs.readFileSync(path.join(ROOT, 'bots', 'external-bots.json'), 'utf8'));
     for (const b of a.bots) {
         if (!programs[b]) {
-            throw new Error(`unknown bot program ${b} (bot/external-bots.json)`);
+            throw new Error(`unknown bot program ${b} (bots/external-bots.json)`);
         }
     }
-    const deck = JSON.parse(fs.readFileSync(path.join(ROOT, 'bot', 'decks', 'ash-meta-2026-09.json'), 'utf8')).find((d) => d.metadata.name === a.deck);
+    const deck = JSON.parse(fs.readFileSync(path.join(ROOT, 'decks', 'ash-meta-2026-09.json'), 'utf8')).find((d) => d.metadata.name === a.deck);
     if (!deck) {
         throw new Error(`no deck named ${a.deck}`);
     }

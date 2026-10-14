@@ -1,6 +1,6 @@
 'use strict';
 // Runs the Rust simulator in step with a forceteki game and records every place the two disagree. One mirror follows
-// one line of play: a real game (bot/match.js `watch`) or one simulation of a bot's lookahead (bot/protocol.js).
+// one line of play: a real game (engine/match.js `watch`) or one simulation of a bot's lookahead (engine/protocol.js).
 // forceteki stays the referee; the mirror only reads it. After a disagreement the mirror waits for the next action
 // window and loads forceteki's state again, so one game can show several findings.
 const { isDeepStrictEqual } = require('util');
@@ -44,7 +44,7 @@ function cardIndex(state) {
 
 class RustMirror {
     /**
-     * simulator: a WasmSimulator (bot/omni/wasm/node.js). meta: the trace header for repro files (seed, bots, decks,
+     * simulator: a WasmSimulator (bots/omni/wasm/node.js). meta: the trace header for repro files (seed, bots, decks,
      * pool provenance). report(finding): called once per disagreement. source: 'game' or 'sim'.
      */
     constructor(simulator, { meta, report, source = 'game', views = null }) {
@@ -118,9 +118,9 @@ class RustMirror {
         }
     }
 
-    /** The protocol views of this position from Rust (bot/omni/rs/rust-view.js) against bot/view.js on forceteki. */
+    /** The protocol views of this position from Rust (bots/omni/rs/rust-view.js) against engine/view.js on forceteki. */
     compareViews(eg, pid, actions, rust, window, step) {
-        const { view, actionView } = require('../../view');
+        const { view, actionView } = require('../../../engine/view');
         const seat = eg.seatOf(pid);
         const snap = this.game.snapshot();
         const plain = (list) => list.filter((a) => a.kind !== 'distribute').map(({ i, ...a }) => JSON.stringify(Object.fromEntries(Object.entries(a).sort()))).sort();

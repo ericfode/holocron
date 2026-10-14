@@ -3,7 +3,7 @@
  * Win-probability curves for a recorded game from a fitted evaluator, in the research dashboard's eval format
  * (dashboard/README.md section 3: every value is P(p1 wins)).
  *
- *   node bot/eval/curves.js --replay games/<id>.jsonl --eval mlp-deck [--decks decks.jsonl dir] [--out dashboard/evals/<id>.json]
+ *   node lab/eval/curves.js --replay games/<id>.jsonl --eval mlp-deck [--decks decks.jsonl dir] [--out dashboard/evals/<id>.json]
  *
  * Views: p1_subjective and p2_subjective (each player's own hand visible), objective_state (both hands).
  * Hindsight is not produced; an evaluator has no knowledge of the future.
@@ -61,7 +61,7 @@ function main() {
     const out = {
         schema: 1, gameId: id, tournament: path.basename(path.dirname(path.dirname(replay))), replay: `replays/${path.basename(path.dirname(path.dirname(replay)))}/games/${id}.jsonl`,
         p1: header?.players?.[0]?.bot ?? null, p2: header?.players?.[1]?.bot ?? null, winner: end?.winner ?? null, rounds: end?.round ?? null,
-        evaluator: { model: `bot/eval ${ev.name}`, prompt: null, note: `fitted position evaluator (${ev.kind}${ev.decks ? ', known decklists' : ''}); one point per action-window decision` },
+        evaluator: { model: `lab/eval ${ev.name}`, prompt: null, note: `fitted position evaluator (${ev.kind}${ev.decks ? ', known decklists' : ''}); one point per action-window decision` },
         points
     };
     const file = arg('out', null);

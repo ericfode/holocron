@@ -3,11 +3,11 @@
 /**
  * Watch recorded Karabast games in the Holotable viewer (the shared viewer kit) while they are played.
  *
- *   node bot/karabast/live-view.js --runs ~/karabast/runs --kit <viewer-kit dir> [--port 8080] [--host 127.0.0.1]
+ *   node karabast/live-view.js --runs ~/karabast/runs --kit <viewer-kit dir> [--port 8080] [--host 127.0.0.1]
  *        [--key <secret>] [--predict mlp-g5] [--names <file>] [--manage <desk dir>] [--review <url>]
  *
  * It reads the frame files that spectate.js (<run>/<hash>.jsonl) and queue.js (<run>/frames/<hash>.jsonl) write,
- * turns each into a replay with the importer (importer/karabast.js convertFrames) every time the file grows, and
+ * turns each into a replay with the importer (karabast/importer/karabast.js convertFrames) every time the file grows, and
  * serves it to the kit. A game still being played has no `end` line, so the kit re-fetches it every second and
  * follows the newest move. Frame files are scrubbed when written (frame.js), so nothing here has names or chat.
  *
@@ -39,8 +39,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
-const { readText } = require('../../importer/sources');
-const { convertFrames, splitGames } = require('../../importer/karabast');
+const { readText } = require('./importer/sources');
+const { convertFrames, splitGames } = require('./importer/karabast');
 const desk = require('./desk');
 
 /** A frame file stays "live" this long after its last write when it has no winner yet (prompt timer + bank). */
@@ -105,7 +105,7 @@ class Games {
         this.cache = new Map(); // file -> { version, game }, the KEEP most recently used
         this.summaries = new Map(); // file -> { version, info }
         this.rows = new Map(); // games.jsonl -> { version, rows }
-        this.ev = predict ? require('../eval/evaluators').loadEvaluator(predict) : null;
+        this.ev = predict ? require('../lab/eval/evaluators').loadEvaluator(predict) : null;
         this.predictName = predict;
     }
 
@@ -318,9 +318,9 @@ class Games {
         const h = g.events[0];
         return {
             schema: 'swu-lens/1', gameId: id.split('/').pop(), seed: h.seed, players: h.players.map((p) => ({ id: p.id, bot: p.bot })),
-            source: 'bot/karabast/live-view.js',
+            source: 'karabast/live-view.js',
             evaluator: {
-                id: this.predictName, label: `${this.predictName} win chance`.slice(0, 24), source: `bot/eval (${this.predictName})`,
+                id: this.predictName, label: `${this.predictName} win chance`.slice(0, 24), source: `lab/eval (${this.predictName})`,
                 description: 'A small model fitted on bot games. It reads the public board, without either hand, and gives the chance that p1 wins. Human games are harder for it to call than bot games.',
                 sees: 'public', cardValues: 'none', constantWeights: true, scale: { unit: 'logit' }, quality: null,
                 terms: { unit: [], base: [], side: [] }

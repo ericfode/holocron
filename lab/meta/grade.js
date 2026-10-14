@@ -1,6 +1,6 @@
 'use strict';
 
-/** Grades reviewer answers against the quiz key: node meta/grade.js <quiz.json> <answers.json>...  (answers: {id: "text"}) */
+/** Grades reviewer answers against the quiz key: node lab/meta/grade.js <quiz.json> <answers.json>...  (answers: {id: "text"}) */
 const fs = require('fs');
 
 const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9+.\- ]/g, ' ');

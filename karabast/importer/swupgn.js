@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * SWU-PGN/1.0 game files (.swupgn) -> swu_bot replay events (spec/replay-format.md v1, the shape importer/karabast.js
+ * SWU-PGN/1.0 game files (.swupgn) -> swu_bot replay events (spec/replay-format.md v1, the shape karabast/importer/karabast.js
  * writes: header, one step per player decision with a compact board snapshot, end).
  *
  * SWU-PGN is Karabast's draft game notation (SWU-Karabast/forceteki PR #2350, branch `swu-game-notation`, spec
@@ -12,7 +12,7 @@
  * parse() and fold() are written from the spec (sections 4, 11-13). The MOVE rule, the keyframe check and
  * linkActionSteps() follow the MIT-licensed reference reader in that branch (swupgn/src/fold.ts, integrity.ts,
  * actionLinks.ts; Copyright (c) 2016 Stuart Walsh, (c) 2024 Addison Mayberry) closely, so a fold here gives the
- * same board as the reference on its test vectors (checked by importer/test/swupgn.test.js).
+ * same board as the reference on its test vectors (checked by karabast/importer/test/swupgn.test.js).
  *
  * Privacy: P1Id/P2Id (salted username hashes) are never copied; seats are p1/p2 and names default to them.
  */
@@ -768,7 +768,7 @@ function makeNamer(doc, events) {
     return { title, setCode, ref, label, tokenRef, baseOf, names };
 }
 
-// ── snapshot (the compact shape of importer/karabast.js and bot/recorder.js) ───────────────────────────────────
+// ── snapshot (the compact shape of karabast/importer/karabast.js and engine/recorder.js) ───────────────────────────────────
 
 function unitRef(c, nm) {
     const out = { ...nm.ref(c.id), p: c.power ?? 0, h: c.hp ?? 0, d: c.damage ?? 0 };

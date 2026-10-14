@@ -2,13 +2,13 @@
 'use strict';
 
 /**
- * Writes bot/bend/cards.tsv: one line per set code (reprints included) with the numbers the Bend bot reads at start.
+ * Writes bots/bend/cards.tsv: one line per set code (reprints included) with the numbers the Bend bot reads at start.
  * The bot gets cards by set code (`s` in the protocol, e.g. SOR_095) and knows nothing else about them, so this
  * table is its only card knowledge. Only facts are extracted here (stats, keywords, aspects, and a few effect tags
  * found by regular expressions in the card text); every decision is made in Bend.
  *
- *   node bot/bend/tools/gen-cards.js [cardDir] [out] [textOut]
- *   defaults: forceteki/test/json/Card  bot/bend/cards.tsv  bot/bend/cards-text.tsv
+ *   node bots/bend/tools/gen-cards.js [cardDir] [out] [textOut]
+ *   defaults: forceteki/test/json/Card  bots/bend/cards.tsv  bots/bend/cards-text.tsv
  *
  * Columns (all numbers except code):
  *   code kind cost power hp arena vig cmd agg cun her vil kw raid restore upPower upHp unique fx fxN

@@ -23,7 +23,7 @@ pub struct Search {
     pub w: Weights,
 }
 
-/// `$name` as a number, or `default` (for experiments: `env` in `bot/external-bots.json`).
+/// `$name` as a number, or `default` (for experiments: `env` in `bots/external-bots.json`).
 fn env_or<T: std::str::FromStr>(name: &str, default: T) -> T {
     std::env::var(name).ok().and_then(|v| v.parse().ok()).unwrap_or(default)
 }

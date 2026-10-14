@@ -1,5 +1,5 @@
 'use strict';
-// node --test bot/test/decklists.test.js   (no card data needed)
+// node --test engine/test/decklists.test.js   (no card data needed)
 const test = require('node:test');
 const assert = require('node:assert');
 const fs = require('fs');

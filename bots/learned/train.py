@@ -1,6 +1,6 @@
-"""Train the learned bot's model with tinygrad from bot/learned/gen.js data.
+"""Train the learned bot's model with tinygrad from bots/learned/gen.js data.
 
-    python3 bot/learned/train.py --data data/learned/run1 [--data more/dirs ...] --out models/learned/v1.json
+    python3 bots/learned/train.py --data data/learned/run1 [--data more/dirs ...] --out lab/models/learned/v1.json
 
 One small network with three heads, trained together:
   enc : state features -> latent z ("world model" encoding of the position)
@@ -8,7 +8,7 @@ One small network with three heads, trained together:
   pol : [z, prompt, action] -> logit, softmax over the legal actions, trained to copy the teacher's choice
   dyn : [z, action] -> change in state features after the action (learned dynamics), trained on recorded transitions
 
-The JSON it writes is read by bot/learned/model.js. Games are split train/validation by game, not by decision.
+The JSON it writes is read by bots/learned/model.js. Games are split train/validation by game, not by decision.
 """
 import argparse, base64, glob, json, os, time
 import numpy as np

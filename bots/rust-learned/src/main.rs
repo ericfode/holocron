@@ -38,7 +38,7 @@ fn main() {
     let cmd = args.get(1).map(String::as_str).unwrap_or("play");
     match cmd {
         "play" => {
-            let model = flag(&args, "model").unwrap_or_else(|| "bot/rust-learned/models/learned-v4.safetensors".into());
+            let model = flag(&args, "model").unwrap_or_else(|| "bots/rust-learned/models/learned-v4.safetensors".into());
             let mut net = model::Net::new(&Device::flex());
             let mut store = SafetensorsStore::from_file(&model).allow_partial(true);
             if let Err(e) = net.load_from(&mut store) {

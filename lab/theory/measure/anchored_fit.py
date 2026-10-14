@@ -1,22 +1,22 @@
 """Fit an anchored linear evaluator in the position-eval bench's feature space and write it as a bench model.
 
 Input:
-  frames   JSONL from `node bot/eval/td-frames.js` (one game per line; every action window with the actor's frame `s`
+  frames   JSONL from `node lab/eval/td-frames.js` (one game per line; every action window with the actor's frame `s`
            and the frames of the children its one-ply search scored, all from the actor's subjective view)
-  proven   JSONL from `node bot/eval/proven-frames.js` (the omni solver's proven positions, side to move's view)
+  proven   JSONL from `node lab/eval/proven-frames.js` (the omni solver's proven positions, side to move's view)
 
-Model: the bench's `linear` kind (bot/eval/evaluators.js linearLogit), logit = sum_i w_i * d_i / std_i + wToAct * toAct,
+Model: the bench's `linear` kind (lab/eval/evaluators.js linearLogit), logit = sum_i w_i * d_i / std_i + wToAct * toAct,
 where d = me - opp side features. It has no intercept, so the two players' views agree (antisymmetric).
 
-Loss (theory/SwuTheory/Fitness.lean): fitted value iteration on soft targets
+Loss (lab/theory/SwuTheory/Fitness.lean): fitted value iteration on soft targets
   target(s) = (1 - mix) * backup(s) + mix * result(s)       backup = max over the actor's children (terminal = 0/1)
 plus every proven position as an exact anchor with total weight `alpha` x the windows' total weight.
 mix = 1, alpha = 0 is plain outcome regression; mix = 0, alpha = 0 is pure TD (which a constant can satisfy on a
 finite sample); the anchors pin the fixed point to known true values.
 
-Usage: python3 theory/measure/anchored_fit.py <frames dir> <proven.jsonl> <report.json> [--write name:mix:alpha:l2 ...]
+Usage: python3 lab/theory/measure/anchored_fit.py <frames dir> <proven.jsonl> <report.json> [--write name:mix:alpha:l2 ...]
   Cross-validates every configuration in CONFIGS (5 folds; frames games and proven games are both split by game),
-  then fits each --write configuration on all data and writes bot/eval/models/<name>.json.
+  then fits each --write configuration on all data and writes lab/eval/models/<name>.json.
 """
 import glob
 import json
@@ -26,8 +26,8 @@ import zlib
 
 import numpy as np
 
-N_SIDE = 30  # len(SIDE_KEYS) in bot/eval/features.js
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+N_SIDE = 30  # len(SIDE_KEYS) in lab/eval/features.js
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 # name, mix, alpha, l2. l2 pulls the weights toward the `base` evaluator (base HP difference only), not toward zero:
 # outcomes are per game, so a few hundred games overfit 31 weights unless they are held near a sound prior.
 CONFIGS = [
@@ -219,7 +219,7 @@ def model_json(name, w, std, mix, alpha, l2, n_games, n_proven):
     return {
         'name': name, 'kind': 'linear', 'decks': False,
         'w': [float(v) for v in w[:N_SIDE]], 'std': [float(v) for v in std], 'wToAct': float(w[N_SIDE]),
-        'fit': {'by': 'theory/measure/anchored_fit.py', 'mix': mix, 'alpha': alpha, 'l2_to_base': l2, 'games': n_games, 'proven': n_proven,
+        'fit': {'by': 'lab/theory/measure/anchored_fit.py', 'mix': mix, 'alpha': alpha, 'l2_to_base': l2, 'games': n_games, 'proven': n_proven,
                 'loss': 'fitted value iteration on (1-mix)*backup + mix*result, proven positions as exact anchors'},
     }
 
@@ -252,7 +252,7 @@ def main():
     std = stds(full)
     for name, mix, alpha, l2 in writes:
         w = fit(full, proven, std, float(mix), float(alpha), float(l2))
-        path = os.path.join(ROOT, 'bot', 'eval', 'models', f'{name}.json')
+        path = os.path.join(ROOT, 'lab', 'eval', 'models', f'{name}.json')
         json.dump(model_json(name, w, std, float(mix), float(alpha), float(l2), len(games), len(proven)), open(path, 'w'), indent=1)
         report.setdefault('written', {})[name] = {'mix': float(mix), 'alpha': float(alpha), 'l2': float(l2), 'w': [float(v) for v in w]}
         print(f'wrote {path}')

@@ -3,7 +3,7 @@
 /**
  * Position score used by the omniscient search at its leaves (and by the lens).
  *
- * Same terms and weights as `evaluate` in bot/players/heuristic.js, with one fix: there the "danger" part of the
+ * Same terms and weights as `evaluate` in bots/players/heuristic.js, with one fix: there the "danger" part of the
  * base term is added, so a side's score rises as its own base drops below ~9 HP. Here it is subtracted, so the
  * score falls faster the closer a base is to 0 (monotonic in base HP). heuristic.js is left as it is, because other
  * bots and recorded results depend on it.

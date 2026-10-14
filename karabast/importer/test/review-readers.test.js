@@ -1,6 +1,6 @@
 'use strict';
 
-// Regression tests for the capture readers (importer/sources.js): SWU Forge timelines and devtools HAR exports.
+// Regression tests for the capture readers (karabast/importer/sources.js): SWU Forge timelines and devtools HAR exports.
 
 const test = require('node:test');
 const assert = require('node:assert');

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # One refresh of the meta-analyzer: read every result and replay, rebuild the page, export the shared kit, update the dashboard panel.
-# Usage: meta/refresh.sh [project-files dir]   (default /mnt/project-files)
+# Usage: lab/meta/refresh.sh [project-files dir]   (default /mnt/project-files)
 set -euo pipefail
 P="${1:-/mnt/project-files}"
 HERE="$(cd "$(dirname "$0")" && pwd)"

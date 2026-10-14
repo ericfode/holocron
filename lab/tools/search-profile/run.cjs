@@ -9,7 +9,7 @@ const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const inspector = require('node:inspector');
 const { execFileSync } = require('node:child_process');
-const ROOT = path.resolve(__dirname, '../..');
+const ROOT = path.resolve(__dirname, '../../..');
 const nativeJSON = { parse: JSON.parse, stringify: JSON.stringify };
 const now = () => process.hrtime.bigint();
 const elapsed = (start) => Number(now() - start) / 1e6;
@@ -53,28 +53,28 @@ for (const method of ['parse', 'stringify']) {
 }
 
 // Wrap exports BEFORE protocol/ISMCTS destructure them.
-const { Env, EnvGame } = require('../../bot/env');
-const views = require('../../bot/view');
-const { Game } = require('../../forceteki/build/server/game/core/Game');
-const { GameStateManager } = require('../../forceteki/build/server/game/core/snapshot/GameStateManager');
+const { Env, EnvGame } = require('../../../engine/env');
+const views = require('../../../engine/view');
+const { Game } = require('../../../forceteki/build/server/game/core/Game');
+const { GameStateManager } = require('../../../forceteki/build/server/game/core/snapshot/GameStateManager');
 for (const method of ['apply', 'mark', 'restore', 'legalActions']) meter.wrap(EnvGame.prototype, method, `engine.${method}`);
 meter.wrap(Game.prototype, 'captureGameState', 'engine.diagnosticCapture');
 meter.wrap(Game.prototype, 'postRollbackOperations', 'engine.resumeAfterRestore');
 meter.wrap(GameStateManager.prototype, 'buildGameStateForSnapshot', 'engine.snapshotBuild');
 meter.wrap(GameStateManager.prototype, 'rollbackToSnapshot', 'engine.stateRestore');
 for (const method of ['view', 'promptView', 'actionView']) meter.wrap(views, method, `view.${method}`);
-const heuristic = require('../../bot/players/heuristic');
+const heuristic = require('../../../bots/players/heuristic');
 for (const method of ['evaluate', 'defaultChoose', 'fingerprint']) meter.wrap(heuristic, method, `policy.${method}`);
-const belief = require('../../bot/players/belief');
+const belief = require('../../../bots/players/belief');
 meter.wrap(belief, 'determinize', 'policy.determinize');
 meter.wrap(belief.BeliefModel.prototype, 'observe', 'policy.observe');
-const { IsmctsBot } = require('../../bot/players/ismcts');
+const { IsmctsBot } = require('../../../bots/players/ismcts');
 for (const method of ['select', 'leafValue', 'report']) meter.wrap(IsmctsBot.prototype, method, `policy.${method}`);
-const { createRushBot } = require('../../bot/players/rush');
-const { gameStreams, seededRng } = require('../../bot/rng');
-const { Shadow, ClientSeat, NativeSeat } = require('../../bot/protocol');
-const { StdioClient } = require('../../bot/stdio');
-const { create: createSearch } = require('../../bot/examples/search-bot');
+const { createRushBot } = require('../../../bots/players/rush');
+const { gameStreams, seededRng } = require('../../../engine/rng');
+const { Shadow, ClientSeat, NativeSeat } = require('../../../engine/protocol');
+const { StdioClient } = require('../../../engine/stdio');
+const { create: createSearch } = require('../../../bots/examples/search-bot');
 
 const originalRequest = StdioClient.prototype.request;
 StdioClient.prototype.request = function (message) {
@@ -170,7 +170,7 @@ function getClient(mode) {
     if (mode === 'js-inprocess') return createSearch('profile-search');
     if (!clients.has(mode)) {
         const options = mode === 'js-stdio'
-            ? { cmd: process.execPath, args: [path.join(ROOT, 'bot/examples/search-bot.js'), 'profile-search'] }
+            ? { cmd: process.execPath, args: [path.join(ROOT, 'bots/examples/search-bot.js'), 'profile-search'] }
             : { cmd: path.join(ROOT, 'target/release/swu-bot-rs'), args: ['search'] };
         clients.set(mode, new StdioClient('profile-search', { ...options, cwd: ROOT }));
     }

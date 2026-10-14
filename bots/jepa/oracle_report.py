@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Compare move rankings from jepa_bot.py --log files: imagined (the bot) vs real next positions (sim-v, sim-eval).
 
-    python3 bot/jepa/oracle_report.py jepa-h1.jsonl jepa-sim-v.jsonl ... [--json out.json]
+    python3 bots/jepa/oracle_report.py jepa-h1.jsonl jepa-sim-v.jsonl ... [--json out.json]
 
 For every logged decision with all three score lists:
   top1    the imagined best move is one of the best moves by the other score (ties count), and the chance level

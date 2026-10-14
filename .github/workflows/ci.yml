@@ -49,12 +49,12 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run test:py
-      - run: npm --prefix analysis ci && npm run analysis:test
+      - run: npm --prefix lab/analysis ci && npm run analysis:test
       - name: Engine sanity check (seeds 1-3 give 594/342/486 steps)
         run: |
-          node bot/random-run.js 3 1 | tee random-run.txt
+          node engine/random-run.js 3 1 | tee random-run.txt
           for want in '"seed":1,"steps":594,"outcome":"won:p2"' '"seed":2,"steps":342,"outcome":"won:p2"' '"seed":3,"steps":486,"outcome":"won:p2"'; do
             grep -qF "$want" random-run.txt || { echo "::error::expected $want"; exit 1; }
           done
-      - run: make -C bot/c
+      - run: make -C bots/c
       - run: cargo build --release && cargo test

@@ -1,10 +1,10 @@
 'use strict';
-// node bot/rust/check.js [gamesPerSeat] [startSeed] [cardJsonDir]
-// Plays the Rust bots (bot/external-bots.json) on the real engine against random-a, both seats, and prints each game
-// plus a win tally. Needs the release binary: cargo build --release --manifest-path bot/rust/Cargo.toml
+// node bots/rust/check.js [gamesPerSeat] [startSeed] [cardJsonDir]
+// Plays the Rust bots (bots/external-bots.json) on the real engine against random-a, both seats, and prints each game
+// plus a win tally. Needs the release binary: cargo build --release --manifest-path bots/rust/Cargo.toml
 const path = require('path');
-const { Env } = require('../env');
-const { playGame } = require('../match');
+const { Env } = require('../../engine/env');
+const { playGame } = require('../../engine/match');
 const { makeBot, closeBots } = require('../players');
 
 (async () => {

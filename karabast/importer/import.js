@@ -3,16 +3,16 @@
 /**
  * Import human games captured on karabast.net into the replay format.
  *
- *   node importer/import.js <capture file|dir>... --out replays/human [--names "Alice,Bob"] [--source karabuddy] [--keep-file-names]
- *   node importer/import.js --pair <player 1's capture> <player 2's capture> --out replays/human
+ *   node karabast/importer/import.js <capture file|dir>... --out replays/human [--names "Alice,Bob"] [--source karabuddy] [--keep-file-names]
+ *   node karabast/importer/import.js --pair <player 1's capture> <player 2's capture> --out replays/human
  *
  * --pair merges two captures of the same game, one recorded by each player, into one replay with both hands
- * (importer/merge.js). It can be given more than once.
+ * (karabast/importer/merge.js). It can be given more than once.
  *
  * Every input file becomes <out>/games/<id>.jsonl (spec/replay-format.md: header, steps, end) and <out>/index.json
- * is rewritten in the tournament format, so the viewer, analysis/ and bot/omni/lens.js read the folder unchanged.
- * Inputs: see importer/sources.js (KaraBuddy replay files, Karabast gamestate lists, socket.io dumps, capture.js), and
- * SWU-PGN game files (.swupgn, importer/swupgn.js), detected from their [Game "SWU-PGN/1.x"] tag.
+ * is rewritten in the tournament format, so the viewer, lab/analysis/ and bots/omni/lens.js read the folder unchanged.
+ * Inputs: see karabast/importer/sources.js (KaraBuddy replay files, Karabast gamestate lists, socket.io dumps, capture.js), and
+ * SWU-PGN game files (.swupgn, karabast/importer/swupgn.js), detected from their [Game "SWU-PGN/1.x"] tag.
  * <id> is g-<hash> for a file and <hash>.both for a pair, the first 10 hex digits of the SHA-1 of the input bytes, so
  * file names (KaraBuddy names downloads after both players) are never written. --keep-file-names uses the file name
  * without its extension instead, and also writes source.file / source.pairedWith (for files you named yourself).
@@ -133,7 +133,7 @@ function main() {
     const args = parseArgs(process.argv.slice(2));
     const files = expand(args.inputs);
     if (!files.length && !args.pairs.length) {
-        console.error('usage: node importer/import.js <capture file|dir>... [--pair <p1 capture> <p2 capture>] --out <dir> [--names A,B] [--source name] [--keep-file-names]');
+        console.error('usage: node karabast/importer/import.js <capture file|dir>... [--pair <p1 capture> <p2 capture>] --out <dir> [--names A,B] [--source name] [--keep-file-names]');
         process.exit(2);
     }
     fs.mkdirSync(path.join(args.out, 'games'), { recursive: true });

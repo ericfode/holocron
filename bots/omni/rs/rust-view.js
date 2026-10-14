@@ -1,10 +1,10 @@
 'use strict';
-// Protocol views (the shapes of bot/view.js) of a Rust simulator position, for bots that ask to simulate on the Rust
+// Protocol views (the shapes of engine/view.js) of a Rust simulator position, for bots that ask to simulate on the Rust
 // engine (spec/protocol.md, `simEngine`). The Rust state names cards by stable id and set code; titles and keywords
 // come from the pool file. What the Rust state does not hold is left out: prompt titles and types, the Force, credits.
 const ZONES = { hand: 'hand', resources: 'resource', ground: 'groundArena', space: 'spaceArena', discard: 'discard', deck: 'deck' };
 
-/** setCode -> { title, sentinel } from a loaded pool (bot/omni/rs/pool.js). */
+/** setCode -> { title, sentinel } from a loaded pool (bots/omni/rs/pool.js). */
 function poolCards(pool) {
     return new Map(pool.cards.map((c) => [c.setCode, { title: c.title, sentinel: (c.keywords ?? []).includes('sentinel'), token: (c.types ?? []).includes('token') }]));
 }
@@ -28,7 +28,7 @@ class RustViews {
         return out;
     }
 
-    /** bot/view.js view(eg, you): the board as seat `you` sees it. */
+    /** engine/view.js view(eg, you): the board as seat `you` sees it. */
     view(state, you) {
         const players = {};
         for (const [seat, p] of Object.entries(state.players)) {
@@ -57,7 +57,7 @@ class RustViews {
         return { round: state.round, phase: state.phase, initiative: state.initiative, players };
     }
 
-    /** Where a card is in the Rust state: { zone, ctl } as bot/view.js placedRef has them. */
+    /** Where a card is in the Rust state: { zone, ctl } as engine/view.js placedRef has them. */
     place(state, id) {
         for (const [seat, p] of Object.entries(state.players)) {
             for (const [key, zone] of Object.entries(ZONES)) {
@@ -81,7 +81,7 @@ class RustViews {
         return null;
     }
 
-    /** bot/view.js actionView for each Rust legal action, as seat `seat` sees it. Hidden cards are never offered. */
+    /** engine/view.js actionView for each Rust legal action, as seat `seat` sees it. Hidden cards are never offered. */
     actions(state, actions) {
         return actions.map((a, i) => {
             const out = { i, kind: a.kind, label: a.label };
@@ -103,7 +103,7 @@ class RustViews {
     }
 
     /**
-     * What bot/view.js promptView gives, as far as the Rust state knows it. The signature is forceteki's at an action
+     * What engine/view.js promptView gives, as far as the Rust state knows it. The signature is forceteki's at an action
      * window; elsewhere it is `rust|` and the kinds of the legal actions, since Rust has no prompt types.
      */
     prompt(game, seat, actions = []) {

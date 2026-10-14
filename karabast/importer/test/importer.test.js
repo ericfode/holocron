@@ -150,7 +150,7 @@ test('every capture format gives the same replay', () => {
 });
 
 test('analysis keeps only the views a one-seat capture supports', () => {
-    const { usableViews, ALL_VIEWS } = require('../../analysis/analyze');
+    const { usableViews, ALL_VIEWS } = require('../../../lab/analysis/analyze');
     const header = convertFrames(frames(game())).events[0];
     assert.deepStrictEqual(header.source.hiddenHands, ['p2']);
     assert.deepStrictEqual(usableViews({ header }, ALL_VIEWS), ['subjective_p1', 'omniscient']);
@@ -371,11 +371,11 @@ test('compact snapshot of a deployed leader', () => {
 });
 
 // Engine-backed check: capture a real game with forceteki and compare every frame with the recorder's snapshots.
-const engineReady = fs.existsSync(path.join(__dirname, '..', '..', 'forceteki', 'build', 'server')) &&
-    fs.existsSync(path.join(__dirname, '..', '..', 'forceteki', 'test', 'json', '_cardMap.json'));
+const engineReady = fs.existsSync(path.join(__dirname, '..', '..', '..', 'forceteki', 'build', 'server')) &&
+    fs.existsSync(path.join(__dirname, '..', '..', '..', 'forceteki', 'test', 'json', '_cardMap.json'));
 
 test('engine capture matches the recorder on every frame (rush vs random, seed 4)', { skip: !engineReady && 'needs forceteki/build and card data' }, async () => {
-    const { Env } = require('../../bot/env');
+    const { Env } = require('../../../engine/env');
     const { captureGame } = require('../capture');
     const { diffSnapshot } = require('../verify');
     const env = new Env();

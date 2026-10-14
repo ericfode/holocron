@@ -1,6 +1,6 @@
 """Merge field-eval runs and compare deck groups on the same seeds.
 
-    python3 bot/deckbuild/report.py DIR [DIR ...] [--out report.json] [--base real,stat]
+    python3 lab/deckbuild/report.py DIR [DIR ...] [--out report.json] [--base real,stat]
 
 A candidate named `<group>:<target>` belongs to <group> (built-linear, real, stat, ...). Runs made with the same
 --seed share seeds per (target, field deck), so groups from different runs are paired. For every group and every

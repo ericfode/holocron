@@ -1,4 +1,4 @@
-"""Unit tests on mock boards (no engine, no card files): python3 -m unittest discover -s bot/python"""
+"""Unit tests on mock boards (no engine, no card files): python3 -m unittest discover -s bots/python"""
 import os
 import sys
 import unittest

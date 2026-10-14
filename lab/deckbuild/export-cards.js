@@ -2,12 +2,12 @@
 
 /**
  * Dump the card pool (cards.js) as JSON for the Python deck models, so they need no engine:
- *   node bot/deckbuild/export-cards.js [out.json]     # default /mnt/project-files/deckbuild/cards.json
+ *   node lab/deckbuild/export-cards.js [out.json]     # default /mnt/project-files/deckbuild/cards.json
  * { leaders: [...], bases: [...], main: [...], alias: { reprintCode: canonicalCode } }, each card as in CardPool.
  */
 const fs = require('fs');
 const path = require('path');
-const { Env } = require('../env');
+const { Env } = require('../../engine/env');
 const { CardPool } = require('./cards');
 
 const out = process.argv[2] ?? '/mnt/project-files/deckbuild/cards.json';

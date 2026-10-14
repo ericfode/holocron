@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Fixed deck lists for ladders: `node bot/ladder.js --decks <file>` plays real decks instead of random ones.
+ * Fixed deck lists for ladders: `node lab/runners/ladder.js --decks <file>` plays real decks instead of random ones.
  *
  * A deck file is a JSON array (or { decks: [...] }) of SWUDB-format lists, the shape env.newGame takes:
  *   { metadata: { name }, leader: { id: 'LAW_008', count: 1 }, base: { id: 'ASH_019', count: 1 }, deck: [{ id, count }] }

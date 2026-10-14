@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Writes the JEPA strategy panel for the research dashboard (dashboard/README.md section 5).
 
-    python3 bot/jepa/panel.py --state bot/jepa/panel-state.json --train bot/jepa/models/jepa-v1.train.json \
+    python3 bots/jepa/panel.py --state bots/jepa/panel-state.json --train bots/jepa/models/jepa-v1.train.json \
         [--thoughts /tmp/jepa-thoughts.json] [--out /mnt/project-files/dashboard/panels/jepa.json]
 
 panel-state.json holds the hand-written parts (status, now, plan, thoughts, results table); the train.json

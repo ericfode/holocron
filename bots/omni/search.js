@@ -16,7 +16,7 @@
  * So the tree is exact about the order and targets of actions and approximate about deep sub-choices.
  *
  * Two searches are provided:
- *   - `alphaBeta`: depth-limited minimax with `bot/omni/evaluate.js` at the leaves (the playing bot).
+ *   - `alphaBeta`: depth-limited minimax with `bots/omni/evaluate.js` at the leaves (the playing bot).
  *   - `prove`: AND/OR proof search to the end of the game. Answers "can player X force a win within N windows,
  *     whatever the other player does?" with a transposition table. This is the exact solver; it is only feasible
  *     close to the end of a game.
@@ -25,10 +25,10 @@
  */
 
 const crypto = require('crypto');
-const { seededRng } = require('../env');
+const { seededRng } = require('../../engine/env');
 const { defaultChoose } = require('../players/heuristic');
 const { evaluate } = require('./evaluate');
-const { snapshot } = require('../recorder');
+const { snapshot } = require('../../engine/recorder');
 
 const WIN = 10000;
 

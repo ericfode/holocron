@@ -1,9 +1,9 @@
 'use strict';
-// Fault attribution: the bot guard (players/guard.js) and how the ladder report scores games a bot broke.
+// Fault attribution: the bot guard (bots/players/guard.js) and how the ladder report scores games a bot broke.
 const test = require('node:test');
 const assert = require('node:assert');
-const { guard } = require('../players/guard');
-const { summarize, scoreOf } = require('../ladder-report');
+const { guard } = require('../../bots/players/guard');
+const { summarize, scoreOf } = require('../runners/ladder-report');
 
 const actions = [{ kind: 'button', label: 'Pass' }, { kind: 'button', label: 'Claim' }];
 const ctx = { game: null, pid: 'x', actions, rng: () => 0 };
@@ -245,7 +245,7 @@ test('guard: a protocol client is timed on hello and decide, told the time it ha
 
 test('killChildren kills every child process but the ones it is told to spare (the ladder\'s window pusher)', async () => {
     const { spawn } = require('child_process');
-    const { killChildren } = require('../game-pool');
+    const { killChildren } = require('../../engine/game-pool');
     const sleeper = () => spawn('sleep', ['30'], { stdio: 'ignore' });
     const [bot, pusher] = [sleeper(), sleeper()];
     const exited = (c) => new Promise((r) => c.once('exit', (code, signal) => r(signal)));

@@ -1,6 +1,6 @@
 """Build decks with a trained deck model: hill-climb card swaps that raise the predicted win rate against a field.
 
-    python3 bot/deckbuild/build.py --model M.npz --out built.json [--field bot/decks/ash-meta-2026-09.json]
+    python3 lab/deckbuild/build.py --model M.npz --out built.json [--field decks/ash-meta-2026-09.json]
         [--targets field|LEADER/BASE,...] [--fold K/N] [--starts starts.json] [--random-starts 2] [--steps 150] [--tag NAME]
 
 For every target leader and base (default: those of the field decks) it starts from each given start deck with that
@@ -107,7 +107,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
     ap.add_argument("--cards", default="/mnt/project-files/deckbuild/cards.json")
-    ap.add_argument("--field", default=os.path.join(REPO, "bot/decks/ash-meta-2026-09.json"))
+    ap.add_argument("--field", default=os.path.join(REPO, "decks/ash-meta-2026-09.json"))
     ap.add_argument("--targets", default="field")
     ap.add_argument("--fold", default=None, help="K/N: only the field targets of fold K (pairs with deck_jepa.py --exclude-fold)")
     ap.add_argument("--starts", default=None)

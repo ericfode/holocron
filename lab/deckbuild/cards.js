@@ -30,7 +30,7 @@ function penalty(card, provided) {
 }
 
 class CardPool {
-    /** @param env bot/env.js Env (card data and the implemented-card rule) */
+    /** @param env engine/env.js Env (card data and the implemented-card rule) */
     constructor(env, { rarityFile = null } = {}) {
         const g = env.cardDataGetter;
         let rarity = {};

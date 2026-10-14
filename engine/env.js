@@ -4,7 +4,7 @@
  * Headless environment over the forceteki engine.
  *
  * Usage (from the repo root, after `npm run get-cards` and `npm run build`):
- *   const { Env } = require('./bot/env');
+ *   const { Env } = require('./engine/env');
  *   const env = new Env();                       // loads card data once (slow-ish)
  *   const game = env.newGame({ seed: 'abc', deck1, deck2 });
  *   game.legalActions(pid) -> [{kind, label, ...}]
@@ -160,7 +160,7 @@ class Env {
     /**
      * selectionToggles (default off): in a SelectCardPrompt, list selected cards as unselect toggles and drop
      * unselected cards once the limit is reached, as the prompt's click handler does. The Rust/Wasm reference
-     * traces (bot/omni/rs, bot/cards/reference) turn it on; everything else keeps the original action list, so
+     * traces (bots/omni/rs, bot/cards/reference) turn it on; everything else keeps the original action list, so
      * the gate and old replays are unchanged.
      */
     newGame({ seed = 'seed', deck1, deck2, undo = false, names = ['p1', 'p2'], selectionToggles = false } = {}) {

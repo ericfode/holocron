@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """py-clock: a Star Wars Unlimited bot in Python for the stdio protocol (spec/stdio-protocol.md). Standard library only.
 
-    node bot/ladder.js --bots py-clock,rush --games 10
+    node lab/runners/ladder.js --bots py-clock,rush --games 10
 
 Reads card data from forceteki/test/json (or $SWU_CARD_JSON). Set SWU_PY_TRACE=<file> to append every prompt it
 sees and the choice it made, one JSON line each (for debugging).

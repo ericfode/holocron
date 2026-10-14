@@ -2,7 +2,7 @@
 /*
  * Turn-by-turn position analysis of recorded swu_bot games.
  *
- *   node analysis/analyze.js <game.jsonl | tournament dir> [options]
+ *   node lab/analysis/analyze.js <game.jsonl | tournament dir> [options]
  *
  * Views (every value is stored as P(p1 wins) so the curves share one axis):
  *   subjective_p1 / subjective_p2  each player's own information: own hand, public board, opponent hand size
@@ -63,7 +63,7 @@ const clamp01 = (x) => (x == null || x === '' || !Number.isFinite(Number(x)) ? n
 const viewSeat = (view) => (view === 'subjective_p2' ? 'p2' : 'p1');
 
 /**
- * An imported human game (importer/) is recorded from one seat, so the other hand was never seen. The views that
+ * An imported human game (karabast/importer/) is recorded from one seat, so the other hand was never seen. The views that
  * need that hand (the other seat's subjective view, and objective, which would only repeat the recorder's view)
  * are dropped unless asked for by name.
  */
@@ -298,7 +298,7 @@ function writeAtomic(file, data) {
 async function main() {
     const a = args(process.argv.slice(2));
     if (!a._.length) {
-        console.error('usage: node analysis/analyze.js <game.jsonl | tournament dir> [--evaluator llm|heuristic] [--out file] ... (see header)');
+        console.error('usage: node lab/analysis/analyze.js <game.jsonl | tournament dir> [--evaluator llm|heuristic] [--out file] ... (see header)');
         process.exit(2);
     }
     const opt = {

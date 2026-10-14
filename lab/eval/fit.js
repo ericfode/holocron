@@ -1,8 +1,8 @@
 'use strict';
 /**
- * Fit every candidate evaluator on recorded positions and write bot/eval/models/<name>.json.
+ * Fit every candidate evaluator on recorded positions and write lab/eval/models/<name>.json.
  *
- *   node bot/eval/fit.js --data <dir>[,<dir>...] [--out bot/eval/models] [--only linear,mlp] [--hidden 8] [--l2 1e-3] [--epochs 30]
+ *   node lab/eval/fit.js --data <dir>[,<dir>...] [--out lab/eval/models] [--only linear,mlp] [--hidden 8] [--l2 1e-3] [--epochs 30]
  *                        [--drop deckLow,toAct,...] [--suffix -g4] [--view subjective|spectator]
  *
  * Training rows: the train split (by game) of every decided checkpoint, seen by each player in turn (subjectively by
@@ -14,7 +14,7 @@ const path = require('path');
 const { loadPositions } = require('./data');
 const { frameFeatures, SIDE_KEYS } = require('./features');
 const { HAND, MODELS, linearLogit, mlpLogit, sigmoid } = require('./evaluators');
-const { seededRng } = require('../env');
+const { seededRng } = require('../../engine/env');
 
 function arg(name, dflt) {
     const i = process.argv.indexOf(`--${name}`);

@@ -4,9 +4,9 @@
  * Do stronger bots agree more with humans? Bot skill from a gauntlet on the real decks, joined with each bot's
  * agreement with humans from compare.js.
  *
- *   node analysis/realdeck/skill.js --gauntlet <run dir>[,<run dir>...] --compare <compare.json> [--out skill.json]
+ *   node lab/analysis/realdeck/skill.js --gauntlet <run dir>[,<run dir>...] --compare <compare.json> [--out skill.json]
  *
- * A gauntlet run is one `node bot/ladder.js --decks <file> --bots a,b,c --vs <ref> --key K --seed 1` directory
+ * A gauntlet run is one `node lab/runners/ladder.js --decks <file> --bots a,b,c --vs <ref> --key K --seed 1` directory
  * (index.json, ladder.json with config.format 'gauntlet'). Every challenger plays the one reference bot on the same
  * seeds; with the same --key and --seed (also across runs) the deals are the same, so challengers can be compared
  * game for game. All runs must share the reference bot, and each challenger plays in one run only (one copy: no
@@ -18,7 +18,7 @@
  *
  * Skill: the challenger's score against the reference in decided games (a draw counts half), a Wilson 95% CI, and the
  * same as an Elo difference. An ERROR game a bot caused (`by` set: it threw, made an illegal move or timed out) is a
- * loss for that bot, as in bot/ladder-report.js. Games that end in an engine ERROR (`by` null), STEP_CAP, STUCK or
+ * loss for that bot, as in lab/runners/ladder-report.js. Games that end in an engine ERROR (`by` null), STEP_CAP, STUCK or
  * anything else are counted, by outcome, and left out. Games still running are ignored. The reference itself is 50% by
  * definition.
  *
@@ -649,7 +649,7 @@ function summaryText(r) {
     return L.join('\n');
 }
 
-const USAGE = 'usage: node analysis/realdeck/skill.js --gauntlet <run dir>[,<run dir>...] --compare <compare.json> [--out skill.json]';
+const USAGE = 'usage: node lab/analysis/realdeck/skill.js --gauntlet <run dir>[,<run dir>...] --compare <compare.json> [--out skill.json]';
 
 function main() {
     let args;

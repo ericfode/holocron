@@ -3,7 +3,7 @@
  * Which parts of a position matter? Refit the linear evaluator with one feature group left out at a time and
  * report how much the held-out Brier gets worse. A large rise = the group carries information nothing else has.
  *
- *   node bot/eval/ablate.js --data <dir>[,<dir>...] [--json out.json] [--decks]
+ *   node lab/eval/ablate.js --data <dir>[,<dir>...] [--json out.json] [--decks]
  */
 const fs = require('fs');
 const { loadPositions } = require('./data');

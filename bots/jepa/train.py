@@ -1,6 +1,6 @@
 """Trains the SWU JEPA in tinygrad.
 
-    python3 bot/jepa/train.py --data data/jepa/mix-v1.npz --out bot/jepa/models/jepa-v1 [--steps 6000] [--batch 512]
+    python3 bots/jepa/train.py --data data/jepa/mix-v1.npz --out bots/jepa/models/jepa-v1 [--steps 6000] [--batch 512]
 
 Writes <out>.safetensors (online encoder + heads + probes; what the bot loads), <out>.train.json (config,
 curves, held-out metrics) next to it.

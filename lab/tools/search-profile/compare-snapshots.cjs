@@ -10,7 +10,7 @@ const crypto = require('node:crypto');
 const { fork, execFileSync } = require('node:child_process');
 const { verifyPair, pairMetrics, summarizePairs } = require('./compare.cjs');
 
-const ROOT = path.resolve(__dirname, '../..');
+const ROOT = path.resolve(__dirname, '../../..');
 const ENGINE_ROOT = path.join(ROOT, 'forceteki/build/server/game');
 const ENGINE_FILES = {
     'GameObjectUtils.js': path.join(ENGINE_ROOT, 'core/GameObjectUtils.js'),
@@ -209,7 +209,7 @@ function createWorker(variant) {
 async function main(argv = process.argv.slice(2)) {
     const opts = argsOf(argv);
     if (opts.help) {
-        process.stdout.write('Usage: node --expose-gc tools/search-profile/compare-snapshots.cjs --baseline DIR --fixtures FILE[,FILE] [--modules core/path/Module.js,...] [--out DIR] [--pairs 5] [--warmups 2] [--modes rust-stdio,ismcts]\nWithout --modules, DIR contains GameObjectUtils.js and GameStateManager.js. With --modules, paths are relative to forceteki/build/server/game and mirrored under DIR.\n');
+        process.stdout.write('Usage: node --expose-gc lab/tools/search-profile/compare-snapshots.cjs --baseline DIR --fixtures FILE[,FILE] [--modules core/path/Module.js,...] [--out DIR] [--pairs 5] [--warmups 2] [--modes rust-stdio,ismcts]\nWithout --modules, DIR contains GameObjectUtils.js and GameStateManager.js. With --modules, paths are relative to forceteki/build/server/game and mirrored under DIR.\n');
         return;
     }
     const sources = {};

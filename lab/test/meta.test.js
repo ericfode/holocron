@@ -5,8 +5,8 @@ const assert = require('node:assert');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { canonical, view, fitLogistic, SITUATIONS, readReplay } = require('../../meta/analyze');
-const { grade } = require('../../meta/grade');
+const { canonical, view, fitLogistic, SITUATIONS, readReplay } = require('../meta/analyze');
+const { grade } = require('../meta/grade');
 
 test('canonical merges random seeds and moves pre-fix heuristic games to legacy', () => {
     assert.strictEqual(canonical('random-b', {}), 'random');

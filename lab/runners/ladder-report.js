@@ -10,7 +10,7 @@
  * counted under `incomplete` so engine bugs stay visible. Each bot row also counts the games it lost that way
  * (`forfeits`, included in its losses).
  */
-const { sequentialElo, bradleyTerry, wilson } = require('./ratings');
+const { sequentialElo, bradleyTerry, wilson } = require('../../engine/ratings');
 
 const rated = (g) => !!g.winner && (g.outcome === 'won' || (g.outcome === 'ERROR' && !!g.by));
 

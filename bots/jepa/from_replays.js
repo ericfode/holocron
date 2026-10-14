@@ -1,11 +1,11 @@
 'use strict';
-// node bot/jepa/from_replays.js --out data/traj/realdeck --workers 4 [--max N] <run dir or game file>...
+// node bots/jepa/from_replays.js --out data/traj/realdeck --workers 4 [--max N] <run dir or game file>...
 //
 // Training games for the JEPA (and any reader of "swu-traj/1") from recorded replays. A replay holds each decision's
 // chosen action and an omniscient board, while a bot sees one seat's view with the prompt and the legal actions. So
 // every game is played again on the engine from its header (decks, seed, the game's key in its `end` line), and at
 // each recorded decision with more than one legal action the acting seat's `decide` body is written, as
-// bot/learn/collect.js writes it for live games. A game whose replay drifts from the recording (another legal
+// lab/learn/collect.js writes it for live games. A game whose replay drifts from the recording (another legal
 // action count or label) is dropped from that step on, and so are games without a winner or without deck lists
 // (imported human games cannot be played again).
 //
@@ -55,9 +55,9 @@ function readGame(file) {
 }
 
 async function worker(files, file) {
-    const { Env } = require('../env');
-    const { gameStreams } = require('../rng');
-    const { view, promptView, actionView } = require('../view');
+    const { Env } = require('../../engine/env');
+    const { gameStreams } = require('../../engine/rng');
+    const { view, promptView, actionView } = require('../../engine/view');
     const env = new Env();
     fs.writeFileSync(file, '');
     const tally = { games: 0, decisions: 0, skipped: {}, drift: 0 };

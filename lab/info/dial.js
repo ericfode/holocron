@@ -25,13 +25,13 @@
  * are the expected outcome of these bots under each sampler. A gap between levels says how much the outcome depends
  * on that hidden information (predictive value), not what knowing it is worth to a player who could act on it.
  *
- *   node bot/info/dial.js <seed> [--bots rush,rush] [--n 48] [--at 0.25,0.5,0.75,0.9] [--out file.json]
+ *   node lab/info/dial.js <seed> [--bots rush,rush] [--n 48] [--at 0.25,0.5,0.75,0.9] [--out file.json]
  */
 
 const path = require('path');
 const fs = require('fs');
-const { Env, seededRng } = require('../env');
-const { makeBot, describeBot } = require('../players');
+const { Env, seededRng } = require('../../engine/env');
+const { makeBot, describeBot } = require('../../bots/players');
 
 const LEVELS = ['L0', 'L1', 'L2', 'L3', 'L4'];
 const SAMPLED = LEVELS.slice(1);
@@ -49,7 +49,7 @@ function parseArgs(argv) {
     return o;
 }
 
-/** One decision of the main loop, same order of rng use as bot/match.js. Returns false when nobody can act. */
+/** One decision of the main loop, same order of rng use as engine/match.js. Returns false when nobody can act. */
 function step(eg, bots, rng) {
     const order = rng() < 0.5 ? eg.ids : [...eg.ids].reverse();
     for (const pid of order) {

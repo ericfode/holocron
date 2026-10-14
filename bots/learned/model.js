@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Forward pass of the learned model in plain JS (no dependencies). Weights come from bot/learned/train.py.
+ * Forward pass of the learned model in plain JS (no dependencies). Weights come from bots/learned/train.py.
  *
  *   z      = enc(state)                          the "world model" latent for a position
  *   value  = tanh(val(z))                        expected result for the deciding seat, -1 loss .. +1 win

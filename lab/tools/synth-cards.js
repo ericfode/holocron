@@ -5,8 +5,8 @@
  * `npm run get-cards` cannot reach admin.starwarsunlimited.com.
  *
  * Usage (from the repo root):
- *   node bot/tools/synth-cards.js [outDir]        # default: replays/.synth-cards (gitignored)
- *   const env = new Env('replays/.synth-cards')   # bot/env.js
+ *   node lab/tools/synth-cards.js [outDir]        # default: replays/.synth-cards (gitignored)
+ *   const env = new Env('replays/.synth-cards')   # engine/env.js
  *
  * What it writes (same layout as forceteki/scripts/fetchdata.js writes into forceteki/test/json):
  *   Card/<internalName>.json, _cardMap.json, _setCodeMap.json, _allNonLeaderCardTitles.json,

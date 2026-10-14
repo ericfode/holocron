@@ -4,7 +4,7 @@
  * Score candidate decks against a field: every candidate plays every field deck on one seed, both seats, with one
  * pilot bot in both seats (play.js). The check for any deck builder.
  *
- *   node bot/deckbuild/field-eval.js --candidates a.json[,b.json] --out DIR [--field bot/decks/ash-meta-2026-09.json]
+ *   node lab/deckbuild/field-eval.js --candidates a.json[,b.json] --out DIR [--field decks/ash-meta-2026-09.json]
  *        [--pilot c-clock] [--seed 50000000] [--workers 4] [--key K] [--group-by prefix]
  *
  * Candidates sharing a leader and base with a field deck use the same seeds against each field deck, so builders
@@ -48,7 +48,7 @@ async function main() {
     const out = arg('out');
     const key = arg('key', 'deckbuild-eval');
     const seed0 = Number(arg('seed', 50000000));
-    const field = JSON.parse(fs.readFileSync(arg('field', path.join(__dirname, '../decks/ash-meta-2026-09.json')), 'utf8'));
+    const field = JSON.parse(fs.readFileSync(arg('field', path.join(__dirname, '../../decks/ash-meta-2026-09.json')), 'utf8'));
     const cands = arg('candidates').split(',').flatMap((f) => JSON.parse(fs.readFileSync(f, 'utf8')));
     const lb = (d) => `${d.leader.id}/${d.base.id}`;
     const jobs = [];

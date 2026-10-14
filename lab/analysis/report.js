@@ -2,7 +2,7 @@
 /*
  * Render an analysis file as one self-contained interactive HTML page.
  *
- *   node analysis/report.js <analysis.json> [--baseline other-analysis.json] [--game game.jsonl] [--out report.html] [--fragment]
+ *   node lab/analysis/report.js <analysis.json> [--baseline other-analysis.json] [--game game.jsonl] [--out report.html] [--fragment]
  *
  * --baseline overlays a second evaluator's objective curve (e.g. the heuristic) for comparison.
  * --game defaults to the replay path stored in the analysis; it adds the board at each checkpoint.
@@ -508,7 +508,7 @@ if (require.main === module) {
     const valued = new Set(['--baseline', '--game', '--kit', '--art-pack', '--lens', '--out']);
     const file = argv.find((x, k) => !x.startsWith('--') && !valued.has(argv[k - 1]));
     if (!file) {
-        console.error('usage: node analysis/report.js <analysis.json> [--baseline other.json] [--game game.jsonl] [--kit swu-viewer-kit.js [--art-pack pack.json] [--lens lens.json]] [--out report.html] [--fragment]');
+        console.error('usage: node lab/analysis/report.js <analysis.json> [--baseline other.json] [--game game.jsonl] [--kit swu-viewer-kit.js [--art-pack pack.json] [--lens lens.json]] [--out report.html] [--fragment]');
         process.exit(2);
     }
     const a = JSON.parse(fs.readFileSync(file, 'utf8'));

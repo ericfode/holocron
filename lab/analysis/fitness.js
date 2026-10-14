@@ -2,7 +2,7 @@
 /*
  * Position evaluations as a fitness signal for bots, and as a check on the evaluator itself.
  *
- *   node analysis/fitness.js <analysis.json | dir> [...] [--view objective] [--blunder 0.12] [--json]
+ *   node lab/analysis/fitness.js <analysis.json | dir> [...] [--view objective] [--blunder 0.12] [--json]
  *
  * Per game, for every checkpoint the change in the chosen view's P(win) is credited to the player who acted in
  * that turn (in that player's own frame). A checkpoint where both players acted (round granularity, or turns

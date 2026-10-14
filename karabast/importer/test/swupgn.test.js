@@ -12,7 +12,7 @@ const { readText } = require('../sources');
 // The five SWU-PGN/1.0 test vectors (fixtures/swupgn/README.md says where they come from).
 const DIR = path.join(__dirname, 'fixtures', 'swupgn');
 const NAMES = ['minimal', 'organic', 'upgrades', 'pilot', 'capture'];
-const ROOT = path.join(__dirname, '..', '..');
+const ROOT = path.join(__dirname, '..', '..', '..');
 const read = (name) => fs.readFileSync(path.join(DIR, `${name}.swupgn`), 'utf8');
 const steps = (events) => events.filter((e) => e.t === 'step');
 const isArena = (z) => z === 'ground' || z === 'space';
@@ -287,15 +287,15 @@ test('swupgn: reader errors and leniency follow the spec', () => {
 });
 
 test('swupgn: analysis keeps every view for an omniscient import', () => {
-    const { usableViews, ALL_VIEWS } = require('../../analysis/analyze');
+    const { usableViews, ALL_VIEWS } = require('../../../lab/analysis/analyze');
     const header = convertSwuPgn(read('organic')).events[0];
     assert.deepStrictEqual(usableViews({ header }, ALL_VIEWS), ALL_VIEWS);
 });
 
-test('swupgn: node importer/import.js game.swupgn --out dir --keep-file-names', () => {
+test('swupgn: node karabast/importer/import.js game.swupgn --out dir --keep-file-names', () => {
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'swupgn-'));
     try {
-        const log = execFileSync(process.execPath, [path.join(ROOT, 'importer', 'import.js'), path.join(DIR, 'organic.swupgn'), path.join(DIR, 'minimal.swupgn'), '--out', out, '--keep-file-names'], { encoding: 'utf8' });
+        const log = execFileSync(process.execPath, [path.join(ROOT, 'karabast', 'importer', 'import.js'), path.join(DIR, 'organic.swupgn'), path.join(DIR, 'minimal.swupgn'), '--out', out, '--keep-file-names'], { encoding: 'utf8' });
         assert.match(log, /organic: swu-pgn \(9 keyframes, 0 mismatches\), \d+ records -> 67 steps, pov both, winner p1/);
         const index = JSON.parse(fs.readFileSync(path.join(out, 'index.json'), 'utf8'));
         const organic = index.games.find((g) => g.id === 'organic');

@@ -2,7 +2,7 @@
 /**
  * Parallel round-robin over bot names, in the tournament format (index.json + games/<id>.jsonl when --record).
  *
- *   node bot/learned/arena.js --bots learned-pi,random --games 40 --workers 4 --seed 50000 [--out results/x] [--record]
+ *   node bots/learned/arena.js --bots learned-pi,random --games 40 --workers 4 --seed 50000 [--out results/x] [--record]
  *
  * Same seats, seeds and game ids as bot/tournament.js (first seat alternates; seed increments per game), but games run
  * in --workers child processes. Also writes <out>/ladder.json (a subset of the swu-ladder/1 schema: status, config,
@@ -18,9 +18,9 @@ function arg(name, dflt) {
 }
 
 async function worker() {
-    const { Env } = require('../env');
-    const { playGame } = require('../match');
-    const { snapshot } = require('../recorder');
+    const { Env } = require('../../engine/env');
+    const { playGame } = require('../../engine/match');
+    const { snapshot } = require('../../engine/recorder');
     const { makeBot, closeBots } = require('../players');
     const env = new Env();
     process.on('message', async (job) => {
@@ -119,7 +119,7 @@ async function main() {
         fs.mkdirSync(path.join(out, 'games'), { recursive: true });
     }
     const index = { id: out ? path.basename(out) : 'arena', createdAt: new Date().toISOString(), engine: null, bots: names, gamesPerPairing: perPair, games: [] };
-    const cfg = { bots: names, gamesPerPair: perPair, firstSeed: seed0, maxSteps: 6000, workers, model: process.env.SWU_LEARNED_MODEL ?? 'models/learned/current.json' };
+    const cfg = { bots: names, gamesPerPair: perPair, firstSeed: seed0, maxSteps: 6000, workers, model: process.env.SWU_LEARNED_MODEL ?? 'lab/models/learned/current.json' };
     const jobs = [];
     let seed = seed0;
     for (let a = 0; a < names.length; a++) {

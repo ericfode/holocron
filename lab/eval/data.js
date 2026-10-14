@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Load evaluator training/test data written by bot/eval/arena.js (--record positions|full).
+ * Load evaluator training/test data written by lab/eval/arena.js (--record positions|full).
  *
  * A dataset dir holds positions/<shard>.jsonl (one checkpoint per line: id, winner, toAct, state) and
  * decks/<shard>.jsonl (both decklists per game). Each decided checkpoint gives two rows, one per judge,

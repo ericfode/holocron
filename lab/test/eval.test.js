@@ -1,5 +1,5 @@
 'use strict';
-// Position evaluators (bot/eval) on hand-made snapshots. Runs without card data: unknown set codes count as tokens.
+// Position evaluators (lab/eval) on hand-made snapshots. Runs without card data: unknown set codes count as tokens.
 const test = require('node:test');
 const assert = require('node:assert');
 const { frameFeatures, vector, NAMES } = require('../eval/features');
@@ -46,7 +46,7 @@ test('a destroyed base is decided', () => {
 });
 
 test('h@ names resolve through the bot registry', () => {
-    const { makeBot, describeBot } = require('../players');
+    const { makeBot, describeBot } = require('../../bots/players');
     assert.strictEqual(describeBot('h2@linear').depth, 2);
     const b = makeBot('h@race');
     assert.strictEqual(b.name, 'h@race');

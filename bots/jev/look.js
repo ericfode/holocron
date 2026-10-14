@@ -29,15 +29,15 @@
  * count), and any card that was hidden before (the opponent's hand, resources and deck, and the bot's own deck) is
  * blanked to "hidden card", without its id, in `state` and `steps` if the simulation moves it into view.
  *
- * Registered in external-bots.json with "adapter": "bot/jev/look.js".
+ * Registered in external-bots.json with "adapter": "bots/jev/look.js".
  */
 
-const { StdioClient } = require('../stdio');
-const { view, promptView, actionView } = require('../view');
-const { LIMITS, PROTOCOL, determinize } = require('../protocol');
+const { StdioClient } = require('../../engine/stdio');
+const { view, promptView, actionView } = require('../../engine/view');
+const { LIMITS, PROTOCOL, determinize } = require('../../engine/protocol');
 const { defaultChoose } = require('../players/heuristic');
 const { attackChoice } = require('../players/rush');
-const { seededRng } = require('../env');
+const { seededRng } = require('../../engine/env');
 
 const KINDS = new Set(['after', 'reply', 'round']);
 const isPass = (a) => a.kind === 'button' && /^pass$/i.test(a.label);

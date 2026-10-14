@@ -2,10 +2,10 @@
 // Belief model and ISMCTS registry on mock objects (no engine or card data needed beyond the require chain).
 const test = require('node:test');
 const assert = require('node:assert');
-const { seededRng } = require('../env');
+const { seededRng } = require('../../engine/env');
 const { BeliefModel } = require('../players/belief');
 const { describeBot, parseIsmcts } = require('../players');
-const { gauntlet } = require('../ratings');
+const { gauntlet } = require('../../engine/ratings');
 
 const card = (name, cost) => ({ internalName: name, cost, aspects: [] });
 

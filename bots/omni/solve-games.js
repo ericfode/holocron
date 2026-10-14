@@ -3,10 +3,10 @@
 /**
  * Solve-horizon experiment: how far from the end of a real game can the omniscient prover find a forced win?
  *
- *   node bot/omni/solve-games.js --bots heuristic,heuristic --seeds 1-8 --budget 600 --depth 8 --out dir
+ *   node bots/omni/solve-games.js --bots heuristic,heuristic --seeds 1-8 --budget 600 --depth 8 --out dir
  *
  * For each seed it plays one game between the two bots (undo on), marking every action window. After the game it
- * walks the windows backwards from the end and, at each one, asks the prover (bot/omni/search.js) whether either
+ * walks the windows backwards from the end and, at each one, asks the prover (bots/omni/search.js) whether either
  * player can force a win within `--depth` windows, with `--budget` engine nodes. The walk stops after `--stop`
  * windows in a row come back unknown. Rollback only clears newer snapshots, so walking backwards keeps every
  * earlier mark valid.
@@ -21,10 +21,10 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { Env, seededRng } = require('../env');
+const { Env, seededRng } = require('../../engine/env');
 const { OmniSearch } = require('./search');
 const { evaluate } = require('./evaluate');
-// any bot of the shared registry (bot/players/index.js) can play the games that get solved
+// any bot of the shared registry (bots/players/index.js) can play the games that get solved
 const { makeBot } = require('../players');
 const { loadPool } = require('./rs/pool');
 const { fullState, stateHash, canonicalAction } = require('./rs/state');

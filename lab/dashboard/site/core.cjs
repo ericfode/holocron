@@ -128,7 +128,7 @@
                 rating[g.p1] += K * (sa - ea); rating[g.p2] -= K * (sa - ea);
                 n++;
                 for (const [s, r] of [[a, sa], [b, 1 - sa]]) { s.games++; s.rounds += g.rounds || 0; r === 1 ? s.wins++ : r === 0 ? s.losses++ : s.draws++; }
-                if (!draw) { decided++; if (sa === 1) p1Wins++; } // a forfeit is a decided result too (the bot that failed loses), as in bot/ladder-report.js
+                if (!draw) { decided++; if (sa === 1) p1Wins++; } // a forfeit is a decided result too (the bot that failed loses), as in lab/runners/ladder-report.js
                 for (const [x, y, r] of [[g.p1, g.p2, sa], [g.p2, g.p1, 1 - sa]]) { const c = ((h2h[x] ??= dict())[y] ??= { s: 0, n: 0 }); c.s += r; c.n++; }
                 history[g.p1].push([n, Math.round(rating[g.p1])]); history[g.p2].push([n, Math.round(rating[g.p2])]);
                 recent.push({ run: t.id, id: g.id, p1: g.p1, p2: g.p2, winner: draw ? 'draw' : sa ? g.p1 : g.p2, rounds: g.rounds, n, ...(forfeit ? { failed: by === 'p1' ? g.p1 : g.p2, error: g.error || null } : {}) });

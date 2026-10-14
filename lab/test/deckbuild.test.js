@@ -1,11 +1,11 @@
 'use strict';
-// node --test bot/test/deckbuild.test.js   (no card data needed: a mock card pool)
+// node --test lab/test/deckbuild.test.js   (no card data needed: a mock card pool)
 const test = require('node:test');
 const assert = require('node:assert');
 const { penalty } = require('../deckbuild/cards');
 const D = require('../deckbuild/decks');
 const { pairJobs, scoreA } = require('../deckbuild/play');
-const { seededRng } = require('../rng');
+const { seededRng } = require('../../engine/rng');
 
 // a tiny pool: leader and base give vigilance + heroism; units of every cost in and out of aspect
 function mockPool() {

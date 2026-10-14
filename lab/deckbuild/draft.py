@@ -1,6 +1,6 @@
 """Draft simulator for Star Wars: Unlimited (Comprehensive Rules 10.3) with pluggable drafters and deck builders.
 
-    python3 bot/deckbuild/draft.py --set SOR --pods 20 --drafters stat,rarity,random,stat --out pods.json
+    python3 lab/deckbuild/draft.py --set SOR --pods 20 --drafters stat,rarity,random,stat --out pods.json
         [--model M.npz] [--builder stat|model] [--seed 1]
 
 A pod is 8 players, 3 boosters each. Booster (16 cards, rates approximate): 1 leader (rare 1 in 6, else common),

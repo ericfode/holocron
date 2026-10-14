@@ -3,7 +3,7 @@
 /**
  * Export labelled positions from solve-horizon runs, for position-function research.
  *
- *   node bot/omni/export-positions.js <solve dir> <out.jsonl> [--legacy] [--reprove]
+ *   node bots/omni/export-positions.js <solve dir> <out.jsonl> [--legacy] [--reprove]
  *
  * solve-games.js stores results per action window but not the boards, so this replays each game (deterministic:
  * same seed, same bots, same loop) and snapshots every action window, then checks the replay matches (same window
@@ -14,7 +14,7 @@
  * - proven: 'p1' | 'p2' when the prover found a forced win for that side within proofDepth action windows
  *   (an exact label under the search's move model), null when it found none in budget or was not run there.
  * - state: recorder snapshot (both hands visible); deckOrder: both draw decks, top first (omniscient view).
- * - omniScore: bot/omni/evaluate.js for p1 (positive = good for p1).
+ * - omniScore: bots/omni/evaluate.js for p1 (positive = good for p1).
  *
  * --legacy: the heuristic bots score bases the old way (games solved before the 2026-10-11 base-score fix).
  * --reprove: run the current prover again at every window the solve run tried (same budget and depth) and
@@ -23,8 +23,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const { Env, seededRng } = require('../env');
-const { snapshot } = require('../recorder');
+const { Env, seededRng } = require('../../engine/env');
+const { snapshot } = require('../../engine/recorder');
 const { evaluate } = require('./evaluate');
 const { HeuristicBot } = require('../players/heuristic');
 const { makeBot: registryBot } = require('../players');

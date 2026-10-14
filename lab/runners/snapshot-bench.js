@@ -1,9 +1,9 @@
 'use strict';
-// node bot/snapshot-bench.js [seed] -> times takeManualSnapshot / rollback and checks rollback restores state + legal actions.
+// node lab/runners/snapshot-bench.js [seed] -> times takeManualSnapshot / rollback and checks rollback restores state + legal actions.
 const path = require('path');
-const { Env, seededRng } = require('./env');
-const { snapshot } = require('./recorder');
-const { SnapshotType } = require(path.join(__dirname, '..', 'forceteki', 'build/server', 'game/core/Constants.js'));
+const { Env, seededRng } = require('../../engine/env');
+const { snapshot } = require('../../engine/recorder');
+const { SnapshotType } = require(path.join(__dirname, '..', '..', 'forceteki', 'build/server', 'game/core/Constants.js'));
 
 (async () => {
     const seed = Number(process.argv[2] ?? 2);

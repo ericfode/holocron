@@ -1,5 +1,5 @@
 'use strict';
-// The WebAssembly bot (bot/wasm) on hand-made stdio messages: no engine and no real card data needed.
+// The WebAssembly bot (bots/wasm) on hand-made stdio messages: no engine and no real card data needed.
 const test = require('node:test');
 const assert = require('node:assert');
 const fs = require('fs');

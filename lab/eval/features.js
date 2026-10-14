@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Position features from a recorder Snapshot (bot/recorder.js), seen by one player (the "judge").
+ * Position features from a recorder Snapshot (engine/recorder.js), seen by one player (the "judge").
  *
  * Everything works on the snapshot, not on live engine objects, so the same evaluator scores
  * recorded games (any replay, any machine with card data) and positions inside a lookahead bot
@@ -124,7 +124,7 @@ function sideFeatures(ps, opp, state, seat, { handVisible, deck, db }) {
     f.leaderReady = ps.leader && !ps.leader.dep && !ps.leader.x ? 1 : 0;
     f.resources = ps.res.total;
     f.readyResources = ps.res.ready;
-    // a bot's own view (bot/view.js view(eg, seat)) lists only that seat's hand; the other side has handCount alone
+    // a bot's own view (engine/view.js view(eg, seat)) lists only that seat's hand; the other side has handCount alone
     f.hand = ps.hand?.length ?? ps.handCount ?? 0;
     if (handVisible && ps.hand) {
         for (const c of ps.hand) {

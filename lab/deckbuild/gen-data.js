@@ -3,10 +3,10 @@
 /**
  * Training data for deck models: many decks, each played against a sample of the field with one pilot in both seats.
  *
- *   node bot/deckbuild/gen-data.js --decks 600 --opps 8 --out /mnt/project-files/deckbuild/data/gen1 [--seed 1]
+ *   node lab/deckbuild/gen-data.js --decks 600 --opps 8 --out /mnt/project-files/deckbuild/data/gen1 [--seed 1]
  *        [--pilot c-clock] [--workers 4] [--key K] [--parents file.json] [--kinds random,mut,stat,statmut]
  *
- * Decks use the leader and base of a real tournament deck (the field, bot/decks/ash-meta-2026-09.json), in turn:
+ * Decks use the leader and base of a real tournament deck (the field, decks/ash-meta-2026-09.json), in turn:
  *   random    aspect-legal random cards
  *   mut       the real deck with k copies swapped for random aspect-legal cards, k in {2, 5, 10, 20}: card value by
  *             intervention (what a swap does near a deck that works)
@@ -18,11 +18,11 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { Env } = require('../env');
+const { Env } = require('../../engine/env');
 const { CardPool } = require('./cards');
 const { fromList, toList, randomDeck, statDeck, mutate } = require('./decks');
 const { pairJobs, playDecks } = require('./play');
-const { seededRng } = require('../rng');
+const { seededRng } = require('../../engine/rng');
 
 const arg = (n, d) => {
     const i = process.argv.indexOf(`--${n}`);
@@ -40,7 +40,7 @@ async function main() {
     const kinds = arg('kinds', 'random,mut,stat').split(',');
     const env = new Env();
     const pool = new CardPool(env);
-    const field = require('../decks/ash-meta-2026-09.json').map((l) => fromList(l, pool));
+    const field = require('../../decks/ash-meta-2026-09.json').map((l) => fromList(l, pool));
     const parents = arg('parents', null) ? JSON.parse(fs.readFileSync(arg('parents'), 'utf8')).map((l) => fromList(l, pool)) : [];
     const rng = seededRng(`gen:${key}:${seed0}`);
     const pick = (a) => a[Math.floor(rng() * a.length)];
@@ -87,7 +87,7 @@ async function main() {
     fs.appendFileSync(path.join(out, 'decks.jsonl'), decks.map((d) => JSON.stringify(d)).join('\n') + '\n');
     console.log(`gen: ${decks.length} decks x ${opps} opponents x 2 seats = ${jobs.length} games, pilot ${pilot} -> ${out}`);
     await playDecks(jobs, { workers, key, out: path.join(out, 'results.jsonl') });
-    fs.writeFileSync(path.join(out, 'config.json'), JSON.stringify({ pilot, key, field: 'bot/decks/ash-meta-2026-09.json', opps, kinds, lastSeed: seed0 }, null, 1));
+    fs.writeFileSync(path.join(out, 'config.json'), JSON.stringify({ pilot, key, field: 'decks/ash-meta-2026-09.json', opps, kinds, lastSeed: seed0 }, null, 1));
 }
 
 main().catch((e) => {

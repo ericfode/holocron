@@ -1,10 +1,10 @@
 'use strict';
 
 /**
- * Check the importer against ground truth: compare every frame of an importer/capture.js capture with the recorder's
+ * Check the importer against ground truth: compare every frame of an karabast/importer/capture.js capture with the recorder's
  * snapshot of the same decision.
  *
- *   node importer/verify.js <dir from capture.js> [--json]
+ *   node karabast/importer/verify.js <dir from capture.js> [--json]
  *
  * For each <game>.<view>.jsonl next to <game>.truth.jsonl, frame k is the board after decision k, so it must match
  * truth step k field by field. Cards the view cannot see (the other hand, or both for a spectator) only have to match
@@ -86,7 +86,7 @@ function verifyGame(dir, id, view) {
 function main() {
     const dir = process.argv[2];
     if (!dir) {
-        console.error('usage: node importer/verify.js <capture dir> [--json]');
+        console.error('usage: node karabast/importer/verify.js <capture dir> [--json]');
         process.exit(2);
     }
     const ids = fs.readdirSync(dir).filter((f) => f.endsWith('.truth.jsonl')).map((f) => f.replace(/\.truth\.jsonl$/, '')).sort();

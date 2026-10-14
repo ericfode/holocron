@@ -10,7 +10,7 @@
  *
  * Thinking time is every choose(), hello and decide call. It is this thread's CPU time (process.threadCpuUsage, user
  * + system) for bots that run here, so a busy engine on another worker does not count against them, and wall time
- * for bot programs (bot/stdio.js StdioClient, or a bot the caller marks with program: true). Wall time is also capped for
+ * for bot programs (engine/stdio.js StdioClient, or a bot the caller marks with program: true). Wall time is also capped for
  * bots that run here, at wallCapMs (default 2 x capMs), so work moved off this thread (worker threads, Atomics.wait,
  * child processes, waiting on a timer) is not free. loadMs and loadWallMs (the CPU and wall time createBot took, or
  * functions giving them, read after the bot's properties) start the two counters.
@@ -36,7 +36,7 @@
  * The clocks and timer functions are bound when this module loads, before any bot code runs, so a bot that replaces
  * process.threadCpuUsage, performance.now or setTimeout later does not change them.
  */
-const { StdioClient } = require('../stdio');
+const { StdioClient } = require('../../engine/stdio');
 
 const wallClock = performance.now.bind(performance);
 const threadCpu = typeof process.threadCpuUsage === 'function' ? process.threadCpuUsage.bind(process) : null;
@@ -96,7 +96,7 @@ function guard(bot, { capMs = Infinity, wallCapMs = 2 * capMs, loadMs = 0, loadW
     const timeoutMs = limit(bot.timeoutMs);
     const startTimeoutMs = limit(bot.startTimeoutMs);
     const clock = program ? wallClock : cpuClock;
-    // a program's code runs in its own process: what runs here for it (bot/stdio.js) is the referee's transport, which
+    // a program's code runs in its own process: what runs here for it (engine/stdio.js) is the referee's transport, which
     // must not pass for the bot's own async work (a program may also serve game after game)
     const own = program ? (fn) => fn() : within;
     // loadMs may be a clock read now, so reading the bot's properties above (they may be getters) is charged to it too
@@ -216,7 +216,7 @@ function guard(bot, { capMs = Infinity, wallCapMs = 2 * capMs, loadMs = 0, loadW
         g.choose = (ctx) => timed(ctx?.game?.round, () => fns.choose(ctx), plainAction);
         return g;
     }
-    // a protocol client: hello and over are optional (bot/stdio.js answer() replies for a client without them)
+    // a protocol client: hello and over are optional (engine/stdio.js answer() replies for a client without them)
     const told = (msg) => {
         const ms = Math.floor(left());
         return Number.isFinite(ms) && msg && typeof msg === 'object' ? { ...msg, ms: Math.max(1, msg.ms == null ? ms : Math.min(msg.ms, ms)) } : msg;

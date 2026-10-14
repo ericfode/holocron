@@ -52,7 +52,7 @@ pub struct OmniSearch {
     pub w: Weights,
 }
 
-/// The simulator with its card pool, from the pool file (`bot/omni/rs/pool.json`, run from the repo root).
+/// The simulator with its card pool, from the pool file (`bots/omni/rs/pool.json`, run from the repo root).
 pub fn load_engine(path: &str) -> Result<(Engine, Pool), String> {
     let bytes = std::fs::read(path).map_err(|e| format!("{path}: {e}"))?;
     let v: Value = serde_json::from_slice(&bytes).map_err(|e| format!("{path}: {e}"))?;

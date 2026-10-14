@@ -1,6 +1,6 @@
-"""Measure real evaluators against the Lean theory (theory/SwuTheory).
+"""Measure real evaluators against the Lean theory (lab/theory/SwuTheory).
 
-Input: JSONL from `node bot/td-measure.js` (one game per line: every action window with the position's
+Input: JSONL from `node lab/runners/td-measure.js` (one game per line: every action window with the position's
 features `s` and the features of each 1-ply child `kids`), plus the omni solver's proven endgames: either
 /mnt/project-files/omni/positions-hh.jsonl (preferred: relabelled by the fixed prover, see omni/POSITIONS.md) or
 the raw solve runs in /mnt/project-files/omni/solve-hh/ (the first prover's labels, 4 of which are not proofs).
@@ -15,7 +15,7 @@ Evaluators, all turned into player 1 win probabilities:
            through both h(s) and the backup (residual gradient)
   hybrid   fitted value iteration with targets 0.5 * backup + 0.5 * game result
 
-Usage: python3 theory/measure/td_residual.py <td dir> <positions.jsonl | solve dir> <out.json> [folds=5]
+Usage: python3 lab/theory/measure/td_residual.py <td dir> <positions.jsonl | solve dir> <out.json> [folds=5]
 """
 import json
 import math
@@ -29,7 +29,7 @@ KEYS = ['baseHp', 'danger', 'hand', 'resources', 'initiative', 'units', 'power',
 
 
 def heuristic(f, sign):
-    """The heuristic evaluation from player 1's side (bot/players/heuristic.js, W and SIDE defaults)."""
+    """The heuristic evaluation from player 1's side (bots/players/heuristic.js, W and SIDE defaults)."""
     def side(x):
         base = 0.9 * x['baseHp'] + sign * x['danger'] / 6.0
         return 1.5 * base + x['unitValue'] + 1.8 * x['hand'] + 1.4 * x['resources'] + 2.5 * x['initiative']

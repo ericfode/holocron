@@ -1,12 +1,12 @@
 'use strict';
 // One-ply search through simulations (spec/protocol.md#sim): at each action window, try up to `width` actions on a
 // private copy of the game, all on the same deal of the hidden cards, play on until my next action window (the opponent
-// passes when it can), score the board, keep the best. Runs in process or as a program, like random-bot.js:  node bot/examples/search-bot.js
+// passes when it can), score the board, keep the best. Runs in process or as a program, like random-bot.js:  node bots/examples/search-bot.js
 // The engine offers choices that change nothing (click a card, then Cancel its menu), and a search that scores them
 // above passing would take them forever, so the bot never makes the same choice twice in the same situation.
 const { createHash } = require('crypto');
-const { seededRng } = require('../rng');
-const { serve } = require('../stdio');
+const { seededRng } = require('../../engine/rng');
+const { serve } = require('../../engine/stdio');
 
 const sum = (units) => units.reduce((v, u) => v + u.p + u.h - u.d, 0);
 

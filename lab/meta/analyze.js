@@ -4,15 +4,15 @@
  * Meta-analyzer: reads every recorded tournament under a results folder and writes one JSON model of
  * each strategy's traits (strength, style, and where it wins or loses relative to expectation).
  *
- *   node meta/analyze.js [--results /mnt/project-files/results] [--out meta.json] [--panels dir] [--bots bots.json]
+ *   node lab/meta/analyze.js [--results /mnt/project-files/results] [--out meta.json] [--panels dir] [--bots bots.json]
  *                        [--human /mnt/project-files/human-games]
  *
- * Pure reading: no engine, no card data. Replays are the recorder JSONL format (bot/recorder.js).
+ * Pure reading: no engine, no card data. Replays are the recorder JSONL format (engine/recorder.js).
  */
 
 const fs = require('fs');
 const path = require('path');
-const { bradleyTerry } = require('../bot/ratings');
+const { bradleyTerry } = require('../../engine/ratings');
 const KIT = require('./atlas-kit');
 // A source's credit links to its site, never to one game (a game link is an id).
 const siteOf = (u) => { try { return u ? new URL(u).origin : null; } catch { return null; } };
@@ -25,7 +25,7 @@ const OUT = args.out || 'meta.json';
 const PANELS = args.panels || '/mnt/project-files/dashboard/panels';
 const BOTS_META = args.bots || '/mnt/project-files/dashboard/league/bots.json';
 const CARDS = args.cards || '/mnt/project-files/dashboard/bots'; // dashboard bot cards: their `family` wins, so both pages agree
-const HUMAN = args.human || '/mnt/project-files/human-games'; // imported karabast.net games (importer/import.js)
+const HUMAN = args.human || '/mnt/project-files/human-games'; // imported karabast.net games (karabast/importer/import.js)
 const RATINGS = args.ratings || path.join(path.dirname(OUT), 'ratings.json'); // one rating per bot for every page (Eric's app pick, 18:21)
 const CACHE = args.cache || null; // replay features keyed by path, size and mtime, so refreshes only read new games
 
@@ -237,7 +237,7 @@ function main() {
     }
     const botIds = [...new Set(games.flatMap((g) => [g.p1, g.p2]))].sort();
 
-    // Human games: <HUMAN>/<source>/index.json + games/<id>.jsonl, written by importer/import.js. Players are
+    // Human games: <HUMAN>/<source>/index.json + games/<id>.jsonl, written by karabast/importer/import.js. Players are
     // anonymous seats, and humans only play humans, so they stay out of the ratings and the baseline fit and are
     // scored as one competitor, "humans", against the bots' baseline.
     const humanGames = [];

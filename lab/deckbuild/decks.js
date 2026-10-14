@@ -2,9 +2,9 @@
 
 /**
  * Deck makers for experiments. A deck here is { name, leader, base, cards: [setCode, ...] } (one entry per copy);
- * `toList` turns it into the SWUDB-format list the engine and bot/decklists.js take, `fromList` reads one back.
+ * `toList` turns it into the SWUDB-format list the engine and engine/decklists.js take, `fromList` reads one back.
  *
- *   randomDeck   aspect-legal random cards (what bot/env.js deals, but for a chosen leader and base)
+ *   randomDeck   aspect-legal random cards (what engine/env.js deals, but for a chosen leader and base)
  *   statDeck     a simple hand-written builder: units only, the best printed stats for their cost, on the curve and
  *                arena split of the real tournament decks. The baseline a learned builder must beat.
  *   mutate       swap k copies for random aspect-legal cards (local search and training data)
@@ -13,7 +13,7 @@ const { penalty } = require('./cards');
 
 const MAX_COPIES = 3;
 
-/** Cost curve of the 27 real Premier decks (bot/decks/ash-meta-2026-09.json), scaled to 50 cards. */
+/** Cost curve of the 27 real Premier decks (decks/ash-meta-2026-09.json), scaled to 50 cards. */
 const REAL_CURVE = { 1: 4, 2: 12, 3: 11, 4: 8, 5: 6, 6: 3, 7: 3, 8: 3 };
 const SPACE_SHARE = 0.37;
 

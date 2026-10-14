@@ -1,7 +1,7 @@
-"""Fine-tune the JEPA predictor on branch data (bot/jepa/branches.js): many moves from the same position.
+"""Fine-tune the JEPA predictor on branch data (bots/jepa/branches.js): many moves from the same position.
 
-    python3 bot/jepa/branch_train.py --model bot/jepa/models/jepa-v1.safetensors --branches data/branch/rush-random data/branch/rush-rush \
-        --data data/jepa/mix-v1.npz --out bot/jepa/models/jepa-v1b
+    python3 bots/jepa/branch_train.py --model bots/jepa/models/jepa-v1.safetensors --branches data/branch/rush-random data/branch/rush-rush \
+        --data data/jepa/mix-v1.npz --out bots/jepa/models/jepa-v1b
 
 The encoder and the value head stay frozen, so latents and targets are computed once. The predictor and the action
 encoder learn from two batches per step:

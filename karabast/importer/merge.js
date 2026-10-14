@@ -124,7 +124,7 @@ function dropUnsureRuns(match, keysA, keysB, b, seat) {
 }
 
 /**
- * a, b: [{t, state}] from importer/sources.js readText, one per seat. Returns { frames, seats: {a, b}, matched, unmatched }.
+ * a, b: [{t, state}] from karabast/importer/sources.js readText, one per seat. Returns { frames, seats: {a, b}, matched, unmatched }.
  */
 function mergeCaptures(a, b) {
     // as in readFrames: a serialization-failure push has players {} and must not pair

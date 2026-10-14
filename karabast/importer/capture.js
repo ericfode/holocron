@@ -3,9 +3,9 @@
 /**
  * Karabast-style captures of engine games, for testing the importer against a known truth.
  *
- *   node importer/capture.js --bots rush,heuristic --seeds 1-3 --out /tmp/cap
+ *   node karabast/importer/capture.js --bots rush,heuristic --seeds 1-3 --out /tmp/cap
  *
- * Plays each seed with bot/match.js exactly like bot/tournament.js and, after every decision, also asks the engine for
+ * Plays each seed with engine/match.js exactly like bot/tournament.js and, after every decision, also asks the engine for
  * the `gamestate` object Karabast's server would push over the socket (Game.getState(viewerId)) to each viewer:
  *   <out>/<game>.p1.jsonl         what player 1's browser receives (own hand visible, opponent hand hidden)
  *   <out>/<game>.p2.jsonl         what player 2's browser receives
@@ -18,10 +18,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { Env } = require('../bot/env');
-const { playGame } = require('../bot/match');
-const { snapshot } = require('../bot/recorder');
-const { makeBot } = require('../bot/players');
+const { Env } = require('../../engine/env');
+const { playGame } = require('../../engine/match');
+const { snapshot } = require('../../engine/recorder');
+const { makeBot } = require('../../bots/players');
 
 const VIEWS = ['p1', 'p2', 'spectator'];
 
@@ -37,7 +37,7 @@ function parseArgs(argv) {
     const lo = Number(m?.[1]);
     const hi = Number(m?.[2] ?? m?.[1]);
     if (!m || hi < lo || !a.bots || !a.out) {
-        console.error('usage: node importer/capture.js --bots a,b --seeds 1-3 --out <dir> [--maxSteps 6000]');
+        console.error('usage: node karabast/importer/capture.js --bots a,b --seeds 1-3 --out <dir> [--maxSteps 6000]');
         process.exit(2);
     }
     a.seedList = Array.from({ length: hi - lo + 1 }, (_, k) => lo + k);

@@ -1,6 +1,6 @@
 ;;;; Build the bot as one executable with the card data inside:
-;;;;   sbcl --non-interactive --load bot/lisp/build.lisp      (from the repo root)
-;;;; Writes bot/lisp/swu-lisp. Card JSON comes from $SWU_CARD_JSON or forceteki/test/json.
+;;;;   sbcl --non-interactive --load bots/lisp/build.lisp      (from the repo root)
+;;;; Writes bots/lisp/swu-lisp. Card JSON comes from $SWU_CARD_JSON or forceteki/test/json.
 
 (defparameter *here* (directory-namestring (or *load-truename* *default-pathname-defaults*)))
 (ensure-directories-exist (merge-pathnames "fasl/" *here*))

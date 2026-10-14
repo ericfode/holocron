@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Does a bot on Karabast see what it sees in our own games? Plays random games in process (bot/env.js) and, at every
- * decision of seat p1, compares the `decide` message the referee would send (bot/view.js) with the one observe.js
+ * Does a bot on Karabast see what it sees in our own games? Plays random games in process (engine/env.js) and, at every
+ * decision of seat p1, compares the `decide` message the referee would send (engine/view.js) with the one observe.js
  * builds from the Karabast frame of the same engine state (Game.getState, the object the Karabast server sends).
  * Needs the engine build (forceteki/build) and card json.
  *
- *   node bot/karabast/fidelity.js [--games 20] [--seed 1] [--decks bot/decks/ash-meta-2026-09.json] [--examples 3]
+ *   node karabast/fidelity.js [--games 20] [--seed 1] [--decks decks/ash-meta-2026-09.json] [--examples 3]
  *
  * Prints how many decisions matched, and for each field that differed how often and a few examples. Known gaps are
  * left out of the comparison: player `name` (seat labels here), `passed` (not in a frame), and the order of upgrades
  * and selected cards (a frame has no attach or selection order). Actions are compared as a set; a different order is
  * counted separately.
  */
-const { Env, seededRng } = require('../env');
-const { view, promptView, actionView } = require('../view');
+const { Env, seededRng } = require('../engine/env');
+const { view, promptView, actionView } = require('../engine/view');
 const { Observer } = require('./observe');
 
 function arg(name, dflt) {

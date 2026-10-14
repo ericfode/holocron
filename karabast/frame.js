@@ -6,7 +6,7 @@
  * A frame is forceteki's `Game.getState(viewerId)` (server/game/core/Game.ts), keyed by user id: `players[id]` holds
  * `cardPiles`, `leaders`, `base`, `forceToken`, `credits` and, for the viewer only, `promptState`. Selectable cards
  * carry `selectable: true` on their summary, so legal actions are rebuilt from those flags plus the prompt fields
- * that `bot/env.js` legalActions reads from the engine (same order and kinds).
+ * that `engine/env.js` legalActions reads from the engine (same order and kinds).
  */
 
 const isObj = (x) => x != null && typeof x === 'object';
@@ -41,7 +41,7 @@ function remainingHp(card) {
 }
 
 /**
- * The legal actions of user `me` in `frame`, in the shape of `bot/env.js` legalActions: kinds button, card,
+ * The legal actions of user `me` in `frame`, in the shape of `engine/env.js` legalActions: kinds button, card,
  * distribute, option, displayCard and perCardButton. Empty while `me` is only waiting.
  */
 function legalActions(frame, me) {

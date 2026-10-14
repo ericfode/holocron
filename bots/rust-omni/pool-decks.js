@@ -1,16 +1,16 @@
 'use strict';
 
 /**
- * Random 50-card decks from the simulator's card pool (bot/omni/rs/pool.json), as a deck file for the ladder, so
+ * Random 50-card decks from the simulator's card pool (bots/omni/rs/pool.json), as a deck file for the ladder, so
  * rust-omni can search every game in its native simulator:
  *
- *   node bot/rust-omni/pool-decks.js --n 6 --seed 1 --out replays/pool-decks.json
- *   node bot/ladder.js --bots rust-omni,rust-search --decks replays/pool-decks.json --games 30
+ *   node bots/rust-omni/pool-decks.js --n 6 --seed 1 --out replays/pool-decks.json
+ *   node lab/runners/ladder.js --bots rust-omni,rust-search --decks replays/pool-decks.json --games 30
  */
 
 const fs = require('fs');
 const path = require('path');
-const { Env, seededRng } = require('../env');
+const { Env, seededRng } = require('../../engine/env');
 const { loadPool } = require('../omni/rs/pool');
 
 function arg(name, dflt) {

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Screenshots a built page for visual review: node meta/shoot.js <page.html> <outDir>
+ * Screenshots a built page for visual review: node lab/meta/shoot.js <page.html> <outDir>
  * Writes desktop-light.png, desktop-dark.png, phone-light.png (full page) and hero.png (first screen).
  */
 const path = require('path');

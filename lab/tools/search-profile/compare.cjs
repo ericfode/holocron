@@ -10,7 +10,7 @@ const crypto = require('node:crypto');
 const Module = require('node:module');
 const { execFileSync } = require('node:child_process');
 
-const ROOT = path.resolve(__dirname, '../..');
+const ROOT = path.resolve(__dirname, '../../..');
 const ENGINE_FILE = path.join(ROOT, 'forceteki/build/server/game/core/gameSteps/ActionWindow.js');
 const METHODS = ['continue', 'getSelectableCards', 'setPrompt'];
 const MODES = ['rust-stdio', 'ismcts', 'js-inprocess', 'js-stdio'];
@@ -192,7 +192,7 @@ function summarizePairs(pairs) {
 async function main(argv = process.argv.slice(2)) {
     const opts = argsOf(argv);
     if (opts.help) {
-        process.stdout.write('Usage: node --expose-gc tools/search-profile/compare.cjs --baseline FILE --fixtures FILE[,FILE] [--out DIR] [--pairs 5] [--warmups 2] [--modes rust-stdio,ismcts]\n');
+        process.stdout.write('Usage: node --expose-gc lab/tools/search-profile/compare.cjs --baseline FILE --fixtures FILE[,FILE] [--out DIR] [--pairs 5] [--warmups 2] [--modes rust-stdio,ismcts]\n');
         return;
     }
     const baselineSource = fs.readFileSync(opts.baseline, 'utf8');

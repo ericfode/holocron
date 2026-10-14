@@ -6,7 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawnSync } = require('node:child_process');
-const { stats, pairedChange, parseResults, semanticRows } = require('../omni-search-bench');
+const { stats, pairedChange, parseResults, semanticRows } = require('../tools/omni-search-bench');
 
 const position = { game: 'fixture', i: 0, seed: 7 };
 const result = { ...position, ms: 10, nodes: 100, decisions: 250, transpositions: 3, depth: 2, complete: false, result: null };
@@ -49,7 +49,7 @@ function fixture(t, changed) {
     fs.writeFileSync(path.join(dir, 'workloads.json'), JSON.stringify({ workloads: [{ id: 'fixture', positions: 'positions.jsonl', pool: 'pool.json', nodes: 100, depth: 12, tableEntries: 10 }] }));
     fs.writeFileSync(path.join(dir, 'config.json'), JSON.stringify({ workloads: 'workloads.json', rounds: 2, warmups: 0,
         variants: [{ id: 'before', binary: 'before' }, { id: 'after', binary: 'after' }] }));
-    return { dir, child: spawnSync(process.execPath, [path.join(__dirname, '../omni-search-bench.js'), 'run', path.join(dir, 'config.json'), path.join(dir, 'out')], { encoding: 'utf8' }) };
+    return { dir, child: spawnSync(process.execPath, [path.join(__dirname, '../tools/omni-search-bench.js'), 'run', path.join(dir, 'config.json'), path.join(dir, 'out')], { encoding: 'utf8' }) };
 }
 
 test('runner retains receipts, freezes binaries and interleaves variant order', (t) => {
