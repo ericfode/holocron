@@ -1,0 +1,67 @@
+device cuda; 895692 recorded train / 91775 held rows; 55240 branch train / 6193 held points (8s)
+step 100 6s (18.0 it/s) total=1.6318 pred1=0.1922 pred4=0.1927 var=0.7281 cov=0.0448 copy1=0.1043 br_p1=0.1725 br_d1=0.0206 br_s1=0.0156 br_p4=0.1674 br_d4=0.0237 br_s4=0.0202
+step 200 11s (19.0 it/s) total=1.0178 pred1=0.0544 pred4=0.0785 var=0.6357 cov=0.6670 copy1=0.1492 br_p1=0.0381 br_d1=0.0145 br_s1=0.0142 br_p4=0.0535 br_d4=0.0183 br_s4=0.0178
+step 300 15s (19.4 it/s) total=0.8433 pred1=0.0486 pred4=0.0763 var=0.4089 cov=2.4813 copy1=0.3153 br_p1=0.0336 br_d1=0.0136 br_s1=0.0165 br_p4=0.0496 br_d4=0.0182 br_s4=0.0198
+step 400 21s (19.5 it/s) total=0.7928 pred1=0.0496 pred4=0.0994 var=0.2415 cov=3.9979 copy1=0.5252 br_p1=0.0355 br_d1=0.0145 br_s1=0.0264 br_p4=0.0590 br_d4=0.0225 br_s4=0.0306
+step 500 25s (19.7 it/s) total=0.8720 pred1=0.0552 pred4=0.1398 var=0.1685 cov=4.6703 copy1=0.5379 br_p1=0.0425 br_d1=0.0182 br_s1=0.0440 br_p4=0.0792 br_d4=0.0318 br_s4=0.0489
+  held-out total=0.8964 pred1=0.0517 pred4=0.1510 var=0.1188 cov=5.5130 copy1=0.5142 br_p1=0.0418 br_d1=0.0205 br_s1=0.0567 br_p4=0.0872 br_d4=0.0358 br_s4=0.0563 moves_explained_h1=0.6382 moves_explained_h4=0.3640
+step 600 31s (19.4 it/s) total=0.9429 pred1=0.0638 pred4=0.1776 var=0.1242 cov=4.9265 copy1=0.4681 br_p1=0.0491 br_d1=0.0201 br_s1=0.0600 br_p4=0.0989 br_d4=0.0380 br_s4=0.0646
+step 700 36s (19.5 it/s) total=0.9906 pred1=0.0697 pred4=0.2045 var=0.0954 cov=5.0368 copy1=0.4316 br_p1=0.0519 br_d1=0.0207 br_s1=0.0725 br_p4=0.1122 br_d4=0.0431 br_s4=0.0771
+step 800 41s (19.6 it/s) total=1.0335 pred1=0.0751 pred4=0.2271 var=0.0768 cov=5.0870 copy1=0.3877 br_p1=0.0540 br_d1=0.0214 br_s1=0.0828 br_p4=0.1229 br_d4=0.0471 br_s4=0.0885
+step 900 46s (19.7 it/s) total=1.0484 pred1=0.0797 pred4=0.2437 var=0.0642 cov=4.9564 copy1=0.3505 br_p1=0.0540 br_d1=0.0214 br_s1=0.0883 br_p4=0.1286 br_d4=0.0485 br_s4=0.0942
+step 1000 51s (19.6 it/s) total=1.0800 pred1=0.0826 pred4=0.2551 var=0.0546 cov=4.8069 copy1=0.3463 br_p1=0.0567 br_d1=0.0228 br_s1=0.0947 br_p4=0.1364 br_d4=0.0528 br_s4=0.1038
+  held-out total=1.0891 pred1=0.0766 pred4=0.2498 var=0.0478 cov=4.9191 copy1=0.3399 br_p1=0.0537 br_d1=0.0236 br_s1=0.1029 br_p4=0.1426 br_d4=0.0569 br_s4=0.1069 moves_explained_h1=0.7708 moves_explained_h4=0.4680
+step 1100 57s (19.5 it/s) total=1.0980 pred1=0.0869 pred4=0.2639 var=0.0463 cov=4.6589 copy1=0.3434 br_p1=0.0576 br_d1=0.0232 br_s1=0.0978 br_p4=0.1421 br_d4=0.0555 br_s4=0.1089
+step 1200 62s (19.4 it/s) total=1.1209 pred1=0.0881 pred4=0.2717 var=0.0427 cov=4.5383 copy1=0.3388 br_p1=0.0596 br_d1=0.0239 br_s1=0.1016 br_p4=0.1476 br_d4=0.0585 br_s4=0.1152
+step 1300 68s (19.3 it/s) total=1.1325 pred1=0.0910 pred4=0.2755 var=0.0396 cov=4.4401 copy1=0.3349 br_p1=0.0594 br_d1=0.0240 br_s1=0.1035 br_p4=0.1514 br_d4=0.0605 br_s4=0.1181
+step 1400 73s (19.1 it/s) total=1.1482 pred1=0.0917 pred4=0.2800 var=0.0403 cov=4.3171 copy1=0.3311 br_p1=0.0590 br_d1=0.0242 br_s1=0.1064 br_p4=0.1559 br_d4=0.0630 br_s4=0.1213
+step 1500 79s (19.1 it/s) total=1.1558 pred1=0.0911 pred4=0.2811 var=0.0365 cov=4.2366 copy1=0.3215 br_p1=0.0593 br_d1=0.0242 br_s1=0.1076 br_p4=0.1590 br_d4=0.0656 br_s4=0.1262
+  held-out total=1.1434 pred1=0.0786 pred4=0.2709 var=0.0261 cov=4.6037 copy1=0.3244 br_p1=0.0511 br_d1=0.0239 br_s1=0.1130 br_p4=0.1630 br_d4=0.0685 br_s4=0.1255 moves_explained_h1=0.7885 moves_explained_h4=0.4545
+step 1600 84s (19.1 it/s) total=1.1534 pred1=0.0911 pred4=0.2820 var=0.0349 cov=4.1440 copy1=0.3270 br_p1=0.0581 br_d1=0.0234 br_s1=0.1067 br_p4=0.1612 br_d4=0.0667 br_s4=0.1265
+step 1700 89s (19.1 it/s) total=1.1562 pred1=0.0901 pred4=0.2832 var=0.0336 cov=4.0432 copy1=0.3318 br_p1=0.0578 br_d1=0.0235 br_s1=0.1083 br_p4=0.1627 br_d4=0.0683 br_s4=0.1297
+step 1800 94s (19.1 it/s) total=1.1643 pred1=0.0907 pred4=0.2818 var=0.0322 cov=3.9667 copy1=0.3322 br_p1=0.0577 br_d1=0.0237 br_s1=0.1089 br_p4=0.1661 br_d4=0.0706 br_s4=0.1310
+step 1900 99s (19.1 it/s) total=1.1693 pred1=0.0918 pred4=0.2842 var=0.0308 cov=3.9179 copy1=0.3366 br_p1=0.0584 br_d1=0.0235 br_s1=0.1097 br_p4=0.1680 br_d4=0.0714 br_s4=0.1298
+step 2000 104s (19.2 it/s) total=1.1730 pred1=0.0913 pred4=0.2825 var=0.0292 cov=3.8407 copy1=0.3342 br_p1=0.0567 br_d1=0.0239 br_s1=0.1112 br_p4=0.1705 br_d4=0.0734 br_s4=0.1338
+  held-out total=1.1505 pred1=0.0777 pred4=0.2725 var=0.0271 cov=4.0909 copy1=0.3446 br_p1=0.0464 br_d1=0.0225 br_s1=0.1138 br_p4=0.1736 br_d4=0.0749 br_s4=0.1302 moves_explained_h1=0.8023 moves_explained_h4=0.4247
+step 2100 110s (19.1 it/s) total=1.1580 pred1=0.0900 pred4=0.2833 var=0.0282 cov=3.7687 copy1=0.3399 br_p1=0.0560 br_d1=0.0230 br_s1=0.1109 br_p4=0.1675 br_d4=0.0725 br_s4=0.1308
+step 2200 115s (19.0 it/s) total=1.1659 pred1=0.0901 pred4=0.2824 var=0.0284 cov=3.7351 copy1=0.3344 br_p1=0.0558 br_d1=0.0232 br_s1=0.1093 br_p4=0.1716 br_d4=0.0739 br_s4=0.1316
+step 2300 121s (19.1 it/s) total=1.1561 pred1=0.0897 pred4=0.2822 var=0.0281 cov=3.6922 copy1=0.3374 br_p1=0.0553 br_d1=0.0229 br_s1=0.1105 br_p4=0.1687 br_d4=0.0732 br_s4=0.1313
+step 2400 126s (19.0 it/s) total=1.1564 pred1=0.0889 pred4=0.2801 var=0.0267 cov=3.6207 copy1=0.3346 br_p1=0.0551 br_d1=0.0228 br_s1=0.1109 br_p4=0.1709 br_d4=0.0746 br_s4=0.1339
+step 2500 132s (18.9 it/s) total=1.1411 pred1=0.0884 pred4=0.2789 var=0.0261 cov=3.5838 copy1=0.3354 br_p1=0.0546 br_d1=0.0222 br_s1=0.1109 br_p4=0.1668 br_d4=0.0736 br_s4=0.1343
+  held-out total=1.1144 pred1=0.0732 pred4=0.2692 var=0.0260 cov=3.7566 copy1=0.3278 br_p1=0.0433 br_d1=0.0217 br_s1=0.1134 br_p4=0.1672 br_d4=0.0746 br_s4=0.1302 moves_explained_h1=0.8081 moves_explained_h4=0.4274
+step 2600 138s (18.9 it/s) total=1.1398 pred1=0.0858 pred4=0.2780 var=0.0257 cov=3.5205 copy1=0.3317 br_p1=0.0534 br_d1=0.0223 br_s1=0.1095 br_p4=0.1701 br_d4=0.0742 br_s4=0.1309
+step 2700 143s (18.8 it/s) total=1.1249 pred1=0.0857 pred4=0.2754 var=0.0245 cov=3.4696 copy1=0.3226 br_p1=0.0526 br_d1=0.0220 br_s1=0.1077 br_p4=0.1667 br_d4=0.0733 br_s4=0.1311
+step 2800 148s (18.9 it/s) total=1.1139 pred1=0.0859 pred4=0.2716 var=0.0238 cov=3.4205 copy1=0.3225 br_p1=0.0531 br_d1=0.0216 br_s1=0.1083 br_p4=0.1661 br_d4=0.0726 br_s4=0.1300
+step 2900 154s (18.9 it/s) total=1.1114 pred1=0.0864 pred4=0.2718 var=0.0239 cov=3.3653 copy1=0.3250 br_p1=0.0536 br_d1=0.0217 br_s1=0.1066 br_p4=0.1676 br_d4=0.0717 br_s4=0.1283
+step 3000 159s (18.9 it/s) total=1.0811 pred1=0.0837 pred4=0.2667 var=0.0229 cov=3.3082 copy1=0.3145 br_p1=0.0500 br_d1=0.0206 br_s1=0.1061 br_p4=0.1614 br_d4=0.0704 br_s4=0.1269
+  held-out total=1.0683 pred1=0.0695 pred4=0.2585 var=0.0189 cov=3.6602 copy1=0.3215 br_p1=0.0406 br_d1=0.0204 br_s1=0.1093 br_p4=0.1642 br_d4=0.0722 br_s4=0.1252 moves_explained_h1=0.8131 moves_explained_h4=0.4237
+step 3100 164s (18.9 it/s) total=1.0870 pred1=0.0831 pred4=0.2671 var=0.0224 cov=3.2637 copy1=0.3175 br_p1=0.0512 br_d1=0.0211 br_s1=0.1061 br_p4=0.1623 br_d4=0.0715 br_s4=0.1262
+step 3200 169s (18.9 it/s) total=1.0799 pred1=0.0830 pred4=0.2648 var=0.0220 cov=3.2246 copy1=0.3140 br_p1=0.0515 br_d1=0.0209 br_s1=0.1053 br_p4=0.1625 br_d4=0.0709 br_s4=0.1271
+step 3300 174s (18.9 it/s) total=1.0742 pred1=0.0834 pred4=0.2625 var=0.0212 cov=3.1908 copy1=0.3082 br_p1=0.0517 br_d1=0.0211 br_s1=0.1046 br_p4=0.1630 br_d4=0.0700 br_s4=0.1271
+step 3400 179s (19.0 it/s) total=1.0600 pred1=0.0828 pred4=0.2624 var=0.0207 cov=3.1616 copy1=0.3017 br_p1=0.0511 br_d1=0.0205 br_s1=0.1041 br_p4=0.1583 br_d4=0.0691 br_s4=0.1265
+step 3500 184s (19.0 it/s) total=1.0519 pred1=0.0804 pred4=0.2590 var=0.0204 cov=3.1264 copy1=0.3009 br_p1=0.0496 br_d1=0.0206 br_s1=0.1029 br_p4=0.1578 br_d4=0.0693 br_s4=0.1238
+  held-out total=1.0265 pred1=0.0677 pred4=0.2507 var=0.0188 cov=3.4279 copy1=0.2920 br_p1=0.0413 br_d1=0.0200 br_s1=0.1050 br_p4=0.1558 br_d4=0.0688 br_s4=0.1210 moves_explained_h1=0.8099 moves_explained_h4=0.4313
+step 3600 190s (19.0 it/s) total=1.0277 pred1=0.0813 pred4=0.2559 var=0.0201 cov=3.0942 copy1=0.2960 br_p1=0.0477 br_d1=0.0194 br_s1=0.1010 br_p4=0.1534 br_d4=0.0670 br_s4=0.1225
+step 3700 195s (19.0 it/s) total=1.0293 pred1=0.0807 pred4=0.2550 var=0.0204 cov=3.1033 copy1=0.2933 br_p1=0.0490 br_d1=0.0192 br_s1=0.1009 br_p4=0.1554 br_d4=0.0670 br_s4=0.1221
+step 3800 201s (18.9 it/s) total=1.0303 pred1=0.0799 pred4=0.2531 var=0.0199 cov=3.0651 copy1=0.2941 br_p1=0.0487 br_d1=0.0198 br_s1=0.1000 br_p4=0.1576 br_d4=0.0673 br_s4=0.1221
+step 3900 206s (19.0 it/s) total=1.0062 pred1=0.0793 pred4=0.2480 var=0.0186 cov=3.0377 copy1=0.2910 br_p1=0.0480 br_d1=0.0198 br_s1=0.0986 br_p4=0.1518 br_d4=0.0650 br_s4=0.1187
+step 4000 211s (19.0 it/s) total=0.9910 pred1=0.0764 pred4=0.2460 var=0.0196 cov=3.0087 copy1=0.2874 br_p1=0.0473 br_d1=0.0193 br_s1=0.0975 br_p4=0.1489 br_d4=0.0638 br_s4=0.1192
+  held-out total=0.9772 pred1=0.0638 pred4=0.2362 var=0.0208 cov=3.2274 copy1=0.2800 br_p1=0.0381 br_d1=0.0195 br_s1=0.1004 br_p4=0.1483 br_d4=0.0657 br_s4=0.1160 moves_explained_h1=0.8058 moves_explained_h4=0.4331
+step 4100 216s (19.0 it/s) total=0.9865 pred1=0.0774 pred4=0.2457 var=0.0184 cov=2.9881 copy1=0.2866 br_p1=0.0472 br_d1=0.0193 br_s1=0.0970 br_p4=0.1481 br_d4=0.0632 br_s4=0.1154
+step 4200 222s (18.9 it/s) total=0.9795 pred1=0.0769 pred4=0.2417 var=0.0189 cov=2.9552 copy1=0.2838 br_p1=0.0463 br_d1=0.0188 br_s1=0.0969 br_p4=0.1457 br_d4=0.0642 br_s4=0.1196
+step 4300 227s (19.0 it/s) total=0.9698 pred1=0.0767 pred4=0.2417 var=0.0187 cov=2.9315 copy1=0.2824 br_p1=0.0459 br_d1=0.0185 br_s1=0.0948 br_p4=0.1452 br_d4=0.0626 br_s4=0.1139
+step 4400 232s (19.0 it/s) total=0.9597 pred1=0.0749 pred4=0.2375 var=0.0184 cov=2.8964 copy1=0.2795 br_p1=0.0454 br_d1=0.0181 br_s1=0.0955 br_p4=0.1457 br_d4=0.0624 br_s4=0.1154
+step 4500 237s (19.0 it/s) total=0.9565 pred1=0.0750 pred4=0.2360 var=0.0179 cov=2.8796 copy1=0.2750 br_p1=0.0445 br_d1=0.0181 br_s1=0.0937 br_p4=0.1441 br_d4=0.0629 br_s4=0.1127
+  held-out total=0.9313 pred1=0.0608 pred4=0.2243 var=0.0188 cov=3.1334 copy1=0.2687 br_p1=0.0366 br_d1=0.0183 br_s1=0.0966 br_p4=0.1432 br_d4=0.0622 br_s4=0.1109 moves_explained_h1=0.8104 moves_explained_h4=0.4386
+step 4600 243s (19.0 it/s) total=0.9398 pred1=0.0746 pred4=0.2343 var=0.0180 cov=2.8464 copy1=0.2741 br_p1=0.0457 br_d1=0.0181 br_s1=0.0929 br_p4=0.1407 br_d4=0.0601 br_s4=0.1114
+step 4700 248s (19.0 it/s) total=0.9379 pred1=0.0740 pred4=0.2337 var=0.0176 cov=2.8273 copy1=0.2702 br_p1=0.0454 br_d1=0.0180 br_s1=0.0929 br_p4=0.1429 br_d4=0.0598 br_s4=0.1100
+step 4800 253s (19.0 it/s) total=0.9179 pred1=0.0726 pred4=0.2303 var=0.0172 cov=2.7944 copy1=0.2638 br_p1=0.0438 br_d1=0.0178 br_s1=0.0925 br_p4=0.1369 br_d4=0.0585 br_s4=0.1089
+step 4900 258s (19.0 it/s) total=0.9068 pred1=0.0727 pred4=0.2292 var=0.0167 cov=2.7648 copy1=0.2657 br_p1=0.0436 br_d1=0.0173 br_s1=0.0904 br_p4=0.1378 br_d4=0.0568 br_s4=0.1075
+step 5000 263s (19.0 it/s) total=0.9072 pred1=0.0706 pred4=0.2281 var=0.0165 cov=2.7350 copy1=0.2596 br_p1=0.0439 br_d1=0.0177 br_s1=0.0898 br_p4=0.1356 br_d4=0.0581 br_s4=0.1079
+  held-out total=0.8956 pred1=0.0585 pred4=0.2152 var=0.0179 cov=2.9696 copy1=0.2639 br_p1=0.0353 br_d1=0.0175 br_s1=0.0924 br_p4=0.1390 br_d4=0.0602 br_s4=0.1065 moves_explained_h1=0.8104 moves_explained_h4=0.4347
+numpy forward vs torch: max difference 1.78e-06
+value stage: 900000 train / 180000 held latents in 2s
+value head: best held-out BCE 0.4604 at step 2400, accuracy on z / ẑ1 / ẑ4: 0.760 / 0.763 / 0.762
+  yardstick h1: top-1 0.649 (chance 0.389) median rho 0.80 spread imagined 2.4 / real 3.0 pts (6193 points)
+  yardstick h4: top-1 0.554 (chance 0.396) median rho 0.60 spread imagined 2.4 / real 3.7 pts (6193 points)
+wrote runs/tx-g1.safetensors in 311s
