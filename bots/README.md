@@ -44,6 +44,7 @@ Every bot is a client of the bot protocol (`spec/protocol.md` in the arena repo)
 - `engine/stdio.js` — `StdioClient` runs a bot program; `serve(client)` runs an in-process client as a program. No engine dependency. `players/external.js` still exports it as `ExternalBot`.
 - `engine/protocol.js` — the referee: hello/decide/over, time limits, blame (a bot that breaks a game loses it), simulations (`sim` requests) on a separate copy of the engine with hidden cards dealt again.
 - `engine/rng.js` — seeded and keyed random streams; `engine/view.js` — what a seat sees (board, prompt, actions).
+- `ports/` — `heuristic-port` and `rush-port`: the heuristic (balanced, depth 1) and rush bots as protocol v2 programs, the heuristic looking ahead through simulations. They are how the two enter the arena as submitted entries; see `ports/README.md`.
 - `examples/random_bot.py`, `examples/random-bot.js`, `examples/search-bot.js` — reference clients (the last one searches with simulations). Register programs by name in `external-bots.json` (or `$SWU_EXTERNAL_BOTS`); the registry in `players/index.js` picks them up, so the name works in `--bots` for `lab/runners/ladder.js`. Entries name their files from the repo root (`bots/c/swu-c`, `bots/python/swu_clock.py`).
 
 ## Bots in other languages
