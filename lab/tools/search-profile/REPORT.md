@@ -160,6 +160,6 @@ useful evidence for these bots, not a comprehensive survey of every card or
 position.
 
 ```sh
-node --expose-gc tools/search-profile/run.cjs --out results/search-profile-2026-10-11 --rounds 2,3,4 --repeats 5 --warmups 2 --cpu
-node --expose-gc tools/search-profile/run.cjs --out results/search-profile-2026-10-11-seed2 --seed 2 --rounds 4,6 --repeats 3 --warmups 1 --modes rust-stdio,ismcts --cpu
+node --expose-gc lab/tools/search-profile/run.cjs --out results/search-profile-2026-10-11 --rounds 2,3,4 --repeats 5 --warmups 2 --cpu
+node --expose-gc lab/tools/search-profile/run.cjs --out results/search-profile-2026-10-11-seed2 --seed 2 --rounds 4,6 --repeats 3 --warmups 1 --modes rust-stdio,ismcts --cpu
 ```

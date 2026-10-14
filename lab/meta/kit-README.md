@@ -3,8 +3,8 @@
 One picture language and one set of words for describing bots, taken from the Strategy Atlas. Use it on any page
 that says where a bot wins or how it plays (dashboard, arena app, viewers), so every page reads the same.
 
-This folder is written by `meta/export-kit.js` in the swu_bot repo on every hourly Atlas refresh. Do not edit it
-here; change `meta/atlas-kit.js` (the source the Atlas page is built from) and the next refresh copies it.
+This folder is written by `lab/meta/export-kit.js` in the swu_bot repo on every hourly Atlas refresh. Do not edit it
+here; change `lab/meta/atlas-kit.js` (the source the Atlas page is built from) and the next refresh copies it.
 
 | file | what |
 |---|---|
@@ -63,4 +63,4 @@ Heuristic bots: games from before the heuristic fix (PR #10, 2026-10-11 11:37 UT
 ```
 
 Per-bot numbers for each spot (edge, games, best and worst spot, style) are in `/mnt/project-files/meta/meta.json`
-(`swu-meta/1`, see `meta/README.md` in the repo). Spot ids there match the kit.
+(`swu-meta/1`, see `lab/meta/README.md` in the repo). Spot ids there match the kit.

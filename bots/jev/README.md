@@ -2,11 +2,11 @@
 
 A bot whose decisions come from [TypeSafe](https://typesafe.ai)'s Jev model (a "System One" model that returns typed
 answers with probabilities). It is a stdio bot (`spec/stdio-protocol.md`), registered as `jev` in
-`bot/external-bots.json`, so it plays in `tournament.js` and `ladder.js` like any other name:
+`bots/external-bots.json`, so it plays in `tournament.js` and `ladder.js` like any other name:
 
 ```bash
 node bot/tournament.js --bots jev,random-a --games 2 --out replays/jev-test
-node bot/ladder.js --bots jev,random,rush,heuristic --games 6 --workers 2 --id jev-ladder-1 --record
+node lab/runners/ladder.js --bots jev,random,rush,heuristic --games 6 --workers 2 --id jev-ladder-1 --record
 ```
 
 Python 3 standard library only. Needs network access to `api.typesafe.ai`.
@@ -36,7 +36,7 @@ Code keeps what code can do exactly:
 
 ## jev-look: imagine before deciding
 
-`jev-look` is the same program started with `--look` behind the adapter `bot/jev/look.js` (a native bot that runs the
+`jev-look` is the same program started with `--look` behind the adapter `bots/jev/look.js` (a native bot that runs the
 program and imagines on the engine with rollback). At an action window where Jev's favourite move has less than 80% probability, it asks Jev a
 second Choice: which situation to imagine, from a small vocabulary over its top 3 moves:
 
@@ -51,14 +51,14 @@ The adapter marks the game, plays the situation, rolls back, and returns the boa
 taken. The bot adds a summary (what happened, what changed, both boards) to the state as `imagined`, asks the action
 question again with it, and repeats until Jev picks `decide` or 3 imaginations are used. Each imagination first deals
 every card hidden from Jev again from a private seed (its own deck order, the opponent's hand, face-down resources and
-deck: `determinize` in `bot/protocol.js`), so nothing imagined follows the real hidden cards. Picks among unseen cards
+deck: `determinize` in `engine/protocol.js`), so nothing imagined follows the real hidden cards. Picks among unseen cards
 are random, and any card that was unseen before shows up only as "hidden card", without its id.
 
 Wire format (additive to the stdio protocol): the bot answers `decide` with
 `{"t":"imagine","situation":{"kind":"after","i":3}}`; the adapter answers
 `{"t":"imagined","seq":12,"ok":true,"left":2,"state":{...},"over":false,"winner":null,"steps":[{"who":"p1","at":"action","what":"Wampa"}]}`.
 Every `decide` sent through this adapter carries `imagine: {kinds, left}` at action windows and `imagine: null`
-elsewhere. Any stdio bot can use it by setting `"adapter": "bot/jev/look.js"` in `external-bots.json`.
+elsewhere. Any stdio bot can use it by setting `"adapter": "bots/jev/look.js"` in `external-bots.json`.
 
 ## Settings
 

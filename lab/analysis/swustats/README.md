@@ -5,8 +5,8 @@ Do leaders that win for human players also win in our bot ladder? Human numbers 
 these numbers appear.
 
 ```bash
-node analysis/swustats/fetch.js --out /mnt/project-files/human-meta/swustats        # two GETs, 3 s apart
-node analysis/swustats/compare.js --human /mnt/project-files/human-meta/swustats \
+node lab/analysis/swustats/fetch.js --out /mnt/project-files/human-meta/swustats        # two GETs, 3 s apart
+node lab/analysis/swustats/compare.js --human /mnt/project-files/human-meta/swustats \
      --results /mnt/project-files/results --permute 300                             # -> compare.json
 ```
 
@@ -22,6 +22,6 @@ node analysis/swustats/compare.js --human /mnt/project-files/human-meta/swustats
 
 Result on 2026-10-11 (2,000 decided games, 28 runs, 46 bots): κ = 0.31 ± 0.09, but shuffled human values reach that
 11% of the time, and the leader rank correlation is −0.04. Human leader strength does not carry over, most likely because
-ladder decks are random (`bot/env.js` `randomDeck`: a random leader and base plus random cards of their aspects) while a
+ladder decks are random (`engine/env.js` `randomDeck`: a random leader and base plus random cards of their aspects) while a
 human's leader comes with a deck built around it. Humans going first win 56.2%; our bots going first win 54.2%, but that
 edge goes away once bot strength is taken out (−0.01 ± 0.07 logit).

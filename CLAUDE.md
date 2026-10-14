@@ -12,10 +12,20 @@ analysis, the Strategy Atlas model, Lean theory, and the Karabast player. `READM
   sweeps) are for research only.
 - Kessel (`ericfode/kessel`) is the Rust rules simulator. A look-ahead bot brings its own simulator; only `omni*` bots
   see hidden cards, and they stay out of competitive ladders.
-- The files came from `swu_bot` with their history, at the paths they had there. `bot/env.js`, `view.js`,
-  `protocol.js`, `match.js`, `game-pool.js`, `stdio.js`, `rng.js`, `recorder.js`, `decklists.js`, `cardpool.js`,
-  `ratings.js` and `bot/decks/` are a copy of the arena's game player (swu_bot `7455601`): fix player bugs in the arena
-  first, then copy the fix here.
+- The files came from `swu_bot` with their history and were then sorted into this layout (`git log --follow` works
+  across both moves):
+  - `bots/`: every bot (`bots/<name>/`, `bots/players/` with the name registry `players/index.js`, `bots/examples/`,
+    `bots/starters/`), the bot list `bots/README.md` and `bots/external-bots.json`.
+  - `engine/` and `decks/`: a copy of the arena's game player (swu_bot `7455601`, where it was `bot/env.js`,
+    `bot/view.js`, ...): `env.js`, `view.js`, `protocol.js`, `match.js`, `game-pool.js`, `stdio.js`, `rng.js`,
+    `recorder.js`, `decklists.js`, `cardpool.js`, `ratings.js`, `random-run.js`, `debug-seed.js`, and the deck lists.
+    Fix player bugs in the arena first, then copy the fix here.
+  - `lab/`: `runners/` (ladder, sweeps, measurement scripts), `eval/`, `learn/`, `info/`, `deckbuild/`, `tools/`,
+    `analysis/`, `theory/`, `meta/`, `dashboard/`, `models/`.
+  - `karabast/` (the Karabast player) and `karabast/importer/`.
+  - Tests sit next to what they test (`engine/test/`, `bots/test/`, `lab/test/`, `karabast/test/`, ...).
+- Paths into code that is not in this repo stay as the arena and Kessel name them: `bot/tournament.js`,
+  `bot/compiled/`, `bot/arena/` (arena), `omni-rs`, `omni-wasm`, `card-compiler`, `bot/cards` (Kessel).
 
 **Do not modify anything inside `forceteki/` without asking the user first.** It is a submodule of `ericfode/forceteki`
 pinned to the arena's commit (`2ebed8ca2`); move the pin only together with the arena.
@@ -29,18 +39,19 @@ git submodule update --init
 cd forceteki && npm ci --ignore-scripts && npm run get-cards && npm run build
 ```
 
-`bot/` loads the engine from `forceteki/build/server` and card data from `forceteki/test/json` (both gitignored).
+`engine/` loads the engine from `forceteki/build/server` and card data from `forceteki/test/json` (both gitignored).
 If you hit `Importing card class with repeated id!`, delete `forceteki/build/` and rebuild.
 
 ```bash
-npm test                     # unit tests (needs the built engine); CI runs this, test:py, analysis:test, cargo, make
-node bot/random-run.js 3 1   # engine sanity check: seeds 1-3 give 594/342/486 steps, p2 wins (deterministic)
-node bot/debug-seed.js <seed>
+npm test                        # unit tests (needs the built engine); CI runs this, test:py, analysis:test, cargo, make
+node engine/random-run.js 3 1   # engine sanity check: seeds 1-3 give 594/342/486 steps, p2 wins (deterministic)
+node engine/debug-seed.js <seed>
+node lab/runners/ladder.js --bots rush,random-a,c-clock --games 2   # quick ladder; c-clock needs make -C bots/c
 npm run ladder -- --bots rush,heuristic,random --games 10
 npm run realdeck:test -- --bot <bot>   # standard bot test: 702 games vs c-clock on 27 real decks
 ```
 
-## How `bot/env.js` drives the engine
+## How `engine/env.js` drives the engine
 
 `env.js` constructs a forceteki `Game` directly (no server, sockets or lobby):
 

@@ -6,7 +6,7 @@ embeddings* given an action, then picks moves by imagining futures in that embed
 reconstructs a board, which is the difference from a generative world model (and from the "world head" of the
 Rust and tinygrad learned bots, which predict board numbers directly).
 
-Not to be confused with the Jev bot (`bot/jev/`), which asks TypeSafe's Jev model.
+Not to be confused with the Jev bot (`bots/jev/`), which asks TypeSafe's Jev model.
 
 ## The model
 
@@ -18,12 +18,12 @@ z          ─> value V ─> logit "I win from here"
 ```
 
 - **Encoding is shared** with the Rust learned bot: `features.py` is a line-by-line port of
-  `bot/rust-learned/src/features.rs` (state 73, action 62, FNV-1a card/label id in 2048 buckets); on 5,939 real
+  `bots/rust-learned/src/features.rs` (state 73, action 62, FNV-1a card/label id in 2048 buckets); on 5,939 real
   decisions the two give the same numbers (max difference 2e-7, f32 rounding) and the same ids. On top of it
   the JEPA reads card tokens: hand, both boards, leaders and bases, each with its id and live stats.
   Card ids are embedded as the sum of three small tables indexed by different functions of the bucket,
   because a 2048-row gather is a one-hot mask in tinygrad.
-- **Training data is shared** too: the "swu-traj/1" games written by `bot/learn/collect.js`
+- **Training data is shared** too: the "swu-traj/1" games written by `lab/learn/collect.js`
   (`/mnt/project-files/learn/README.md`). The targets are the same seat's next recorded decision (+1) and
   fourth next (+4) in the same game, so the latent future includes the opponent's replies.
 - **Losses** (`train.py`), in two stages:
@@ -47,24 +47,24 @@ so the bot starts fast and needs no tinygrad.
 
 ```bash
 python3 -m pip install tinygrad numpy           # training only; play needs numpy
-node bot/learn/collect.js --games 2000 --seed 200000 --workers 4 --out data/traj/rr --bots random-a,random-b
-node bot/learn/collect.js --games 1200 --seed 210000 --workers 4 --out data/traj/rush-random --bots rush,random-a
-node bot/learn/collect.js --games 800 --seed 220000 --workers 4 --out data/traj/rush-rush --bots rush,rush#2
-python3 bot/jepa/data.py --out data/jepa/mix-v1.npz data/traj/rr data/traj/rush-random data/traj/rush-rush
-python3 bot/jepa/train.py --data data/jepa/mix-v1.npz --out bot/jepa/models/jepa-v1
-python3 bot/jepa/check_parity.py --model bot/jepa/models/jepa-v1.safetensors --data data/jepa/mix-v1.npz
-node bot/learn/eval.js --bots jepa,random-a --games 100 --workers 4
-python3 bot/jepa/panel.py --thoughts /tmp/jepa-thoughts.json      # dashboard panel (needs /mnt/project-files)
+node lab/learn/collect.js --games 2000 --seed 200000 --workers 4 --out data/traj/rr --bots random-a,random-b
+node lab/learn/collect.js --games 1200 --seed 210000 --workers 4 --out data/traj/rush-random --bots rush,random-a
+node lab/learn/collect.js --games 800 --seed 220000 --workers 4 --out data/traj/rush-rush --bots rush,rush#2
+python3 bots/jepa/data.py --out data/jepa/mix-v1.npz data/traj/rr data/traj/rush-random data/traj/rush-rush
+python3 bots/jepa/train.py --data data/jepa/mix-v1.npz --out bots/jepa/models/jepa-v1
+python3 bots/jepa/check_parity.py --model bots/jepa/models/jepa-v1.safetensors --data data/jepa/mix-v1.npz
+node lab/learn/eval.js --bots jepa,random-a --games 100 --workers 4
+python3 bots/jepa/panel.py --thoughts /tmp/jepa-thoughts.json      # dashboard panel (needs /mnt/project-files)
 ```
 
-Registered bots (`bot/external-bots.json`, `lang: python`): `jepa` (v1, mix 0.5), `jepa-h1` (v1, mix 0, next
+Registered bots (`bots/external-bots.json`, `lang: python`): `jepa` (v1, mix 0.5), `jepa-h1` (v1, mix 0, next
 decision only) and `jepa-pure` (v2p, the pure-JEPA encoder). `SWU_JEPA_THOUGHTS=<file>` makes the bot write its
 latest decision for the panel. Card data is read from `$SWU_CARD_DATA` (default `forceteki/test/json`).
 
-**Use the ladder, not `eval.js`, to measure strength against rule bots.** `bot/learn/eval.js` and `collect.js`
+**Use the ladder, not `eval.js`, to measure strength against rule bots.** `lab/learn/eval.js` and `collect.js`
 build each bot once per worker and reuse it across games. Rush keeps a loop-guard map of positions it has seen,
 so in later games it thinks it is looping and passes early. Head-to-head numbers against rush from `eval.js` are
-too kind to the other bot (jepa looked 41-18 there and is 2-8 on the ladder). `bot/ladder.js` builds fresh bots
+too kind to the other bot (jepa looked 41-18 there and is 2-8 on the ladder). `lab/runners/ladder.js` builds fresh bots
 for every game.
 
 ## Results
@@ -110,7 +110,7 @@ the game (`sim`), so `jepa_bot.py --score` can replace the predictor's imagined 
 - `--score sim-v` (`jepa-sim-v`): play each move on the copy, then score the real next position with the same
   encoder and value head. A perfect predictor.
 - `--score sim-eval` (`jepa-sim-eval`): the same real position, scored by the position-evaluation thread's
-  `linear-deck-g4` (`bot/eval`) through `eval_helper.js`. A perfect predictor and a better judge.
+  `linear-deck-g4` (`lab/eval`) through `eval_helper.js`. A perfect predictor and a better judge.
 - `--log <file>` with any score mode writes all three score lists for every action window, and
   `oracle_report.py` compares them.
 
@@ -122,7 +122,7 @@ Simulations are only allowed at action windows, so the other 63% of decisions (t
 use the imagined score, and a 2.5 s guard falls back to it when time runs short.
 
 ```bash
-python3 bot/jepa/oracle_report.py jepa-h1.jsonl --json report.json
+python3 bots/jepa/oracle_report.py jepa-h1.jsonl --json report.json
 ```
 
 Results on jepa-h1's own action windows (about 2,600 per run; ladders `jepa-oracle-1-window` and
@@ -156,10 +156,10 @@ action encoder on those futures, with the encoder and value head frozen: the pla
 subtracting each position's mean over its moves (the part that tells moves apart), mixed with recorded games.
 
 ```bash
-node bot/jepa/branches.js --games 1000 --workers 4 --seed 700000 --bots rush,random --out data/branch/rush-random
-node bot/jepa/branches.js --games 800 --workers 4 --seed 710000 --bots rush,rush --out data/branch/rush-rush
-python3 bot/jepa/branch_train.py --model bot/jepa/models/jepa-v1.safetensors --branches data/branch/rush-random \
-    data/branch/rush-rush --data data/jepa/mix-v1.npz --cache data/jepa/branches-v1.npz --out bot/jepa/models/jepa-v1b
+node bots/jepa/branches.js --games 1000 --workers 4 --seed 700000 --bots rush,random --out data/branch/rush-random
+node bots/jepa/branches.js --games 800 --workers 4 --seed 710000 --bots rush,rush --out data/branch/rush-rush
+python3 bots/jepa/branch_train.py --model bots/jepa/models/jepa-v1.safetensors --branches data/branch/rush-random \
+    data/branch/rush-rush --data data/jepa/mix-v1.npz --cache data/jepa/branches-v1.npz --out bots/jepa/models/jepa-v1b
 ```
 
 1,800 games gave 30,417 branch points (about 5 moves each) in 40 minutes; 1% of games ended early on engine errors
@@ -202,7 +202,7 @@ are replayed at the real follow-up prompts while the prompt matches; resource pr
 imagined score.
 
 ```bash
-node bot/ladder.js --bots jepa-plan,jepa-h1,rush,rust-greedy2,h@linear-deck-g4 --games 20 --workers 4 --seed 860000 --id jepa-plan-1
+node lab/runners/ladder.js --bots jepa-plan,jepa-h1,rush,rust-greedy2,h@linear-deck-g4 --games 20 --workers 4 --seed 860000 --id jepa-plan-1
 ```
 
 Result (`results/jepa-plan-1`, 20 games per pair, random decks, seats alternate):
@@ -221,7 +221,7 @@ and 0.32 s each (no window ran out of time); 1,308 follow-up prompts were answer
 because the real prompt differed, and 2,288 resource prompts plus about 200 other prompts used the imagined score.
 
 So the planning scope was the main limit. h@linear-deck-g4 plans the same way (each move with its first follow-up
-choices, judged where the move settles, `bot/players/heuristic.js`) and answers the other prompts with hand-written
+choices, judged where the move settles, `bots/players/heuristic.js`) and answers the other prompts with hand-written
 rules; it also runs inside the engine, so its lookahead sees the real hidden cards. The remaining gap (about 250 Elo)
 therefore sits in the scorer (value head against the fitted linear-deck evaluator) and the unplanned prompts, mostly
 resources, which simulations cannot reach (sims are allowed only in action windows). A run of the same planner scored
@@ -237,11 +237,11 @@ decision with more than one legal action the acting seat's view, prompt and lega
 
 ```bash
 R=/mnt/project-files/human-meta/realdeck; L=/mnt/project-files/results
-node bot/jepa/from_replays.js --out data/traj/replays --workers 4 $R/ash-gauntlet-cclock-1 $R/ash-gauntlet-cclock-2 \
+node bots/jepa/from_replays.js --out data/traj/replays --workers 4 $R/ash-gauntlet-cclock-1 $R/ash-gauntlet-cclock-2 \
   $R/ash-gauntlet-ismcts-1 $R/ash-heuristic-1 $R/ash-h4-1 $R/ash-learned-vh-1 $R/ash-rust-search-1 $R/ash-ismcts-1 \
   $L/atlas-map-1 $L/eval-ladder-6 $L/eval-ladder-7 $L/eval-ladder-8
-python3 bot/jepa/data.py --out data/jepa/replays.npz data/traj/replays
-python3 bot/jepa/resource_policy.py fit --out bot/jepa/models/resource-v1.json data/traj/replays
+python3 bots/jepa/data.py --out data/jepa/replays.npz data/traj/replays
+python3 bots/jepa/resource_policy.py fit --out bots/jepa/models/resource-v1.json data/traj/replays
 ```
 
 Data: 7,840 games (1,003,147 decisions, 687 distinct deals) from 12 runs, mostly the real-deck gauntlets of c-clock,
@@ -267,7 +267,7 @@ teacher's card 66% of the time (features only 64%, a hand rule 64%, chance 22%) 
 `--resource <model.json>` uses it at every resource prompt; `--resource rule` uses the hand rule (heuristic.js's
 keep score, resource every time) as an ablation.
 
-Fresh deals against c-clock (27 real decks from `bot/decks/ash-meta-2026-09.json`, seats alternate, one secret key
+Fresh deals against c-clock (27 real decks from `decks/ash-meta-2026-09.json`, seats alternate, one secret key
 for every run, so each bot plays the same deals; these deals are outside the gauntlets the models learned from):
 
 | Bot | Wins | Paired with jepa-plan-r (same deals) |
@@ -289,7 +289,7 @@ phase started and 4.3 at round 5, where c-clock had 4.0 and 6.0; jepa-plan-r had
 Random decks (`results/jepa-plan-r-1`, 20 games per pair, seats alternate):
 
 ```bash
-node bot/ladder.js --bots jepa-plan-r,jepa-plan,rush,rust-greedy2,h@linear-deck-g4 --games 20 --workers 4 --seed 870000 --id jepa-plan-r-1
+node lab/runners/ladder.js --bots jepa-plan-r,jepa-plan,rush,rust-greedy2,h@linear-deck-g4 --games 20 --workers 4 --seed 870000 --id jepa-plan-r-1
 ```
 
 | Bot | W-L | BT Elo | jepa-plan-r vs it |
@@ -308,7 +308,7 @@ predicts the winner better. jepa-plan-r is the JEPA entry.
 
 ## Scoring the plans with the fitted evaluator (jepa-plan-reval)
 
-`jepa-plan-reval` is jepa-plan-r with linear-deck-g4 (`bot/eval/`) scoring the planner's settled positions in place of
+`jepa-plan-reval` is jepa-plan-r with linear-deck-g4 (`lab/eval/`) scoring the planner's settled positions in place of
 the value head. On the same fresh deals as above it wins 337/691 = 48.8% ± 3.7 against c-clock (on the 690 games both
 played, jepa-plan-reval alone won 120 and jepa-plan-r alone 49). Standard bot test: 47.2% [43.5, 50.9], Elo −20,
 level with rust-search (48.8%) and the c-clock family (49 to 52%).

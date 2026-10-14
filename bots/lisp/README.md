@@ -1,19 +1,19 @@
 # swu-lisp: a Common Lisp bot
 
 A Star Wars Unlimited bot written in Common Lisp (SBCL). It plays the real engine through the stdio JSON Lines
-protocol (`spec/stdio-protocol.md`, adapter `bot/players/external.js`) and needs nothing beyond SBCL: it has its own
+protocol (`spec/stdio-protocol.md`, adapter `bots/players/external.js`) and needs nothing beyond SBCL: it has its own
 JSON reader and loads card stats from the engine's card JSON.
 
     sudo apt-get install sbcl                 # SBCL 2.x
-    npm run lisp:build                        # = sbcl --non-interactive --load bot/lisp/build.lisp -> bot/lisp/swu-lisp
+    npm run lisp:build                        # = sbcl --non-interactive --load bots/lisp/build.lisp -> bots/lisp/swu-lisp
     npm run lisp:test                         # 25 checks on mock boards, no engine needed
     node bot/tournament.js --bots lisp,rush --games 10 --out replays/lisp
-    node bot/ladder.js --bots lisp,rush,aggro,tempo,random --games 10
+    node lab/runners/ladder.js --bots lisp,rush,aggro,tempo,random --games 10
 
 The build compiles the sources and saves one executable (`swu-lisp`, ~40 MB, gitignored) with the 2,479 cards of
 `forceteki/test/json/Card` already inside, so a game starts in milliseconds. Set `SWU_CARD_JSON` at build time to read
 card data from somewhere else. `SWU_LISP_TRACE=<file>` makes the bot log every decision and its reason.
-It is registered as `lisp` (`"lang": "lisp"`) in `bot/external-bots.json`.
+It is registered as `lisp` (`"lang": "lisp"`) in `bots/external-bots.json`.
 
 ## How it decides
 

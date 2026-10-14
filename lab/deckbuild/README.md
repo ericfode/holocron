@@ -1,10 +1,10 @@
 # Deck building and drafting (deck JEPA)
 
 Research code for building Star Wars: Unlimited decks and drafting with a learned deck model. The model follows
-the JEPA idea of `bot/jepa` (plan in a learned latent space, never rebuild the raw input), applied to decks
+the JEPA idea of `bots/jepa` (plan in a learned latent space, never rebuild the raw input), applied to decks
 instead of board positions:
 
-| `bot/jepa` (play) | here (decks) |
+| `bots/jepa` (play) | here (decks) |
 |---|---|
 | state = a board | state = a partial deck, or a draft pool after k picks |
 | action = a move | action = add a card (pick it, or swap it in) |
@@ -39,25 +39,25 @@ so only the decks differ (`play.js`).
 ## Commands (from the repo root)
 
 ```bash
-NODE_USE_ENV_PROXY=1 node bot/deckbuild/fetch-rarity.js      # once; ~12 minutes, polite
-node bot/deckbuild/export-cards.js                           # -> /mnt/project-files/deckbuild/cards.json
-node bot/deckbuild/exp-visible.js --pilot c-clock            # experiment 1, ~5,800 games
-node bot/deckbuild/gen-data.js --decks 900 --opps 8 --seed 1 --out /mnt/project-files/deckbuild/data/gen1
-python3 bot/deckbuild/deck_jepa.py --runs /mnt/project-files/deckbuild/exp1-c-clock /mnt/project-files/deckbuild/data/gen1 \
+NODE_USE_ENV_PROXY=1 node lab/deckbuild/fetch-rarity.js      # once; ~12 minutes, polite
+node lab/deckbuild/export-cards.js                           # -> /mnt/project-files/deckbuild/cards.json
+node lab/deckbuild/exp-visible.js --pilot c-clock            # experiment 1, ~5,800 games
+node lab/deckbuild/gen-data.js --decks 900 --opps 8 --seed 1 --out /mnt/project-files/deckbuild/data/gen1
+python3 lab/deckbuild/deck_jepa.py --runs /mnt/project-files/deckbuild/exp1-c-clock /mnt/project-files/deckbuild/data/gen1 \
     --mode jepa-ft --out models/deck-jepa.npz
-node bot/deckbuild/make-starts.js /mnt/project-files/deckbuild/starts
-python3 bot/deckbuild/build.py --model models/deck-jepa.npz --starts /mnt/project-files/deckbuild/starts/stat.json \
+node lab/deckbuild/make-starts.js /mnt/project-files/deckbuild/starts
+python3 lab/deckbuild/build.py --model models/deck-jepa.npz --starts /mnt/project-files/deckbuild/starts/stat.json \
     --tag built-jepa --out built.json
-node bot/deckbuild/field-eval.js --candidates built.json,/mnt/project-files/deckbuild/starts/real.json --out DIR
-python3 bot/deckbuild/report.py DIR [DIR2 ...] --out report.json   # runs with the same --seed are paired
+node lab/deckbuild/field-eval.js --candidates built.json,/mnt/project-files/deckbuild/starts/real.json --out DIR
+python3 lab/deckbuild/report.py DIR [DIR2 ...] --out report.json   # runs with the same --seed are paired
 # hidden-list check: train without fold K of the field decks, build only those targets
-python3 bot/deckbuild/deck_jepa.py ... --mode linear --exclude-fold 0/3 --out fold0.npz
-python3 bot/deckbuild/build.py --model fold0.npz --fold 0/3 --starts .../starts/stat.json --out built-fold0.json
-python3 bot/deckbuild/draft.py --set SOR --pods 60 --drafters stat,rarity,random,stat --out DIR/pods.json
-node bot/deckbuild/pod-eval.js --pods DIR/pods.json --out DIR
+python3 lab/deckbuild/deck_jepa.py ... --mode linear --exclude-fold 0/3 --out fold0.npz
+python3 lab/deckbuild/build.py --model fold0.npz --fold 0/3 --starts .../starts/stat.json --out built-fold0.json
+python3 lab/deckbuild/draft.py --set SOR --pods 60 --drafters stat,rarity,random,stat --out DIR/pods.json
+node lab/deckbuild/pod-eval.js --pods DIR/pods.json --out DIR
 ```
 
-The pilot is `c-clock` (fast and strong; `make -C bot/c` first). Card data comes from `forceteki/test/json`.
+The pilot is `c-clock` (fast and strong; `make -C bots/c` first). Card data comes from `forceteki/test/json`.
 Results, notes and data live in `/mnt/project-files/deckbuild/`.
 
 ## Results (2026-10-11, c-clock pilot, 27-deck field)
@@ -98,7 +98,7 @@ Every row played all 27 field decks from both seats on the same seeds (1,458 gam
 
 ## Credits and caveats
 
-- Field decks: 27 Premier tournament lists from TCGEngine / SWU Stats (MIT), see `bot/decks/README.md`.
+- Field decks: 27 Premier tournament lists from TCGEngine / SWU Stats (MIT), see `decks/README.md`.
 - Card rarity: the official card database (admin.starwarsunlimited.com), fetched once, politely.
 - Bot-judged deck strength is biased toward aggro decks (the real-deck ladder found both c-clock and rust-greedy2
   like aggro and dislike control, while humans win about evenly with every style). A builder tuned on bot games

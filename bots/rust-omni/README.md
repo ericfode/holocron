@@ -1,10 +1,10 @@
 # rust-omni
 
 rust-search with its playouts in the native rules simulator (`bot/omni-rs`). Registered as `rust-omni` in
-`bot/external-bots.json`; build with `cargo build --release` at the repo root (binary `target/release/swu-omni-bot`).
+`bots/external-bots.json`; build with `cargo build --release` at the repo root (binary `target/release/swu-omni-bot`).
 
-    node bot/rust-omni/pool-decks.js --n 8 --seed 2 --out replays/pool-decks.json
-    node bot/ladder.js --bots rust-omni,rust-search --decks replays/pool-decks.json --games 56 --key none
+    node bots/rust-omni/pool-decks.js --n 8 --seed 2 --out replays/pool-decks.json
+    node lab/runners/ladder.js --bots rust-omni,rust-search --decks replays/pool-decks.json --games 56 --key none
 
 How it works, at each action window:
 
@@ -21,10 +21,10 @@ How it works, at each action window:
 Everything runs in-process: about 10 ms per decision, against about 120 ms for rust-search's referee simulations.
 The board score is rust-search's, except that base HP counts 2.0 per point (1.35 there): see the results below.
 
-The simulator only knows its card pool (`bot/omni/rs/pool.json`: 8 bases, 3 leaders, 88 keyword-only units), so
+The simulator only knows its card pool (`bots/omni/rs/pool.json`: 8 bases, 3 leaders, 88 keyword-only units), so
 rust-omni only searches games where both decks come from that pool. Any other game is a rust-search game.
 
-Settings for experiments (`env` in `bot/external-bots.json`): `SWU_OMNI_WIDTH` (8), `SWU_OMNI_DEALS` (8),
+Settings for experiments (`env` in `bots/external-bots.json`): `SWU_OMNI_WIDTH` (8), `SWU_OMNI_DEALS` (8),
 `SWU_OMNI_STEPS` (400 per playout), `SWU_OMNI_TARGETS` (1: score each attack target; 0: greedy2 picks targets),
 `SWU_OMNI_POOL`, and rust-search's score weights `SWU_EVAL_*`.
 

@@ -1,14 +1,14 @@
 # clj-forecast: a Clojure bot
 
 A Star Wars Unlimited bot written in Clojure. It plays the real forceteki engine through the stdio protocol
-(`spec/stdio-protocol.md`): `bot/players/external.js` runs the engine and sends one JSON line per decision; this
+(`spec/stdio-protocol.md`): `bots/players/external.js` runs the engine and sends one JSON line per decision; this
 process answers with the index of the action it picks.
 
-    bot/clojure/run.sh test                                   # unit tests (mock boards, no engine needed)
-    node bot/ladder.js --bots clj-forecast,rush --games 10    # play it (registered in bot/external-bots.json)
+    bots/clojure/run.sh test                                   # unit tests (mock boards, no engine needed)
+    node lab/runners/ladder.js --bots clj-forecast,rush --games 10    # play it (registered in bots/external-bots.json)
 
 Needs Java 11+ only. The first run of `run.sh` downloads Clojure 1.12 and data.json from Maven Central into
-`bot/clojure/lib/` (gitignored). With the Clojure CLI, `clojure -M -m swu.main` in this folder does the same.
+`bots/clojure/lib/` (gitignored). With the Clojure CLI, `clojure -M -m swu.main` in this folder does the same.
 `run.sh compile` AOT-compiles into `classes/` for a faster start (about 1.5 s from source, once per process).
 
 ## How it decides

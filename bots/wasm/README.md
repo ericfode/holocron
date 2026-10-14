@@ -5,12 +5,12 @@ from another language in between. `host.js` is a thin shim that speaks the stdio
 it parses JSON, looks up printed card stats, copies everything into flat i32 tables in the module's memory, calls
 `decide()`, and sends back the index the module wrote. It makes no choices of its own.
 
-    node bot/wasm/host.js --check                          # compile and validate bot.wat
+    node bots/wasm/host.js --check                          # compile and validate bot.wat
     node bot/tournament.js --bots wasm,rush --games 10 --out replays/wasm-vs-rush
-    node bot/ladder.js --bots wasm,rush,tempo,random --games 10
-    node --test bot/test/wasm.test.js                      # decisions on hand-made messages, no engine
+    node lab/runners/ladder.js --bots wasm,rush,tempo,random --games 10
+    node --test bots/test/wasm.test.js                      # decisions on hand-made messages, no engine
 
-It is registered as `wasm` (`"lang": "wasm"`) in `bot/external-bots.json`. `host.js` compiles `bot.wat` at start-up
+It is registered as `wasm` (`"lang": "wasm"`) in `bots/external-bots.json`. `host.js` compiles `bot.wat` at start-up
 with `wabt` (a root devDependency, so run `npm install` at the repo root once) and reads card stats from
 `forceteki/test/json/Card` (or `$SWU_CARD_JSON/Card`, the same convention as the Rust bot). `SWU_WASM_TRACE=1` prints the module's `trace` calls on stderr.
 

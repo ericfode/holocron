@@ -1,18 +1,18 @@
 # swu-bot-rs
 
-Star Wars Unlimited bots in Rust. The engine stays in JS: `bot/players/external.js` runs forceteki, lists the legal
+Star Wars Unlimited bots in Rust. The engine stays in JS: `bots/players/external.js` runs forceteki, lists the legal
 actions and applies the one this process picks, over the stdio JSON Lines protocol: v1 (`spec/stdio-protocol.md`),
 or v2 (`spec/protocol.md`) when the referee offers it. No engine code is needed on the Rust side.
 
-    cargo build --release --manifest-path bot/rust/Cargo.toml
+    cargo build --release --manifest-path bots/rust/Cargo.toml
     node bot/tournament.js --bots rust-greedy,heuristic --games 10 --out replays/rust
-    node bot/rust/check.js 10 1                  # both Rust bots vs random-a, both seats
+    node bots/rust/check.js 10 1                  # both Rust bots vs random-a, both seats
 
 This crate and `bot/omni-rs` share the root Cargo workspace. The commands above now write the executable to
 `target/release/swu-bot-rs`; the bot registry uses that path. `omni-rs` imports this crate's card loader, but does
 not change these policies or replace their JavaScript simulation requests.
 
-Policies (first CLI argument, registered as `rust-<policy>` in `bot/external-bots.json`):
+Policies (first CLI argument, registered as `rust-<policy>` in `bots/external-bots.json`):
 
 - `random`: uniform, seeded from the game's `hello`.
 - `greedy`: rules over the wire data only: play cards, attack with the biggest ready unit, hit enemy threats, help
@@ -31,11 +31,11 @@ Policies (first CLI argument, registered as `rust-<policy>` in `bot/external-bot
   action phase still runs; cards in hand; resources; initiative). It plays the best score and uses at most a third of
   the decision's time, 3 s at most. Under a v1 referee it plays exactly like greedy2. Settings for experiments: `SWU_SEARCH_WIDTH`, `_DEALS`, `_STEPS`, `_ROUNDS`
   and the score weights `SWU_EVAL_BASE`, `_UNIT`, `_EXHAUSTED`, `_HAND`, `_RESOURCE`, `_INITIATIVE` (`env` in
-  `bot/external-bots.json`).
+  `bots/external-bots.json`).
 
-Add one in `src/policy/` and a line in `bot/external-bots.json`.
+Add one in `src/policy/` and a line in `bots/external-bots.json`.
 
-Real cards, forceteki 2be4fcd, both seats per seed (`node bot/ladder.js --bots a,b --games N`):
+Real cards, forceteki 2be4fcd, both seats per seed (`node lab/runners/ladder.js --bots a,b --games N`):
 
 | Match | Result |
 | --- | --- |

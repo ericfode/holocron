@@ -7,7 +7,7 @@ Mathlib. Every theorem below is fully proven: no `sorry`, only Lean's three stan
 ## Build
 
 ```bash
-cd theory
+cd lab/theory
 lake exe cache get   # fast path; needs cache.mathlib.org to be reachable
 lake build           # without the cache this builds ~1000 Mathlib files (~20 min on 4 cores)
 ```
@@ -84,9 +84,9 @@ count as anywhere in [0, 1], which gives bounds on the gap.
 
 ```sh
 cargo build --release -p omni-rs
-node bot/omni/rs/trace.js --pool bot/omni/rs/pool.json --bots heuristic,heuristic --seeds 201-230 --out replays/pimc-traces --gzip
+node bots/omni/rs/trace.js --pool bots/omni/rs/pool.json --bots heuristic,heuristic --seeds 201-230 --out replays/pimc-traces --gzip
 target/release/omni-pimc replays/pimc-traces/*.jsonl.gz --deals 8 --last 8 --nodes 20000 > pimc.jsonl
-python3 theory/measure/pimc_bias.py pimc.jsonl
+python3 lab/theory/measure/pimc_bias.py pimc.jsonl
 ```
 
 2026-10-11, 120 games (heuristic/heuristic, aggro/control, tempo/rush, random/heuristic; seeds

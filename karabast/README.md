@@ -6,17 +6,17 @@ without a browser. Plain CommonJS on Node 22's built-in `WebSocket` and `fetch`,
 | file | what it does |
 |---|---|
 | `socket.js` | Socket.IO v4 client on path `/ws`, plus the HTTP calls (create, join and spectate a lobby, enter the queue). Refuses any host but localhost unless the caller names it. |
-| `frame.js` | Reads `gamestate` frames: legal actions for a seat (same kinds as `bot/env.js` legalActions), the `game` message for an action, and the privacy scrub. |
+| `frame.js` | Reads `gamestate` frames: legal actions for a seat (same kinds as `engine/env.js` legalActions), the `game` message for an action, and the privacy scrub. |
 | `observe.js` | A frame as a protocol bot sees it: the `decide` message's prompt, state and actions (spec/protocol.md). |
 | `seat.js` | One protocol bot playing one seat, with the undo rules and the command allow-list below. |
 | `queue.js` | Quick match as a bot: enter the queue with a deck, play the match, leave; with `--games N`, a loop that queues again after each game. Counts people (`ledger.js`) and writes what it is doing to `status.json`. |
-| `spectate.js` | Watches games as a spectator and writes scrubbed frames as JSON Lines, which `importer/import.js` turns into replays. `--predict <evaluator>` prints P(win) as the game goes. |
+| `spectate.js` | Watches games as a spectator and writes scrubbed frames as JSON Lines, which `karabast/importer/import.js` turns into replays. `--predict <evaluator>` prints P(win) as the game goes. |
 | `live-view.js` | Serves recorded games to the Holotable viewer kit while they are played: a game picker, the board following each move, and an evaluator's chance that p1 wins. |
 | `desk.js` | The Karabast desk: the bot pick and pause files the owner's live view writes and `queue.js --desk` reads between games, and the record (per bot, per day). |
 | `watchdog.js` | Keeps a `queue.js` loop going: restarts it when it is stuck or died, and raises an alert past its restart budget. |
 | `ledger.js` | Counts each real person a run touches (salted hashes, no ids) and stops at the people cap, when there is one. |
 | `selfplay.js` | Two protocol bots on a local server, through `seat.js`: the end-to-end test. `--pester-undo` makes seat 2 ask for undos. |
-| `fidelity.js` | Checks `observe.js` against the referee: the same engine state, seen through a Karabast frame and through `bot/view.js`. |
+| `fidelity.js` | Checks `observe.js` against the referee: the same engine state, seen through a Karabast frame and through `engine/view.js`. |
 
 ## Try it on a local copy
 
@@ -26,23 +26,23 @@ Build and start forceteki's server in development mode (anonymous players and sp
 cd <forceteki checkout> && npm ci && npm run get-cards && npm run dev     # serves http://localhost:9500
 ```
 
-Then, from this repo (card data from the same checkout; `make -C bot/c` for c-clock):
+Then, from this repo (card data from the same checkout; `make -C bots/c` for c-clock):
 
 ```bash
 export SWU_CARD_JSON=<forceteki checkout>/test/json
-node bot/karabast/selfplay.js --bots c-clock,js-random --games 4 --pester-undo 0.5     # public lobbies: timer and undo requests on
-node bot/karabast/selfplay.js --bots c-clock,c-clock --decks bot/decks/ash-meta-2026-09.json
-node bot/karabast/spectate.js --public --games 1 --gap 1 --out captures --predict mlp-g5   # while a game runs
-node importer/import.js captures --out replays/karabast-local --source karabast-spectate
-node bot/karabast/queue.js --bot c-clock --deck admiral-piett_jtl_blue --out runs/q     # needs a second player in the queue
-node bot/karabast/queue.js --bot c-clock --deck admiral-piett_jtl_blue --games 50 --gap 25 --out runs/q   # a loop
-node bot/karabast/queue.js --bot c-clock2,c-clock3 --deck admiral-piett_jtl_blue --games 50 --gap 25 --out runs/q   # two bots take turns; each games.jsonl row names its bot
-node bot/karabast/fidelity.js --games 20                                               # needs forceteki/build
+node karabast/selfplay.js --bots c-clock,js-random --games 4 --pester-undo 0.5     # public lobbies: timer and undo requests on
+node karabast/selfplay.js --bots c-clock,c-clock --decks decks/ash-meta-2026-09.json
+node karabast/spectate.js --public --games 1 --gap 1 --out captures --predict mlp-g5   # while a game runs
+node karabast/importer/import.js captures --out replays/karabast-local --source karabast-spectate
+node karabast/queue.js --bot c-clock --deck admiral-piett_jtl_blue --out runs/q     # needs a second player in the queue
+node karabast/queue.js --bot c-clock --deck admiral-piett_jtl_blue --games 50 --gap 25 --out runs/q   # a loop
+node karabast/queue.js --bot c-clock2,c-clock3 --deck admiral-piett_jtl_blue --games 50 --gap 25 --out runs/q   # two bots take turns; each games.jsonl row names its bot
+node karabast/fidelity.js --games 20                                               # needs forceteki/build
 ```
 
 ## How a bot plays a seat (`seat.js`)
 
-- Every protocol program in `bot/external-bots.json` can play (c-clock, rust-greedy2, ...), and `js-random`. The bot is
+- Every protocol program in `bots/external-bots.json` can play (c-clock, rust-greedy2, ...), and `js-random`. The bot is
   seat `p1`. It never gets simulations (`sim: false`): Karabast keeps the deck order and the other hand.
 - `hello` carries our deck list. For the opponent it carries only the leader and base the table shows, with an empty
   deck, since a Karabast opponent's list is not known.
@@ -63,7 +63,7 @@ node bot/karabast/fidelity.js --games 20                                        
 ## Watch a game as it is played (`live-view.js`)
 
 ```bash
-node bot/karabast/live-view.js --runs <folder holding spectate/queue --out folders> --kit /mnt/project-files/viewer-kit --predict mlp-g5
+node karabast/live-view.js --runs <folder holding spectate/queue --out folders> --kit /mnt/project-files/viewer-kit --predict mlp-g5
 ```
 
 Open http://localhost:8080. The page lists every recorded game, newest first, and follows the newest live one unless you
@@ -95,8 +95,8 @@ link with hosted from its sprite". Karabast games live on the Sprite, outside th
 last game; win % for each of the last days), the game picker, the board and the win chance.
 
 ```bash
-node bot/karabast/queue.js ... --bot c-clock2 --desk ~/karabast/desk --allow-bots c-clock2,c-clock3,lisp,c-clock
-node bot/karabast/live-view.js ... --names <file> --manage ~/karabast/desk --review <strategy review URL>
+node karabast/queue.js ... --bot c-clock2 --desk ~/karabast/desk --allow-bots c-clock2,c-clock3,lisp,c-clock
+node karabast/live-view.js ... --names <file> --manage ~/karabast/desk --review <strategy review URL>
 ```
 
 With `--manage <dir>` the view also has controls: tick the bots for the next games (several take turns game by game)
@@ -104,7 +104,7 @@ and pause after this game or resume. They write two files, `<dir>/bot` and `<dir
 command. `queue.js --desk <dir>` reads them before each game, so a change never cuts a game short: while `PAUSE`
 exists the loop waits in state `paused` (the watchdog leaves it alone, and the stop file still ends it), and it plays
 the picked bots only when every one is in `--allow-bots`. That list goes into `status.json`, so the desk offers only
-those, and `queue.js` refuses to start when one of them is not a built program in `bot/external-bots.json`. Like
+those, and `queue.js` refuses to start when one of them is not a built program in `bots/external-bots.json`. Like
 `--names`, `--manage` runs only on a view that stays on this machine (local `--host`, no `--key`): on the Sprite that
 is the `live-view` service behind Eric's tailnet. A POST needs the `X-Desk` header and a JSON body, which a page on
 another site cannot send without a CORS preflight that the server never answers. The share link (`live-share`, with
@@ -136,8 +136,8 @@ an agent or a person to read.
 ## What a bot sees (`fidelity.js`)
 
 The same engine state was turned into a protocol message twice, once from the Karabast frame (`observe.js`) and once
-the way our referee does it (`bot/view.js`). Over 50 random games (20 with random decks, 30 with the real Premier
-decks in `bot/decks`), 10,516 of 10,569 decisions (99.5%) were identical. What differs:
+the way our referee does it (`engine/view.js`). Over 50 random games (20 with random decks, 30 with the real Premier
+decks in `decks`), 10,516 of 10,569 decisions (99.5%) were identical. What differs:
 
 - A card shown by a prompt from a hidden zone (a deck search) has `zone` and `ctl` null: the frame does not say
   where it is.

@@ -1,8 +1,8 @@
 # swu-bot-hs (Haskell)
 
 A Star Wars Unlimited bot in Haskell. It plays through the stdio protocol (`spec/stdio-protocol.md`): the engine
-stays in JS, and for each decision `bot/players/external.js` sends one JSON line and reads back the index of the
-chosen action. Registered as `haskell` in `bot/external-bots.json`.
+stays in JS, and for each decision `bots/players/external.js` sends one JSON line and reads back the index of the
+chosen action. Registered as `haskell` in `bots/external-bots.json`.
 
 ## Strategy
 
@@ -41,9 +41,9 @@ the I/O.
 Needs GHC 9.x with `aeson` (on Ubuntu: `apt-get install ghc libghc-aeson-dev`), or cabal.
 
 ```bash
-bot/haskell/build.sh          # -> bot/haskell/build/swu-bot-hs (plain ghc, no network needed)
-# or: cd bot/haskell && cabal build
-node bot/ladder.js --bots haskell,rush,tempo,random --games 10
+bots/haskell/build.sh          # -> bots/haskell/build/swu-bot-hs (plain ghc, no network needed)
+# or: cd bots/haskell && cabal build
+node lab/runners/ladder.js --bots haskell,rush,tempo,random --games 10
 ```
 
 Card data (costs, keywords, upgrade stats) is read from `$SWU_CARD_JSON`, the folder that holds `Card/` as for the
@@ -55,7 +55,7 @@ Speed: about 5 ms per decision as the harness measures it (adapter included), at
 
 ## Results
 
-One ladder run, `haskell-ladder-1` (`node bot/ladder.js --bots haskell,rust-greedy2,rush,aggro,tempo,control,heuristic,random --games 10 --seed 501`),
+One ladder run, `haskell-ladder-1` (`node lab/runners/ladder.js --bots haskell,rust-greedy2,rush,aggro,tempo,control,heuristic,random --games 10 --seed 501`),
 real cards, forceteki `2be4fcd`, 10 games per pair (5 seeds, both seats). Full report:
 `/mnt/project-files/results/haskell-ladder-1/ladder.json`. No engine or bot errors in Haskell's 70 games.
 

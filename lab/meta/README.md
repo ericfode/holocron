@@ -26,12 +26,12 @@ each one plays. It reads only recorded results, so it needs no engine or card da
 - **vsOwn**: the same with the bot's own rating, so a bot's best and worst spot are relative to its own level.
 - **Style**: per round, from board changes during the bot's own decisions: base damage, units removed, units added,
   attacks and the share aimed at the base, passes, initiative claims.
-- **Ratings**: Bradley-Terry over every finished game (`bot/ratings.js`); a `TIME_FORFEIT`, or a protocol v2 `ERROR` with `by` set, is a loss for that bot.
+- **Ratings**: Bradley-Terry over every finished game (`engine/ratings.js`); a `TIME_FORFEIT`, or a protocol v2 `ERROR` with `by` set, is a loss for that bot.
   Every bot's rating, mapped or not, is also written to `ratings.json` next to `meta.json` (`swu-ratings/1`: `{generatedAt, rules, bots: {id: {rating, se, games}}}`, `se` in rating points), the one rating the app, console, arena and Atlas all read.
 - **Names**: `random-a/b/c` are one bot; `legacy` is the old heuristic; in runs that include `legacy`, the heuristic
   profiles carry the base-danger sign fix and get a `+fix` suffix. So do runs listed in `FIXED_ERA_RUNS` or marked
   `fixedEra: true` in index.json or ladder.json config (fixed-profile runs made without `legacy`).
-- **Humans**: real karabast.net games imported by `importer/import.js` into `--human` (default
+- **Humans**: real karabast.net games imported by `karabast/importer/import.js` into `--human` (default
   `/mnt/project-files/human-games/<source>/index.json` + `games/<id>.jsonl`). Players are anonymous and only play each
   other, so they stay out of the ratings and the baseline fit. Both seats count as one competitor, `humans`, scored
   like an average bot facing an equal opponent (rd 0). The page shows it beside the bots (tiles, grid, face-off),
@@ -46,9 +46,9 @@ its quiz score; the page shows that log at the bottom.
 
 ```bash
 P=/mnt/project-files; S=<scratch dir>
-meta/refresh.sh $P
-node meta/shoot.js $P/meta/atlas.html $S/shots/vN
-node meta/quiz.js $P/meta/meta.json $S/shots/vN/quiz.json
-node meta/review-prompts.js $S/shots/vN     # then one reviewer agent per prompt-*.txt
-node meta/grade.js $S/shots/vN/quiz.json $S/shots/vN/answers-*.json
+lab/meta/refresh.sh $P
+node lab/meta/shoot.js $P/meta/atlas.html $S/shots/vN
+node lab/meta/quiz.js $P/meta/meta.json $S/shots/vN/quiz.json
+node lab/meta/review-prompts.js $S/shots/vN     # then one reviewer agent per prompt-*.txt
+node lab/meta/grade.js $S/shots/vN/quiz.json $S/shots/vN/answers-*.json
 ```

@@ -1,14 +1,14 @@
 # c-clock
 
-A Star Wars Unlimited bot in C (C11 plus POSIX `getline`, libc only). The engine stays in JS: `bot/players/external.js`
+A Star Wars Unlimited bot in C (C11 plus POSIX `getline`, libc only). The engine stays in JS: `bots/players/external.js`
 runs forceteki and talks to this process over the stdio JSON Lines protocol in `spec/stdio-protocol.md`.
 
-    make -C bot/c                                   # builds bot/c/swu-c
+    make -C bots/c                                   # builds bots/c/swu-c
     node bot/tournament.js --bots c-clock,node-random --games 2 --out replays/c-check   # protocol check
-    node bot/ladder.js --bots c-clock,rush --games 10
+    node lab/runners/ladder.js --bots c-clock,rush --games 10
     SWU_C_DEBUG=1 node bot/tournament.js --bots c-clock,rush --games 1 --out replays/c   # decisions on stderr
 
-Registered as `c-clock` (`"lang": "c"`) in `bot/external-bots.json`. Card data is read at start from
+Registered as `c-clock` (`"lang": "c"`) in `bots/external-bots.json`. Card data is read at start from
 `$SWU_CARD_JSON/Card/*.json` (default `forceteki/test/json`, about 2,500 files in ~0.1 s). Without it the bot still
 plays on the board stats the protocol sends.
 
@@ -42,8 +42,8 @@ A pick that leaves the window unchanged (a play that got cancelled) is banned fo
 
 ## c-clock2 (`--v2`)
 
-`bot/c/swu-c --v2`, registered as `c-clock2`, adds two fixes found in the games against people on Karabast
-(analysis/karabast/README.md): a leader that can deploy as a Pilot does so, onto its best Vehicle (Luke Skywalker, Hero
+`bots/c/swu-c --v2`, registered as `c-clock2`, adds two fixes found in the games against people on Karabast
+(lab/analysis/karabast/README.md): a leader that can deploy as a Pilot does so, onto its best Vehicle (Luke Skywalker, Hero
 of Yavin, was always deployed as a plain 5/6 ground unit), and a unique card is never played while it already controls a
 copy (a unit or an upgrade such as a pilot); such copies, then spare copies in hand, are resourced first. `--pilot` and
 `--unique` turn on one fix each. Without a flag the bot plays exactly as before, so c-clock stays the reference of the
@@ -51,7 +51,7 @@ standard test.
 
 ## c-clock3 (`--v3`)
 
-`bot/c/swu-c --v3`, registered as `c-clock3`, is c-clock2 plus one more fix from the Karabast games: it plays its events.
+`bots/c/swu-c --v3`, registered as `c-clock3`, is c-clock2 plus one more fix from the Karabast games: it plays its events.
 c-clock2 resourced almost every event it drew (Hotshot Maneuver: 0 plays in 264 games, Aggressive Negotiations: 1 in
 209), because the resource choice ranked events below every unit and an event that attacks lost to the plain attack it
 replaces. Now an event is kept like a small unit; an event that attacks ("Attack with a unit", Hotshot Maneuver's

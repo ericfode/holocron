@@ -3,10 +3,10 @@
 Run from the repository root with Node 22 and the normal engine setup:
 
 ```sh
-node bot/omni/rs/make-pool.js
-node bot/omni/rs/trace.js --pool bot/omni/rs/pool.json --bots random,random --seeds 1-75 --out replays/omni-rs --gzip
-node bot/omni/solve-games.js --pool bot/omni/rs/pool.json --bots aggro,control --seeds 1-8 --budget 2000 --stop 2 --out replays/omni-rs-solves
-node bot/omni/export-positions.js replays/omni-rs-solves replays/omni-rs-positions.jsonl --pool bot/omni/rs/pool.json
+node bots/omni/rs/make-pool.js
+node bots/omni/rs/trace.js --pool bots/omni/rs/pool.json --bots random,random --seeds 1-75 --out replays/omni-rs --gzip
+node bots/omni/solve-games.js --pool bots/omni/rs/pool.json --bots aggro,control --seeds 1-8 --budget 2000 --stop 2 --out replays/omni-rs-solves
+node bots/omni/export-positions.js replays/omni-rs-solves replays/omni-rs-positions.jsonl --pool bots/omni/rs/pool.json
 ```
 
 The pool contains 100 cards: eight plain bases, the three requested leaders, 88 units with empty or supported keyword-only text, and Shield. Each entry includes the downloaded card metadata, numeric keyword values parsed from text, and an inclusion reason. The generator validates the whole rules text after removing reminder text; a supported keyword at the beginning is insufficient. It rejects pilot text and unsupported keyword tags. At least 50 cards can be dealt for every leader/base pair, respecting the existing dealer's three-copy limit and its stricter one-copy limit for unique cards. An explicit pool is optional; unrestricted deals retain the original code path.
@@ -62,7 +62,7 @@ Trace generation exits nonzero on any failed game and writes a `.error.json` wit
 ## Focused fixture construction
 
 ```sh
-node bot/omni/rs/make-fixtures.js
+node bots/omni/rs/make-fixtures.js
 ```
 
 This regenerates three additional small engine fixtures, independently of the 300-game measurement corpus. The two `keywords-and-unique` games use legal 50-card decks containing three copies of unique units. They exercise both unique-defeat choices and Mae (`HMW_055`), whose three aspects prevent the normal in-aspect dealer from selecting her. Mae pays the normal missing-aspect penalty. Her two trigger orders are exercised, including survival and defeat during Ambush before Shielded resolves.
@@ -75,11 +75,11 @@ Together with the three normal-game fixtures, the six compressed files are appro
 
 ```sh
 cargo build --release -p omni-rs && npm run wasm:build -- --target node
-node bot/omni/rs/stress.js --bots heuristic,aggro,control,c-clock,rust-search,node-search --seeds 1-4 \
-    --pool bot/omni/rs/pool.json --out replays/omni-rs-stress --workers 3 --sim-every 5
+node bots/omni/rs/stress.js --bots heuristic,aggro,control,c-clock,rust-search,node-search --seeds 1-4 \
+    --pool bots/omni/rs/pool.json --out replays/omni-rs-stress --workers 3 --sim-every 5
 ```
 
-Bots play ordinary games through the referee (`bot/match.js`), every pair once per seed, on decks dealt from the pool.
+Bots play ordinary games through the referee (`engine/match.js`), every pair once per seed, on decks dealt from the pool.
 forceteki decides every game. The Rust simulator (the WebAssembly build) only follows along (`mirror.js`):
 
 - **Real moves.** From the first action window on, Rust is loaded with forceteki's full state, then gets every move
@@ -107,7 +107,7 @@ opt-in select-card rule that this Rust engine follows (`env.newGame({ selectionT
 needs the same `--catalogue` and `--pool`.
 
 `--views` also builds, from the Rust state, the protocol views a bot would get from Rust simulations (`rust-view.js`)
-and compares them with `bot/view.js` on forceteki: the action list at every checked decision and the board at every
+and compares them with `engine/view.js` on forceteki: the action list at every checked decision and the board at every
 action window. The first difference in a line is a `view` finding.
 
 First run (`/mnt/project-files/omni/stress/r1-pool100/`, `summary-short.json` for the totals):

@@ -1,24 +1,24 @@
 # Learning from our bot's games against people on Karabast
 
-The live bot plays quick matches on karabast.net (`bot/karabast/queue.js`; the runs live on the Karabast Sprite under
+The live bot plays quick matches on karabast.net (`karabast/queue.js`; the runs live on the Karabast Sprite under
 `~/karabast/runs/<run>/`, frames already scrubbed). These scripts turn those runs into replays, count what went wrong in
 the lost games, ask bots again at the same decisions, and test a fix on the deck the live bot plays.
 
 ```bash
-node analysis/karabast/games.js --runs <folder of q-* runs> --out <dir>          # replays + index.json
-node analysis/karabast/losses.js --games <dir> [--json facts.json]               # loss summary
-node analysis/karabast/redecide.js --bots c-clock,c-clock2 --out d.jsonl <run>/frames/*.jsonl
-node analysis/karabast/deck-test.js --deck luke-skywalker_jtl_data-vault --bots c-clock,c-clock2 --out t.jsonl
-node analysis/karabast/deck-test.js --summary t-*.jsonl                          # join shards (--shard i/n)
-bash analysis/karabast/fetch.sh <dir>                                            # every run from the Sprite -> <dir>/runs
-node analysis/karabast/review.js --games <dir> [--since <ISO>] [--json r.json]   # strategy review: each bot's record and play facts
+node lab/analysis/karabast/games.js --runs <folder of q-* runs> --out <dir>          # replays + index.json
+node lab/analysis/karabast/losses.js --games <dir> [--json facts.json]               # loss summary
+node lab/analysis/karabast/redecide.js --bots c-clock,c-clock2 --out d.jsonl <run>/frames/*.jsonl
+node lab/analysis/karabast/deck-test.js --deck luke-skywalker_jtl_data-vault --bots c-clock,c-clock2 --out t.jsonl
+node lab/analysis/karabast/deck-test.js --summary t-*.jsonl                          # join shards (--shard i/n)
+bash lab/analysis/karabast/fetch.sh <dir>                                            # every run from the Sprite -> <dir>/runs
+node lab/analysis/karabast/review.js --games <dir> [--since <ISO>] [--json r.json]   # strategy review: each bot's record and play facts
 ```
 
 The strategy review runs every 4 hours (fetch, games.js, review.js); its outputs and the replays are kept in
 `/mnt/project-files/karabast-bot-games/`. Opponents get stronger or weaker with the time of day, so review.js also splits
 each bot's record by 6-hour UTC block: compare bots within a block.
 
-Opponents' names are never read: they live in a separate file on the Sprite (bot/karabast/README.md, "Watch a game").
+Opponents' names are never read: they live in a separate file on the Sprite (karabast/README.md, "Watch a game").
 
 ## What 159 games said (2026-10-11 19:15 to 2026-10-12 05:52 UTC)
 
@@ -41,7 +41,7 @@ on the 27 real decks, so people beat it much more than bots do.
 
 ## The fix: c-clock2
 
-`bot/c/swu-c --v2` (registered as `c-clock2`): a leader with a Pilot deploy takes it, onto its best Vehicle; a unique
+`bots/c/swu-c --v2` (registered as `c-clock2`): a leader with a Pilot deploy takes it, onto its best Vehicle; a unique
 card is not played while I control a copy (a unit, or an upgrade such as a pilot), and such copies, then spare copies in
 hand, are resourced first. `--pilot` and `--unique` turn on one fix each.
 

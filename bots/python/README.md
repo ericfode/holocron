@@ -3,10 +3,10 @@
 A Star Wars Unlimited bot in Python 3 (standard library only). It plays through the stdio protocol
 (`spec/stdio-protocol.md`), so the engine stays in Node and this process only sees the JSON `decide` messages.
 
-    node bot/ladder.js --bots py-clock,rush --games 10
-    python3 -m unittest discover -s bot/python      # tests on mock boards, no engine needed
+    node lab/runners/ladder.js --bots py-clock,rush --games 10
+    python3 -m unittest discover -s bots/python      # tests on mock boards, no engine needed
 
-Registered in `bot/external-bots.json` as `py-clock` (`"lang": "python"`). It reads card costs, keywords and text
+Registered in `bots/external-bots.json` as `py-clock` (`"lang": "python"`). It reads card costs, keywords and text
 from the engine's card JSON (`forceteki/test/json`, or `$SWU_CARD_JSON`); without it, it still plays from the
 board numbers alone. `SWU_PY_TRACE=<file>` appends every prompt and the choice made (one JSON line each).
 

@@ -24,10 +24,10 @@ the same inputs. Printed card stats (cost, power, HP, keywords) come from `force
 | Name | What it does | Speed |
 |---|---|---|
 | `learned-pi` | Plays the policy head's top action at every prompt. A loop guard lowers actions already tried in the exact same position, so pick-then-cancel loops end. | ~1 ms a decision |
-| `learned-v` | The heuristic bot's one-ply engine lookahead (`bot/players/heuristic.js`), with positions scored by the value head instead of the hand-written formula. Other prompts use the policy. | like `heuristic` |
+| `learned-v` | The heuristic bot's one-ply engine lookahead (`bots/players/heuristic.js`), with positions scored by the value head instead of the hand-written formula. Other prompts use the policy. | like `heuristic` |
 | `learned-vh` | Like `learned-v`, but a position's score is the hand-written heuristic score plus `HEURISTIC_BLEND` (10) times the value head: the network corrects the formula instead of replacing it. | like `heuristic` |
 
-Model file: `$SWU_LEARNED_MODEL`, default `models/learned/current.json`. All three bots read only their own seat's view.
+Model file: `$SWU_LEARNED_MODEL`, default `lab/models/learned/current.json`. All three bots read only their own seat's view.
 `SWU_LEARNED_BLEND=<w>` turns `learned-v` into the blended score with weight `w`, for sweeps.
 
 ## Pipeline
@@ -35,19 +35,19 @@ Model file: `$SWU_LEARNED_MODEL`, default `models/learned/current.json`. All thr
 ```bash
 # 1. teacher-labelled games (heuristic bot = teacher); run several workers, each with its own block of seeds
 #    (a restarted worker goes on from --seed + games done, so leave room: 10000, 11000, ...)
-node bot/learned/gen.js --out data/learned/run1/w0 --games 150 --seed 10000 --teacher 0.35
+node bots/learned/gen.js --out data/learned/run1/w0 --games 150 --seed 10000 --teacher 0.35
 # 2. train (python3 -m pip install tinygrad numpy). JITBEAM=1 makes tinygrad search kernel variants: the first run
 #    spends ~20 min compiling (cached on disk after that), then a step is ~3x faster than without it
-JITBEAM=1 python3 bot/learned/train.py --data data/learned/run1 --data data/learned/traj-random --out models/learned/current.json --steps 4000
-node bot/learned/check-model.js models/learned/current.json     # JS forward pass == tinygrad, on saved cases
+JITBEAM=1 python3 bots/learned/train.py --data data/learned/run1 --data data/learned/traj-random --out lab/models/learned/current.json --steps 4000
+node bots/learned/check-model.js lab/models/learned/current.json     # JS forward pass == tinygrad, on saved cases
 # 3. play: parallel round-robin in the tournament format (+ ladder.json for the dashboard)
-node bot/learned/arena.js --bots learned-pi,random --games 40 --workers 4 --seed 50000 --out replays/learned-vs-random --record
+node bots/learned/arena.js --bots learned-pi,random --games 40 --workers 4 --seed 50000 --out replays/learned-vs-random --record
 # 4. self-play data: the student plays the unlabelled windows instead of random moves
-node bot/learned/gen.js --out data/learned/run2/w0 --games 150 --seed 20000 --student models/learned/current.json
+node bots/learned/gen.js --out data/learned/run2/w0 --games 150 --seed 20000 --student lab/models/learned/current.json
 ```
 
 Games from other threads in the shared "swu-traj/1" format (`/mnt/project-files/learn/README.md`) convert with
-`node bot/learned/from-traj.js --in <dir> --out data/learned/traj-x/w0 [--labels played]`. Without `--labels played`
+`node bots/learned/from-traj.js --in <dir> --out data/learned/traj-x/w0 [--labels played]`. Without `--labels played`
 they only train the value head (use that for random games).
 
 `gen.js` details: the heuristic's search costs 1-3 s per action window, so only `--teacher` (a fraction) of action
@@ -65,7 +65,7 @@ See `/mnt/project-files/results/learned-v1/` (ladder) and the dashboard panel. W
 copies the teacher on ~60% of held-out action windows (chance 18%) and ~82% of other prompts (chance 28%), and beats
 random 29-10 over 40 games with no search. The value head overfits (held-out MSE ~0.85 vs 1.0 for guessing 0).
 
-`models/learned/current.json` is now v3: feature version 2, trained on 455 DAgger games (the student plays half the
+`lab/models/learned/current.json` is now v3: feature version 2, trained on 455 DAgger games (the student plays half the
 moves). It copies the teacher on 57% of held-out windows (chance 16%); value MSE 0.99. In two round robins on the same
 seeds (`/mnt/project-files/results/learned-v3-ab/`, 6 games a pair) v3 beats random more often than v1 (`learned-pi`
 5-1 vs 3-3, `learned-v` 6-0 vs 5-1). Both learned bots now lose to `heuristic` (0-6): after the shared evaluation fix

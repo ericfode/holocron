@@ -4,7 +4,7 @@ A bot written in [Bend 2](https://github.com/bendlang/bend) (an affine, dependen
 native code through C). It plays the forceteki engine over the stdio protocol in `spec/stdio-protocol.md`, like the
 Rust and Python bots, so `match.js`, `tournament.js` and `ladder.js` use it unchanged.
 
-Registered in `bot/external-bots.json` as:
+Registered in `bots/external-bots.json` as:
 
 - `bend`: the bot's own scores pick every move.
 - `bend-jev`: the same bot, but at action windows and target prompts TypeSafe's Jev model picks one of the bot's best
@@ -17,8 +17,8 @@ Measured on 60 paired games vs `rush`: `bend-jev` won 34 where `bend` won 40; `b
 
 ```bash
 cd forceteki && npm run get-cards && cd ..             # card data, once
-BEND2=~/bend/bend2/main.ts bot/bend/build.sh           # card tables + native binary bot/bend/swu-bend
-node bot/ladder.js --bots bend,rush --games 20         # play
+BEND2=~/bend/bend2/main.ts bots/bend/build.sh           # card tables + native binary bots/bend/swu-bend
+node lab/runners/ladder.js --bots bend,rush --games 20         # play
 node bot/tournament.js --bots bend,node-random --games 2 --out replays/bend-check   # protocol check
 ```
 

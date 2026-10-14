@@ -1,7 +1,7 @@
 # Importer: human games from karabast.net
 
 Turns captures of real games played on [Karabast](https://karabast.net) into our replay format
-(`spec/replay-format.md`), so the viewer, the position analysis (`analysis/`) and the omni lens (`bot/omni/lens.js`)
+(`spec/replay-format.md`), so the viewer, the position analysis (`lab/analysis/`) and the omni lens (`bots/omni/lens.js`)
 read them like any bot game.
 
 Karabast runs the same forceteki engine as this repo. After every change its server pushes a `gamestate` object to
@@ -11,16 +11,16 @@ stream. The importer reads the saved stream; it needs no engine and no card data
 ## Usage
 
 ```bash
-node importer/import.js <capture file or dir>... --out replays/human [--names Alice,Bob] [--source karabuddy] [--keep-file-names]
+node karabast/importer/import.js <capture file or dir>... --out replays/human [--names Alice,Bob] [--source karabuddy] [--keep-file-names]
 npm run viewer    # REPLAYS_DIR defaults to replays/, so replays/human shows up as a tournament
-node analysis/analyze.js replays/human --evaluator heuristic
-node bot/omni/lens.js replays/human --out replays/human/lens   # omni lens (bot/omni is not on main yet)
+node lab/analysis/analyze.js replays/human --evaluator heuristic
+node bots/omni/lens.js replays/human --out replays/human/lens   # omni lens (bots/omni is not on main yet)
 ```
 
 When both players recorded the same game, pair the two files to get one replay with both hands:
 
 ```bash
-node importer/import.js --pair alice.karareplay bob.karareplay --out replays/human   # -> <hash>.both.jsonl
+node karabast/importer/import.js --pair alice.karareplay bob.karareplay --out replays/human   # -> <hash>.both.jsonl
 ```
 
 Each input becomes `<out>/games/<id>.jsonl`, and `<out>/index.json` is rewritten in the tournament format with
@@ -46,7 +46,7 @@ Inputs are detected from the content (`sources.js`):
 | SWU Forge Battle Log `PersistedTimeline` v2/v3 (`base` + `steps[{timestamp, patch}]` + `chat`) | Kara Tracker extension |
 | socket.io text frames, one per line: `42["gamestate",{...}]` | browser devtools export of the game socket |
 | JSON array or JSON Lines of `gamestate` objects | any other recorder |
-| `importer/capture.js` output | engine-made test captures |
+| `karabast/importer/capture.js` output | engine-made test captures |
 | SWU-PGN/1.x game file (`.swupgn`, `[Game "SWU-PGN/1.0"]` header) | Karabast's draft game notation, see below |
 
 ### Public KaraBuddy replays
@@ -55,7 +55,7 @@ KaraBuddy users can publish a replay; the site lists up to 200 of them, anonymiz
 list, and only that list:
 
 ```bash
-node importer/fetch-karabuddy.js --out replays/karabuddy-public [--limit 200] [--delay 3000] [--dry-run]
+node karabast/importer/fetch-karabuddy.js --out replays/karabuddy-public [--limit 200] [--delay 3000] [--dry-run]
 ```
 
 It is slow and polite on purpose. It reads `robots.txt` first and stops if the API is disallowed. It sends one request
@@ -95,7 +95,7 @@ What this means for the tools:
 - **Viewer:** works unchanged; hidden cards show as card backs.
 - **Heuristic analysis and the lens:** they use counts for hands, so an import scores the same as the full game.
   Checked on 30 engine games: subjective curves of the import equal the truth at every round end (762 of 762).
-- **LLM analysis:** only the recording seat's subjective view is complete. `analysis/analyze.js` sees
+- **LLM analysis:** only the recording seat's subjective view is complete. `lab/analysis/analyze.js` sees
   `hiddenHands` and runs `subjective_<pov>` plus `omniscient`. `objective` would only repeat the recorder's view, and
   the other seat's view cannot be built. The hindsight pass is told which hand is missing. In a merged game with
 unpaired frames, checkpoints where a hand is hidden skip that seat's view and `objective`. Pass `--views` to override.
@@ -106,10 +106,10 @@ unpaired frames, checkpoints where a hand is hidden skip that seat's view and `o
 [SWU-PGN](https://github.com/SWU-Karabast/forceteki/pull/2350) (draft, branch `swu-game-notation`, spec
 `docs/SWU-PGN-1.0-SPEC.md`) is a game file Karabast's server can write: both deck lists, both shuffled deck orders, the
 seed, and one NDJSON record per board change, with a full board ("keyframe") at every round edge. It is omniscient, so
-`importer/swupgn.js` gives a replay with both hands (`source.format: "swu-pgn"`, `pov: "both"`, `hiddenHands: []`).
+`karabast/importer/swupgn.js` gives a replay with both hands (`source.format: "swu-pgn"`, `pov: "both"`, `hiddenHands: []`).
 
 ```bash
-node importer/import.js game.swupgn --out replays/pgn
+node karabast/importer/import.js game.swupgn --out replays/pgn
 ```
 
 - **Board:** the records are folded in order (spec sections 11-13; the MOVE rule, the keyframe check and the `for`
@@ -141,9 +141,9 @@ not written either, unless you pass `--keep-file-names`.
 ## Testing
 
 ```bash
-npm test                                                     # includes importer/test (format readers, rounds, chat, SWU-PGN vectors)
-node importer/capture.js --bots rush,random --seeds 1-10 --out /tmp/cap   # engine captures + truth replays
-node importer/verify.js /tmp/cap                             # every frame of every view against the truth
+npm test                                                     # includes karabast/importer/test (format readers, rounds, chat, SWU-PGN vectors)
+node karabast/importer/capture.js --bots rush,random --seeds 1-10 --out /tmp/cap   # engine captures + truth replays
+node karabast/importer/verify.js /tmp/cap                             # every frame of every view against the truth
 ```
 
 `capture.js` asks the engine for the exact `gamestate` Karabast would push to p1, p2 and a spectator after each

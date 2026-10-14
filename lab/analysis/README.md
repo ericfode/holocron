@@ -4,7 +4,7 @@ Walks a recorded game turn by turn and asks Claude who is winning, from four vie
 file per game plus an interactive page that draws the curves and the gaps between them. The same numbers double as
 a fitness signal for bots.
 
-Input is the existing replay format (`bot/recorder.js`, `viewer/src/core/types.ts`); nothing in `bot/` or the
+Input is the existing replay format (`engine/recorder.js`, `viewer/src/core/types.ts`); nothing in `engine/` or the
 replay format changes.
 
 ## The four views
@@ -31,22 +31,22 @@ The gaps are the research signal:
 ## Usage
 
 ```bash
-cd analysis && npm install && cd ..        # once: the Anthropic SDK
+cd lab/analysis && npm install && cd ../..        # once: the Anthropic SDK
 
 # Claude (needs ANTHROPIC_API_KEY or `ant auth login`)
-node analysis/analyze.js replays/demo/games/<game>.jsonl --out analysis/out/game.json
-node analysis/analyze.js replays/demo --batch           # whole tournament as one Message Batch, half price
-node analysis/report.js analysis/out/game.json --baseline analysis/out/game.heuristic.json
+node lab/analysis/analyze.js replays/demo/games/<game>.jsonl --out lab/analysis/out/game.json
+node lab/analysis/analyze.js replays/demo --batch           # whole tournament as one Message Batch, half price
+node lab/analysis/report.js lab/analysis/out/game.json --baseline lab/analysis/out/game.heuristic.json
 # with the shared game viewer (Holotable kit) embedded and synced to the curves
-node analysis/report.js analysis/out/game.json --kit /mnt/project-files/viewer-kit/swu-viewer-kit.js --art-pack /mnt/project-files/viewer-kit/art-pack-demo.json
+node lab/analysis/report.js lab/analysis/out/game.json --kit /mnt/project-files/viewer-kit/swu-viewer-kit.js --art-pack /mnt/project-files/viewer-kit/art-pack-demo.json
 # plus the omni bot's card values in the kit's Lens view, when the game has a lens file
-node analysis/report.js analysis/out/game.json --kit ... --lens /mnt/project-files/dashboard/lens/<gameId>.json
+node lab/analysis/report.js lab/analysis/out/game.json --kit ... --lens /mnt/project-files/dashboard/lens/<gameId>.json
 
 # free and offline: the heuristic evaluator, same output format
-node analysis/analyze.js analysis/fixtures/fixture-game.jsonl --evaluator heuristic --out analysis/out/fixture.heuristic.json
+node lab/analysis/analyze.js lab/analysis/fixtures/fixture-game.jsonl --evaluator heuristic --out lab/analysis/out/fixture.heuristic.json
 
 # fitness per bot across many analysed games
-node analysis/fitness.js analysis/out
+node lab/analysis/fitness.js lab/analysis/out
 ```
 
 Useful options (full list at the top of `analyze.js`):
@@ -62,7 +62,7 @@ Useful options (full list at the top of `analyze.js`):
   other model or process and feed the answers back (`{"game": ..., "id": ..., "output": {...}}` per line; `game`
   is in every dumped request and is needed when one file covers several games).
 
-Answers are cached in `analysis/.cache` by a hash of model, effort, prompt and schema, so re-running or re-rendering
+Answers are cached in `lab/analysis/.cache` by a hash of model, effort, prompt and schema, so re-running or re-rendering
 costs nothing. Direct calls use streaming, adaptive thinking, structured outputs (a JSON schema per view) and
 server-side refusal fallbacks; `--batch` drops the fallbacks because the Batches API does not take them.
 
@@ -110,7 +110,7 @@ requests one at a time in order (no API key was available), then loaded with `--
 turns by both players, so the example has curves and gaps but no per-turn credit.
 
 ```bash
-node analysis/report.js analysis/examples/random-b-vs-random-a-2.claude.json --baseline analysis/examples/random-b-vs-random-a-2.heuristic.json --game <path to the replay>
+node lab/analysis/report.js lab/analysis/examples/random-b-vs-random-a-2.claude.json --baseline lab/analysis/examples/random-b-vs-random-a-2.heuristic.json --game <path to the replay>
 ```
 
 ## Fixture

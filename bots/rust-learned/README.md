@@ -43,7 +43,7 @@ from choosing the same thing again when an identical observation keeps coming ba
 
 ## Training data ("swu-traj/1")
 
-`node bot/learn/collect.js --games 4000 --workers 4 --out data/traj/random-v1 [--bots random-a,random-b]`
+`node lab/learn/collect.js --games 4000 --workers 4 --out data/traj/random-v1 [--bots random-a,random-b]`
 plays games through the normal match loop (any bots, including external ones) and writes
 `shard-<seed>.jsonl.gz`, one gzip member per game:
 
@@ -53,7 +53,7 @@ plays games through the normal match loop (any bots, including external ones) an
 {"t":"end","seed":100000,"winner":"p1","outcome":"won","round":15,"steps":369,"error":null,"by":null,"key":"9f2c..."}
 ```
 
-A `d` line is exactly the `decide` message the referee would send that seat (same `bot/view.js`
+A `d` line is exactly the `decide` message the referee would send that seat (same `engine/view.js`
 code), plus `i`, the index that was chosen. Decisions with one legal action are skipped unless `--all`.
 `winner` is set only for games played out (`outcome` "won"); a game a bot broke has outcome "ERROR",
 `by` naming that seat, and no winner. `key` is the game's key: the game is dealt from it, not from the seed.
@@ -99,21 +99,21 @@ it made the bot skip resourcing and lose to random (3-17 even with `--prior 10`)
 windows removed the harm but not the lack of gain. Training the whole network gives the imitation
 enough features to pick the card, and the clone plays close to its teacher.
 
-Another round: `node bot/learn/selfplay-round.js --model bot/rust-learned/models/learned-v4.safetensors --next learned-v5`
+Another round: `node lab/learn/selfplay-round.js --model bots/rust-learned/models/learned-v4.safetensors --next learned-v5`
 (records 2400 games of the current model vs rust-greedy and itself, then trains the next model).
 
 ## Commands (from the repo root)
 
 ```bash
-cargo build --release --manifest-path bot/rust-learned/Cargo.toml
-bot/rust-learned/target/release/swu-learned train --data data/traj/random-v1 --out bot/rust-learned/models/learned-v1.safetensors --epochs 3 [--teacher M --td 0.5]
-bot/rust-learned/target/release/swu-learned train-prior --data data/traj/greedy2-v1 --teacher-bots rust-greedy2 --init M --out bot/rust-learned/models/bc-g2.safetensors --epochs 6 --full
-bot/rust-learned/target/release/swu-learned explain --model M --data DIR   # what the value head looks at
-node bot/learn/eval.js --bots rust-learned,random-a --games 200 --workers 4 [--out results/x] [--record]
+cargo build --release --manifest-path bots/rust-learned/Cargo.toml
+bots/rust-learned/target/release/swu-learned train --data data/traj/random-v1 --out bots/rust-learned/models/learned-v1.safetensors --epochs 3 [--teacher M --td 0.5]
+bots/rust-learned/target/release/swu-learned train-prior --data data/traj/greedy2-v1 --teacher-bots rust-greedy2 --init M --out bots/rust-learned/models/bc-g2.safetensors --epochs 6 --full
+bots/rust-learned/target/release/swu-learned explain --model M --data DIR   # what the value head looks at
+node lab/learn/eval.js --bots rust-learned,random-a --games 200 --workers 4 [--out results/x] [--record]
 node bot/tournament.js --bots rust-learned,rust-greedy --games 10 --out replays/learned
 ```
 
-Registered bots (`bot/external-bots.json`): on `models/learned-v4.safetensors`, `rust-learned` (Q only), `rust-learned-world`
+Registered bots (`bots/external-bots.json`): on `models/learned-v4.safetensors`, `rust-learned` (Q only), `rust-learned-world`
 (`--world 1`), `rust-learned-heur` (`--heur 1`), `rust-learned-explore` (`--temp 0.3 --epsilon 0.05`, for collecting self-play data);
 on `models/bc-g2.safetensors`, `rust-learned-bc` (`--prior 100 --prior-all`: plays the imitation head). `SWU_LEARNED_THOUGHTS=<file>` makes the bot write its
 latest decision (top actions with win chances) for the research dashboard. Card data is read from

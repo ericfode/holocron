@@ -17,8 +17,8 @@ information and lookahead are worth, and how far from the end SWU can be solved 
 ```bash
 node bot/tournament.js --bots omni,heuristic --games 16 --seed 101 --out replays/omni     # matches
 OMNI_LOG_DIR=replays/omni-decisions node bot/tournament.js --bots omni,heuristic ...       # also log decisions + search trees
-node bot/omni/solve-games.js --bots heuristic,heuristic --seeds 201-216 --budget 2000 --stop 2 --out replays/solve
-node bot/omni/lens.js replays/omni --decisions replays/omni-decisions --out replays/lens
+node bots/omni/solve-games.js --bots heuristic,heuristic --seeds 201-216 --budget 2000 --stop 2 --out replays/solve
+node bots/omni/lens.js replays/omni --decisions replays/omni-decisions --out replays/lens
 ```
 
 Search needs `undo: true` (the bot sets `needsUndo`). One search node (apply a move, roll back) costs about 38 ms on

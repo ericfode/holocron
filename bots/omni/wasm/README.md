@@ -22,7 +22,7 @@ For a self-contained local npm tarball usable outside this repository, see [pack
 ## Node
 
 ```js
-const { createSimulator, fromEnvGame } = require('./bot/omni/wasm/node');
+const { createSimulator, fromEnvGame } = require('./bots/omni/wasm/node');
 async function main(exportedPosition) {
 const simulator = await createSimulator(); // default: the committed 100-card pool
 
@@ -71,8 +71,8 @@ runner still performs setup and mulligans in forceteki, and unsupported cards ar
 ## Browser
 
 ```js
-import { createSimulator } from './bot/omni/wasm/browser.mjs';
-const simulator = await createSimulator({ poolJson: await (await fetch('./bot/omni/rs/pool.json')).text() });
+import { createSimulator } from './bots/omni/wasm/browser.mjs';
+const simulator = await createSimulator({ poolJson: await (await fetch('./bots/omni/rs/pool.json')).text() });
 const game = simulator.loadState(exportedPosition);
 const result = game.prove({ depth: 12, nodes: 100000 });
 game.free();
@@ -88,21 +88,21 @@ The browser loader also accepts `catalogueJson`, with optional `poolJson`, using
 
 ```sh
 # Exact fixture/corpus replay through the JavaScript adapter.
-node bot/omni/wasm/check.js bot/omni-rs/tests/fixtures/*.jsonl.gz
-node bot/omni/wasm/check.js bot/omni-rs/tests/compiled-fixtures/*.jsonl.gz --catalogue bot/card-compiler/generated/catalog.json --pool bot/omni-rs/tests/compiled-fixtures/pool.json
+node bots/omni/wasm/check.js bot/omni-rs/tests/fixtures/*.jsonl.gz
+node bots/omni/wasm/check.js bot/omni-rs/tests/compiled-fixtures/*.jsonl.gz --catalogue bot/card-compiler/generated/catalog.json --pool bot/omni-rs/tests/compiled-fixtures/pool.json
 
 # Existing JS match runner, using Wasm for complete endgame searches.
-node bot/omni/solve-games.js --engine wasm --pool bot/omni/rs/pool.json --bots aggro,control --seeds 101 --budget 2000 --depth 12 --sample 0 --out replays/wasm-solves
+node bots/omni/solve-games.js --engine wasm --pool bots/omni/rs/pool.json --bots aggro,control --seeds 101 --budget 2000 --depth 12 --sample 0 --out replays/wasm-solves
 # Compiled-card matches use the same runner with the catalogue and its admitted pool.
-node bot/omni/solve-games.js --engine wasm --catalogue bot/card-compiler/generated/catalog.json --pool bot/omni-rs/tests/compiled-fixtures/pool.json --bots heuristic,heuristic --seeds 3001 --budget 100 --depth 2 --sample 0 --stop 1 --out replays/wasm-compiled-solves
+node bots/omni/solve-games.js --engine wasm --catalogue bot/card-compiler/generated/catalog.json --pool bot/omni-rs/tests/compiled-fixtures/pool.json --bots heuristic,heuristic --seeds 3001 --budget 100 --depth 2 --sample 0 --stop 1 --out replays/wasm-compiled-solves
 
 # Prove exported positions, with a fixed budget or their measured JS time allowance.
-node bot/omni/wasm/prove.js replays/omni-rs-matched.jsonl --depth 12 --ms-field jsMs
-node bot/omni/wasm/prove.js replays/omni-rs-matched.jsonl --depth 12 --nodes 100000
+node bots/omni/wasm/prove.js replays/omni-rs-matched.jsonl --depth 12 --ms-field jsMs
+node bots/omni/wasm/prove.js replays/omni-rs-matched.jsonl --depth 12 --nodes 100000
 # Compiled positions use --catalogue catalog.json plus their exact --pool pool.json.
 
 # Three whole-Wasm rollout runs, with one 10,000-node warmup.
-node bot/omni/wasm/bench.js bot/omni-rs/tests/fixtures/heuristic-vs-heuristic-1.jsonl.gz 1000000 3
+node bots/omni/wasm/bench.js bot/omni-rs/tests/fixtures/heuristic-vs-heuristic-1.jsonl.gz 1000000 3
 ```
 
 `solve-games.js` defaults to its existing JavaScript prover. `--engine wasm` requires an explicit pool and retains

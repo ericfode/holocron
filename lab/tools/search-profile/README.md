@@ -13,8 +13,8 @@ The publication branch uses the current Cargo workspace binary path
 From the repository root, with Node 22 and the normal engine/card setup:
 
 ```sh
-cargo build --release --locked --manifest-path bot/rust/Cargo.toml
-node --expose-gc tools/search-profile/run.cjs --out results/search-profile --rounds 2,3,4 --repeats 5 --warmups 2 --cpu
+cargo build --release --locked --manifest-path bots/rust/Cargo.toml
+node --expose-gc lab/tools/search-profile/run.cjs --out results/search-profile --rounds 2,3,4 --repeats 5 --warmups 2 --cpu
 ```
 
 Without a Rust build, use `--modes js-inprocess,js-stdio,ismcts`. Other options:
@@ -101,8 +101,8 @@ Create fresh fixture files for the examples below after the normal engine/card
 setup. These minimal runs also produce a search profile in each output directory:
 
 ```sh
-node --expose-gc tools/search-profile/run.cjs --out results/search-profile-fixtures-seed1 --seed 1 --rounds 2,3,4 --modes ismcts --repeats 1 --warmups 0
-node --expose-gc tools/search-profile/run.cjs --out results/search-profile-fixtures-seed2 --seed 2 --rounds 4,6 --modes ismcts --repeats 1 --warmups 0
+node --expose-gc lab/tools/search-profile/run.cjs --out results/search-profile-fixtures-seed1 --seed 1 --rounds 2,3,4 --modes ismcts --repeats 1 --warmups 0
+node --expose-gc lab/tools/search-profile/run.cjs --out results/search-profile-fixtures-seed2 --seed 2 --rounds 4,6 --modes ismcts --repeats 1 --warmups 0
 ```
 
 They prepare five roots from the current checkout; the historical fixture files
@@ -125,7 +125,7 @@ rebuilding the modified source**; the runner needs both versions:
 mkdir -p results/search-profile-cache-baseline
 cp forceteki/build/server/game/core/gameSteps/ActionWindow.js results/search-profile-cache-baseline/ActionWindow.js
 npm --prefix forceteki run build
-node --expose-gc tools/search-profile/compare.cjs --baseline results/search-profile-cache-baseline/ActionWindow.js --fixtures results/search-profile-fixtures-seed1/fixtures.json,results/search-profile-fixtures-seed2/fixtures.json --out results/search-profile-cache-paired --pairs 5 --modes rust-stdio,ismcts
+node --expose-gc lab/tools/search-profile/compare.cjs --baseline results/search-profile-cache-baseline/ActionWindow.js --fixtures results/search-profile-fixtures-seed1/fixtures.json,results/search-profile-fixtures-seed2/fixtures.json --out results/search-profile-cache-paired --pairs 5 --modes rust-stdio,ismcts
 ```
 
 The generated fixture files contain five exact positions: seed 1 rounds 2, 3 and
@@ -167,7 +167,7 @@ mkdir -p results/search-profile-snapshot-baseline
 cp forceteki/build/server/game/core/GameObjectUtils.js results/search-profile-snapshot-baseline/GameObjectUtils.js
 cp forceteki/build/server/game/core/snapshot/GameStateManager.js results/search-profile-snapshot-baseline/GameStateManager.js
 npm --prefix forceteki run build
-node --expose-gc tools/search-profile/compare-snapshots.cjs \
+node --expose-gc lab/tools/search-profile/compare-snapshots.cjs \
   --baseline results/search-profile-snapshot-baseline \
   --fixtures results/search-profile-fixtures-seed1/fixtures.json,results/search-profile-fixtures-seed2/fixtures.json \
   --out results/search-profile-snapshot-paired \
@@ -210,7 +210,7 @@ file **before rebuilding the next change**:
 mkdir -p results/search-profile-target-baseline/core/ongoingEffect
 cp forceteki/build/server/game/core/ongoingEffect/OngoingCardEffect.js results/search-profile-target-baseline/core/ongoingEffect/OngoingCardEffect.js
 npm --prefix forceteki run build
-node --expose-gc tools/search-profile/compare-snapshots.cjs \
+node --expose-gc lab/tools/search-profile/compare-snapshots.cjs \
   --baseline results/search-profile-target-baseline \
   --modules core/ongoingEffect/OngoingCardEffect.js \
   --fixtures results/search-profile-fixtures-seed1/fixtures.json,results/search-profile-fixtures-seed2/fixtures.json \

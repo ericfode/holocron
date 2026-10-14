@@ -1,13 +1,13 @@
 # Real deck lists: do human winners also win for our bots?
 
-`bot/decks/ash-meta-2026-09.json` holds 27 real Premier tournament decks (19 leaders). A mirror ladder plays them with
-one bot on both seats (`node bot/ladder.js --decks bot/decks/ash-meta-2026-09.json --bots c-clock#a,c-clock#b ...`), so
+`decks/ash-meta-2026-09.json` holds 27 real Premier tournament decks (19 leaders). A mirror ladder plays them with
+one bot on both seats (`node lab/runners/ladder.js --decks decks/ash-meta-2026-09.json --bots c-clock#a,c-clock#b ...`), so
 the decks are the only thing that differs between games. `compare.js` asks whether the decks that win for the bot are
 the decks that win for humans.
 
 ```bash
-node analysis/realdeck/compare.js --runs <run dir>[,<run dir>...] \
-     --decks bot/decks/ash-meta-2026-09.json --human bot/decks/ash-meta-2026-09.human.json \
+node lab/analysis/realdeck/compare.js --runs <run dir>[,<run dir>...] \
+     --decks decks/ash-meta-2026-09.json --human decks/ash-meta-2026-09.human.json \
      [--online /mnt/project-files/human-meta/swustats/human-summary.json] [--out realdeck.json] [--permute 1000] \
      [--min-games 10] [--max-incomplete 0.10]
 ```
@@ -15,9 +15,9 @@ node analysis/realdeck/compare.js --runs <run dir>[,<run dir>...] \
 A run directory needs `index.json` (and `ladder.json` when present). A run that is still going is fine: it is read
 as a smaller run. Each run is keyed by the `id` in its `index.json` (or the directory name when there is none, with
 `#2`, `#3` added to repeats); its bot (entry names without the `#a` tag) is a separate field. Games are matched to decks
-by the deck names in each index entry, never by seed. Tests: `cd analysis && npm test`.
+by the deck names in each index entry, never by seed. Tests: `cd lab/analysis && npm test`.
 
-Decks are read the way `bot/decklists.js` `normalizeDeck` reads them (padded card ids, the same default name). The
+Decks are read the way `engine/decklists.js` `normalizeDeck` reads them (padded card ids, the same default name). The
 sha256 of the `--decks` file's raw bytes (the hash `loadDecks` writes to `ladder.json` `config.decks.sha256`) is
 checked against each run, with a warning when they differ.
 
@@ -88,9 +88,9 @@ one reference bot, then joins it with that bot's agreement from `compare.js`.
 
 ```bash
 K=$(openssl rand -hex 32)   # keep it: every gauntlet that should share deals uses the same --key and --seed
-node bot/ladder.js --decks bot/decks/ash-meta-2026-09.json --bots heuristic,rust-search --vs c-clock --games 702 --key $K --seed 1 --id gauntlet-1
-node analysis/realdeck/compare.js --runs <c-clock mirror>,<heuristic mirror>,<rust-search mirror> ... --out compare.json
-node analysis/realdeck/skill.js --gauntlet <gauntlet dir>[,<gauntlet dir>...] --compare compare.json [--out skill.json]
+node lab/runners/ladder.js --decks decks/ash-meta-2026-09.json --bots heuristic,rust-search --vs c-clock --games 702 --key $K --seed 1 --id gauntlet-1
+node lab/analysis/realdeck/compare.js --runs <c-clock mirror>,<heuristic mirror>,<rust-search mirror> ... --out compare.json
+node lab/analysis/realdeck/skill.js --gauntlet <gauntlet dir>[,<gauntlet dir>...] --compare compare.json [--out skill.json]
 ```
 
 - **Whole passes**: `--games` should be a multiple of 2P (P = 351 deck pairs for 27 decks, so 702). Then every deck
@@ -100,7 +100,7 @@ node analysis/realdeck/skill.js --gauntlet <gauntlet dir>[,<gauntlet dir>...] --
   engine bug). Run ids must be unique.
 - **Skill**: the challenger's score against the reference in decided games (draws half), a Wilson 95% CI and an Elo
   difference. An ERROR game a bot caused (`by` set: it threw, made an illegal move or timed out) is a loss for that bot,
-  as in `bot/ladder-report.js`. Engine errors, STEP_CAP and STUCK games are counted by outcome and left out. The
+  as in `lab/runners/ladder-report.js`. Engine errors, STEP_CAP and STUCK games are counted by outcome and left out. The
   reference is 50% by definition. All gauntlet runs must share the reference, and each challenger plays in one run
   only, as one copy.
 - **Paired**: every two challengers over the seeds both played with the same decks from the same seats (and the same
