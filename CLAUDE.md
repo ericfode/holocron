@@ -19,13 +19,17 @@ analysis, the Strategy Atlas model, Lean theory, and the Karabast player. `READM
   - `engine/` and `decks/`: a copy of the arena's game player (swu_bot `7455601`, where it was `bot/env.js`,
     `bot/view.js`, ...): `env.js`, `view.js`, `protocol.js`, `match.js`, `game-pool.js`, `stdio.js`, `rng.js`,
     `recorder.js`, `decklists.js`, `cardpool.js`, `ratings.js`, `random-run.js`, `debug-seed.js`, and the deck lists.
-    Fix player bugs in the arena first, then copy the fix here.
+    Fix player bugs in the arena first, then copy the fix here. `protocol-test.js`, `rollback-test.js` and
+    `determinism-check.js` are Holocron's own checks of this player (the arena dropped them).
   - `lab/`: `runners/` (ladder, sweeps, measurement scripts), `eval/`, `learn/`, `info/`, `deckbuild/`, `tools/`,
-    `analysis/`, `theory/`, `meta/`, `dashboard/`, `models/`.
+    `analysis/`, `theory/`, `meta/`, `dashboard/`, `models/`, and `kessel-reference/`: the engine side of Kessel's
+    reference corpus (scenarios, generator, probe fixtures, card pipeline runner; its `README.md`).
   - `karabast/` (the Karabast player) and `karabast/importer/`.
   - Tests sit next to what they test (`engine/test/`, `bots/test/`, `lab/test/`, `karabast/test/`, ...).
 - Paths into code that is not in this repo stay as the arena and Kessel name them: `bot/tournament.js`,
   `bot/compiled/`, `bot/arena/` (arena), `omni-rs`, `omni-wasm`, `card-compiler`, `bot/cards` (Kessel).
+  `lab/kessel-reference/` loads Kessel's code from a checkout (`KESSEL_DIR`, default `../kessel`) by Kessel's current
+  paths (`cards/`, `compiler/`, `crates/`), and its index command writes Kessel's `cases.json`.
 
 **Do not modify anything inside `forceteki/` without asking the user first.** It is a submodule of `ericfode/forceteki`
 pinned to the arena's commit (`2ebed8ca2`); move the pin only together with the arena.

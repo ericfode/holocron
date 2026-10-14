@@ -6,7 +6,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test engine/test/*.test.js bots/test/*.test.js lab/test/*.test.js karabast/test/*.test.js karabast/importer/test/*.test.js",
+    "test": "node --test engine/test/*.test.js bots/test/*.test.js lab/test/*.test.js karabast/test/*.test.js karabast/importer/test/*.test.js lab/kessel-reference/test/load.test.js",
     "test:py": "python3 -m unittest discover -s bots/python",
     "analysis:test": "npm --prefix lab/analysis test",
     "random": "node engine/random-run.js",
@@ -16,6 +16,9 @@
     "analysis:report": "node lab/analysis/report.js",
     "analysis:fitness": "node lab/analysis/fitness.js",
     "meta": "node lab/meta/analyze.js",
+    "kessel:reference": "node lab/kessel-reference/reference/cli.js",
+    "kessel:pipeline": "node lab/kessel-reference/pipeline/cli.js",
+    "kessel-reference:test": "node --test lab/kessel-reference/test/*.test.js",
     "lisp:build": "sbcl --non-interactive --load bots/lisp/build.lisp",
     "lisp:test": "sbcl --script bots/lisp/test.lisp"
   },
