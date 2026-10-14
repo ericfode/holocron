@@ -27,12 +27,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import features as F  # noqa: E402
 import model as M  # noqa: E402
 import tx_model as X  # noqa: E402
-from yardstick import yardstick  # noqa: E402
+from yardstick import held_points, yardstick  # noqa: E402
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--arch", choices=["tx", "pool"], required=True)
 ap.add_argument("--pack-r", required=True, help="recorded rows (pack_data.py)")
-ap.add_argument("--pack-b", required=True, help="branch points (pack_data.py)")
+ap.add_argument("--pack-b", required=True, nargs="+", help="branch points (pack_data.py); several packs are joined")
 ap.add_argument("--out", required=True)
 ap.add_argument("--steps", type=int, default=5000)
 ap.add_argument("--rb", type=int, default=256)
@@ -56,6 +56,9 @@ ap.add_argument("--settle", action="store_true", help="also predict where each m
 ap.add_argument("--pack-e", default=None, help="settled positions with the evaluator's logit (pack_data.py --rank)")
 ap.add_argument("--w-eval", type=float, default=0.0, help="weight of the evaluator-copy loss on the encoder")
 ap.add_argument("--eb", type=int, default=256, help="evaluator-copy positions per batch")
+ap.add_argument("--yard-points", type=int, default=8000, help="held-out branch points the closing yardstick reads at most")
+ap.add_argument("--test-pack", default=None, help="branch pack of games no run trains on, for the fixed-judge yardstick")
+ap.add_argument("--test-judge", default=None, help="judge_prep.py's scores of --test-pack's held-out points")
 a = ap.parse_args()
 lr0 = a.lr if a.lr is not None else (5e-4 if a.arch == "tx" else 1e-3)
 dev = torch.device(a.device or ("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"))
@@ -69,7 +72,9 @@ t0 = time.time()
 rng = np.random.default_rng(a.seed)
 
 R = dict(np.load(a.pack_r))
-Bd = dict(np.load(a.pack_b))
+packs = [dict(np.load(f)) for f in a.pack_b]
+Bd = {k: np.concatenate([p[k] for p in packs]) for k in packs[0]} if len(packs) > 1 else packs[0]
+del packs
 T = R["tok_ids"].shape[1]
 d = {"state": R["state"], "tok_ids": R["tok_ids"].astype(np.int64), "tok_feats": R["tok_feats"], "tok_mask": R["tok_mask"], "act": R["act"],
      "aid": R["aid"], "win": R["win"], "game": R["game"], "nxt1": R["nxt1"], "nxt4": R["nxt4"]}
@@ -394,11 +399,23 @@ print(f"value head: best held-out BCE {best[0]:.4f} at step {best[1]}, accuracy 
       file=sys.stderr, flush=True)
 log["value"] = {"best_step": best[1], "held_bce": best[0], "acc": best[3], "curve": vcurve}
 
-ys = yardstick(net, Bd, b_held)
+yard = b_held if len(b_held) <= a.yard_points else np.sort(np.random.default_rng(a.seed + 2).choice(b_held, a.yard_points, replace=False))
+ys = yardstick(net, Bd, yard)
 log["yardstick"] = ys
 for h, v in ys.items():
     print(f"  yardstick {h}: top-1 {v['top1']:.3f} (chance {v['chance']:.3f}) median rho {v['rho_median']:.2f} "
           f"spread imagined {v['spread_imagined'] * 100:.1f} / real {v['spread_real'] * 100:.1f} pts ({v['points']} points)", file=sys.stderr)
+if a.test_pack and a.test_judge:
+    # one evaluator grades every model (yardstick.py --judge) on games outside this run's data
+    TB = dict(np.load(a.test_pack))
+    J = np.load(a.test_judge)
+    assert np.array_equal(J["game"], TB["game"]), "--test-judge was made from other branch data"
+    tidx = held_points(TB)
+    tidx = tidx[J["judged"][tidx]]
+    ys = yardstick(net, TB, tidx, {1: J["ev1"], 4: J["ev4"], "s": J["evt"]})
+    log["yardstick_fixed"] = ys
+    for h, v in ys.items():
+        print(f"  fixed judge {h}: top-1 {v['top1']:.3f} (chance {v['chance']:.3f}) median rho {v['rho_median']:.2f} ({v['points']} points)", file=sys.stderr)
 M.save_safetensors(a.out + ".safetensors", w, meta)
 log["seconds"] = round(time.time() - t0)
 json.dump(log, open(a.out + ".log.json", "w"))
