@@ -858,3 +858,17 @@ test('one game at a time: a live run holds playing.pid, a dead one is taken over
     assert.strictEqual(ledger.count, 40);
     assert.throws(() => new PeopleLedger(path.join(dir, 'people.json'), NaN), /whole number/); // Infinity only on purpose (--max-people none)
 });
+
+test('our anonymous user has a UUID id and the name Karabast gives it, and the scrub removes that name', () => {
+    const { anonymousUser, anonymousName } = require('../queue');
+    const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+    const a = anonymousUser();
+    const b = anonymousUser();
+    assert.match(a.id, UUID); // forceteki #3014 refuses any other anonymous id ("Authentication failed")
+    assert.notStrictEqual(a.id, b.id);
+    assert.strictEqual(a.username, `anonymous ${a.id.slice(0, 6)}`);
+    assert.deepStrictEqual(anonymousUser('swu-bot (bot)', a.id), { id: a.id, username: 'swu-bot (bot)' }); // local server
+    const scrub = makeScrubber([a.id, 'swu-bot (bot)', anonymousName(a.id)]);
+    const text = JSON.stringify(scrub({ players: { [a.id]: { name: a.username } }, messages: [`${a.username} plays Wampa`] }));
+    assert.ok(!text.includes(a.username) && !text.includes(a.id));
+});

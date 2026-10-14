@@ -5,10 +5,15 @@
  * through karabast/seat.js, then leave (no requeue, no rematch). One game at a time.
  *
  *   node karabast/queue.js --bot c-clock --decks decks/ash-meta-2026-09.json --deck <name> [--games 1]
- *        [--server http://127.0.0.1:9500] [--allow-host <host>] [--username "swu-bot (bot)"]
- *        [--format premier] [--card-pool current] [--wait-minutes 10] [--chat "<line>"] [--out <dir>]
+ *        [--server http://127.0.0.1:9500] [--allow-host <host>] [--username "swu-bot (bot)" (local server only)]
+ *        [--format premier] [--card-pool current] [--wait-minutes 10] [--chat "<line>" (local server only)] [--out <dir>]
  *        [--ledger <file> --max-people 10|none] [--stop-file <file>] [--allow-undos 2] [--seed 1] [--gap 60] [--max-errors 3]
  *        [--max-waits 6] [--names <file>] [--desk <dir> --allow-bots a,b,...]
+ *
+ * We play as an anonymous user. Since forceteki #3014 (karabast.net, 2026-10-14) the server takes only a UUID id from
+ * an anonymous player, refusing anything else with "Authentication failed"; it names the player "anonymous" plus the
+ * id's first 6 characters, whatever name the client sends; and anonymous players cannot chat. So against a non-local
+ * server --username and --chat are ignored. A local server of an older engine still takes both.
  *
  * --bot a,b,... takes turns game by game (a, b, a, b, ...; a wait with no match keeps the same bot), and each line of
  * games.jsonl and status.json names the bot of that game.
@@ -133,6 +138,14 @@ function recordOpponent(file, game, gs, me) {
     }
 }
 
+/** The name Karabast gives an anonymous player (forceteki AnonymousUser.usernameForId). */
+const anonymousName = (id) => `anonymous ${String(id).slice(0, 6)}`;
+
+/** Our anonymous user: a fresh UUID id, named the way the server names it unless `username` is given. */
+function anonymousUser(username = null, id = crypto.randomUUID()) {
+    return { id, username: username ?? anonymousName(id) };
+}
+
 /**
  * Enters the queue and plays one match. onQueued() runs once the server took the queue entry. onMatched(opponentId)
  * runs when the opponent is known, before play starts; it may throw to leave. Resolves to a result row.
@@ -146,7 +159,7 @@ async function queueOnce({ server, user, deck, bot, format, cardPool, waitMs, ch
     onQueued?.();
     const sock = new KarabastSocket(server, { user, allowHosts });
     const client = loadClient(bot);
-    const scrub = makeScrubber([user.id, user.username]);
+    const scrub = makeScrubber([user.id, user.username, anonymousName(user.id)]);
     let fd = null;
     let file = null;
     let timer = null;
@@ -326,8 +339,11 @@ async function main() {
     const games = Number(arg('games', 1));
     const out = arg('out');
     const seed = arg('seed', '1');
-    const user = { id: `swu-bot-${crypto.randomUUID()}`, username: arg('username', 'swu-bot (bot)') };
     const log = (line) => console.error(`[${new Date().toISOString().slice(11, 19)}] ${line}`);
+    const user = anonymousUser(local ? arg('username', 'swu-bot (bot)') : null);
+    if (!local && (arg('username') || arg('chat'))) {
+        log(`--username and --chat ignored: the server names us "${user.username}" and anonymous players cannot chat`);
+    }
     // a list takes turns game by game (runLoop)
     const bots = arg('bot', 'c-clock').split(',').map((b) => b.trim()).filter(Boolean);
     if (!bots.length) {
@@ -358,7 +374,7 @@ async function main() {
         games, gapS, maxErrors, maxWaits, stopFile, ledger, out, bot: bots, desk, allowed, deck: name, log,
         play: (g, { bot, ...hooks }) => queueOnce({
             server, user, deck, bot, format: arg('format', 'premier'), cardPool: arg('card-pool', 'current'),
-            waitMs: waitMinutes * 60000, chat: arg('chat', null), allowHosts, allowUndos: Number(arg('allow-undos', 2)),
+            waitMs: waitMinutes * 60000, chat: local ? arg('chat', null) : null, allowHosts, allowUndos: Number(arg('allow-undos', 2)),
             seed: `${seed}-${g}`, out, names: arg('names', null), log, ...hooks
         })
     });
@@ -514,4 +530,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = { queueOnce, runLoop, checkDeck, checkBots, holdPlayLock, lockToken, recordOpponent, KNOWN_ERRORS, MIN_GAP_S };
+module.exports = { queueOnce, runLoop, checkDeck, checkBots, holdPlayLock, lockToken, recordOpponent, anonymousUser, anonymousName, KNOWN_ERRORS, MIN_GAP_S };
