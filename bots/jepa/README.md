@@ -329,10 +329,10 @@ point. `rank_train.py` fits V on frozen v1 latents with a softmax per window tha
 plus an outcome term (`--target rank`), or trains V to copy linear-deck-g4's score at every position
 (`--target eval`).
 
-    node bot/jepa/rank_data.js --out data/rank/v1 --workers 4 --p 0.15 <run dirs>   # --skip DIR carries on a stopped run
-    python3 bot/jepa/rank_train.py prep --data data/rank/v1 --out data/jepa/rank-v1-ev.npz --eval linear-deck-g4 --eval-all
-    python3 bot/jepa/rank_train.py fit --data data/jepa/rank-v1-ev.npz --out bot/jepa/models/jepa-v1k --epochs 30
-    python3 bot/jepa/rank_train.py fit --data data/jepa/rank-v1-ev.npz --target eval --hidden 256 --epochs 60 --out bot/jepa/models/jepa-v1d
+    node bots/jepa/rank_data.js --out data/rank/v1 --workers 4 --p 0.15 <run dirs>   # --skip DIR carries on a stopped run
+    python3 bots/jepa/rank_train.py prep --data data/rank/v1 --out data/jepa/rank-v1-ev.npz --eval linear-deck-g4 --eval-all
+    python3 bots/jepa/rank_train.py fit --data data/jepa/rank-v1-ev.npz --out bots/jepa/models/jepa-v1k --epochs 30
+    python3 bots/jepa/rank_train.py fit --data data/jepa/rank-v1-ev.npz --target eval --hidden 256 --epochs 60 --out bots/jepa/models/jepa-v1d
 
 Data: 2,776 games (the run stopped at a time limit after 35% of the 7,916 recorded games), 14,392 windows, 155k
 settled positions; 10% of games held out (1,414 windows). Play: 702 fresh-deal games against c-clock, as above.

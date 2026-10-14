@@ -2,8 +2,8 @@
  "args": {
   "cmd": "fit",
   "data": "data/jepa/rank-v1-ev.npz",
-  "model": "/home/user/swu_bot/bot/jepa/models/jepa-v1.safetensors",
-  "out": "bot/jepa/models/jepa-v1d",
+  "model": "bots/jepa/models/jepa-v1.safetensors",
+  "out": "bots/jepa/models/jepa-v1d",
   "epochs": 60,
   "batch": 256,
   "lr": 0.001,

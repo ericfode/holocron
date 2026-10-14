@@ -1,16 +1,16 @@
 'use strict';
-// node bot/jepa/rank_data.js --out data/rank/v1 --workers 4 [--teachers c-clock,rust-search] [--p 0.12] [--max N] [--skip DIR] <run dir>...
+// node bots/jepa/rank_data.js --out data/rank/v1 --workers 4 [--teachers c-clock,rust-search] [--p 0.12] [--max N] [--skip DIR] <run dir>...
 //
 // Training data for ranking moves with the value head. The planner (jepa_bot.py --score plan) plays each candidate
 // move with its follow-up choices on the referee's copy until the move has settled, and keeps the move whose settled
 // position the value head likes best. A value head trained on who won learns who is ahead, which is not the same
 // thing as which of these positions is best. Here recorded games of strong bots (the teachers) are played again on
 // the engine, and at a sampled action window of a teacher every candidate line is played the way the planner plays
-// it, on a copy of the game (bot/protocol.js Shadow): the move, then each of its first follow-up options, then the
+// it, on a copy of the game (engine/protocol.js Shadow): the move, then each of its first follow-up options, then the
 // rest of the move with random non-Cancel choices for both seats, until the game ends, someone is in an action window
 // or the action phase is over. The teacher's own line is the real continuation of the recorded game up to the same
 // point (mainPath is the teacher's choices at the root and its first follow-up prompt, so the alt line with the same
-// path is the teacher's move played on by random choices). bot/jepa/rank_train.py then trains the value head to put
+// path is the teacher's move played on by random choices). bots/jepa/rank_train.py then trains the value head to put
 // the teacher's position first.
 //
 // Output: <out>/shard-<k>.jsonl.gz, one gzip member per game:
@@ -94,10 +94,10 @@ function readGame(file) {
 }
 
 async function worker(files, file, cfg) {
-    const { Env, seededRng } = require('../env');
-    const { gameStreams } = require('../rng');
-    const { view, promptView, actionView, actionKey } = require('../view');
-    const { Shadow } = require('../protocol');
+    const { Env, seededRng } = require('../../engine/env');
+    const { gameStreams } = require('../../engine/rng');
+    const { view, promptView, actionView, actionKey } = require('../../engine/view');
+    const { Shadow } = require('../../engine/protocol');
     const env = new Env();
     fs.writeFileSync(file, '');
     const tally = { games: 0, windows: 0, lines: 0, skipped: {}, drift: 0, lost: 0, failed: 0 };

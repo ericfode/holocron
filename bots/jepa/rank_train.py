@@ -1,4 +1,4 @@
-"""Train the JEPA's value head to rank moves, on data from bot/jepa/rank_data.js.
+"""Train the JEPA's value head to rank moves, on data from bots/jepa/rank_data.js.
 
 The planner keeps the move whose settled position the value head scores highest, so what matters for play is the
 order of the positions reached from one window, not who wins in general. Each window in the data holds the teacher's
@@ -8,10 +8,10 @@ term on the teacher's position. The encoder is frozen (v1's), so only V changes.
 the positions the planner scores without V (an ended game, a move that changed nothing); that orders moves best on
 held-out games but lets V's level drift, so V stops being a win estimate. --live-only --w-outcome 1 keeps it one.
 
-    python3 bot/jepa/rank_train.py prep --data data/rank/v1 --out data/jepa/rank-v1.npz [--eval linear-deck-g4]
-    python3 bot/jepa/rank_train.py fit --data data/jepa/rank-v1.npz --out bot/jepa/models/jepa-v1k
+    python3 bots/jepa/rank_train.py prep --data data/rank/v1 --out data/jepa/rank-v1.npz [--eval linear-deck-g4]
+    python3 bots/jepa/rank_train.py fit --data data/jepa/rank-v1.npz --out bots/jepa/models/jepa-v1k
 
-prep encodes every position with the encoder (z) and, with --eval, scores the held-out windows with a bot/eval
+prep encodes every position with the encoder (z) and, with --eval, scores the held-out windows with a lab/eval
 evaluator as a yardstick. fit writes <out>.safetensors (the input model with a new value head) and <out>.train.json.
 Metrics on held-out games: "move top-1" is how often the planner's pick (best line per move, as jepa_bot.py does)
 is the teacher's move; "line top-1" is how often the teacher's position scores first among all positions.
@@ -329,7 +329,7 @@ def main():
     p.add_argument("--data", default="data/rank/v1")
     p.add_argument("--model", default=os.path.join(here, "models", "jepa-v1.safetensors"))
     p.add_argument("--out", default="data/jepa/rank-v1.npz")
-    p.add_argument("--eval", default=None, help="bot/eval evaluator to score held-out windows with, as a yardstick")
+    p.add_argument("--eval", default=None, help="lab/eval evaluator to score held-out windows with, as a yardstick")
     p.add_argument("--eval-all", action="store_true", help="score every window with --eval, for fit --target eval")
     p.add_argument("--teacher-line", choices=["real", "alt"], default="real",
                    help="the teacher's position: where the real game settled, or its move played on by random choices like the other lines")
