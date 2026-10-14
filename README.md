@@ -34,7 +34,7 @@ inside it; workarounds for engine bugs go in `engine/` or `bots/`.
 | `bots/players/`, `bots/examples/` | the in-process bots (random, rush, heuristic and its profiles, ISMCTS, omniscient) and the example protocol clients; `players/index.js` is the name registry |
 | `bots/c`, `rust`, `python`, `lisp`, `clojure`, `haskell`, `bend`, `wasm`, `jev`, `jepa`, `learned`, `rust-learned`, `rust-omni`, `omni` | bots in other languages and the research bots |
 | `bots/starters/` | the starter bots the arena hands to new builders |
-| `engine/` | the arena's game player (`env.js`, `view.js`, `protocol.js`, `match.js`, `game-pool.js`, `stdio.js`, `rng.js`, `recorder.js`, `decklists.js`, `cardpool.js`, `ratings.js`, `random-run.js`, `debug-seed.js`), copied from `swu_bot` at `7455601` so games can be played here; replaced by the arena's published player when it has one |
+| `engine/` | the arena's game player (`env.js`, `view.js`, `protocol.js`, `match.js`, `game-pool.js`, `stdio.js`, `rng.js`, `recorder.js`, `decklists.js`, `cardpool.js`, `ratings.js`, `random-run.js`, `debug-seed.js`), copied from `swu_bot` at `7455601` so games can be played here; replaced by the arena's published player when it has one. Holocron's own checks of it: `protocol-test.js` (protocol conformance), `rollback-test.js`, `determinism-check.js [seed] [bot]` |
 | `decks/` | real tournament deck lists (with the game player) |
 | `lab/runners/` | `ladder.js`, `ladder-worker.js`, `ladder-report.js`, `sweep.js`, ...: local round robins and gauntlets, parameter sweeps, measurement scripts |
 | `lab/eval/`, `lab/learn/`, `lab/info/` | position evaluators (win predictors), self-play learning, the knowledge dial |
@@ -44,10 +44,12 @@ inside it; workarounds for engine bugs go in `engine/` or `bots/`.
 | `lab/theory/` | Lean proofs about the game and the measurements that check them |
 | `lab/models/` | trained model files the bots load |
 | `lab/tools/` | card-data stand-in (`synth-cards.js`), search profiling (`search-profile/`) and benchmarks (`omni-search-bench.js`) |
+| `lab/kessel-reference/` | the engine side of Kessel's reference corpus: named scenarios, the generator, the probe fixtures and the card pipeline runner (`npm run kessel:reference`, `npm run kessel:pipeline`; needs a Kessel checkout, [README](lab/kessel-reference/README.md)) |
 | `karabast/`, `karabast/importer/` | the bot that plays people on karabast.net, and the importer that turns captures of human games into replays |
 
 Tests sit next to what they test: `engine/test/`, `bots/test/`, `lab/test/`, `karabast/test/`, `karabast/importer/test/`
-(all in `npm test`), `lab/analysis/test/` (`npm run analysis:test`) and `bots/python/` (`npm run test:py`).
+(all in `npm test`), `lab/analysis/test/` (`npm run analysis:test`), `bots/python/` (`npm run test:py`) and
+`lab/kessel-reference/test/` (`load.test.js` in `npm test`; the rest need Kessel: `npm run kessel-reference:test`).
 
 ## Daily commands
 
