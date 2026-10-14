@@ -1,0 +1,25 @@
+{
+  "name": "holocron",
+  "private": true,
+  "description": "Bots and research for the SWU Arena: every bot, the evaluators and learning code, deck building, analysis, and the Karabast player",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test bot/test/*.test.js importer/test/*.test.js tools/test/*.test.js",
+    "test:py": "python3 -m unittest discover -s bot/python",
+    "analysis:test": "npm --prefix analysis test",
+    "random": "node bot/random-run.js",
+    "ladder": "node bot/ladder.js",
+    "realdeck:test": "node analysis/realdeck/bot-test.js",
+    "analyze": "node analysis/analyze.js",
+    "analysis:report": "node analysis/report.js",
+    "analysis:fitness": "node analysis/fitness.js",
+    "meta": "node meta/analyze.js",
+    "lisp:build": "sbcl --non-interactive --load bot/lisp/build.lisp",
+    "lisp:test": "sbcl --script bot/lisp/test.lisp"
+  },
+  "devDependencies": {
+    "wabt": "1.0.39"
+  }
+}

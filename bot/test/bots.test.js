@@ -29,12 +29,13 @@ function game(me, opp) {
     return { over: false, player: (pid) => (pid === 'me' ? me : opp) };
 }
 
-// the evaluation as it was before profiles existed (5123bc4), to check the balanced profile is bit-identical
+// the evaluation as it was before profiles existed (swu_bot commit 5123bc4, kept in fixtures/), to check the balanced
+// profile is bit-identical
 function originalEvaluate() {
     const Module = require('module');
     const path = require('path');
-    const { execFileSync } = require('child_process');
-    const src = execFileSync('git', ['show', '5123bc4:bot/players/heuristic.js'], { cwd: __dirname, encoding: 'utf8' });
+    const fs = require('fs');
+    const src = fs.readFileSync(path.join(__dirname, 'fixtures', 'heuristic-5123bc4.js'), 'utf8');
     const m = new Module(path.join(__dirname, '..', 'players', 'heuristic-orig.js'), module);
     m.filename = m.id;
     m.paths = Module._nodeModulePaths(path.dirname(m.id));
