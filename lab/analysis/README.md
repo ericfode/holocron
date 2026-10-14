@@ -4,7 +4,7 @@ Walks a recorded game turn by turn and asks Claude who is winning, from four vie
 file per game plus an interactive page that draws the curves and the gaps between them. The same numbers double as
 a fitness signal for bots.
 
-Input is the existing replay format (`engine/recorder.js`, `viewer/src/core/types.ts`); nothing in `engine/` or the
+Input is the existing replay format (`engine/recorder.js`, `spec/replay-format.md`); nothing in `engine/` or the
 replay format changes.
 
 ## The four views
