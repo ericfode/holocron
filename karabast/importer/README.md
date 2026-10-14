@@ -12,7 +12,7 @@ stream. The importer reads the saved stream; it needs no engine and no card data
 
 ```bash
 node karabast/importer/import.js <capture file or dir>... --out replays/human [--names Alice,Bob] [--source karabuddy] [--keep-file-names]
-npm run studio:dev    # REPLAYS_DIR defaults to replays/, so replays/human shows up as a tournament
+REPLAYS_DIR=$PWD/replays npm --prefix ../holotable run dev   # view them in Holotable (ericfode/holotable); replays/human shows up as a tournament
 node lab/analysis/analyze.js replays/human --evaluator heuristic
 node bots/omni/lens.js replays/human --out replays/human/lens   # omni lens (bots/omni is not on main yet)
 ```
