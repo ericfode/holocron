@@ -4,7 +4,8 @@ over the moves of each branch point, does V(ẑ_h(move)) rank them like V(z(real
 python3 yardstick.py <model.safetensors> <branches.npz> [--judge judge.npz]   (the held-out points tx_train_torch.py uses)
 
 The real futures are judged by the model's own value head unless --judge gives one evaluator's scores (judge_prep.py);
-only a fixed judge makes top-1 rates comparable between models.
+only a fixed judge makes top-1 rates comparable between models. regret = the judged win chance lost, on average, by
+playing the move the model imagines best; blunders = how often that loss is over 5 points.
 """
 import os
 import sys
@@ -49,7 +50,7 @@ def imagine(net, B, p):
 
 def _score(ims, hi, real, m, B, idx):
     """top-1 / chance / Spearman of the imagined values at horizon index hi against real values `real[(p, k)]`"""
-    top, chance, rho, sp_im, sp_re = [], [], [], [], []
+    top, chance, rho, sp_im, sp_re, regret = [], [], [], [], [], []
     for p in idx:
         p = int(p)
         n = int(B["nmove"][p])
@@ -61,6 +62,7 @@ def _score(ims, hi, real, m, B, idx):
         best_re = set(np.flatnonzero(re >= re.max() - 1e-6))
         best_im = np.flatnonzero(im >= im.max() - 1e-6)
         top.append(np.mean([i in best_re for i in best_im]))
+        regret.append(float(re.max() - re[best_im].mean()))  # value lost by playing the imagined best move
         chance.append(len(best_re) / len(re))
         r = spearman(im, re)
         if r is not None:
@@ -69,8 +71,10 @@ def _score(ims, hi, real, m, B, idx):
         sp_re.append(re.std())
     if not top:
         return None
+    regret = np.array(regret)
     return {"points": len(top), "top1": float(np.mean(top)), "chance": float(np.mean(chance)),
-            "rho_median": float(np.median(rho)), "spread_imagined": float(np.median(sp_im)), "spread_real": float(np.median(sp_re))}
+            "rho_median": float(np.median(rho)), "spread_imagined": float(np.median(sp_im)), "spread_real": float(np.median(sp_re)),
+            "regret": float(regret.mean()), "blunders": float((regret > 0.05).mean())}
 
 
 def yardstick(net, B, idx, judge=None):
@@ -134,4 +138,5 @@ if __name__ == "__main__":
         judge = {1: J["ev1"], 4: J["ev4"], "s": J["evt"]}
     for h, v in yardstick(net, B, idx, judge).items():
         print(f"{h}: top-1 {v['top1']:.3f} (chance {v['chance']:.3f}) median rho {v['rho_median']:.2f} "
-              f"spread imagined {v['spread_imagined'] * 100:.1f} / real {v['spread_real'] * 100:.1f} pts ({v['points']} points)")
+              f"spread imagined {v['spread_imagined'] * 100:.1f} / real {v['spread_real'] * 100:.1f} pts, "
+              f"regret {v['regret'] * 100:.2f} pts, blunders {v['blunders'] * 100:.1f}% ({v['points']} points)")

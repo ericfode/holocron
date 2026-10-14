@@ -415,7 +415,8 @@ if a.test_pack and a.test_judge:
     ys = yardstick(net, TB, tidx, {1: J["ev1"], 4: J["ev4"], "s": J["evt"]})
     log["yardstick_fixed"] = ys
     for h, v in ys.items():
-        print(f"  fixed judge {h}: top-1 {v['top1']:.3f} (chance {v['chance']:.3f}) median rho {v['rho_median']:.2f} ({v['points']} points)", file=sys.stderr)
+        print(f"  fixed judge {h}: top-1 {v['top1']:.3f} (chance {v['chance']:.3f}) median rho {v['rho_median']:.2f} "
+              f"regret {v['regret'] * 100:.2f} pts, blunders {v['blunders'] * 100:.1f}% ({v['points']} points)", file=sys.stderr)
 M.save_safetensors(a.out + ".safetensors", w, meta)
 log["seconds"] = round(time.time() - t0)
 json.dump(log, open(a.out + ".log.json", "w"))
