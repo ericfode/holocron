@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Engine commit
+        id: engine
+        run: echo "rev=$(git rev-parse HEAD:forceteki)" >> "$GITHUB_OUTPUT"
+      # the engine build and its card data, once per engine commit (card data comes from the official card site)
+      - uses: actions/cache@v4
+        id: engine-cache
+        with:
+          path: |
+            forceteki/node_modules
+            forceteki/build
+            forceteki/test/json
+          key: engine-${{ steps.engine.outputs.rev }}-v1
+      - name: Build the pinned engine
+        if: steps.engine-cache.outputs.cache-hit != 'true'
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          npm --prefix forceteki ci --ignore-scripts
+          npm --prefix forceteki run get-cards
+          npm --prefix forceteki run build
+      - run: npm ci
+      - run: npm test
+      - run: npm run test:py
+      - run: npm --prefix analysis ci && npm run analysis:test
+      - name: Engine sanity check (seeds 1-3 give 594/342/486 steps)
+        run: |
+          node bot/random-run.js 3 1 | tee random-run.txt
+          for want in '"seed":1,"steps":594,"outcome":"won:p2"' '"seed":2,"steps":342,"outcome":"won:p2"' '"seed":3,"steps":486,"outcome":"won:p2"'; do
+            grep -qF "$want" random-run.txt || { echo "::error::expected $want"; exit 1; }
+          done
+      - run: make -C bot/c
+      - run: cargo build --release && cargo test

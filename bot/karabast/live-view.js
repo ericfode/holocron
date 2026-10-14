@@ -26,8 +26,7 @@
  * --names <file> is queue.js's private file of opponents' Karabast names (Eric, 2026-10-12: "I also want to know who on
  * karabast i'm playing"). With it, a bot game names the opponent's seat and the picker says who it is. It works only on a
  * view that stays on this machine (local host, no --key), such as the one tailscale serves to Eric's own devices. The
- * share link and every file the project shares never carry names; the window feed sends them only in the `person` field
- * of its run rows, which the window keeps for its admin sign-in (feed.js --names).
+ * share link and every file the project shares never carry names.
  *
  * --manage <dir> makes this view the Karabast desk's controls (desk.js; Eric, 2026-10-14: "make the management
  * interface accessible to me and who ever I share a link with"): POST /desk picks the bots for the next games and

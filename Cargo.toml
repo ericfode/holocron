@@ -1,0 +1,9 @@
+[workspace]
+members = ["bot/rust"]
+# rust-omni needs the kessel simulator crate; rust-learned builds on its own (bot/rust-learned/README.md)
+exclude = ["bot/rust-omni", "bot/rust-learned"]
+resolver = "2"
+
+[profile.release]
+debug = false
+lto = "thin"
