@@ -126,13 +126,18 @@ class NumpyTx:
     def action(self, act, aid):
         return (np.asarray(act, np.float32), np.asarray(aid, np.int64))
 
+    # moves per forward pass. A move token sees only the position and itself, so chunks give the same predictions, and
+    # attention cost stays linear in the number of moves (some prompts offer ~2,000 options; in one pass that took 4-8 s)
+    CHUNK = 256
+
     def predict(self, z, a, h):
         if self._ctx is None:
             raise ValueError("NumpyTx.predict needs the single position of the last encode (use forward for batches)")
         if self._cache is None or self._cache[0] is not a:
             act, aid = a
-            _, p = self.forward(*self._ctx, act[None], aid[None])
-            self._cache = (a, p[0])
+            parts = [self.forward(*self._ctx, act[None, k:k + self.CHUNK], aid[None, k:k + self.CHUNK])[1][0]
+                     for k in range(0, len(act), self.CHUNK)]
+            self._cache = (a, np.concatenate(parts) if parts else np.zeros((0, len(self.horizons), D), np.float32))
         return self._cache[1][:, self.horizons.index(h)]
 
     def value(self, z):
