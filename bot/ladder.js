@@ -36,14 +36,8 @@
  * cancel out and the ratings that matter are the decks'.
  * --pool <file> deals the random decks from an arena card pool only (cardpool.js: the training or held-out cards of a
  * holdout split); config.pool records its file name, kind and sha256. Not with --decks.
- * With ARENA_REMOTE set (the games machine's relay for helper computers, http://127.0.0.1:<port>/r/<nonce>) and
- * --record, a round robin of random decks also hands whole seeds to helpers (remote-lane.js); their games come back
- * through the same onResult, and every entry says where it ran: host is the helper's name, or null for here.
+ * Every game plays here. Rated games are the arena's: this runner never sends results to it.
  */
-// the relay's address, read before anything starts a worker, a bot program or the window pusher, none of which may
-// inherit it (they all get process.env)
-const REMOTE = process.env.ARENA_REMOTE ?? null;
-delete process.env.ARENA_REMOTE;
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -53,13 +47,9 @@ const { describeBot, programSpec } = require('./players');
 const { runKey, gameKey } = require('./rng');
 const { roundRobin, gauntlet } = require('./ratings');
 const { summarize } = require('./ladder-report');
-const { runPool, killChildren, DEFAULT_GAME_MS } = require('./game-pool');
-const { remoteLane, relayBase } = require('./remote-lane');
+const { runPool, killChildren } = require('./game-pool');
 const { loadDecks, dealDecks, deckPairs } = require('./decklists');
 const { loadPool, checkPool } = require('./cardpool');
-
-// the process that sends this run to the arena window (arena/push.js followRun), or null without SWU_WINDOW
-let follower = null;
 
 function arg(name, dflt) {
     const i = process.argv.indexOf(`--${name}`);
@@ -335,14 +325,8 @@ async function main() {
         console.log(`resume: bot programs that learn from game to game would start fresh ("stateful": ${stateful.join(', ')}), so the run starts over`);
         prev = null;
     }
-    // what the round report says about helper computers (bot/arena/referee.js): null without ARENA_REMOTE
-    let remoteInfo = () => null;
     const save = () => {
         const doc = summarize({ id, createdAt, status, engine, config, botInfo, games, scheduled: schedule.length });
-        const remote = remoteInfo();
-        if (remote) {
-            doc.remote = remote;
-        }
         writeJson(path.join(out, 'ladder.json'), doc);
         writeJson(path.join(out, 'index.json'), tIndex);
         return doc;
@@ -390,13 +374,10 @@ async function main() {
         [...held.keys()].filter((s) => !unplayed.has(s)).forEach(publish);
     }
     save();
-    // with SWU_WINDOW set, a helper process sends this run to the arena window's API as it plays (arena/push.js)
-    follower = require('./arena/push').followRun(out);
     console.log(`${id}: ${queue.length} of ${schedule.length} games to play, ${names.length} bots, ${decks ? `${decks.length} decks, ` : ''}${pool ? `${pool.kind} pool of ${pool.cards.length} cards, ` : ''}${workers} workers -> ${out}`);
 
     const t0 = Date.now();
     const hooks = {
-        // a game can start twice: a seed a helper lost plays here, and its entry starts over
         onStart: (job) => {
             const entry = {
                 id: job.id, seed: job.seed, p1: job.p1, p2: job.p2, winner: null, winnerSeat: null, outcome: 'running', rounds: 0, steps: 0, ms: 0, error: null, by: null, faultKind: null,
@@ -415,7 +396,6 @@ async function main() {
             }
             save();
         },
-        // host: the helper that played it (remote-lane.js), null here
         onResult: ({ job, result: r, host = null }) => {
             const done = {
                 winner: r.winner ?? null, winnerSeat: r.winnerSeat ?? null, outcome: r.outcome, rounds: r.round, steps: r.steps, ms: r.ms, error: r.error ?? null,
@@ -439,23 +419,7 @@ async function main() {
             console.log(`[${doc.progress.finished}/${schedule.length}] ${job.id}${host ? ` @${host}` : ''}: ${r.outcome}${fault} ${r.winner ?? ''} R${r.round} ${r.steps} steps ${r.ms}ms${r.error ? ' ' + r.error : ''} | ${top}`);
         }
     };
-    const play = (q, h) => runPool(q, { workers, hangMs, workerData: { maxSteps, engineRev: engine, capMs, key, decks, pool: pool ? { cards: pool.cards } : null }, ...h });
-    // helpers play random-deck round robins only, and only recorded ones (a helper's replay is part of what it sends)
-    const base = relayBase(REMOTE);
-    const lane = !!base && record && !decks && !pool && !vs;
-    if (REMOTE && !lane) {
-        const why = base ? 'they play recorded round robins of random decks only' : 'ARENA_REMOTE is not a relay address';
-        console.log(`remote: helpers stay out of this run (${why})`);
-        remoteInfo = () => ({ lane: false, why });
-    }
-    if (lane) {
-        const limits = { maxSteps, capMs: config.capMs, hangMs, gameMs: DEFAULT_GAME_MS(capMs) };
-        const rl = remoteLane({ base, queue, keyOf: (seed) => (key ? gameKey(key, seed) : null), limits, runPool: play, ...hooks });
-        remoteInfo = () => rl.stats;
-        await rl.run();
-    } else {
-        await play(queue, hooks);
-    }
+    await runPool(queue, { workers, hangMs, workerData: { maxSteps, engineRev: engine, capMs, key, decks, pool: pool ? { cards: pool.cards } : null }, ...hooks });
     [...held.keys()].forEach(publish);
     status = 'done';
     if (key) {
@@ -468,15 +432,12 @@ async function main() {
     }
 }
 
-// exit explicitly: a worker retired by the watchdog may still be stuck in a bot's synchronous call. The window pusher
-// is spared: it sees this process end and sends the run's last state, without which the window shows its last games
-// as playing forever.
-const spare = () => ({ spare: follower ? [follower.pid] : [] });
+// exit explicitly: a worker retired by the watchdog may still be stuck in a bot's synchronous call
 main().then(() => {
-    killChildren(null, spare());
+    killChildren(null);
     process.exit(0);
 }, (e) => {
-    killChildren(null, spare());
+    killChildren(null);
     console.error(e);
     process.exit(1);
 });
