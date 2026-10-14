@@ -6,18 +6,18 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test bot/test/*.test.js importer/test/*.test.js tools/test/*.test.js",
-    "test:py": "python3 -m unittest discover -s bot/python",
-    "analysis:test": "npm --prefix analysis test",
-    "random": "node bot/random-run.js",
-    "ladder": "node bot/ladder.js",
-    "realdeck:test": "node analysis/realdeck/bot-test.js",
-    "analyze": "node analysis/analyze.js",
-    "analysis:report": "node analysis/report.js",
-    "analysis:fitness": "node analysis/fitness.js",
-    "meta": "node meta/analyze.js",
-    "lisp:build": "sbcl --non-interactive --load bot/lisp/build.lisp",
-    "lisp:test": "sbcl --script bot/lisp/test.lisp"
+    "test": "node --test engine/test/*.test.js bots/test/*.test.js lab/test/*.test.js karabast/test/*.test.js karabast/importer/test/*.test.js",
+    "test:py": "python3 -m unittest discover -s bots/python",
+    "analysis:test": "npm --prefix lab/analysis test",
+    "random": "node engine/random-run.js",
+    "ladder": "node lab/runners/ladder.js",
+    "realdeck:test": "node lab/analysis/realdeck/bot-test.js",
+    "analyze": "node lab/analysis/analyze.js",
+    "analysis:report": "node lab/analysis/report.js",
+    "analysis:fitness": "node lab/analysis/fitness.js",
+    "meta": "node lab/meta/analyze.js",
+    "lisp:build": "sbcl --non-interactive --load bots/lisp/build.lisp",
+    "lisp:test": "sbcl --script bots/lisp/test.lisp"
   },
   "devDependencies": {
     "wabt": "1.0.39"
