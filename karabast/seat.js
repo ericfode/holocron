@@ -14,6 +14,8 @@
  * - A bot that fails (an error, a bad answer or split, no answer in time) is restarted at its next decision and a
  *   random legal action is played for it. At `maxFailures` failures in one game the seat concedes instead of letting
  *   the clock run out on the other player.
+ * - No answer goes out sooner than `paceMs` after its decision came (Eric, 2026-10-15: "always waits 1 second between
+ *   turns"); a bot that thinks longer waits no more. The wait is skipped when the decision changed meanwhile.
  * - The server ignores an answer it cannot take (no new decision follows). After `retryMs` the seat asks the bot
  *   again without that action; when every action was tried, it plays a random one. Each ignored answer is an error in
  *   the server's log, so after `maxIgnored` ignored answers in a row at one decision (a game the server can no longer
@@ -54,8 +56,8 @@ class KarabastSeat {
     /**
      * sock: a connected KarabastSocket in the lobby; me: this seat's user id; client: a protocol client
      * ({ name, hello?, decide, over?, close? }, e.g. a StdioClient). opts: deck (our deck list, for hello), seed,
-     * decideMs (10000), allowUndos (2), retryMs (1000), maxFailures (2), maxIgnored (4), chat (a line to send once, or
-     * null), log, startMs (180000: end with no result when no game frame comes this long after the match) and idleMs
+     * decideMs (10000), allowUndos (2), retryMs (1000), maxFailures (2), maxIgnored (4), paceMs (0: the least time from a
+     * decision to its answer), chat (a line to send once, or null), log, startMs (180000: end with no result when no game frame comes this long after the match) and idleMs
      * (600000: concede when a started game sends no frame this long).
      */
     constructor(sock, me, client, opts = {}) {
@@ -63,7 +65,7 @@ class KarabastSeat {
         this.me = me;
         this.client = client;
         this.opts = {
-            decideMs: 10000, allowUndos: 2, retryMs: 1000, maxFailures: 2, maxIgnored: 4, chat: null, log: () => undefined, seed: 1,
+            decideMs: 10000, allowUndos: 2, retryMs: 1000, maxFailures: 2, maxIgnored: 4, paceMs: 0, chat: null, log: () => undefined, seed: 1,
             startMs: 180000, idleMs: 600000, ...opts
         };
         this.rng = seededRng(`karabast-seat-${this.opts.seed}`);
@@ -171,7 +173,7 @@ class KarabastSeat {
         }
         this.busy = true;
         const seen = Date.now();
-        this.answer(gs, key)
+        this.answer(gs, key, seen)
             .catch((e) => this.opts.log(`seat error: ${e.message}`))
             .finally(() => {
                 this.busy = false;
@@ -213,12 +215,12 @@ class KarabastSeat {
         this.step();
     }
 
-    async answer(gs, key) {
+    async answer(gs, key, seen = Date.now()) {
         const tried = this.tried.get(key) ?? new Set();
         const ruled = this.rule(gs);
         // a ruled answer the server ignored is not sent again: the prompt then goes to the bot like any other
         if (ruled && !tried.has(actionKey(ruled))) {
-            return this.take(ruled, key);
+            return this.paced(seen, key, ruled);
         }
         const hide = (a) => (a.kind === 'button' && UNDO_LABEL.test(a.label)) || tried.has(actionKey(a));
         const d = this.obs.decision(gs, hide);
@@ -227,7 +229,7 @@ class KarabastSeat {
             this.tried.delete(key);
             const open = legalActions(gs, this.me).filter((a) => !(a.kind === 'button' && UNDO_LABEL.test(a.label)));
             this.stats.fallbacks++;
-            return open.length ? this.take(open[Math.floor(this.rng() * open.length)], key) : undefined;
+            return open.length ? this.paced(seen, key, open[Math.floor(this.rng() * open.length)]) : undefined;
         }
         let chosen;
         try {
@@ -244,7 +246,7 @@ class KarabastSeat {
         if (this.finished || decisionKey(this.latest, this.me) !== key) {
             return undefined;
         }
-        return this.take(chosen.action, key, chosen.split);
+        return this.paced(seen, key, chosen.action, chosen.split);
     }
 
     /** The bot's choice for decision `d`: { action, split }. Throws when the bot fails. */
@@ -338,6 +340,18 @@ class KarabastSeat {
             return pick;
         }
         return null;
+    }
+
+    /** take(), no sooner than paceMs after `seen`; nothing when the game ended or moved to another decision meanwhile. */
+    async paced(seen, key, action, split = null) {
+        const wait = seen + this.opts.paceMs - Date.now();
+        if (wait > 0) {
+            await new Promise((r) => setTimeout(r, wait));
+            if (this.finished || decisionKey(this.latest, this.me) !== key) {
+                return undefined;
+            }
+        }
+        return this.take(action, key, split);
     }
 
     take(action, key, split = null) {

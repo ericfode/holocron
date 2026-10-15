@@ -8,12 +8,15 @@
  *        [--server http://127.0.0.1:9500] [--allow-host <host>] [--username "swu-bot (bot)" (local server only)]
  *        [--format premier] [--card-pool current] [--wait-minutes 10] [--chat "<line>" (local server only)] [--out <dir>]
  *        [--ledger <file> --max-people 10|none] [--stop-file <file>] [--allow-undos 2] [--seed 1] [--gap 60] [--max-errors 3]
- *        [--max-waits 6] [--names <file>] [--desk <dir> --allow-bots a,b,...]
+ *        [--max-waits 6] [--names <file>] [--desk <dir> --allow-bots a,b,...] [--pace-ms 1000]
  *
  * We play as an anonymous user. Since forceteki #3014 (karabast.net, 2026-10-14) the server takes only a UUID id from
  * an anonymous player, refusing anything else with "Authentication failed"; it names the player "anonymous" plus the
  * id's first 6 characters, whatever name the client sends; and anonymous players cannot chat. So against a non-local
  * server --username and --chat are ignored. A local server of an older engine still takes both.
+ *
+ * --pace-ms is the least time from a decision to the bot's answer (seat.js paceMs): 1000 by default, as Eric asked on
+ * 2026-10-15 ("always waits 1 second between turns"); 0 answers as soon as the bot does.
  *
  * --bot a,b,... takes turns game by game (a, b, a, b, ...; a wait with no match keeps the same bot), and each line of
  * games.jsonl and status.json names the bot of that game.
@@ -150,7 +153,7 @@ function anonymousUser(username = null, id = crypto.randomUUID()) {
  * Enters the queue and plays one match. onQueued() runs once the server took the queue entry. onMatched(opponentId)
  * runs when the opponent is known, before play starts; it may throw to leave. Resolves to a result row.
  */
-async function queueOnce({ server, user, deck, bot, format, cardPool, waitMs, chat, allowHosts, allowUndos, seed, out, names = null, onQueued, onMatched, onGameFile, log }) {
+async function queueOnce({ server, user, deck, bot, format, cardPool, waitMs, chat, allowHosts, allowUndos, paceMs = 0, seed, out, names = null, onQueued, onMatched, onGameFile, log }) {
     const opts = { allowHosts };
     const entered = await post(server, '/api/enter-queue', { user, format, cardPool, gamesToWinMode: 'bestOfOne', deck }, opts);
     if (!entered.body?.success) {
@@ -208,7 +211,7 @@ async function queueOnce({ server, user, deck, bot, format, cardPool, waitMs, ch
         const match = await matched;
         await onMatched(match.opponent);
         log(`matched in lobby ${hash(match.lobbyId)}`);
-        const seat = new KarabastSeat(sock, user.id, client, { deck, seed, chat, allowUndos, log });
+        const seat = new KarabastSeat(sock, user.id, client, { deck, seed, chat, allowUndos, paceMs, log });
         const r = await seat.play();
         return {
             at: new Date().toISOString(), bot, deck: deck.metadata?.name ?? null, result: r.result, reason: r.reason,
@@ -367,6 +370,10 @@ async function main() {
     if (!(waitMinutes > 0 && waitMinutes <= 60)) {
         throw new Error('--wait-minutes must be above 0 and at most 60');
     }
+    const paceMs = Number(arg('pace-ms', 1000));
+    if (!(Number.isInteger(paceMs) && paceMs >= 0 && paceMs <= 10000)) {
+        throw new Error('--pace-ms must be a whole number of milliseconds from 0 to 10000');
+    }
     if (![games, maxErrors, maxWaits].every((n) => Number.isInteger(n) && n >= 1)) {
         throw new Error('--games, --max-errors and --max-waits must be whole numbers of 1 or more');
     }
@@ -374,7 +381,7 @@ async function main() {
         games, gapS, maxErrors, maxWaits, stopFile, ledger, out, bot: bots, desk, allowed, deck: name, log,
         play: (g, { bot, ...hooks }) => queueOnce({
             server, user, deck, bot, format: arg('format', 'premier'), cardPool: arg('card-pool', 'current'),
-            waitMs: waitMinutes * 60000, chat: local ? arg('chat', null) : null, allowHosts, allowUndos: Number(arg('allow-undos', 2)),
+            waitMs: waitMinutes * 60000, chat: local ? arg('chat', null) : null, allowHosts, allowUndos: Number(arg('allow-undos', 2)), paceMs,
             seed: `${seed}-${g}`, out, names: arg('names', null), log, ...hooks
         })
     });

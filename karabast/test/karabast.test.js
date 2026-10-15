@@ -225,6 +225,28 @@ test('a seat plays the bot answer, hides undo buttons from it, and reports the r
     assert.strictEqual(r.stats.decisions, 1);
 });
 
+test('a seat answers no sooner than paceMs after the decision, and drops a paced answer when the decision changed', async () => {
+    const client = { name: 'fake', hello: () => ({ t: 'ready', v: 2 }), decide: (msg) => ({ t: 'act', i: msg.actions.findIndex((a) => a.label === 'Pass') }), over: () => ({ t: 'ok' }) };
+    const { sock, seat } = fakeSeat(client, { paceMs: 150 });
+    const done = seat.play();
+    const window = (uuid) => frame({ promptUuid: uuid, menuTitle: 'Choose an action', buttons: [{ text: 'Pass', arg: 'pass', uuid, command: 'menuButton' }] });
+    const t0 = Date.now();
+    sock.emit('gamestate', window('P1'));
+    await new Promise((r) => setTimeout(r, 60));
+    assert.strictEqual(sock.sent.length, 0); // the bot answered at once; the seat still waits
+    await new Promise((r) => setTimeout(r, 160));
+    assert.deepStrictEqual(sock.sent.at(-1), ['game', 'menuButton', 'pass', 'P1']);
+    assert.ok(Date.now() - t0 >= 150);
+    // the next decision changes while its answer waits: only the new decision is answered
+    sock.emit('gamestate', window('P2'));
+    await new Promise((r) => setTimeout(r, 50));
+    sock.emit('gamestate', window('P3'));
+    await new Promise((r) => setTimeout(r, 400));
+    assert.deepStrictEqual(sock.sent.map((m) => m[3]), ['P1', 'P3']);
+    sock.emit('gamestate', { ...frame({}), winners: ['Alice'] });
+    await done;
+});
+
 test('the people ledger caps distinct people and keeps no ids', () => {
     const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ledger-')), 'people.json');
     const l = new PeopleLedger(file, 3);
