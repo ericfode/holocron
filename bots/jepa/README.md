@@ -533,7 +533,10 @@ the bot loses, and the positions where the moves' judged outcomes differ by more
 hold 56%. Training harder on those positions did not help: refitting the window head with gap weights
 (`fit_veval.py --gap-weight`) or drawing high-gap branch points more often (`tx_train_torch.py --gap-weight`, gaps
 from `pack_gaps.py`) stayed within noise of jepa-tx. The head already copies the evaluator on real boards (0.2 points
-of regret); the misses come from the imagined settled board.
+of regret); the misses come from the imagined settled board. Adding more data at those positions hurt: with 3 extra
+passes of every move at the 26% of branch points whose moves are 10 points apart (`branches.js --extra-rollouts 3
+--gap-min 0.10`, 3 x 3,000 real-deck games), tx-x13 won 20.2%, 8.0 points [-11.8, -4.2] below tx-x13b, the same
+games without the extra passes (28.1%).
 
 Looking harder at those positions does help. `--score plan --plan gate=G` simulates only at action windows where the
 imagined scores of the moves spread at least G and plays the imagined best move everywhere else. Model tx-t10, window
@@ -542,8 +545,16 @@ and planner head tx-t10-e, 702 games vs c-clock, paired against tx-t10 (a) 31.1%
 | Bot | Windows simulated | Wins vs c-clock | Paired vs tx-t10 (a) | Decide time mean / max |
 |---|---|---|---|---|
 | **jepa-tx-plan** (gate 0) | 100% | **51.4%** [47.7, 55.1] | +20.2 [+16.2, +24.1] | 113 ms / 5.1 s |
-| **jepa-tx-gate** (gate 0.1) | 22% | 42.8% [39.1, 46.5] | +11.6 [+8.4, +14.9] | 47 ms / 4.0 s |
+| gate 0, evaluator as the planner's scorer | 100% | 50.0% [46.3, 53.7] | +18.9 [+14.9, +22.8] | 89 ms / 2.9 s |
+| **jepa-tx-gate** (gate 0.04) | 59% | **51.2%** [47.4, 54.9] | +19.8 [+15.9, +23.7] | 74 ms / 3.5 s |
+| gate 0.06 | 46% | 48.5% [44.8, 52.3] | +17.1 [+13.3, +21.1] | 61 ms / 3.3 s |
+| gate 0.08 | 34% | 47.1% [43.4, 50.8] | +15.7 [+12.2, +19.3] | 49 ms / 3.5 s |
+| gate 0.1 | 22% | 42.8% [39.1, 46.5] | +11.6 [+8.4, +14.9] | 47 ms / 4.0 s |
 
-Simulating the pivotal fifth of the windows recovers more than half of what simulating every window gives.
+Simulating the 59% of windows where the imagined moves spread most gives all of what simulating every window gives,
+a third of the windows three quarters of it, and the pivotal fifth more than half (`notes/pivots/gate-grid.txt`).
+jepa-tx-gate uses gate 0.04. Scoring the planner's leaves with the evaluator instead of tx-t10-e's value head changes
+nothing (-1.3 [-4.4, +1.9]), so what the hybrid still loses is elsewhere: the prompts it does not plan (resources,
+follow-ups) or the planning depth.
 jepa-tx-plan is the first JEPA bot above 50% against c-clock on these deals (jepa-plan-reval's 48.8% was on other
 deals). Both need the referee's simulations (protocol v2); jepa-tx stays the bot that plays with no simulator.
