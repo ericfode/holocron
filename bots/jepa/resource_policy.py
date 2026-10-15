@@ -44,7 +44,9 @@ def load_card_meta(path=None):
             continue
         types = [t.lower() for t in v.get("types") or [] if isinstance(t, str)]
         m = {"cost": float(v["cost"]) if isinstance(v.get("cost"), (int, float)) else 0.0, "types": types,
-             "aspects": [a.lower() for a in v.get("aspects") or [] if isinstance(a, str)], "space": v.get("arena") == "space"}
+             "aspects": [a.lower() for a in v.get("aspects") or [] if isinstance(a, str)], "space": v.get("arena") == "space",
+             "power": float(v["power"]) if isinstance(v.get("power"), (int, float)) else 0.0,
+             "hp": float(v["hp"]) if isinstance(v.get("hp"), (int, float)) else 0.0}
         codes = list(v.get("setCodes") or []) + ([v["setId"]] if v.get("setId") else [])
         for c in codes:
             if isinstance(c, dict) and isinstance(c.get("set"), str) and isinstance(c.get("number"), int):
@@ -102,10 +104,38 @@ def stop_features(msg):
     return [1.0, (st.get("round") or 0) / 10.0, res / 10.0, (me.get("handCount") or 0) / 10.0]
 
 
+def off_aspect(s, meta, aspects):
+    """Aspect icons of card s that my leader and base do not cover (each makes it cost 2 more)."""
+    have = list(aspects)
+    off = 0
+    for a in (meta.get(s) or {}).get("aspects", []):
+        if a in have:
+            have.remove(a)
+        else:
+            off += 1
+    return off
+
+
+def clock_keep(s, meta, aspects, total):
+    """c-clock's keep value of a hand card (bots/c/bot.c keep_value, default flags): the lowest is resourced."""
+    m = meta.get(s)
+    if not m:
+        return 1.0
+    pen = 2 * off_aspect(s, meta, aspects)
+    v = 3.0 - 0.6 * max(0.0, m["cost"] + pen - (total + 2)) - 0.8 * pen / 2.0
+    if "unit" in m["types"]:
+        v += 1.0 + 0.05 * (m.get("power", 0.0) + m.get("hp", 0.0))
+    if "upgrade" in m["types"]:
+        v -= 0.3
+    return v
+
+
 class ResourcePolicy:
     def __init__(self, path, meta=None):
         # "rule": bots/players/heuristic.js instead of a fitted model (resource every time, lowest keepScore first)
-        if path == "rule":
+        if path == "c-clock":  # c-clock's own rule (bots/c/bot.c choose_resource and keep_value, default flags), ported
+            self.m = {"w": [0.0] * len(FEATS), "card": {}, "stop": [0.0] * 4, "clock": True}
+        elif path == "rule":
             self.m = {"w": [0.0] * len(FEATS), "card": {}, "stop": [-10.0, 0.0, 0.0, 0.0], "rule": True}
         else:
             with open(path) as fh:
@@ -123,11 +153,31 @@ class ResourcePolicy:
             return [x[7] * 3 - x[4] * 1.5 - float(x[0] * 8 <= 3) + x[0] * 8 * 0.3 for x in xs]
         return [float(np.dot(self.w, x)) + self.m["card"].get(s, 0.0) for x, (_, s) in zip(xs, cards)]
 
+    def choose_clock(self, msg, prompt, cards, done):
+        st = msg.get("state") or {}
+        me = (st.get("players") or {}).get(msg.get("you")) or {}
+        total = (me.get("res") or {}).get("total") or 0
+        hand_n = me.get("handCount") or 0
+        aspects = my_aspects(msg, self.meta)
+        want = max_select(prompt)
+        if st.get("phase") == "regroup":
+            # resource while the curve still needs it
+            eff = lambda s: self.meta[s]["cost"] + 2 * off_aspect(s, self.meta, aspects) if s in self.meta else 3
+            big = any(eff(c.get("s")) > total for c in me.get("hand") or [] if c.get("s"))
+            want = want if (total < 6 or (total < 9 and hand_n >= 3) or (big and hand_n >= 2)) else 0
+        if len(prompt.get("selected") or []) >= want and done is not None:
+            return done
+        if not cards:
+            return done
+        return min(cards, key=lambda c: clock_keep(c[1], self.meta, aspects, total))[0]
+
     def choose(self, msg):
         prompt = msg.get("prompt") or {}
         if prompt.get("type") != "resource":
             return None
         cards, done = offered(msg)
+        if self.m.get("clock"):
+            return self.choose_clock(msg, prompt, cards, done)
         picked = len(prompt.get("selected") or [])
         if done is not None and (picked >= max_select(prompt) or not cards):
             return done
