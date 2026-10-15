@@ -1,0 +1,47 @@
+Round 2 game tests vs c-clock: 702 games each on the same local deals (key set by jepa-h1r's run), resource-v1 for every bot.
+Win% over decided games with a 95% Wilson interval; paired = win-rate difference vs jepa-h1r on games both finished,
+95% bootstrap interval over seeds, and the games exactly one of the two won (sign test p). '-ch' = rerun with chunked
+move scoring (the -ch runs replace the older tx runs, which lost games to timeouts).
+
+bot              win%         95% CI          paired vs h1r  only bot/ref      p  t/o  settings
+tx-s10a-c        28.4 [ 25.2, 31.9]    +13.8 [+10.3,+17.5]        128/33  0.000    0  tx-s10a, mix 0, windows: tx-s10a-e, settle horizon
+tx-s10a-d        27.5 [ 24.3, 30.9]    +12.9 [ +9.3,+16.5]        121/32  0.000    0  tx-s10a, mix 1, windows: tx-s10a-e, settle horizon
+tx-s10-a         26.4 [ 23.3, 29.9]    +11.7 [ +8.1,+15.5]        120/39  0.000    0  tx-s10-e, mix 1, settle horizon
+tx-s10-d         24.2 [ 21.1, 27.5]     +9.6 [ +6.1,+13.2]        107/41  0.000    0  tx-s10, mix 1, windows: tx-s10-e, settle horizon
+tx-s10a-a        23.0 [ 20.0, 26.3]     +8.3 [ +4.9,+11.6]         97/40  0.000    0  tx-s10a-e, mix 1, settle horizon
+tx-s3-a          21.0 [ 17.9, 24.4]     +7.2 [ +3.7,+10.6]         75/32  0.000   94  tx-s3-e, mix 1, settle horizon
+tx-s10-c         20.8 [ 17.9, 23.9]     +6.1 [ +2.6, +9.8]         90/48  0.000    0  tx-s10, mix 0, windows: tx-s10-e, settle horizon
+tx-s3-a-ch       20.1 [ 17.2, 23.2]     +5.6 [ +2.5, +8.8]         79/40  0.000    0  tx-s3-e, mix 1, settle horizon
+tx-s3-c          20.0 [ 16.9, 23.4]     +6.3 [ +2.8, +9.8]         73/36  0.001  105  tx-s3, mix 0, windows: tx-s3-e, settle horizon
+tx-s3-d          19.9 [ 16.9, 23.3]     +6.1 [ +2.4, +9.9]         74/38  0.001  105  tx-s3, mix 1, windows: tx-s3-e, settle horizon
+tx-s3-c-ch       19.2 [ 16.5, 22.4]     +4.8 [ +1.6, +8.2]         80/47  0.004    0  tx-s3, mix 0, windows: tx-s3-e, settle horizon
+tx-s3-d-ch       19.0 [ 16.3, 22.1]     +4.3 [ +0.9, +7.8]         82/52  0.012    0  tx-s3, mix 1, windows: tx-s3-e, settle horizon
+tx-g1e-m1        17.6 [ 14.8, 20.7]     +3.0 [ -0.2, +6.1]         59/40  0.070   53  tx-g1-e, mix 1
+tx-g1e-m1-ch     17.0 [ 14.3, 19.9]     +2.5 [ -0.4, +5.5]         61/44  0.118    0  tx-g1-e, mix 1
+tx-g1w-m1        16.8 [ 14.1, 19.9]     +3.1 [ -0.2, +6.4]         61/41  0.059   53  tx-g1, mix 1, windows: tx-g1-e
+tx-g1w-m1-ch     16.5 [ 13.9, 19.5]     +2.0 [ -1.3, +5.1]         64/50  0.223    0  tx-g1, mix 1, windows: tx-g1-e
+pool-g1-m1       15.9 [ 13.4, 18.8]     +1.3 [ -1.9, +4.7]         68/59  0.478    0  pool-g1, mix 1
+jepa-h1r         14.6 [ 12.1, 17.4]              reference                         0  v1, mix 0
+tx-s3-b-ch       14.5 [ 12.1, 17.3]     -0.1 [ -3.3, +3.1]         57/58  1.000    0  tx-s3, mix 0, settle horizon
+tx-s3-b          14.3 [ 11.8, 17.2]     +0.0 [ -3.5, +3.4]         52/52  1.000   59  tx-s3, mix 0, settle horizon
+pool-g1w-m1      12.9 [ 10.6, 15.6]     -1.6 [ -5.1, +1.9]         55/66  0.363    0  pool-g1, mix 1, windows: pool-g1-e
+tx-g1-m1-ch      12.8 [ 10.5, 15.5]     -1.7 [ -4.9, +1.3]         47/59  0.285    0  tx-g1, mix 1
+tx-g1-m1         12.8 [ 10.4, 15.6]     -1.1 [ -4.1, +2.1]         43/50  0.534   59  tx-g1, mix 1
+pool-g1e-m1      12.5 [ 10.2, 15.2]     -2.0 [ -5.2, +1.2]         51/65  0.227    0  pool-g1-e, mix 1
+tx-s10a-b        11.9 [  9.7, 14.5]     -2.6 [ -5.8, +0.7]         48/66  0.111    0  tx-s10a, mix 0, settle horizon
+tx-s10-b         11.6 [  9.4, 14.2]     -2.8 [ -6.0, +0.4]         46/65  0.087    0  tx-s10, mix 0, settle horizon
+tx-g1-m0         10.7 [  8.5, 13.3]     -3.6 [ -6.4, -0.6]         30/53  0.015   44  tx-g1, mix 0
+tx-g1-m0-ch      10.3 [  8.3, 12.8]     -4.2 [ -7.0, -1.5]         31/60  0.003    0  tx-g1, mix 0
+pool-g1e-m0       9.0 [  7.1, 11.4]     -5.2 [ -8.2, -2.3]         34/70  0.001    0  pool-g1-e, mix 0
+pool-g1w-m0       8.8 [  6.9, 11.2]     -5.7 [ -8.7, -2.6]         33/72  0.000    0  pool-g1, mix 0, windows: pool-g1-e
+pool-g1-m0        8.7 [  6.8, 11.0]     -5.8 [ -8.9, -2.8]         35/75  0.000    0  pool-g1, mix 0
+jepa-v1e-m1       8.2 [  6.4, 10.5]     -5.9 [ -8.8, -3.0]         31/72  0.000    0  jepa-v1-e, mix 1
+pool-10-d         5.5 [  4.0,  7.4]     -9.0 [-11.9, -6.2]         20/82  0.000    0  pool-10, mix 1, windows: pool-10-e
+pool-10-a         5.4 [  3.9,  7.3]     -9.2 [-12.3, -6.1]         23/86  0.000    0  pool-10-e, mix 1
+tx-g1e-m0-ch      5.3 [  3.8,  7.2]     -9.2 [-12.0, -6.4]         17/80  0.000    0  tx-g1-e, mix 0
+tx-g1e-m0         4.6 [  3.2,  6.5]     -9.2 [-12.2, -6.3]         14/72  0.000   54  tx-g1-e, mix 0
+pool-10-b         4.1 [  2.8,  5.8]    -10.6 [-13.2, -8.1]          8/81  0.000    0  pool-10, mix 0
+tx-g1w-m0-ch      2.6 [  1.7,  4.1]    -11.7 [-14.6, -8.7]         12/92  0.000    0  tx-g1, mix 0, windows: tx-g1-e
+tx-g1w-m0         2.5 [  1.5,  4.0]    -11.6 [-14.7, -8.7]         12/87  0.000   42  tx-g1, mix 0, windows: tx-g1-e
+pool-10-c         1.6 [  0.9,  2.8]    -12.7 [-15.5,-10.0]          5/93  0.000    0  pool-10, mix 0, windows: pool-10-e
+jepa-v1e-m0       0.1 [  0.0,  0.8]    -14.1 [-16.8,-11.3]          0/97  0.000    0  jepa-v1-e, mix 0

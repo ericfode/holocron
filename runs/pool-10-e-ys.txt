@@ -1,0 +1,4 @@
+h1: top-1 0.604 (chance 0.478) median rho 0.50 spread imagined 3.4 / real 1.9 pts, regret 2.19 pts, blunders 15.5% (6231 points)
+h1_vs_settled: top-1 0.468 (chance 0.401) median rho 0.14 spread imagined 3.4 / real 1.9 pts, regret 3.11 pts, blunders 21.7% (6231 points)
+h4: top-1 0.612 (chance 0.412) median rho 0.60 spread imagined 3.7 / real 3.7 pts, regret 2.68 pts, blunders 18.2% (6231 points)
+h4_vs_settled: top-1 0.633 (chance 0.401) median rho 0.60 spread imagined 3.7 / real 1.9 pts, regret 1.81 pts, blunders 13.4% (6231 points)

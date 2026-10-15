@@ -1,0 +1,3 @@
+own value head: {'move_top1': 0.4795, 'line_top1': 0.4102, 'ce': 2.3, 'n': 1414, 'same_as_eval': 0.5156}
+evaluator copy (best at step 750): {'move_top1': 0.4837, 'line_top1': 0.4286, 'ce': 2.3135, 'n': 1414, 'same_as_eval': 0.7815}
+wrote runs/pool-g1-e.safetensors

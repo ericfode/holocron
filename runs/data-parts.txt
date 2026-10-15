@@ -1,0 +1,21 @@
+GENERATED part 0 seed 750000 in 1252s: wrote C:\Users\ericf\holocron\data\branch\st-0 in 1252s: 62415 branch points {"won":2991,"ERROR":9}
+PACKED part 0 in 162s: 62415 branch points, 279123 h1, 263898 h4 and 276264 settled targets, 21609 moves that end the game first -> data/jepa/st-0.npz
+GENERATED part 1 seed 753000 in 1876s: wrote C:\Users\ericf\holocron\data\branch\st-1 in 1876s: 61500 branch points {"won":2991,"ERROR":9}
+PACKED part 1 in 235s: 61500 branch points, 274343 h1, 259611 h4 and 271668 settled targets, 21019 moves that end the game first -> data/jepa/st-1.npz
+GENERATED part 2 seed 756000 in 1676s: wrote C:\Users\ericf\holocron\data\branch\st-2 in 1675s: 61810 branch points {"won":2985,"ERROR":15}
+PACKED part 2 in 125s: 61810 branch points, 276210 h1, 261057 h4 and 273817 settled targets, 21644 moves that end the game first -> data/jepa/st-2.npz
+GENERATED part 3 seed 759000 in 1020s: wrote C:\Users\ericf\holocron\data\branch\st-3 in 1021s: 61521 branch points {"won":2995,"ERROR":5}
+PACKED part 3 in 150s: 61521 branch points, 274904 h1, 259264 h4 and 271954 settled targets, 22033 moves that end the game first -> data/jepa/st-3.npz
+GENERATED part 4 seed 762000 in 1035s: wrote C:\Users\ericf\holocron\data\branch\st-4 in 1036s: 61687 branch points {"won":2992,"ERROR":8}
+PACKED part 4 in 129s: 61687 branch points, 275604 h1, 260845 h4 and 272704 settled targets, 20969 moves that end the game first -> data/jepa/st-4.npz
+GENERATED part 5 seed 765000 in 1044s: wrote C:\Users\ericf\holocron\data\branch\st-5 in 1043s: 61406 branch points {"won":2986,"ERROR":14}
+PACKED part 5 in 128s: 61406 branch points, 275106 h1, 260017 h4 and 272418 settled targets, 21529 moves that end the game first -> data/jepa/st-5.npz
+GENERATED part 6 seed 768000 in 1264s: wrote C:\Users\ericf\holocron\data\branch\st-6 in 1263s: 61703 branch points {"won":2990,"ERROR":10}
+PACKED part 6 in 256s: 61703 branch points, 275595 h1, 260701 h4 and 272707 settled targets, 21180 moves that end the game first -> data/jepa/st-6.npz
+GENERATED part 7 seed 771000 in 2138s: wrote C:\Users\ericf\holocron\data\branch\st-7 in 2138s: 61695 branch points {"won":2989,"ERROR":11}
+PACKED part 7 in 147s: 61695 branch points, 275778 h1, 260025 h4 and 272780 settled targets, 22185 moves that end the game first -> data/jepa/st-7.npz
+GENERATED part 8 seed 774000 in 1601s: wrote C:\Users\ericf\holocron\data\branch\st-8 in 1601s: 62099 branch points {"won":2990,"ERROR":10}
+PACKED part 8 in 132s: 62099 branch points, 277093 h1, 262364 h4 and 274458 settled targets, 21090 moves that end the game first -> data/jepa/st-8.npz
+GENERATED part 9 seed 777000 in 1015s: wrote C:\Users\ericf\holocron\data\branch\st-9 in 1015s: 62183 branch points {"won":2995,"ERROR":5}
+PACKED part 9 in 97s: 62183 branch points, 277378 h1, 261672 h4 and 274756 settled targets, 22346 moves that end the game first -> data/jepa/st-9.npz
+ALL_PARTS_DONE

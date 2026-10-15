@@ -1,0 +1,4 @@
+h1: top-1 0.638 (chance 0.478) median rho 0.54 spread imagined 3.2 / real 1.9 pts (6231 points)
+h1_vs_settled: top-1 0.570 (chance 0.401) median rho 0.50 spread imagined 3.2 / real 1.9 pts (6231 points)
+h4: top-1 0.568 (chance 0.412) median rho 0.54 spread imagined 2.8 / real 3.7 pts (6231 points)
+h4_vs_settled: top-1 0.614 (chance 0.401) median rho 0.60 spread imagined 2.8 / real 1.9 pts (6231 points)

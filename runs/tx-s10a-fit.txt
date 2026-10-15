@@ -1,0 +1,3 @@
+own value head: {'move_top1': 0.5007, 'line_top1': 0.4307, 'ce': 2.2898, 'n': 1414, 'same_as_eval': 0.6004}
+evaluator copy (best at step 2500): {'move_top1': 0.4837, 'line_top1': 0.43, 'ce': 2.3018, 'n': 1414, 'same_as_eval': 0.838}
+wrote runs/tx-s10a-e.safetensors

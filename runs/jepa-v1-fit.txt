@@ -1,0 +1,3 @@
+own value head: {'move_top1': 0.3876, 'line_top1': 0.3168, 'ce': 2.3773, 'n': 1414, 'same_as_eval': 0.5509}
+evaluator copy (best at step 2500): {'move_top1': 0.4448, 'line_top1': 0.3953, 'ce': 2.316, 'n': 1414, 'same_as_eval': 0.7355}
+wrote runs/jepa-v1-e.safetensors
