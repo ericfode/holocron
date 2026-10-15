@@ -46,6 +46,10 @@ static int mullFix;
    unit"), which does nothing before a Fighter has attacked, so it was cancelled and banned for the round. On Karabast it
    then pinged in 9 of 247 such rounds, against 94% of the rounds before Luke deployed. */
 static int epicFix;
+/* --spare: an event that attacks (step 2b) is paid only from resources the round's hand cards leave over. On Karabast
+   c-clock3me played Aggressive Negotiations (cost 3) as soon as a unit could attack, before its units, and started
+   round 5 with 1.2 less power on the board than c-clock2 against the same hours' players. */
+static int spareFix;
 
 /* ---------- observation ---------- */
 
@@ -778,6 +782,29 @@ static const Act *choose_window(State *st, const Act *acts, int n) {
         snprintf(G.intent, sizeof G.intent, "deploy");
     }
 
+    /* knapsack over ready resources: which hand cards to play this round */
+    int chosen[MAXC] = { 0 };
+    int m = imin(nplay, 16);
+    double bestSet = 0;
+    unsigned bestMask = 0;
+    for (unsigned mask = 1; mask < (1u << m); mask++) {
+        int cost = 0;
+        double v = 0;
+        for (int k = 0; k < m; k++) {
+            if (mask & (1u << k)) {
+                cost += plays[k].cost;
+                v += plays[k].v;
+            }
+        }
+        if (cost <= me->resReady && v > bestSet) {
+            bestSet = v;
+            bestMask = mask;
+        }
+    }
+    for (int k = 0; k < m; k++) {
+        chosen[k] = (bestMask >> k) & 1;
+    }
+
     /* 2b. (--events) an event that attacks goes before the plain attack it replaces: Aggressive Negotiations adds +1/+0
        per card left in hand, Hotshot Maneuver first deals 2 damage to an enemy unit per On Attack ability */
     if (!pick && eventsFix && natk) {
@@ -787,9 +814,15 @@ static const Act *choose_window(State *st, const Act *acts, int n) {
             bestA = atkV[k] > bestA ? atkV[k] : bestA;
             onAtk |= on_attacks(atkU[k]) > 0;
         }
+        int spare = me->resReady;
+        for (int k = 0; spareFix && k < m; k++) {
+            if (chosen[k] && plays[k].c && !(plays[k].c->types & T_EVENT)) {
+                spare -= plays[k].cost; /* the units and upgrades this round's hand plays need */
+            }
+        }
         for (int k = 0; bestA > 0.2 && k < nplay; k++) {
             const Card *c = plays[k].c;
-            if (!c || !(c->types & T_EVENT) || plays[k].cost > me->resReady || strcmp(plays[k].a->zone, "hand")) {
+            if (!c || !(c->types & T_EVENT) || plays[k].cost > spare || strcmp(plays[k].a->zone, "hand")) {
                 continue;
             }
             const char *t = c->text ? c->text : "";
@@ -817,29 +850,6 @@ static const Act *choose_window(State *st, const Act *acts, int n) {
     if (!pick && bestK >= 0) {
         pick = atk[bestK];
         why = "kill";
-    }
-
-    /* knapsack over ready resources: which hand cards to play this round */
-    int chosen[MAXC] = { 0 };
-    int m = imin(nplay, 16);
-    double bestSet = 0;
-    unsigned bestMask = 0;
-    for (unsigned mask = 1; mask < (1u << m); mask++) {
-        int cost = 0;
-        double v = 0;
-        for (int k = 0; k < m; k++) {
-            if (mask & (1u << k)) {
-                cost += plays[k].cost;
-                v += plays[k].v;
-            }
-        }
-        if (cost <= me->resReady && v > bestSet) {
-            bestSet = v;
-            bestMask = mask;
-        }
-    }
-    for (int k = 0; k < m; k++) {
-        chosen[k] = (bestMask >> k) & 1;
     }
 
     /* 4. helpful upgrades go on before the attacks */
@@ -1636,6 +1646,8 @@ int main(int argc, char **argv) {
             mullFix = 1;
         } else if (!strcmp(argv[i], "--epic")) {
             epicFix = 1;
+        } else if (!strcmp(argv[i], "--spare")) {
+            spareFix = 1;
         } else if (!strcmp(argv[i], "--events")) {
             eventsFix = 1;
         } else if (!strcmp(argv[i], "--pilot")) {
