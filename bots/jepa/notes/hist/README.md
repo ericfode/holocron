@@ -76,20 +76,20 @@ snap       0.805         0.731         0.450      0.781     8.453        0.298  
 
 With the term equal, base and snap reach pool's and hist's hand (8.450 / 8.453 against 8.453 / 8.469). The h1p gap
 was the counting term: on this data the unseen cards of the lists, the discards and the history add nothing to the
-hand guess.
+hand guess (one seed each).
 
 ## h2: 20,000 steps, base and hist (`h2.json`; old init, one seed each) and base with the counting term (`h2c.json`)
 
 ```
         explained_h1  explained_h4  win_logloss  win_acc  hand_logloss  hand_recall  move_logloss  move_top1  move_top5
-base       0.786         0.727         0.508      0.775     8.700        0.285        2.098        0.418         0.726
-hist       0.779         0.730         0.682      0.772     8.811        0.291        2.051        0.425         0.737
-base+count 0.786         0.729         0.513      0.774     8.836        0.284        2.085        0.414         0.731
+base       0.786         0.727         0.508      0.775     8.700        0.285        2.098        0.418      0.726
+hist       0.779         0.730         0.682      0.772     8.811        0.291        2.051        0.425      0.737
+base+count 0.786         0.729         0.513      0.774     8.836        0.284        2.085        0.414      0.731
 ```
 
 Longer training overfits the win and hand heads (base win log-loss 0.446 at 8,000 steps, 0.508 at 20,000; hist 0.452
--> 0.682; hand 8.47 -> 8.70 / 8.81) while the next move keeps improving (top-1 0.40 -> 0.42) and the forecasts barely
-move (0.735 -> 0.786 at h1, still below tx-t10's 0.863). So 8,000 steps is the better length on 811k decisions from 6,176
+-> 0.682; hand 8.47 -> 8.70 / 8.81) while the next move keeps improving (top-1 0.40 -> 0.42) and the forecasts improve a
+little (0.735 -> 0.786 at h1) but stay below tx-t10's 0.863. So 8,000 steps is the better length on 811k decisions from 6,176
 games, and at 20,000 steps history does not help either. A fair base-vs-hist comparison still needs main's per-tensor
 init and 2-3 seeds per variant.
 
