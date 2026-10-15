@@ -39,3 +39,18 @@ Both trained on the tx-t10 recipe (10 b-packs + 3 new, tiers t-0..2, 30k steps; 
 - tx-x13 vs tx-x13b: -8.0 [-11.8, -4.2] (`xr-games.txt`). A rerun of tx-t10-va on the current bot code gave 31.1% again.
 Reading: as with the gap-weighted sampling (tx-s10p), giving the predictor more of the pivotal points hurts play; more
 uniform data did not help either. The pivotal moments pay off at play time (the hybrid planner above), not in training.
+
+## Gate grid and an evaluator-scored planner (desktop 2026-10-15, `gate-grid.txt`)
+
+tx-t10 + tx-t10-e as in the hybrid section, the same 702 deals vs c-clock, 10 workers, paired with tx-t10 (a) 31.1%:
+| gate | windows planned | win% | vs (a) | decide mean / max |
+|---|---|---|---|---|
+| none | 0% | 31.1 [27.7, 34.6] | | 5 ms / 0.3 s |
+| 0.10 | 22.3% | 42.8 [39.1, 46.5] | +11.6 [+8.5, +14.8] | 47 ms / 4.0 s |
+| 0.08 | 33.7% | 47.1 [43.4, 50.8] | +15.7 [+12.2, +19.3] | 49 ms / 3.5 s |
+| 0.06 | 46.3% | 48.5 [44.8, 52.3] | +17.1 [+13.3, +21.1] | 61 ms / 3.3 s |
+| 0.04 | 59.3% | 51.2 [47.4, 54.9] | +19.8 [+15.9, +23.7] | 74 ms / 3.5 s |
+| 0 | 100% | 51.4 [47.7, 55.1] | +20.2 [+16.2, +24.2] | 113 ms / 5.1 s |
+| 0, --plan-scorer eval | 100% | 50.0 [46.3, 53.7] | +18.9 [+14.9, +22.8] | 89 ms / 2.9 s |
+No timeouts in any run. Planning the 60% of windows with the widest imagined spread gives all of the gain. The value
+head as the planner's scorer costs nothing against linear-deck-g4 (-1.3 [-4.4, +1.9], eval minus value head).
