@@ -58,6 +58,9 @@ ap.add_argument("--hold", type=float, default=0.1, help="share of games held out
 ap.add_argument("--w-win", type=float, default=0.5)
 ap.add_argument("--w-hand", type=float, default=1.0)
 ap.add_argument("--w-move", type=float, default=0.5)
+ap.add_argument("--count-prior", choices=["auto", "on", "off"], default="auto",
+                help="add the card-counting logits to the hand head: auto = the variants that read the lists (pool, hist), on = every "
+                     "variant (the hand compared on equal terms), off = none")
 ap.add_argument("--probe-only", action="store_true")
 ap.add_argument("--eval-every", type=int, default=1000)
 ap.add_argument("--eval-rows", type=int, default=20000)
@@ -189,6 +192,13 @@ def prior_metrics():
     return score(rows, logit_h=np.log(hp) - np.log1p(-hp), logp_m=np.log(mp))
 
 
+def counts(w):
+    """does this model's hand head start from counting cards (--count-prior)"""
+    if a.count_prior == "auto":
+        return "pin.w" in w
+    return a.count_prior == "on" and HAS_POOL
+
+
 def count_logits(rows):
     """card counting, as a human does it: the opponent's hand is handCount cards drawn from their unseen cards.
     [len(rows), NB] logits of each card bucket being in the opponent's hand."""
@@ -295,7 +305,7 @@ def init(variant, seed):
         else:
             p[name] = np.zeros(shape)
     # start from the base rates, or, in a model that knows the lists, from counting cards (heads adds it)
-    p["oh2.b"] = np.zeros(NB) if "pin.w" in p else np.log(glob_h) - np.log1p(-glob_h)
+    p["oh2.b"] = np.zeros(NB) if counts(p) else np.log(glob_h) - np.log1p(-glob_h)
     p["om2.b"] = np.log(glob_m)
     return {k: torch.tensor(v, dtype=torch.float32, device=dev, requires_grad=True) for k, v in p.items()}
 
@@ -374,7 +384,7 @@ def heads(w, rows, z, variant):
         out[f"z{h}"] = z + lin(w, "p2", torch.relu(lin(w, "p1", torch.cat([z, av + w["hor"][h]], -1))))
     out["v"] = lin(w, "v2", torch.relu(lin(w, "v1", zh)))[:, 0]
     out["hand"] = lin(w, "oh2", torch.relu(lin(w, "oh1", zh)))
-    if "pin.w" in w and HAS_HAND:
+    if counts(w) and HAS_HAND:
         out["hand"] = out["hand"] + tt(count_logits(rows))  # a model that knows the lists starts from counting cards
     out["move"] = lin(w, "om2", torch.relu(lin(w, "om1", zh)))
     return out
