@@ -71,6 +71,7 @@ def prep(a):
     held = held_games(len(games))
     t0 = time.time()
     Z, SF, rows, wins = [], [], [], []
+    TOK = {"state": [], "ids": [], "feats": [], "mask": []}  # card tokens in Z's order, for --tok-out
     pending, pend_rows = [], []
 
     def flush():
@@ -83,6 +84,11 @@ def prep(a):
             r["z"] = len(Z)
             Z.append(zz.astype(np.float32))
             SF.append(e["state"].astype(np.float16))
+            if a.tok_out:
+                TOK["state"].append(e["state"].astype(np.float32))
+                TOK["ids"].append(e["tok_ids"].astype(np.int16))
+                TOK["feats"].append(e["tok_feats"].astype(np.float16))
+                TOK["mask"].append(e["tok_mask"].astype(np.uint8))
         pending.clear()
         pend_rows.clear()
 
@@ -146,6 +152,9 @@ def prep(a):
         held=np.array(sorted(held), np.int32), n_games=np.int32(len(games)),
     )
     print(f"wrote {a.out}: {len(games)} games, {len(wins)} windows, {len(rows)} positions ({len(Z)} encoded) in {time.time() - t0:.0f}s")
+    if a.tok_out:
+        np.savez_compressed(a.tok_out, **{k: np.stack(v) for k, v in TOK.items()})
+        print(f"wrote {a.tok_out}: card tokens of the {len(Z)} encoded positions")
 
 
 class Data:
@@ -333,6 +342,7 @@ def main():
     p.add_argument("--eval-all", action="store_true", help="score every window with --eval, for fit --target eval")
     p.add_argument("--teacher-line", choices=["real", "alt"], default="real",
                    help="the teacher's position: where the real game settled, or its move played on by random choices like the other lines")
+    p.add_argument("--tok-out", default=None, help="also write the card tokens of the encoded positions, in Z's order (fit_veval.py --tok)")
     f = sub.add_parser("fit")
     f.add_argument("--data", default="data/jepa/rank-v1.npz")
     f.add_argument("--model", default=os.path.join(here, "models", "jepa-v1.safetensors"))
