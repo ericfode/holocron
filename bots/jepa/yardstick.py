@@ -222,6 +222,7 @@ if __name__ == "__main__":
     ap.add_argument("branches", nargs="?")
     ap.add_argument("--judge", default=None, help="judge_prep.py's output for these branches: grade every model by one evaluator")
     ap.add_argument("--tiers", default=None, help="tier_prep.py --eval output: grade the round tiers on all its points")
+    ap.add_argument("--all", action="store_true", help="every point of the branches, not only the held-out games (a test set no run trains on)")
     a = ap.parse_args()
     net, meta = X.load(a.model)
     if a.tiers:
@@ -232,7 +233,7 @@ if __name__ == "__main__":
         if not a.branches:
             sys.exit(0)
     B = dict(np.load(a.branches))
-    idx = held_points(B)
+    idx = np.arange(len(B["game"])) if a.all else held_points(B)
     judge = None
     if a.judge:
         J = np.load(a.judge)

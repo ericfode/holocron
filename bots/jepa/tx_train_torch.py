@@ -71,6 +71,8 @@ ap.add_argument("--tier-test", default=None, help="tier_prep.py --eval data of g
 ap.add_argument("--gap-weight", type=float, default=0.0,
                 help="sample branch points by (action gap / median gap)^a, clipped to [0.1, 10]; the gaps are read from <pack>.gap.npy next "
                      "to each --pack-b (best minus worst move on the real settled boards); 0 = uniform")
+ap.add_argument("--pack-b-weights", type=float, nargs="+", default=None,
+                help="one sampling weight per --pack-b, per point (e.g. on-policy packs from replay_branches.js drawn more often); default all 1")
 a = ap.parse_args()
 lr0 = a.lr if a.lr is not None else (5e-4 if a.arch == "tx" else 1e-3)
 dev = torch.device(a.device or ("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"))
@@ -101,6 +103,7 @@ C = len(MACROS)
 
 R = dict(np.load(a.pack_r))
 packs = [dict(np.load(f)) for f in a.pack_b]
+b_src = np.concatenate([np.full(len(p["game"]), i) for i, p in enumerate(packs)])  # which --pack-b each point came from
 Bd = {k: np.concatenate([p[k] for p in packs]) for k in packs[0]} if len(packs) > 1 else packs[0]
 del packs
 b_gap = np.concatenate([np.load(f.replace(".npz", ".gap.npy")) for f in a.pack_b]) if a.gap_weight else None
@@ -122,11 +125,19 @@ bheld = set(np.random.default_rng(a.seed + 1).choice(bgames, max(1, int(len(bgam
 b_is_held = np.isin(Bd["game"], list(bheld))
 b_train, b_held = np.flatnonzero(~b_is_held), np.flatnonzero(b_is_held)
 b_prob = None
+if a.pack_b_weights:
+    assert len(a.pack_b_weights) == len(a.pack_b), "--pack-b-weights needs one weight per --pack-b"
+    w = np.asarray(a.pack_b_weights, np.float64)[b_src[b_train]]
+    b_prob = w / w.sum()
+    print("pack shares of the draws: " + ", ".join(f"{os.path.basename(f)} {b_prob[b_src[b_train] == i].sum() * 100:.1f}%" for i, f in enumerate(a.pack_b)),
+          file=sys.stderr, flush=True)
 if b_gap is not None:
     # the positions where the move choice matters most (largest action gap) are drawn more often
     assert len(b_gap) == len(Bd["game"]), "gap files do not match the branch packs"
     g = b_gap[b_train]
     w = np.clip((g / max(float(np.median(g[g > 0])), 1e-3)) ** a.gap_weight, 0.1, 10.0)
+    if b_prob is not None:
+        w = w * b_prob
     b_prob = w / w.sum()
     print(f"gap weighting a={a.gap_weight}: median gap {np.median(g[g > 0]) * 100:.1f} pts; points over 10 pts are {np.mean(g > 0.10) * 100:.0f}% "
           f"of points and {b_prob[g > 0.10].sum() * 100:.0f}% of draws", file=sys.stderr, flush=True)

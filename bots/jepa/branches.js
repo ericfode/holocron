@@ -341,7 +341,11 @@ async function main() {
     console.log(`wrote ${out} in ${((Date.now() - t0) / 1000).toFixed(0)}s: ${points} branch points ${JSON.stringify(outcomes)}`);
 }
 
-main().catch((e) => {
-    console.error(e);
-    process.exit(1);
-});
+module.exports = { playOn, decideBody, toAct };
+
+if (require.main === module) {
+    main().catch((e) => {
+        console.error(e);
+        process.exit(1);
+    });
+}
