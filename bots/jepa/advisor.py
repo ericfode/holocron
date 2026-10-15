@@ -85,7 +85,11 @@ def main():
                 jepa.send(json.loads(sys.stdin.readline()))
             pick = a_reply if use and a_reply.get("t") == "act" else r
             counts[(k, use)] = counts.get((k, use), 0) + 1
-            out({"t": "act", "i": int(pick["i"])})
+            act = {"t": "act", "i": int(pick["i"])}
+            for key in ("split", "distribution"):  # a damage or healing split (c-clock sends "distribution")
+                if pick.get(key) is not None:
+                    act[key] = pick[key]
+            out(act)
         elif t == "hello":
             jepa.send(msg)
             r = jepa.read()

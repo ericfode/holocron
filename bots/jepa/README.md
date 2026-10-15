@@ -566,7 +566,9 @@ deals, paired against jepa-tx-gate (51.2%). Resource prompts (9,766 choices, abo
 sign test p = 0.019. Mulligans: +0.3 [-2.8, +3.4]. Follow-ups and other prompts: -3.5 [-6.8, -0.1]. Action windows:
 -21.6 [-25.6, -17.8]. The last two say that a move and its follow-ups have to come from one plan; the resource choice
 is the one decision that stands alone, and resource-v1 agreed with c-clock on only 80.8% of c-clock's choices
-(`notes/breakthrough/swaps.txt`).
+(`notes/breakthrough/swaps.txt`). In those runs advisor.py dropped c-clock's damage and healing splits, so in the
+"other" swap those prompts were split at random, as jepa_bot.py itself does; advisor.py now passes them on. The
+resource result has no splits in it.
 
 `resource_policy.py` now has `--resource c-clock`, a port of bots/c/bot.c choose_resource and keep_value (default
 flags): in the regroup phase it resources while under 6 resources, under 9 with 3 or more cards in hand, or while a
