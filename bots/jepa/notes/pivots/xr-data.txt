@@ -1,0 +1,11 @@
+code copied: 7 extraRollouts lines, 2 base-only lines
+XR_GEN 0 rc=0 in 2039s: wrote /home/ericf/holocron/data/branch/xr-0 in 2039s: 110221 branch points {"won":2992,"ERROR":8}
+XR_PACKED x-0: 110221 branch points, 583627 h1, 551381 h4 and 577435 settled targets, 47521 moves that end the game first -> data/jepa/x-0.npz
+XR_PACKED xb-0: 61780 branch points, 276375 h1, 261128 h4 and 274031 settled targets, 21774 moves that end the game first -> data/jepa/xb-0.npz
+XR_GEN 1 rc=0 in 2232s: wrote /home/ericf/holocron/data/branch/xr-1 in 2232s: 109967 branch points {"won":2991,"ERROR":9}
+XR_PACKED x-1: 109967 branch points, 582733 h1, 550108 h4 and 576643 settled targets, 48362 moves that end the game first -> data/jepa/x-1.npz
+XR_PACKED xb-1: 61667 branch points, 276098 h1, 261034 h4 and 273707 settled targets, 21602 moves that end the game first -> data/jepa/xb-1.npz
+XR_GEN 2 rc=0 in 2232s: wrote /home/ericf/holocron/data/branch/xr-2 in 2232s: 109279 branch points {"won":2993,"ERROR":7}
+XR_PACKED x-2: 109279 branch points, 578623 h1, 546095 h4 and 571522 settled targets, 47430 moves that end the game first -> data/jepa/x-2.npz
+XR_PACKED xb-2: 61639 branch points, 276007 h1, 260777 h4 and 273159 settled targets, 21580 moves that end the game first -> data/jepa/xb-2.npz
+XR_DATA_DONE
