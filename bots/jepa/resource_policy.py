@@ -132,10 +132,10 @@ def clock_keep(s, meta, aspects, total):
 
 class ResourcePolicy:
     def __init__(self, path, meta=None):
-        # "rule": bots/players/heuristic.js instead of a fitted model (resource every time, lowest keepScore first)
         if path == "c-clock":  # c-clock's own rule (bots/c/bot.c choose_resource and keep_value, default flags), ported
             self.m = {"w": [0.0] * len(FEATS), "card": {}, "stop": [0.0] * 4, "clock": True}
         elif path == "rule":
+            # bots/players/heuristic.js instead of a fitted model (resource every time, lowest keepScore first)
             self.m = {"w": [0.0] * len(FEATS), "card": {}, "stop": [-10.0, 0.0, 0.0, 0.0], "rule": True}
         else:
             with open(path) as fh:
