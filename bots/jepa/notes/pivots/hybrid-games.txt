@@ -1,0 +1,10 @@
+tx-t10-h1 {'won': 690, 'ERROR': 12} timeouts 0 ms/decision mean 47 p95 median 279 max 3988
+tx-t10-h2 {'won': 691, 'ERROR': 11} timeouts 0 ms/decision mean 113 p95 median 559 max 5076
+paired vs tx-t10-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-h1      690 paired games: 42.8 vs 31.2 -> +11.6 pts [+8.4, +14.9]; only tx-t10-h1 won 108, only tx-t10-va won 28, sign test p=0.000
+  tx-t10-h2      689 paired games: 51.2 vs 31.1 -> +20.2 pts [+16.2, +24.1]; only tx-t10-h2 won 176, only tx-t10-va won 37, sign test p=0.000
+paired vs tx-t10-h2 (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-h1      688 paired games: 42.7 vs 51.2 -> -8.4 pts [-11.9, -4.8]; only tx-t10-h1 won 49, only tx-t10-h2 won 107, sign test p=0.000
+paired vs jepa-h1r (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-h1      688 paired games: 42.9 vs 14.5 -> +28.3 pts [+24.3, +32.5]; only tx-t10-h1 won 217, only jepa-h1r won 22, sign test p=0.000
+  tx-t10-h2      688 paired games: 51.5 vs 14.4 -> +37.1 pts [+32.8, +41.2]; only tx-t10-h2 won 269, only jepa-h1r won 14, sign test p=0.000
