@@ -464,7 +464,7 @@ several noisy scores sits above the truth; regret then measures the judge's nois
 smaller. Prompts outside action windows (about 45% of decisions: targets, options, triggers) have no simulations and
 are not judged.
 
-## Round tiers and macro actions (in progress)
+## Round tiers and macro actions
 
 Eric's question (2026-10-15): the bot plans one move ahead; would it play better with a few coarser horizons, where a
 macro action stands for a set of moves and bounds the card choices over several turns? Hierarchical JEPA work says
@@ -504,3 +504,43 @@ then `python3 bots/jepa/tier_prep.py --procs 8 --out data/jepa/tier-<i>.npz data
 `python3 bots/jepa/pack_data.py --branches data/jepa/tier-<i>.npz --out-dir packs --name t-<i>`; test set seeds 745000+
 with `tier_prep.py --eval linear-deck-g4`; training adds `--tier-pack packs/t-0.npz ... --tier-test data/jepa/tier-test.npz`
 to the jepa-tx command above.
+
+Results (desktop run, `notes/tiers/`; 3 parts, 88,545 tier points; test set 500 games at seed 745000): tx-t10 = the
+tx-s10a recipe plus the tiers. The macros are learned: the imagined best macro is the judged best 77% of the time at
+the round end (chance 44%). Played vs c-clock on the usual 702 deals, paired against jepa-tx (28.4%):
+
+| tx-t10 variant | Wins vs c-clock | Paired vs jepa-tx |
+|---|---|---|
+| (a) jepa-tx's settings, no tiers at play | **31.1%** [27.7, 34.6] | +2.6 [-0.9, +6.2] |
+| (b) `--tiers s=1,r=1` | 30.6% | +2.1 [-1.8, +5.9] |
+| (c) `--tiers s=1,r=1,r2=1` | 28.6% | -0.1 [-3.7, +3.4] |
+| (d) (c) + `--commit-macro` | 29.0% | +0.3 [-3.3, +3.8] |
+| (e) `--tiers r=1,r2=1` (no settled score) | 24.6% | -4.1 [-7.7, -0.4] |
+
+Training on the tiers made the best no-simulator model (held-out h1 / h4 / settled 0.878 / 0.591 / 0.793 against
+tx-s10a's 0.845 / 0.506 / 0.784), though +2.6 points in play is within noise. Scoring moves with the tiers does not
+help: picking the move by its best round plan is no better on the yardstick than picking it by the settled board, and
+in play the round tiers cost points. The tiers work as a training signal, not as a move scorer.
+
+## Pivotal moments and the hybrid bots (jepa-tx-gate, jepa-tx-plan)
+
+Eric's other question the same day: a few moments decide most games; can the bot learn them? `notes/pivots/` has
+the runs. The losses are concentrated: on the test set the worst 5% of positions hold 65% of the judged win chance
+the bot loses, and the positions where the moves' judged outcomes differ by more than 10 points (22% of positions)
+hold 56%. Training harder on those positions did not help: refitting the window head with gap weights
+(`fit_veval.py --gap-weight`) or drawing high-gap branch points more often (`tx_train_torch.py --gap-weight`) stayed
+within noise of jepa-tx. The head already copies the evaluator on real boards (0.2 points of regret); the misses come
+from the imagined settled board.
+
+Looking harder at those positions does help. `--score plan --plan gate=G` simulates only at action windows where the
+imagined scores of the moves spread at least G and plays the imagined best move everywhere else. Model tx-t10, window
+and planner head tx-t10-e, 702 games vs c-clock, paired against tx-t10 (a) 31.1%:
+
+| Bot | Windows simulated | Wins vs c-clock | Paired vs tx-t10 (a) | Decide time mean / max |
+|---|---|---|---|---|
+| **jepa-tx-plan** (gate 0) | 100% | **51.4%** [47.7, 55.1] | +20.2 [+16.2, +24.1] | 113 ms / 5.1 s |
+| **jepa-tx-gate** (gate 0.1) | 22% | 42.8% [39.1, 46.5] | +11.6 [+8.4, +14.9] | 47 ms / 4.0 s |
+
+Simulating the pivotal fifth of the windows recovers more than half of what simulating every window gives.
+jepa-tx-plan is the first JEPA bot above 50% against c-clock on these deals (jepa-plan-reval's 48.8% was on other
+deals). Both need the referee's simulations (protocol v2); jepa-tx stays the bot that plays with no simulator.
