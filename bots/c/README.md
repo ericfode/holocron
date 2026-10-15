@@ -79,6 +79,15 @@ does nothing before a Fighter has attacked, so it was cancelled and banned for t
 the deploy. Bot games rarely get there: the Luke deck test changed no game, and the standard test gives +0.3 over
 c-clock2m [−0.5, +1.1] (52.4%).
 
+## c-clock3me (`--v3 --mull --epic`)
+
+c-clock3 with the two fixes of c-clock2me (the mulligan and the once-a-game leader deploy), so it plays its events and
+loses nothing the live bot had. Eric asked for c-clock3 on Karabast on 2026-10-15. Tests against c-clock2me on the same
+deals: a tie on the Luke deck test (+0.0 points [−3.5, +3.5] over 321 paired games, 16 changed each way), and −3.0 points
+on the standard test [−5.1, −0.9] (51.0% against 54.0%; 15 seeds better, 34 worse), so playing events costs games with
+the other decks. Like c-clock3, it bets that playing its events helps against people, which bot games cannot show.
+Both tests ran on the Karabast Sprite's engine (forceteki 2be4fcdb4), so the rates differ a little from the ones above.
+
 ## Karabast's menu titles
 
 Karabast's update of 2026-10-14 (17:57 UTC) titles a card's action menu "Choose an action for X" (a leader: deploy,
