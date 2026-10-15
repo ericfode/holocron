@@ -604,6 +604,8 @@ a value head trained on who won is. `fit_value.py` refits that head on recorded 
 
 Eric's question: should the model know every card, and the game so far, the way people do? `hist_train.py` compares a
 model of the board alone with the same model given the discards, the unseen cards of both deck lists, or its own move
-history, on held-out games (`notes/hist/h1.md`). Every learned model guesses the opponent's hand and next move far
+history, on held-out games (`notes/hist/README.md`). Every learned model guesses the opponent's hand and next move far
 better than card counting or the leader alone (hand log-loss 8.47 vs 9.09; next move top-1 0.40 vs 0.13), but the
-extra inputs add nothing measurable after 8,000 steps. The deck lists only make it learn faster at first.
+extra inputs add nothing measurable after 8,000 steps. The deck lists only make it learn faster at first. When the
+latent is trained by the JEPA losses alone and the hand is only probed (`--probe-only`), the lists do matter for the
+hand (8.45 vs 8.96): the JEPA latent by itself does not carry the hidden hand.
