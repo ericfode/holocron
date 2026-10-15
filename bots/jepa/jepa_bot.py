@@ -81,7 +81,9 @@ class JepaPlayer:
                  plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1"):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
-        self.plan_net = X.load(plan_model)[0] if plan_model else self.net
+        # --plan-model a,b: the planner's judge is the mean of the models' win chances on each settled board
+        self.plan_nets = [X.load(m)[0] for m in plan_model.split(",")] if plan_model else [self.net]
+        self.plan_net = self.plan_nets[0]
         # optional second model used only in action windows (e.g. a predictor fine-tuned on branches, which only cover windows)
         self.window_net = X.load(window_model)[0] if window_model else None
         self.db = db
@@ -468,9 +470,9 @@ class JepaPlayer:
             vals[live] = M.sigmoid(np.asarray(self.evaluator.logits(me, self.decks, [m["state"] for m in pos], to_act)))
         elif live:
             es = [F.encode(m, self.db) for m in pos]
-            z = self.plan_net.encode(np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
-                                     np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
-            vals[live] = M.sigmoid(self.plan_net.value(z))
+            batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
+                     np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
+            vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
         score = np.full(n, -1.0)
         best = {}
         for k, (taken, mine, _) in enumerate(leaves):
