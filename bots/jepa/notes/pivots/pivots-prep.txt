@@ -1,0 +1,4 @@
+wrote /home/ericf/pivots/rank-own in 378s from 1404 files: {"games":1382,"windows":18216,"lines":188308,"skipped":{"no winner":22},"drift":0,"lost":0,"failed":0}
+06e5272 JEPA pivots: rank_train prep --tok-out, fit_veval with several rank sets and gap weighting
+PREP rc=0 in 58s: wrote /home/ericf/pivots/rank-own-ev.npz: 1382 games, 18216 windows, 189058 positions (154052 encoded) in 39s wrote /home/ericf/pivots/rank-own-tok.npz: card tokens of the 154052 encoded positions 
+COPIED

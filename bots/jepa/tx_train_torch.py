@@ -68,6 +68,9 @@ ap.add_argument("--tier-pack", default=None, nargs="+", help="round-tier points 
 ap.add_argument("--w-tier", type=float, default=1.0, help="weight of the round-tier losses")
 ap.add_argument("--tier-groups", type=int, default=32, help="round-tier points per batch")
 ap.add_argument("--tier-test", default=None, help="tier_prep.py --eval data of games no run trains on (fixed-judge tier yardstick)")
+ap.add_argument("--gap-weight", type=float, default=0.0,
+                help="sample branch points by (action gap / median gap)^a, clipped to [0.1, 10]; the gaps are read from <pack>.gap.npy next "
+                     "to each --pack-b (best minus worst move on the real settled boards); 0 = uniform")
 a = ap.parse_args()
 lr0 = a.lr if a.lr is not None else (5e-4 if a.arch == "tx" else 1e-3)
 dev = torch.device(a.device or ("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"))
@@ -100,6 +103,7 @@ R = dict(np.load(a.pack_r))
 packs = [dict(np.load(f)) for f in a.pack_b]
 Bd = {k: np.concatenate([p[k] for p in packs]) for k in packs[0]} if len(packs) > 1 else packs[0]
 del packs
+b_gap = np.concatenate([np.load(f.replace(".npz", ".gap.npy")) for f in a.pack_b]) if a.gap_weight else None
 T = R["tok_ids"].shape[1]
 d = {"state": R["state"], "tok_ids": R["tok_ids"].astype(np.int64), "tok_feats": R["tok_feats"], "tok_mask": R["tok_mask"], "act": R["act"],
      "aid": R["aid"], "win": R["win"], "game": R["game"], "nxt1": R["nxt1"], "nxt4": R["nxt4"]}
@@ -117,6 +121,15 @@ bgames = np.unique(Bd["game"])
 bheld = set(np.random.default_rng(a.seed + 1).choice(bgames, max(1, int(len(bgames) * 0.1)), replace=False).tolist())
 b_is_held = np.isin(Bd["game"], list(bheld))
 b_train, b_held = np.flatnonzero(~b_is_held), np.flatnonzero(b_is_held)
+b_prob = None
+if b_gap is not None:
+    # the positions where the move choice matters most (largest action gap) are drawn more often
+    assert len(b_gap) == len(Bd["game"]), "gap files do not match the branch packs"
+    g = b_gap[b_train]
+    w = np.clip((g / max(float(np.median(g[g > 0])), 1e-3)) ** a.gap_weight, 0.1, 10.0)
+    b_prob = w / w.sum()
+    print(f"gap weighting a={a.gap_weight}: median gap {np.median(g[g > 0]) * 100:.1f} pts; points over 10 pts are {np.mean(g > 0.10) * 100:.0f}% "
+          f"of points and {b_prob[g > 0.10].sum() * 100:.0f}% of draws", file=sys.stderr, flush=True)
 if TQ is not None:
     TQ["ids"] = TQ["ids"].astype(np.int64)
     tgames = np.unique(TQ["game"])
@@ -354,7 +367,7 @@ t1 = time.time()
 for it in range(1, a.steps + 1):
     for g in opt.param_groups:
         g["lr"] = lr0 * min(1.0, it / a.warmup)
-    b = make_batch(rng.choice(r_train, a.rb, replace=False), rng.choice(b_train, a.groups, replace=False), a.token_dropout,
+    b = make_batch(rng.choice(r_train, a.rb, replace=False), rng.choice(b_train, a.groups, replace=False, p=b_prob), a.token_dropout,
                    rng.choice(q_train, a.tier_groups, replace=False) if TQ is not None else None)
     total, parts = losses(b)
     opt.zero_grad(set_to_none=True)

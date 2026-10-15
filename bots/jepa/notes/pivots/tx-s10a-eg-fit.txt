@@ -1,0 +1,4 @@
+rank-v1-ev.npz: 12978 train / 1414 held windows, 113881 train positions; own value head: {'move_top1': 0.5007, 'line_top1': 0.4307, 'ce': 2.2898, 'n': 1414, 'same_as_eval': 0.6004, 'ev_regret': 0.012, 'ev_blunders': 0.0764}
+gap weighting a=1.0: median window gap 10.5 pts; weight quartiles [0.55, 1.0, 1.54]
+evaluator copy (best at step 3750) on rank-v1-ev.npz: {'move_top1': 0.4823, 'line_top1': 0.4279, 'ce': 2.3029, 'n': 1414, 'same_as_eval': 0.8373, 'ev_regret': 0.002, 'ev_blunders': 0.005}
+wrote runs/tx-s10a-eg.safetensors

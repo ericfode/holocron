@@ -1,0 +1,11 @@
+b-0.npz: 62415 points, 276264 settled boards in 237s; gap median 5.0, 80th 11.3, 95th 20.0 pts; 25% of points over 10 pts -> packs/b-0.gap.npy
+b-1.npz: 61500 points, 271668 settled boards in 298s; gap median 4.9, 80th 11.2, 95th 19.7 pts; 25% of points over 10 pts -> packs/b-1.gap.npy
+b-2.npz: 61810 points, 273817 settled boards in 261s; gap median 4.9, 80th 11.2, 95th 19.5 pts; 24% of points over 10 pts -> packs/b-2.gap.npy
+b-3.npz: 61521 points, 271954 settled boards in 254s; gap median 5.0, 80th 11.3, 95th 19.9 pts; 25% of points over 10 pts -> packs/b-3.gap.npy
+b-4.npz: 61687 points, 272704 settled boards in 258s; gap median 5.0, 80th 11.2, 95th 19.6 pts; 25% of points over 10 pts -> packs/b-4.gap.npy
+b-5.npz: 61406 points, 272418 settled boards in 250s; gap median 4.9, 80th 11.2, 95th 19.8 pts; 24% of points over 10 pts -> packs/b-5.gap.npy
+b-6.npz: 61703 points, 272707 settled boards in 246s; gap median 4.9, 80th 11.2, 95th 19.6 pts; 24% of points over 10 pts -> packs/b-6.gap.npy
+b-7.npz: 61695 points, 272780 settled boards in 248s; gap median 4.9, 80th 11.1, 95th 19.6 pts; 24% of points over 10 pts -> packs/b-7.gap.npy
+b-8.npz: 62099 points, 274458 settled boards in 248s; gap median 5.0, 80th 11.2, 95th 19.7 pts; 24% of points over 10 pts -> packs/b-8.gap.npy
+b-9.npz: 62183 points, 274756 settled boards in 255s; gap median 5.0, 80th 11.3, 95th 19.7 pts; 25% of points over 10 pts -> packs/b-9.gap.npy
+GAPS_DONE rc=0

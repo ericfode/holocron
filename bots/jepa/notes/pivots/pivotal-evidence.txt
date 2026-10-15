@@ -1,0 +1,27 @@
+model tx-s10a-e.safetensors, horizons [1, 4, 's']
+
+A. test set: 6231 branch points, mean regret 0.60 pts, blunders (>5 pts) 3.5%, points with zero regret 80%
+   share of all regret in the worst points (sorted by regret):       top 5%: 65%, top 10%: 87%, top 20%: 100%, top 30%: 100%
+   share of all regret in the points with the largest action gap:   top 5%: 17%, top 10%: 30%, top 20%: 52%, top 30%: 65%
+   share of all regret in the points with the largest best-2nd gap: top 5%: 11%, top 10%: 21%, top 20%: 36%, top 30%: 45%
+   action gap (best - worst move) median 4.6 pts, 80th pct 10.7, 95th pct 19.1; corr(gap, regret) 0.24
+     gap    0-  2 pts: 27.3% of points, mean regret  0.09 pts, blunders  0.0%,  4.0% of all regret
+     gap    2-  5 pts: 25.2% of points, mean regret  0.34 pts, blunders  0.0%, 14.5% of all regret
+     gap    5- 10 pts: 25.1% of points, mean regret  0.60 pts, blunders  3.7%, 25.3% of all regret
+     gap   10-100 pts: 22.3% of points, mean regret  1.51 pts, blunders 11.6%, 56.2% of all regret
+
+B. onp-jepa-h1r.jsonl: 2044 own action windows, mean regret 3.93 pts, zero-regret picks 37%
+   share of all regret in the worst windows:            top 5%: 40%, top 10%: 57%, top 20%: 77%, top 30%: 89%
+   share of all regret in the largest-action-gap windows: top 5%: 23%, top 10%: 38%, top 20%: 55%, top 30%: 69%
+
+B. onp-tx-g1-m0.jsonl: 1662 own action windows, mean regret 3.49 pts, zero-regret picks 44%
+   share of all regret in the worst windows:            top 5%: 43%, top 10%: 60%, top 20%: 81%, top 30%: 92%
+   share of all regret in the largest-action-gap windows: top 5%: 24%, top 10%: 40%, top 20%: 59%, top 30%: 73%
+
+B. onp-tx-s10a-c.jsonl: 1637 own action windows, mean regret 3.87 pts, zero-regret picks 50%
+   share of all regret in the worst windows:            top 5%: 43%, top 10%: 63%, top 20%: 84%, top 30%: 94%
+   share of all regret in the largest-action-gap windows: top 5%: 20%, top 10%: 37%, top 20%: 59%, top 30%: 72%
+
+C. recorded strong-bot games (40000 decisions of held-out deals): change in the value head's win chance from a decision to the same seat's next one: mean |change| 4.5 pts, median 2.7
+   share of all |change| in the biggest swings: top 5%: 25%, top 10%: 38%, top 20%: 57%, top 30%: 70%
+   swings over 10 pts: 11.0% of decisions; over 20 pts: 2.6%
