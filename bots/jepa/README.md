@@ -606,6 +606,7 @@ Eric's question: should the model know every card, and the game so far, the way 
 model of the board alone with the same model given the discards, the unseen cards of both deck lists, or its own move
 history, on held-out games (`notes/hist/README.md`). Every learned model guesses the opponent's hand and next move far
 better than card counting or the leader alone (hand log-loss 8.47 vs 9.09; next move top-1 0.40 vs 0.13), but the
-extra inputs add nothing measurable after 8,000 steps. The deck lists only make it learn faster at first. When the
-latent is trained by the JEPA losses alone and the hand is only probed (`--probe-only`), the hand guess falls to 8.96
-(still better than counting), so the forecasting losses keep only part of what the hand needs.
+extra inputs add nothing measurable after 8,000 steps (the lists' early lead on the hand may be just their
+card-counting term). When the latent is trained by the JEPA losses alone and the hand is only probed (`--probe-only`),
+the hand guess falls to 8.96 (still better than counting), so the forecasting losses keep only part of what the hand
+needs.

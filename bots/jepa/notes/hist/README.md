@@ -42,8 +42,9 @@ hist       0.808         0.736         0.448      0.780     8.469        0.294  
    opponent's next move is top-1 40% against 13%.
 2. **Discards, the unseen cards of the lists and the history add nothing measurable once the heads train the latent**
    (h1: within 0.04 nats on the hand, 0.006 on recall, 0.005 on win accuracy). Pool was clearly best early (hand 8.33
-   at 1,000 steps against base's 8.69) and then the others caught up: the lists speed learning, but leaders and the board
-   carry the same information after enough steps.
+   at 1,000 steps against base's 8.69) and then the others caught up. That early lead may be only the card-counting term
+   pool's and hist's hand heads add to the logits (in h1 too), so it does not show that the lists speed learning; after
+   enough steps, leaders and the board carry the same information.
 3. **With the latent shaped by the JEPA losses alone (h1p), the hand guess is weaker**: base and snap 8.96-8.99 against
    8.47 with joint training, though still better than counting (9.09) and the leader prior (9.59), so the JEPA latent
    carries some of the hand. Pool and hist reach 8.45-8.47, but their hand heads add card counting from the lists
