@@ -226,7 +226,8 @@ test('a seat plays the bot answer, hides undo buttons from it, and reports the r
 });
 
 test('a seat answers no sooner than paceMs after the decision, and drops a paced answer when the decision changed', async () => {
-    const client = { name: 'fake', hello: () => ({ t: 'ready', v: 2 }), decide: (msg) => ({ t: 'act', i: msg.actions.findIndex((a) => a.label === 'Pass') }), over: () => ({ t: 'ok' }) };
+    let asked = 0;
+    const client = { name: 'fake', hello: () => ({ t: 'ready', v: 2 }), decide: (msg) => { asked++; return { t: 'act', i: msg.actions.findIndex((a) => a.label === 'Pass') }; }, over: () => ({ t: 'ok' }) };
     const { sock, seat } = fakeSeat(client, { paceMs: 150 });
     const done = seat.play();
     const window = (uuid) => frame({ promptUuid: uuid, menuTitle: 'Choose an action', buttons: [{ text: 'Pass', arg: 'pass', uuid, command: 'menuButton' }] });
@@ -243,6 +244,14 @@ test('a seat answers no sooner than paceMs after the decision, and drops a paced
     sock.emit('gamestate', window('P3'));
     await new Promise((r) => setTimeout(r, 400));
     assert.deepStrictEqual(sock.sent.map((m) => m[3]), ['P1', 'P3']);
+    // a rollback during the wait brings back the same prompt: the answer chosen before it is dropped, a new one goes out
+    sock.emit('gamestate', window('P4'));
+    await new Promise((r) => setTimeout(r, 50));
+    sock.emit('gamestate', { ...window('P4'), newMessages: [{ message: ['Bob has rolled back to the start of the action'] }] });
+    await new Promise((r) => setTimeout(r, 400));
+    assert.deepStrictEqual(sock.sent.map((m) => m[3]), ['P1', 'P3', 'P4']);
+    assert.strictEqual(seat.rollbacks, 1);
+    assert.strictEqual(asked, 5); // P1, P2 (dropped), P3, P4 before the rollback (dropped) and after it
     sock.emit('gamestate', { ...frame({}), winners: ['Alice'] });
     await done;
 });

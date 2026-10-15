@@ -79,6 +79,7 @@ class KarabastSeat {
         this.tried = new Map(); // decision key -> Set of action keys the server ignored
         this.ignored = null; // { key, n }: answers ignored in a row at decision `key`
         this.seq = 0;
+        this.rollbacks = 0; // rollbacks seen: an answer chosen before one is never sent after it
         this.stats = { decisions: 0, botMs: [], rejected: 0, failures: [], fallbacks: 0, undoAllowed: 0, undoDenied: 0, payRecovery: [], waitMs: [], conceded: false };
     }
 
@@ -147,6 +148,7 @@ class KarabastSeat {
             // a rollback can bring back the decision we just answered: it is a new decision, not an ignored answer
             this.sent = null;
             this.ignored = null;
+            this.rollbacks++;
         }
         this.latest = gs;
         if (gs.winners?.length) {
@@ -216,11 +218,12 @@ class KarabastSeat {
     }
 
     async answer(gs, key, seen = Date.now()) {
+        const at = { seen, rollbacks: this.rollbacks };
         const tried = this.tried.get(key) ?? new Set();
         const ruled = this.rule(gs);
         // a ruled answer the server ignored is not sent again: the prompt then goes to the bot like any other
         if (ruled && !tried.has(actionKey(ruled))) {
-            return this.paced(seen, key, ruled);
+            return this.paced(at, key, ruled);
         }
         const hide = (a) => (a.kind === 'button' && UNDO_LABEL.test(a.label)) || tried.has(actionKey(a));
         const d = this.obs.decision(gs, hide);
@@ -229,7 +232,7 @@ class KarabastSeat {
             this.tried.delete(key);
             const open = legalActions(gs, this.me).filter((a) => !(a.kind === 'button' && UNDO_LABEL.test(a.label)));
             this.stats.fallbacks++;
-            return open.length ? this.paced(seen, key, open[Math.floor(this.rng() * open.length)]) : undefined;
+            return open.length ? this.paced(at, key, open[Math.floor(this.rng() * open.length)]) : undefined;
         }
         let chosen;
         try {
@@ -246,7 +249,7 @@ class KarabastSeat {
         if (this.finished || decisionKey(this.latest, this.me) !== key) {
             return undefined;
         }
-        return this.paced(seen, key, chosen.action, chosen.split);
+        return this.paced(at, key, chosen.action, chosen.split);
     }
 
     /** The bot's choice for decision `d`: { action, split }. Throws when the bot fails. */
@@ -342,14 +345,17 @@ class KarabastSeat {
         return null;
     }
 
-    /** take(), no sooner than paceMs after `seen`; nothing when the game ended or moved to another decision meanwhile. */
-    async paced(seen, key, action, split = null) {
-        const wait = seen + this.opts.paceMs - Date.now();
+    /**
+     * take(), no sooner than paceMs after `at.seen`; nothing when the game ended, moved to another decision or rolled
+     * back since `at` (a rollback can bring back the same prompt on another board).
+     */
+    async paced(at, key, action, split = null) {
+        const wait = at.seen + this.opts.paceMs - Date.now();
         if (wait > 0) {
             await new Promise((r) => setTimeout(r, wait));
-            if (this.finished || decisionKey(this.latest, this.me) !== key) {
-                return undefined;
-            }
+        }
+        if (this.finished || decisionKey(this.latest, this.me) !== key || this.rollbacks !== at.rollbacks) {
+            return undefined;
         }
         return this.take(action, key, split);
     }
