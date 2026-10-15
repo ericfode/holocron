@@ -88,6 +88,17 @@ on the standard test [−5.1, −0.9] (51.0% against 54.0%; 15 seeds better, 34 
 the other decks. Like c-clock3, it bets that playing its events helps against people, which bot games cannot show.
 Both tests ran on the Karabast Sprite's engine (forceteki 2be4fcdb4), so the rates differ a little from the ones above.
 
+## c-clock3me-s (`--v3 --mull --epic --spare`)
+
+`--spare` pays an event that attacks (Aggressive Negotiations, Hotshot Maneuver) only from the resources the round's
+units and upgrades leave over: a second knapsack, with events left out, picks the units and upgrades the round should
+play, and the event must fit in what they leave. c-clock3me played Aggressive Negotiations (cost 3) as soon as a unit could attack, before its
+units. In its first 100 games on Karabast it started round 5 with 7.8 power on the board against c-clock2's 9.0 versus
+players of the same hours (06–12 UTC), and a board power lead of +0.1 against +1.7. Without `--spare` the bot plays as
+before (the knapsack only moved). Tests against c-clock3me on the same deals, pinned engine: +0.9 points on the Luke deck
+test [−1.1, +3.0] over 321 paired games (7 games better, 4 worse), and +2.2 points on the standard test [+0.9, +3.5]
+(51.5% against 49.3%; 18 games better, 3 worse).
+
 ## Karabast's menu titles
 
 Karabast's update of 2026-10-14 (17:57 UTC) titles a card's action menu "Choose an action for X" (a leader: deploy,
