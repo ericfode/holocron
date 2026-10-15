@@ -16,7 +16,8 @@ const { serve } = require('../../../engine/stdio');
 const { JepaBot, loadModel, cardTables } = require('./jepa');
 
 function parseArgs(argv) {
-    const a = { model: path.join(__dirname, '..', 'models', 'jepa-v1.safetensors'), mix: 0.5, temp: 0, name: 'jepa', score: 'imagined', plan: '',
+    // jepa_bot.py's defaults, except the model: the port runs only transformer JEPAs (jepa-v1 is the older kind)
+    const a = { model: path.join(__dirname, '..', 'models', 'tx-t10.safetensors'), mix: 0.5, temp: 0, name: 'jepa', score: 'imagined', plan: '',
         resource: null, windowModel: null, planModel: null, windowHorizon: '1', followHorizon: '1' };
     const keys = { '--model': 'model', '--mix': 'mix', '--temp': 'temp', '--name': 'name', '--score': 'score', '--plan': 'plan', '--resource': 'resource',
         '--window-model': 'windowModel', '--plan-model': 'planModel', '--window-horizon': 'windowHorizon', '--follow-horizon': 'followHorizon' };
