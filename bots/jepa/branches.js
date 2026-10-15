@@ -246,14 +246,15 @@ async function worker(first, count, file, botNames, p, maxBranch, decksFile, mac
                             for (const c of macros) {
                                 const rec = { i, c };
                                 try {
-                                    // one engine seed per move for all its macros: the styles are compared on the same draws
+                                    // one engine seed and one bot seed per move for all its macros: the styles are compared on the same draws
                                     eg.game.setRandomSeed(`${seed}:${steps}:${i}:m`);
+                                    const mrng = seededRng(`branch:${seed}:${steps}:${i}:m`);
                                     const live = eg.refetch(pid, actions[i]);
                                     if (!live) {
                                         throw new Error('move vanished after rollback');
                                     }
-                                    eg.apply(pid, live, rng);
-                                    Object.assign(rec, roundOn(eg, pid, createMacroBot(c), () => makeBot(names[me], []), makeBot(names[1 - me], []), rng, 3000));
+                                    eg.apply(pid, live, mrng);
+                                    Object.assign(rec, roundOn(eg, pid, createMacroBot(c), () => makeBot(names[me], []), makeBot(names[1 - me], []), mrng, 3000));
                                 } catch (e) {
                                     rec.err = String(e?.message ?? e).split('\n')[0].slice(0, 120);
                                 }

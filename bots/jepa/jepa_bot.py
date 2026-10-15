@@ -111,6 +111,8 @@ class JepaPlayer:
         if self.tiers and not getattr(wn, "macros", None):
             print(f"jepa: --tiers ignored: {window_model or model_path} has no round tiers", file=sys.stderr, flush=True)  # `log` here is the decision log
             self.tiers = {}
+        if self.tiers and not any(self.tiers.get(t, 0) > 0 for t in ("r", "r2")):
+            raise ValueError("--tiers needs a positive r or r2 weight (the settled score alone is --window-horizon s)")
         self.new_game(seed)
 
     def new_game(self, seed, hello=None):
