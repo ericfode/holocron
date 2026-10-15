@@ -42,6 +42,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import features as F  # noqa: E402
 import model as M  # noqa: E402
 import resource_policy as R  # noqa: E402
+import tx_model as X  # noqa: E402
 
 
 def log(*a):
@@ -69,13 +70,12 @@ WAIT_PROMPT = {"type": "actionWindow", "actionWindow": True, "selectCardMode": N
 
 class JepaPlayer:
     def __init__(self, model_path, db, mix=0.5, temp=0.0, seed=0, score="imagined", evaluator=None, deals=1, log=None, judge="round", window_model=None,
-                 plan=None, resource=None, plan_model=None):
-        w, self.meta = M.load_safetensors(model_path)
-        self.net = M.NumpyJepa(w)
+                 plan=None, resource=None, plan_model=None, window_horizon="1"):
+        self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
-        self.plan_net = M.NumpyJepa(M.load_safetensors(plan_model)[0]) if plan_model else self.net
+        self.plan_net = X.load(plan_model)[0] if plan_model else self.net
         # optional second model used only in action windows (e.g. a predictor fine-tuned on branches, which only cover windows)
-        self.window_net = M.NumpyJepa(M.load_safetensors(window_model)[0]) if window_model else None
+        self.window_net = X.load(window_model)[0] if window_model else None
         self.db = db
         self.mix = mix
         self.temp = temp
@@ -94,6 +94,8 @@ class JepaPlayer:
         self.plan_cfg = {"roots": 16, "follow": 6, "follow2": 3, "depth": 2, "lines": 150, "secs": 5.0, "floor": 2500, **(plan or {})}
         self.plan = []  # my remaining follow-up choices from the chosen line: [(labels_key, action_key)]
         self.resource = R.ResourcePolicy(resource) if resource else None  # resource prompts copied from strong bots
+        # "s": at action windows, score each move by where it is imagined to settle (a transformer JEPA trained with --settle)
+        self.window_horizon = window_horizon
         self.new_game(seed)
 
     def new_game(self, seed, hello=None):
@@ -122,6 +124,8 @@ class JepaPlayer:
         v1 = M.sigmoid(net.value(z1))
         v4 = M.sigmoid(net.value(z4))
         score = (1 - self.mix) * v1 + self.mix * v4
+        if self.window_horizon == "s" and "s" in getattr(net, "horizons", ()) and (msg.get("prompt") or {}).get("actionWindow"):
+            score = M.sigmoid(net.value(net.predict(z, a, "s")))
         return {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0])}
 
     def rush_move(self, r, target, seen):
@@ -556,6 +560,8 @@ def main():
                     help="when a simulated move is judged: after this round's action phase (round) or at my next action window")
     ap.add_argument("--window-model", default=None, help="a second model used only in action windows")
     ap.add_argument("--plan-model", default=None, help="a second model that scores only the planner's settled positions")
+    ap.add_argument("--window-horizon", choices=["1", "s"], default="1",
+                    help="imagined score at action windows: the mover's next decision (1, with --mix) or where the move settles (s)")
     ap.add_argument("--log", default=None, help="append every decision's imagined and simulated scores here (JSON lines)")
     a = ap.parse_args()
 
@@ -564,7 +570,7 @@ def main():
     logf = open(a.log, "a") if a.log else None
     helper = EvalHelper(a.evaluator) if (a.score == "sim-eval" or logf or (a.score == "plan" and a.plan_scorer == "eval")) else None
     plan = {k: float(v) for k, v in (kv.split("=") for kv in a.plan.split(",") if kv)}
-    player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model,
+    player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
                         plan={**{k: (v if k == "secs" else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin

@@ -1,5 +1,6 @@
 'use strict';
 // node bots/jepa/branches.js --games 400 --seed 700000 --workers 4 --out data/branch/rush-random [--bots rush,random] [--p 0.35]
+//     [--decks decks/ash-meta-2026-09.json]
 //
 // Training data for the JEPA predictor with MANY moves per position. Recorded games show one move per position, so
 // the predictor never sees two moves from the same place and learns roughly the average future (the oracle test in
@@ -10,7 +11,7 @@
 //
 // Output: <out>/shard-<first>.jsonl.gz, one gzip member per game:
 //   {"t":"game","seed","bots":[p1,p2]}
-//   {"t":"b","seed","you","prompt","state","actions","main":i,"br":[{"i","h1":decide|null,"h4":decide|null,"over":winner|null,"err"?}]}
+//   {"t":"b","seed","you","prompt","state","actions","main":i,"br":[{"i","h1":decide|null,"h4":decide|null,"st":{state}|null,"over":winner|null,"err"?}]}
 //   {"t":"end","seed","winner","outcome","round","steps"}
 // A `decide` body is what a stdio bot would get ({you, prompt, state, actions}), so bots/jepa/features.py encodes it.
 const fs = require('fs');
@@ -42,11 +43,13 @@ function toAct(eg) {
 
 /**
  * After the root move: play on with fresh bots until `pid`'s next and 4th next decision with a choice.
- * Returns {h1, h4, over}; a game that ends first leaves the later targets null and sets `over` to the winner.
+ * Returns {h1, h4, st, over}; a game that ends first leaves the later targets null and sets `over` to the winner.
+ * `st` is the board (from pid's seat) where the move has settled, as the planner in jepa_bot.py judges moves: the first
+ * point after it where anyone is in an action window or the action phase is over.
  */
 function playOn(eg, pid, makeBots, rng, maxSteps) {
     const bots = makeBots();
-    const out = { h1: null, h4: null, over: null };
+    const out = { h1: null, h4: null, st: null, over: null };
     let mine = 0;
     for (let s = 0; s < maxSteps; s++) {
         if (eg.over) {
@@ -56,6 +59,9 @@ function playOn(eg, pid, makeBots, rng, maxSteps) {
         const who = toAct(eg);
         if (!who) {
             throw new Error('nobody can act');
+        }
+        if (!out.st && (eg.phase !== 'action' || eg.isActionWindow(who.pid))) {
+            out.st = { state: view(eg, eg.seatOf(pid)) };
         }
         if (who.pid === pid && who.actions.length > 1) {
             mine++;
@@ -73,21 +79,32 @@ function playOn(eg, pid, makeBots, rng, maxSteps) {
     return out;
 }
 
-async function worker(first, count, file, botNames, p, maxBranch) {
+async function worker(first, count, file, botNames, p, maxBranch, decksFile) {
     const { Env, seededRng } = require('../../engine/env');
     const { makeBot } = require('../players');
     const env = new Env();
+    // --decks FILE: real deck lists; seed s plays deck pair s mod P, seats swapped on odd passes (as the real-deck test deals)
+    const { loadDecks, deckPairs } = require('../../engine/decklists');
+    const real = decksFile ? loadDecks(decksFile, env).decks : null;
+    const pairs = real ? deckPairs(real.length) : null;
     fs.writeFileSync(file, '');
     let lines = [];
     const write = (o) => lines.push(JSON.stringify(o));
     for (let seed = first; seed < first + count; seed++) {
         const rng = seededRng(`branch:${seed}`);
         const names = seed % 2 === 0 ? botNames : [...botNames].reverse();
-        const decks = { p1: env.randomDeck(rng), p2: env.randomDeck(rng) };
+        let decks;
+        if (real) {
+            const [i, j] = pairs[seed % pairs.length];
+            const swap = Math.floor(seed / pairs.length) % 2 !== 0;
+            decks = swap ? { p1: real[j], p2: real[i] } : { p1: real[i], p2: real[j] };
+        } else {
+            decks = { p1: env.randomDeck(rng), p2: env.randomDeck(rng) };
+        }
         const eg = env.newGame({ seed: String(seed), deck1: decks.p1, deck2: decks.p2, undo: true });
         const bots = names.map((n) => makeBot(n, []));
         const makeBots = () => names.map((n) => makeBot(n, []));
-        write({ t: 'game', seed, bots: names });
+        write({ t: 'game', seed, bots: names, ...(real ? { decks: [decks.p1.metadata.name, decks.p2.metadata.name] } : {}) });
         let steps = 0;
         let outcome = 'won';
         let points = 0;
@@ -163,7 +180,7 @@ async function main() {
     const maxBranch = Number(arg('max-branch', 12));
     fs.mkdirSync(out, { recursive: true });
     if (process.argv.includes('--worker')) {
-        await worker(Number(arg('first')), Number(arg('count')), arg('file'), botNames, p, maxBranch);
+        await worker(Number(arg('first')), Number(arg('count')), arg('file'), botNames, p, maxBranch, arg('decks', null));
         process.exit(0);
     }
     // shards from an earlier run with other seeds or worker counts would be mixed into this one by branch_train.py
@@ -185,7 +202,7 @@ async function main() {
             break;
         }
         const file = path.join(out, `shard-${first}.jsonl.gz`);
-        const args = ['--worker', '--first', String(first), '--count', String(count), '--file', file, '--bots', botNames.join(','), '--p', String(p), '--max-branch', String(maxBranch)];
+        const args = ['--worker', '--first', String(first), '--count', String(count), '--file', file, '--bots', botNames.join(','), '--p', String(p), '--max-branch', String(maxBranch), ...(arg('decks', null) ? ['--decks', path.resolve(arg('decks'))] : [])];
         const proc = fork(__filename, args, { stdio: ['ignore', 'inherit', 'inherit', 'ipc'] });
         proc.on('message', (m) => {
             done += m.done;
