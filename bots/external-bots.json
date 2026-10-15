@@ -46,5 +46,7 @@
     "jepa-sim-eval": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1.safetensors", "--mix", "0", "--score", "sim-eval", "--name", "jepa-sim-eval"], "stderr": "ignore", "lang": "python" },
     "jepa-h1b": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1b.safetensors", "--mix", "0", "--name", "jepa-h1b"], "stderr": "ignore", "lang": "python" },
     "jepa-b": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1b.safetensors", "--name", "jepa-b"], "stderr": "ignore", "lang": "python" },
-    "jepa-h1w": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1.safetensors", "--window-model", "bots/jepa/models/jepa-v1b.safetensors", "--mix", "0", "--name", "jepa-h1w"], "stderr": "ignore", "lang": "python" }
+    "jepa-h1w": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1.safetensors", "--window-model", "bots/jepa/models/jepa-v1b.safetensors", "--mix", "0", "--name", "jepa-h1w"], "stderr": "ignore", "lang": "python" },
+    "jepa-h1r": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1.safetensors", "--mix", "0", "--resource", "bots/jepa/models/resource-v1.json", "--name", "jepa-h1r"], "stderr": "ignore", "lang": "python" },
+    "jepa-tx": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/tx-s10a.safetensors", "--window-model", "bots/jepa/models/tx-s10a-e.safetensors", "--window-horizon", "s", "--mix", "0", "--resource", "bots/jepa/models/resource-v1.json", "--name", "jepa-tx"], "stderr": "ignore", "lang": "python" }
 }

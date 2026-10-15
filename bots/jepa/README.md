@@ -369,3 +369,88 @@ and leaves every other prompt to v1; jepa-plan-rk uses v1k for those prompts too
 jepa-plan-reval stays the strongest JEPA bot. A better JEPA scorer needs an encoder that keeps those details, for
 example one trained with the ranking or copy loss flowing into it; a new target for the head on v1's latent is
 unlikely to help.
+
+## Transformer JEPA: moves as tokens, no simulator (jepa-tx)
+
+The planners above need a simulator to see where a move goes. This bot does not: the game only lists the legal moves,
+the model imagines where each one leads, and the best imagined future wins. The engine is used for legality alone.
+
+```
+[state] [≤24 card tokens] [move tokens: one per legal move and horizon]  ─> 2 transformer layers (tx_model.py)
+  context tokens see each other; a move token sees the context and itself, so it attends to the cards it touches
+z    = readout(state token, mean of card tokens, raw state)
+ẑ_h  = z + P([z, move token_h])          h ∈ {1, 4, s}: next decision, 4th next, and the board once the move has settled
+```
+
+- **Settle horizon** (`--settle`): about 45% of "next decision" targets are halfway through a move (choose a target,
+  pay a cost), so ẑ_1 judges half-moves. The third move token learns the board where the move has settled
+  (`branches.js` records it as `st`): the position the simulating planner judges.
+- **Data**: `branches.js --decks` plays rush against rush on the 27 real decks; at sampled action windows it plays
+  every legal move (up to 12) on the same game and records each one's futures at h1, h4 and settled. Training on every
+  legal move is what made the predictor rank moves (53% -> 67% like the real futures); the pooled twin did as well
+  on 55k points, so the data did it there. On 618k points only the transformer kept improving (below).
+- **Losses** (`tx_train_torch.py`): the JEPA prediction and VICReg terms of train.py on 7,840 recorded games, plus on
+  branch points the error of every move's imagined future, the error after removing each point's mean (what tells the
+  moves apart) and its size. The held-out line reports `moves_explained_h1/h4/settled` = 1 - (move-separating error /
+  how much the real futures differ): higher is better. `--pack-e --w-eval 1` adds a head that copies linear-deck-g4 on
+  settled positions, with its gradient reaching the encoder.
+- **Evaluator head** (`fit_veval.py`, models ending in `-e`): a value head refit to copy linear-deck-g4's score of
+  settled positions (the rank data), on the frozen encoder. The bot uses it at action windows only
+  (`--window-model <m>-e.safetensors --window-horizon s`): the raw model answers every other prompt.
+- **Fixed judge** (`judge_prep.py`, `yardstick.py --judge`): each model's own value head judging its own imagined
+  futures makes models incomparable, so every model is graded by linear-deck-g4's score of the real futures on one test
+  set (3,000 games, seeds 740000-742999, none trained on). top-1 = picks the move whose real future the judge rates
+  best; regret = judged win chance lost by playing the imagined best; blunders = regret above 5 points.
+- **Scoring in chunks**: attention over ~2,000 legal moves at once timed out the 10 s decision limit in 6-15% of games;
+  `NumpyTx.predict` scores 256 moves at a time (no timeouts since).
+
+Commands (from the repo root; the big run used Eric's desktop, RTX 4090, 20 workers):
+
+    node bots/jepa/branches.js --games 3000 --workers 20 --seed <750000 + 3000*i> --bots rush,rush --decks decks/ash-meta-2026-09.json --out data/branch/st-<i>
+    python3 bots/jepa/branch_prep.py --procs 8 --out data/jepa/st-<i>.npz data/branch/st-<i>
+    python3 bots/jepa/pack_data.py --branches data/jepa/st-<i>.npz --out-dir packs --name b-<i>        # ~50 MB per part
+    python3 bots/jepa/pack_data.py --replays data/jepa/replays.npz --rank data/jepa/rank-v1-ev.npz --tok data/jepa/rank-v1-tok.npz --out-dir data
+    python3 bots/jepa/branch_prep.py --out data/jepa/test.npz data/branch/test     # test set: branches.js --seed 740000, same flags
+    python3 bots/jepa/pack_data.py --branches data/jepa/test.npz --out-dir data/jepa --name test-b
+    python3 bots/jepa/judge_prep.py --branches data/jepa/test.npz --out data/jepa/test-judge.npz data/branch/test
+    python3 bots/jepa/tx_train_torch.py --arch tx --settle --pack-r data/pack-r.npz --pack-b packs/b-0.npz ... packs/b-9.npz \
+        --pack-e data/pack-e.npz --w-eval 1 --steps 30000 --test-pack data/jepa/test-b.npz --test-judge data/jepa/test-judge.npz --out runs/tx-s10a
+    python3 bots/jepa/fit_veval.py --model runs/tx-s10a.safetensors --out runs/tx-s10a-e.safetensors --rank data/jepa/rank-v1-ev.npz --tok data/jepa/rank-v1-tok.npz
+    python3 bots/jepa/yardstick.py runs/tx-s10a-e.safetensors data/jepa/test-b.npz --judge data/jepa/test-judge.npz
+    python3 bots/jepa/monitor.py --data-logs "data/branch/st-*.log" --run-logs "runs/*.txt" --parts 10 --games 3000   # progress page on :8765
+
+Registered bots: `jepa-tx` (tx-s10a, mix 0, tx-s10a-e at action windows on the settled board, resource-v1) and
+`jepa-h1r` (v1, mix 0, resource-v1: the baseline below).
+
+### Results
+
+Play: 702 games against c-clock on the 27 real decks, all bots on the same deals, resource-v1 for every bot. Paired =
+win-rate difference against jepa-h1r on the same games, 95% bootstrap interval over seeds. Fixed judge: the `-e` model's
+settled horizon (hs) on the test set (chance 0.401). Data: 10 parts of 3,000 games, 618,019 branch points.
+
+| Bot | Model | Fixed judge hs: top-1 / regret / blunders | Wins vs c-clock | Paired vs jepa-h1r |
+|---|---|---|---|---|
+| **jepa-tx** (tx-s10a-c) | tx, 10 parts, copy loss; -e at windows only, mix 0 | 0.803 / 0.60 pts / 3.5% | **28.4%** [25.2, 31.9] | **+13.8** [+10.3, +17.5] |
+| tx-s10a-d | same, mix 1 | | 27.5% | +12.9 |
+| tx-s10-a | tx, 10 parts; -e everywhere, mix 1 | 0.799 / 0.64 / 3.8% | 26.4% | +11.7 |
+| tx-s3-a | tx, 3 parts; -e everywhere, mix 1 | 0.761 / 0.76 / 4.7% | 20.1% | +5.6 |
+| tx-s10a-b | tx, 10 parts, raw head on the settled board | 0.667 / 1.17 / 6.9% | 11.9% | -2.6 |
+| jepa-h1r | v1 (pooled, recorded games), mix 0 | | 14.6% [12.1, 17.4] | reference |
+| pool-10-d | pooled twin, 10 parts (no settle token) | | 5.5% | -9.0 |
+
+Training on the RTX 4090: tx-s10 29 min, tx-s10a 37 min, pool-10 19 min (30,000 steps each). Held-out
+moves_explained h1 / h4 / settled: tx-s10 0.858 / 0.548 / 0.757, tx-s10a 0.845 / 0.506 / 0.784. The full table of 41
+game tests is in the desktop's run notes.
+
+- **The first no-simulator JEPA bot clearly above v1.** jepa-tx won 128 games jepa-h1r lost and lost 33 it won.
+  The simulating planners are still stronger (jepa-plan-r 38.3%, jepa-plan-reval 48.8%).
+- **More branch data helps the transformer**: the same recipe on 3 parts against 10 parts, +6.2 points
+  [+2.6, +9.9]. It hurts the pooled twin: its losses and value head improved, but it ranks moves worse on the fixed
+  judge (h4_vs_settled 0.614 -> 0.555; tx-s10 0.680) and plays at about 5%. The transformer is the one to keep.
+- **The settled board decides it.** The raw value head on the settled board plays no better than v1 (11.6-14.5%); the
+  evaluator head on the same imagined board adds 12-16 points. The fixed judge's hs score tracks the win rate across
+  tx-s3, tx-s10 and tx-s10a.
+- **The copy loss shapes the encoder**: fit_veval's same_as_eval 0.786 -> 0.838 and every window number on the fixed
+  judge improves. In play it is +2.3 points over tx-s10-a [-1.2, +5.8], within noise, and with it the evaluator head
+  belongs at action windows only (-e everywhere: 23.0%).
+- The evaluator head on the NEXT decision is a disaster (v1-e mix 0: 0.1%): it rates half-moves as if settled.
