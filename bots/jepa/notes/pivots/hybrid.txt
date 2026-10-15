@@ -1,0 +1,8 @@
+code copied: 8 gate lines in jepa_bot.py
+HYB_CAL gate=0.03 in 38s: 541/898 windows planned (60.2%), 357 below the gate; hyb-cal-03     BT  1487  Elo  1500  18-21-0  incomplete 1  forfeits 0  46%
+HYB_CAL gate=0.06 in 30s: 369/1009 windows planned (36.6%), 640 below the gate; hyb-cal-06     BT  1478  Elo  1498  17-22-0  incomplete 1  forfeits 0  44%
+HYB_CAL gate=0.10 in 24s: 171/1035 windows planned (16.5%), 864 below the gate; hyb-cal-10     BT  1469  Elo  1490  16-23-0  incomplete 1  forfeits 0  41%
+HYB_GATE chosen gate=0.10
+HYB_TEST tx-t10-h1 gate=0.10 rc=0 in 5 min: 3864/17349 windows planned (22.3%), 13485 below the gate; tx-t10-h1                        690  42.8 [39.1, 46.5]          -51 | no mirror run
+HYB_TEST tx-t10-h2 gate=0 rc=0 in 10 min: 15481/15481 windows planned (100.0%), 0 below the gate; tx-t10-h2                        691  51.4 [47.7, 55.1]          +10 | no mirror run
+HYB_DONE

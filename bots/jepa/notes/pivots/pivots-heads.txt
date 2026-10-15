@@ -1,0 +1,12 @@
+
+rank-v1-ev.npz: 1414 held-out windows
+  tx-s10a-e        same_as_eval 0.832  regret 0.21 pts  blunders 0.6%  | gap>10 pts (38% of windows): regret 0.27  blunders 1.1%
+  tx-s10a-eg       same_as_eval 0.832  regret 0.20 pts  blunders 0.5%  | gap>10 pts (38% of windows): regret 0.24  blunders 0.4%
+  tx-s10a-eo       same_as_eval 0.834  regret 0.20 pts  blunders 0.4%  | gap>10 pts (38% of windows): regret 0.26  blunders 0.7%
+  tx-s10a-eog      same_as_eval 0.820  regret 0.22 pts  blunders 0.6%  | gap>10 pts (38% of windows): regret 0.26  blunders 0.7%
+
+rank-own-ev.npz: 1736 held-out windows
+  tx-s10a-e        same_as_eval 0.828  regret 0.16 pts  blunders 0.5%  | gap>10 pts (30% of windows): regret 0.24  blunders 0.6%
+  tx-s10a-eg       same_as_eval 0.843  regret 0.17 pts  blunders 0.5%  | gap>10 pts (30% of windows): regret 0.25  blunders 0.8%
+  tx-s10a-eo       same_as_eval 0.836  regret 0.15 pts  blunders 0.3%  | gap>10 pts (30% of windows): regret 0.21  blunders 0.2%
+  tx-s10a-eog      same_as_eval 0.832  regret 0.18 pts  blunders 0.6%  | gap>10 pts (30% of windows): regret 0.26  blunders 0.8%

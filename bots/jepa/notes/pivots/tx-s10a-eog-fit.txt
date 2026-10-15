@@ -1,0 +1,6 @@
+rank-v1-ev.npz: 12978 train / 1414 held windows, 113881 train positions; own value head: {'move_top1': 0.5007, 'line_top1': 0.4307, 'ce': 2.2898, 'n': 1414, 'same_as_eval': 0.6004, 'ev_regret': 0.012, 'ev_blunders': 0.0764}
+rank-own-ev.npz: 16480 train / 1736 held windows, 139268 train positions; own value head: {'move_top1': 0.5052, 'line_top1': 0.3577, 'ce': 2.9282, 'n': 1736, 'same_as_eval': 0.6308, 'ev_regret': 0.0099, 'ev_blunders': 0.0662}
+gap weighting a=1.0: median window gap 9.3 pts; weight quartiles [0.48, 1.0, 1.58]
+evaluator copy (best at step 3500) on rank-v1-ev.npz: {'move_top1': 0.4738, 'line_top1': 0.4194, 'ce': 2.2995, 'n': 1414, 'same_as_eval': 0.8246, 'ev_regret': 0.0022, 'ev_blunders': 0.0064}
+evaluator copy (best at step 3500) on rank-own-ev.npz: {'move_top1': 0.5616, 'line_top1': 0.405, 'ce': 2.9601, 'n': 1736, 'same_as_eval': 0.8387, 'ev_regret': 0.0018, 'ev_blunders': 0.0058}
+wrote runs/tx-s10a-eog.safetensors

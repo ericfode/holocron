@@ -1,0 +1,4 @@
+RECORDED rc=0 in 105s: tx-s10a-c      BT  1419  Elo  1448  391-991-0  incomplete 22  forfeits 0  28%
+1404
+311M	/home/ericf/pivots/rec
+RANK_PROBE rc=0 in 11s: wrote /home/ericf/pivots/rank-probe in 12s from 40 files: {"games":40,"windows":273,"lines":2691,"skipped":{},"drift":0,"lost":0,"failed":0} 

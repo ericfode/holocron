@@ -1,0 +1,2 @@
+RANK_OWN rc=0 in 379s: wrote /home/ericf/pivots/rank-own in 378s from 1404 files: {"games":1382,"windows":18216,"lines":188308,"skipped":{"no winner":22},"drift":0,"lost":0,"failed":0}
+9.1M	/home/ericf/pivots/rank-own

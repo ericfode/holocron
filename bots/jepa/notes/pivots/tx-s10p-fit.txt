@@ -1,0 +1,3 @@
+rank-v1-ev.npz: 12978 train / 1414 held windows, 113881 train positions; own value head: {'move_top1': 0.5057, 'line_top1': 0.4279, 'ce': 2.308, 'n': 1414, 'same_as_eval': 0.6414, 'ev_regret': 0.0093, 'ev_blunders': 0.0573}
+evaluator copy (best at step 3500) on rank-v1-ev.npz: {'move_top1': 0.4922, 'line_top1': 0.4371, 'ce': 2.3024, 'n': 1414, 'same_as_eval': 0.8395, 'ev_regret': 0.0019, 'ev_blunders': 0.0042}
+wrote runs/tx-s10p-e.safetensors

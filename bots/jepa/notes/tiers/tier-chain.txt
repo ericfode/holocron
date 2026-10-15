@@ -1,0 +1,28 @@
+TIER_PACKS packs/t-0.npz packs/t-1.npz packs/t-2.npz
+TRAINED tx-t10 rc=0 in 41 min
+FIT tx-t10 rc=0: evaluator copy (best at step 2250) on rank-v1-ev.npz: {'move_top1': 0.4788, 'line_top1': 0.4286, 'ce': 2.3002, 'n': 1414, 'same_as_eval': 0.8451, 'ev_regret': 0.0016, 'ev_blunders': 0.0042}
+YS_TIERS rc=0
+  fixed judge r: lines top-1 0.780 (chance 0.557) rho 0.57 regret 1.91 pts; macro top-1 0.772 (chance 0.440, 9615 moves where the macro matters); move pick by tier: top-1 0.849 (chance 0.685) regret 1.05 pts, blunders 4.9%; by settled horizon: top-1 0.853 regret 1.09 pts, blunders 5.4% (7108 points)
+  fixed judge r2: lines top-1 0.742 (chance 0.559) rho 0.52 regret 3.00 pts; macro top-1 0.684 (chance 0.440, 10019 moves where the macro matters); move pick by tier: top-1 0.844 (chance 0.696) regret 1.50 pts, blunders 7.1%; by settled horizon: top-1 0.827 regret 1.62 pts, blunders 8.2% (7108 points)
+YS_JUDGE rc=0
+h1: top-1 0.638 (chance 0.478) median rho 0.40 spread imagined 2.9 / real 1.9 pts, regret 2.07 pts, blunders 14.9% (6231 points)
+h1_vs_settled: top-1 0.459 (chance 0.401) median rho -0.07 spread imagined 2.8 / real 1.9 pts, regret 3.24 pts, blunders 23.5% (6231 points)
+h4: top-1 0.632 (chance 0.412) median rho 0.67 spread imagined 3.0 / real 3.7 pts, regret 2.28 pts, blunders 15.8% (6231 points)
+h4_vs_settled: top-1 0.694 (chance 0.401) median rho 0.65 spread imagined 3.0 / real 1.9 pts, regret 1.26 pts, blunders 9.4% (6231 points)
+hs: top-1 0.813 (chance 0.401) median rho 0.90 spread imagined 1.8 / real 1.9 pts, regret 0.58 pts, blunders 3.5% (6231 points)
+registered tx-t10-va ['bots/jepa/jepa_bot.py', '--model', 'runs/tx-t10.safetensors', '--mix', '0', '--resource', 'bots/jepa/models/resource-v1.json', '--window-model', 'runs/tx-t10-e.safetensors', '--window-horizon', 's', '--name', 'tx-t10-va']
+RDTEST tx-t10-va rc=0 in 0 min
+tx-t10-va                        692  31.1 [27.7, 34.6]         -138 | no mirror run
+registered tx-t10-vb ['bots/jepa/jepa_bot.py', '--model', 'runs/tx-t10.safetensors', '--mix', '0', '--resource', 'bots/jepa/models/resource-v1.json', '--window-model', 'runs/tx-t10-e.safetensors', '--window-horizon', 's', '--tiers', 's=1,r=1', '--name', 'tx-t10-vb']
+RDTEST tx-t10-vb rc=0 in 0 min
+tx-t10-vb                        686  30.6 [27.3, 34.2]         -142 | no mirror run
+registered tx-t10-vc ['bots/jepa/jepa_bot.py', '--model', 'runs/tx-t10.safetensors', '--mix', '0', '--resource', 'bots/jepa/models/resource-v1.json', '--window-model', 'runs/tx-t10-e.safetensors', '--window-horizon', 's', '--tiers', 's=1,r=1,r2=1', '--name', 'tx-t10-vc']
+RDTEST tx-t10-vc rc=0 in 0 min
+tx-t10-vc                        690  28.6 [25.3, 32.0]         -159 | no mirror run
+registered tx-t10-vd ['bots/jepa/jepa_bot.py', '--model', 'runs/tx-t10.safetensors', '--mix', '0', '--resource', 'bots/jepa/models/resource-v1.json', '--window-model', 'runs/tx-t10-e.safetensors', '--window-horizon', 's', '--tiers', 's=1,r=1,r2=1', '--commit-macro', '--name', 'tx-t10-vd']
+RDTEST tx-t10-vd rc=0 in 0 min
+tx-t10-vd                        690  29.0 [25.7, 32.5]         -156 | no mirror run
+registered tx-t10-ve ['bots/jepa/jepa_bot.py', '--model', 'runs/tx-t10.safetensors', '--mix', '0', '--resource', 'bots/jepa/models/resource-v1.json', '--window-model', 'runs/tx-t10-e.safetensors', '--window-horizon', 's', '--tiers', 'r=1,r2=1', '--name', 'tx-t10-ve']
+RDTEST tx-t10-ve rc=0 in 0 min
+tx-t10-ve                        692  24.6 [21.5, 27.9]         -195 | no mirror run
+TIER_CHAIN_DONE

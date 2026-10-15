@@ -7,6 +7,10 @@ So the change a move makes is computed from the cards the move is looking at, an
 Horizons: h = 1 and 4 (the mover's next and 4th next decision) and, in models trained with settled branches (meta
 "settle"), h = "s": the board where the move has settled (anyone's next action window or the end of the action phase),
 the position jepa_bot.py's planner simulates and judges.
+Round tiers (meta "tiers" and "macros", models trained with tier_prep.py data): h = "r:<macro>" is the board where this
+round's action phase ends if I play the move and then the rest of the round in that style (macros.js), and
+h = "r2:<macro>" where the next round's action phase ends after that. Each horizon is one learned row added to the
+move token, so a model with 3 macros has 3 + 6 tokens per move; `forward(hsel=...)` runs only the ones asked for.
 """
 import numpy as np
 
@@ -19,9 +23,18 @@ HORIZONS = M.HORIZONS
 SETTLE = "s"
 
 
+def _names(v):
+    return [x for x in (v.split(",") if isinstance(v, str) else list(v or [])) if x]
+
+
 def horizons(meta):
     """The horizons a model predicts, in the order of its move tokens."""
-    return list(HORIZONS) + ([SETTLE] if str(meta.get("settle", "0")) in ("1", "True") else [])
+    base = list(HORIZONS) + ([SETTLE] if str(meta.get("settle", "0")) in ("1", "True") else [])
+    return base + [f"{t}:{c}" for t in _names(meta.get("tiers")) for c in _names(meta.get("macros"))]
+
+
+def macros(meta):
+    return _names(meta.get("macros"))
 
 
 def shapes(dm=64, layers=2, hz=len(HORIZONS)):
@@ -72,73 +85,95 @@ class NumpyTx:
         self.T = int(meta["tmax"])
         self.dm = int(meta["dm"])
         self.horizons = horizons(meta)
+        self.macros = macros(meta)
+        # horizons are run in groups: the move's own (1, 4, s) and, in tiered models, all round tiers together
+        base = [i for i, h in enumerate(self.horizons) if not (isinstance(h, str) and ":" in h)]
+        tiers = [i for i in range(len(self.horizons)) if i not in base]
+        self.groups = [g for g in (base, tiers) if g]
         self._ctx = None
-        self._cache = None
+        self._cache = {}
 
     def lin(self, name, x):
         return x @ self.w[name + ".w"] + self.w[name + ".b"]
 
-    def forward(self, state, ids, feats, mask, act=None, aid=None):
-        """state [B,73], ids/feats/mask [B,T..], act [B,K,62], aid [B,K] -> z [B,D], ẑ [B,K,len(self.horizons),D] or None"""
+    def _ffn(self, i, x):
+        w = self.w
+        return self.lin(f"b{i}.f2", M.relu(self.lin(f"b{i}.f1", _ln(x, w[f"b{i}.ln2.g"], w[f"b{i}.ln2.b"]))))
+
+    def forward(self, state, ids, feats, mask, act=None, aid=None, hsel=None):
+        """state [B,73], ids/feats/mask [B,T..], act [B,K,62], aid [B,K] -> z [B,D], ẑ [B,K,len(hsel),D] or None.
+        hsel: indexes into self.horizons of the move tokens to run (default all).
+        Same numbers as one masked attention over [context, move tokens] (struct_mask, as the trainer runs it): context
+        tokens never see the moves and a move token sees the context and itself, so the moves are computed beside the
+        context in O(moves x context) instead of attending over the whole sequence."""
         w, T, dm, H = self.w, self.T, self.dm, self.H
-        hz = len(self.horizons)
+        hors = list(range(len(self.horizons))) if hsel is None else list(hsel)
+        hz = len(hors)
         ids, feats, mask = ids[:, :T], feats[:, :T].astype(np.float32), mask[:, :T].astype(np.float32)
         B, t = ids.shape
         x = np.concatenate([self.lin("sin", state)[:, None], self.lin("tin", np.concatenate([feats, M.embed(w, ids)], -1))], 1)
         kval = np.concatenate([np.ones((B, 1), np.float32), mask], 1)
         c = 1 + t
         k = 0
+        xm = None
         if act is not None:
             k = act.shape[1]
             a = self.lin("ain", np.concatenate([act, M.embed(w, aid)], -1))
-            a = (a[:, :, None, :] + w["hor"][None, None]).reshape(B, hz * k, dm)
-            x = np.concatenate([x, a], 1)
-            kval = np.concatenate([kval, np.ones((B, hz * k), np.float32)], 1)
-        S = x.shape[1]
-        bias = ((kval - 1.0) * 1e9)[:, None, None, :]
-        if k:
-            bias = bias + struct_mask(c, k, hz)[None, None]
+            xm = (a[:, :, None, :] + w["hor"][hors][None, None]).reshape(B, hz * k, dm)
+        bias = ((kval - 1.0) * 1e9)[:, None, None, :]  # [B,1,1,c]: padded cards are never seen
         hd = dm // H
+        sc = 1.0 / float(np.sqrt(hd))  # a numpy float64 scalar would turn it all float64
+        heads = lambda v, n: v.reshape(B, n, H, hd).transpose(0, 2, 1, 3)
         for i in range(self.L):
             y = _ln(x, w[f"b{i}.ln1.g"], w[f"b{i}.ln1.b"])
-            q = self.lin(f"b{i}.q", y).reshape(B, S, H, hd).transpose(0, 2, 1, 3)
-            kk = self.lin(f"b{i}.k", y).reshape(B, S, H, hd).transpose(0, 2, 1, 3)
-            v = self.lin(f"b{i}.v", y).reshape(B, S, H, hd).transpose(0, 2, 1, 3)
-            att = _softmax(q @ kk.transpose(0, 1, 3, 2) / float(np.sqrt(hd)) + bias)  # a numpy float64 scalar would turn it all float64
-            x = x + self.lin(f"b{i}.o", (att @ v).transpose(0, 2, 1, 3).reshape(B, S, dm))
-            x = x + self.lin(f"b{i}.f2", M.relu(self.lin(f"b{i}.f1", _ln(x, w[f"b{i}.ln2.g"], w[f"b{i}.ln2.b"]))))
+            q, kk, v = (heads(self.lin(f"b{i}.{p}", y), c) for p in "qkv")
+            att = _softmax(q @ kk.transpose(0, 1, 3, 2) * sc + bias)
+            if k:
+                ym = _ln(xm, w[f"b{i}.ln1.g"], w[f"b{i}.ln1.b"])
+                qm, km, vm = (heads(self.lin(f"b{i}.{p}", ym), hz * k) for p in "qkv")
+                am = _softmax(np.concatenate([qm @ kk.transpose(0, 1, 3, 2) * sc + bias, (qm * km).sum(-1, keepdims=True) * sc], -1))
+                om = am[..., :c] @ v + am[..., c:] * vm
+                xm = xm + self.lin(f"b{i}.o", om.transpose(0, 2, 1, 3).reshape(B, hz * k, dm))
+                xm = xm + self._ffn(i, xm)
+            x = x + self.lin(f"b{i}.o", (att @ v).transpose(0, 2, 1, 3).reshape(B, c, dm))
+            x = x + self._ffn(i, x)
         x = _ln(x, w["lnf.g"], w["lnf.b"])
-        kv = kval[:, :c, None]
-        mean = (x[:, :c] * kv).sum(1) / kv.sum(1)
+        kv = kval[:, :, None]
+        mean = (x * kv).sum(1) / kv.sum(1)
         z = self.lin("zo2", M.relu(self.lin("zo1", np.concatenate([x[:, 0], mean, state], -1))))
         if not k:
             return z, None
-        ao = x[:, c:].reshape(B, k, hz, dm)
+        ao = _ln(xm, w["lnf.g"], w["lnf.b"]).reshape(B, k, hz, dm)
         zb = np.broadcast_to(z[:, None, None, :], (B, k, hz, D))
         return z, zb + self.lin("p2", M.relu(self.lin("p1", np.concatenate([zb, ao], -1))))
 
     def encode(self, state, tok_ids, tok_feats, tok_mask):
         z, _ = self.forward(state, tok_ids, tok_feats, tok_mask)
         self._ctx = (state, tok_ids, tok_feats, tok_mask) if len(state) == 1 else None
-        self._cache = None
+        self._cache = {}
         return z
 
     def action(self, act, aid):
         return (np.asarray(act, np.float32), np.asarray(aid, np.int64))
 
-    # moves per forward pass. A move token sees only the position and itself, so chunks give the same predictions, and
-    # attention cost stays linear in the number of moves (some prompts offer ~2,000 options; in one pass that took 4-8 s)
-    CHUNK = 256
+    # move tokens per forward pass, so memory stays flat when a prompt offers ~2,000 options (a move token sees only
+    # the position and itself, so chunks give the same predictions)
+    CHUNK_TOKENS = 1024
 
     def predict(self, z, a, h):
+        """ẑ_h for every move of `a` against the last encoded position: [n, D]. Runs the whole group of horizons h
+        belongs to (the move's own, or the round tiers) once per set of moves and keeps it."""
         if self._ctx is None:
             raise ValueError("NumpyTx.predict needs the single position of the last encode (use forward for batches)")
-        if self._cache is None or self._cache[0] is not a:
+        hi = self.horizons.index(h)
+        g = next(n for n, grp in enumerate(self.groups) if hi in grp)
+        if g not in self._cache or self._cache[g][0] is not a:
             act, aid = a
-            parts = [self.forward(*self._ctx, act[None, k:k + self.CHUNK], aid[None, k:k + self.CHUNK])[1][0]
-                     for k in range(0, len(act), self.CHUNK)]
-            self._cache = (a, np.concatenate(parts) if parts else np.zeros((0, len(self.horizons), D), np.float32))
-        return self._cache[1][:, self.horizons.index(h)]
+            grp = self.groups[g]
+            step = max(1, self.CHUNK_TOKENS // len(grp))
+            parts = [self.forward(*self._ctx, act[None, k:k + step], aid[None, k:k + step], hsel=grp)[1][0] for k in range(0, len(act), step)]
+            self._cache[g] = (a, np.concatenate(parts) if parts else np.zeros((0, len(grp), D), np.float32))
+        return self._cache[g][1][:, self.groups[g].index(hi)]
 
     def value(self, z):
         return self.lin("v2", M.relu(self.lin("v1", z)))[..., 0]
