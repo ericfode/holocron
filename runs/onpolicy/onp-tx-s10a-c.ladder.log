@@ -1,0 +1,65 @@
+warning: 30 seeds per bot pair is not a whole number of passes over the 351 deck pairs, so some deck pairs will play more than others (--games 702 or a multiple of it plays every pair equally often)
+onpolicy-onp-tx-s10a-c: 60 of 60 games to play, 2 bots, 27 decks, 12 workers -> /home/ericf/onpolicy/ladder/onpolicy-onp-tx-s10a-c
+[1/60] c-clock-vs-onp-tx-s10a-c-8: won c-clock R6 139 steps 10127ms | c-clock 1631, onp-tx-s10a-c 1369
+[2/60] onp-tx-s10a-c-vs-c-clock-8: won onp-tx-s10a-c R5 125 steps 11550ms | onp-tx-s10a-c 1500, c-clock 1500
+[3/60] c-clock-vs-onp-tx-s10a-c-3: won c-clock R6 105 steps 13174ms | c-clock 1551, onp-tx-s10a-c 1449
+[4/60] onp-tx-s10a-c-vs-c-clock-6: won c-clock R7 125 steps 13273ms | c-clock 1582, onp-tx-s10a-c 1418
+[5/60] c-clock-vs-onp-tx-s10a-c-7: won c-clock R7 132 steps 15351ms | c-clock 1605, onp-tx-s10a-c 1395
+[6/60] c-clock-vs-onp-tx-s10a-c-5: won c-clock R5 105 steps 16399ms | c-clock 1623, onp-tx-s10a-c 1377
+[7/60] onp-tx-s10a-c-vs-c-clock-7: won c-clock R7 154 steps 16865ms | c-clock 1638, onp-tx-s10a-c 1362
+[8/60] onp-tx-s10a-c-vs-c-clock-5: won c-clock R5 115 steps 18074ms | c-clock 1650, onp-tx-s10a-c 1350
+[9/60] onp-tx-s10a-c-vs-c-clock-4: won onp-tx-s10a-c R5 118 steps 18218ms | c-clock 1601, onp-tx-s10a-c 1399
+[10/60] onp-tx-s10a-c-vs-c-clock-9: won onp-tx-s10a-c R6 117 steps 11653ms | c-clock 1570, onp-tx-s10a-c 1430
+[11/60] onp-tx-s10a-c-vs-c-clock-11: won c-clock R5 111 steps 9186ms | c-clock 1581, onp-tx-s10a-c 1419
+[12/60] onp-tx-s10a-c-vs-c-clock-3: won c-clock R8 151 steps 26029ms | c-clock 1591, onp-tx-s10a-c 1409
+[13/60] c-clock-vs-onp-tx-s10a-c-4: won onp-tx-s10a-c R5 145 steps 27412ms | c-clock 1567, onp-tx-s10a-c 1433
+[14/60] c-clock-vs-onp-tx-s10a-c-9: won c-clock R7 166 steps 17150ms | c-clock 1576, onp-tx-s10a-c 1424
+[15/60] c-clock-vs-onp-tx-s10a-c-12: won c-clock R5 88 steps 13058ms | c-clock 1584, onp-tx-s10a-c 1416
+[16/60] onp-tx-s10a-c-vs-c-clock-13: won c-clock R7 124 steps 13018ms | c-clock 1592, onp-tx-s10a-c 1408
+[17/60] onp-tx-s10a-c-vs-c-clock-12: won c-clock R6 120 steps 17312ms | c-clock 1599, onp-tx-s10a-c 1401
+[18/60] c-clock-vs-onp-tx-s10a-c-13: won c-clock R8 165 steps 17332ms | c-clock 1605, onp-tx-s10a-c 1395
+[19/60] onp-tx-s10a-c-vs-c-clock-15: won c-clock R6 120 steps 12150ms | c-clock 1611, onp-tx-s10a-c 1389
+[20/60] c-clock-vs-onp-tx-s10a-c-11: won c-clock R5 122 steps 24599ms | c-clock 1616, onp-tx-s10a-c 1384
+[21/60] onp-tx-s10a-c-vs-c-clock-17: won c-clock R5 98 steps 6837ms | c-clock 1621, onp-tx-s10a-c 1379
+[22/60] onp-tx-s10a-c-vs-c-clock-14: won c-clock R6 118 steps 18520ms | c-clock 1626, onp-tx-s10a-c 1374
+[23/60] c-clock-vs-onp-tx-s10a-c-15: won c-clock R5 111 steps 15314ms | c-clock 1631, onp-tx-s10a-c 1369
+[24/60] onp-tx-s10a-c-vs-c-clock-10: won c-clock R6 138 steps 31055ms | c-clock 1635, onp-tx-s10a-c 1365
+[25/60] onp-tx-s10a-c-vs-c-clock-16: won onp-tx-s10a-c R6 106 steps 14795ms | c-clock 1617, onp-tx-s10a-c 1383
+[26/60] c-clock-vs-onp-tx-s10a-c-19: won c-clock R5 87 steps 3497ms | c-clock 1621, onp-tx-s10a-c 1379
+[27/60] c-clock-vs-onp-tx-s10a-c-14: won c-clock R7 166 steps 20628ms | c-clock 1625, onp-tx-s10a-c 1375
+[28/60] c-clock-vs-onp-tx-s10a-c-16: won c-clock R6 139 steps 16717ms | c-clock 1629, onp-tx-s10a-c 1371
+[29/60] onp-tx-s10a-c-vs-c-clock-20: won c-clock R5 113 steps 7854ms | c-clock 1632, onp-tx-s10a-c 1368
+[30/60] onp-tx-s10a-c-vs-c-clock-18: won onp-tx-s10a-c R8 169 steps 12640ms | c-clock 1617, onp-tx-s10a-c 1383
+[31/60] c-clock-vs-onp-tx-s10a-c-17: won onp-tx-s10a-c R6 119 steps 13002ms | c-clock 1605, onp-tx-s10a-c 1395
+[32/60] c-clock-vs-onp-tx-s10a-c-21: won onp-tx-s10a-c R5 100 steps 6401ms | c-clock 1594, onp-tx-s10a-c 1406
+[33/60] onp-tx-s10a-c-vs-c-clock-24: ERROR  R2 25 steps 974ms Cannot read properties of undefined (reading 'card') | c-clock 1594, onp-tx-s10a-c 1406
+[34/60] c-clock-vs-onp-tx-s10a-c-10: won c-clock R5 179 steps 41003ms | c-clock 1597, onp-tx-s10a-c 1403
+[35/60] c-clock-vs-onp-tx-s10a-c-20: won onp-tx-s10a-c R6 133 steps 10483ms | c-clock 1587, onp-tx-s10a-c 1413
+[36/60] onp-tx-s10a-c-vs-c-clock-21: won onp-tx-s10a-c R6 122 steps 9411ms | c-clock 1578, onp-tx-s10a-c 1422
+[37/60] onp-tx-s10a-c-vs-c-clock-19: won c-clock R7 130 steps 14756ms | c-clock 1582, onp-tx-s10a-c 1418
+[38/60] c-clock-vs-onp-tx-s10a-c-18: won onp-tx-s10a-c R8 179 steps 15615ms | c-clock 1574, onp-tx-s10a-c 1426
+[39/60] c-clock-vs-onp-tx-s10a-c-24: won onp-tx-s10a-c R5 80 steps 8367ms | c-clock 1566, onp-tx-s10a-c 1434
+[40/60] c-clock-vs-onp-tx-s10a-c-27: won c-clock R6 95 steps 5461ms | c-clock 1569, onp-tx-s10a-c 1431
+[41/60] onp-tx-s10a-c-vs-c-clock-23: won c-clock R7 147 steps 10598ms | c-clock 1573, onp-tx-s10a-c 1427
+[42/60] c-clock-vs-onp-tx-s10a-c-25: won c-clock R6 124 steps 8283ms | c-clock 1576, onp-tx-s10a-c 1424
+[43/60] onp-tx-s10a-c-vs-c-clock-25: won c-clock R8 138 steps 10560ms | c-clock 1578, onp-tx-s10a-c 1422
+[44/60] c-clock-vs-onp-tx-s10a-c-23: won c-clock R7 158 steps 11824ms | c-clock 1581, onp-tx-s10a-c 1419
+[45/60] onp-tx-s10a-c-vs-c-clock-27: won c-clock R8 165 steps 13370ms | c-clock 1584, onp-tx-s10a-c 1416
+[46/60] onp-tx-s10a-c-vs-c-clock-28: won c-clock R5 92 steps 8030ms | c-clock 1587, onp-tx-s10a-c 1413
+[47/60] c-clock-vs-onp-tx-s10a-c-28: won c-clock R6 109 steps 8115ms | c-clock 1589, onp-tx-s10a-c 1411
+[48/60] onp-tx-s10a-c-vs-c-clock-29: won onp-tx-s10a-c R5 111 steps 11373ms | c-clock 1582, onp-tx-s10a-c 1418
+[49/60] c-clock-vs-onp-tx-s10a-c-29: won onp-tx-s10a-c R5 119 steps 11490ms | c-clock 1576, onp-tx-s10a-c 1424
+[50/60] onp-tx-s10a-c-vs-c-clock-26: won c-clock R5 124 steps 20771ms | c-clock 1579, onp-tx-s10a-c 1421
+[51/60] onp-tx-s10a-c-vs-c-clock-31: won c-clock R7 105 steps 6331ms | c-clock 1581, onp-tx-s10a-c 1419
+[52/60] c-clock-vs-onp-tx-s10a-c-26: won c-clock R5 118 steps 20533ms | c-clock 1583, onp-tx-s10a-c 1417
+[53/60] onp-tx-s10a-c-vs-c-clock-22: won c-clock R5 155 steps 31765ms | c-clock 1586, onp-tx-s10a-c 1414
+[54/60] onp-tx-s10a-c-vs-c-clock-32: won onp-tx-s10a-c R6 154 steps 8894ms | c-clock 1580, onp-tx-s10a-c 1420
+[55/60] onp-tx-s10a-c-vs-c-clock-30: won c-clock R7 140 steps 15806ms | c-clock 1582, onp-tx-s10a-c 1418
+[56/60] c-clock-vs-onp-tx-s10a-c-32: won c-clock R6 144 steps 6858ms | c-clock 1584, onp-tx-s10a-c 1416
+[57/60] c-clock-vs-onp-tx-s10a-c-31: won c-clock R9 170 steps 12339ms | c-clock 1586, onp-tx-s10a-c 1414
+[58/60] c-clock-vs-onp-tx-s10a-c-30: won c-clock R7 146 steps 18114ms | c-clock 1588, onp-tx-s10a-c 1412
+[59/60] c-clock-vs-onp-tx-s10a-c-6: won onp-tx-s10a-c R11 301 steps 83522ms | c-clock 1583, onp-tx-s10a-c 1417
+[60/60] c-clock-vs-onp-tx-s10a-c-22: won c-clock R6 225 steps 40282ms | c-clock 1585, onp-tx-s10a-c 1415
+done in 89s
+c-clock        BT  1585  Elo  1586  43-16-0  incomplete 1  forfeits 0  73%
+onp-tx-s10a-c  BT  1415  Elo  1414  16-43-0  incomplete 1  forfeits 0  27%

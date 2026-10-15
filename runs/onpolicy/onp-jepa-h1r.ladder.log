@@ -1,0 +1,65 @@
+warning: 30 seeds per bot pair is not a whole number of passes over the 351 deck pairs, so some deck pairs will play more than others (--games 702 or a multiple of it plays every pair equally often)
+onpolicy-onp-jepa-h1r: 60 of 60 games to play, 2 bots, 27 decks, 12 workers -> /home/ericf/onpolicy/ladder/onpolicy-onp-jepa-h1r
+[1/60] onp-jepa-h1r-vs-c-clock-8: won c-clock R5 121 steps 8799ms | c-clock 1631, onp-jepa-h1r 1369
+[2/60] c-clock-vs-onp-jepa-h1r-8: won c-clock R6 138 steps 9455ms | c-clock 1676, onp-jepa-h1r 1324
+[3/60] c-clock-vs-onp-jepa-h1r-3: won c-clock R6 126 steps 12590ms | c-clock 1703, onp-jepa-h1r 1297
+[4/60] onp-jepa-h1r-vs-c-clock-6: won c-clock R6 135 steps 13014ms | c-clock 1723, onp-jepa-h1r 1277
+[5/60] onp-jepa-h1r-vs-c-clock-5: won c-clock R5 117 steps 15679ms | c-clock 1739, onp-jepa-h1r 1261
+[6/60] c-clock-vs-onp-jepa-h1r-5: won c-clock R5 110 steps 16110ms | c-clock 1753, onp-jepa-h1r 1247
+[7/60] c-clock-vs-onp-jepa-h1r-7: won c-clock R6 188 steps 17223ms | c-clock 1764, onp-jepa-h1r 1236
+[8/60] onp-jepa-h1r-vs-c-clock-7: won c-clock R6 178 steps 18641ms | c-clock 1774, onp-jepa-h1r 1226
+[9/60] onp-jepa-h1r-vs-c-clock-3: won c-clock R7 165 steps 18938ms | c-clock 1782, onp-jepa-h1r 1218
+[10/60] onp-jepa-h1r-vs-c-clock-9: won onp-jepa-h1r R6 141 steps 11662ms | c-clock 1671, onp-jepa-h1r 1329
+[11/60] c-clock-vs-onp-jepa-h1r-4: won onp-jepa-h1r R5 137 steps 21511ms | c-clock 1622, onp-jepa-h1r 1378
+[12/60] onp-jepa-h1r-vs-c-clock-11: won c-clock R5 123 steps 8342ms | c-clock 1631, onp-jepa-h1r 1369
+[13/60] c-clock-vs-onp-jepa-h1r-11: won c-clock R5 105 steps 8916ms | c-clock 1639, onp-jepa-h1r 1361
+[14/60] c-clock-vs-onp-jepa-h1r-6: won c-clock R8 214 steps 27441ms | c-clock 1646, onp-jepa-h1r 1354
+[15/60] onp-jepa-h1r-vs-c-clock-4: won onp-jepa-h1r R7 175 steps 27884ms | c-clock 1615, onp-jepa-h1r 1385
+[16/60] onp-jepa-h1r-vs-c-clock-13: won c-clock R7 122 steps 10463ms | c-clock 1621, onp-jepa-h1r 1379
+[17/60] c-clock-vs-onp-jepa-h1r-9: won c-clock R6 168 steps 20350ms | c-clock 1628, onp-jepa-h1r 1372
+[18/60] c-clock-vs-onp-jepa-h1r-10: won c-clock R5 153 steps 19192ms | c-clock 1634, onp-jepa-h1r 1366
+[19/60] onp-jepa-h1r-vs-c-clock-12: won onp-jepa-h1r R6 124 steps 16098ms | c-clock 1611, onp-jepa-h1r 1389
+[20/60] c-clock-vs-onp-jepa-h1r-13: won c-clock R6 155 steps 14005ms | c-clock 1616, onp-jepa-h1r 1384
+[21/60] c-clock-vs-onp-jepa-h1r-12: won c-clock R6 128 steps 17315ms | c-clock 1621, onp-jepa-h1r 1379
+[22/60] c-clock-vs-onp-jepa-h1r-14: won c-clock R6 131 steps 13566ms | c-clock 1626, onp-jepa-h1r 1374
+[23/60] c-clock-vs-onp-jepa-h1r-16: won c-clock R6 122 steps 10084ms | c-clock 1631, onp-jepa-h1r 1369
+[24/60] onp-jepa-h1r-vs-c-clock-17: won c-clock R6 124 steps 10057ms | c-clock 1635, onp-jepa-h1r 1365
+[25/60] c-clock-vs-onp-jepa-h1r-17: won c-clock R5 110 steps 9906ms | c-clock 1639, onp-jepa-h1r 1361
+[26/60] c-clock-vs-onp-jepa-h1r-19: won c-clock R5 128 steps 8062ms | c-clock 1643, onp-jepa-h1r 1357
+[27/60] onp-jepa-h1r-vs-c-clock-16: won onp-jepa-h1r R6 123 steps 18760ms | c-clock 1625, onp-jepa-h1r 1375
+[28/60] onp-jepa-h1r-vs-c-clock-14: won c-clock R8 190 steps 25372ms | c-clock 1629, onp-jepa-h1r 1371
+[29/60] onp-jepa-h1r-vs-c-clock-15: won c-clock R5 174 steps 22636ms | c-clock 1632, onp-jepa-h1r 1368
+[30/60] c-clock-vs-onp-jepa-h1r-15: won c-clock R5 162 steps 21160ms | c-clock 1636, onp-jepa-h1r 1364
+[31/60] onp-jepa-h1r-vs-c-clock-20: won c-clock R5 114 steps 10074ms | c-clock 1639, onp-jepa-h1r 1361
+[32/60] onp-jepa-h1r-vs-c-clock-24: ERROR  R2 27 steps 1041ms Cannot read properties of undefined (reading 'card') | c-clock 1639, onp-jepa-h1r 1361
+[33/60] c-clock-vs-onp-jepa-h1r-20: won onp-jepa-h1r R7 136 steps 11199ms | c-clock 1624, onp-jepa-h1r 1376
+[34/60] onp-jepa-h1r-vs-c-clock-18: won c-clock R8 194 steps 17965ms | c-clock 1628, onp-jepa-h1r 1372
+[35/60] onp-jepa-h1r-vs-c-clock-10: won c-clock R6 179 steps 39468ms | c-clock 1631, onp-jepa-h1r 1369
+[36/60] onp-jepa-h1r-vs-c-clock-21: won c-clock R6 156 steps 11053ms | c-clock 1634, onp-jepa-h1r 1366
+[37/60] c-clock-vs-onp-jepa-h1r-22: won c-clock R5 106 steps 6805ms | c-clock 1637, onp-jepa-h1r 1363
+[38/60] c-clock-vs-onp-jepa-h1r-21: won c-clock R6 117 steps 8742ms | c-clock 1639, onp-jepa-h1r 1361
+[39/60] onp-jepa-h1r-vs-c-clock-23: won c-clock R6 139 steps 7196ms | c-clock 1642, onp-jepa-h1r 1358
+[40/60] onp-jepa-h1r-vs-c-clock-19: won c-clock R6 160 steps 19464ms | c-clock 1645, onp-jepa-h1r 1355
+[41/60] c-clock-vs-onp-jepa-h1r-18: won onp-jepa-h1r R7 173 steps 22343ms | c-clock 1632, onp-jepa-h1r 1368
+[42/60] c-clock-vs-onp-jepa-h1r-25: won c-clock R7 143 steps 11036ms | c-clock 1635, onp-jepa-h1r 1365
+[43/60] onp-jepa-h1r-vs-c-clock-22: won c-clock R5 161 steps 16138ms | c-clock 1637, onp-jepa-h1r 1363
+[44/60] c-clock-vs-onp-jepa-h1r-27: won c-clock R6 111 steps 10228ms | c-clock 1639, onp-jepa-h1r 1361
+[45/60] onp-jepa-h1r-vs-c-clock-28: won c-clock R6 121 steps 9984ms | c-clock 1642, onp-jepa-h1r 1358
+[46/60] onp-jepa-h1r-vs-c-clock-29: won onp-jepa-h1r R5 110 steps 8970ms | c-clock 1631, onp-jepa-h1r 1369
+[47/60] c-clock-vs-onp-jepa-h1r-28: won c-clock R8 199 steps 11753ms | c-clock 1633, onp-jepa-h1r 1367
+[48/60] c-clock-vs-onp-jepa-h1r-23: won c-clock R7 202 steps 18884ms | c-clock 1635, onp-jepa-h1r 1365
+[49/60] c-clock-vs-onp-jepa-h1r-24: won onp-jepa-h1r R6 114 steps 17131ms | c-clock 1625, onp-jepa-h1r 1375
+[50/60] onp-jepa-h1r-vs-c-clock-27: won c-clock R6 151 steps 14048ms | c-clock 1627, onp-jepa-h1r 1373
+[51/60] onp-jepa-h1r-vs-c-clock-30: won c-clock R6 116 steps 6887ms | c-clock 1630, onp-jepa-h1r 1370
+[52/60] onp-jepa-h1r-vs-c-clock-25: won c-clock R8 212 steps 20228ms | c-clock 1632, onp-jepa-h1r 1368
+[53/60] onp-jepa-h1r-vs-c-clock-31: won c-clock R7 150 steps 6736ms | c-clock 1634, onp-jepa-h1r 1366
+[54/60] c-clock-vs-onp-jepa-h1r-31: won c-clock R7 160 steps 7004ms | c-clock 1636, onp-jepa-h1r 1364
+[55/60] c-clock-vs-onp-jepa-h1r-30: won c-clock R7 164 steps 9359ms | c-clock 1638, onp-jepa-h1r 1362
+[56/60] c-clock-vs-onp-jepa-h1r-29: won c-clock R6 145 steps 11810ms | c-clock 1640, onp-jepa-h1r 1360
+[57/60] c-clock-vs-onp-jepa-h1r-26: won c-clock R5 190 steps 22531ms | c-clock 1641, onp-jepa-h1r 1359
+[58/60] onp-jepa-h1r-vs-c-clock-32: won onp-jepa-h1r R6 155 steps 8521ms | c-clock 1633, onp-jepa-h1r 1367
+[59/60] c-clock-vs-onp-jepa-h1r-32: won onp-jepa-h1r R6 136 steps 8788ms | c-clock 1624, onp-jepa-h1r 1376
+[60/60] onp-jepa-h1r-vs-c-clock-26: won c-clock R4 176 steps 24661ms | c-clock 1626, onp-jepa-h1r 1374
+done in 78s
+c-clock        BT  1626  Elo  1607  48-11-0  incomplete 1  forfeits 0  81%
+onp-jepa-h1r   BT  1374  Elo  1393  11-48-0  incomplete 1  forfeits 0  19%

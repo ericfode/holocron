@@ -1,0 +1,65 @@
+warning: 30 seeds per bot pair is not a whole number of passes over the 351 deck pairs, so some deck pairs will play more than others (--games 702 or a multiple of it plays every pair equally often)
+onpolicy-onp-tx-g1-m0: 60 of 60 games to play, 2 bots, 27 decks, 12 workers -> /home/ericf/onpolicy/ladder/onpolicy-onp-tx-g1-m0
+[1/60] onp-tx-g1-m0-vs-c-clock-8: won c-clock R5 111 steps 9399ms | c-clock 1631, onp-tx-g1-m0 1369
+[2/60] c-clock-vs-onp-tx-g1-m0-7: won c-clock R6 121 steps 11191ms | c-clock 1676, onp-tx-g1-m0 1324
+[3/60] onp-tx-g1-m0-vs-c-clock-7: won c-clock R6 113 steps 11898ms | c-clock 1703, onp-tx-g1-m0 1297
+[4/60] c-clock-vs-onp-tx-g1-m0-3: won c-clock R6 118 steps 12663ms | c-clock 1723, onp-tx-g1-m0 1277
+[5/60] onp-tx-g1-m0-vs-c-clock-5: won c-clock R5 103 steps 13059ms | c-clock 1739, onp-tx-g1-m0 1261
+[6/60] c-clock-vs-onp-tx-g1-m0-8: won c-clock R6 130 steps 13039ms | c-clock 1753, onp-tx-g1-m0 1247
+[7/60] onp-tx-g1-m0-vs-c-clock-3: won c-clock R7 131 steps 15589ms | c-clock 1764, onp-tx-g1-m0 1236
+[8/60] c-clock-vs-onp-tx-g1-m0-5: won c-clock R5 114 steps 21465ms | c-clock 1774, onp-tx-g1-m0 1226
+[9/60] onp-tx-g1-m0-vs-c-clock-6: won c-clock R8 166 steps 21940ms | c-clock 1782, onp-tx-g1-m0 1218
+[10/60] c-clock-vs-onp-tx-g1-m0-4: won c-clock R7 176 steps 22502ms | c-clock 1790, onp-tx-g1-m0 1210
+[11/60] onp-tx-g1-m0-vs-c-clock-11: won c-clock R5 104 steps 10831ms | c-clock 1797, onp-tx-g1-m0 1203
+[12/60] c-clock-vs-onp-tx-g1-m0-9: won c-clock R7 141 steps 13965ms | c-clock 1804, onp-tx-g1-m0 1196
+[13/60] c-clock-vs-onp-tx-g1-m0-11: won c-clock R6 110 steps 14208ms | c-clock 1810, onp-tx-g1-m0 1190
+[14/60] onp-tx-g1-m0-vs-c-clock-9: won c-clock R8 197 steps 18379ms | c-clock 1816, onp-tx-g1-m0 1184
+[15/60] c-clock-vs-onp-tx-g1-m0-6: won c-clock R8 173 steps 27901ms | c-clock 1821, onp-tx-g1-m0 1179
+[16/60] c-clock-vs-onp-tx-g1-m0-15: won c-clock R5 93 steps 5227ms | c-clock 1826, onp-tx-g1-m0 1174
+[17/60] onp-tx-g1-m0-vs-c-clock-12: won c-clock R6 119 steps 19240ms | c-clock 1830, onp-tx-g1-m0 1170
+[18/60] c-clock-vs-onp-tx-g1-m0-12: won c-clock R5 90 steps 13566ms | c-clock 1835, onp-tx-g1-m0 1165
+[19/60] onp-tx-g1-m0-vs-c-clock-10: won c-clock R6 163 steps 23561ms | c-clock 1839, onp-tx-g1-m0 1161
+[20/60] onp-tx-g1-m0-vs-c-clock-15: won c-clock R5 116 steps 8435ms | c-clock 1843, onp-tx-g1-m0 1157
+[21/60] onp-tx-g1-m0-vs-c-clock-13: won c-clock R9 148 steps 16671ms | c-clock 1847, onp-tx-g1-m0 1153
+[22/60] c-clock-vs-onp-tx-g1-m0-13: won c-clock R6 114 steps 16333ms | c-clock 1850, onp-tx-g1-m0 1150
+[23/60] onp-tx-g1-m0-vs-c-clock-17: won c-clock R6 110 steps 10389ms | c-clock 1853, onp-tx-g1-m0 1147
+[24/60] onp-tx-g1-m0-vs-c-clock-16: won c-clock R5 132 steps 17678ms | c-clock 1857, onp-tx-g1-m0 1143
+[25/60] c-clock-vs-onp-tx-g1-m0-17: won c-clock R5 111 steps 11130ms | c-clock 1860, onp-tx-g1-m0 1140
+[26/60] c-clock-vs-onp-tx-g1-m0-14: won c-clock R6 150 steps 22896ms | c-clock 1863, onp-tx-g1-m0 1137
+[27/60] onp-tx-g1-m0-vs-c-clock-4: won c-clock R10 281 steps 48653ms | c-clock 1866, onp-tx-g1-m0 1134
+[28/60] c-clock-vs-onp-tx-g1-m0-19: won c-clock R6 135 steps 10603ms | c-clock 1868, onp-tx-g1-m0 1132
+[29/60] onp-tx-g1-m0-vs-c-clock-19: won c-clock R6 131 steps 14774ms | c-clock 1871, onp-tx-g1-m0 1129
+[30/60] onp-tx-g1-m0-vs-c-clock-22: won c-clock R6 118 steps 5178ms | c-clock 1873, onp-tx-g1-m0 1127
+[31/60] onp-tx-g1-m0-vs-c-clock-20: won c-clock R6 109 steps 8835ms | c-clock 1876, onp-tx-g1-m0 1124
+[32/60] c-clock-vs-onp-tx-g1-m0-20: won c-clock R7 110 steps 8790ms | c-clock 1878, onp-tx-g1-m0 1122
+[33/60] c-clock-vs-onp-tx-g1-m0-16: won c-clock R6 158 steps 21440ms | c-clock 1880, onp-tx-g1-m0 1120
+[34/60] onp-tx-g1-m0-vs-c-clock-18: won onp-tx-g1-m0 R10 226 steps 19404ms | c-clock 1778, onp-tx-g1-m0 1222
+[35/60] onp-tx-g1-m0-vs-c-clock-14: won c-clock R6 189 steps 31184ms | c-clock 1780, onp-tx-g1-m0 1220
+[36/60] c-clock-vs-onp-tx-g1-m0-10: won c-clock R5 167 steps 42430ms | c-clock 1783, onp-tx-g1-m0 1217
+[37/60] c-clock-vs-onp-tx-g1-m0-22: won c-clock R5 95 steps 6047ms | c-clock 1785, onp-tx-g1-m0 1215
+[38/60] onp-tx-g1-m0-vs-c-clock-24: ERROR  R2 30 steps 1550ms Cannot read properties of undefined (reading 'card') | c-clock 1785, onp-tx-g1-m0 1215
+[39/60] c-clock-vs-onp-tx-g1-m0-26: won c-clock R5 96 steps 3841ms | c-clock 1787, onp-tx-g1-m0 1213
+[40/60] c-clock-vs-onp-tx-g1-m0-21: won c-clock R6 112 steps 11625ms | c-clock 1789, onp-tx-g1-m0 1211
+[41/60] onp-tx-g1-m0-vs-c-clock-25: ERROR  R8 144 steps 7744ms Contract assertion failure: Null-like object value: null | c-clock 1789, onp-tx-g1-m0 1211
+[42/60] onp-tx-g1-m0-vs-c-clock-21: won c-clock R5 117 steps 16450ms | c-clock 1792, onp-tx-g1-m0 1208
+[43/60] onp-tx-g1-m0-vs-c-clock-23: won c-clock R7 169 steps 10949ms | c-clock 1794, onp-tx-g1-m0 1206
+[44/60] c-clock-vs-onp-tx-g1-m0-25: won c-clock R7 141 steps 9611ms | c-clock 1796, onp-tx-g1-m0 1204
+[45/60] c-clock-vs-onp-tx-g1-m0-18: won c-clock R9 201 steps 29892ms | c-clock 1798, onp-tx-g1-m0 1202
+[46/60] onp-tx-g1-m0-vs-c-clock-27: won c-clock R6 141 steps 10561ms | c-clock 1800, onp-tx-g1-m0 1200
+[47/60] onp-tx-g1-m0-vs-c-clock-26: won c-clock R5 140 steps 11961ms | c-clock 1801, onp-tx-g1-m0 1199
+[48/60] c-clock-vs-onp-tx-g1-m0-27: won c-clock R5 119 steps 14288ms | c-clock 1803, onp-tx-g1-m0 1197
+[49/60] c-clock-vs-onp-tx-g1-m0-28: won c-clock R7 149 steps 10590ms | c-clock 1805, onp-tx-g1-m0 1195
+[50/60] onp-tx-g1-m0-vs-c-clock-30: won c-clock R6 99 steps 6129ms | c-clock 1807, onp-tx-g1-m0 1193
+[51/60] onp-tx-g1-m0-vs-c-clock-28: won onp-tx-g1-m0 R5 108 steps 11873ms | c-clock 1761, onp-tx-g1-m0 1239
+[52/60] c-clock-vs-onp-tx-g1-m0-31: won c-clock R8 124 steps 6328ms | c-clock 1762, onp-tx-g1-m0 1238
+[53/60] onp-tx-g1-m0-vs-c-clock-29: won onp-tx-g1-m0 R5 132 steps 10167ms | c-clock 1732, onp-tx-g1-m0 1268
+[54/60] c-clock-vs-onp-tx-g1-m0-23: won c-clock R8 200 steps 19595ms | c-clock 1734, onp-tx-g1-m0 1266
+[55/60] c-clock-vs-onp-tx-g1-m0-30: won c-clock R8 163 steps 9414ms | c-clock 1736, onp-tx-g1-m0 1264
+[56/60] c-clock-vs-onp-tx-g1-m0-29: won onp-tx-g1-m0 R5 119 steps 11623ms | c-clock 1713, onp-tx-g1-m0 1287
+[57/60] c-clock-vs-onp-tx-g1-m0-24: won onp-tx-g1-m0 R6 118 steps 20162ms | c-clock 1695, onp-tx-g1-m0 1305
+[58/60] c-clock-vs-onp-tx-g1-m0-32: won c-clock R6 151 steps 7259ms | c-clock 1697, onp-tx-g1-m0 1303
+[59/60] onp-tx-g1-m0-vs-c-clock-32: won onp-tx-g1-m0 R6 134 steps 10987ms | c-clock 1682, onp-tx-g1-m0 1318
+[60/60] onp-tx-g1-m0-vs-c-clock-31: won c-clock R9 179 steps 15448ms | c-clock 1684, onp-tx-g1-m0 1316
+done in 82s
+c-clock        BT  1684  Elo  1624  52-6-0  incomplete 2  forfeits 0  90%
+onp-tx-g1-m0   BT  1316  Elo  1376  6-52-0  incomplete 2  forfeits 0  10%
