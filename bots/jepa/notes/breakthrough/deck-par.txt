@@ -1,0 +1,185 @@
+par from 10 mirrors, 6807 decided games, 702 deck pairings
+
+tx-t10-g04: 684 games, score minus par +3.3 pts
+  by deck we hold: chi-square 44.1 on 26 df (noise alone: about 26 +- 7)
+    obi--wan-kenobi_lof_vergence-temple        n= 26   -25.6 +-  9.0
+    ezra-bridger_ash_yellow                    n= 25   -18.5 +-  7.7
+    greef-karga_ash_red                        n= 26   -15.7 +-  8.6
+    grand-admiral-thrawn_jtl_yellow            n= 23   -13.0 +-  8.7
+    mother-talzin_lof_yellow-force             n= 24   -12.5 +- 11.7
+    the-mandalorian_ash_colossus               n= 26   -11.3 +-  8.7
+    director-krennic_law_blue                  n= 26   -11.0 +-  8.7
+    aurra-sing_law_data-vault                  n= 24    -8.3 +-  9.8
+    ahsoka-tano_ash_yellow                     n= 26    -4.8 +-  9.7
+    luke-skywalker_jtl_data-vault              n= 24    -4.6 +-  8.1
+    director-krennic_law_blue-splash           n= 26    -1.8 +-  7.0
+    admiral-piett_jtl_red-splash               n= 26    +0.9 +-  9.6
+    the-armorer_ash_nabat-village              n= 26    +1.1 +-  6.9
+    boba-fett_jtl_blue                         n= 25    +2.8 +-  9.1
+    grand-admiral-thrawn_jtl_data-vault        n= 26    +3.7 +- 10.6
+    aurra-sing_law_red                         n= 25    +4.3 +-  8.8
+    lando-calrissian_law_blue                  n= 26    +5.1 +-  8.9
+    boba-fett_jtl_lake-country                 n= 25    +5.2 +-  9.8
+    greef-karga_ash_data-vault                 n= 26    +6.3 +-  8.3
+    luke-skywalker_ash_data-vault              n= 26    +8.6 +-  7.6
+    admiral-piett_jtl_blue                     n= 24   +10.4 +-  9.3
+    ahsoka-tano_ash_blue                       n= 26   +10.7 +-  6.9
+    mother-talzin_lof_red-force                n= 26   +11.7 +-  9.9
+    dedra-meero_sec_colossus                   n= 25   +11.8 +- 10.5
+    darth-maul_lof_blue-force                  n= 26   +11.8 +-  8.5
+    chewbacca_law_alliance-outpost             n= 25   +14.1 +-  9.1
+    darth-vader_jtl_yellow                     n= 25   +17.5 +-  7.6
+  by opponent's deck: chi-square 38.1 on 26 df (noise alone: about 26 +- 7)
+    luke-skywalker_ash_data-vault              n= 26   -21.9 +-  5.5
+    aurra-sing_law_data-vault                  n= 25   -14.1 +-  8.1
+    ezra-bridger_ash_yellow                    n= 26   -11.7 +-  8.5
+    luke-skywalker_jtl_data-vault              n= 26    -8.0 +-  9.1
+    ahsoka-tano_ash_yellow                     n= 26    -7.6 +- 10.2
+    ahsoka-tano_ash_blue                       n= 26    -7.2 +- 10.3
+    dedra-meero_sec_colossus                   n= 26    -7.0 +-  9.0
+    darth-maul_lof_blue-force                  n= 26    -6.7 +-  9.5
+    the-mandalorian_ash_colossus               n= 26    -5.1 +-  9.9
+    grand-admiral-thrawn_jtl_data-vault        n= 26    -4.5 +-  7.8
+    chewbacca_law_alliance-outpost             n= 26    -3.8 +-  9.9
+    aurra-sing_law_red                         n= 26    -2.3 +-  9.2
+    greef-karga_ash_data-vault                 n= 26    +1.0 +-  9.0
+    boba-fett_jtl_lake-country                 n= 26    +1.8 +-  9.0
+    mother-talzin_lof_yellow-force             n= 26    +1.8 +-  9.0
+    boba-fett_jtl_blue                         n= 25    +2.8 +-  8.6
+    the-armorer_ash_nabat-village              n= 26    +2.8 +-  3.9
+    mother-talzin_lof_red-force                n= 26    +4.2 +-  8.8
+    director-krennic_law_blue-splash           n= 26    +5.1 +-  9.5
+    admiral-piett_jtl_blue                     n= 26    +5.8 +-  7.5
+    darth-vader_jtl_yellow                     n= 26    +6.7 +-  9.8
+    lando-calrissian_law_blue                  n= 13    +6.8 +-  9.7
+    greef-karga_ash_red                        n= 26    +8.6 +-  9.4
+    admiral-piett_jtl_red-splash               n= 26   +11.9 +-  9.4
+    obi--wan-kenobi_lof_vergence-temple        n= 26   +12.6 +- 10.9
+    grand-admiral-thrawn_jtl_yellow            n= 23   +16.0 +-  9.1
+    director-krennic_law_blue                  n= 26   +16.9 +-  8.4
+
+tx-t10-va: 692 games, score minus par -16.7 pts
+  by deck we hold: chi-square 82.5 on 26 df (noise alone: about 26 +- 7)
+    luke-skywalker_jtl_data-vault              n= 24   -26.3 +-  9.9
+    ezra-bridger_ash_yellow                    n= 25   -18.5 +-  8.8
+    aurra-sing_law_data-vault                  n= 25   -18.1 +-  8.0
+    obi--wan-kenobi_lof_vergence-temple        n= 26   -17.1 +-  8.4
+    admiral-piett_jtl_blue                     n= 24   -15.4 +- 10.5
+    admiral-piett_jtl_red-splash               n= 26   -13.7 +-  8.1
+    the-mandalorian_ash_colossus               n= 26   -10.5 +-  8.6
+    luke-skywalker_ash_data-vault              n= 26    -9.8 +-  7.8
+    director-krennic_law_blue                  n= 25    -5.3 +-  7.3
+    boba-fett_jtl_blue                         n= 25    -5.2 +- 10.1
+    ahsoka-tano_ash_yellow                     n= 26    -4.0 +-  9.4
+    ahsoka-tano_ash_blue                       n= 26    -0.1 +- 11.4
+    greef-karga_ash_red                        n= 26    +0.4 +-  7.3
+    grand-admiral-thrawn_jtl_data-vault        n= 26    +0.6 +- 10.0
+    chewbacca_law_alliance-outpost             n= 25    +2.1 +-  6.7
+    aurra-sing_law_red                         n= 26    +3.5 +-  4.0
+    grand-admiral-thrawn_jtl_yellow            n= 26    +5.2 +-  8.1
+    darth-vader_jtl_yellow                     n= 25    +5.5 +-  8.4
+    mother-talzin_lof_yellow-force             n= 26    +5.9 +- 10.6
+    the-armorer_ash_nabat-village              n= 26    +9.5 +-  1.7
+    director-krennic_law_blue-splash           n= 26   +10.5 +-  6.7
+    greef-karga_ash_data-vault                 n= 26   +10.9 +-  9.6
+    boba-fett_jtl_lake-country                 n= 26   +13.3 +-  9.8
+    dedra-meero_sec_colossus                   n= 26   +14.1 +-  9.4
+    lando-calrissian_law_blue                  n= 26   +17.4 +- 11.2
+    mother-talzin_lof_red-force                n= 26   +20.1 +- 10.7
+    darth-maul_lof_blue-force                  n= 26   +20.2 +-  8.4
+  by opponent's deck: chi-square 30.8 on 26 df (noise alone: about 26 +- 7)
+    aurra-sing_law_red                         n= 26   -16.9 +- 10.7
+    dedra-meero_sec_colossus                   n= 26   -13.9 +-  9.9
+    mother-talzin_lof_yellow-force             n= 26   -12.8 +-  9.0
+    mother-talzin_lof_red-force                n= 26   -10.4 +-  9.4
+    darth-maul_lof_blue-force                  n= 26    -9.8 +-  9.8
+    boba-fett_jtl_blue                         n= 26    -9.5 +-  7.6
+    grand-admiral-thrawn_jtl_data-vault        n= 26    -7.6 +-  9.1
+    ezra-bridger_ash_yellow                    n= 26    -7.1 +-  6.2
+    lando-calrissian_law_blue                  n= 17    -7.0 +-  8.7
+    greef-karga_ash_data-vault                 n= 26    -5.9 +-  7.7
+    director-krennic_law_blue-splash           n= 26    -5.7 +- 10.1
+    darth-vader_jtl_yellow                     n= 26    -4.1 +-  5.3
+    chewbacca_law_alliance-outpost             n= 26    -3.0 +- 11.0
+    luke-skywalker_jtl_data-vault              n= 26    +0.4 +-  7.1
+    ahsoka-tano_ash_blue                       n= 26    +1.3 +-  8.9
+    aurra-sing_law_data-vault                  n= 26    +1.8 +-  8.9
+    luke-skywalker_ash_data-vault              n= 26    +1.9 +-  7.5
+    the-mandalorian_ash_colossus               n= 26    +3.3 +-  8.9
+    admiral-piett_jtl_blue                     n= 26    +6.6 +-  9.4
+    the-armorer_ash_nabat-village              n= 26    +7.4 +-  8.1
+    ahsoka-tano_ash_yellow                     n= 26    +8.6 +-  9.4
+    obi--wan-kenobi_lof_vergence-temple        n= 26    +9.5 +-  9.2
+    boba-fett_jtl_lake-country                 n= 26   +10.2 +- 10.1
+    greef-karga_ash_red                        n= 26   +13.2 +-  8.7
+    grand-admiral-thrawn_jtl_yellow            n= 25   +13.3 +- 10.5
+    admiral-piett_jtl_red-splash               n= 26   +16.5 +-  8.6
+    director-krennic_law_blue                  n= 26   +17.7 +-  8.8
+
+tx-t10-h2: 691 games, score minus par +3.6 pts
+  by deck we hold: chi-square 56.1 on 26 df (noise alone: about 26 +- 7)
+    greef-karga_ash_red                        n= 26   -23.7 +-  8.1
+    grand-admiral-thrawn_jtl_yellow            n= 25   -22.2 +-  6.7
+    the-mandalorian_ash_colossus               n= 26   -19.3 +-  8.0
+    ezra-bridger_ash_yellow                    n= 25   -18.8 +-  7.9
+    mother-talzin_lof_yellow-force             n= 26   -14.4 +- 10.6
+    obi--wan-kenobi_lof_vergence-temple        n= 26   -14.3 +-  9.1
+    director-krennic_law_blue                  n= 26    -7.5 +-  9.0
+    ahsoka-tano_ash_yellow                     n= 26    -5.1 +-  9.8
+    the-armorer_ash_nabat-village              n= 26    -3.1 +-  5.7
+    director-krennic_law_blue-splash           n= 26    -2.1 +-  7.0
+    boba-fett_jtl_blue                         n= 25    -1.5 +-  9.9
+    luke-skywalker_jtl_data-vault              n= 24    -0.7 +-  8.3
+    grand-admiral-thrawn_jtl_data-vault        n= 26    -0.4 +- 10.1
+    greef-karga_ash_data-vault                 n= 26    +2.1 +-  8.8
+    aurra-sing_law_red                         n= 26    +2.4 +-  8.6
+    lando-calrissian_law_blue                  n= 26    +4.8 +-  9.1
+    boba-fett_jtl_lake-country                 n= 25    +4.9 +-  9.3
+    ahsoka-tano_ash_blue                       n= 26    +6.6 +-  8.2
+    darth-maul_lof_blue-force                  n= 26    +7.6 +-  9.6
+    luke-skywalker_ash_data-vault              n= 26    +8.3 +-  8.0
+    aurra-sing_law_data-vault                  n= 25    +9.6 +-  9.5
+    chewbacca_law_alliance-outpost             n= 25    +9.8 +-  8.9
+    admiral-piett_jtl_blue                     n= 25   +10.1 +-  8.5
+    darth-vader_jtl_yellow                     n= 25   +13.2 +-  7.6
+    mother-talzin_lof_red-force                n= 26   +15.2 +- 10.4
+    admiral-piett_jtl_red-splash               n= 26   +16.0 +- 10.3
+    dedra-meero_sec_colossus                   n= 25   +23.5 +- 10.3
+  by opponent's deck: chi-square 31.6 on 26 df (noise alone: about 26 +- 7)
+    darth-maul_lof_blue-force                  n= 26   -14.7 +-  9.9
+    luke-skywalker_ash_data-vault              n= 26   -14.5 +-  8.0
+    chewbacca_law_alliance-outpost             n= 26   -11.8 +- 10.2
+    boba-fett_jtl_blue                         n= 25    -9.5 +-  8.5
+    lando-calrissian_law_blue                  n= 18    -8.5 +- 10.6
+    ezra-bridger_ash_yellow                    n= 26    -8.1 +-  9.0
+    luke-skywalker_jtl_data-vault              n= 26    -4.5 +-  9.6
+    dedra-meero_sec_colossus                   n= 26    -3.5 +-  8.7
+    aurra-sing_law_data-vault                  n= 26    -3.1 +-  7.7
+    greef-karga_ash_data-vault                 n= 26    -3.1 +-  9.2
+    director-krennic_law_blue-splash           n= 26    -2.9 +- 10.2
+    boba-fett_jtl_lake-country                 n= 26    -2.4 +-  8.5
+    admiral-piett_jtl_blue                     n= 26    -2.2 +-  8.1
+    grand-admiral-thrawn_jtl_data-vault        n= 26    -0.9 +-  7.2
+    ahsoka-tano_ash_yellow                     n= 26    -0.2 +- 10.2
+    mother-talzin_lof_red-force                n= 26    +0.0 +- 10.0
+    obi--wan-kenobi_lof_vergence-temple        n= 26    +0.7 +- 10.6
+    mother-talzin_lof_yellow-force             n= 26    +1.5 +-  7.5
+    the-mandalorian_ash_colossus               n= 26    +2.3 +-  9.8
+    the-armorer_ash_nabat-village              n= 26    +2.5 +-  3.9
+    darth-vader_jtl_yellow                     n= 26    +2.5 +-  9.0
+    ahsoka-tano_ash_blue                       n= 26    +4.1 +- 11.1
+    aurra-sing_law_red                         n= 26    +5.1 +-  9.2
+    director-krennic_law_blue                  n= 26    +8.9 +-  7.2
+    greef-karga_ash_red                        n= 26   +12.1 +-  9.4
+    grand-admiral-thrawn_jtl_yellow            n= 24   +21.8 +-  7.6
+    admiral-piett_jtl_red-splash               n= 26   +27.0 +-  9.2
+
+correlation between bots of the per-deck numbers (deck we hold; par no longer shared noise):
+  tx-t10-g04     +1.00 +0.49 +0.84
+  tx-t10-va      +0.49 +1.00 +0.25
+  tx-t10-h2      +0.84 +0.25 +1.00
+
+correlation between bots of the per-deck numbers (opponent's deck; par no longer shared noise):
+  tx-t10-g04     +1.00 +0.41 +0.63
+  tx-t10-va      +0.41 +1.00 +0.57
+  tx-t10-h2      +0.63 +0.57 +1.00

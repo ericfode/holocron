@@ -78,7 +78,7 @@ WAIT_PROMPT = {"type": "actionWindow", "actionWindow": True, "selectCardMode": N
 
 class JepaPlayer:
     def __init__(self, model_path, db, mix=0.5, temp=0.0, seed=0, score="imagined", evaluator=None, deals=1, log=None, judge="round", window_model=None,
-                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False):
+                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1"):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
         self.plan_net = X.load(plan_model)[0] if plan_model else self.net
@@ -104,6 +104,7 @@ class JepaPlayer:
         self.resource = R.ResourcePolicy(resource) if resource else None  # resource prompts copied from strong bots
         # "s": at action windows, score each move by where it is imagined to settle (a transformer JEPA trained with --settle)
         self.window_horizon = window_horizon
+        self.follow_horizon = follow_horizon
         # round tiers at action windows: weights of s, r, r2 (a tiered model), and whether to keep one macro per round
         self.tiers = tiers or {}
         self.commit_macro = commit_macro
@@ -135,7 +136,11 @@ class JepaPlayer:
         return self.score != "imagined" or self.log is not None
 
     def think(self, msg):
-        net = self.window_net if self.window_net is not None and (msg.get("prompt") or {}).get("actionWindow") else self.net
+        window = bool((msg.get("prompt") or {}).get("actionWindow"))
+        # --follow-horizon s: the other prompts of the action phase (a move's targets, costs, triggers) are judged like
+        # the window's moves, by where the move settles, with the window model; not by the next decision (a half-move)
+        follow = self.follow_horizon == "s" and not window and (msg.get("state") or {}).get("phase") == "action"
+        net = self.window_net if self.window_net is not None and (window or follow) else self.net
         e = F.encode(msg, self.db)
         z = net.encode(e["state"][None], e["tok_ids"][None].astype(np.int64), e["tok_feats"][None], e["tok_mask"][None])
         a = net.action(e["actions"], e["aids"].astype(np.int64))
@@ -144,8 +149,7 @@ class JepaPlayer:
         v1 = M.sigmoid(net.value(z1))
         v4 = M.sigmoid(net.value(z4))
         score = (1 - self.mix) * v1 + self.mix * v4
-        window = bool((msg.get("prompt") or {}).get("actionWindow"))
-        if self.window_horizon == "s" and "s" in getattr(net, "horizons", ()) and window:
+        if "s" in getattr(net, "horizons", ()) and ((self.window_horizon == "s" and window) or follow):
             score = M.sigmoid(net.value(net.predict(z, a, "s")))
         out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0])}
         if self.tiers and window:
@@ -616,6 +620,9 @@ def main():
     ap.add_argument("--plan-model", default=None, help="a second model that scores only the planner's settled positions")
     ap.add_argument("--window-horizon", choices=["1", "s"], default="1",
                     help="imagined score at action windows: the mover's next decision (1, with --mix) or where the move settles (s)")
+    ap.add_argument("--follow-horizon", choices=["1", "s"], default="1",
+                    help="other prompts of the action phase (targets, costs, triggers): the next decision (1) or, with the window model, "
+                         "where the move settles (s)")
     ap.add_argument("--log", default=None, help="append every decision's imagined and simulated scores here (JSON lines)")
     ap.add_argument("--tiers", default="", help="round tiers at action windows as weights s=1,r=1,r2=1 (a tiered model)")
     ap.add_argument("--commit-macro", action="store_true", help="keep the macro of a round's first window for the rest of the round")
@@ -628,7 +635,8 @@ def main():
     plan = {k: float(v) for k, v in (kv.split("=") for kv in a.plan.split(",") if kv)}
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
                         plan={**{k: (v if k in ("secs", "gate") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
-                        tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro)
+                        tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
+                        follow_horizon=a.follow_horizon)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin
 

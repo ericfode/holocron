@@ -46,7 +46,9 @@ def main():
             o = json.loads(line)
             if o["t"] == "game":
                 names = o.get("decks")
-                flat = {"p1": lists[names[0]], "p2": lists[names[1]]} if names else None
+                # deck names (branches.js), or whole deck lists (replay_branches.js data made before it wrote names)
+                deck = lambda d: lists[d] if isinstance(d, str) else [c["id"] for c in d["deck"] for _ in range(int(c.get("count", 1)))]
+                flat = {"p1": deck(names[0]), "p2": deck(names[1])} if names else None
                 continue
             if o["t"] != "b" or len(o["br"]) < 2:
                 continue

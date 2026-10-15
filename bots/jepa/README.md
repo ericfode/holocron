@@ -576,3 +576,34 @@ hand card costs more than its resources; it resources the card with the lowest k
 20,199 of 20,199 of c-clock's resource choices in recorded games. With it jepa-tx-gate wins **55.1%** (+3.7 [+0.9,
 +6.5], the same games as the swap), so jepa-tx-gate uses it. The no-simulator bot does not gain (tx-t10 with it:
 -0.9 [-3.2, +1.6]), so jepa-tx keeps resource-v1 (`notes/breakthrough/resource-rule.txt`).
+
+## Three fixes: jepa-tx-gate at 58.7%
+
+`notes/breakthrough/hybrid-58.md` has every run. On the same 702 deals against c-clock, each fix added to the one
+before:
+
+| jepa-tx-gate | won | paired vs this morning's 51.2% |
+|---|---|---|
+| this morning (resource-v1, evaluator-copy planner judge) | 51.2% | |
+| + c-clock's resource rule (`--resource c-clock`) | 55.1% | +3.7 [+0.9, +6.5] |
+| + the action phase's other prompts judged by where the move settles (`--follow-horizon s`) | 56.3% | +5.1 [+1.9, +8.2] |
+| + the planner judges its real boards with tx-t10's own value head (`--plan-model tx-t10`) | **58.7%** | **+7.7 [+4.2, +11.1]**, p < 0.001 |
+
+`--follow-horizon s`: a move's targets, costs and triggers used to be scored by the next decision, which judges a
+half-finished move; now the window model scores them by the imagined settled board, like the move itself. Without a
+simulator it takes tx-t10 from 31.1% to 34.5% (+3.3 [+0.3, +6.4], p = 0.027), the best no-simulator JEPA bot; with
+`--resource c-clock` it is the same (34.4%). jepa-tx-gate now uses all three; it plans 64% of windows at 104 ms a
+decision on average (4 s max). Without the referee's simulations (Karabast) it plays as the no-simulator bot.
+
+What failed: training on the bot's own positions with a loss that orders moves the way linear-deck-g4 does (tx-o1d).
+The judge liked it better (top-1 on its own windows 0.678 -> 0.750) but it played much worse (no simulator -11.1,
+hybrid -7.7): its settled-board forecasts broke away from the window choice. The judge's score is not what wins;
+a value head trained on who won is. `fit_value.py` refits that head on recorded games (next test).
+
+## Deck lists, discards and game history (hist_train.py)
+
+Eric's question: should the model know every card, and the game so far, the way people do? `hist_train.py` compares a
+model of the board alone with the same model given the discards, the unseen cards of both deck lists, or its own move
+history, on held-out games (`notes/hist/h1.md`). Every learned model guesses the opponent's hand and next move far
+better than card counting or the leader alone (hand log-loss 8.47 vs 9.09; next move top-1 0.40 vs 0.13), but the
+extra inputs add nothing measurable after 8,000 steps. The deck lists only make it learn faster at first.

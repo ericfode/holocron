@@ -71,6 +71,13 @@ ap.add_argument("--tier-test", default=None, help="tier_prep.py --eval data of g
 ap.add_argument("--gap-weight", type=float, default=0.0,
                 help="sample branch points by (action gap / median gap)^a, clipped to [0.1, 10]; the gaps are read from <pack>.gap.npy next "
                      "to each --pack-b (pack_gaps.py: best minus worst move on the real settled boards); 0 = uniform")
+ap.add_argument("--w-decide", type=float, default=0.0,
+                help="weight of the decision loss: on branch points with judged settled boards (judge_prep.py --all --out <pack>.judge.npz "
+                     "next to each --pack-b, its evt), the evaluator-copy head on the imagined settled boards should order the moves as the "
+                     "judge orders the real ones (soft cross-entropy, --decide-temp in logit units); needs --settle and --pack-e")
+ap.add_argument("--decide-temp", type=float, default=0.05)
+ap.add_argument("--pack-b-weights", type=float, nargs="+", default=None,
+                help="one sampling weight per --pack-b, per point (e.g. on-policy packs from replay_branches.js drawn more often); default all 1")
 a = ap.parse_args()
 lr0 = a.lr if a.lr is not None else (5e-4 if a.arch == "tx" else 1e-3)
 dev = torch.device(a.device or ("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"))
@@ -101,6 +108,23 @@ C = len(MACROS)
 
 R = dict(np.load(a.pack_r))
 packs = [dict(np.load(f)) for f in a.pack_b]
+b_src = np.concatenate([np.full(len(p["game"]), i) for i, p in enumerate(packs)])  # which --pack-b each point came from
+DJ = None
+if a.w_decide > 0:
+    assert a.settle and a.pack_e and a.w_eval > 0, "--w-decide needs --settle and the evaluator-copy head (--pack-e, --w-eval)"
+
+    def judged(f, n):  # judge_prep.py --all's archive (its evt) or a bare [P, K] array of the same scores; NaN when neither exists
+        for path in (f.replace(".npz", ".judge.npz"), f.replace(".npz", ".judge.npy")):
+            if os.path.exists(path):
+                j = np.load(path)
+                ev = j["evt"] if isinstance(j, np.lib.npyio.NpzFile) else j
+                assert ev.shape == (n, K), f"{path}: scores of shape {ev.shape} for {n} branch points"
+                return ev.astype(np.float32)
+        print(f"decision loss: no {f.replace('.npz', '.judge.npz')}, its points are left out", file=sys.stderr, flush=True)
+        return np.full((n, K), np.nan, np.float32)
+
+    DJ = np.concatenate([judged(f, len(p["game"])) for f, p in zip(a.pack_b, packs)])
+    print(f"decision loss: {int((np.isfinite(DJ).sum(1) >= 2).sum())} branch points with at least 2 judged settled boards", file=sys.stderr, flush=True)
 Bd = {k: np.concatenate([p[k] for p in packs]) for k in packs[0]} if len(packs) > 1 else packs[0]
 del packs
 if a.gap_weight and not all(os.path.exists(f.replace(".npz", ".gap.npy")) for f in a.pack_b):
@@ -124,11 +148,19 @@ bheld = set(np.random.default_rng(a.seed + 1).choice(bgames, max(1, int(len(bgam
 b_is_held = np.isin(Bd["game"], list(bheld))
 b_train, b_held = np.flatnonzero(~b_is_held), np.flatnonzero(b_is_held)
 b_prob = None
+if a.pack_b_weights:
+    assert len(a.pack_b_weights) == len(a.pack_b), "--pack-b-weights needs one weight per --pack-b"
+    w = np.asarray(a.pack_b_weights, np.float64)[b_src[b_train]]
+    b_prob = w / w.sum()
+    print("pack shares of the draws: " + ", ".join(f"{os.path.basename(f)} {b_prob[b_src[b_train] == i].sum() * 100:.1f}%" for i, f in enumerate(a.pack_b)),
+          file=sys.stderr, flush=True)
 if b_gap is not None:
     # the positions where the move choice matters most (largest action gap) are drawn more often
     assert len(b_gap) == len(Bd["game"]), "gap files do not match the branch packs"
     g = b_gap[b_train]
     w = np.clip((g / max(float(np.median(g[g > 0])), 1e-3)) ** a.gap_weight, 0.1, 10.0)
+    if b_prob is not None:
+        w = w * b_prob
     b_prob = w / w.sum()
     print(f"gap weighting a={a.gap_weight}: median gap {np.median(g[g > 0]) * 100:.1f} pts; points over 10 pts are {np.mean(g > 0.10) * 100:.0f}% "
           f"of points and {b_prob[g > 0.10].sum() * 100:.0f}% of draws", file=sys.stderr, flush=True)
@@ -291,6 +323,24 @@ def losses(b):
         l_e = torch.nn.functional.binary_cross_entropy_with_logits(lg, torch.sigmoid(b["e_ev"]))
         total = total + a.w_eval * l_e
         parts += [l_e]
+    if DJ is not None:
+        # the decision: the copy head on each move's imagined settled board, against the judge on the real one
+        m = b["djm"]
+        ok = m.sum(1) >= 2
+        if bool(ok.any()):
+            ve = {k: P[k].detach() for k in ("ve1.w", "ve1.b", "ve2.w", "ve2.b")}  # the head stays a copy of the evaluator; the predictor moves
+            lg = (torch.relu(pg[:, :, 2] @ ve["ve1.w"] + ve["ve1.b"]) @ ve["ve2.w"])[..., 0] + ve["ve2.b"][0]
+            q = torch.softmax(torch.where(m > 0, b["dj"] / a.decide_temp, -1e9), 1)
+            lp = torch.log_softmax(torch.where(m > 0, lg / a.decide_temp, -1e9), 1)
+            l_dec = -(q * torch.where(m > 0, lp, torch.zeros_like(lp))).sum(1)[ok].mean()
+            pick = torch.where(m > 0, lg, -1e9).argmax(1)
+            best = torch.where(m > 0, b["dj"], -1e9).max(1).values
+            got = b["dj"].gather(1, pick[:, None])[:, 0]
+            top1 = (got >= best - 1e-6).float()[ok].mean()
+        else:
+            l_dec = top1 = torch.zeros((), device=dev)
+        total = total + a.w_decide * l_dec
+        parts += [l_dec, top1]
     if TQ is not None:
         Q = b["q_state"].shape[0]
         _, pq = run(P, b["q_state"], b["q_ids"], b["q_feats"], b["q_mask"], b["q_act"], b["q_aid"], hsel=TIER_SEL)
@@ -309,7 +359,7 @@ def losses(b):
 
 
 NAMES = (["total", "pred1", "pred4", "var", "cov", "copy1", "br_p1", "br_d1", "br_s1", "br_p4", "br_d4", "br_s4"] + (["br_pt", "br_dt", "br_st"] if a.settle else [])
-         + (["eval_bce"] if E is not None else []) + [f"{t}_{x}" for t in TIERS for x in ("p", "d", "s", "md", "ms")])
+         + (["eval_bce"] if E is not None else []) + (["decide", "decide_top1"] if DJ is not None else []) + [f"{t}_{x}" for t in TIERS for x in ("p", "d", "s", "md", "ms")])
 opt = torch.optim.AdamW([v for k, v in P.items() if k.split(".")[0] not in ("v1", "v2")], lr=lr0, weight_decay=1e-4)  # V: stage 2
 
 
@@ -336,6 +386,10 @@ def make_batch(ridx, gidx, drop, qidx=None):
               "g_act": Bd["act"][gidx], "g_aid": Bd["aid"][gidx].astype(np.int64), "m1": Bd["m1"][gidx], "m4": Bd["m4"][gidx]})
     if a.settle:
         b["mt"] = Bd["mt"][gidx]
+    if DJ is not None:
+        dj = DJ[gidx]
+        b["djm"] = (np.isfinite(dj) & (Bd["mt"][gidx] > 0)).astype(np.float32)
+        b["dj"] = np.nan_to_num(dj, nan=0.0)
     if E is not None:
         e = rng.choice(e_train, a.eb, replace=False)
         b.update({"e_state": E["state"][e], "e_ids": E["tok_ids"][e], "e_feats": E["tok_feats"][e].astype(np.float32),
