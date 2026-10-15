@@ -348,7 +348,8 @@ class JepaPlayer:
             self.fail = f"begin: {r.get('error') or 'actions differ'}"
             return "abort"
         taken, mine, guard, seen, depth = [], [], {}, {}, 0
-        for step in range(80):
+        replies = 0  # --plan reply=N: the opponent's next N actions (played like rush) before the board is judged
+        for step in range(80 + 60 * cfg.get("reply", 0)):
             if r.get("error"):
                 self.fail = f"act: {r['error']}"
                 return None  # the simulation is closed; the next line begins a new one
@@ -356,7 +357,11 @@ class JepaPlayer:
                 self.fail = "time"
                 return "abort"
             if step > 0 and self.settled(r):
-                return taken, mine, r
+                if (replies < cfg.get("reply", 0) and not r.get("over") and r.get("actor") != me
+                        and (r.get("state") or {}).get("phase") == "action" and (r.get("prompt") or {}).get("actionWindow")):
+                    replies += 1  # the opponent's action window: let it act, judge the board once that has settled
+                else:
+                    return taken, mine, r
             acts = r.get("actions") or []
             if not acts:
                 self.fail = "no actions"
@@ -365,6 +370,17 @@ class JepaPlayer:
             key = None
             if actor == me and len(acts) > 1:
                 key = json.dumps([r.get("prompt"), r.get("state"), [x.get("label") for x in acts]], sort_keys=True)
+            if replies and actor == me and step >= len(path):
+                # my prompts during the opponent's reply: the imagined best, no new lines, not part of the plan
+                if len(acts) == 1:
+                    j = 0
+                else:
+                    pos = {"you": me, "prompt": r.get("prompt"), "state": r.get("state"), "actions": acts}
+                    sc = self.think(pos)["score"]
+                    j = int(np.argmax([s if not is_button(x, "cancel") else -1.0 for s, x in zip(sc, acts)]))
+                taken.append(j)
+                r = sim({"t": "sim", "op": "act", "i": j})
+                continue
             if step < len(path):
                 j = path[step]
                 if key is not None and step > 0:
