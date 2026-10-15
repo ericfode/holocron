@@ -48,6 +48,8 @@ def enc_file(f):
             o = json.loads(line)
             if o["t"] != "b" or len(o["br"]) < 2:
                 continue
+            if o.get("rollout") and os.environ.get("BRANCH_PREP_BASE_ONLY"):
+                continue  # --base-only: leave out the extra passes of branches.js --extra-rollouts
             e = F.encode(o, DB)
             p = {"seed": o["seed"], "root": (e["state"], e["tok_ids"], e["tok_feats"], e["tok_mask"]),
                  "act": [], "aid": [], "h1": [], "h4": [], "st": [], "over": []}
@@ -76,7 +78,10 @@ def main():
     ap.add_argument("dirs", nargs="+")
     ap.add_argument("--out", required=True)
     ap.add_argument("--procs", type=int, default=3)
+    ap.add_argument("--base-only", action="store_true", help="leave out the extra passes of branches.js --extra-rollouts (a control)")
     a = ap.parse_args()
+    if a.base_only:
+        os.environ["BRANCH_PREP_BASE_ONLY"] = "1"  # read by the worker processes (inherited under fork and spawn)
     files = sorted(f for d in a.dirs for f in glob.glob(os.path.join(d, "*.jsonl.gz")))
     with Pool(a.procs) as pool:
         pts = [p for ps in pool.map(enc_file, files) for p in ps]

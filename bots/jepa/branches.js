@@ -16,6 +16,12 @@
 // with the opponent until the next round's action phase ends (`rd2`): what the round's plan led to, and what it led to
 // a round later. --max-branch 0 skips the per-move futures above and records only these.
 //
+// --extra-rollouts R [--gap-min 0.1] [--judge linear-deck-g4] (more data at pivotal points): after the per-move futures,
+// the judge (a lab/eval evaluator) scores each move's settled board; where the best and worst move are at least
+// --gap-min apart in judged win chance, every move is played R more times with fresh randomness, and each pass is
+// written as one more branch record of the same position ({"rollout": r}). Records carry the judged "gap".
+// branch_prep.py --base-only leaves the extra passes out (the same games without them, as a control).
+//
 // Output: <out>/shard-<first>.jsonl.gz, one gzip member per game:
 //   {"t":"game","seed","bots":[p1,p2]}
 //   {"t":"b","seed","you","prompt","state","actions","main":i,"br":[{"i","h1":decide|null,"h4":decide|null,"st":{state}|null,"over":winner|null,"err"?}],
@@ -124,11 +130,35 @@ function roundOn(eg, pid, mover, after, opp, rng, maxSteps) {
     throw new Error(`no round end in ${maxSteps} steps`);
 }
 
-async function worker(first, count, file, botNames, p, maxBranch, decksFile, macros, macroMoves) {
+async function worker(first, count, file, botNames, p, maxBranch, decksFile, macros, macroMoves, extraRollouts = 0, gapMin = 0.1, judgeName = 'linear-deck-g4') {
     const { Env, seededRng } = require('../../engine/env');
     const { makeBot } = require('../players');
     const { createMacroBot } = require('./macros');
     const env = new Env();
+    // the judge of --extra-rollouts: the fitted evaluator on each move's settled board, as eval_helper.js scores states
+    const judge = extraRollouts > 0 ? require('../../lab/eval/evaluators').loadEvaluator(judgeName) : null;
+    const HIDDEN = { id: 'hidden', n: 'hidden card', s: null };
+    const withHands = (state) => {
+        const players = {};
+        for (const [s, pl] of Object.entries(state.players)) {
+            players[s] = pl.hand ? pl : { ...pl, hand: Array.from({ length: pl.handCount ?? 0 }, () => HIDDEN) };
+        }
+        return { ...state, players };
+    };
+    /** Best minus worst judged win chance over the moves' settled boards (ended games by their result); null if fewer than 2. */
+    const judgedGap = (br, seat, decks) => {
+        const flat = { p1: decks.p1.deck.flatMap((c) => Array(c.count).fill(c.id)), p2: decks.p2.deck.flatMap((c) => Array(c.count).fill(c.id)) };
+        const v = [];
+        for (const rec of br) {
+            if (rec.over !== null && rec.over !== undefined) {
+                v.push(rec.over === seat ? 1 : rec.over === 'draw' ? 0.5 : 0);
+            } else if (rec.st?.state) {
+                const lg = judge.logit(judge.frame(withHands(rec.st.state), seat, { view: 'subjective', decks: flat, toAct: null }));
+                v.push(1 / (1 + Math.exp(-lg)));
+            }
+        }
+        return v.length > 1 ? Math.max(...v) - Math.min(...v) : null;
+    };
     // --decks FILE: real deck lists; seed s plays deck pair s mod P, seats swapped on odd passes (as the real-deck test deals)
     const { loadDecks, deckPairs } = require('../../engine/decklists');
     const real = decksFile ? loadDecks(decksFile, env).decks : null;
@@ -175,22 +205,37 @@ async function worker(first, count, file, botNames, p, maxBranch, decksFile, mac
                     if (idx.length > maxBranch) {
                         idx = idx.filter((i) => i !== main).sort(() => rng() - 0.5).slice(0, maxBranch - 1).concat([main]).sort((x, y) => x - y);
                     }
-                    const br = [];
-                    for (const i of idx) {
-                        const rec = { i };
-                        try {
-                            eg.game.setRandomSeed(`${seed}:${steps}:${i}`);
-                            const live = eg.refetch(pid, actions[i]);
-                            if (!live) {
-                                throw new Error('move vanished after rollback');
+                    const branchOnce = (tag) => {
+                        const out = [];
+                        for (const i of idx) {
+                            const rec = { i };
+                            try {
+                                eg.game.setRandomSeed(`${seed}:${steps}:${i}${tag}`);
+                                const live = eg.refetch(pid, actions[i]);
+                                if (!live) {
+                                    throw new Error('move vanished after rollback');
+                                }
+                                eg.apply(pid, live, rng);
+                                Object.assign(rec, playOn(eg, pid, makeBots, rng, 400));
+                            } catch (e) {
+                                rec.err = String(e?.message ?? e).split('\n')[0].slice(0, 120);
                             }
-                            eg.apply(pid, live, rng);
-                            Object.assign(rec, playOn(eg, pid, makeBots, rng, 400));
-                        } catch (e) {
-                            rec.err = String(e?.message ?? e).split('\n')[0].slice(0, 120);
+                            eg.restore(pid, mark);
+                            out.push(rec);
                         }
-                        eg.restore(pid, mark);
-                        br.push(rec);
+                        return out;
+                    };
+                    const br = branchOnce('');
+                    // --extra-rollouts R: where the moves' settled boards are far apart under the judge (a pivotal point),
+                    // play every move R more times with fresh engine and bot randomness; each pass is written as one more
+                    // branch record of the same position ("rollout": r), so the training data holds more of these points
+                    let gap = null;
+                    let extra = [];
+                    if (extraRollouts > 0 && judge && br.length > 1) {
+                        gap = judgedGap(br, eg.seatOf(pid), decks);
+                        if (gap !== null && gap >= gapMin) {
+                            extra = Array.from({ length: extraRollouts }, (_, r) => branchOnce(`:x${r + 1}`));
+                        }
                     }
                     let mac;
                     if (macros.length) {
@@ -217,8 +262,9 @@ async function worker(first, count, file, botNames, p, maxBranch, decksFile, mac
                             }
                         }
                     }
-                    write({ t: 'b', seed, ...root, main, br, ...(mac ? { mac } : {}) });
-                    points++;
+                    write({ t: 'b', seed, ...root, main, br, ...(mac ? { mac } : {}), ...(gap !== null ? { gap: Math.round(gap * 1e4) / 1e4 } : {}) });
+                    extra.forEach((x, r) => write({ t: 'b', seed, ...root, main, br: x, rollout: r + 1, gap: Math.round(gap * 1e4) / 1e4 }));
+                    points += 1 + extra.length;
                     a = eg.refetch(pid, actions[main]);
                     if (!a) {
                         throw new Error('main-line move vanished after rollback');
@@ -251,9 +297,13 @@ async function main() {
     const maxBranch = Number(arg('max-branch', 12));
     const macros = arg('macros', '') ? arg('macros').split(',') : [];
     const macroMoves = Number(arg('macro-moves', 4));
+    const extraRollouts = Number(arg('extra-rollouts', 0));
+    const gapMin = Number(arg('gap-min', 0.1));
+    const judgeName = arg('judge', 'linear-deck-g4');
     fs.mkdirSync(out, { recursive: true });
     if (process.argv.includes('--worker')) {
-        await worker(Number(arg('first')), Number(arg('count')), arg('file'), botNames, p, maxBranch, arg('decks', null), macros, macroMoves);
+        await worker(Number(arg('first')), Number(arg('count')), arg('file'), botNames, p, maxBranch, arg('decks', null), macros, macroMoves,
+            extraRollouts, gapMin, judgeName);
         process.exit(0);
     }
     // shards from an earlier run with other seeds or worker counts would be mixed into this one by branch_train.py
@@ -275,7 +325,8 @@ async function main() {
             break;
         }
         const file = path.join(out, `shard-${first}.jsonl.gz`);
-        const args = ['--worker', '--first', String(first), '--count', String(count), '--file', file, '--bots', botNames.join(','), '--p', String(p), '--max-branch', String(maxBranch), '--macros', macros.join(','), '--macro-moves', String(macroMoves), ...(arg('decks', null) ? ['--decks', path.resolve(arg('decks'))] : [])];
+        const args = ['--worker', '--first', String(first), '--count', String(count), '--file', file, '--bots', botNames.join(','), '--p', String(p), '--max-branch', String(maxBranch), '--macros', macros.join(','), '--macro-moves', String(macroMoves),
+            '--extra-rollouts', String(extraRollouts), '--gap-min', String(gapMin), '--judge', judgeName, ...(arg('decks', null) ? ['--decks', path.resolve(arg('decks'))] : [])];
         const proc = fork(__filename, args, { stdio: ['ignore', 'inherit', 'inherit', 'ipc'] });
         proc.on('message', (m) => {
             done += m.done;
