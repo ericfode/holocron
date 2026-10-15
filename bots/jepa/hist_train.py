@@ -5,7 +5,8 @@ all the possible cards, as humans do.)
 python3 hist_train.py --pack data/pack-h.npz --target models/tx-t10.safetensors --out runs/hist [--steps 6000]
 
 The pack comes from data.py --labels on games written by from_replays.js --labels (the opponent's hand is the label).
-Four models of the same size, seed and batches, differing only in what they read at a decision:
+Four models of the same width and depth, seed and batches, differing in what they read at a decision (each tensor is
+drawn from its own seed, so the layers they share start with the same weights):
   base  what tx-t10 reads: the state vector and the card tokens (leaders, bases, both boards, my hand)
   snap  base + both discard piles (public, but no model reads them today)
   pool  snap + the unseen cards of both deck lists, one token per distinct card with the copies left: what my deck
@@ -33,6 +34,7 @@ import math
 import os
 import sys
 import time
+import zlib
 
 import numpy as np
 import torch
@@ -281,9 +283,9 @@ def shapes(variant):
 
 
 def init(variant, seed):
-    g = np.random.default_rng(seed)
     p = {}
     for name, shape in shapes(variant).items():
+        g = np.random.default_rng([seed, zlib.crc32(name.encode())])  # per tensor: shared layers start equal in every variant
         if name in M.EMB_TABLES:
             p[name] = g.normal(0, 0.1, shape)
         elif name.endswith(".g"):
