@@ -613,7 +613,7 @@ features (`features.py`), the transformer's forward pass (`tx_model.py`, float64
 c-clock's resource rule (`resource_policy.py`), the planner with its gate, its follow-up choices and loop guard
 (`jepa_bot.py`), and Python's own random numbers (MT19937, seeded as `random.Random`), so it plays the Python bot's
 moves. The arena's play page runs it in the person's browser next to the referee. Not ported: round tiers, the
-`sim-v` and `sim-eval` scores, `--log`, `--temp` above 0.
+`sim-v` and `sim-eval` scores, `--log`, `--temp` above 0, `--plan reply=1` and several `--plan-model` models.
 
 ```bash
 node bots/jepa/js/main.js --model bots/jepa/models/tx-t10.safetensors ...   # a bot program, jepa_bot.py's options

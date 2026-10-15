@@ -27,6 +27,9 @@ function parseArgs(argv) {
         }
         a[key] = argv[++k];
     }
+    if (String(a.planModel ?? '').includes(',')) {
+        throw new Error('several --plan-model models are not ported');
+    }
     a.mix = Number(a.mix);
     a.temp = Number(a.temp);
     // planner settings k=v,...: secs and gate are numbers, the rest whole numbers (jepa_bot.py main)
