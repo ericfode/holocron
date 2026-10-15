@@ -2,8 +2,13 @@
 
 Eric's questions: feed the model the whole game as moves and train it on how well it represents the situation; and
 "it needs to know about all possible cards, humans do something". `hist_train.py` trains four models of the same
-size on the same batches that differ only in what they read (base: tx-t10's inputs; snap: + both discard piles; pool:
-+ the unseen cards of both deck lists; hist: + the seat's own earlier decisions), and reports on held-out games.
+width and depth on the same batches that differ in what they read (base: tx-t10's inputs; snap: + both discard piles;
+pool: + the unseen cards of both deck lists; hist: + the seat's own earlier decisions), and reports on held-out games.
+
+Two limits on comparing them. These runs used one seed per variant, and in that version of `hist_train.py` the extra
+input layers of snap, pool and hist were drawn from the same random stream before the shared layers, so the shared
+layers also started from different weights (each tensor now has its own seed). And pool's and hist's hand heads add a
+card-counting term to their logits. So small differences between variants here cannot be pinned on the inputs.
 
 **Data** (desktop, `from_replays.js --labels` then `data.py --labels`): 6,176 games, 811,018 decisions, drift 0, 142
 games skipped for no winner. Games: 1,404 tx-s10a-c vs c-clock (pivots-rec-1), 2,808 c-clock mirrors (seeds 20001,
@@ -54,7 +59,7 @@ hist       0.808         0.736         0.448      0.780     8.469        0.294  
    0.863) and reach it four decisions ahead (0.73 against 0.720). Probe-only forecasts better than joint training
    (0.80 against 0.73 at h1): the hand and move heads compete with the forecasts for the latent.
 5. **History** gives the best win accuracy in h1 (0.787 against 0.782) and the best forecasts in h1p (0.808 / 0.736),
-   both within noise of the others at this length.
+   both too small to tell apart from a different starting seed with one run each.
 
 A 20,000-step run of base and hist (`--variants base,hist`) is next, since the forecasts are still below tx-t10 at h1.
 
