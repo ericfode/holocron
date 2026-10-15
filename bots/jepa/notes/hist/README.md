@@ -57,7 +57,8 @@ hist       0.808         0.736         0.448      0.780     8.469        0.294  
    shortcut, not what the latent holds. The next move drops to top-1 0.24.
 4. **Forecasts**: from scratch in 8,000 steps the models stay below tx-t10 one decision ahead (0.73-0.81 against
    0.863) and reach it four decisions ahead (0.73 against 0.720). Probe-only forecasts better than joint training
-   (0.80 against 0.73 at h1): the hand and move heads compete with the forecasts for the latent.
+   (0.80 against 0.73 at h1): the win, hand and move heads (all detached in h1p) compete with the forecasts for the
+   latent; which of them costs most is untested.
 5. **History** gives the best win accuracy in h1 (0.787 against 0.782) and the best forecasts in h1p (0.808 / 0.736),
    both too small to tell apart from a different starting seed with one run each.
 
