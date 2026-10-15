@@ -1,0 +1,16 @@
+On-policy check (desktop, after round 2): each bot played 60 logged games against c-clock on the same fresh deals
+(ladder --seed 3 --key none, 12 workers, code e8339e0), with jepa_bot.py --log at every decision. At each of the
+bot's own action windows the referee's copy plays every legal move to the end of the round and scores it with
+linear-deck-g4 (sim-eval) and with the bot's own value head (sim-v). Regret = judged win chance lost by the bot's
+own pick against the judge's best move; blunder = regret above 5 points. Intervals: bootstrap over the 12 bot
+processes (about 5 games each), so rough. onpolicy-pooled.json is oracle_report.py over all three logs together.
+
+bot         record  windows  regret (pts)       blunders            picks judge's best (chance)   median regret
+jepa-h1r    11-48   2,044    3.93 [3.22, 4.59]  22.9% [19.1, 26.5]  0.374 [0.339, 0.410] (0.354)  0.88
+tx-g1-m0     6-52   1,662    3.49 [3.06, 3.97]  20.8% [19.1, 22.7]  0.438 [0.410, 0.466] (0.409)  0.27
+tx-s10a-c   16-43   1,637    3.87 [3.29, 4.41]  22.1% [19.2, 25.2]  0.501 [0.461, 0.542] (0.411)  0.00
+
+Judged by each bot's own value head (sim-v): regret 3.86 / 3.87 / 4.28, blunders 23.9 / 20.2 / 20.6%.
+Not judged: prompts outside action windows have no simulations (about 45% of logged decisions: targets and
+options 1,796 / 1,450 / 1,444, optional triggers 61 / 66 / 82, trigger windows 36 / 37 / 46, initiative 30 each).
+Resource prompts go to resource-v1 and are not logged.

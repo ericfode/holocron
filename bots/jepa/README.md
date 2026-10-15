@@ -440,7 +440,7 @@ settled horizon (hs) on the test set (chance 0.401). Data: 10 parts of 3,000 gam
 
 Training on the RTX 4090: tx-s10 29 min, tx-s10a 37 min, pool-10 19 min (30,000 steps each). Held-out
 moves_explained h1 / h4 / settled: tx-s10 0.858 / 0.548 / 0.757, tx-s10a 0.845 / 0.506 / 0.784. The full table of 41
-game tests is in the desktop's run notes.
+game tests and the logs behind this section are in `notes/round2/`.
 
 - **The first no-simulator JEPA bot clearly above v1.** jepa-tx won 128 games jepa-h1r lost and lost 33 it won.
   The simulating planners are still stronger (jepa-plan-r 38.3%, jepa-plan-reval 48.8%).
@@ -454,3 +454,12 @@ game tests is in the desktop's run notes.
   judge improves. In play it is +2.3 points over tx-s10-a [-1.2, +5.8], within noise, and with it the evaluator head
   belongs at action windows only (-e everywhere: 23.0%).
 - The evaluator head on the NEXT decision is a disaster (v1-e mix 0: 0.1%): it rates half-moves as if settled.
+
+**On-policy check** (`notes/round2/onpolicy.txt`): 60 logged games each against c-clock, and at every one of the
+bot's own action windows the referee's copy plays each legal move to the end of the round for linear-deck-g4 to judge.
+jepa-tx picks the judge's best move at 50% of its windows (chance 41%), v1 at 37% (chance 35%). Mean regret is the
+same for all three bots tested (3.5-3.9 points, blunders 21-23%), far above the 0.6 points on the test set. Likely
+cause: this judge scores one rush-style playout per move to the end of the round, so it is noisy, and the best of
+several noisy scores sits above the truth; regret then measures the judge's noise as much as the bot. jepa-tx's misses are rarer but no
+smaller. Prompts outside action windows (about 45% of decisions: targets, options, triggers) have no simulations and
+are not judged.

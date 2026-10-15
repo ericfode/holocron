@@ -1,0 +1,33 @@
+FIT jepa-v1 rc=0: own value head: {'move_top1': 0.3876, 'line_top1': 0.3168, 'ce': 2.3773, 'n': 1414, 'same_as_eval': 0.5509} evaluator copy (best at step 2500): {'move_top1': 0.4448, 'line_top1': 0.3953, 'ce': 2.316, 'n': 1414, 'same_as_eval': 0.7355} 
+YS jepa-v1 rc=0
+h1: top-1 0.551 (chance 0.478) median rho 0.30 spread imagined 2.6 / real 1.9 pts (6231 points)
+h1_vs_settled: top-1 0.477 (chance 0.401) median rho 0.24 spread imagined 2.6 / real 1.9 pts (6231 points)
+h4: top-1 0.407 (chance 0.412) median rho 0.19 spread imagined 2.5 / real 3.7 pts (6231 points)
+h4_vs_settled: top-1 0.475 (chance 0.401) median rho 0.20 spread imagined 2.5 / real 1.9 pts (6231 points)
+YS jepa-v1-e rc=0
+h1: top-1 0.398 (chance 0.478) median rho -0.40 spread imagined 5.1 / real 1.9 pts (6231 points)
+h1_vs_settled: top-1 0.298 (chance 0.401) median rho -0.50 spread imagined 5.1 / real 1.9 pts (6231 points)
+h4: top-1 0.501 (chance 0.412) median rho 0.43 spread imagined 3.1 / real 3.7 pts (6231 points)
+h4_vs_settled: top-1 0.605 (chance 0.401) median rho 0.50 spread imagined 3.1 / real 1.9 pts (6231 points)
+FIT tx-g1 rc=0: own value head: {'move_top1': 0.4795, 'line_top1': 0.4038, 'ce': 2.287, 'n': 1414, 'same_as_eval': 0.5736} evaluator copy (best at step 3750): {'move_top1': 0.4689, 'line_top1': 0.4102, 'ce': 2.3192, 'n': 1414, 'same_as_eval': 0.773} 
+YS tx-g1 rc=0
+h1: top-1 0.621 (chance 0.478) median rho 0.60 spread imagined 2.3 / real 1.9 pts (6231 points)
+h1_vs_settled: top-1 0.557 (chance 0.401) median rho 0.50 spread imagined 2.3 / real 1.9 pts (6231 points)
+h4: top-1 0.544 (chance 0.412) median rho 0.50 spread imagined 2.3 / real 3.7 pts (6231 points)
+h4_vs_settled: top-1 0.606 (chance 0.401) median rho 0.57 spread imagined 2.3 / real 1.9 pts (6231 points)
+YS tx-g1-e rc=0
+h1: top-1 0.690 (chance 0.478) median rho 0.50 spread imagined 2.7 / real 1.9 pts (6231 points)
+h1_vs_settled: top-1 0.547 (chance 0.401) median rho 0.50 spread imagined 2.7 / real 1.9 pts (6231 points)
+h4: top-1 0.579 (chance 0.412) median rho 0.60 spread imagined 3.1 / real 3.7 pts (6231 points)
+h4_vs_settled: top-1 0.661 (chance 0.401) median rho 0.60 spread imagined 3.1 / real 1.9 pts (6231 points)
+FIT pool-g1 rc=0: own value head: {'move_top1': 0.4795, 'line_top1': 0.4102, 'ce': 2.3, 'n': 1414, 'same_as_eval': 0.5156} evaluator copy (best at step 750): {'move_top1': 0.4837, 'line_top1': 0.4286, 'ce': 2.3135, 'n': 1414, 'same_as_eval': 0.7815} 
+YS pool-g1 rc=0
+h1: top-1 0.638 (chance 0.478) median rho 0.54 spread imagined 3.2 / real 1.9 pts (6231 points)
+h1_vs_settled: top-1 0.570 (chance 0.401) median rho 0.50 spread imagined 3.2 / real 1.9 pts (6231 points)
+h4: top-1 0.568 (chance 0.412) median rho 0.54 spread imagined 2.8 / real 3.7 pts (6231 points)
+h4_vs_settled: top-1 0.614 (chance 0.401) median rho 0.60 spread imagined 2.8 / real 1.9 pts (6231 points)
+YS pool-g1-e rc=0
+h1: top-1 0.727 (chance 0.478) median rho 0.70 spread imagined 3.6 / real 1.9 pts (6231 points)
+h1_vs_settled: top-1 0.587 (chance 0.401) median rho 0.65 spread imagined 3.6 / real 1.9 pts (6231 points)
+h4: top-1 0.610 (chance 0.412) median rho 0.69 spread imagined 3.6 / real 3.7 pts (6231 points)
+h4_vs_settled: top-1 0.625 (chance 0.401) median rho 0.70 spread imagined 3.6 / real 1.9 pts (6231 points)
