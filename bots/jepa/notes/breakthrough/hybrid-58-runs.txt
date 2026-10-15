@@ -111,3 +111,16 @@ planned 10083/15689 windows (64.3%), 13.6 lines and 0.40 s per planned window
 paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
   tx-t10-g04-rc-fs-pv-wide 688 paired games: 59.0 vs 58.7 -> +0.3 pts [-0.3, +0.9]; only tx-t10-g04-rc-fs-pv-wide won 3, only tx-t10-g04-rc-fs-pv won 1, sign test p=0.625
 WIDE_DONE
+PLANDATA in 110s: 14 logs, 6318 games (6231 with a winner), 92094 planned windows, 91469 judged boards -> data/plan/pd1-judge.npz, data/plan/pd1-policy.npz
+JUDGE rc=0: held-out win: the model's own head BCE 0.4940 acc 0.746; refit BCE 0.4745 acc 0.760 (step 200) -> runs/tx-t10-sb.safetensors in 37s
+POLICY rc=0: held-out 9412 windows of 622 games: agreement with the planner: imagined best 0.556 (recomputed 0.556), policy head 0.642 (CE 0.939 at step 2750); planner value lost: imagined 2.19 pts, policy 1.45 pts (100% of windows judged both)
+STEP23_READY
+S23 tx-t10-fs-rc-pol rc=0: tx-t10-fs-rc-pol                 692  28.8 [25.5, 32.2]         -158 | no mirror run
+S23 tx-t10-g04-rc-fs-psb rc=0: tx-t10-g04-rc-fs-psb             689  60.5 [56.8, 64.1]          +74 | no mirror run
+S23 tx-t10-g04-rc-fs-pv-pol rc=0: tx-t10-g04-rc-fs-pv-pol          689  50.9 [47.2, 54.7]           +7 | no mirror run
+paired vs tx-t10-fs-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-fs-rc-pol 688 paired games: 28.9 vs 34.4 -> -5.5 pts [-8.7, -2.5]; only tx-t10-fs-rc-pol won 41, only tx-t10-fs-rc won 79, sign test p=0.001
+paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc-fs-psb 685 paired games: 60.3 vs 58.7 -> +1.6 pts [-1.5, +4.7]; only tx-t10-g04-rc-fs-psb won 69, only tx-t10-g04-rc-fs-pv won 58, sign test p=0.375
+  tx-t10-g04-rc-fs-pv-pol 686 paired games: 50.7 vs 58.9 -> -8.2 pts [-11.0, -5.4]; only tx-t10-g04-rc-fs-pv-pol won 28, only tx-t10-g04-rc-fs-pv won 84, sign test p=0.000
+S23_DONE

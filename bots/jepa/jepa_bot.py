@@ -585,7 +585,9 @@ class JepaPlayer:
             elif self.score != "imagined":
                 score = real[self.score]
             t["real"] = real
-        if self.policy is not None and window and best is None and t.get("zs") is not None and (self.policy_at == "all" or gated):
+        above = float(np.max(t["score"]) - np.min(t["score"])) >= self.plan_cfg.get("gate", 0.0)
+        if self.policy is not None and window and best is None and t.get("zs") is not None and (
+                self.policy_at == "all" or (self.policy_at == "gated" and gated) or (self.policy_at == "above" and above)):
             score = self.policy_score(t)
         # loop guard: if this exact observation keeps coming back, stop repeating the same pick
         key = hash(json.dumps([msg.get("prompt"), msg.get("state"), [x.get("label") for x in msg["actions"]]], sort_keys=True))
@@ -687,7 +689,8 @@ def main():
     ap.add_argument("--window-horizon", choices=["1", "s"], default="1",
                     help="imagined score at action windows: the mover's next decision (1, with --mix) or where the move settles (s)")
     ap.add_argument("--policy", default=None, help="a policy head (policy_train.py) for the action windows the planner does not plan")
-    ap.add_argument("--policy-at", choices=["all", "gated"], default="all", help="all windows not planned, or only those below the gate")
+    ap.add_argument("--policy-at", choices=["all", "gated", "above"], default="all",
+                    help="all windows not planned, only those below the gate, or only those at or above it (the kind the policy was trained on)")
     ap.add_argument("--plan-log", default=None, help="append every planned window and each game's result here (gzip JSON lines)")
     ap.add_argument("--follow-horizon", choices=["1", "s"], default="1",
                     help="other prompts of the action phase (targets, costs, triggers): the next decision (1) or, with the window model, "

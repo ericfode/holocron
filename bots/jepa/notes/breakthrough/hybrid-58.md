@@ -112,3 +112,25 @@ no-simulator bot worse and leaves the hybrid alone. Closed for this model.
 
 **Planner breadth**: roots 32 and follow 10 (16 and 6 by default) changed 4 of 688 games: 59.0%, +0.3 [-0.3, +0.9].
 Planned windows use 13.6 lines and 0.40 s on average, far under the caps (150 lines, 5 s); breadth is not a lever.
+
+## Planner data, a settled-board judge and a policy head (coordinator's steps 1-3)
+
+**Data**: the 58.7% bot with `--plan-log` against c-clock on new deals (ladder seed 50001, no key): 6,318 games in 59
+minutes, won 60.5% (3,769-2,462). `plan_data.py`: 6,231 decided games, 92,094 planned windows, 91,469 judged boards.
+
+**Judge** (`fit_value.py` on the picked move's best judged board, label = game won; tx-t10-sb): held-out BCE 0.494 ->
+0.4745, accuracy 0.746 -> 0.760. As `--plan-model`: 60.5%, +1.6 [-1.5, +4.7] vs the 58.7% bot (p=0.38).
+
+**Policy head** (`policy_train.py`, frozen tx-t10-e, per candidate [z, zs, zs-z, v] -> 128 -> 1, softmax over up to 24
+candidates; pol-1): held-out agreement with the planner 0.556 (imagined best) -> 0.642; the planner's own value lost by
+the pick 2.19 -> 1.45 pts. In play:
+
+| bot | won | paired |
+|---|---|---|
+| no simulator, the policy at every window (`--policy-at all`) | 28.8% | -5.5 [-8.7, -2.5] vs tx-t10-fs-rc |
+| no simulator, the policy only where the imagined spread is 0.04+ (`--policy-at above`) | 34.0% | -0.3 [-3.1, +2.5] |
+| hybrid, the policy at the windows below the gate (`--policy-at gated`) | 50.9% | -8.2 [-11.0, -5.4] vs the 58.7% bot |
+
+Copying the planner's pick better offline does not win games: outside the windows it was trained on it hurts, inside
+them it is neutral. The planner's value is the move together with its planned follow-ups; a move-only policy gets none
+of the follow-ups.
