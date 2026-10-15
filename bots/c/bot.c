@@ -670,6 +670,32 @@ typedef struct {
     double v;
 } Play;
 
+/* The knapsack: the set of the first m plays worth the most that fits in budget, as a bit mask. With noEvents, a set
+   holding an event does not count (--spare reserves resources for units and upgrades only). */
+static unsigned best_set(const Play *plays, int m, int budget, int noEvents) {
+    double best = 0;
+    unsigned bestMask = 0;
+    for (unsigned mask = 1; mask < (1u << m); mask++) {
+        int cost = 0;
+        double v = 0;
+        for (int k = 0; k < m; k++) {
+            if (mask & (1u << k)) {
+                if (noEvents && plays[k].c && (plays[k].c->types & T_EVENT)) {
+                    cost = budget + 1;
+                    break;
+                }
+                cost += plays[k].cost;
+                v += plays[k].v;
+            }
+        }
+        if (cost <= budget && v > best) {
+            best = v;
+            bestMask = mask;
+        }
+    }
+    return bestMask;
+}
+
 static const Act *choose_window(State *st, const Act *acts, int n) {
     Plan pl = make_plan(st);
     const Act *pass = find_button(acts, n, "pass");
@@ -785,22 +811,7 @@ static const Act *choose_window(State *st, const Act *acts, int n) {
     /* knapsack over ready resources: which hand cards to play this round */
     int chosen[MAXC] = { 0 };
     int m = imin(nplay, 16);
-    double bestSet = 0;
-    unsigned bestMask = 0;
-    for (unsigned mask = 1; mask < (1u << m); mask++) {
-        int cost = 0;
-        double v = 0;
-        for (int k = 0; k < m; k++) {
-            if (mask & (1u << k)) {
-                cost += plays[k].cost;
-                v += plays[k].v;
-            }
-        }
-        if (cost <= me->resReady && v > bestSet) {
-            bestSet = v;
-            bestMask = mask;
-        }
-    }
+    unsigned bestMask = best_set(plays, m, me->resReady, 0);
     for (int k = 0; k < m; k++) {
         chosen[k] = (bestMask >> k) & 1;
     }
@@ -815,9 +826,13 @@ static const Act *choose_window(State *st, const Act *acts, int n) {
             onAtk |= on_attacks(atkU[k]) > 0;
         }
         int spare = me->resReady;
-        for (int k = 0; spareFix && k < m; k++) {
-            if (chosen[k] && plays[k].c && !(plays[k].c->types & T_EVENT)) {
-                spare -= plays[k].cost; /* the units and upgrades this round's hand plays need */
+        if (spareFix) {
+            /* what the best units and upgrades for this round need, chosen without the events */
+            unsigned keep = best_set(plays, m, me->resReady, 1);
+            for (int k = 0; k < m; k++) {
+                if (keep & (1u << k)) {
+                    spare -= plays[k].cost;
+                }
             }
         }
         for (int k = 0; bestA > 0.2 && k < nplay; k++) {
