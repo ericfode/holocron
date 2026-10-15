@@ -606,6 +606,31 @@ a value head trained on who won is. Later tries did not beat the 58.7% bot: that
 (`--plan reply=1`), the mean of both heads as the judge (`--plan-model a,b`: 60.0% on the test deals, 60.9% on the
 fresh ones), and tx-o1 (own positions, no ranking loss). `notes/breakthrough/hybrid-58.md` has the numbers.
 
+## jepa-tx-gate in JavaScript (js/)
+
+`js/jepa.js` is jepa-tx-gate's player in plain JavaScript with no Node built-ins, so a browser runs it as is: the
+features (`features.py`), the transformer's forward pass (`tx_model.py`, float64 arithmetic on the float32 weights),
+c-clock's resource rule (`resource_policy.py`), the planner with its gate, its follow-up choices and loop guard
+(`jepa_bot.py`), and Python's own random numbers (MT19937, seeded as `random.Random`), so it plays the Python bot's
+moves. The arena's play page runs it in the person's browser next to the referee. Not ported: round tiers, the
+`sim-v` and `sim-eval` scores, `--log`, `--temp` above 0, `--plan reply=1` and several `--plan-model` models.
+
+```bash
+node bots/jepa/js/main.js --model bots/jepa/models/tx-t10.safetensors ...   # a bot program, jepa_bot.py's options
+npm run ladder -- --bots jepa-tx-gate-js,c-clock --games 2                    # it is in bots/external-bots.json
+node bots/jepa/js/parity.js features --games 8    # every decision: features, imagined scores, resource choices
+node bots/jepa/js/parity.js games --games 4       # whole games, both bots answering every decision
+```
+
+`parity.js games` has both bots answer every decision of real-deck games with the same simulations (no time limit,
+so both plan the same lines) and plays the Python bot's move. On 7 games (880 decisions) the picks were the same
+869 times; the other 11 were ties, moves with exactly equal scores (two copies of one card, or two moves whose lines
+settle on the same board), where numpy's sort picks one in an order that depends on the computer's sort
+instructions. On 9 games (1,055 decisions) `parity.js features` found the same features to the bit and scores within
+5e-7. Against rush on the same two games, the JavaScript bot played the same 103 and 176 moves as the Python bot and
+thought for 8.8 s and 8.1 s a game (Python: 6.2 s and 5.5 s); its planner stops at 150 lines or 5 s a window, and
+neither limit was reached. `bots/test/jepa-js.test.js` runs the features check on one game when numpy is installed.
+
 ## Deck lists, discards and game history (hist_train.py)
 
 Eric's question: should the model know every card, and the game so far, the way people do? `hist_train.py` compares a
