@@ -26,6 +26,8 @@ follow-up choices (targets, cards, options: the best few by the imagined score, 
 the move has settled (anyone's next action window, the end of the action phase, or the end of the game), and score
 that real position with the value head. The best line's follow-up choices are then replayed at the real follow-up
 prompts while they match; every other decision (resource prompts, the opponent's turn) uses the imagined score.
+--plan gate=0.1 plans only the high-stakes windows, where the imagined scores of the moves spread at least 10 points;
+the others play the imagined best move (a hybrid of the no-simulator bot and the planner).
 
 Round tiers (--tiers s=1,r=1,r2=1 with a tiered transformer JEPA, tier_prep.py): at an action window each move is
 also imagined with each macro action (macros.js: a style for the rest of the round) to the end of this round's action
@@ -489,7 +491,11 @@ class JepaPlayer:
             if window:
                 self.plan = []
                 self.stats["windows"] += 1
-                if sim is not None and msg.get("sim"):
+                # gate: plan only where the imagined moves are far apart (a high-stakes window), else trust the imagination
+                gated = float(score.max() - score.min()) < self.plan_cfg.get("gate", 0.0)
+                if gated:
+                    self.stats["gated"] = self.stats.get("gated", 0) + 1
+                elif sim is not None and msg.get("sim"):
                     planned = self.plan_moves(msg, sim, score)
                     if planned is None:
                         self.fallbacks += 1
@@ -595,7 +601,8 @@ def main():
     ap.add_argument("--score", choices=["imagined", "sim-v", "sim-eval", "plan"], default="imagined",
                     help="what ranks the moves: the imagined next latent (the bot), the real next position from a simulation, "
                          "or the planner (whole moves with their follow-up choices, simulated)")
-    ap.add_argument("--plan", default="", help="planner settings as k=v,... (roots, follow, follow2, depth, lines, secs, floor)")
+    ap.add_argument("--plan", default="", help="planner settings as k=v,... (roots, follow, follow2, depth, lines, secs, floor, gate: plan "
+                                                 "only windows whose imagined scores spread at least this much, e.g. 0.1 = 10 points)")
     ap.add_argument("--resource", default=None, help="answer resource prompts with this model (bots/jepa/resource_policy.py)")
     ap.add_argument("--plan-scorer", choices=["v", "eval"], default="v",
                     help="what scores the planner's settled positions: the value head, or the --evaluator (a yardstick)")
@@ -618,7 +625,7 @@ def main():
     helper = EvalHelper(a.evaluator) if (a.score == "sim-eval" or logf or (a.score == "plan" and a.plan_scorer == "eval")) else None
     plan = {k: float(v) for k, v in (kv.split("=") for kv in a.plan.split(",") if kv)}
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
-                        plan={**{k: (v if k == "secs" else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
+                        plan={**{k: (v if k in ("secs", "gate") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin
@@ -654,7 +661,7 @@ def main():
                 log(f"macros picked at rounds' first windows: {player.stats['macros']}")
             if player.score == "plan" and player.stats.get("windows"):
                 st = player.stats
-                log(f"plan: {st['planned']}/{st['windows']} windows planned, {st['lines'] / max(st['planned'], 1):.1f} lines and "
+                log(f"plan: {st['planned']}/{st['windows']} windows planned ({st.get('gated', 0)} below the gate), {st['lines'] / max(st['planned'], 1):.1f} lines and "
                     f"{st['secs'] / max(st['planned'], 1):.2f} s each, {st['failed']} failed lines {st.get('fails') or ''}; follow-ups {st['followed']} from the plan, "
                     f"{st['unplanned']} unplanned {st.get('why')}, {st['dropped']} plans dropped")
             out = {"t": "ok"}

@@ -1,0 +1,11 @@
+code copied: 11 macro lines in branches.js, bots/jepa/macros.js bots/jepa/tier_prep.py 
+TIER_GEN 0 rc=0 in 3442s: wrote /home/ericf/holocron/data/branch/tier-0 in 3441s: 29745 branch points {"won":1993,"ERROR":7}
+TIER_PACKED 0: 29733 tier points, 97991 moves x 3 macros: 260873 round-end and 185740 next-round-end boards, 108025 lines that end the game first -> data/jepa/tier-0.npz
+TIER_GEN 1 rc=0 in 3486s: wrote /home/ericf/holocron/data/branch/tier-1 in 3486s: 29509 branch points {"won":1997,"ERROR":3}
+TIER_PACKED 1: 29505 tier points, 96962 moves x 3 macros: 256825 round-end and 182898 next-round-end boards, 107848 lines that end the game first -> data/jepa/tier-1.npz
+TIER_GEN 2 rc=0 in 3457s: wrote /home/ericf/holocron/data/branch/tier-2 in 3457s: 29317 branch points {"won":1997,"ERROR":3}
+TIER_STOP after part 2 (parts too slow)
+TIER_PACKED 2: 29307 tier points, 96256 moves x 3 macros: 255873 round-end and 181723 next-round-end boards, 106856 lines that end the game first -> data/jepa/tier-2.npz
+TIER_GEN test rc=0 in 815s: wrote /home/ericf/holocron/data/branch/tier-test in 815s: 7116 branch points {"won":497,"ERROR":3}
+TIER_TEST_READY: 7108 tier points, 23461 moves x 3 macros: 62188 round-end and 44070 next-round-end boards, 26227 lines that end the game first, judged by linear-deck-g4 -> data/tier-test.npz
+TIER_DATA_DONE
