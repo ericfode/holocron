@@ -1,0 +1,35 @@
+OTEST tx-o1d-va rc=0 in 1 min: tx-o1d-va                        689  20.0 [17.2, 23.2]         -241 | no mirror run
+OTEST tx-o1d-g04-rc rc=0 in 9 min: tx-o1d-g04-rc                    683  47.4 [43.7, 51.2]          -18 | no mirror run
+planned 6974/16264 windows (42.9%)
+paired vs tx-t10-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-o1d-va      686 paired games: 20.0 vs 31.0 -> -11.1 pts [-14.6, -7.6]; only tx-o1d-va won 44, only tx-t10-va won 120, sign test p=0.000
+paired vs tx-t10-g04-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-o1d-g04-rc  678 paired games: 47.3 vs 55.0 -> -7.7 pts [-11.5, -3.8]; only tx-o1d-g04-rc won 70, only tx-t10-g04-rc won 122, sign test p=0.000
+OTESTS_DONE tx-o1d
+FS2 tx-t10-fs-rc rc=0: tx-t10-fs-rc                     689  34.4 [30.9, 38.0]         -112 | no mirror run
+FS2 tx-t10-g04-rc-fs rc=0: tx-t10-g04-rc-fs                 686  56.3 [52.5, 59.9]          +44 | no mirror run
+paired vs tx-t10-fs (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-fs-rc   688 paired games: 34.4 vs 34.4 -> +0.0 pts [-2.5, +2.5]; only tx-t10-fs-rc won 36, only tx-t10-fs won 36, sign test p=1.000
+paired vs tx-t10-g04-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc-fs 681 paired games: 56.4 vs 55.1 -> +1.3 pts [-1.3, +3.9]; only tx-t10-g04-rc-fs won 48, only tx-t10-g04-rc won 39, sign test p=0.391
+FS2_DONE
+PV tx-t10-g04-rc-fs-pv rc=0: tx-t10-g04-rc-fs-pv              688  58.7 [55.0, 62.3]          +61 | no mirror run
+paired vs tx-t10-g04-rc-fs (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc-fs-pv 681 paired games: 58.6 vs 56.2 -> +2.3 pts [-0.9, +5.7]; only tx-t10-g04-rc-fs-pv won 77, only tx-t10-g04-rc-fs won 61, sign test p=0.201
+paired vs tx-t10-g04 (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc  680 paired games: 54.9 vs 51.2 -> +3.7 pts [+0.9, +6.5]; only tx-t10-g04-rc won 65, only tx-t10-g04 won 40, sign test p=0.019
+  tx-t10-g04-rc-fs 682 paired games: 56.3 vs 51.2 -> +5.1 pts [+1.9, +8.2]; only tx-t10-g04-rc-fs won 82, only tx-t10-g04 won 47, sign test p=0.003
+  tx-t10-g04-rc-fs-pv 678 paired games: 58.6 vs 50.9 -> +7.7 pts [+4.2, +11.1]; only tx-t10-g04-rc-fs-pv won 104, only tx-t10-g04 won 52, sign test p=0.000
+PV_DONE
+paired vs tx-t10-g04-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc-fs 681 paired games: 56.4 vs 55.1 -> +1.3 pts [-1.3, +3.9]; only tx-t10-g04-rc-fs won 48, only tx-t10-g04-rc won 39, sign test p=0.391
+  tx-t10-g04-rc-fs-pv 680 paired games: 58.5 vs 54.9 -> +3.7 pts [+0.3, +7.1]; only tx-t10-g04-rc-fs-pv won 88, only tx-t10-g04-rc won 63, sign test p=0.050
+paired vs tx-t10-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-fs      688 paired games: 34.4 vs 31.1 -> +3.3 pts [+0.3, +6.4]; only tx-t10-fs won 61, only tx-t10-va won 38, sign test p=0.027
+  tx-t10-fs-rc   687 paired games: 34.4 vs 31.1 -> +3.2 pts [+0.1, +6.4]; only tx-t10-fs-rc won 68, only tx-t10-va won 46, sign test p=0.049
+  tx-t10-va-rc   688 paired games: 30.4 vs 31.2 -> -0.9 pts [-3.3, +1.6]; only tx-t10-va-rc won 34, only tx-t10-va won 40, sign test p=0.561
+OWNREC tx-t10-va rc=0 c-clock        BT  1567  Elo  1531  236-109-0  incomplete 7  forfeits 0  68% tx-t10-va      BT  1433  Elo  1469  109-236-0  incomplete 7  forfeits 0  32% 
+OWNBR tx-t10-va rc=0 wrote /home/ericf/op/branch/own-tx-t10-va in 306s from 352 games: 4728 branch points {"won":352}
+OWNREC tx-o1d-va rc=0 c-clock        BT  1604  Elo  1532  267-80-0  incomplete 5  forfeits 0  77% tx-o1d-va      BT  1396  Elo  1468  80-267-0  incomplete 5  forfeits 0  23% 
+OWNBR tx-o1d-va rc=0 wrote /home/ericf/op/branch/own-tx-o1d-va in 252s from 352 games: 4350 branch points {"won":352}
+OWN_DONE
