@@ -1,5 +1,6 @@
 {
   "name": "holocron",
+  "license": "MIT",
   "private": true,
   "description": "Bots and research for the SWU Arena: every bot, the evaluators and learning code, deck building, analysis, and the Karabast player",
   "engines": {
