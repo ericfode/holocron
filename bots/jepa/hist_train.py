@@ -241,7 +241,8 @@ def score(rows, z1=None, z4=None, vlogit=None, logit_h=None, logp_m=None):
         n = y.sum(1).astype(np.int64)
         has = n > 0
         top = np.argsort(-logit_h[has], 1)
-        hits = [y[has][i, top[i, :n[has][i]]].sum() / n[has][i] for i in range(has.sum())]
+        yh, nh = y[has], n[has]  # once: indexing inside the loop copied the whole array for every row
+        hits = [yh[i, top[i, :nh[i]]].sum() / nh[i] for i in range(len(nh))]
         out["hand_recall"] = float(np.mean(hits)) if hits else float("nan")
     if logp_m is not None:
         ok = oaid[rows] >= 0
