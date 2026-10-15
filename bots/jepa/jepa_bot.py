@@ -26,6 +26,12 @@ follow-up choices (targets, cards, options: the best few by the imagined score, 
 the move has settled (anyone's next action window, the end of the action phase, or the end of the game), and score
 that real position with the value head. The best line's follow-up choices are then replayed at the real follow-up
 prompts while they match; every other decision (resource prompts, the opponent's turn) uses the imagined score.
+
+Round tiers (--tiers s=1,r=1,r2=1 with a tiered transformer JEPA, tier_prep.py): at an action window each move is
+also imagined with each macro action (macros.js: a style for the rest of the round) to the end of this round's action
+phase (r) and of the next round's (r2). A move is worth the weighted mean of its settled score (s) and its best
+macro's round scores: max over macros of (w_r V(ẑ_r:macro) + w_r2 V(ẑ_r2:macro)). --commit-macro keeps the macro of the
+round's first pick for the rest of that round, so later windows choose moves for the same plan.
 """
 import argparse
 import json
@@ -70,7 +76,7 @@ WAIT_PROMPT = {"type": "actionWindow", "actionWindow": True, "selectCardMode": N
 
 class JepaPlayer:
     def __init__(self, model_path, db, mix=0.5, temp=0.0, seed=0, score="imagined", evaluator=None, deals=1, log=None, judge="round", window_model=None,
-                 plan=None, resource=None, plan_model=None, window_horizon="1"):
+                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
         self.plan_net = X.load(plan_model)[0] if plan_model else self.net
@@ -96,6 +102,13 @@ class JepaPlayer:
         self.resource = R.ResourcePolicy(resource) if resource else None  # resource prompts copied from strong bots
         # "s": at action windows, score each move by where it is imagined to settle (a transformer JEPA trained with --settle)
         self.window_horizon = window_horizon
+        # round tiers at action windows: weights of s, r, r2 (a tiered model), and whether to keep one macro per round
+        self.tiers = tiers or {}
+        self.commit_macro = commit_macro
+        wn = self.window_net if self.window_net is not None else self.net
+        if self.tiers and not getattr(wn, "macros", None):
+            log(f"--tiers ignored: {window_model or model_path} has no round tiers")
+            self.tiers = {}
         self.new_game(seed)
 
     def new_game(self, seed, hello=None):
@@ -103,7 +116,10 @@ class JepaPlayer:
         self.seen = {}
         self.decks = None
         self.plan = []
-        self.stats = {"windows": 0, "planned": 0, "lines": 0, "leaves": 0, "failed": 0, "secs": 0.0, "followed": 0, "unplanned": 0, "dropped": 0}
+        self.macro = None  # (round, macro index) kept by --commit-macro
+        self.round_seen = None
+        self.stats = {"windows": 0, "planned": 0, "lines": 0, "leaves": 0, "failed": 0, "secs": 0.0, "followed": 0, "unplanned": 0, "dropped": 0,
+                      "macros": {}}
         if hello and hello.get("deck") and hello.get("opponent"):
             you = hello.get("you", "p1")
             them = "p2" if you == "p1" else "p1"
@@ -124,9 +140,29 @@ class JepaPlayer:
         v1 = M.sigmoid(net.value(z1))
         v4 = M.sigmoid(net.value(z4))
         score = (1 - self.mix) * v1 + self.mix * v4
-        if self.window_horizon == "s" and "s" in getattr(net, "horizons", ()) and (msg.get("prompt") or {}).get("actionWindow"):
+        window = bool((msg.get("prompt") or {}).get("actionWindow"))
+        if self.window_horizon == "s" and "s" in getattr(net, "horizons", ()) and window:
             score = M.sigmoid(net.value(net.predict(z, a, "s")))
-        return {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0])}
+        out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0])}
+        if self.tiers and window:
+            out["score"], out["combo"] = self.tier_score(net, z, a, (msg.get("state") or {}).get("round"))
+        return out
+
+    def tier_score(self, net, z, a, rnd):
+        """Each move's score from its settled board and its best (or committed) macro's round ends; and the
+        per-macro round score [n, macros] that --commit-macro picks from."""
+        val = lambda h: M.sigmoid(net.value(net.predict(z, a, h)))
+        ws, wr = self.tiers.get("s", 0.0), {t: self.tiers.get(t, 0.0) for t in ("r", "r2")}
+        combo = sum(w * np.stack([val(f"{t}:{c}") for c in net.macros], 1) for t, w in wr.items() if w)
+        if self.commit_macro and self.macro is not None and self.macro[0] == rnd:
+            tier = combo[:, self.macro[1]]
+        else:
+            tier = combo.max(1)
+        base = ws * val("s") if ws and "s" in net.horizons else 0.0
+        return (base + tier) / (ws + sum(wr.values())), combo
+
+    def net_macros(self):
+        return (self.window_net if self.window_net is not None else self.net).macros
 
     def rush_move(self, r, target, seen):
         """A move inside a simulation for the seat to act, played like bots/players/rush.js (the training data's main
@@ -493,6 +529,15 @@ class JepaPlayer:
         tried.append(pick)
         if best is not None:
             self.plan = list(best.get(pick) or [])
+        rnd = (msg.get("state") or {}).get("round")
+        if t.get("combo") is not None and self.round_seen != rnd:
+            # the round's first window: the macro of the picked move's best line is the round's plan
+            self.round_seen = rnd
+            c = int(np.argmax(t["combo"][pick]))
+            if self.commit_macro:
+                self.macro = (rnd, c)
+            name = self.net_macros()[c]
+            self.stats["macros"][name] = self.stats["macros"].get(name, 0) + 1
         if self.log is not None:
             real = t.get("real")
             rec = {"seq": msg.get("seq"), "round": (msg.get("state") or {}).get("round"), "n": n, "pick": pick, "score": self.score,
@@ -563,6 +608,8 @@ def main():
     ap.add_argument("--window-horizon", choices=["1", "s"], default="1",
                     help="imagined score at action windows: the mover's next decision (1, with --mix) or where the move settles (s)")
     ap.add_argument("--log", default=None, help="append every decision's imagined and simulated scores here (JSON lines)")
+    ap.add_argument("--tiers", default="", help="round tiers at action windows as weights s=1,r=1,r2=1 (a tiered model)")
+    ap.add_argument("--commit-macro", action="store_true", help="keep the macro of a round's first window for the rest of the round")
     a = ap.parse_args()
 
     db = F.load_cards()
@@ -571,7 +618,8 @@ def main():
     helper = EvalHelper(a.evaluator) if (a.score == "sim-eval" or logf or (a.score == "plan" and a.plan_scorer == "eval")) else None
     plan = {k: float(v) for k, v in (kv.split("=") for kv in a.plan.split(",") if kv)}
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
-                        plan={**{k: (v if k == "secs" else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model)
+                        plan={**{k: (v if k == "secs" else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
+                        tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin
 
@@ -602,6 +650,8 @@ def main():
             # v1 unless a mode needs simulations (v2 also brings both deck lists and `over`)
             out = {"t": "ready", "v": 2, "name": a.name, "sim": True} if player.needs_sim and 2 in (msg.get("versions") or []) else {"t": "ready", "v": 1, "name": a.name}
         elif t == "over":
+            if player.stats.get("macros"):
+                log(f"macros picked at rounds' first windows: {player.stats['macros']}")
             if player.score == "plan" and player.stats.get("windows"):
                 st = player.stats
                 log(f"plan: {st['planned']}/{st['windows']} windows planned, {st['lines'] / max(st['planned'], 1):.1f} lines and "

@@ -1,6 +1,6 @@
 'use strict';
 // node bots/jepa/branches.js --games 400 --seed 700000 --workers 4 --out data/branch/rush-random [--bots rush,random] [--p 0.35]
-//     [--decks decks/ash-meta-2026-09.json]
+//     [--decks decks/ash-meta-2026-09.json] [--macros face,trade,hold --macro-moves 4] [--max-branch 0]
 //
 // Training data for the JEPA predictor with MANY moves per position. Recorded games show one move per position, so
 // the predictor never sees two moves from the same place and learns roughly the average future (the oracle test in
@@ -9,9 +9,17 @@
 // the mover's next decision and its 4th next decision (with more than one legal action, as collect.js records them),
 // and the game is rolled back. The main line then goes on with the bot's own move.
 //
+//
+// --macros (the tiered data): at the same points, up to --macro-moves moves (the main-line move and others at random)
+// are each played once per macro action (macros.js: a style for the rest of the round). The mover plays that style
+// until this round's action phase ends (`rd`, the board when the regroup phase starts), then plays on as its own bot
+// with the opponent until the next round's action phase ends (`rd2`): what the round's plan led to, and what it led to
+// a round later. --max-branch 0 skips the per-move futures above and records only these.
+//
 // Output: <out>/shard-<first>.jsonl.gz, one gzip member per game:
 //   {"t":"game","seed","bots":[p1,p2]}
-//   {"t":"b","seed","you","prompt","state","actions","main":i,"br":[{"i","h1":decide|null,"h4":decide|null,"st":{state}|null,"over":winner|null,"err"?}]}
+//   {"t":"b","seed","you","prompt","state","actions","main":i,"br":[{"i","h1":decide|null,"h4":decide|null,"st":{state}|null,"over":winner|null,"err"?}],
+//    "mac"?:[{"i","c":macro,"rd":{state}|null,"rd2":{state}|null,"over":winner|null,"steps","err"?}]}
 //   {"t":"end","seed","winner","outcome","round","steps"}
 // A `decide` body is what a stdio bot would get ({you, prompt, state, actions}), so bots/jepa/features.py encodes it.
 const fs = require('fs');
@@ -79,9 +87,47 @@ function playOn(eg, pid, makeBots, rng, maxSteps) {
     return out;
 }
 
-async function worker(first, count, file, botNames, p, maxBranch, decksFile) {
+/**
+ * After the root move: the mover plays `mover` (a macro bot) until this round's action phase is over, then a fresh
+ * bot of its own (`after()`); the opponent plays `opp` throughout. Returns {rd, rd2, over, steps}: the boards (from
+ * pid's seat) where this round's and the next round's action phases have ended, and the winner if the game ends first.
+ */
+function roundOn(eg, pid, mover, after, opp, rng, maxSteps) {
+    const out = { rd: null, rd2: null, over: null, steps: 0 };
+    let stage = 0; // 0: this round's action phase, 1: regroup, 2: the next round's action phase
+    let bot = mover;
+    for (let s = 0; s < maxSteps; s++) {
+        out.steps = s;
+        if (eg.over) {
+            out.over = eg.winner;
+            return out;
+        }
+        const who = toAct(eg);
+        if (!who) {
+            throw new Error('nobody can act');
+        }
+        const action = eg.phase === 'action';
+        if (stage === 0 && !action) {
+            out.rd = { state: view(eg, eg.seatOf(pid)) };
+            stage = 1;
+            bot = after();
+        } else if (stage === 1 && action) {
+            stage = 2;
+        } else if (stage === 2 && !action) {
+            out.rd2 = { state: view(eg, eg.seatOf(pid)) };
+            return out;
+        }
+        const b = who.pid === pid ? bot : opp;
+        const a = who.actions.length === 1 ? who.actions[0] : b.choose({ game: eg, pid: who.pid, actions: who.actions, rng });
+        eg.apply(who.pid, a, rng);
+    }
+    throw new Error(`no round end in ${maxSteps} steps`);
+}
+
+async function worker(first, count, file, botNames, p, maxBranch, decksFile, macros, macroMoves) {
     const { Env, seededRng } = require('../../engine/env');
     const { makeBot } = require('../players');
+    const { createMacroBot } = require('./macros');
     const env = new Env();
     // --decks FILE: real deck lists; seed s plays deck pair s mod P, seats swapped on odd passes (as the real-deck test deals)
     const { loadDecks, deckPairs } = require('../../engine/decklists');
@@ -125,7 +171,7 @@ async function worker(first, count, file, botNames, p, maxBranch, decksFile) {
                     const main = actions.findIndex((x) => x === a || actionKey(eg, x) === actionKey(eg, a));
                     const mark = eg.mark(pid);
                     // up to maxBranch moves, always including the main-line move
-                    let idx = actions.map((_, i) => i);
+                    let idx = maxBranch > 0 ? actions.map((_, i) => i) : [];
                     if (idx.length > maxBranch) {
                         idx = idx.filter((i) => i !== main).sort(() => rng() - 0.5).slice(0, maxBranch - 1).concat([main]).sort((x, y) => x - y);
                     }
@@ -146,7 +192,32 @@ async function worker(first, count, file, botNames, p, maxBranch, decksFile) {
                         eg.restore(pid, mark);
                         br.push(rec);
                     }
-                    write({ t: 'b', seed, ...root, main, br });
+                    let mac;
+                    if (macros.length) {
+                        mac = [];
+                        const me = eg.ids.indexOf(pid);
+                        const mi = actions.map((_, i) => i).filter((i) => i !== main).sort(() => rng() - 0.5).slice(0, macroMoves - 1).concat([main]).sort((x, y) => x - y);
+                        for (const i of mi) {
+                            for (const c of macros) {
+                                const rec = { i, c };
+                                try {
+                                    // one engine seed per move for all its macros: the styles are compared on the same draws
+                                    eg.game.setRandomSeed(`${seed}:${steps}:${i}:m`);
+                                    const live = eg.refetch(pid, actions[i]);
+                                    if (!live) {
+                                        throw new Error('move vanished after rollback');
+                                    }
+                                    eg.apply(pid, live, rng);
+                                    Object.assign(rec, roundOn(eg, pid, createMacroBot(c), () => makeBot(names[me], []), makeBot(names[1 - me], []), rng, 3000));
+                                } catch (e) {
+                                    rec.err = String(e?.message ?? e).split('\n')[0].slice(0, 120);
+                                }
+                                eg.restore(pid, mark);
+                                mac.push(rec);
+                            }
+                        }
+                    }
+                    write({ t: 'b', seed, ...root, main, br, ...(mac ? { mac } : {}) });
                     points++;
                     a = eg.refetch(pid, actions[main]);
                     if (!a) {
@@ -178,9 +249,11 @@ async function main() {
     const botNames = arg('bots', 'rush,random').split(',');
     const p = Number(arg('p', 0.35));
     const maxBranch = Number(arg('max-branch', 12));
+    const macros = arg('macros', '') ? arg('macros').split(',') : [];
+    const macroMoves = Number(arg('macro-moves', 4));
     fs.mkdirSync(out, { recursive: true });
     if (process.argv.includes('--worker')) {
-        await worker(Number(arg('first')), Number(arg('count')), arg('file'), botNames, p, maxBranch, arg('decks', null));
+        await worker(Number(arg('first')), Number(arg('count')), arg('file'), botNames, p, maxBranch, arg('decks', null), macros, macroMoves);
         process.exit(0);
     }
     // shards from an earlier run with other seeds or worker counts would be mixed into this one by branch_train.py
@@ -202,7 +275,7 @@ async function main() {
             break;
         }
         const file = path.join(out, `shard-${first}.jsonl.gz`);
-        const args = ['--worker', '--first', String(first), '--count', String(count), '--file', file, '--bots', botNames.join(','), '--p', String(p), '--max-branch', String(maxBranch), ...(arg('decks', null) ? ['--decks', path.resolve(arg('decks'))] : [])];
+        const args = ['--worker', '--first', String(first), '--count', String(count), '--file', file, '--bots', botNames.join(','), '--p', String(p), '--max-branch', String(maxBranch), '--macros', macros.join(','), '--macro-moves', String(macroMoves), ...(arg('decks', null) ? ['--decks', path.resolve(arg('decks'))] : [])];
         const proc = fork(__filename, args, { stdio: ['ignore', 'inherit', 'inherit', 'ipc'] });
         proc.on('message', (m) => {
             done += m.done;

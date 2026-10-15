@@ -463,3 +463,44 @@ cause: this judge scores one rush-style playout per move to the end of the round
 several noisy scores sits above the truth; regret then measures the judge's noise as much as the bot. jepa-tx's misses are rarer but no
 smaller. Prompts outside action windows (about 45% of decisions: targets, options, triggers) have no simulations and
 are not judged.
+
+## Round tiers and macro actions (in progress)
+
+Eric's question (2026-10-15): the bot plans one move ahead; would it play better with a few coarser horizons, where a
+macro action stands for a set of moves and bounds the card choices over several turns? Hierarchical JEPA work says
+yes when the high-level choice is a small fixed set (H-JEPA arXiv 2610.06805, HWM arXiv 2604.03208, Hi-LeWM arXiv
+2607.12547: a hierarchy helps only with a constrained high-level search). So this adds three tiers and three macros:
+
+```
+tier 1  s     the board once this move has settled                                  (the jepa-tx horizon)
+tier 2  r     the board when this round's action phase ends, if I play the move and then the round in style m
+tier 3  r2    the board when the next round's action phase ends (after tier 2, both seats play as rush)
+macros  face  rush: biggest card first, attack the base       trade  the same, attack enemy units first
+        hold  no more cards this round: claim the initiative when free, else pass
+```
+
+- **Data** (`branches.js --macros face,trade,hold --macro-moves 4 --max-branch 0`, `macros.js`): at sampled action
+  windows, 4 moves (the main line and 3 at random) are each played 3 times, once per macro, to the end of this round
+  and of the next (`rd`, `rd2`). The macros of one move share the engine seed, so they differ by the style alone.
+  `tier_prep.py` encodes the boards; with `--eval` it also judges them (a test set for `yardstick.py --tiers`).
+  On 4 smoke-test games, a fourth style (wide: cheapest card first) gave the same round as face for most moves and
+  was best for 2 of 205, so it is left out. With face, trade and hold, the macro moved the judged round result by more
+  than 1 point for 40% of moves (the rest are mostly late in the round, where little is left to play).
+- **Model** (`tx_model.py`, `tx_train_torch.py --tier-pack`): one learned row per (tier, macro) added to the move
+  token, so each move gets 3 + 6 tokens that all attend to the cards. Trained with the branch losses, the (move,
+  macro) lines of a point standing in for the moves. Held-out lines: `moves_explained_r/r2` and
+  `macros_explained_r/r2` (the macros of one move told apart). `NumpyTx.forward` now computes move tokens beside the
+  context (same numbers, 6x faster on a 2,000-option prompt) and `predict` runs only the group of horizons it needs.
+- **Bot** (`jepa_bot.py --tiers s=1,r=1,r2=1 [--commit-macro]`): at action windows a move is worth the weighted mean
+  of its settled score and its best macro's round scores; `--commit-macro` keeps the round's first macro for the rest
+  of that round, so later moves serve the same plan.
+- **Yardstick** (`yardstick.py <model> --tiers <tier test>`): per tier, the (move, macro) lines against the judged real
+  round ends, how often the imagined best macro is the real best, and the move picked by the tier against the move
+  the settled horizon picks, each judged by its best real line.
+
+Commands (Eric's desktop): data `node bots/jepa/branches.js --games 2000 --workers 20 --seed <790000 + 2000*i> --bots
+rush,rush --decks decks/ash-meta-2026-09.json --p 0.25 --max-branch 0 --macros face,trade,hold --out data/branch/tier-<i>`,
+then `python3 bots/jepa/tier_prep.py --procs 8 --out data/jepa/tier-<i>.npz data/branch/tier-<i>` and
+`python3 bots/jepa/pack_data.py --branches data/jepa/tier-<i>.npz --out-dir packs --name t-<i>`; test set seeds 745000+
+with `tier_prep.py --eval linear-deck-g4`; training adds `--tier-pack packs/t-0.npz ... --tier-test data/jepa/tier-test.npz`
+to the jepa-tx command above.

@@ -12,6 +12,11 @@ whole move at its action windows (jepa_bot.py --window-horizon s).
 to copy the fitted evaluator on the rank data's settled positions (training games only), and its gradient reaches the
 encoder. Without it the JEPA latent copies the evaluator ~77% at best (fit_veval.py), where a network trained for it
 directly reaches ~91%.
+--tier-pack (tx only, packed tier_prep.py data) adds the round tiers: per move one token for each round tier and macro
+action ("r:<macro>", "r2:<macro>", tx_model.py), trained to predict the board where this round's and the next round's
+action phase end when the mover plays the move and then the rest of the round in that style. The losses are the
+branch losses with the (move, macro) lines of a point in place of the moves; the held-out line adds
+moves_explained_r/r2 (lines told apart) and macros_explained_r/r2 (the macros of one move told apart).
 """
 import argparse
 import json
@@ -27,7 +32,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import features as F  # noqa: E402
 import model as M  # noqa: E402
 import tx_model as X  # noqa: E402
-from yardstick import held_points, yardstick  # noqa: E402
+from yardstick import held_points, report_tiers, tier_yardstick, yardstick  # noqa: E402
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--arch", choices=["tx", "pool"], required=True)
@@ -59,6 +64,10 @@ ap.add_argument("--eb", type=int, default=256, help="evaluator-copy positions pe
 ap.add_argument("--yard-points", type=int, default=8000, help="held-out branch points the closing yardstick reads at most")
 ap.add_argument("--test-pack", default=None, help="branch pack of games no run trains on, for the fixed-judge yardstick")
 ap.add_argument("--test-judge", default=None, help="judge_prep.py's scores of --test-pack's held-out points")
+ap.add_argument("--tier-pack", default=None, nargs="+", help="round-tier points (tier_prep.py, packed); several packs are joined")
+ap.add_argument("--w-tier", type=float, default=1.0, help="weight of the round-tier losses")
+ap.add_argument("--tier-groups", type=int, default=32, help="round-tier points per batch")
+ap.add_argument("--tier-test", default=None, help="tier_prep.py --eval data of games no run trains on (fixed-judge tier yardstick)")
 a = ap.parse_args()
 lr0 = a.lr if a.lr is not None else (5e-4 if a.arch == "tx" else 1e-3)
 dev = torch.device(a.device or ("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"))
@@ -66,10 +75,26 @@ torch.backends.cuda.matmul.allow_tf32 = False  # the bot plays in float32 numpy;
 torch.backends.cudnn.allow_tf32 = False
 torch.manual_seed(a.seed)
 K = 12
-HZ = len(M.HORIZONS) + (1 if a.settle else 0)
 assert not (a.settle and a.arch == "pool"), "--settle needs --arch tx"
+assert not (a.tier_pack and a.arch == "pool"), "--tier-pack needs --arch tx"
 t0 = time.time()
 rng = np.random.default_rng(a.seed)
+TQ = None
+MACROS = []
+if a.tier_pack:
+    tps = [dict(np.load(f)) for f in a.tier_pack]
+    MACROS = [str(x) for x in tps[0]["macros"]]
+    assert all([str(x) for x in p["macros"]] == MACROS for p in tps), "tier packs with different macro actions"
+    TQ = {k: np.concatenate([p[k] for p in tps]) for k in tps[0] if k != "macros"} if len(tps) > 1 else {k: v for k, v in tps[0].items() if k != "macros"}
+    del tps
+TIERS = ["r", "r2"] if TQ is not None else []
+HMETA = {"settle": int(a.settle), "tiers": ",".join(TIERS), "macros": ",".join(MACROS)}
+HORS = X.horizons(HMETA)
+HZ = len(HORS)
+BASE_SEL = [i for i, h in enumerate(HORS) if not (isinstance(h, str) and ":" in h)]
+TIER_SEL = [i for i in range(HZ) if i not in BASE_SEL]  # r:<each macro>, then r2:<each macro>
+RQ = TQ["act"].shape[1] if TQ is not None else 0  # moves per tier point
+C = len(MACROS)
 
 R = dict(np.load(a.pack_r))
 packs = [dict(np.load(f)) for f in a.pack_b]
@@ -92,8 +117,15 @@ bgames = np.unique(Bd["game"])
 bheld = set(np.random.default_rng(a.seed + 1).choice(bgames, max(1, int(len(bgames) * 0.1)), replace=False).tolist())
 b_is_held = np.isin(Bd["game"], list(bheld))
 b_train, b_held = np.flatnonzero(~b_is_held), np.flatnonzero(b_is_held)
-print(f"device {dev}; {len(r_train)} recorded train / {len(r_held)} held rows; {len(b_train)} branch train / {len(b_held)} held points "
-      f"({time.time() - t0:.0f}s)", file=sys.stderr, flush=True)
+if TQ is not None:
+    TQ["ids"] = TQ["ids"].astype(np.int64)
+    tgames = np.unique(TQ["game"])
+    theld = set(np.random.default_rng(a.seed + 3).choice(tgames, max(1, int(len(tgames) * 0.1)), replace=False).tolist())
+    t_is_held = np.isin(TQ["game"], list(theld))
+    q_train, q_held = np.flatnonzero(~t_is_held), np.flatnonzero(t_is_held)
+print(f"device {dev}; {len(r_train)} recorded train / {len(r_held)} held rows; {len(b_train)} branch train / {len(b_held)} held points"
+      + (f"; {len(q_train)} tier train / {len(q_held)} held points, macros {MACROS}" if TQ is not None else "") + f" ({time.time() - t0:.0f}s)",
+      file=sys.stderr, flush=True)
 
 if a.arch == "tx":
     ENC, HEADS = X.shapes(a.dm, a.layers, HZ)
@@ -135,10 +167,13 @@ def ln(x, w, name):
 STRUCT = {}
 
 
-def run_tx(w, state, ids, feats, mask, act=None, aid=None):
+def run_tx(w, state, ids, feats, mask, act=None, aid=None, hsel=None):
+    """z [B,D] and, with moves, ẑ [B,K,len(hsel),D] for the horizons hsel (indexes into HORS, default all)"""
     B, t = ids.shape
     dm, H = a.dm, a.heads
     hd = dm // H
+    hsel = list(range(HZ)) if hsel is None else list(hsel)
+    hz = len(hsel)
     x = torch.cat([lin(w, "sin", state).unsqueeze(1), lin(w, "tin", torch.cat([feats, M.embed(w, ids)], -1))], 1)
     kval = torch.cat([torch.ones(B, 1, device=dev), mask], 1)
     c = 1 + t
@@ -146,15 +181,15 @@ def run_tx(w, state, ids, feats, mask, act=None, aid=None):
     if act is not None:
         k = act.shape[1]
         av = lin(w, "ain", torch.cat([act, M.embed(w, aid)], -1))
-        av = (av.unsqueeze(2) + w["hor"].reshape(1, 1, HZ, dm)).reshape(B, HZ * k, dm)
+        av = (av.unsqueeze(2) + w["hor"][hsel].reshape(1, 1, hz, dm)).reshape(B, hz * k, dm)
         x = torch.cat([x, av], 1)
-        kval = torch.cat([kval, torch.ones(B, HZ * k, device=dev)], 1)
-    S = c + HZ * k
+        kval = torch.cat([kval, torch.ones(B, hz * k, device=dev)], 1)
+    S = c + hz * k
     bias = ((kval - 1.0) * 1e9).reshape(B, 1, 1, S)
     if k:
-        if (c, k) not in STRUCT:
-            STRUCT[(c, k)] = torch.tensor(X.struct_mask(c, k, HZ), device=dev).reshape(1, 1, S, S)
-        bias = bias + STRUCT[(c, k)]
+        if (c, k, hz) not in STRUCT:
+            STRUCT[(c, k, hz)] = torch.tensor(X.struct_mask(c, k, hz), device=dev).reshape(1, 1, S, S)
+        bias = bias + STRUCT[(c, k, hz)]
     for i in range(a.layers):
         y = ln(x, w, f"b{i}.ln1")
         q = lin(w, f"b{i}.q", y).reshape(B, S, H, hd).transpose(1, 2)
@@ -169,12 +204,12 @@ def run_tx(w, state, ids, feats, mask, act=None, aid=None):
     z = lin(w, "zo2", torch.relu(lin(w, "zo1", torch.cat([x[:, 0], mean, state], -1))))
     if not k:
         return z, None
-    ao = x[:, c:].reshape(B, k, HZ, dm)
-    zb = z.reshape(B, 1, 1, M.D).expand(B, k, HZ, M.D)
+    ao = x[:, c:].reshape(B, k, hz, dm)
+    zb = z.reshape(B, 1, 1, M.D).expand(B, k, hz, M.D)
     return z, zb + lin(w, "p2", torch.relu(lin(w, "p1", torch.cat([zb, ao], -1))))
 
 
-def run_pool(w, state, ids, feats, mask, act=None, aid=None):
+def run_pool(w, state, ids, feats, mask, act=None, aid=None, hsel=None):
     h = torch.relu(lin(w, "tok2", torch.relu(lin(w, "tok1", torch.cat([feats, M.embed(w, ids)], -1)))))
     m = mask.unsqueeze(-1)
     cnt = m.sum(1)
@@ -211,7 +246,7 @@ def branch_parts(pred, tgt, m):
 
 def losses(b):
     G = b["g_state"].shape[0]
-    zr, pr = run(P, b["r_state"], b["r_ids"], b["r_feats"], b["r_mask"], b["r_act"], b["r_aid"])
+    zr, pr = run(P, b["r_state"], b["r_ids"], b["r_feats"], b["r_mask"], b["r_act"], b["r_aid"], hsel=[0, 1])
     with torch.no_grad():
         y1 = run(Tg, b["y1_state"], b["y1_ids"], b["y1_feats"], b["y1_mask"])[0]
         y4 = run(Tg, b["y4_state"], b["y4_ids"], b["y4_feats"], b["y4_mask"])[0]
@@ -226,7 +261,7 @@ def losses(b):
     cov = zc.T @ zc / (zr.shape[0] - 1)
     l_cov = (cov.square().sum() - torch.diagonal(cov).square().sum()) / M.D
     l_copy = ((zr.detach() - y1) ** 2).mean()
-    _, pg = run(P, b["g_state"], b["g_ids"], b["g_feats"], b["g_mask"], b["g_act"], b["g_aid"])
+    _, pg = run(P, b["g_state"], b["g_ids"], b["g_feats"], b["g_mask"], b["g_act"], b["g_aid"], hsel=BASE_SEL)
     bp1, bd1, bs1 = branch_parts(pg[:, :, 0], t1, b["m1"])
     bp4, bd4, bs4 = branch_parts(pg[:, :, 1], t4, b["m4"])
     total = l_p1 + l_p4 + a.w_var * l_var + a.w_cov * l_cov + a.w_branch * (bp1 + bp4 + a.w_diff * (bd1 + bd4))
@@ -241,10 +276,25 @@ def losses(b):
         l_e = torch.nn.functional.binary_cross_entropy_with_logits(lg, torch.sigmoid(b["e_ev"]))
         total = total + a.w_eval * l_e
         parts += [l_e]
+    if TQ is not None:
+        Q = b["q_state"].shape[0]
+        _, pq = run(P, b["q_state"], b["q_ids"], b["q_feats"], b["q_mask"], b["q_act"], b["q_aid"], hsel=TIER_SEL)
+        pq = pq.reshape(Q, RQ, len(TIERS), C, M.D)
+        for ti, (u, mk) in enumerate((("u1", "mr"), ("u2", "mr2"))):
+            with torch.no_grad():
+                tgt = run(Tg, b[u + "_state"], b[u + "_ids"], b[u + "_feats"], b[u + "_mask"])[0].reshape(Q, RQ, C, M.D)
+            pred = pq[:, :, ti]
+            # every (move, macro) line of a point against each other, as the moves of a branch point
+            bp, bd, bs = branch_parts(pred.reshape(Q, RQ * C, M.D), tgt.reshape(Q, RQ * C, M.D), b[mk].reshape(Q, RQ * C))
+            # and only the macros of one move (a diagnostic: does the macro token change the forecast the right way?)
+            _, md, ms = branch_parts(pred.reshape(Q * RQ, C, M.D), tgt.reshape(Q * RQ, C, M.D), b[mk].reshape(Q * RQ, C))
+            total = total + a.w_tier * (bp + a.w_diff * bd)
+            parts += [bp, bd, bs, md, ms]
     return total, parts
 
 
-NAMES = ["total", "pred1", "pred4", "var", "cov", "copy1", "br_p1", "br_d1", "br_s1", "br_p4", "br_d4", "br_s4"] + (["br_pt", "br_dt", "br_st"] if a.settle else []) + (["eval_bce"] if E is not None else [])
+NAMES = (["total", "pred1", "pred4", "var", "cov", "copy1", "br_p1", "br_d1", "br_s1", "br_p4", "br_d4", "br_s4"] + (["br_pt", "br_dt", "br_st"] if a.settle else [])
+         + (["eval_bce"] if E is not None else []) + [f"{t}_{x}" for t in TIERS for x in ("p", "d", "s", "md", "ms")])
 opt = torch.optim.AdamW([v for k, v in P.items() if k.split(".")[0] not in ("v1", "v2")], lr=lr0, weight_decay=1e-4)  # V: stage 2
 
 
@@ -255,7 +305,7 @@ def rows(prefix, idx, drop=0.0):
     return {prefix + "_state": d["state"][idx], prefix + "_ids": d["tok_ids"][idx], prefix + "_feats": d["tok_feats"][idx].astype(np.float32), prefix + "_mask": m}
 
 
-def make_batch(ridx, gidx, drop):
+def make_batch(ridx, gidx, drop, qidx=None):
     b = rows("r", ridx, drop)
     b["r_act"] = d["act"][ridx][:, None]
     b["r_aid"] = d["aid"][ridx][:, None].astype(np.int64)
@@ -280,18 +330,32 @@ def make_batch(ridx, gidx, drop):
         b[t + "_ids"] = Bd[h + "_ids"][gidx].reshape(G * K, T).astype(np.int64)
         b[t + "_feats"] = Bd[h + "_feats"][gidx].reshape(G * K, T, F.TOKEN_DIM).astype(np.float32)
         b[t + "_mask"] = Bd[h + "_mask"][gidx].reshape(G * K, T).astype(np.float32)
+    if qidx is not None:
+        Q = len(qidx)
+        qm = TQ["mask"][qidx].astype(np.float32)
+        if drop:
+            qm = qm * (rng.random(qm.shape) >= drop)
+        b.update({"q_state": TQ["state"][qidx], "q_ids": TQ["ids"][qidx], "q_feats": TQ["feats"][qidx].astype(np.float32), "q_mask": qm,
+                  "q_act": TQ["act"][qidx], "q_aid": TQ["aid"][qidx].astype(np.int64), "mr": TQ["mr"][qidx], "mr2": TQ["mr2"][qidx]})
+        for h, u in (("rd", "u1"), ("rd2", "u2")):
+            b[u + "_state"] = TQ[h + "_state"][qidx].reshape(Q * RQ * C, F.STATE_DIM)
+            b[u + "_ids"] = TQ[h + "_ids"][qidx].reshape(Q * RQ * C, T).astype(np.int64)
+            b[u + "_feats"] = TQ[h + "_feats"][qidx].reshape(Q * RQ * C, T, F.TOKEN_DIM).astype(np.float32)
+            b[u + "_mask"] = TQ[h + "_mask"][qidx].reshape(Q * RQ * C, T).astype(np.float32)
     return {k: torch.from_numpy(np.ascontiguousarray(v)).to(dev, non_blocking=True) for k, v in b.items()}
 
 
 erng = np.random.default_rng(1)
-eval_batches = [(erng.choice(r_held, a.rb, replace=False), erng.choice(b_held, a.groups, replace=False)) for _ in range(8)]
+eval_batches = [(erng.choice(r_held, a.rb, replace=False), erng.choice(b_held, a.groups, replace=False),
+                 erng.choice(q_held, min(a.tier_groups, len(q_held)), replace=False) if TQ is not None else None) for _ in range(8)]
 log = {"args": vars(a), "device": str(dev), "curve": [], "evals": []}
 acc = np.zeros(len(NAMES))
 t1 = time.time()
 for it in range(1, a.steps + 1):
     for g in opt.param_groups:
         g["lr"] = lr0 * min(1.0, it / a.warmup)
-    b = make_batch(rng.choice(r_train, a.rb, replace=False), rng.choice(b_train, a.groups, replace=False), a.token_dropout)
+    b = make_batch(rng.choice(r_train, a.rb, replace=False), rng.choice(b_train, a.groups, replace=False), a.token_dropout,
+                   rng.choice(q_train, a.tier_groups, replace=False) if TQ is not None else None)
     total, parts = losses(b)
     opt.zero_grad(set_to_none=True)
     total.backward()
@@ -308,12 +372,15 @@ for it in range(1, a.steps + 1):
         print(f"step {it} {el:.0f}s ({it / el:.1f} it/s) " + " ".join(f"{k}={row[k]:.4f}" for k in NAMES), file=sys.stderr, flush=True)
     if it % a.eval_every == 0 or it == a.steps:
         with torch.no_grad():
-            vals = np.mean([[float(total)] + [float(x) for x in parts] for total, parts in (losses(make_batch(r, g, 0.0)) for r, g in eval_batches)], axis=0)
+            vals = np.mean([[float(total)] + [float(x) for x in parts] for total, parts in (losses(make_batch(r, g, 0.0, q)) for r, g, q in eval_batches)], axis=0)
         row = {"step": it, **{k: float(v) for k, v in zip(NAMES, vals)}}
         row["moves_explained_h1"] = 1.0 - row["br_d1"] / max(row["br_s1"], 1e-9)
         row["moves_explained_h4"] = 1.0 - row["br_d4"] / max(row["br_s4"], 1e-9)
         if a.settle:
             row["moves_explained_settled"] = 1.0 - row["br_dt"] / max(row["br_st"], 1e-9)
+        for t in TIERS:
+            row[f"moves_explained_{t}"] = 1.0 - row[f"{t}_d"] / max(row[f"{t}_s"], 1e-9)
+            row[f"macros_explained_{t}"] = 1.0 - row[f"{t}_md"] / max(row[f"{t}_ms"], 1e-9)
         log["evals"].append(row)
         print("  held-out " + " ".join(f"{k}={v:.4f}" for k, v in row.items() if k != "step"), file=sys.stderr, flush=True)
         json.dump(log, open(a.out + ".log.json", "w"))
@@ -322,7 +389,8 @@ for it in range(1, a.steps + 1):
 w = {k: v.detach().cpu().numpy().copy() for k, v in P.items()}
 if a.arch == "tx":
     meta = {"format": "swu-jepa-tx/1", "D": M.D, "dm": a.dm, "layers": a.layers, "heads": a.heads, "tmax": T, "settle": int(a.settle),
-            "horizons": list(M.HORIZONS), "state_dim": F.STATE_DIM, "action_dim": F.ACTION_DIM, "token_dim": F.TOKEN_DIM}
+            "horizons": list(M.HORIZONS), "state_dim": F.STATE_DIM, "action_dim": F.ACTION_DIM, "token_dim": F.TOKEN_DIM,
+            **({"tiers": HMETA["tiers"], "macros": HMETA["macros"]} if TQ is not None else {})}
     net = X.NumpyTx(w, meta)
 else:
     meta = {"format": "swu-jepa/1", "D": M.D, "horizons": list(M.HORIZONS), "state_dim": F.STATE_DIM, "action_dim": F.ACTION_DIM, "token_dim": F.TOKEN_DIM}
@@ -353,7 +421,7 @@ def latents(rws, chunk=4096):
             r = rws[k:k + chunk]
             tt = lambda x: torch.from_numpy(np.ascontiguousarray(x)).to(dev)
             z, p = run(P, tt(d["state"][r]), tt(d["tok_ids"][r]), tt(d["tok_feats"][r].astype(np.float32)), tt(d["tok_mask"][r].astype(np.float32)),
-                       tt(d["act"][r][:, None]), tt(d["aid"][r][:, None].astype(np.int64)))
+                       tt(d["act"][r][:, None]), tt(d["aid"][r][:, None].astype(np.int64)), hsel=[0, 1])
             zs.append(z.cpu().numpy())
             p1s.append(p[:, 0, 0].cpu().numpy())
             p4s.append(p[:, 0, 1].cpu().numpy())
@@ -417,6 +485,17 @@ if a.test_pack and a.test_judge:
     for h, v in ys.items():
         print(f"  fixed judge {h}: top-1 {v['top1']:.3f} (chance {v['chance']:.3f}) median rho {v['rho_median']:.2f} "
               f"regret {v['regret'] * 100:.2f} pts, blunders {v['blunders'] * 100:.1f}% ({v['points']} points)", file=sys.stderr)
+if TQ is not None:
+    # round tiers on held-out tier points (each line's real board judged by this model's value head), and with
+    # --tier-test on games outside the run, judged by one evaluator
+    tq = q_held if len(q_held) <= a.yard_points else np.sort(np.random.default_rng(a.seed + 4).choice(q_held, a.yard_points, replace=False))
+    log["tier_yardstick"] = tier_yardstick(net, TQ, tq)
+    report_tiers(log["tier_yardstick"], "tier yardstick", sys.stderr)
+    if a.tier_test:
+        TT = dict(np.load(a.tier_test))
+        TT["ids"] = TT["ids"].astype(np.int64)
+        log["tier_yardstick_fixed"] = tier_yardstick(net, TT, np.arange(len(TT["game"])), {"r": TT["evr"], "r2": TT["evr2"]})
+        report_tiers(log["tier_yardstick_fixed"], "fixed judge tiers", sys.stderr)
 M.save_safetensors(a.out + ".safetensors", w, meta)
 log["seconds"] = round(time.time() - t0)
 json.dump(log, open(a.out + ".log.json", "w"))
