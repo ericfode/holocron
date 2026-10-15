@@ -109,7 +109,7 @@ class JepaPlayer:
         self.commit_macro = commit_macro
         wn = self.window_net if self.window_net is not None else self.net
         if self.tiers and not getattr(wn, "macros", None):
-            log(f"--tiers ignored: {window_model or model_path} has no round tiers")
+            print(f"jepa: --tiers ignored: {window_model or model_path} has no round tiers", file=sys.stderr, flush=True)  # `log` here is the decision log
             self.tiers = {}
         self.new_game(seed)
 

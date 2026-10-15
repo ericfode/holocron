@@ -507,7 +507,9 @@ to the jepa-tx command above.
 
 Results (desktop run, `notes/tiers/`; 3 parts, 88,545 tier points; test set 500 games at seed 745000): tx-t10 = the
 tx-s10a recipe plus the tiers. The macros are learned: the imagined best macro is the judged best 77% of the time at
-the round end (chance 44%). Played vs c-clock on the usual 702 deals, paired against jepa-tx (28.4%):
+the round end (chance 44%; measured before a yardstick fix: lines whose game ended in the next round were graded
+against the game's result instead of the round-end board, so this number will be rerun). Played vs c-clock on the
+usual 702 deals, paired against jepa-tx (28.4%):
 
 | tx-t10 variant | Wins vs c-clock | Paired vs jepa-tx |
 |---|---|---|
@@ -528,9 +530,9 @@ Eric's other question the same day: a few moments decide most games; can the bot
 the runs. The losses are concentrated: on the test set the worst 5% of positions hold 65% of the judged win chance
 the bot loses, and the positions where the moves' judged outcomes differ by more than 10 points (22% of positions)
 hold 56%. Training harder on those positions did not help: refitting the window head with gap weights
-(`fit_veval.py --gap-weight`) or drawing high-gap branch points more often (`tx_train_torch.py --gap-weight`) stayed
-within noise of jepa-tx. The head already copies the evaluator on real boards (0.2 points of regret); the misses come
-from the imagined settled board.
+(`fit_veval.py --gap-weight`) or drawing high-gap branch points more often (`tx_train_torch.py --gap-weight`, gaps
+from `pack_gaps.py`) stayed within noise of jepa-tx. The head already copies the evaluator on real boards (0.2 points
+of regret); the misses come from the imagined settled board.
 
 Looking harder at those positions does help. `--score plan --plan gate=G` simulates only at action windows where the
 imagined scores of the moves spread at least G and plays the imagined best move everywhere else. Model tx-t10, window

@@ -138,7 +138,8 @@ def tier_yardstick(net, Q, idx, judge=None):
                 v[ps, ks, cs] = M.sigmoid(net.value(z))
             else:
                 v[ps, ks, cs] = M.sigmoid(judge[t][ps, ks, cs])
-        real[t] = np.where(Q["over"] >= 0, Q["over"], v)  # a line whose game ended first is worth its result
+        # a line whose game ended before this tier's board is worth its result (one that ended later keeps its board)
+        real[t] = np.where((Q["over"] >= 0) & (Q[m] == 0), Q["over"], v)
     s_i = net.horizons.index("s") if "s" in net.horizons else None
     acc = {t: {k: [] for k in ("l_top", "l_chance", "l_rho", "l_regret", "m_top", "m_chance", "mv_top", "mv_chance", "mv_regret", "s_top", "s_regret")}
            for t in TIER_TARGETS}

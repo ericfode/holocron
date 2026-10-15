@@ -70,7 +70,7 @@ ap.add_argument("--tier-groups", type=int, default=32, help="round-tier points p
 ap.add_argument("--tier-test", default=None, help="tier_prep.py --eval data of games no run trains on (fixed-judge tier yardstick)")
 ap.add_argument("--gap-weight", type=float, default=0.0,
                 help="sample branch points by (action gap / median gap)^a, clipped to [0.1, 10]; the gaps are read from <pack>.gap.npy next "
-                     "to each --pack-b (best minus worst move on the real settled boards); 0 = uniform")
+                     "to each --pack-b (pack_gaps.py: best minus worst move on the real settled boards); 0 = uniform")
 a = ap.parse_args()
 lr0 = a.lr if a.lr is not None else (5e-4 if a.arch == "tx" else 1e-3)
 dev = torch.device(a.device or ("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"))
@@ -103,6 +103,8 @@ R = dict(np.load(a.pack_r))
 packs = [dict(np.load(f)) for f in a.pack_b]
 Bd = {k: np.concatenate([p[k] for p in packs]) for k in packs[0]} if len(packs) > 1 else packs[0]
 del packs
+if a.gap_weight and not all(os.path.exists(f.replace(".npz", ".gap.npy")) for f in a.pack_b):
+    raise SystemExit("--gap-weight needs <pack>.gap.npy next to each --pack-b: run pack_gaps.py " + " ".join(a.pack_b))
 b_gap = np.concatenate([np.load(f.replace(".npz", ".gap.npy")) for f in a.pack_b]) if a.gap_weight else None
 T = R["tok_ids"].shape[1]
 d = {"state": R["state"], "tok_ids": R["tok_ids"].astype(np.int64), "tok_feats": R["tok_feats"], "tok_mask": R["tok_mask"], "act": R["act"],
