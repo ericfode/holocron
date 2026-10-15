@@ -1,0 +1,22 @@
+tx-t10-va {'won': 692, 'ERROR': 10} timeouts 0 ms/decision mean 4.7 p95 median 7.8 max 258
+tx-t10-vb {'won': 686, 'ERROR': 16} timeouts 0 ms/decision mean 5.4 p95 median 10.0 max 239
+tx-t10-vc {'won': 690, 'ERROR': 12} timeouts 0 ms/decision mean 5.5 p95 median 9.9 max 262
+tx-t10-vd {'won': 690, 'ERROR': 12} timeouts 0 ms/decision mean 5.4 p95 median 9.5 max 344
+tx-t10-ve {'won': 692, 'ERROR': 10} timeouts 0 ms/decision mean 5.3 p95 median 9.0 max 259
+paired vs tx-s10a-c (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-va      688 paired games: 31.0 vs 28.3 -> +2.6 pts [-0.9, +6.2]; only tx-t10-va won 85, only tx-s10a-c won 67, sign test p=0.168
+  tx-t10-vb      682 paired games: 30.6 vs 28.6 -> +2.1 pts [-1.8, +5.9]; only tx-t10-vb won 87, only tx-s10a-c won 73, sign test p=0.304
+  tx-t10-vc      686 paired games: 28.4 vs 28.6 -> -0.1 pts [-3.7, +3.4]; only tx-t10-vc won 77, only tx-s10a-c won 78, sign test p=1.000
+  tx-t10-vd      686 paired games: 28.9 vs 28.6 -> +0.3 pts [-3.3, +3.8]; only tx-t10-vd won 82, only tx-s10a-c won 80, sign test p=0.937
+  tx-t10-ve      688 paired games: 24.4 vs 28.5 -> -4.1 pts [-7.7, -0.4]; only tx-t10-ve won 63, only tx-s10a-c won 91, sign test p=0.029
+paired vs tx-t10-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-vb      686 paired games: 30.6 vs 31.2 -> -0.6 pts [-3.2, +2.0]; only tx-t10-vb won 43, only tx-t10-va won 47, sign test p=0.752
+  tx-t10-vc      688 paired games: 28.5 vs 31.1 -> -2.6 pts [-5.2, +0.0]; only tx-t10-vc won 37, only tx-t10-va won 55, sign test p=0.076
+  tx-t10-vd      688 paired games: 28.9 vs 31.1 -> -2.2 pts [-4.8, +0.4]; only tx-t10-vd won 38, only tx-t10-va won 53, sign test p=0.142
+  tx-t10-ve      690 paired games: 24.3 vs 31.2 -> -6.8 pts [-9.8, -3.8]; only tx-t10-ve won 36, only tx-t10-va won 83, sign test p=0.000
+paired vs jepa-h1r (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-va      690 paired games: 31.2 vs 14.5 -> +16.7 pts [+13.2, +20.3]; only tx-t10-va won 140, only jepa-h1r won 25, sign test p=0.000
+  tx-t10-vb      685 paired games: 30.7 vs 14.5 -> +16.2 pts [+12.6, +19.8]; only tx-t10-vb won 138, only jepa-h1r won 27, sign test p=0.000
+  tx-t10-vc      688 paired games: 28.6 vs 14.5 -> +14.1 pts [+10.6, +17.8]; only tx-t10-vc won 128, only jepa-h1r won 31, sign test p=0.000
+  tx-t10-vd      688 paired games: 29.1 vs 14.5 -> +14.5 pts [+10.9, +18.3]; only tx-t10-vd won 132, only jepa-h1r won 32, sign test p=0.000
+  tx-t10-ve      689 paired games: 24.5 vs 14.7 -> +9.9 pts [+6.7, +13.3]; only tx-t10-ve won 99, only jepa-h1r won 31, sign test p=0.000
