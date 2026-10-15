@@ -1,0 +1,15 @@
+TRAIN tx-x13 on 13 branch packs: packs/b-0.npz packs/b-1.npz packs/b-2.npz packs/b-3.npz packs/b-4.npz packs/b-5.npz packs/b-6.npz packs/b-7.npz packs/b-8.npz packs/b-9.npz packs/x-0.npz packs/x-1.npz packs/x-2.npz
+TRAINED tx-x13 rc=0 in 50 min
+FIT tx-x13 rc=0: evaluator copy (best at step 3000) on rank-v1-ev.npz: {'move_top1': 0.4859, 'line_top1': 0.4378, 'ce': 2.301, 'n': 1414, 'same_as_eval': 0.8515, 'ev_regret': 0.0017, 'ev_blunders': 0.0028}
+YS tx-x13-e: hs: top-1 0.811 (chance 0.401) median rho 0.90 spread imagined 1.6 / real 1.9 pts, regret 0.59 pts, blunders 3.6% (6231 points)
+TRAIN tx-x13b on 13 branch packs: packs/b-0.npz packs/b-1.npz packs/b-2.npz packs/b-3.npz packs/b-4.npz packs/b-5.npz packs/b-6.npz packs/b-7.npz packs/b-8.npz packs/b-9.npz packs/xb-0.npz packs/xb-1.npz packs/xb-2.npz
+registered tx-x13-va ['bots/jepa/jepa_bot.py', '--model', 'runs/tx-x13.safetensors', '--mix', '0', '--resource', 'bots/jepa/models/resource-v1.json', '--window-model', 'runs/tx-x13-e.safetensors', '--window-horizon', 's', '--name', 'tx-x13-va']
+RDTEST tx-x13-va rc=0 in 0 min
+tx-x13-va                        693  20.2 [17.4, 23.4]         -239 | no mirror run
+TRAINED tx-x13b rc=0 in 43 min
+FIT tx-x13b rc=0: evaluator copy (best at step 1750) on rank-v1-ev.npz: {'move_top1': 0.476, 'line_top1': 0.4229, 'ce': 2.3026, 'n': 1414, 'same_as_eval': 0.8508, 'ev_regret': 0.0015, 'ev_blunders': 0.0028}
+YS tx-x13b-e: hs: top-1 0.802 (chance 0.401) median rho 0.89 spread imagined 1.7 / real 1.9 pts, regret 0.60 pts, blunders 3.5% (6231 points)
+registered tx-x13b-va ['bots/jepa/jepa_bot.py', '--model', 'runs/tx-x13b.safetensors', '--mix', '0', '--resource', 'bots/jepa/models/resource-v1.json', '--window-model', 'runs/tx-x13b-e.safetensors', '--window-horizon', 's', '--name', 'tx-x13b-va']
+RDTEST tx-x13b-va rc=0 in 0 min
+tx-x13b-va                       688  28.1 [24.8, 31.5]         -164 | no mirror run
+XR_CHAIN_DONE

@@ -1,0 +1,5 @@
+paired vs tx-t10-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-x13-va      689 paired games: 20.2 vs 31.2 -> -11.0 pts [-14.7, -7.3]; only tx-x13-va won 45, only tx-t10-va won 121, sign test p=0.000
+  tx-x13b-va     686 paired games: 28.0 vs 31.2 -> -3.2 pts [-6.4, +0.0]; only tx-x13b-va won 63, only tx-t10-va won 85, sign test p=0.084
+paired vs tx-x13b-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-x13-va      687 paired games: 20.1 vs 28.1 -> -8.0 pts [-11.8, -4.2]; only tx-x13-va won 52, only tx-x13b-va won 107, sign test p=0.000
