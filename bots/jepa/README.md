@@ -558,3 +558,18 @@ nothing (-1.3 [-4.4, +1.9]), so what the hybrid still loses is elsewhere: the pr
 follow-ups) or the planning depth.
 jepa-tx-plan is the first JEPA bot above 50% against c-clock on these deals (jepa-plan-reval's 48.8% was on other
 deals). Both need the referee's simulations (protocol v2); jepa-tx stays the bot that plays with no simulator.
+
+## Resource choices from c-clock's rule (jepa-tx-gate)
+
+`bots/jepa/advisor.py` lets c-clock answer one kind of prompt while the JEPA bot answers the rest, on the same 702
+deals, paired against jepa-tx-gate (51.2%). Resource prompts (9,766 choices, about 14 a game): +3.7 [+0.9, +6.5],
+sign test p = 0.019. Mulligans: +0.3 [-2.8, +3.4]. Follow-ups and other prompts: -3.5 [-6.8, -0.1]. Action windows:
+-21.6 [-25.6, -17.8]. The last two say that a move and its follow-ups have to come from one plan; the resource choice
+is the one decision that stands alone, and resource-v1 agreed with c-clock on only 80.8% of c-clock's choices.
+
+`resource_policy.py` now has `--resource c-clock`, a port of bots/c/bot.c choose_resource and keep_value (default
+flags): in the regroup phase it resources while under 6 resources, under 9 with 3 or more cards in hand, or while a
+hand card costs more than its resources; it resources the card with the lowest keep value. It agrees with c-clock on
+20,199 of 20,199 of c-clock's resource choices in recorded games. With it jepa-tx-gate wins **55.1%** (+3.7 [+0.9,
++6.5], the same games as the swap), so jepa-tx-gate uses it. The no-simulator bot does not gain (tx-t10 with it:
+-0.9 [-3.2, +1.6]), so jepa-tx keeps resource-v1.
