@@ -4,7 +4,17 @@
 
 Every recorded decision becomes one row: the state vector, card tokens, the chosen action, who won, and the
 row index of the same seat's next recorded decision (+1) and its 4th next decision (+4), which are the targets
-the predictor must reach in latent space. Games that ended in ERROR, STEP_CAP or a draw are skipped.
+the predictor must reach in latent space. Rows keep game order; `gid` numbers the games in the pack and `seat` is
+0 for p1, 1 for p2; `disc` [N, 2, 24] holds the hashed ids of the last 24 cards of my discard pile and the
+opponent's (public; -1 pads). With deck lists in the game line (from_replays.js writes them; the protocol's hello gives
+both lists to each bot), `pool` [N, 2, 32] holds the distinct cards of my list and the opponent's that the seat has not
+seen yet (mine: not in my hand, resources, board or discard; theirs: not on their board or in their discard), with
+`poolk` the copies left; -1 pads, and games without lists get only pads. Games that ended in ERROR, STEP_CAP or a
+draw are skipped.
+
+--labels (games written by from_replays.js --labels) adds the opponent's hand at each decision, a target the
+acting seat cannot see: `ohand` [N, 12] hashed card ids (features.hash_id("card:<code>"), -1 pads) and `ohn`, the
+hand's size.
 """
 import argparse
 import glob
@@ -12,6 +22,7 @@ import gzip
 import json
 import os
 import sys
+from functools import partial
 from multiprocessing import Pool
 
 import numpy as np
@@ -20,6 +31,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import features as F  # noqa: E402
 
 HORIZONS = (1, 4)
+OHAND = 12
+DISC = 24
+POOL = 32
 _db = None
 
 
@@ -46,8 +60,48 @@ def iter_games(path):
             return
 
 
-def encode_file(path):
-    cols = {k: [] for k in ("state", "tok_ids", "tok_feats", "tok_mask", "act", "aid", "nact", "win", "game", "nxt1", "nxt4", "seq", "bot")}
+def discards(d):
+    """[2, DISC] hashed ids of the last DISC cards of my discard pile, then the opponent's; -1 pads."""
+    out = np.full((2, DISC), -1, np.int16)
+    players = (d.get("state") or {}).get("players") or {}
+    for k, seat in enumerate((d["you"], "p2" if d["you"] == "p1" else "p1")):
+        pile = [c.get("s") for c in (players.get(seat) or {}).get("discard") or [] if isinstance(c, dict) and isinstance(c.get("s"), str)]
+        ids = [F.hash_id(f"card:{c}") for c in pile[-DISC:]]
+        out[k, :len(ids)] = ids
+    return out
+
+
+def unseen(d, decks):
+    """([2, POOL] ids, [2, POOL] copies) of the cards of my list and the opponent's not yet seen by the deciding seat"""
+    ids = np.full((2, POOL), -1, np.int16)
+    left = np.zeros((2, POOL), np.int8)
+    if not decks:
+        return ids, left
+    players = (d.get("state") or {}).get("players") or {}
+    for k, seat in enumerate((d["you"], "p2" if d["you"] == "p1" else "p1")):
+        rest = {}
+        for c in decks.get(seat) or []:
+            rest[c["id"]] = rest.get(c["id"], 0) + int(c.get("count", 1))
+        p = players.get(seat) or {}
+        units = (p.get("ground") or []) + (p.get("space") or [])
+        seen = units + [u for x in units for u in (x.get("u") or [])] + (p.get("discard") or [])
+        if k == 0:
+            seen += (p.get("hand") or []) + (p.get("resources") or [])
+        for c in seen:
+            code = c.get("s") if isinstance(c, dict) else None
+            if rest.get(code, 0) > 0:
+                rest[code] -= 1
+        cards = [(code, n) for code, n in rest.items() if n > 0][:POOL]
+        for j, (code, n) in enumerate(cards):
+            ids[k, j] = F.hash_id(f"card:{code}")
+            left[k, j] = n
+    return ids, left
+
+
+def encode_file(path, labels=False):
+    cols = {k: [] for k in ("state", "tok_ids", "tok_feats", "tok_mask", "act", "aid", "nact", "win", "game", "nxt1", "nxt4", "seq", "bot", "gid", "seat", "disc", "pool", "poolk")}
+    if labels:
+        cols["ohand"], cols["ohn"] = [], []
     n = 0
     games = 0
     for game, ds, end in iter_games(path):
@@ -73,6 +127,20 @@ def encode_file(path):
             cols["seq"].append(d.get("seq", 0))
             seat_bot = game["bots"][0 if d["you"] == "p1" else 1]
             cols["bot"].append(seat_bot)
+            cols["gid"].append(games - 1)  # local game number; made global by the caller
+            cols["seat"].append(0 if d["you"] == "p1" else 1)
+            cols["disc"].append(discards(d))
+            pi, pk = unseen(d, game.get("decks"))
+            cols["pool"].append(pi)
+            cols["poolk"].append(pk)
+            if labels:
+                if "oh" not in d:
+                    raise SystemExit(f"{path}: --labels needs games written by from_replays.js --labels")
+                oh = np.full(OHAND, -1, np.int16)
+                ids = [F.hash_id(f"card:{c}") for c in d["oh"] if isinstance(c, str)][:OHAND]
+                oh[:len(ids)] = ids
+                cols["ohand"].append(oh)
+                cols["ohn"].append(len(d["oh"]))
             seats[d["you"]].append(n - start)
             n += 1
         nx = {h: [-1] * (n - start) for h in HORIZONS}
@@ -92,6 +160,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--card-data", default=os.environ.get("SWU_CARD_DATA", "forceteki/test/json"))
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--labels", action="store_true", help="add the opponent's hand (games from from_replays.js --labels)")
     ap.add_argument("dirs", nargs="+")
     a = ap.parse_args()
     files = sorted(f for d in a.dirs for f in (glob.glob(os.path.join(d, "*.jsonl.gz")) if os.path.isdir(d) else [d]))
@@ -99,14 +168,15 @@ def main():
     offset = 0
     total_games = 0
     with Pool(a.workers, initializer=_init, initargs=(a.card_data,)) as pool:
-        for path, games, cols in pool.imap(encode_file, files):
+        for path, games, cols in pool.imap(partial(encode_file, labels=a.labels), files):
             m = len(cols["state"])
             gstart = np.asarray(cols.pop("gstart", []), np.int64) + offset
+            cols["gid"] = np.asarray(cols["gid"], np.int32) + total_games
             for h in HORIZONS:
                 loc = np.asarray(cols[f"nxt{h}"], np.int64)
                 cols[f"nxt{h}"] = np.where(loc >= 0, loc + gstart, -1)
             for k, v in cols.items():
-                out.setdefault(k, []).append(np.asarray(v) if k != "bot" else np.asarray(v, dtype="U32"))
+                out.setdefault(k, []).append(np.asarray(v, dtype="U32") if k == "bot" else np.asarray(v, dtype=np.int16).reshape(-1, OHAND) if k == "ohand" else np.asarray(v))
             offset += m
             total_games += games
             print(f"{path}: {games} games, {m} decisions", file=sys.stderr)

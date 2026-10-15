@@ -25,6 +25,7 @@
     "c-clock3": { "cmd": "bots/c/swu-c", "args": ["--v3"], "lang": "c" },
     "c-clock2m": { "cmd": "bots/c/swu-c", "args": ["--v2", "--mull"], "lang": "c" },
     "c-clock2me": { "cmd": "bots/c/swu-c", "args": ["--v2", "--mull", "--epic"], "lang": "c" },
+    "c-clock3me": { "cmd": "bots/c/swu-c", "args": ["--v3", "--mull", "--epic"], "lang": "c" },
     "py-clock": { "cmd": "python3", "args": ["bots/python/swu_clock.py"], "lang": "python" },
     "node-random": { "cmd": "node", "args": ["bots/examples/random-bot.js", "node-random"], "lang": "js" },
     "node-search": { "cmd": "node", "args": ["bots/examples/search-bot.js", "node-search"], "lang": "js" },
@@ -48,5 +49,8 @@
     "jepa-b": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1b.safetensors", "--name", "jepa-b"], "stderr": "ignore", "lang": "python" },
     "jepa-h1w": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1.safetensors", "--window-model", "bots/jepa/models/jepa-v1b.safetensors", "--mix", "0", "--name", "jepa-h1w"], "stderr": "ignore", "lang": "python" },
     "jepa-h1r": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/jepa-v1.safetensors", "--mix", "0", "--resource", "bots/jepa/models/resource-v1.json", "--name", "jepa-h1r"], "stderr": "ignore", "lang": "python" },
-    "jepa-tx": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/tx-s10a.safetensors", "--window-model", "bots/jepa/models/tx-s10a-e.safetensors", "--window-horizon", "s", "--mix", "0", "--resource", "bots/jepa/models/resource-v1.json", "--name", "jepa-tx"], "stderr": "ignore", "lang": "python" }
+    "jepa-tx": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/tx-s10a.safetensors", "--window-model", "bots/jepa/models/tx-s10a-e.safetensors", "--window-horizon", "s", "--mix", "0", "--resource", "bots/jepa/models/resource-v1.json", "--name", "jepa-tx"], "stderr": "ignore", "lang": "python" },
+    "jepa-tx-gate": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/tx-t10.safetensors", "--window-model", "bots/jepa/models/tx-t10-e.safetensors", "--window-horizon", "s", "--mix", "0", "--resource", "bots/jepa/models/resource-v1.json", "--score", "plan", "--plan-model", "bots/jepa/models/tx-t10-e.safetensors", "--plan", "gate=0.04", "--name", "jepa-tx-gate"], "stderr": "ignore", "lang": "python" },
+    "jepa-tx-plan": { "cmd": "python3", "args": ["bots/jepa/jepa_bot.py", "--model", "bots/jepa/models/tx-t10.safetensors", "--window-model", "bots/jepa/models/tx-t10-e.safetensors", "--window-horizon", "s", "--mix", "0", "--resource", "bots/jepa/models/resource-v1.json", "--score", "plan", "--plan-model", "bots/jepa/models/tx-t10-e.safetensors", "--name", "jepa-tx-plan"], "stderr": "ignore", "lang": "python" },
+    "c-clock3me-s": { "cmd": "bots/c/swu-c", "args": ["--v3", "--mull", "--epic", "--spare"], "lang": "c" }
 }

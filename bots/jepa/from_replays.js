@@ -1,5 +1,5 @@
 'use strict';
-// node bots/jepa/from_replays.js --out data/traj/realdeck --workers 4 [--max N] <run dir or game file>...
+// node bots/jepa/from_replays.js --out data/traj/realdeck --workers 4 [--max N] [--labels] <run dir or game file>...
 //
 // Training games for the JEPA (and any reader of "swu-traj/1") from recorded replays. A replay holds each decision's
 // chosen action and an omniscient board, while a bot sees one seat's view with the prompt and the legal actions. So
@@ -9,8 +9,11 @@
 // action count or label) is dropped from that step on, and so are games without a winner or without deck lists
 // (imported human games cannot be played again).
 //
+// --labels adds what the acting seat cannot see, for training targets only (never a model input at play time):
+// "oh", the set codes of the opponent's hand at that decision (hist_train.py's opponent-hand probe).
+//
 // Output: <out>/shard-<k>.jsonl.gz, one gzip member per game:
-//   {"t":"game","seed","bots":[p1,p2],"src"}  {"t":"d","seq","you","prompt","state","actions","i"}...  {"t":"end","seed","winner","outcome"}
+//   {"t":"game","seed","bots":[p1,p2],"src","decks":{p1,p2}}  {"t":"d","seq","you","prompt","state","actions","i"}...  {"t":"end","seed","winner","outcome"}
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
@@ -54,7 +57,7 @@ function readGame(file) {
     return out;
 }
 
-async function worker(files, file) {
+async function worker(files, file, labels) {
     const { Env } = require('../../engine/env');
     const { gameStreams } = require('../../engine/rng');
     const { view, promptView, actionView } = require('../../engine/view');
@@ -82,7 +85,9 @@ async function worker(files, file) {
         const lines = [];
         const write = (o) => lines.push(JSON.stringify(o));
         const src = path.basename(path.dirname(path.dirname(f))) + '/' + path.basename(f).replace(/\.jsonl(\.gz)?$/, '');
-        write({ t: 'game', seed: header.seed, bots: header.players.map((p) => p.bot), src });
+        // both deck lists, as the protocol's hello gives them to each bot (data.py's unseen-card tokens)
+        const decks = Object.fromEntries(['p1', 'p2'].map((p) => [p, (header.decks[p].deck ?? []).map((c) => ({ id: c.id, count: c.count }))]));
+        write({ t: 'game', seed: header.seed, bots: header.players.map((p) => p.bot), src, decks });
         let seq = 0;
         let ok = true;
         try {
@@ -98,7 +103,12 @@ async function worker(files, file) {
                 }
                 if (actions.length > 1) {
                     seq++;
-                    write({ t: 'd', seq, you: s.pid, prompt: promptView(eg, pid), state: view(eg, s.pid), actions: actions.map((x, i) => actionView(eg, x, i, pid)), i: s.action.i });
+                    const d = { t: 'd', seq, you: s.pid, prompt: promptView(eg, pid), state: view(eg, s.pid), actions: actions.map((x, i) => actionView(eg, x, i, pid)), i: s.action.i };
+                    if (labels) {
+                        const opp = s.pid === 'p1' ? 'p2' : 'p1';
+                        d.oh = view(eg, opp).players[opp].hand.map((c) => c.s);
+                    }
+                    write(d);
                 }
                 eg.apply(pid, s.action.split ? { ...a, split: s.action.split.map((e) => ({ id: eg.uuidOf(e.id), amount: e.amount })) } : a);
             }
@@ -121,14 +131,15 @@ async function worker(files, file) {
 
 async function main() {
     if (process.argv.includes('--worker')) {
-        const files = await new Promise((resolve) => process.once('message', (m) => resolve(m.files)));
-        await worker(files, arg('file'));
+        const m = await new Promise((resolve) => process.once('message', resolve));
+        await worker(m.files, arg('file'), m.labels);
         process.exit(0);
     }
     const out = path.resolve(arg('out', 'data/traj/replays'));
     const workers = Number(arg('workers', 4));
     const max = Number(arg('max', 0));
-    const inputs = process.argv.slice(2).filter((x, i, all) => !x.startsWith('--') && !(all[i - 1] ?? '').startsWith('--'));
+    const flags = ['--labels'];
+    const inputs = process.argv.slice(2).filter((x, i, all) => !x.startsWith('--') && !((all[i - 1] ?? '').startsWith('--') && !flags.includes(all[i - 1])));
     const files = gameFiles(inputs, max);
     fs.mkdirSync(out, { recursive: true });
     for (const f of fs.readdirSync(out)) {
@@ -146,7 +157,7 @@ async function main() {
             break;
         }
         const p = fork(__filename, ['--worker', '--file', path.join(out, `shard-${k}.jsonl.gz`)], { stdio: ['ignore', 'inherit', 'inherit', 'ipc'] });
-        p.send({ files: mine });
+        p.send({ files: mine, labels: process.argv.includes('--labels') });
         p.on('message', (m) => {
             if (m.done) {
                 done += m.done;
