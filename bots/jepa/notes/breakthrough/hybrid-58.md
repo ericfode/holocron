@@ -71,3 +71,35 @@ Lesson: the judge's (linear-deck-g4's) score of the settled board is not what wi
 the planner's real boards with a head trained on who won helped (+2.3 over the evaluator copy, +3.7 over
 tx-t10-g04-rc). The next step is that head refit on games against c-clock (`fit_value.py`: held-out BCE 0.457 ->
 0.437 on pack-h).
+
+## Later runs (same day)
+
+On the test deals, paired against the 58.7% bot (tx-t10-g04-rc-fs-pv) unless noted:
+
+| change | won | paired |
+|---|---|---|
+| judge = tx-t10's head refit on 811k decisions vs c-clock (`fit_value.py`, held-out BCE 0.457 -> 0.437) | 58.1% | -0.4 [-4.1, +3.3] |
+| gate 0 (plan every window) | 53.7% | -5.1 [-8.1, -2.2] |
+| gate 0.06 (50% of windows planned) | 56.0% | -2.6 [-5.0, -0.1] |
+| gate 0.08 (37%) | 55.1% | -3.6 [-6.7, -0.6] |
+| `--plan reply=1` (judge after the opponent's next action, played like rush) | 52.7% | -6.0 [-9.4, -2.6] |
+| judge = mean of tx-t10 and tx-t10-e (`--plan-model a,b`), gate 0.04 | 60.0% | +1.0 [-1.6, +3.8] |
+| the same at gate 0 | 56.4% | -2.6 [-6.0, +0.7] |
+| tx-o1 (tx-t10's recipe + 18k on-policy points, no decision loss) as the hybrid | 59.7% | +0.7 [-3.1, +4.5] |
+| tx-o1 without the simulator (`-fs-rc`), vs tx-t10-fs-rc | 30.6% | -4.1 [-7.8, -0.3] |
+
+The outcome-trained head judges big decisions better than the evaluator copy and small ones worse (gate 0 hurts it,
+less so the mean of both). On-policy branch data has not helped play in any form.
+
+**Confirmation on fresh deals** (702 games each, ladder seed 40001, no key: the same deck pairings and seats, each run
+its own shuffles):
+
+| bot | won | vs the morning bot |
+|---|---|---|
+| tx-t10-g04 (the morning bot) | 52.9% (366-326) | |
+| tx-t10-g04-rc | 58.3% (403-288) | +5.6 [+1.0, +10.0], p=0.020 |
+| **tx-t10-g04-rc-fs-pv** | **63.8% (441-250)** | **+11.4 [+6.6, +16.2], p<0.001** (+5.9 [+1.2, +10.5] vs -rc) |
+| tx-t10-g04-rc-fs-pe (mean judge) | 60.9% (424-272) | +8.0 [+3.4, +12.7] (-3.2 [-7.6, +1.2] vs -pv) |
+
+Over both deal sets the value-judged bot and the mean-judged bot are equal within noise; the value-judged one (one
+model, already the 58.7% bot) stays the pick.
