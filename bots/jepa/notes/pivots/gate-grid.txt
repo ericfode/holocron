@@ -1,0 +1,14 @@
+GRID tx-t10-g04 (0.04) rc=0 in 7 min: 9808/16526 windows planned (59.3%); timeouts 0, decide mean 74 ms, p95 median 420 ms, max 3510 ms; tx-t10-g04                       684  51.2 [47.4, 54.9]           +8 | no mirror run
+GRID tx-t10-g06 (0.06) rc=0 in 6 min: 7717/16672 windows planned (46.3%); timeouts 0, decide mean 61 ms, p95 median 371 ms, max 3261 ms; tx-t10-g06                       684  48.5 [44.8, 52.3]          -10 | no mirror run
+GRID tx-t10-g08 (0.08) rc=0 in 5 min: 5767/17097 windows planned (33.7%); timeouts 0, decide mean 49 ms, p95 median 315 ms, max 3469 ms; tx-t10-g08                       688  47.1 [43.4, 50.8]          -20 | no mirror run
+GRID tx-t10-h2e (0 --plan-scorer eval) rc=0 in 8 min: 15276/15276 windows planned (100.0%); timeouts 0, decide mean 89 ms, p95 median 446 ms, max 2893 ms; tx-t10-h2e                       690  50.0 [46.3, 53.7]           +0 | no mirror run
+paired vs tx-t10-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04     683 paired games: 51.1 vs 31.3 -> +19.8 pts [+15.9, +23.7]; only tx-t10-g04 won 170, only tx-t10-va won 35, sign test p=0.000
+  tx-t10-g06     683 paired games: 48.5 vs 31.3 -> +17.1 pts [+13.3, +21.1]; only tx-t10-g06 won 156, only tx-t10-va won 39, sign test p=0.000
+  tx-t10-g08     687 paired games: 47.0 vs 31.3 -> +15.7 pts [+12.2, +19.3]; only tx-t10-g08 won 137, only tx-t10-va won 29, sign test p=0.000
+  tx-t10-h1      690 paired games: 42.8 vs 31.2 -> +11.6 pts [+8.5, +14.8]; only tx-t10-h1 won 108, only tx-t10-va won 28, sign test p=0.000
+  tx-t10-h2      689 paired games: 51.2 vs 31.1 -> +20.2 pts [+16.2, +24.2]; only tx-t10-h2 won 176, only tx-t10-va won 37, sign test p=0.000
+  tx-t10-h2e     689 paired games: 49.9 vs 31.1 -> +18.9 pts [+14.9, +22.8]; only tx-t10-h2e won 166, only tx-t10-va won 36, sign test p=0.000
+paired vs tx-t10-h2 (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-h2e     688 paired games: 50.0 vs 51.3 -> -1.3 pts [-4.4, +1.9]; only tx-t10-h2e won 54, only tx-t10-h2 won 63, sign test p=0.460
+GRID_DONE
