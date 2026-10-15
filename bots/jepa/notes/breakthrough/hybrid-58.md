@@ -103,3 +103,12 @@ its own shuffles):
 
 Over both deal sets the value-judged bot and the mean-judged bot are equal within noise; the value-judged one (one
 model, already the 58.7% bot) stays the pick.
+
+**More on-policy data (tx-o2)**: tx-t10's recipe + all six on-policy parts (87,821 points from the bots' own games
+against c-clock, 25% of the branch draws), no decision loss. Yardstick flat (own-positions top-1 0.671, regret 0.97
+pts; rush 0.810). Play: without the simulator 28.7%, -5.7 [-9.3, -1.9] vs tx-t10-fs-rc; as the value-judged hybrid
+56.7%, -2.1 [-6.0, +1.9]. With tx-o1 (18k points: -4.1 and +0.7), more on-policy branch data makes the
+no-simulator bot worse and leaves the hybrid alone. Closed for this model.
+
+**Planner breadth**: roots 32 and follow 10 (16 and 6 by default) changed 4 of 688 games: 59.0%, +0.3 [-0.3, +0.9].
+Planned windows use 13.6 lines and 0.40 s on average, far under the caps (150 lines, 5 s); breadth is not a lever.

@@ -99,3 +99,15 @@ paired vs tx-t10-g04 (bootstrap over seeds, 10000 draws; sign test on games exac
 paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
   tx-t10-g04-rc-fs-pe 688 paired games: 60.6 vs 63.8 -> -3.2 pts [-7.6, +1.2]; only tx-t10-g04-rc-fs-pe won 114, only tx-t10-g04-rc-fs-pv won 136, sign test p=0.184
 CONFIRM2_DONE
+O1 tx-o2-fs-rc rc=0: tx-o2-fs-rc                      692  28.6 [25.4, 32.1]         -159 | no mirror run
+O1 tx-o2-g04-rc-fs-pv rc=0: tx-o2-g04-rc-fs-pv               688  56.7 [53.0, 60.3]          +47 | no mirror run
+paired vs tx-t10-fs-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-o2-fs-rc    686 paired games: 28.7 vs 34.4 -> -5.7 pts [-9.3, -1.9]; only tx-o2-fs-rc won 62, only tx-t10-fs-rc won 101, sign test p=0.003
+paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-o2-g04-rc-fs-pv 681 paired games: 56.5 vs 58.6 -> -2.1 pts [-6.0, +1.9]; only tx-o2-g04-rc-fs-pv won 91, only tx-t10-g04-rc-fs-pv won 105, sign test p=0.353
+O1_DONE tx-o2
+WIDE tx-t10-g04-rc-fs-pv-wide rc=0: tx-t10-g04-rc-fs-pv-wide         688  59.0 [55.3, 62.6]          +63 | no mirror run
+planned 10083/15689 windows (64.3%), 13.6 lines and 0.40 s per planned window
+paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc-fs-pv-wide 688 paired games: 59.0 vs 58.7 -> +0.3 pts [-0.3, +0.9]; only tx-t10-g04-rc-fs-pv-wide won 3, only tx-t10-g04-rc-fs-pv won 1, sign test p=0.625
+WIDE_DONE
