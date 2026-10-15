@@ -150,8 +150,8 @@ def hand_hot(rows):
 
 
 # ---- frozen targets: the target model's latent of every row ----
-cache = f"{a.pack}.{os.path.basename(a.target).replace('.safetensors', '')}.zt.npy"
-if os.path.exists(cache) and np.load(cache, mmap_mode="r").shape[0] == N:
+cache, fresh = X.latent_cache(a.pack, a.target)
+if fresh and np.load(cache, mmap_mode="r").shape[0] == N:
     zt = np.load(cache)
 else:
     zt = np.concatenate([target.forward(d["state"][k:k + 2048], d["tok_ids"][k:k + 2048].astype(np.int64),
