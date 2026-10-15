@@ -506,10 +506,11 @@ with `tier_prep.py --eval linear-deck-g4`; training adds `--tier-pack packs/t-0.
 to the jepa-tx command above.
 
 Results (desktop run, `notes/tiers/`; 3 parts, 88,545 tier points; test set 500 games at seed 745000): tx-t10 = the
-tx-s10a recipe plus the tiers. The macros are learned: the imagined best macro is the judged best 77% of the time at
-the round end (chance 44%; measured before a yardstick fix: lines whose game ended in the next round were graded
-against the game's result instead of the round-end board, so this number will be rerun). Played vs c-clock on the
-usual 702 deals, paired against jepa-tx (28.4%):
+tx-s10a recipe plus the tiers. The macros are learned: with the window head (tx-t10-e), the imagined best macro is the
+judged best 79% of the time at this round's end (chance 42%) and 68% at the next round's (chance 44%). Picking moves
+by tier is level with the settled horizon at the round end (top-1 0.811 vs 0.817) and slightly better at the next
+(0.844 vs 0.827; `notes/tiers/tx-t10-e-tiers-fixed.txt`). Played vs c-clock on the usual 702 deals, paired against
+jepa-tx (28.4%):
 
 | tx-t10 variant | Wins vs c-clock | Paired vs jepa-tx |
 |---|---|---|
