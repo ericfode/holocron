@@ -1,0 +1,17 @@
+SWAP sw-none (none) rc=0 in 9 min: {'mulligan kept': 676, 'other kept': 17083, 'resource kept': 9747, 'window kept': 17474}; sw-none                          684  51.2 [47.4, 54.9]           +8 | no mirror run
+SWAP sw-mulligan (mulligan) rc=0 in 16 min: {'mulligan swapped': 676, 'other kept': 16936, 'resource kept': 9745, 'window kept': 17498}; sw-mulligan                      687  51.8 [48.1, 55.5]          +13 | no mirror run
+SWAP sw-resource (resource) rc=0 in 19 min: {'mulligan kept': 676, 'other kept': 17441, 'resource swapped': 9766, 'window kept': 17389}; sw-resource                      684  55.1 [51.4, 58.8]          +36 | no mirror run
+SWAP sw-other (other) rc=0 in 22 min: {'mulligan kept': 676, 'other swapped': 17289, 'resource kept': 10000, 'window kept': 18595}; sw-other                         685  47.7 [44.0, 51.5]          -16 | no mirror run
+SWAP sw-window (window) rc=0 in 3 min: {'mulligan kept': 676, 'other kept': 18401, 'resource kept': 9524, 'window swapped': 18307}; sw-window                        693  29.7 [26.4, 33.2]         -149 | no mirror run
+paired vs tx-t10-g04 (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  sw-none        684 paired games: 51.2 vs 51.2 -> +0.0 pts [+0.0, +0.0]; only sw-none won 0, only tx-t10-g04 won 0, sign test p=1.000
+  sw-mulligan    681 paired games: 51.5 vs 51.2 -> +0.3 pts [-2.8, +3.4]; only sw-mulligan won 60, only tx-t10-g04 won 58, sign test p=0.927
+  sw-resource    680 paired games: 54.9 vs 51.2 -> +3.7 pts [+0.9, +6.5]; only sw-resource won 65, only tx-t10-g04 won 40, sign test p=0.019
+  sw-other       680 paired games: 47.6 vs 51.2 -> -3.5 pts [-6.9, -0.1]; only sw-other won 56, only tx-t10-g04 won 80, sign test p=0.048
+  sw-window      684 paired games: 29.5 vs 51.2 -> -21.6 pts [-25.5, -17.7]; only sw-window won 28, only tx-t10-g04 won 176, sign test p=0.000
+paired vs sw-none (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  sw-mulligan    681 paired games: 51.5 vs 51.2 -> +0.3 pts [-2.8, +3.4]; only sw-mulligan won 60, only sw-none won 58, sign test p=0.927
+  sw-resource    680 paired games: 54.9 vs 51.2 -> +3.7 pts [+0.9, +6.5]; only sw-resource won 65, only sw-none won 40, sign test p=0.019
+  sw-other       680 paired games: 47.6 vs 51.2 -> -3.5 pts [-6.8, -0.1]; only sw-other won 56, only sw-none won 80, sign test p=0.048
+  sw-window      684 paired games: 29.5 vs 51.2 -> -21.6 pts [-25.6, -17.8]; only sw-window won 28, only sw-none won 176, sign test p=0.000
+SWAP_DONE

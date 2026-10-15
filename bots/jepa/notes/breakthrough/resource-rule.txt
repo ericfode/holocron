@@ -1,0 +1,7 @@
+RCTEST tx-t10-va-rc rc=0 in 3 min: tx-t10-va-rc                     689  30.3 [27.0, 33.9]         -144 | no mirror run
+RCTEST tx-t10-g04-rc rc=0 in 20 min: tx-t10-g04-rc                    684  55.1 [51.4, 58.8]          +36 | no mirror run
+paired vs tx-t10-va (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-va-rc   688 paired games: 30.4 vs 31.2 -> -0.9 pts [-3.2, +1.6]; only tx-t10-va-rc won 34, only tx-t10-va won 40, sign test p=0.561
+paired vs tx-t10-g04 (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc  680 paired games: 54.9 vs 51.2 -> +3.7 pts [+0.9, +6.5]; only tx-t10-g04-rc won 65, only tx-t10-g04 won 40, sign test p=0.019
+RC_DONE
