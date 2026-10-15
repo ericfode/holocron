@@ -595,10 +595,16 @@ simulator it takes tx-t10 from 31.1% to 34.5% (+3.3 [+0.3, +6.4], p = 0.027), th
 `--resource c-clock` it is the same (34.4%). jepa-tx-gate now uses all three; it plans 64% of windows at 104 ms a
 decision on average (4 s max). Without the referee's simulations (Karabast) it plays as the no-simulator bot.
 
+On 702 fresh deals that none of these choices were tuned on (ladder seed 40001), it won 63.8% against 52.9% for
+this morning's bot (+11.4 [+6.6, +16.2], p < 0.001); the resource rule alone gave 58.3%.
+
 What failed: training on the bot's own positions with a loss that orders moves the way linear-deck-g4 does (tx-o1d).
 The judge liked it better (top-1 on its own windows 0.678 -> 0.750) but it played much worse (no simulator -11.1,
 hybrid -7.7): its settled-board forecasts broke away from the window choice. The judge's score is not what wins;
-a value head trained on who won is. `fit_value.py` refits that head on recorded games (next test).
+a value head trained on who won is. Later tries did not beat the 58.7% bot: that head refit on games against c-clock
+(`fit_value.py`), planning more or fewer windows (gate 0, 0.06, 0.08), judging after the opponent's next action
+(`--plan reply=1`), the mean of both heads as the judge (`--plan-model a,b`: 60.0% on the test deals, 60.9% on the
+fresh ones), and tx-o1 (own positions, no ranking loss). `notes/breakthrough/hybrid-58.md` has the numbers.
 
 ## Deck lists, discards and game history (hist_train.py)
 

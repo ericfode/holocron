@@ -81,7 +81,9 @@ class JepaPlayer:
                  plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1"):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
-        self.plan_net = X.load(plan_model)[0] if plan_model else self.net
+        # --plan-model a,b: the planner's judge is the mean of the models' win chances on each settled board
+        self.plan_nets = [X.load(m)[0] for m in plan_model.split(",")] if plan_model else [self.net]
+        self.plan_net = self.plan_nets[0]
         # optional second model used only in action windows (e.g. a predictor fine-tuned on branches, which only cover windows)
         self.window_net = X.load(window_model)[0] if window_model else None
         self.db = db
@@ -348,7 +350,8 @@ class JepaPlayer:
             self.fail = f"begin: {r.get('error') or 'actions differ'}"
             return "abort"
         taken, mine, guard, seen, depth = [], [], {}, {}, 0
-        for step in range(80):
+        replies = 0  # --plan reply=1: the opponent's next action (played like rush) before the board is judged
+        for step in range(80 + 60 * cfg.get("reply", 0)):
             if r.get("error"):
                 self.fail = f"act: {r['error']}"
                 return None  # the simulation is closed; the next line begins a new one
@@ -356,7 +359,11 @@ class JepaPlayer:
                 self.fail = "time"
                 return "abort"
             if step > 0 and self.settled(r):
-                return taken, mine, r
+                if (replies < cfg.get("reply", 0) and not r.get("over") and r.get("actor") != me
+                        and (r.get("state") or {}).get("phase") == "action" and (r.get("prompt") or {}).get("actionWindow")):
+                    replies += 1  # the opponent's action window: let it act, judge the board once that has settled
+                else:
+                    return taken, mine, r
             acts = r.get("actions") or []
             if not acts:
                 self.fail = "no actions"
@@ -365,6 +372,17 @@ class JepaPlayer:
             key = None
             if actor == me and len(acts) > 1:
                 key = json.dumps([r.get("prompt"), r.get("state"), [x.get("label") for x in acts]], sort_keys=True)
+            if replies and actor == me and step >= len(path):
+                # my prompts during the opponent's reply: the imagined best, no new lines, not part of the plan
+                if len(acts) == 1:
+                    j = 0
+                else:
+                    pos = {"you": me, "prompt": r.get("prompt"), "state": r.get("state"), "actions": acts}
+                    sc = self.think(pos)["score"]
+                    j = int(np.argmax([s if not is_button(x, "cancel") else -1.0 for s, x in zip(sc, acts)]))
+                taken.append(j)
+                r = sim({"t": "sim", "op": "act", "i": j})
+                continue
             if step < len(path):
                 j = path[step]
                 if key is not None and step > 0:
@@ -452,9 +470,9 @@ class JepaPlayer:
             vals[live] = M.sigmoid(np.asarray(self.evaluator.logits(me, self.decks, [m["state"] for m in pos], to_act)))
         elif live:
             es = [F.encode(m, self.db) for m in pos]
-            z = self.plan_net.encode(np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
-                                     np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
-            vals[live] = M.sigmoid(self.plan_net.value(z))
+            batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
+                     np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
+            vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
         score = np.full(n, -1.0)
         best = {}
         for k, (taken, mine, _) in enumerate(leaves):
@@ -608,7 +626,8 @@ def main():
                     help="what ranks the moves: the imagined next latent (the bot), the real next position from a simulation, "
                          "or the planner (whole moves with their follow-up choices, simulated)")
     ap.add_argument("--plan", default="", help="planner settings as k=v,... (roots, follow, follow2, depth, lines, secs, floor, gate: plan "
-                                                 "only windows whose imagined scores spread at least this much, e.g. 0.1 = 10 points)")
+                                                 "only windows whose imagined scores spread at least this much, e.g. 0.1 = 10 points; "
+                                                 "reply=1: judge after the opponent's next action, 0 or 1 only)")
     ap.add_argument("--resource", default=None, help="answer resource prompts with this model (bots/jepa/resource_policy.py)")
     ap.add_argument("--plan-scorer", choices=["v", "eval"], default="v",
                     help="what scores the planner's settled positions: the value head, or the --evaluator (a yardstick)")
@@ -633,6 +652,8 @@ def main():
     logf = open(a.log, "a") if a.log else None
     helper = EvalHelper(a.evaluator) if (a.score == "sim-eval" or logf or (a.score == "plan" and a.plan_scorer == "eval")) else None
     plan = {k: float(v) for k, v in (kv.split("=") for kv in a.plan.split(",") if kv)}
+    if plan.get("reply", 0) not in (0, 1):
+        ap.error("--plan reply takes 0 or 1: a longer reply would need my own moves in between, which plan_line does not play")
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
                         plan={**{k: (v if k in ("secs", "gate") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
