@@ -79,7 +79,7 @@ WAIT_PROMPT = {"type": "actionWindow", "actionWindow": True, "selectCardMode": N
 
 class JepaPlayer:
     def __init__(self, model_path, db, mix=0.5, temp=0.0, seed=0, score="imagined", evaluator=None, deals=1, log=None, judge="round", window_model=None,
-                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1", plan_log=None):
+                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1", plan_log=None, policy=None, policy_at="all"):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
         # --plan-model a,b: the planner's judge is the mean of the models' win chances on each settled board
@@ -112,6 +112,11 @@ class JepaPlayer:
         # game's hello and result, as gzip JSON lines: data for a judge trained on settled boards and a policy head
         self.plan_log = gzip.open(plan_log, "at", encoding="utf8") if plan_log else None
         self._pw = None
+        # --policy: a head (policy_train.py) that copies the planner's choice from the window model's latents; it picks
+        # the move at the action windows the planner does not plan (--policy-at all) or only those below its gate (gated)
+        self.policy = M.load_safetensors(policy)[0] if policy else None
+        self.policy_k = int(M.load_safetensors(policy)[1].get("k", 24)) if policy else 0
+        self.policy_at = policy_at
         # round tiers at action windows: weights of s, r, r2 (a tiered model), and whether to keep one macro per round
         self.tiers = tiers or {}
         self.commit_macro = commit_macro
@@ -138,6 +143,18 @@ class JepaPlayer:
             flat = lambda d: [c["id"] for c in d.get("deck") or [] for _ in range(int(c.get("count", 1)))]
             self.decks = {you: flat(hello["deck"]), them: flat(hello["opponent"])}
 
+    def policy_score(self, t):
+        """The policy head's logits on the imagined best --policy-k moves (the others -inf)."""
+        imag = np.asarray(t["score"], np.float64)
+        cand = np.argsort(-imag)[:self.policy_k]
+        z, zs = np.asarray(t["z"], np.float32), np.asarray(t["zs"], np.float32)[cand]
+        x = np.concatenate([np.broadcast_to(z, zs.shape), zs, zs - z, imag[cand, None].astype(np.float32)], 1)
+        w = self.policy
+        lg = (np.maximum(x @ w["pol1.w"] + w["pol1.b"], 0.0) @ w["pol2.w"])[:, 0] + w["pol2.b"][0]
+        out = np.full(len(imag), -1e9)
+        out[cand] = lg
+        return out
+
     def log_plan(self, rec):
         if self.plan_log is not None:
             self.plan_log.write(json.dumps(rec, separators=(",", ":")) + "\n")
@@ -162,9 +179,11 @@ class JepaPlayer:
         v1 = M.sigmoid(net.value(z1))
         v4 = M.sigmoid(net.value(z4))
         score = (1 - self.mix) * v1 + self.mix * v4
+        zs = None
         if "s" in getattr(net, "horizons", ()) and ((self.window_horizon == "s" and window) or follow):
-            score = M.sigmoid(net.value(net.predict(z, a, "s")))
-        out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0])}
+            zs = net.predict(z, a, "s")
+            score = M.sigmoid(net.value(zs))
+        out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0]), "zs": zs}
         if self.tiers and window:
             out["score"], out["combo"] = self.tier_score(net, z, a, (msg.get("state") or {}).get("round"))
         return out
@@ -533,6 +552,7 @@ class JepaPlayer:
         self.fail = None
         window = bool((msg.get("prompt") or {}).get("actionWindow"))
         best = None
+        gated = False
         if self.score == "plan":
             if window:
                 self.plan = []
@@ -565,6 +585,8 @@ class JepaPlayer:
             elif self.score != "imagined":
                 score = real[self.score]
             t["real"] = real
+        if self.policy is not None and window and best is None and t.get("zs") is not None and (self.policy_at == "all" or gated):
+            score = self.policy_score(t)
         # loop guard: if this exact observation keeps coming back, stop repeating the same pick
         key = hash(json.dumps([msg.get("prompt"), msg.get("state"), [x.get("label") for x in msg["actions"]]], sort_keys=True))
         tried = self.seen.setdefault(key, [])
@@ -664,6 +686,8 @@ def main():
     ap.add_argument("--plan-model", default=None, help="a second model that scores only the planner's settled positions")
     ap.add_argument("--window-horizon", choices=["1", "s"], default="1",
                     help="imagined score at action windows: the mover's next decision (1, with --mix) or where the move settles (s)")
+    ap.add_argument("--policy", default=None, help="a policy head (policy_train.py) for the action windows the planner does not plan")
+    ap.add_argument("--policy-at", choices=["all", "gated"], default="all", help="all windows not planned, or only those below the gate")
     ap.add_argument("--plan-log", default=None, help="append every planned window and each game's result here (gzip JSON lines)")
     ap.add_argument("--follow-horizon", choices=["1", "s"], default="1",
                     help="other prompts of the action phase (targets, costs, triggers): the next decision (1) or, with the window model, "
@@ -681,7 +705,8 @@ def main():
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
                         plan={**{k: (v if k in ("secs", "gate") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
-                        follow_horizon=a.follow_horizon, plan_log=a.plan_log)
+                        follow_horizon=a.follow_horizon, plan_log=a.plan_log,
+                        policy=a.policy, policy_at=a.policy_at)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin
 
