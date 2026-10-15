@@ -44,9 +44,11 @@ hist       0.808         0.736         0.448      0.780     8.469        0.294  
    (h1: within 0.04 nats on the hand, 0.006 on recall, 0.005 on win accuracy). Pool was clearly best early (hand 8.33
    at 1,000 steps against base's 8.69) and then the others caught up: the lists speed learning, but leaders and the board
    carry the same information after enough steps.
-3. **With the latent shaped by the JEPA losses alone (h1p), the lists matter for the hand**: pool and hist 8.45-8.47
-   against base and snap 8.96-8.99 (pool's hand head starts from counting cards; base's has no list to count from).
-   The JEPA latent itself does not carry the hidden hand; the next move drops to top-1 0.24.
+3. **With the latent shaped by the JEPA losses alone (h1p), the hand guess is weaker**: base and snap 8.96-8.99 against
+   8.47 with joint training, though still better than counting (9.09) and the leader prior (9.59), so the JEPA latent
+   carries some of the hand. Pool and hist reach 8.45-8.47, but their hand heads add card counting from the lists
+   directly to the logits after reading the latent, and base and snap have no such term. So this gap measures that
+   shortcut, not what the latent holds. The next move drops to top-1 0.24.
 4. **Forecasts**: from scratch in 8,000 steps the models stay below tx-t10 one decision ahead (0.73-0.81 against
    0.863) and reach it four decisions ahead (0.73 against 0.720). Probe-only forecasts better than joint training
    (0.80 against 0.73 at h1): the hand and move heads compete with the forecasts for the latent.
