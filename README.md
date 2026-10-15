@@ -69,3 +69,13 @@ make -C bots/c                                                # c-clock
   dependency.
 - Building a bot into a submission bundle uses the arena's bundle tool (`bot/compiled/` in `swu_bot`) until the
   arena publishes it.
+
+## License and credits
+
+The code is MIT licensed (`LICENSE`). This is an unofficial fan project. It is not made, endorsed or supported by Fantasy Flight Games, Asmodee, Disney or
+Lucasfilm. Star Wars: Unlimited and its card names, card text and art belong to their owners.
+
+- Rules engine: [forceteki](https://github.com/SWU-Karabast/forceteki), Karabast's engine (MIT), as the `forceteki/`
+  submodule. Card data comes from the official card database through its `get-cards` download.
+- Tournament deck lists and results in `decks/`: TCGEngine / SWU Stats (MIT, `decks/LICENSE.TCGEngine`), from public
+  melee.gg Premier events. Online leader win rates in `lab/analysis/swustats/`: SWU Stats (swustats.net).
