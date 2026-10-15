@@ -59,6 +59,11 @@ node karabast/fidelity.js --games 20                                            
   decision (a game the server can no longer move) the seat concedes.
 - Two players with the same name break a game: the engine finds a player's opponent by name
   (`Game.getOtherPlayer`), and the first frame fails to serialize. Give each local bot run its own `--username`.
+- On karabast.net the bot is an anonymous player with no name or chat of its own. Since forceteki #3014
+  (2026-10-14) the server takes only a UUID id from an anonymous player (anything else gets "Authentication failed"),
+  names it "anonymous" plus the id's first 6 characters, and blocks chat from or to anonymous players. `queue.js`
+  sends a fresh UUID per run and ignores `--username` and `--chat` against any non-local server (Eric picked playing
+  anonymously, 2026-10-14). A local server of an older engine still takes both.
 
 ## Watch a game as it is played (`live-view.js`)
 

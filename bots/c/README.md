@@ -79,6 +79,14 @@ does nothing before a Fighter has attacked, so it was cancelled and banned for t
 the deploy. Bot games rarely get there: the Luke deck test changed no game, and the standard test gives +0.3 over
 c-clock2m [−0.5, +1.1] (52.4%).
 
+## Karabast's menu titles
+
+Karabast's update of 2026-10-14 (17:57 UTC) titles a card's action menu "Choose an action for X" (a leader: deploy,
+deploy as a Pilot, its action) and "Choose how to play X" (a unit with Piloting), where the pinned engine still says
+"Play X:". The bot reads all three. Before this, from 21:04 to the fix, c-clock2me missed the new menu, took its first
+button and deployed Luke as a plain unit all 33 times, never as a Pilot. Local games keep the old title, so the
+tests cannot see the change; `lab/analysis/karabast/redecide.js` on those games shows the Pilot deploy coming back.
+
 ## Files
 
 - `bot.c`: protocol loop, observation parsing, the strategy.

@@ -2,6 +2,7 @@
 over the moves of each branch point, does V(ẑ_h(move)) rank them like V(z(real future after the move))?
 
 python3 yardstick.py <model.safetensors> <branches.npz> [--judge judge.npz]   (the held-out points tx_train_torch.py uses)
+python3 yardstick.py <tiered model.safetensors> --tiers <tier_prep.py --eval output>   (round tiers, every point, judged)
 
 The real futures are judged by the model's own value head unless --judge gives one evaluator's scores (judge_prep.py);
 only a fixed judge makes top-1 rates comparable between models. regret = the judged win chance lost, on average, by
@@ -41,8 +42,8 @@ def imagine(net, B, p):
     args = (B["state"][p:p + 1], B["ids"][p:p + 1].astype(np.int64), B["feats"][p:p + 1].astype(np.float32), B["mask"][p:p + 1].astype(np.float32))
     act, aid = B["act"][p, :n], B["aid"][p, :n].astype(np.int64)
     if isinstance(net, X.NumpyTx):
-        _, pr = net.forward(*args, act[None], aid[None])
-        return pr[0]  # [n, len(net.horizons), D]
+        _, pr = net.forward(*args, act[None], aid[None], hsel=net.groups[0])
+        return pr[0]  # [n, len(base horizons), D]: the move's own horizons (1, 4, s), not the round tiers
     z = net.encode(*args)
     av = net.action(act, aid)
     return np.stack([net.predict(z, av, 1), net.predict(z, av, 4)], 1)
@@ -82,7 +83,7 @@ def yardstick(net, B, idx, judge=None):
     judge None: the real futures are scored by the model's own value head (so the judge differs between models).
     judge {1: ev1, 4: ev4, "s": evt} (judge_prep.py's logits): one fixed judge for every model, plus "h<h>_vs_settled":
     each horizon's imagined ranking against the judge's score of the board where each move really settled."""
-    all_hs = net.horizons if isinstance(net, X.NumpyTx) else [1, 4]
+    all_hs = [net.horizons[i] for i in net.groups[0]] if isinstance(net, X.NumpyTx) else [1, 4]
     real = {}
     for h, (t, m) in TARGETS.items():
         if m not in B or (judge is None and h not in all_hs) or (judge is not None and judge.get(h) is None):
@@ -112,6 +113,101 @@ def yardstick(net, B, idx, judge=None):
     return res
 
 
+TIER_TARGETS = {"r": ("rd", "mr"), "r2": ("rd2", "mr2")}
+
+
+def tier_yardstick(net, Q, idx, judge=None):
+    """Round tiers of a tiered model on tier_prep.py points, per tier t (r: this round's end, r2: the next round's):
+    lines  over a point's (move, macro) lines, V(ẑ_t:macro(move)) against the real round-end boards
+    macro  per move: is the imagined best macro the real best one
+    move   per point, each move worth its best real line: the move whose imagined best line is highest, and as a
+           baseline the move the settled horizon (V(ẑ_s), if the model has it) ranks first; regret = real value lost
+    judge None: real boards scored by the model's value head; {"r": evr, "r2": evr2}: by one evaluator (logits)."""
+    macros = net.macros
+    C = len(macros)
+    idx = [int(p) for p in idx]
+    res = {}
+    real = {}
+    for t, (h, m) in TIER_TARGETS.items():
+        sel = [(p, k, c) for p in idx for k in range(int(Q["nmove"][p])) for c in range(C) if Q[m][p, k, c] > 0]
+        v = np.full((len(Q["game"]), Q["act"].shape[1], C), np.nan, np.float32)
+        if sel:
+            ps, ks, cs = (np.array(x) for x in zip(*sel))
+            if judge is None:
+                z = encode(net, Q[f"{h}_state"][ps, ks, cs], Q[f"{h}_ids"][ps, ks, cs], Q[f"{h}_feats"][ps, ks, cs], Q[f"{h}_mask"][ps, ks, cs])
+                v[ps, ks, cs] = M.sigmoid(net.value(z))
+            else:
+                v[ps, ks, cs] = M.sigmoid(judge[t][ps, ks, cs])
+        real[t] = np.where(Q["over"] >= 0, Q["over"], v)  # a line whose game ended first is worth its result
+    s_i = net.horizons.index("s") if "s" in net.horizons else None
+    acc = {t: {k: [] for k in ("l_top", "l_chance", "l_rho", "l_regret", "m_top", "m_chance", "mv_top", "mv_chance", "mv_regret", "s_top", "s_regret")}
+           for t in TIER_TARGETS}
+    for p in idx:
+        n = int(Q["nmove"][p])
+        args = (Q["state"][p:p + 1], Q["ids"][p:p + 1].astype(np.int64), Q["feats"][p:p + 1].astype(np.float32), Q["mask"][p:p + 1].astype(np.float32))
+        _, pr = net.forward(*args, Q["act"][p:p + 1, :n], Q["aid"][p:p + 1, :n].astype(np.int64))
+        V = M.sigmoid(net.value(pr[0]))  # [n, len(horizons)]
+        for t in TIER_TARGETS:
+            im = V[:, [net.horizons.index(f"{t}:{c}") for c in macros]]  # [n, C]
+            re = real[t][p, :n]
+            a = acc[t]
+            ok = np.isfinite(re)
+            if ok.sum() >= 2:
+                li, lr = im[ok], re[ok]
+                best = set(np.flatnonzero(lr >= lr.max() - 1e-6))
+                pick = np.flatnonzero(li >= li.max() - 1e-6)
+                a["l_top"].append(np.mean([i in best for i in pick]))
+                a["l_chance"].append(len(best) / len(lr))
+                a["l_regret"].append(float(lr.max() - lr[pick].mean()))
+                r = spearman(li, lr)
+                if r is not None:
+                    a["l_rho"].append(r)
+            for k in range(n):
+                okc = np.isfinite(re[k])
+                if okc.sum() >= 2 and np.ptp(re[k][okc]) > 1e-6:
+                    best = set(np.flatnonzero(re[k][okc] >= re[k][okc].max() - 1e-6))
+                    pick = np.flatnonzero(im[k][okc] >= im[k][okc].max() - 1e-6)
+                    a["m_top"].append(np.mean([i in best for i in pick]))
+                    a["m_chance"].append(len(best) / okc.sum())
+            mv = np.array([np.nanmax(re[k]) if np.isfinite(re[k]).any() else np.nan for k in range(n)])
+            okm = np.flatnonzero(np.isfinite(mv))
+            if len(okm) >= 2:
+                rv = mv[okm]
+                best = set(np.flatnonzero(rv >= rv.max() - 1e-6))
+                imv = np.array([np.max(np.where(np.isfinite(re[k]), im[k], -np.inf)) for k in okm])
+                pick = np.flatnonzero(imv >= imv.max() - 1e-6)
+                a["mv_top"].append(np.mean([i in best for i in pick]))
+                a["mv_chance"].append(len(best) / len(rv))
+                a["mv_regret"].append(float(rv.max() - rv[pick].mean()))
+                if s_i is not None:
+                    sv = V[okm, s_i]
+                    pick = np.flatnonzero(sv >= sv.max() - 1e-6)
+                    a["s_top"].append(np.mean([i in best for i in pick]))
+                    a["s_regret"].append(float(rv.max() - rv[pick].mean()))
+    for t, a in acc.items():
+        if not a["l_top"]:
+            continue
+        mean = lambda k: float(np.mean(a[k])) if a[k] else float("nan")
+        res[t] = {"points": len(a["l_top"]), "lines_top1": mean("l_top"), "lines_chance": mean("l_chance"),
+                  "lines_rho_median": float(np.median(a["l_rho"])) if a["l_rho"] else float("nan"), "lines_regret": mean("l_regret"),
+                  "macro_moves": len(a["m_top"]), "macro_top1": mean("m_top"), "macro_chance": mean("m_chance"),
+                  "move_top1": mean("mv_top"), "move_chance": mean("mv_chance"), "move_regret": mean("mv_regret"),
+                  "move_blunders": float((np.array(a["mv_regret"]) > 0.05).mean()) if a["mv_regret"] else float("nan"),
+                  "settled_move_top1": mean("s_top"), "settled_move_regret": mean("s_regret"),
+                  "settled_move_blunders": float((np.array(a["s_regret"]) > 0.05).mean()) if a["s_regret"] else float("nan")}
+    return res
+
+
+def report_tiers(res, label, out):
+    for t, v in res.items():
+        print(f"  {label} {t}: lines top-1 {v['lines_top1']:.3f} (chance {v['lines_chance']:.3f}) rho {v['lines_rho_median']:.2f} "
+              f"regret {v['lines_regret'] * 100:.2f} pts; macro top-1 {v['macro_top1']:.3f} (chance {v['macro_chance']:.3f}, "
+              f"{v['macro_moves']} moves where the macro matters); move pick by tier: top-1 {v['move_top1']:.3f} (chance {v['move_chance']:.3f}) "
+              f"regret {v['move_regret'] * 100:.2f} pts, blunders {v['move_blunders'] * 100:.1f}%; by settled horizon: top-1 "
+              f"{v['settled_move_top1']:.3f} regret {v['settled_move_regret'] * 100:.2f} pts, blunders {v['settled_move_blunders'] * 100:.1f}% "
+              f"({v['points']} points)", file=out)
+
+
 def held_points(B, seed=0):
     games = np.unique(B["game"])
     held = set(np.random.default_rng(seed + 1).choice(games, max(1, int(len(games) * 0.1)), replace=False).tolist())
@@ -123,10 +219,18 @@ if __name__ == "__main__":
 
     ap = argparse.ArgumentParser()
     ap.add_argument("model")
-    ap.add_argument("branches")
+    ap.add_argument("branches", nargs="?")
     ap.add_argument("--judge", default=None, help="judge_prep.py's output for these branches: grade every model by one evaluator")
+    ap.add_argument("--tiers", default=None, help="tier_prep.py --eval output: grade the round tiers on all its points")
     a = ap.parse_args()
     net, meta = X.load(a.model)
+    if a.tiers:
+        Q = dict(np.load(a.tiers))
+        if [str(x) for x in Q["macros"]] != net.macros:
+            raise SystemExit(f"{a.tiers} has macros {list(Q['macros'])}, the model {net.macros}")
+        report_tiers(tier_yardstick(net, Q, np.arange(len(Q["game"])), {"r": Q["evr"], "r2": Q["evr2"]}), "fixed judge", sys.stdout)
+        if not a.branches:
+            sys.exit(0)
     B = dict(np.load(a.branches))
     idx = held_points(B)
     judge = None

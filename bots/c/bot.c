@@ -1437,7 +1437,9 @@ static const Act *choose_buttons(State *st, const Prompt *pr, const Act *acts, i
             if (b) return b;
         }
     }
-    if (starts(t, "play ") && has(t, ":")) {
+    /* Karabast since 2026-10-14 17:57 titles this menu "Choose an action for X" (leader) or "Choose how to play X"
+       (a unit with Piloting); the pinned engine still says "Play X:" */
+    if ((starts(t, "play ") && has(t, ":")) || starts(t, "choose an action for ") || starts(t, "choose how to play ")) {
         /* leader menu (deploy / ability) or a unit with Piloting */
         const Act *dep = NULL;
         if (pilotFix) {
