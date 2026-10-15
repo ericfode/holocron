@@ -87,7 +87,7 @@ async function worker(files, file, cfg) {
         const src = srcOf(f);
         const rng = seededRng(`replay-branch:${src}`);
         const setup = { seed: gameStreams(header.seed, end.key ?? null).engine, deck1: header.decks.p1, deck2: header.decks.p2 };
-        const lines = [JSON.stringify({ t: 'game', seed: header.seed, bots, src, decks: [header.decks.p1, header.decks.p2] })];
+        const lines = [JSON.stringify({ t: 'game', seed: header.seed, bots, src, decks: [header.decks.p1?.metadata?.name ?? header.decks.p1, header.decks.p2?.metadata?.name ?? header.decks.p2] })];
         let points = 0;
         let outcome = 'won';
         try {
