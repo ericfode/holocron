@@ -43,7 +43,7 @@ inside it; workarounds for engine bugs go in `engine/` or `bots/`.
 | `lab/meta/`, `lab/dashboard/` | the Strategy Atlas model and page builder, the research dashboard's shared code |
 | `lab/theory/` | Lean proofs about the game and the measurements that check them |
 | `lab/models/` | trained model files the bots load |
-| `lab/tools/` | card-data stand-in (`synth-cards.js`), search profiling (`search-profile/`) and benchmarks (`omni-search-bench.js`) |
+| `lab/tools/` | card-data stand-in (`synth-cards.js`), search profiling (`search-profile/`), benchmarks (`omni-search-bench.js`), and a local copy of the arena's open-table games (`pull-open-tables.js`) |
 | `lab/kessel-reference/` | the engine side of Kessel's reference corpus: named scenarios, the generator, the probe fixtures and the card pipeline runner (`npm run kessel:reference`, `npm run kessel:pipeline`; needs a Kessel checkout, [README](lab/kessel-reference/README.md)) |
 | `karabast/`, `karabast/importer/` | the bot that plays people on karabast.net, and the importer that turns captures of human games into replays |
 
@@ -59,6 +59,7 @@ npm run realdeck:test -- --bot <bot>                          # 702 games vs c-c
 npm test && npm run test:py && npm run analysis:test          # what CI runs, plus cargo and the C bot build
 cargo build --release                                         # Rust bots, binaries in target/release/
 make -C bots/c                                                # c-clock
+SWU_TABLES_TOKEN=swu_r_... npm run open-tables                # the arena's open-table games into replays/open-tables (token: swu-arena.fly.dev/tables/logs)
 ```
 
 `bots/external-bots.json` names every bot program, so the name works in `--bots`.
