@@ -630,6 +630,9 @@ class JepaPlayer:
                 j = self.follow_plan(msg)
                 if j is not None:
                     self.stats["followed"] += 1
+                    if self.line_m is not None and self.line_ctx is not None and t.get("e") is not None and len(self.line_ctx["toks"]) < 4:
+                        # a planned follow-up is part of the line too, so a later unplanned prompt sees the whole line
+                        self.line_ctx["toks"].append((t["e"]["actions"][j].astype(np.float32), int(t["e"]["aids"][j])))
                     return j, t
                 self.stats["unplanned"] += 1
                 kind = "resource" if F.prompt_type(msg.get("prompt") or {}) == 1 else "plan missed" if had else "other"
