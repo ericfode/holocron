@@ -77,7 +77,7 @@ python3 bots/jepa/line_data.py --model bots/jepa/models/tx-t10.safetensors --out
 python3 bots/jepa/line_train.py --data data/lines/pl1.npz --model bots/jepa/models/tx-t10.safetensors --out runs/lines/l1
 python3 bots/jepa/line_train.py --data data/lines/pl1.npz --model bots/jepa/models/tx-t10.safetensors --out runs/lines/l1ids --ids-only
 python3 bots/jepa/line_root.py --data data/lines/pl1.npz --model bots/jepa/models/tx-t10.safetensors --out runs/lines/root1
-# play (the resid model's weights exported from runs/lines/l1-resid.pt to .npz; both .npz files are in this folder)
+# play (line_train.py writes <out>-resid.npz next to the .pt, line_root.py <out>.npz; both .npz files are in this folder)
 python3 bots/jepa/jepa_bot.py --model bots/jepa/models/tx-t10.safetensors --window-model bots/jepa/models/tx-t10-e.safetensors \
   --window-horizon s --mix 0 --resource c-clock --follow-horizon s --line-model bots/jepa/notes/lines/l1-resid.npz
 ```

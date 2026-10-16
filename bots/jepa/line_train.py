@@ -241,6 +241,7 @@ for variant in [v for v in a.variants.split(",") if v]:
         r[f"vs_baseline_{name}"] = paired_diff(rows, sub)
     report[variant] = r
     torch.save(best[2], f"{a.out}-{variant}.pt")
+    np.savez(f"{a.out}-{variant}.npz", **{k: v.cpu().numpy() for k, v in best[2].items()})  # for jepa_bot.py --line-model (resid; line_models.LineNP)
     print(f"{variant} (best step {best[1]}): latent MSE {mse:.4f}; all windows: top-1 {fmt(r['all']['top1'])}, rho {fmt(r['all']['rho'])}, "
           f"lost {fmt(r['all']['lost_pts'])} pts; vs baseline top-1 {fmt(r['vs_baseline_all']['top1'])}, lost {fmt(r['vs_baseline_all']['lost_pts'])} pts; "
           f"windows with follow-ups: vs baseline top-1 {fmt(r['vs_baseline_with_follow_ups']['top1'])}; ROOT MOVES: top-1 {fmt(r['roots']['top1'])} "

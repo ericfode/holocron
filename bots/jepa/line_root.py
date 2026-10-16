@@ -7,7 +7,7 @@ For each (window, root move) the target is the real settled board of the root mo
 would follow, by tx-t10's value head on the real boards). Input: the window's latent z, the model's own settle prediction
 for the move zb, and the move's action token. ẑ = zb + MLP([z, zb, token]); loss as line_train.py. Held out by game
 (the same split). Root moves are ranked within each window by tx-t10's value head on ẑ, against the real root values
-(the best line's) and against the baseline zb; 95% intervals by game. --export also writes the weights as .npz for
+(the best line's) and against the baseline zb; 95% intervals by game. The weights also go to <out>.npz for
 jepa_bot.py --root-model.
 """
 import argparse

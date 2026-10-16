@@ -92,7 +92,7 @@ for step in range(1, a.steps + 1):
     opt.zero_grad(set_to_none=True)
     l.backward()
     opt.step()
-    if step % 250 == 0:
+    if step % 250 == 0 or step == a.steps:
         with torch.no_grad():
             lt = logits(p, te_t)
             ce = float(torch.nn.functional.cross_entropy(lt, Yt[te_t]))
