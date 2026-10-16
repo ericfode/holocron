@@ -10,7 +10,8 @@
  *
  * A reader token comes from https://swu-arena.fly.dev/tables/logs (anyone signed in with GitHub). The folder is a
  * tournament folder Holotable opens and the lab's readers take (index.json and games/<id>.jsonl). Each run asks only
- * for the games after the newest one it has, and checks every replay against the sha256 the arena lists.
+ * for the games after the newest one it has, and checks every replay against the sha256 the arena lists. A game that
+ * fails (a download error, a wrong sha256) is asked for again on the next run, even when later games came through.
  */
 const crypto = require('crypto');
 const fs = require('fs');
@@ -43,7 +44,9 @@ async function pull({ base = BASE, token, out, fetchImpl = globalThis.fetch, log
     const indexFile = path.join(out, 'index.json');
     const index = fs.existsSync(indexFile) ? JSON.parse(fs.readFileSync(indexFile, 'utf8')) : { id: path.basename(out), kind: 'tables', source: `${base}/api/open/games`, games: [] };
     const have = new Map(index.games.map((g) => [g.id, g]));
-    let since = index.games.reduce((m, g) => (String(g.playedAt) > m ? String(g.playedAt) : m), '');
+    // after the newest game it has, or, when a game failed last time, after the newest game it has from before that one
+    const before = index.retryFrom ?? '\uffff';
+    let since = index.games.reduce((m, g) => (String(g.playedAt) > m && String(g.playedAt) < before ? String(g.playedAt) : m), '');
     const rows = [];
     for (;;) {
         const q = new URLSearchParams({ limit: String(PAGE), ...(since ? { since } : {}) });
@@ -55,6 +58,7 @@ async function pull({ base = BASE, token, out, fetchImpl = globalThis.fetch, log
         since = result.next;
     }
     let added = 0;
+    let retryFrom = null;
     const failed = [];
     for (const row of rows) {
         if (!ID.test(String(row.id)) || have.has(row.id)) {
@@ -74,8 +78,11 @@ async function pull({ base = BASE, token, out, fetchImpl = globalThis.fetch, log
             log(`${row.id}  ${row.p1} vs ${row.p2}  ${row.outcome}${row.winner ? ` (${row.winner})` : ''}`);
         } catch (e) {
             failed.push(`${row.id}: ${e.message}`);
+            const at = String(row.playedAt);
+            retryFrom = retryFrom === null || at < retryFrom ? at : retryFrom;
         }
     }
+    index.retryFrom = retryFrom;
     index.games.sort((a, b) => String(a.playedAt).localeCompare(String(b.playedAt)));
     index.pulledAt = new Date().toISOString();
     writeAtomic(indexFile, `${JSON.stringify(index, null, 1)}\n`);

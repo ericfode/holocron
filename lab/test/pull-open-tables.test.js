@@ -33,7 +33,7 @@ function arena(games, { page = 2 } = {}) {
     return { fetchImpl, asked };
 }
 
-test('pulls every game page by page, then only the new ones, and refuses a replay whose sha256 is not the listed one', async () => {
+test('pulls every game page by page, then only the new ones, refuses a replay whose sha256 is not the listed one, and asks for it again', async () => {
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'open-tables-'));
     try {
         const games = [1, 2, 3].map((n) => ({ id: `open-0000000${n}-0000000${n}`, playedAt: `2026-10-16T00:0${n}:00.000Z`, body: `{"t":"header","n":${n}}\n` }));
@@ -43,13 +43,24 @@ test('pulls every game page by page, then only the new ones, and refuses a repla
         const index = JSON.parse(fs.readFileSync(path.join(out, 'index.json'), 'utf8'));
         assert.deepStrictEqual([index.kind, index.games.map((g) => g.id)], ['tables', games.map((g) => g.id)]);
 
-        games.push({ id: 'open-00000004-00000004', playedAt: '2026-10-16T00:04:00.000Z', body: 'x\n' }, { id: 'open-00000005-00000005', playedAt: '2026-10-16T00:05:00.000Z', body: 'y\n', sha: 'f'.repeat(64) });
+        // game 4 fails and game 5, played after it, comes through
+        games.push({ id: 'open-00000004-00000004', playedAt: '2026-10-16T00:04:00.000Z', body: 'x\n', sha: 'f'.repeat(64) }, { id: 'open-00000005-00000005', playedAt: '2026-10-16T00:05:00.000Z', body: 'y\n' });
         a.asked.length = 0;
         const again = await pull({ base: 'http://w', token: TOKEN, out, fetchImpl: a.fetchImpl });
         assert.deepStrictEqual([again.added, again.games], [1, 4]);
-        assert.match(again.failed[0], /open-00000005-00000005: sha256 .* is not the listed/);
+        assert.match(again.failed[0], /open-00000004-00000004: sha256 .* is not the listed/);
         assert.ok(a.asked[0].includes('since=2026-10-16T00%3A03'), 'asks only after the newest game it has');
-        assert.ok(!fs.existsSync(path.join(out, 'games', 'open-00000005-00000005.jsonl')));
+        assert.ok(!fs.existsSync(path.join(out, 'games', 'open-00000004-00000004.jsonl')));
+
+        // next time, it asks again from before game 4 and gets it; game 5 is not downloaded twice
+        delete games[3].sha;
+        a.asked.length = 0;
+        assert.deepStrictEqual(await pull({ base: 'http://w', token: TOKEN, out, fetchImpl: a.fetchImpl }), { added: 1, games: 5, failed: [] });
+        assert.ok(a.asked[0].includes('since=2026-10-16T00%3A03'), 'asks from before the game that failed');
+        assert.deepStrictEqual(a.asked.filter((q) => q.endsWith('.jsonl')), ['/api/open/games/open-00000004-00000004.jsonl']);
+        a.asked.length = 0;
+        await pull({ base: 'http://w', token: TOKEN, out, fetchImpl: a.fetchImpl });
+        assert.ok(a.asked[0].includes('since=2026-10-16T00%3A05'), 'then after the newest game again');
     } finally {
         fs.rmSync(out, { recursive: true, force: true });
     }
