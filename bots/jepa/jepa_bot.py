@@ -381,6 +381,7 @@ class JepaPlayer:
             return "abort"
         taken, mine, guard, seen, depth = [], [], {}, {}, 0
         replies = 0  # --plan reply=N: the opponent's next N actions (played like rush) before the board is judged
+        self._last_pre = None  # the board when my move had settled, before the replies
         for step in range(80 + 60 * cfg.get("reply", 0)):
             if r.get("error"):
                 self.fail = f"act: {r['error']}"
@@ -391,6 +392,8 @@ class JepaPlayer:
             if step > 0 and self.settled(r):
                 if (replies < cfg.get("reply", 0) and not r.get("over") and r.get("actor") != me
                         and (r.get("state") or {}).get("phase") == "action" and (r.get("prompt") or {}).get("actionWindow")):
+                    if replies == 0:
+                        self._last_pre = r
                     replies += 1  # the opponent's action window: let it act, judge the board once that has settled
                 else:
                     return taken, mine, r
@@ -419,7 +422,8 @@ class JepaPlayer:
                     guard.setdefault(key, []).append(j)
                     depth += 1
             elif actor != me:
-                j = self.rush_move(r, me, seen)
+                # --plan reply_by=1: the opponent's own imagined best; 2: the reply my imagined score likes least; 0: like rush
+                j = self.reply_pick(r, me, acts) if (replies and cfg.get("reply_by", 0) and len(acts) > 1) else self.rush_move(r, me, seen)
             elif len(acts) == 1:
                 j = 0
             else:
@@ -461,7 +465,7 @@ class JepaPlayer:
         roots = order[:cfg["roots"]] + [k for k in range(n) if is_button(acts[k], "pass") and k not in order[:cfg["roots"]]]
         queue = deque([[i] for i in roots])  # first one line per root move, in imagined order, then the alternatives
         t0 = time.perf_counter()
-        leaves, lines = [], 0
+        leaves, lines, pres = [], 0, []
         while queue and lines < cfg["lines"] and time.perf_counter() - t0 < cfg["secs"]:
             path = queue.popleft()
             res = self.plan_line(msg, sim, path, queue, cfg["depth"])
@@ -474,6 +478,7 @@ class JepaPlayer:
                 self.stats.setdefault("fails", {})[why] = self.stats.setdefault("fails", {}).get(why, 0) + 1
             else:
                 leaves.append(res)
+                pres.append(self._last_pre)
         sim({"t": "sim", "op": "end"})
         self.stats["lines"] += lines
         self.stats["leaves"] += len(leaves)
@@ -503,6 +508,13 @@ class JepaPlayer:
             batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
                      np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
             vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
+        rmix = cfg.get("rmix", 1.0)
+        if rmix < 1.0 and any(b is not None for b in pres):
+            # --plan rmix=w: the value is (1 - w) x the board when my move settled + w x the board after the replies
+            idx = [k for k, b in enumerate(pres) if b is not None]
+            pv = self.judge_boards([pres[k] for k in idx], msg)
+            for j, k in enumerate(idx):
+                vals[k] = (1.0 - rmix) * pv[j] + rmix * vals[k]
         if self.plan_log is not None:
             judged = []
             for k, (taken, _, r) in enumerate(leaves):
@@ -522,6 +534,37 @@ class JepaPlayer:
                 score[i] = vals[k]
                 best[i] = mine
         return score, best
+
+    def judge_boards(self, rs, msg):
+        """The planner's value of simulated positions (as plan_moves judges its leaves)."""
+        me, acts = msg["you"], msg["actions"]
+        vals = np.zeros(len(rs))
+        live, pos = [], []
+        for k, r in enumerate(rs):
+            if r.get("over"):
+                w = r["over"].get("winner")
+                vals[k] = 1.0 if w == me else 0.5 if w in ("draw", None) else 0.0
+            else:
+                live.append(k)
+                prompt = r.get("prompt") if r.get("actor") == me else WAIT_PROMPT
+                pos.append({"you": me, "prompt": prompt, "state": r.get("state"), "actions": r.get("actions") if r.get("actor") == me else acts})
+        if live:
+            es = [F.encode(m, self.db) for m in pos]
+            batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
+                     np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
+            vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
+        return vals
+
+    def reply_pick(self, r, me, acts):
+        """The opponent's choice in a line's reply: its own imagined best (reply_by=1, scored from its seat) or the
+        option my imagined score likes least (reply_by=2, scored from my seat); never Cancel when something else is legal."""
+        mode = self.plan_cfg.get("reply_by", 0)
+        seat = r.get("actor") if mode == 1 else me
+        sc = np.asarray(self.think({"you": seat, "prompt": r.get("prompt"), "state": r.get("state"), "actions": acts})["score"], np.float64)
+        if mode == 2:
+            sc = -sc
+        ok = [k for k, x in enumerate(acts) if not is_button(x, "cancel")] or list(range(len(acts)))
+        return int(max(ok, key=lambda k: sc[k]))
 
     def follow_plan(self, msg):
         """My planned choice at a real follow-up prompt, or None when the prompt is not the one the plan expects."""
@@ -706,7 +749,7 @@ def main():
     helper = EvalHelper(a.evaluator) if (a.score == "sim-eval" or logf or (a.score == "plan" and a.plan_scorer == "eval")) else None
     plan = {k: float(v) for k, v in (kv.split("=") for kv in a.plan.split(",") if kv)}
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
-                        plan={**{k: (v if k in ("secs", "gate") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
+                        plan={**{k: (v if k in ("secs", "gate", "rmix") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
                         follow_horizon=a.follow_horizon, plan_log=a.plan_log,
                         policy=a.policy, policy_at=a.policy_at)
