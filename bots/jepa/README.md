@@ -641,3 +641,19 @@ extra inputs add nothing measurable after 8,000 steps (the lists' early lead on 
 card-counting term). When the latent is trained by the JEPA losses alone and the hand is only probed (`--probe-only`),
 the hand guess falls to 8.96 (still better than counting), so the forecasting losses keep only part of what the hand
 needs.
+
+## A line model for the follow-up choices (jepa-tx-line)
+
+Eric's question: can a JEPA learn from action trajectories? `line_train.py` trains a small transformer over a whole line
+(the move, then each follow-up choice, as action tokens) on top of tx-t10, which stays frozen, to predict where the
+line settles. It learned from 1.2 million lines of 6,231 games of the 58.7% hybrid, each with the real settled board
+(`notes/lines/README.md`). On 622 held-out games it picks the planner's best line 70% of the time (tx-t10's one-click
+prediction: 42%).
+
+`jepa-tx-line` is jepa-tx-gate's no-simulator settings (tx-t10, tx-t10-e at windows on the settled board, c-clock's
+resource rule, follow-ups judged where the move settles) plus `--line-model notes/lines/l1-resid.npz`, which scores the
+follow-up prompts of the move just played. Without a simulator it wins 43.8% against c-clock on the 702 test deals,
++9.6 [+6.6, +12.7] over the same bot without the line model (34.4%), and 45.7% against 35.5% on fresh deals with the
+same shuffles, +10.2 [+6.9, +13.5]. It is the strongest JEPA bot that plays without the referee's simulations. Inside
+jepa-tx-gate the line model adds nothing (+0.3), since the planner already picks the follow-ups that matter.
+
