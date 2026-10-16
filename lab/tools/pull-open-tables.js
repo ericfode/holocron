@@ -61,11 +61,14 @@ async function pull({ base = BASE, token, out, fetchImpl = globalThis.fetch, log
     let retryFrom = null;
     const failed = [];
     for (const row of rows) {
-        if (!ID.test(String(row.id)) || have.has(row.id)) {
+        if (have.has(row.id)) {
             continue;
         }
-        const file = path.join(out, 'games', `${row.id}.jsonl`);
         try {
+            if (!ID.test(String(row.id))) {
+                throw new Error('not a game id');
+            }
+            const file = path.join(out, 'games', `${row.id}.jsonl`);
             const buf = Buffer.from(await (await get(`/api/open/games/${row.id}.jsonl`)).arrayBuffer());
             const sha = crypto.createHash('sha256').update(buf).digest('hex');
             if (!/^[0-9a-f]{64}$/.test(String(row.sha256 ?? ''))) {

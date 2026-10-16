@@ -67,6 +67,9 @@ test('pulls every game page by page, then only the new ones, refuses a replay wh
         const unchecked = await pull({ base: 'http://w', token: TOKEN, out, fetchImpl: a.fetchImpl });
         assert.deepStrictEqual([unchecked.added, unchecked.games], [0, 5]);
         assert.match(unchecked.failed[0], /open-00000006-00000006: the listing has no sha256/);
+        // nor one whose id is not a game id
+        games.splice(5, 1, { id: '../x', playedAt: '2026-10-16T00:06:00.000Z', body: 'z\n' });
+        assert.match((await pull({ base: 'http://w', token: TOKEN, out, fetchImpl: a.fetchImpl })).failed[0], /^\.\.\/x: not a game id/);
     } finally {
         fs.rmSync(out, { recursive: true, force: true });
     }
