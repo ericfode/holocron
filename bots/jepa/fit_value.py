@@ -6,7 +6,7 @@ The hybrid planner (jepa_bot.py --score plan) judges each line's real settled bo
 tx-t10's own head (trained on who won in its recorded games, mostly rush and random bots) judged better than the
 evaluator copy (tx-t10-e). This refits that head on games against c-clock (the opponent the bot plays), with the encoder
 frozen, so only v1/v2 change and the model file is otherwise the same. The latent of every row is cached next to the
-pack (<pack>.<model>.zt.npy, the same cache hist_train.py writes). Held out by game seed; the closing line compares
+pack (<pack>.<model>-<hash>.zt.npy, the same cache hist_train.py writes). Held out by game seed; the closing line compares
 the model's own head and the new one on the held-out rows.
 """
 import argparse
@@ -39,8 +39,8 @@ w, _ = M.load_safetensors(a.model)
 z = np.load(a.pack)
 win, game = z["win"].astype(np.float32), z["game"]
 N = len(win)
-cache = f"{a.pack}.{os.path.basename(a.model).replace('.safetensors', '')}.zt.npy"
-if os.path.exists(cache) and np.load(cache, mmap_mode="r").shape[0] == N:
+cache, fresh = X.latent_cache(a.pack, a.model)
+if fresh and np.load(cache, mmap_mode="r").shape[0] == N:
     zt = np.load(cache)
 else:
     st, ids, ft, mk = z["state"], z["tok_ids"], z["tok_feats"], z["tok_mask"]
@@ -79,7 +79,7 @@ for step in range(1, a.steps + 1):
     opt.zero_grad(set_to_none=True)
     l.backward()
     opt.step()
-    if step % 200 == 0:
+    if step % 200 == 0 or step == a.steps:
         with torch.no_grad():
             lg = head(p, Z[te_t])
             hb, ha = float(bce(lg, Y[te_t])), float(((lg > 0).float() == Y[te_t]).float().mean())

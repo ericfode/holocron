@@ -1,0 +1,46 @@
+811018 rows, 6176 games (618 held out), hand labels True, discards True, unseen cards True, targets from tx-t10.safetensors in 6s, device cuda
+prior: hand_logloss 9.590 hand_recall 0.267 move_logloss 3.343 move_top1 0.131 move_top5 0.358
+count: hand_logloss 9.090 hand_recall 0.200
+target: explained_h1 0.863 explained_h4 0.720 win_logloss 0.463 win_acc 0.769
+base 1000: explained_h1 0.570 explained_h4 0.620 win_logloss 0.458 win_acc 0.770 hand_logloss 9.738 hand_recall 0.268 move_logloss 3.188 move_top1 0.193 move_top5 0.476  (38s)
+base 2000: explained_h1 0.708 explained_h4 0.679 win_logloss 0.459 win_acc 0.772 hand_logloss 9.265 hand_recall 0.278 move_logloss 2.970 move_top1 0.218 move_top5 0.518  (76s)
+base 3000: explained_h1 0.747 explained_h4 0.701 win_logloss 0.453 win_acc 0.778 hand_logloss 9.120 hand_recall 0.280 move_logloss 2.889 move_top1 0.229 move_top5 0.533  (114s)
+base 4000: explained_h1 0.769 explained_h4 0.712 win_logloss 0.456 win_acc 0.777 hand_logloss 9.072 hand_recall 0.282 move_logloss 2.843 move_top1 0.234 move_top5 0.545  (152s)
+base 5000: explained_h1 0.783 explained_h4 0.721 win_logloss 0.454 win_acc 0.779 hand_logloss 9.010 hand_recall 0.282 move_logloss 2.807 move_top1 0.237 move_top5 0.553  (189s)
+base 6000: explained_h1 0.794 explained_h4 0.727 win_logloss 0.454 win_acc 0.778 hand_logloss 8.972 hand_recall 0.283 move_logloss 2.790 move_top1 0.242 move_top5 0.557  (227s)
+base 7000: explained_h1 0.799 explained_h4 0.730 win_logloss 0.451 win_acc 0.780 hand_logloss 8.961 hand_recall 0.283 move_logloss 2.783 move_top1 0.241 move_top5 0.561  (265s)
+base 8000: explained_h1 0.802 explained_h4 0.731 win_logloss 0.451 win_acc 0.779 hand_logloss 8.958 hand_recall 0.283 move_logloss 2.780 move_top1 0.243 move_top5 0.561  (303s)
+snap 1000: explained_h1 0.587 explained_h4 0.621 win_logloss 0.465 win_acc 0.770 hand_logloss 9.683 hand_recall 0.268 move_logloss 3.192 move_top1 0.197 move_top5 0.475  (40s)
+snap 2000: explained_h1 0.706 explained_h4 0.678 win_logloss 0.460 win_acc 0.776 hand_logloss 9.301 hand_recall 0.275 move_logloss 2.995 move_top1 0.213 move_top5 0.512  (78s)
+snap 3000: explained_h1 0.750 explained_h4 0.701 win_logloss 0.453 win_acc 0.782 hand_logloss 9.176 hand_recall 0.275 move_logloss 2.892 move_top1 0.227 move_top5 0.534  (117s)
+snap 4000: explained_h1 0.775 explained_h4 0.712 win_logloss 0.455 win_acc 0.780 hand_logloss 9.089 hand_recall 0.281 move_logloss 2.848 move_top1 0.236 move_top5 0.544  (166s)
+snap 5000: explained_h1 0.786 explained_h4 0.720 win_logloss 0.453 win_acc 0.780 hand_logloss 9.030 hand_recall 0.281 move_logloss 2.813 move_top1 0.238 move_top5 0.554  (214s)
+snap 6000: explained_h1 0.798 explained_h4 0.726 win_logloss 0.452 win_acc 0.780 hand_logloss 9.007 hand_recall 0.280 move_logloss 2.796 move_top1 0.241 move_top5 0.556  (263s)
+snap 7000: explained_h1 0.802 explained_h4 0.730 win_logloss 0.450 win_acc 0.781 hand_logloss 8.985 hand_recall 0.282 move_logloss 2.785 move_top1 0.245 move_top5 0.558  (311s)
+snap 8000: explained_h1 0.805 explained_h4 0.731 win_logloss 0.450 win_acc 0.781 hand_logloss 8.985 hand_recall 0.282 move_logloss 2.783 move_top1 0.245 move_top5 0.557  (359s)
+pool 1000: explained_h1 0.547 explained_h4 0.604 win_logloss 0.475 win_acc 0.766 hand_logloss 8.399 hand_recall 0.300 move_logloss 3.198 move_top1 0.191 move_top5 0.475  (82s)
+pool 2000: explained_h1 0.690 explained_h4 0.663 win_logloss 0.459 win_acc 0.772 hand_logloss 8.404 hand_recall 0.297 move_logloss 2.987 move_top1 0.215 move_top5 0.514  (162s)
+pool 3000: explained_h1 0.740 explained_h4 0.694 win_logloss 0.452 win_acc 0.776 hand_logloss 8.420 hand_recall 0.296 move_logloss 2.899 move_top1 0.224 move_top5 0.533  (236s)
+pool 4000: explained_h1 0.766 explained_h4 0.711 win_logloss 0.454 win_acc 0.777 hand_logloss 8.450 hand_recall 0.296 move_logloss 2.855 move_top1 0.229 move_top5 0.549  (312s)
+pool 5000: explained_h1 0.779 explained_h4 0.719 win_logloss 0.453 win_acc 0.777 hand_logloss 8.455 hand_recall 0.293 move_logloss 2.817 move_top1 0.233 move_top5 0.554  (394s)
+pool 6000: explained_h1 0.793 explained_h4 0.726 win_logloss 0.452 win_acc 0.779 hand_logloss 8.453 hand_recall 0.294 move_logloss 2.796 move_top1 0.238 move_top5 0.560  (475s)
+pool 7000: explained_h1 0.799 explained_h4 0.730 win_logloss 0.450 win_acc 0.780 hand_logloss 8.454 hand_recall 0.295 move_logloss 2.788 move_top1 0.239 move_top5 0.562  (556s)
+pool 8000: explained_h1 0.802 explained_h4 0.731 win_logloss 0.450 win_acc 0.778 hand_logloss 8.453 hand_recall 0.295 move_logloss 2.785 move_top1 0.238 move_top5 0.562  (636s)
+hist 1000: explained_h1 0.607 explained_h4 0.622 win_logloss 0.468 win_acc 0.772 hand_logloss 8.405 hand_recall 0.304 move_logloss 3.191 move_top1 0.186 move_top5 0.472  (333s)
+hist 2000: explained_h1 0.719 explained_h4 0.680 win_logloss 0.459 win_acc 0.776 hand_logloss 8.419 hand_recall 0.300 move_logloss 2.993 move_top1 0.215 move_top5 0.514  (665s)
+hist 3000: explained_h1 0.753 explained_h4 0.701 win_logloss 0.451 win_acc 0.780 hand_logloss 8.431 hand_recall 0.298 move_logloss 2.904 move_top1 0.229 move_top5 0.533  (981s)
+hist 4000: explained_h1 0.777 explained_h4 0.715 win_logloss 0.452 win_acc 0.782 hand_logloss 8.460 hand_recall 0.296 move_logloss 2.862 move_top1 0.231 move_top5 0.544  (1247s)
+hist 5000: explained_h1 0.789 explained_h4 0.725 win_logloss 0.449 win_acc 0.781 hand_logloss 8.467 hand_recall 0.292 move_logloss 2.827 move_top1 0.231 move_top5 0.553  (1578s)
+hist 6000: explained_h1 0.800 explained_h4 0.731 win_logloss 0.451 win_acc 0.779 hand_logloss 8.468 hand_recall 0.292 move_logloss 2.808 move_top1 0.236 move_top5 0.556  (1916s)
+hist 7000: explained_h1 0.806 explained_h4 0.735 win_logloss 0.448 win_acc 0.780 hand_logloss 8.469 hand_recall 0.294 move_logloss 2.796 move_top1 0.238 move_top5 0.560  (2254s)
+hist 8000: explained_h1 0.808 explained_h4 0.736 win_logloss 0.448 win_acc 0.780 hand_logloss 8.469 hand_recall 0.294 move_logloss 2.795 move_top1 0.237 move_top5 0.559  (2589s)
+
+        explained_h1  explained_h4   win_logloss       win_acc  hand_logloss   hand_recall  move_logloss     move_top1     move_top5
+prior                                                                  9.590         0.267         3.343         0.131         0.358
+count                                                                  9.090         0.200                                          
+target         0.863         0.720         0.463         0.769                                                                      
+base           0.802         0.731         0.451         0.779         8.958         0.283         2.780         0.243         0.561
+snap           0.805         0.731         0.450         0.781         8.985         0.282         2.783         0.245         0.557
+pool           0.802         0.731         0.450         0.778         8.453         0.295         2.785         0.238         0.562
+hist           0.808         0.736         0.448         0.780         8.469         0.294         2.795         0.237         0.559
+wrote runs/hist/h1p.json

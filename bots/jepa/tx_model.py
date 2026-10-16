@@ -12,6 +12,9 @@ round's action phase ends if I play the move and then the rest of the round in t
 h = "r2:<macro>" where the next round's action phase ends after that. Each horizon is one learned row added to the
 move token, so a model with 3 macros has 3 + 6 tokens per move; `forward(hsel=...)` runs only the ones asked for.
 """
+import hashlib
+import os
+
 import numpy as np
 
 import features as F
@@ -190,3 +193,13 @@ def load(path):
     if meta.get("format") == "swu-jepa-tx/1":
         return NumpyTx(w, meta), meta
     return M.NumpyJepa(w), meta
+
+
+def latent_cache(pack, model_path):
+    """Where hist_train.py and fit_value.py keep a model's latents of every row of a pack, and whether that file is usable.
+    The name carries a hash of the model file, and a cache older than the pack is stale, so a pack rebuilt in place or
+    another model with the same file name is encoded again."""
+    with open(model_path, "rb") as f:
+        tag = hashlib.sha256(f.read()).hexdigest()[:12]
+    path = f"{pack}.{os.path.basename(model_path).replace('.safetensors', '')}-{tag}.zt.npy"
+    return path, os.path.exists(path) and os.path.getmtime(path) >= os.path.getmtime(pack)

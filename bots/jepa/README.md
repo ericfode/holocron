@@ -558,3 +558,86 @@ nothing (-1.3 [-4.4, +1.9]), so what the hybrid still loses is elsewhere: the pr
 follow-ups) or the planning depth.
 jepa-tx-plan is the first JEPA bot above 50% against c-clock on these deals (jepa-plan-reval's 48.8% was on other
 deals). Both need the referee's simulations (protocol v2); jepa-tx stays the bot that plays with no simulator.
+
+## Resource choices from c-clock's rule (jepa-tx-gate)
+
+`bots/jepa/advisor.py` lets c-clock answer one kind of prompt while the JEPA bot answers the rest, on the same 702
+deals, paired against jepa-tx-gate (51.2%). Resource prompts (9,766 choices, about 14 a game): +3.7 [+0.9, +6.5],
+sign test p = 0.019. Mulligans: +0.3 [-2.8, +3.4]. Follow-ups and other prompts: -3.5 [-6.8, -0.1]. Action windows:
+-21.6 [-25.6, -17.8]. The last two say that a move and its follow-ups have to come from one plan; the resource choice
+is the one decision that stands alone, and resource-v1 agreed with c-clock on only 80.8% of c-clock's choices
+(`notes/breakthrough/swaps.txt`). In those runs advisor.py dropped c-clock's damage and healing splits, so in the
+"other" swap those prompts were split at random, as jepa_bot.py itself does; advisor.py now passes them on. The
+resource result has no splits in it.
+
+`resource_policy.py` now has `--resource c-clock`, a port of bots/c/bot.c choose_resource and keep_value (default
+flags): in the regroup phase it resources while under 6 resources, under 9 with 3 or more cards in hand, or while a
+hand card costs more than its resources; it resources the card with the lowest keep value. It agrees with c-clock on
+20,199 of 20,199 of c-clock's resource choices in recorded games. With it jepa-tx-gate wins **55.1%** (+3.7 [+0.9,
++6.5], the same games as the swap), so jepa-tx-gate uses it. The no-simulator bot does not gain (tx-t10 with it:
+-0.9 [-3.2, +1.6]), so jepa-tx keeps resource-v1 (`notes/breakthrough/resource-rule.txt`).
+
+## Three fixes: jepa-tx-gate at 58.7%
+
+`notes/breakthrough/hybrid-58.md` has every run. On the same 702 deals against c-clock, each fix added to the one
+before:
+
+| jepa-tx-gate | won | paired vs this morning's 51.2% |
+|---|---|---|
+| this morning (resource-v1, evaluator-copy planner judge) | 51.2% | |
+| + c-clock's resource rule (`--resource c-clock`) | 55.1% | +3.7 [+0.9, +6.5] |
+| + the action phase's other prompts judged by where the move settles (`--follow-horizon s`) | 56.3% | +5.1 [+1.9, +8.2] |
+| + the planner judges its real boards with tx-t10's own value head (`--plan-model tx-t10`) | **58.7%** | **+7.7 [+4.2, +11.1]**, p < 0.001 |
+
+`--follow-horizon s`: a move's targets, costs and triggers used to be scored by the next decision, which judges a
+half-finished move; now the window model scores them by the imagined settled board, like the move itself. Without a
+simulator it takes tx-t10 from 31.1% to 34.5% (+3.3 [+0.3, +6.4], p = 0.027), the best no-simulator JEPA bot; with
+`--resource c-clock` it is the same (34.4%). jepa-tx-gate now uses all three; it plans 64% of windows at 104 ms a
+decision on average (4 s max). Without the referee's simulations (Karabast) it plays as the no-simulator bot.
+
+On 702 fresh deals that none of these choices were tuned on (ladder seed 40001), it won 63.8% against 52.9% for
+this morning's bot (+11.4 [+6.6, +16.2], p < 0.001); the resource rule alone gave 58.3%.
+
+What failed: training on the bot's own positions with a loss that orders moves the way linear-deck-g4 does (tx-o1d).
+The judge liked it better (top-1 on its own windows 0.678 -> 0.750) but it played much worse (no simulator -11.1,
+hybrid -7.7): its settled-board forecasts broke away from the window choice. The judge's score is not what wins;
+a value head trained on who won is. Later tries did not beat the 58.7% bot: that head refit on games against c-clock
+(`fit_value.py`), planning more or fewer windows (gate 0, 0.06, 0.08), judging after the opponent's next action
+(`--plan reply=1`), the mean of both heads as the judge (`--plan-model a,b`: 60.0% on the test deals, 60.9% on the
+fresh ones), and tx-o1 (own positions, no ranking loss). `notes/breakthrough/hybrid-58.md` has the numbers.
+
+## jepa-tx-gate in JavaScript (js/)
+
+`js/jepa.js` is jepa-tx-gate's player in plain JavaScript with no Node built-ins, so a browser runs it as is: the
+features (`features.py`), the transformer's forward pass (`tx_model.py`, float64 arithmetic on the float32 weights),
+c-clock's resource rule (`resource_policy.py`), the planner with its gate, its follow-up choices and loop guard
+(`jepa_bot.py`), and Python's own random numbers (MT19937, seeded as `random.Random`), so it plays the Python bot's
+moves. The arena's play page runs it in the person's browser next to the referee. Not ported: round tiers, the
+`sim-v` and `sim-eval` scores, `--log`, `--temp` above 0, `--plan reply=1` and several `--plan-model` models.
+
+```bash
+node bots/jepa/js/main.js --model bots/jepa/models/tx-t10.safetensors ...   # a bot program, jepa_bot.py's options
+npm run ladder -- --bots jepa-tx-gate-js,c-clock --games 2                    # it is in bots/external-bots.json
+node bots/jepa/js/parity.js features --games 8    # every decision: features, imagined scores, resource choices
+node bots/jepa/js/parity.js games --games 4       # whole games, both bots answering every decision
+```
+
+`parity.js games` has both bots answer every decision of real-deck games with the same simulations (no time limit,
+so both plan the same lines) and plays the Python bot's move. On 7 games (880 decisions) the picks were the same
+869 times; the other 11 were ties, moves with exactly equal scores (two copies of one card, or two moves whose lines
+settle on the same board), where numpy's sort picks one in an order that depends on the computer's sort
+instructions. On 9 games (1,055 decisions) `parity.js features` found the same features to the bit and scores within
+5e-7. Against rush on the same two games, the JavaScript bot played the same 103 and 176 moves as the Python bot and
+thought for 8.8 s and 8.1 s a game (Python: 6.2 s and 5.5 s); its planner stops at 150 lines or 5 s a window, and
+neither limit was reached. `bots/test/jepa-js.test.js` runs the features check on one game when numpy is installed.
+
+## Deck lists, discards and game history (hist_train.py)
+
+Eric's question: should the model know every card, and the game so far, the way people do? `hist_train.py` compares a
+model of the board alone with the same model given the discards, the unseen cards of both deck lists, or its own move
+history, on held-out games (`notes/hist/README.md`). Every learned model guesses the opponent's hand and next move far
+better than card counting or the leader alone (hand log-loss 8.47 vs 9.09; next move top-1 0.40 vs 0.13), but the
+extra inputs add nothing measurable after 8,000 steps (the lists' early lead on the hand may be just their
+card-counting term). When the latent is trained by the JEPA losses alone and the hand is only probed (`--probe-only`),
+the hand guess falls to 8.96 (still better than counting), so the forecasting losses keep only part of what the hand
+needs.

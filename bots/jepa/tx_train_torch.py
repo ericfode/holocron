@@ -72,9 +72,9 @@ ap.add_argument("--gap-weight", type=float, default=0.0,
                 help="sample branch points by (action gap / median gap)^a, clipped to [0.1, 10]; the gaps are read from <pack>.gap.npy next "
                      "to each --pack-b (pack_gaps.py: best minus worst move on the real settled boards); 0 = uniform")
 ap.add_argument("--w-decide", type=float, default=0.0,
-                help="weight of the decision loss: on branch points with judged settled boards (<pack>.judge.npy, judge_prep.py --all "
-                     "evt), the evaluator-copy head on the imagined settled boards should order the moves as the judge orders the real ones "
-                     "(soft cross-entropy, --decide-temp in logit units); needs --settle and --pack-e")
+                help="weight of the decision loss: on branch points with judged settled boards (judge_prep.py --all --out <pack>.judge.npz "
+                     "next to each --pack-b, its evt), the evaluator-copy head on the imagined settled boards should order the moves as the "
+                     "judge orders the real ones (soft cross-entropy, --decide-temp in logit units); needs --settle and --pack-e")
 ap.add_argument("--decide-temp", type=float, default=0.05)
 ap.add_argument("--pack-b-weights", type=float, nargs="+", default=None,
                 help="one sampling weight per --pack-b, per point (e.g. on-policy packs from replay_branches.js drawn more often); default all 1")
@@ -112,8 +112,18 @@ b_src = np.concatenate([np.full(len(p["game"]), i) for i, p in enumerate(packs)]
 DJ = None
 if a.w_decide > 0:
     assert a.settle and a.pack_e and a.w_eval > 0, "--w-decide needs --settle and the evaluator-copy head (--pack-e, --w-eval)"
-    DJ = np.concatenate([np.load(f.replace(".npz", ".judge.npy")).astype(np.float32) if os.path.exists(f.replace(".npz", ".judge.npy"))
-                         else np.full((len(p["game"]), K), np.nan, np.float32) for f, p in zip(a.pack_b, packs)])
+
+    def judged(f, n):  # judge_prep.py --all's archive (its evt) or a bare [P, K] array of the same scores; NaN when neither exists
+        for path in (f.replace(".npz", ".judge.npz"), f.replace(".npz", ".judge.npy")):
+            if os.path.exists(path):
+                j = np.load(path)
+                ev = j["evt"] if isinstance(j, np.lib.npyio.NpzFile) else j
+                assert ev.shape == (n, K), f"{path}: scores of shape {ev.shape} for {n} branch points"
+                return ev.astype(np.float32)
+        print(f"decision loss: no {f.replace('.npz', '.judge.npz')}, its points are left out", file=sys.stderr, flush=True)
+        return np.full((n, K), np.nan, np.float32)
+
+    DJ = np.concatenate([judged(f, len(p["game"])) for f, p in zip(a.pack_b, packs)])
     print(f"decision loss: {int((np.isfinite(DJ).sum(1) >= 2).sum())} branch points with at least 2 judged settled boards", file=sys.stderr, flush=True)
 Bd = {k: np.concatenate([p[k] for p in packs]) for k in packs[0]} if len(packs) > 1 else packs[0]
 del packs

@@ -8,9 +8,9 @@ the predictor must reach in latent space. Rows keep game order; `gid` numbers th
 0 for p1, 1 for p2; `disc` [N, 2, 24] holds the hashed ids of the last 24 cards of my discard pile and the
 opponent's (public; -1 pads). With deck lists in the game line (from_replays.js writes them; the protocol's hello gives
 both lists to each bot), `pool` [N, 2, 32] holds the distinct cards of my list and the opponent's that the seat has not
-seen yet (mine: not in my hand, resources, board or discard; theirs: not on their board or in their discard), with
-`poolk` the copies left; -1 pads, and games without lists get only pads. Games that ended in ERROR, STEP_CAP or a
-draw are skipped.
+seen yet (mine: not in my hand, resources, board or discard, or captured by their units; theirs: not on their board, in
+their discard or captured by my units), with `poolk` the copies left; -1 pads, and games without lists get only pads.
+Games that ended in ERROR, STEP_CAP or a draw are skipped.
 
 --labels (games written by from_replays.js --labels) adds the opponent's hand at each decision, a target the
 acting seat cannot see: `ohand` [N, 12] hashed card ids (features.hash_id("card:<code>"), -1 pads) and `ohn`, the
@@ -84,7 +84,9 @@ def unseen(d, decks):
             rest[c["id"]] = rest.get(c["id"], 0) + int(c.get("count", 1))
         p = players.get(seat) or {}
         units = (p.get("ground") or []) + (p.get("space") or [])
-        seen = units + [u for x in units for u in (x.get("u") or [])] + (p.get("discard") or [])
+        other = players.get("p2" if seat == "p1" else "p1") or {}
+        captured = [c for x in (other.get("ground") or []) + (other.get("space") or []) for c in (x.get("cap") or [])]  # held by their units
+        seen = units + [u for x in units for u in (x.get("u") or [])] + (p.get("discard") or []) + captured
         if k == 0:
             seen += (p.get("hand") or []) + (p.get("resources") or [])
         for c in seen:

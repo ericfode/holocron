@@ -388,7 +388,7 @@ class JepaPlayer:
             self.fail = f"begin: {r.get('error') or 'actions differ'}"
             return "abort"
         taken, mine, guard, seen, depth = [], [], {}, {}, 0
-        replies = 0  # --plan reply=N: the opponent's next N actions (played like rush) before the board is judged
+        replies = 0  # --plan reply=1: the opponent's next action (like rush, or by reply_by) before the board is judged
         self._last_pre = None  # the board when my move had settled, before the replies
         self._last_line = []
         for step in range(80 + 60 * cfg.get("reply", 0)):
@@ -757,7 +757,9 @@ def main():
                     help="what ranks the moves: the imagined next latent (the bot), the real next position from a simulation, "
                          "or the planner (whole moves with their follow-up choices, simulated)")
     ap.add_argument("--plan", default="", help="planner settings as k=v,... (roots, follow, follow2, depth, lines, secs, floor, gate: plan "
-                                                 "only windows whose imagined scores spread at least this much, e.g. 0.1 = 10 points)")
+                                                 "only windows whose imagined scores spread at least this much, e.g. 0.1 = 10 points; "
+                                                 "reply=1: judge after the opponent's next action, 0 or 1 only; reply_by=1|2: that action chosen by the imagined scores; "
+                                                 "rmix=w: blend the boards before and after it)")
     ap.add_argument("--resource", default=None, help="answer resource prompts with this model (bots/jepa/resource_policy.py)")
     ap.add_argument("--plan-scorer", choices=["v", "eval"], default="v",
                     help="what scores the planner's settled positions: the value head, or the --evaluator (a yardstick)")
@@ -788,6 +790,8 @@ def main():
     logf = open(a.log, "a") if a.log else None
     helper = EvalHelper(a.evaluator) if (a.score == "sim-eval" or logf or (a.score == "plan" and a.plan_scorer == "eval")) else None
     plan = {k: float(v) for k, v in (kv.split("=") for kv in a.plan.split(",") if kv)}
+    if plan.get("reply", 0) not in (0, 1):
+        ap.error("--plan reply takes 0 or 1: a longer reply would need my own moves in between, which plan_line does not play")
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
                         plan={**{k: (v if k in ("secs", "gate", "rmix") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
