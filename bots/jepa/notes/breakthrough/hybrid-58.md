@@ -134,3 +134,11 @@ the pick 2.19 -> 1.45 pts. In play:
 Copying the planner's pick better offline does not win games: outside the windows it was trained on it hurts, inside
 them it is neutral. The planner's value is the move together with its planned follow-ups; a move-only policy gets none
 of the follow-ups.
+
+**More planner data and the judge again**: a second batch of 12,636 games (seed 60001, no key; the bot won 60.6%)
+brings the data to 18,673 decided games, 275,318 planned windows and 273,457 judged boards. The judge refit on all of it
+(tx-t10-sb2): held-out BCE 0.4748 -> 0.4301, accuracy 0.768 -> 0.798. As `--plan-model` on the test deals: 60.7%, +2.2
+[-1.0, +5.4] vs the 58.7% bot (p=0.23). On the fresh deals with one fixed key for both bots (ladder seed 40001,
+`--key 23c49785...` = sha256 of "jepa fresh deals 40001": the same shuffles, paired game by game): the 58.7% bot 61.7%
+(424-264), sb2 62.5% (430-257), +0.9 [-2.5, +4.2] (p=0.67). Not confirmed; the planner keeps tx-t10's own head. A
+better win predictor on the planner's settled boards (+3 accuracy points) moves play by about a point at most.

@@ -124,3 +124,18 @@ paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on g
   tx-t10-g04-rc-fs-psb 685 paired games: 60.3 vs 58.7 -> +1.6 pts [-1.5, +4.7]; only tx-t10-g04-rc-fs-psb won 69, only tx-t10-g04-rc-fs-pv won 58, sign test p=0.375
   tx-t10-g04-rc-fs-pv-pol 686 paired games: 50.7 vs 58.9 -> -8.2 pts [-11.0, -5.4]; only tx-t10-g04-rc-fs-pv-pol won 28, only tx-t10-g04-rc-fs-pv won 84, sign test p=0.000
 S23_DONE
+COLLECT rc=0 in 118 min: gate-log       BT  1538  Elo  1548  7546-4896-0  incomplete 194  forfeits 0  61% c-clock        BT  1462  Elo  1452  4896-7546-0  incomplete 194  forfeits 0  39% 
+files: 14, size 142M
+COLLECT_COPIED
+PLANDATA12: 28 logs, 18954 games (18673 with a winner), 275318 planned windows, 273457 judged boards -> data/plan/pd12-judge.npz, data/plan/pd12-policy.npz
+JUDGE2 rc=0: held-out win: the model's own head BCE 0.4748 acc 0.768; refit BCE 0.4301 acc 0.798 (step 1800) -> runs/tx-t10-sb2.safetensors in 77s
+J2 tx-t10-g04-rc-fs-psb2 rc=0: tx-t10-g04-rc-fs-psb2            684  60.7 [57.0, 64.3]          +75 | no mirror run
+paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc-fs-psb 685 paired games: 60.3 vs 58.7 -> +1.6 pts [-1.5, +4.7]; only tx-t10-g04-rc-fs-psb won 69, only tx-t10-g04-rc-fs-pv won 58, sign test p=0.375
+  tx-t10-g04-rc-fs-psb2 682 paired games: 60.6 vs 58.4 -> +2.2 pts [-1.0, +5.4]; only tx-t10-g04-rc-fs-psb2 won 76, only tx-t10-g04-rc-fs-pv won 61, sign test p=0.232
+JUDGE2_DONE
+CONFK tx-t10-g04-rc-fs-pv rc=0: tx-t10-g04-rc-fs-pv BT  1541  Elo  1528  424-264-0  incomplete 14  forfeits 0  62% c-clock        BT  1459  Elo  1472  264-424-0  incomplete 14  forfeits 0  38% 
+CONFK tx-t10-g04-rc-fs-psb2 rc=0: tx-t10-g04-rc-fs-psb2 BT  1545  Elo  1582  430-257-0  incomplete 15  forfeits 0  63% c-clock        BT  1455  Elo  1418  257-430-0  incomplete 15  forfeits 0  37% 
+paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  tx-t10-g04-rc-fs-psb2 686 paired games: 62.5 vs 61.7 -> +0.9 pts [-2.5, +4.2]; only tx-t10-g04-rc-fs-psb2 won 70, only tx-t10-g04-rc-fs-pv won 64, sign test p=0.666
+CONFK_DONE
