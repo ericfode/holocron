@@ -6,7 +6,7 @@ intake checks and enters a bundle as it is: swu_bot bot/arena/intake.js, kind "w
     python3 bots/bundles.py                       # every bot in BOTS
     python3 bots/bundles.py c_clock rust_search   # just these
     python3 bots/bundles.py --list
-    python3 bots/bundles.py --arena ../swu_bot    # and check each bundle with the arena's bot/compiled/bundle.py
+    python3 bots/bundles.py --arena ../swu_bot    # and check each wasm bundle with the arena's bot/compiled/bundle.py
 
 A WebAssembly bot (C, Rust) becomes bot.wasm (WASI preview 1) plus arena.json (schema swu-arena-bot/1). py_clock is
 not compiled: its folder holds only the bot's modules (entry swu_clock.py, no tests), for the arena's Python intake,
@@ -36,6 +36,8 @@ BOTS = {
     "py_clock": {"lang": "python", "dir": "bots/python", "entry": "swu_clock.py"},
 }
 SOURCE = {"rust": "bots/rust", "c": "bots/c"}
+# other files a build reads: cargo builds in the root workspace (its release profile and lock file)
+ALSO = {"rust": ["Cargo.toml", "Cargo.lock"], "c": []}
 
 
 def log(msg):
@@ -59,9 +61,9 @@ def sha256_file(path):
     return h.hexdigest()
 
 
-def provenance(path, recipe, toolchain):
+def provenance(path, recipe, toolchain, also=()):
     commit = git("rev-parse", "HEAD")
-    if git("status", "--porcelain", "--", path, "bots/bundles.py"):
+    if git("status", "--porcelain", "--", path, *also, "bots/bundles.py"):
         commit += "+dirty"
     return {
         "source": "https://github.com/ericfode/holocron", "commit": commit, "path": path, "recipe": recipe,
@@ -127,7 +129,7 @@ def build_one(name, cache):
             wasm, recipe, tool = build_c(work)
         entry = os.path.join(folder, "bot.wasm")
         shutil.copyfile(wasm, entry)
-        m = manifest(name, spec, entry, spec.get("args", []), provenance(SOURCE[spec["lang"]], recipe, tool))
+        m = manifest(name, spec, entry, spec.get("args", []), provenance(SOURCE[spec["lang"]], recipe, tool, ALSO[spec["lang"]]))
         with open(os.path.join(folder, "arena.json"), "w") as f:
             json.dump(m, f, indent=2)
             f.write("\n")
@@ -144,7 +146,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.strip().split("\n\n")[0])
     ap.add_argument("bots", nargs="*", help="names from BOTS (default: all)")
     ap.add_argument("--list", action="store_true")
-    ap.add_argument("--arena", help="a swu_bot checkout: check each bundle with its bot/compiled/bundle.py")
+    ap.add_argument("--arena", help="a swu_bot checkout: check each wasm bundle with its bot/compiled/bundle.py")
     o = ap.parse_args()
     if o.list:
         for name, spec in BOTS.items():

@@ -32,6 +32,13 @@ CARDS = [
      "setId": {"set": "LAW", "number": 19}},
 ]
 DB = CardDb.from_cards(CARDS)
+# objects a hello could carry that do not read as cards: each is skipped whole, before the good cards they shadow
+ODD_CARDS = [
+    {"title": "Wampa", "internalName": "odd-wampa", "cost": 9, "keywords": [None], "setId": {"set": "SOR", "number": 38}},
+    {"title": "Odd", "internalName": "odd", "cost": 9, "setCodes": [{"set": "SOR", "number": 38}, 5]},
+    {"title": "Odd Two", "internalName": "odd-two", "cost": "9", "types": "unit"},
+    {"title": 7, "internalName": "odd-three"},
+]
 WINDOW = {"type": "actionWindow", "signature": "actionWindow|-", "title": "Choose an action", "promptTitle": "Action Window",
           "selectCardMode": None, "selected": [], "actionWindow": True}
 ATTACK = {"type": None, "signature": "-|single", "title": "Choose a target for attack", "promptTitle": "Rebel",
@@ -88,6 +95,25 @@ class CardDbTest(unittest.TestCase):
         self.assertEqual(len(CardDb.from_cards(None)), 0)
         self.assertEqual(len(CardDb.from_cards({"wampa": CARDS[0]})), 0)  # cards is a list
 
+    def test_a_card_with_an_odd_field_is_skipped_whole(self):
+        db = CardDb.from_cards(ODD_CARDS + CARDS)
+        self.assertEqual(len(db), len(CARDS))
+        for name in ("odd-wampa", "odd", "odd-two", "odd-three"):
+            self.assertIsNone(db.find(None, name))
+        self.assertEqual(db.find("SOR_038").internal, "wampa")
+        self.assertEqual(db.find(None, None, "Wampa").internal, "wampa")
+
+    def test_reads_every_card_of_the_card_data(self):
+        folder = os.path.join(os.environ.get("SWU_CARD_JSON") or os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                                                              "..", "..", "forceteki", "test", "json"), "Card")
+        if not os.path.isdir(folder):
+            self.skipTest("no card data (forceteki/test/json)")
+        cards = []
+        for name in sorted(os.listdir(folder)):
+            with open(os.path.join(folder, name), encoding="utf-8") as f:
+                cards.append(json.load(f))
+        self.assertEqual(len(CardDb.from_cards(cards)), len(cards))  # no real card is skipped
+
 
 class StdioTest(unittest.TestCase):
     """swu_clock.py as the referee runs it: its card data comes only from hello."""
@@ -99,8 +125,8 @@ class StdioTest(unittest.TestCase):
         acts = [button("Pass"), card_act("cheap-guy", "h1", "hand", "p1", "SOR_001"), card_act("wampa", "h2", "hand", "p1", "SOR_038"),
                 card_act("takedown", "h3", "hand", "p1", "SOR_077")]
         decide = msg(WINDOW, me, side("p2"), acts)
-        hello = {"t": "hello", "v": 1, "you": "p1", "seed": 1, "cards": CARDS}
-        # the second game's hello brings no cards: the table from the first game is gone
+        hello = {"t": "hello", "v": 1, "you": "p1", "seed": 1, "cards": ODD_CARDS + CARDS}
+        # the odd cards are skipped; the second game's hello brings no cards: the table from the first game is gone
         lines = [hello, decide, dict(hello, cards=[]), decide]
         env = dict(os.environ, SWU_CARD_JSON="/nonexistent", PYTHONHASHSEED="0")
         with tempfile.TemporaryDirectory() as cwd:  # no forceteki/test/json below it either

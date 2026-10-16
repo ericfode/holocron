@@ -156,11 +156,18 @@ mod tests {
 
     #[test]
     fn a_hello_with_an_odd_card_still_gets_ready() {
-        let odd = HELLO.replace(
-            r#""seed":42,"#,
-            r#""seed":42,"cards":[{"title":"Wampa","internalName":"wampa","cost":4,"types":["unit"],"setId":{"set":"SOR","number":38}},{"unique":null},7],"#,
-        );
-        assert_eq!(reply(&mut bot("greedy2"), &odd), r#"{"t":"ready","v":1,"name":"greedy2"}"#);
+        // only the wampa parses: the hello gets ready and greedy2 still knows the wampa is its big play
+        let wampa = r#"{"title":"Wampa","internalName":"wampa","cost":4,"power":4,"hp":5,"types":["unit"],"setId":{"set":"SOR","number":38}}"#;
+        let window = r#"{"t":"decide","seq":1,"you":"p1","prompt":{"type":"actionWindow","signature":"actionWindow|-","title":"Choose an action","promptTitle":"Action Window","selectCardMode":null,"selected":[],"actionWindow":true},"state":{"round":3,"phase":"action","initiative":"p2","players":{"p1":{"res":{"ready":4,"total":4}},"p2":{}}},"actions":[{"i":0,"kind":"button","label":"Pass"},{"i":1,"kind":"card","label":"x","card":{"id":"h1","zone":"hand","ctl":"p1"}},{"i":2,"kind":"card","label":"wampa","card":{"id":"h2","zone":"hand","ctl":"p1"}}]}"#;
+        let pick = |cards: &str| {
+            let mut b = bot("greedy2");
+            let hello = HELLO.replace(r#""seed":42,"#, &format!(r#""seed":42,"cards":{cards},"#));
+            assert_eq!(reply(&mut b, &hello), r#"{"t":"ready","v":1,"name":"greedy2"}"#);
+            reply(&mut b, window)
+        };
+        assert_eq!(pick(&format!(r#"[{wampa},{{"unique":null}},{{"title":7}},7]"#)), r#"{"t":"act","i":2}"#);
+        // the same window without the wampa's card data goes another way
+        assert_ne!(pick("[]"), r#"{"t":"act","i":2}"#);
         let not_a_list = HELLO.replace(r#""seed":42,"#, r#""seed":42,"cards":"not a list","#);
         assert_eq!(reply(&mut bot("search"), &not_a_list), r#"{"t":"ready","v":1,"name":"search"}"#);
     }

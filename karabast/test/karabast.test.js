@@ -252,7 +252,9 @@ test('a seat\'s hello carries the card data, a copy the bot cannot change', asyn
 test('a seat answers no sooner than paceMs after the decision, and drops a paced answer when the decision changed', async () => {
     let asked = 0;
     const client = { name: 'fake', hello: () => ({ t: 'ready', v: 2 }), decide: (msg) => { asked++; return { t: 'act', i: msg.actions.findIndex((a) => a.label === 'Pass') }; }, over: () => ({ t: 'ok' }) };
-    const { sock, seat } = fakeSeat(client, { paceMs: 150 });
+    // no card data: copying every card into hello takes ~30 ms, and on a busy machine more than paceMs, which would
+    // make the first answer due at once
+    const { sock, seat } = fakeSeat(client, { paceMs: 150, cards: [] });
     const done = seat.play();
     const window = (uuid) => frame({ promptUuid: uuid, menuTitle: 'Choose an action', buttons: [{ text: 'Pass', arg: 'pass', uuid, command: 'menuButton' }] });
     const t0 = Date.now();

@@ -19,6 +19,7 @@ analysis, the Strategy Atlas model, Lean theory, and the Karabast player. `READM
   - `engine/` and `decks/`: a copy of the arena's game player (swu_bot `7455601`, where it was `bot/env.js`,
     `bot/view.js`, ...): `env.js`, `view.js`, `protocol.js`, `match.js`, `game-pool.js`, `stdio.js`, `rng.js`,
     `recorder.js`, `decklists.js`, `cardpool.js`, `ratings.js`, `random-run.js`, `debug-seed.js`, and the deck lists.
+    `game-cards.js` and the card data in hello (`cards`) in `match.js` and `protocol.js` follow swu_bot `1d819e2`.
     Fix player bugs in the arena first, then copy the fix here. `protocol-test.js`, `rollback-test.js` and
     `determinism-check.js` are Holocron's own checks of this player (the arena dropped them).
   - `lab/`: `runners/` (ladder, sweeps, measurement scripts), `eval/`, `learn/`, `info/`, `deckbuild/`, `tools/`,

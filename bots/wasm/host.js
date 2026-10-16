@@ -16,7 +16,7 @@ const path = require('path');
 const readline = require('readline');
 
 const WAT = path.join(__dirname, 'bot.wat');
-// same convention as the Rust bot: $SWU_CARD_JSON is the folder that holds Card/
+// $SWU_CARD_JSON is the folder that holds Card/ (this bot does not read hello's `cards` yet)
 const CARD_DIR = path.join(process.env.SWU_CARD_JSON ?? path.join(__dirname, '..', '..', 'forceteki', 'test', 'json'), 'Card');
 const TRACE = !!process.env.SWU_WASM_TRACE;
 

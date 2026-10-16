@@ -15,21 +15,22 @@ class Card:
                  "arena", "aspects", "traits", "up_power", "up_hp", "unique", "raid", "restore")
 
     def __init__(self, d):
-        self.title = d.get("title") or ""
-        self.subtitle = d.get("subtitle") or ""
-        self.internal = d.get("internalName") or ""
-        self.cost = d.get("cost") or 0
-        self.power = d.get("power") or 0
-        self.hp = d.get("hp") or 0
-        self.text = (d.get("text") or "").lower()
-        self.deploy_text = (d.get("deployBox") or "").lower()
-        self.types = set(d.get("types") or [])
-        self.keywords = set(k.lower() for k in (d.get("keywords") or []))
-        self.arena = d.get("arena")
-        self.aspects = list(d.get("aspects") or [])
-        self.traits = set(d.get("traits") or [])
-        self.up_power = d.get("upgradePower") or 0
-        self.up_hp = d.get("upgradeHp") or 0
+        """Raises TypeError when a field the bot reads has the wrong type (a number for a list, null in a list...)."""
+        self.title = _field(d, "title", str) or ""
+        self.subtitle = _field(d, "subtitle", str) or ""
+        self.internal = _field(d, "internalName", str) or ""
+        self.cost = _field(d, "cost", int) or 0
+        self.power = _field(d, "power", int) or 0
+        self.hp = _field(d, "hp", int) or 0
+        self.text = (_field(d, "text", str) or "").lower()
+        self.deploy_text = (_field(d, "deployBox", str) or "").lower()
+        self.types = set(_strings(d, "types"))
+        self.keywords = set(k.lower() for k in _strings(d, "keywords"))
+        self.arena = _field(d, "arena", str)
+        self.aspects = _strings(d, "aspects")
+        self.traits = set(_strings(d, "traits"))
+        self.up_power = _field(d, "upgradePower", int) or 0
+        self.up_hp = _field(d, "upgradeHp", int) or 0
         self.unique = bool(d.get("unique"))
         text = self.text + " " + self.deploy_text
         self.raid = _first_int(_N_KEYWORDS["raid"], text) if "raid" in self.keywords else 0
@@ -51,6 +52,24 @@ class Card:
         return "Card(%s %d %d/%d)" % (self.internal, self.cost, self.power, self.hp)
 
 
+def _field(d, key, kind):
+    """d[key] when it is a `kind` (a bool is not a number); None when missing or null; anything else raises TypeError."""
+    v = d.get(key)
+    if v is None:
+        return None
+    if not isinstance(v, kind) or (isinstance(v, bool) and kind is not bool):
+        raise TypeError("card %r: %s is %r" % (d.get("internalName"), key, v))
+    return v
+
+
+def _strings(d, key):
+    """d[key] as a list of strings; empty when missing or null."""
+    v = _field(d, key, list) or []
+    if not all(isinstance(x, str) for x in v):
+        raise TypeError("card %r: %s is %r" % (d.get("internalName"), key, v))
+    return list(v)
+
+
 def _first_int(rx, text):
     m = rx.search(text)
     return int(m.group(1)) if m else 1
@@ -69,9 +88,10 @@ class CardDb:
         self.by_title = {}
 
     def add(self, d):
+        """Adds one card object; one with a field of the wrong type raises before anything is added."""
         c = Card(d)
-        for sid in d.get("setCodes") or ([d["setId"]] if d.get("setId") else []):
-            code = set_code(sid)
+        codes = [set_code(sid) for sid in _field(d, "setCodes", list) or ([d["setId"]] if d.get("setId") else [])]
+        for code in codes:
             if code:
                 self.by_set.setdefault(code, c)
         if c.internal:
@@ -81,11 +101,15 @@ class CardDb:
 
     @classmethod
     def from_cards(cls, cards):
-        """The table of hello's `cards` (a list of card objects), in its order; anything but a card object is skipped."""
+        """The table of hello's `cards` (a list of card objects), in its order. Anything that does not read as a card (not
+        an object, or a field of the wrong type) is skipped, so one odd card costs only itself."""
         db = cls()
         for d in cards if isinstance(cards, list) else []:
             if isinstance(d, dict):
-                db.add(d)
+                try:
+                    db.add(d)
+                except Exception:  # whatever the odd shape, skip this card and keep the others
+                    pass
         return db
 
     def __len__(self):
