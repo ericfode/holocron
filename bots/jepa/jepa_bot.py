@@ -52,6 +52,7 @@ import features as F  # noqa: E402
 import model as M  # noqa: E402
 import resource_policy as R  # noqa: E402
 import tx_model as X  # noqa: E402
+import line_models as LMOD  # noqa: E402
 
 
 def log(*a):
@@ -79,7 +80,8 @@ WAIT_PROMPT = {"type": "actionWindow", "actionWindow": True, "selectCardMode": N
 
 class JepaPlayer:
     def __init__(self, model_path, db, mix=0.5, temp=0.0, seed=0, score="imagined", evaluator=None, deals=1, log=None, judge="round", window_model=None,
-                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1", plan_log=None, policy=None, policy_at="all"):
+                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1", plan_log=None, policy=None, policy_at="all",
+                 root_model=None, line_model=None):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
         # --plan-model a,b: the planner's judge is the mean of the models' win chances on each settled board
@@ -117,6 +119,12 @@ class JepaPlayer:
         self.policy = M.load_safetensors(policy)[0] if policy else None
         self.policy_k = int(M.load_safetensors(policy)[1].get("k", 24)) if policy else 0
         self.policy_at = policy_at
+        # the line test (line_root.py, line_train.py): at an action window the root model scores each move by where it
+        # settles under the planner's best follow-ups; at the follow-up prompts of the move just played the line model
+        # scores each option by where the whole line (the move, the choices so far, the option) settles
+        self.root_m = LMOD.RootNP(root_model) if root_model else None
+        self.line_m = LMOD.LineNP(line_model) if line_model else None
+        self.line_ctx = None
         # round tiers at action windows: weights of s, r, r2 (a tiered model), and whether to keep one macro per round
         self.tiers = tiers or {}
         self.commit_macro = commit_macro
@@ -183,7 +191,7 @@ class JepaPlayer:
         if "s" in getattr(net, "horizons", ()) and ((self.window_horizon == "s" and window) or follow):
             zs = net.predict(z, a, "s")
             score = M.sigmoid(net.value(zs))
-        out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0]), "zs": zs}
+        out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0]), "zs": zs, "e": e}
         if self.tiers and window:
             out["score"], out["combo"] = self.tier_score(net, z, a, (msg.get("state") or {}).get("round"))
         return out
@@ -638,6 +646,23 @@ class JepaPlayer:
         if self.policy is not None and window and best is None and t.get("zs") is not None and (
                 self.policy_at == "all" or (self.policy_at == "gated" and gated) or (self.policy_at == "above" and above)):
             score = self.policy_score(t)
+        line_used = False
+        if (msg.get("state") or {}).get("phase") != "action":
+            self.line_ctx = None
+        if window and best is None and self.root_m is not None and t.get("zs") is not None:
+            e = t["e"]
+            zh = self.root_m.predict(np.asarray(t["z"], np.float32), np.asarray(t["zs"], np.float32), e["actions"].astype(np.float32), e["aids"].astype(np.int64))
+            score = M.sigmoid(self.net.value(zh)).astype(np.float64)
+        elif not window and self.line_m is not None and self.line_ctx is not None and len(self.line_ctx["toks"]) < 4:
+            e = t["e"]
+            nn_ = len(e["aids"])
+            prev_r = np.stack([r for r, _ in self.line_ctx["toks"]])[None].repeat(nn_, 0)
+            prev_a = np.array([i for _, i in self.line_ctx["toks"]], np.int64)[None].repeat(nn_, 0)
+            rows = np.concatenate([prev_r, e["actions"].astype(np.float32)[:, None]], 1)
+            aids = np.concatenate([prev_a, e["aids"].astype(np.int64)[:, None]], 1)
+            zh = self.line_m.predict(self.line_ctx["z"], self.line_ctx["zb"], rows, aids)
+            score = M.sigmoid(self.net.value(zh)).astype(np.float64)
+            line_used = True
         # loop guard: if this exact observation keeps coming back, stop repeating the same pick
         key = hash(json.dumps([msg.get("prompt"), msg.get("state"), [x.get("label") for x in msg["actions"]]], sort_keys=True))
         tried = self.seen.setdefault(key, [])
@@ -652,6 +677,13 @@ class JepaPlayer:
             fresh = [i for i in order if i not in tried]
             pick = int(fresh[0]) if fresh else int(self.rng.randrange(n))
         tried.append(pick)
+        if self.line_m is not None and t.get("e") is not None:
+            e = t["e"]
+            if window and t.get("zs") is not None:
+                self.line_ctx = {"z": np.asarray(t["z"], np.float32), "zb": np.asarray(t["zs"][pick], np.float32),
+                                 "toks": [(e["actions"][pick].astype(np.float32), int(e["aids"][pick]))]}
+            elif line_used:
+                self.line_ctx["toks"].append((e["actions"][pick].astype(np.float32), int(e["aids"][pick])))
         if best is not None:
             self.plan = list(best.get(pick) or [])
             if self.plan_log is not None and self._pw is not None:
@@ -737,6 +769,8 @@ def main():
     ap.add_argument("--plan-model", default=None, help="a second model that scores only the planner's settled positions")
     ap.add_argument("--window-horizon", choices=["1", "s"], default="1",
                     help="imagined score at action windows: the mover's next decision (1, with --mix) or where the move settles (s)")
+    ap.add_argument("--root-model", default=None, help="line test: a root model (line_root.py .npz) that scores the moves at action windows")
+    ap.add_argument("--line-model", default=None, help="line test: a line model (line_train.py resid, .npz) for the follow-up prompts of my move")
     ap.add_argument("--policy", default=None, help="a policy head (policy_train.py) for the action windows the planner does not plan")
     ap.add_argument("--policy-at", choices=["all", "gated", "above"], default="all",
                     help="all windows not planned, only those below the gate, or only those at or above it (the kind the policy was trained on)")
@@ -758,7 +792,7 @@ def main():
                         plan={**{k: (v if k in ("secs", "gate", "rmix") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
                         follow_horizon=a.follow_horizon, plan_log=a.plan_log,
-                        policy=a.policy, policy_at=a.policy_at)
+                        policy=a.policy, policy_at=a.policy_at, root_model=a.root_model, line_model=a.line_model)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin
 
