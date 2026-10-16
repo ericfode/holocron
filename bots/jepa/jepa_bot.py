@@ -382,6 +382,7 @@ class JepaPlayer:
         taken, mine, guard, seen, depth = [], [], {}, {}, 0
         replies = 0  # --plan reply=N: the opponent's next N actions (played like rush) before the board is judged
         self._last_pre = None  # the board when my move had settled, before the replies
+        self._last_line = []
         for step in range(80 + 60 * cfg.get("reply", 0)):
             if r.get("error"):
                 self.fail = f"act: {r['error']}"
@@ -449,6 +450,10 @@ class JepaPlayer:
                 depth += 1
             if actor == me and step > 0 and len(acts) > 1:
                 mine.append((labels_key(acts), action_key(acts[j])))
+            if self.plan_log is not None and actor == me and len(acts) > 1:
+                # the line as action tokens (--plan-log): my choices from the root move on, encoded where they were made
+                e = F.encode({"you": me, "prompt": r.get("prompt"), "state": r.get("state"), "actions": acts}, self.db)
+                self._last_line.append([int(e["aids"][j]), [round(float(x), 4) for x in e["actions"][j]]])
             taken.append(j)
             r = sim({"t": "sim", "op": "act", "i": j})
         self.fail = "step cap"
@@ -465,7 +470,7 @@ class JepaPlayer:
         roots = order[:cfg["roots"]] + [k for k in range(n) if is_button(acts[k], "pass") and k not in order[:cfg["roots"]]]
         queue = deque([[i] for i in roots])  # first one line per root move, in imagined order, then the alternatives
         t0 = time.perf_counter()
-        leaves, lines, pres = [], 0, []
+        leaves, lines, pres, lines_tok = [], 0, [], []
         while queue and lines < cfg["lines"] and time.perf_counter() - t0 < cfg["secs"]:
             path = queue.popleft()
             res = self.plan_line(msg, sim, path, queue, cfg["depth"])
@@ -479,6 +484,7 @@ class JepaPlayer:
             else:
                 leaves.append(res)
                 pres.append(self._last_pre)
+                lines_tok.append(self._last_line)
         sim({"t": "sim", "op": "end"})
         self.stats["lines"] += lines
         self.stats["leaves"] += len(leaves)
@@ -518,7 +524,7 @@ class JepaPlayer:
         if self.plan_log is not None:
             judged = []
             for k, (taken, _, r) in enumerate(leaves):
-                e = {"move": int(taken[0]), "path": [int(x) for x in taken], "v": None if np.isnan(vals[k]) else float(vals[k])}
+                e = {"move": int(taken[0]), "path": [int(x) for x in taken], "v": None if np.isnan(vals[k]) else float(vals[k]), "line": lines_tok[k]}
                 if k in live:
                     m = pos[live.index(k)]
                     e["pos"] = {"prompt": m["prompt"], "state": m["state"], "actions": m["actions"] if r.get("actor") == me else None}
