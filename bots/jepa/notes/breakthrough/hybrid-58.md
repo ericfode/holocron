@@ -142,3 +142,23 @@ brings the data to 18,673 decided games, 275,318 planned windows and 273,457 jud
 `--key 23c49785...` = sha256 of "jepa fresh deals 40001": the same shuffles, paired game by game): the 58.7% bot 61.7%
 (424-264), sb2 62.5% (430-257), +0.9 [-2.5, +4.2] (p=0.67). Not confirmed; the planner keeps tx-t10's own head. A
 better win predictor on the planner's settled boards (+3 accuracy points) moves play by about a point at most.
+
+## A smarter opponent in the planner's look-ahead (`--plan reply=1,reply_by=1|2[,rmix=w]`)
+
+The line plays one opponent action after my move settles, chosen by the imagined scores instead of like rush, then
+judges the board. 702 test deals, paired against the 58.7% bot:
+
+| variant | won | paired |
+|---|---|---|
+| reply_by=2: the reply my imagined score likes least (scored from my seat), judged after it | 52.4% | -6.3 [-9.6, -2.9] |
+| reply_by=2, rmix=0.5: the mean of the board before and after that reply | 56.3% | -2.3 [-4.9, +0.3] |
+| reply_by=1: the opponent's own imagined best (scored from its seat), judged after it | 61.0% | +2.5 [-0.6, +5.7] (p=0.15) |
+
+Planned windows took 0.5-0.7 s (13 lines). The model has no head for the opponent's move, so the third variant the
+coordinator asked for (the opponent plays its predicted move) was not run. Scoring the opponent's options from my seat
+is out of distribution (the model was trained on the mover's own options) and gives nonsense replies; from its own
+seat the reply is plausible.
+
+Fresh-deal check of reply_by=1 (seed 40001, the same fixed key as the 58.7% bot's run there): 61.7% (423-263) against
+61.8%, -0.1 [-3.5, +3.1]. Not confirmed. Like the judge refit (+2.2 on the test deals, +0.9 fresh), a +2 on the 702 test
+deals has not survived the fresh deals; the 58.7% bot stays.
