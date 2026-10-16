@@ -38,6 +38,7 @@ const { LIMITS, PROTOCOL, determinize } = require('../../engine/protocol');
 const { defaultChoose } = require('../players/heuristic');
 const { attackChoice } = require('../players/rush');
 const { seededRng } = require('../../engine/env');
+const { gameCards, allCards } = require('../../engine/game-cards');
 
 const KINDS = new Set(['after', 'reply', 'round']);
 const isPass = (a) => a.kind === 'button' && /^pass$/i.test(a.label);
@@ -137,6 +138,16 @@ function maskHidden(o, hidden) {
     return o;
 }
 
+/**
+ * hello's card data (engine/game-cards.js): the cards of both deck lists and the tokens, as the referee sends them; every
+ * card when a list is missing.
+ */
+function helloCards(eg) {
+    const getter = eg.game.cardDataGetter;
+    const lists = eg.ids.map((id) => eg.player(id)?.lobbyDeck?.originalDeckList);
+    return lists.every(Boolean) ? gameCards(getter, lists) : allCards(getter);
+}
+
 /** A reply within `ms`, or an error. */
 async function within(p, ms, what) {
     let timer;
@@ -179,7 +190,7 @@ class LookaheadBot {
         this.seq = 0;
         const r = await this.call({
             t: 'hello', protocol: PROTOCOL, v: 1, bot: this.name, you: eg.seatOf(pid), seed,
-            players: eg.ids.map((id, i) => ({ id: `p${i + 1}`, name: eg.names[i] }))
+            players: eg.ids.map((id, i) => ({ id: `p${i + 1}`, name: eg.names[i] })), cards: helloCards(eg)
         });
         if (r?.t !== 'ready') {
             throw new Error(`expected ready, got ${JSON.stringify(r)?.slice(0, 120)}`);

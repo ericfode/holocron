@@ -225,6 +225,30 @@ test('a seat plays the bot answer, hides undo buttons from it, and reports the r
     assert.strictEqual(r.stats.decisions, 1);
 });
 
+test('a seat\'s hello carries the card data, a copy the bot cannot change', async () => {
+    const cards = [{ internalName: 'a', title: 'A', cost: 1 }, { internalName: 'b', title: 'B', cost: 2 }];
+    let got = null;
+    const client = {
+        name: 'fake',
+        hello: (msg) => {
+            got = JSON.parse(JSON.stringify(msg.cards));
+            msg.cards[0].cost = 99;
+            msg.cards.pop();
+            return { t: 'ready', v: 2 };
+        },
+        decide: (msg) => ({ t: 'act', i: msg.actions.findIndex((a) => a.label === 'Pass') }),
+        over: () => ({ t: 'ok' })
+    };
+    const { sock, seat } = fakeSeat(client, { cards });
+    const done = seat.play();
+    sock.emit('gamestate', frame({ promptUuid: 'P1', menuTitle: 'Choose an action', buttons: [{ text: 'Pass', arg: 'pass', uuid: 'P1', command: 'menuButton' }] }));
+    await new Promise((r) => setTimeout(r, 20));
+    sock.emit('gamestate', { ...frame({}), winners: ['Alice'] });
+    await done;
+    assert.deepStrictEqual(got, [{ internalName: 'a', title: 'A', cost: 1 }, { internalName: 'b', title: 'B', cost: 2 }]);
+    assert.deepStrictEqual(cards, got, 'the seat\'s cards are as they were');
+});
+
 test('a seat answers no sooner than paceMs after the decision, and drops a paced answer when the decision changed', async () => {
     let asked = 0;
     const client = { name: 'fake', hello: () => ({ t: 'ready', v: 2 }), decide: (msg) => { asked++; return { t: 'act', i: msg.actions.findIndex((a) => a.label === 'Pass') }; }, over: () => ({ t: 'ok' }) };
