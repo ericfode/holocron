@@ -1,7 +1,7 @@
 'use strict';
 // The card data every bot gets in hello.cards (engine/game-cards.js, the arena's spec/protocol.md): what it holds for
 // the real deck lists, that every card a decision names is in it, that both seats get the same array and no bot can
-// change the engine's copy, and the two lists Holocron sends where a seat lacks a deck list (allCards, folderCards).
+// change the engine's copy, and the two lists Holocron sends where a seat lacks a deck list (engine/all-cards.js).
 // Needs the built engine and card data (forceteki/build/server, forceteki/test/json); skipped without.
 const test = require('node:test');
 const assert = require('node:assert');
@@ -49,6 +49,7 @@ test('gameCards on all 27 lists: every code resolves, reprints give the engine\'
             }
         }
         const tokens = cards.filter((c) => c.types.includes('token'));
+        assert.ok(tokens.every((t) => t.setId.number === undefined && t.setCodes === undefined), 'tokens have no set number');
         assert.deepStrictEqual(tokens.map((c) => c.title).sort(), ['Advantage', 'Battle Droid', 'Beast', 'Clone Trooper', 'Credit', 'Experience', 'Mandalorian', 'Shield', 'Spy', 'TIE Fighter', 'The Force', 'Weakness', 'X-Wing']);
         const names = cards.map((c) => c.internalName);
         assert.deepStrictEqual(names, sorted(new Set(names)), 'once each, sorted by internalName');
@@ -61,7 +62,8 @@ test('gameCards on all 27 lists: every code resolves, reprints give the engine\'
 });
 
 test('allCards and folderCards: every card once, sorted, the same objects as the card files', { skip }, () => {
-    const { gameCards, allCards, folderCards, cardGetter, CARD_DIR } = require('../game-cards');
+    const { gameCards, cardGetter, CARD_DIR } = require('../game-cards');
+    const { allCards, folderCards } = require('../all-cards');
     const g = getEnv().cardDataGetter;
     const all = allCards(g);
     const names = all.map((c) => c.internalName);

@@ -27,7 +27,7 @@
 const fs = require('fs');
 const path = require('path');
 const { answer, StdioClient } = require('../engine/stdio');
-const { folderCards } = require('../engine/game-cards');
+const { folderCards } = require('../engine/all-cards');
 const { seededRng } = require('../engine/rng');
 const { gameMessage, decisionKey, legalActions, randomSplit } = require('./frame');
 const { Observer, lineText } = require('./observe');

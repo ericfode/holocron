@@ -38,7 +38,8 @@ const { LIMITS, PROTOCOL, determinize } = require('../../engine/protocol');
 const { defaultChoose } = require('../players/heuristic');
 const { attackChoice } = require('../players/rush');
 const { seededRng } = require('../../engine/env');
-const { gameCards, allCards } = require('../../engine/game-cards');
+const { gameCards } = require('../../engine/game-cards');
+const { allCards } = require('../../engine/all-cards');
 
 const KINDS = new Set(['after', 'reply', 'round']);
 const isPass = (a) => a.kind === 'button' && /^pass$/i.test(a.label);
@@ -140,7 +141,7 @@ function maskHidden(o, hidden) {
 
 /**
  * hello's card data (engine/game-cards.js): the cards of both deck lists and the tokens, as the referee sends them; every
- * card when a list is missing.
+ * card when a list is missing (engine/all-cards.js).
  */
 function helloCards(eg) {
     const getter = eg.game.cardDataGetter;

@@ -6,8 +6,6 @@
  *
  *   gameCards(getter, [deck1, deck2])   // getter: the engine's card-data getter (env.cardDataGetter)
  *   cardGetter(dir?)                    // that getter on a card folder (default the referee's), without the engine
- *   allCards(getter)                    // every card the getter knows (Holocron: a seat that lacks a deck list)
- *   folderCards(dir)                    // every card file in <dir>/Card, without the engine (Holocron: the Karabast seat)
  *
  * For both lists: the leader, a second leader, the base, every deck entry and every sideboard entry, each resolved the
  * engine's way (setCodeMap, then getCardSync), so a reprint code ('JTL_020') gives the card the engine plays (setId
@@ -16,12 +14,9 @@
  * copy. One object per internalName, sorted by internalName, so both seats get the same array: a lookup by title that
  * takes the first match finds the same card for both.
  */
-const fs = require('fs');
 const path = require('path');
 
 const CARD_DIR = path.join(__dirname, '..', 'forceteki', 'test', 'json');
-
-const byInternalName = (a, b) => (a.internalName < b.internalName ? -1 : a.internalName > b.internalName ? 1 : 0);
 
 /** The set codes a deck list names, in list order. */
 const codesOf = (d) => [d.leader?.id, d.secondleader?.id, d.base?.id, ...(d.deck ?? []).map((c) => c.id), ...(d.sideboard ?? []).map((c) => c.id)].filter((id) => id !== undefined);
@@ -40,7 +35,7 @@ function gameCards(getter, decks) {
         }
     }
     Object.values(getter.tokenData).forEach(add);
-    return [...byName.values()].sort(byInternalName);
+    return [...byName.values()].sort((a, b) => (a.internalName < b.internalName ? -1 : a.internalName > b.internalName ? 1 : 0));
 }
 
 /** The card-data getter env.js uses (forceteki's UnitTestCardDataGetter), on `dir`; it loads none of the engine's cards. */
@@ -49,38 +44,4 @@ function cardGetter(dir = CARD_DIR) {
     return new UnitTestCardDataGetter(dir);
 }
 
-/**
- * Every card the getter knows, sorted by internalName: hello's cards for a seat that does not know both deck lists
- * (Holocron's bots/jev/look.js when a list is missing).
- */
-function allCards(getter) {
-    return getter.cardIds.map((id) => getter.getCardSync(id)).sort(byInternalName);
-}
-
-const folders = new Map();
-
-/**
- * Every card file in <dir>/Card, sorted by internalName, read once per folder and without the engine: hello's cards on
- * Karabast (karabast/seat.js), where the opponent's list is not known. A file that is not card JSON is skipped; no
- * Card folder gives an empty list.
- */
-function folderCards(dir) {
-    if (!folders.has(dir)) {
-        const cards = [];
-        const folder = path.join(dir, 'Card');
-        for (const f of fs.existsSync(folder) ? fs.readdirSync(folder) : []) {
-            try {
-                const c = JSON.parse(fs.readFileSync(path.join(folder, f), 'utf8'));
-                if (c && typeof c.internalName === 'string') {
-                    cards.push(c);
-                }
-            } catch {
-                // not a card file
-            }
-        }
-        folders.set(dir, cards.sort(byInternalName));
-    }
-    return folders.get(dir);
-}
-
-module.exports = { gameCards, cardGetter, CARD_DIR, allCards, folderCards };
+module.exports = { gameCards, cardGetter, CARD_DIR };

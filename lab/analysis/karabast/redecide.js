@@ -17,7 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const { answer, StdioClient } = require('../../../engine/stdio');
 const { Observer } = require('../../../karabast/observe');
-const { folderCards } = require('../../../engine/game-cards');
+const { folderCards } = require('../../../engine/all-cards');
 const { legalActions, decisionKey } = require('../../../karabast/frame');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
