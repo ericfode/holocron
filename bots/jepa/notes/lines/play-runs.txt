@@ -1,0 +1,26 @@
+lr-both        BT  1582  Elo  1522  3-1-0  incomplete 0  forfeits 0  75%
+c-clock        BT  1418  Elo  1478  1-3-0  incomplete 0  forfeits 0  25%
+LR lr-root rc=0: lr-root                          689  28.6 [25.3, 32.1]         -159 | no mirror run
+LR lr-line rc=0: lr-line                          688  43.8 [40.1, 47.5]          -44 | no mirror run
+LR lr-both rc=0: lr-both                          690  38.8 [35.3, 42.5]          -79 | no mirror run
+/home/ericf/hyb/lr-both.err:0
+/home/ericf/hyb/lr-line.err:0
+/home/ericf/hyb/lr-root.err:0
+paired vs tx-t10-fs-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  lr-root        685 paired games: 28.8 vs 34.2 -> -5.4 pts [-8.9, -2.0]; only lr-root won 51, only tx-t10-fs-rc won 88, sign test p=0.002
+  lr-line        686 paired games: 43.9 vs 34.3 -> +9.6 pts [+6.6, +12.7]; only lr-line won 93, only tx-t10-fs-rc won 27, sign test p=0.000
+  lr-both        685 paired games: 39.1 vs 34.5 -> +4.7 pts [+0.7, +8.8]; only lr-both won 105, only tx-t10-fs-rc won 73, sign test p=0.020
+LR_DONE
+[702/702] lr-line-vs-c-clock-40351: won lr-line R8 201 steps 839ms | c-clock 1515, lr-line 1485
+done in 44s
+c-clock        BT  1515  Elo  1506  373-314-0  incomplete 15  forfeits 0  54%
+lr-line        BT  1485  Elo  1494  314-373-0  incomplete 15  forfeits 0  46%
+paired vs tx-t10-fs-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  lr-line        685 paired games: 45.7 vs 35.5 -> +10.2 pts [+6.9, +13.5]; only lr-line won 105, only tx-t10-fs-rc won 35, sign test p=0.000
+c-clock        BT  1500  Elo  1501  1-1-0  incomplete 0  forfeits 0  50%
+LH lh-line rc=0: lh-line                          688  59.0 [55.3, 62.6]          +63 | no mirror run
+tracebacks: 0
+paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  lh-line        687 paired games: 59.0 vs 58.7 -> +0.3 pts [-2.0, +2.6]; only lh-line won 30, only tx-t10-g04-rc-fs-pv won 28, sign test p=0.896
+gain +0.3 < 2: no fresh-deal run
+LH_DONE

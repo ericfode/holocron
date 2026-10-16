@@ -36,6 +36,7 @@ macro's round scores: max over macros of (w_r V(ẑ_r:macro) + w_r2 V(ẑ_r2:mac
 round's first pick for the rest of that round, so later windows choose moves for the same plan.
 """
 import argparse
+import gzip
 import json
 import os
 import random
@@ -51,6 +52,7 @@ import features as F  # noqa: E402
 import model as M  # noqa: E402
 import resource_policy as R  # noqa: E402
 import tx_model as X  # noqa: E402
+import line_models as LMOD  # noqa: E402
 
 
 def log(*a):
@@ -78,7 +80,8 @@ WAIT_PROMPT = {"type": "actionWindow", "actionWindow": True, "selectCardMode": N
 
 class JepaPlayer:
     def __init__(self, model_path, db, mix=0.5, temp=0.0, seed=0, score="imagined", evaluator=None, deals=1, log=None, judge="round", window_model=None,
-                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1"):
+                 plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1", plan_log=None, policy=None, policy_at="all",
+                 root_model=None, line_model=None):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
         # --plan-model a,b: the planner's judge is the mean of the models' win chances on each settled board
@@ -107,6 +110,21 @@ class JepaPlayer:
         # "s": at action windows, score each move by where it is imagined to settle (a transformer JEPA trained with --settle)
         self.window_horizon = window_horizon
         self.follow_horizon = follow_horizon
+        # --plan-log: every planned window (the position, imagined scores, the settled boards judged, the pick) and each
+        # game's hello and result, as gzip JSON lines: data for a judge trained on settled boards and a policy head
+        self.plan_log = gzip.open(plan_log, "at", encoding="utf8") if plan_log else None
+        self._pw = None
+        # --policy: a head (policy_train.py) that copies the planner's choice from the window model's latents; it picks
+        # the move at the action windows the planner does not plan (--policy-at all) or only those below its gate (gated)
+        self.policy = M.load_safetensors(policy)[0] if policy else None
+        self.policy_k = int(M.load_safetensors(policy)[1].get("k", 24)) if policy else 0
+        self.policy_at = policy_at
+        # the line test (line_root.py, line_train.py): at an action window the root model scores each move by where it
+        # settles under the planner's best follow-ups; at the follow-up prompts of the move just played the line model
+        # scores each option by where the whole line (the move, the choices so far, the option) settles
+        self.root_m = LMOD.RootNP(root_model) if root_model else None
+        self.line_m = LMOD.LineNP(line_model) if line_model else None
+        self.line_ctx = None
         # round tiers at action windows: weights of s, r, r2 (a tiered model), and whether to keep one macro per round
         self.tiers = tiers or {}
         self.commit_macro = commit_macro
@@ -133,6 +151,24 @@ class JepaPlayer:
             flat = lambda d: [c["id"] for c in d.get("deck") or [] for _ in range(int(c.get("count", 1)))]
             self.decks = {you: flat(hello["deck"]), them: flat(hello["opponent"])}
 
+    def policy_score(self, t):
+        """The policy head's logits on the imagined best --policy-k moves (the others -inf)."""
+        imag = np.asarray(t["score"], np.float64)
+        cand = np.argsort(-imag)[:self.policy_k]
+        z, zs = np.asarray(t["z"], np.float32), np.asarray(t["zs"], np.float32)[cand]
+        x = np.concatenate([np.broadcast_to(z, zs.shape), zs, zs - z, imag[cand, None].astype(np.float32)], 1)
+        w = self.policy
+        lg = (np.maximum(x @ w["pol1.w"] + w["pol1.b"], 0.0) @ w["pol2.w"])[:, 0] + w["pol2.b"][0]
+        out = np.full(len(imag), -1e9)
+        out[cand] = lg
+        return out
+
+    def log_plan(self, rec):
+        if self.plan_log is not None:
+            self.plan_log.write(json.dumps(rec, separators=(",", ":")) + "\n")
+            if rec.get("t") == "over":
+                self.plan_log.flush()
+
     @property
     def needs_sim(self):
         return self.score != "imagined" or self.log is not None
@@ -151,9 +187,11 @@ class JepaPlayer:
         v1 = M.sigmoid(net.value(z1))
         v4 = M.sigmoid(net.value(z4))
         score = (1 - self.mix) * v1 + self.mix * v4
+        zs = None
         if "s" in getattr(net, "horizons", ()) and ((self.window_horizon == "s" and window) or follow):
-            score = M.sigmoid(net.value(net.predict(z, a, "s")))
-        out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0])}
+            zs = net.predict(z, a, "s")
+            score = M.sigmoid(net.value(zs))
+        out = {"z": z[0], "z1": z1, "z4": z4, "v1": v1, "v4": v4, "score": score, "v0": float(M.sigmoid(net.value(z))[0]), "zs": zs, "e": e}
         if self.tiers and window:
             out["score"], out["combo"] = self.tier_score(net, z, a, (msg.get("state") or {}).get("round"))
         return out
@@ -350,7 +388,9 @@ class JepaPlayer:
             self.fail = f"begin: {r.get('error') or 'actions differ'}"
             return "abort"
         taken, mine, guard, seen, depth = [], [], {}, {}, 0
-        replies = 0  # --plan reply=1: the opponent's next action (played like rush) before the board is judged
+        replies = 0  # --plan reply=1: the opponent's next action (like rush, or by reply_by) before the board is judged
+        self._last_pre = None  # the board when my move had settled, before the replies
+        self._last_line = []
         for step in range(80 + 60 * cfg.get("reply", 0)):
             if r.get("error"):
                 self.fail = f"act: {r['error']}"
@@ -361,6 +401,8 @@ class JepaPlayer:
             if step > 0 and self.settled(r):
                 if (replies < cfg.get("reply", 0) and not r.get("over") and r.get("actor") != me
                         and (r.get("state") or {}).get("phase") == "action" and (r.get("prompt") or {}).get("actionWindow")):
+                    if replies == 0:
+                        self._last_pre = r
                     replies += 1  # the opponent's action window: let it act, judge the board once that has settled
                 else:
                     return taken, mine, r
@@ -389,7 +431,8 @@ class JepaPlayer:
                     guard.setdefault(key, []).append(j)
                     depth += 1
             elif actor != me:
-                j = self.rush_move(r, me, seen)
+                # --plan reply_by=1: the opponent's own imagined best; 2: the reply my imagined score likes least; 0: like rush
+                j = self.reply_pick(r, me, acts) if (replies and cfg.get("reply_by", 0) and len(acts) > 1) else self.rush_move(r, me, seen)
             elif len(acts) == 1:
                 j = 0
             else:
@@ -415,6 +458,10 @@ class JepaPlayer:
                 depth += 1
             if actor == me and step > 0 and len(acts) > 1:
                 mine.append((labels_key(acts), action_key(acts[j])))
+            if self.plan_log is not None and actor == me and len(acts) > 1:
+                # the line as action tokens (--plan-log): my choices from the root move on, encoded where they were made
+                e = F.encode({"you": me, "prompt": r.get("prompt"), "state": r.get("state"), "actions": acts}, self.db)
+                self._last_line.append([int(e["aids"][j]), [round(float(x), 4) for x in e["actions"][j]]])
             taken.append(j)
             r = sim({"t": "sim", "op": "act", "i": j})
         self.fail = "step cap"
@@ -431,7 +478,7 @@ class JepaPlayer:
         roots = order[:cfg["roots"]] + [k for k in range(n) if is_button(acts[k], "pass") and k not in order[:cfg["roots"]]]
         queue = deque([[i] for i in roots])  # first one line per root move, in imagined order, then the alternatives
         t0 = time.perf_counter()
-        leaves, lines = [], 0
+        leaves, lines, pres, lines_tok = [], 0, [], []
         while queue and lines < cfg["lines"] and time.perf_counter() - t0 < cfg["secs"]:
             path = queue.popleft()
             res = self.plan_line(msg, sim, path, queue, cfg["depth"])
@@ -444,6 +491,8 @@ class JepaPlayer:
                 self.stats.setdefault("fails", {})[why] = self.stats.setdefault("fails", {}).get(why, 0) + 1
             else:
                 leaves.append(res)
+                pres.append(self._last_pre)
+                lines_tok.append(self._last_line)
         sim({"t": "sim", "op": "end"})
         self.stats["lines"] += lines
         self.stats["leaves"] += len(leaves)
@@ -473,6 +522,24 @@ class JepaPlayer:
             batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
                      np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
             vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
+        rmix = cfg.get("rmix", 1.0)
+        if rmix < 1.0 and any(b is not None for b in pres):
+            # --plan rmix=w: the value is (1 - w) x the board when my move settled + w x the board after the replies
+            idx = [k for k, b in enumerate(pres) if b is not None]
+            pv = self.judge_boards([pres[k] for k in idx], msg)
+            for j, k in enumerate(idx):
+                vals[k] = (1.0 - rmix) * pv[j] + rmix * vals[k]
+        if self.plan_log is not None:
+            judged = []
+            for k, (taken, _, r) in enumerate(leaves):
+                e = {"move": int(taken[0]), "path": [int(x) for x in taken], "v": None if np.isnan(vals[k]) else float(vals[k]), "line": lines_tok[k]}
+                if k in live:
+                    m = pos[live.index(k)]
+                    e["pos"] = {"prompt": m["prompt"], "state": m["state"], "actions": m["actions"] if r.get("actor") == me else None}
+                else:
+                    e["fixed"] = "over" if r.get("over") else "noop"
+                judged.append(e)
+            self._pw = judged
         score = np.full(n, -1.0)
         best = {}
         for k, (taken, mine, _) in enumerate(leaves):
@@ -481,6 +548,37 @@ class JepaPlayer:
                 score[i] = vals[k]
                 best[i] = mine
         return score, best
+
+    def judge_boards(self, rs, msg):
+        """The planner's value of simulated positions (as plan_moves judges its leaves)."""
+        me, acts = msg["you"], msg["actions"]
+        vals = np.zeros(len(rs))
+        live, pos = [], []
+        for k, r in enumerate(rs):
+            if r.get("over"):
+                w = r["over"].get("winner")
+                vals[k] = 1.0 if w == me else 0.5 if w in ("draw", None) else 0.0
+            else:
+                live.append(k)
+                prompt = r.get("prompt") if r.get("actor") == me else WAIT_PROMPT
+                pos.append({"you": me, "prompt": prompt, "state": r.get("state"), "actions": r.get("actions") if r.get("actor") == me else acts})
+        if live:
+            es = [F.encode(m, self.db) for m in pos]
+            batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
+                     np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
+            vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
+        return vals
+
+    def reply_pick(self, r, me, acts):
+        """The opponent's choice in a line's reply: its own imagined best (reply_by=1, scored from its seat) or the
+        option my imagined score likes least (reply_by=2, scored from my seat); never Cancel when something else is legal."""
+        mode = self.plan_cfg.get("reply_by", 0)
+        seat = r.get("actor") if mode == 1 else me
+        sc = np.asarray(self.think({"you": seat, "prompt": r.get("prompt"), "state": r.get("state"), "actions": acts})["score"], np.float64)
+        if mode == 2:
+            sc = -sc
+        ok = [k for k, x in enumerate(acts) if not is_button(x, "cancel")] or list(range(len(acts)))
+        return int(max(ok, key=lambda k: sc[k]))
 
     def follow_plan(self, msg):
         """My planned choice at a real follow-up prompt, or None when the prompt is not the one the plan expects."""
@@ -511,6 +609,7 @@ class JepaPlayer:
         self.fail = None
         window = bool((msg.get("prompt") or {}).get("actionWindow"))
         best = None
+        gated = False
         if self.score == "plan":
             if window:
                 self.plan = []
@@ -531,6 +630,9 @@ class JepaPlayer:
                 j = self.follow_plan(msg)
                 if j is not None:
                     self.stats["followed"] += 1
+                    if self.line_m is not None and self.line_ctx is not None and t.get("e") is not None and len(self.line_ctx["toks"]) < 4:
+                        # a planned follow-up is part of the line too, so a later unplanned prompt sees the whole line
+                        self.line_ctx["toks"].append((t["e"]["actions"][j].astype(np.float32), int(t["e"]["aids"][j])))
                     return j, t
                 self.stats["unplanned"] += 1
                 kind = "resource" if F.prompt_type(msg.get("prompt") or {}) == 1 else "plan missed" if had else "other"
@@ -543,6 +645,27 @@ class JepaPlayer:
             elif self.score != "imagined":
                 score = real[self.score]
             t["real"] = real
+        above = float(np.max(t["score"]) - np.min(t["score"])) >= self.plan_cfg.get("gate", 0.0)
+        if self.policy is not None and window and best is None and t.get("zs") is not None and (
+                self.policy_at == "all" or (self.policy_at == "gated" and gated) or (self.policy_at == "above" and above)):
+            score = self.policy_score(t)
+        line_used = False
+        if (msg.get("state") or {}).get("phase") != "action":
+            self.line_ctx = None
+        if window and best is None and self.root_m is not None and t.get("zs") is not None:
+            e = t["e"]
+            zh = self.root_m.predict(np.asarray(t["z"], np.float32), np.asarray(t["zs"], np.float32), e["actions"].astype(np.float32), e["aids"].astype(np.int64))
+            score = M.sigmoid(self.net.value(zh)).astype(np.float64)
+        elif not window and self.line_m is not None and self.line_ctx is not None and len(self.line_ctx["toks"]) < 4:
+            e = t["e"]
+            nn_ = len(e["aids"])
+            prev_r = np.stack([r for r, _ in self.line_ctx["toks"]])[None].repeat(nn_, 0)
+            prev_a = np.array([i for _, i in self.line_ctx["toks"]], np.int64)[None].repeat(nn_, 0)
+            rows = np.concatenate([prev_r, e["actions"].astype(np.float32)[:, None]], 1)
+            aids = np.concatenate([prev_a, e["aids"].astype(np.int64)[:, None]], 1)
+            zh = self.line_m.predict(self.line_ctx["z"], self.line_ctx["zb"], rows, aids)
+            score = M.sigmoid(self.net.value(zh)).astype(np.float64)
+            line_used = True
         # loop guard: if this exact observation keeps coming back, stop repeating the same pick
         key = hash(json.dumps([msg.get("prompt"), msg.get("state"), [x.get("label") for x in msg["actions"]]], sort_keys=True))
         tried = self.seen.setdefault(key, [])
@@ -557,8 +680,19 @@ class JepaPlayer:
             fresh = [i for i in order if i not in tried]
             pick = int(fresh[0]) if fresh else int(self.rng.randrange(n))
         tried.append(pick)
+        if self.line_m is not None and t.get("e") is not None:
+            e = t["e"]
+            if window and t.get("zs") is not None:
+                self.line_ctx = {"z": np.asarray(t["z"], np.float32), "zb": np.asarray(t["zs"][pick], np.float32),
+                                 "toks": [(e["actions"][pick].astype(np.float32), int(e["aids"][pick]))]}
+            elif line_used:
+                self.line_ctx["toks"].append((e["actions"][pick].astype(np.float32), int(e["aids"][pick])))
         if best is not None:
             self.plan = list(best.get(pick) or [])
+            if self.plan_log is not None and self._pw is not None:
+                self.log_plan({"t": "pw", "round": (msg.get("state") or {}).get("round"), "msg": {k: msg.get(k) for k in ("you", "prompt", "state", "actions")},
+                               "imagined": [float(x) for x in t["score"]], "planned": [float(x) for x in score], "pick": pick, "leaves": self._pw})
+        self._pw = None
         rnd = (msg.get("state") or {}).get("round")
         if t.get("combo") is not None and self.round_seen != rnd:
             # the round's first window: the macro of the picked move's best line is the round's plan
@@ -627,7 +761,8 @@ def main():
                          "or the planner (whole moves with their follow-up choices, simulated)")
     ap.add_argument("--plan", default="", help="planner settings as k=v,... (roots, follow, follow2, depth, lines, secs, floor, gate: plan "
                                                  "only windows whose imagined scores spread at least this much, e.g. 0.1 = 10 points; "
-                                                 "reply=1: judge after the opponent's next action, 0 or 1 only)")
+                                                 "reply=1: judge after the opponent's next action, 0 or 1 only; reply_by=1|2: that action chosen by the imagined scores; "
+                                                 "rmix=w: blend the boards before and after it)")
     ap.add_argument("--resource", default=None, help="answer resource prompts with this model (bots/jepa/resource_policy.py)")
     ap.add_argument("--plan-scorer", choices=["v", "eval"], default="v",
                     help="what scores the planner's settled positions: the value head, or the --evaluator (a yardstick)")
@@ -639,6 +774,12 @@ def main():
     ap.add_argument("--plan-model", default=None, help="a second model that scores only the planner's settled positions")
     ap.add_argument("--window-horizon", choices=["1", "s"], default="1",
                     help="imagined score at action windows: the mover's next decision (1, with --mix) or where the move settles (s)")
+    ap.add_argument("--root-model", default=None, help="line test: a root model (line_root.py .npz) that scores the moves at action windows")
+    ap.add_argument("--line-model", default=None, help="line test: a line model (line_train.py resid, .npz) for the follow-up prompts of my move")
+    ap.add_argument("--policy", default=None, help="a policy head (policy_train.py) for the action windows the planner does not plan")
+    ap.add_argument("--policy-at", choices=["all", "gated", "above"], default="all",
+                    help="all windows not planned, only those below the gate, or only those at or above it (the kind the policy was trained on)")
+    ap.add_argument("--plan-log", default=None, help="append every planned window and each game's result here (gzip JSON lines)")
     ap.add_argument("--follow-horizon", choices=["1", "s"], default="1",
                     help="other prompts of the action phase (targets, costs, triggers): the next decision (1) or, with the window model, "
                          "where the move settles (s)")
@@ -655,9 +796,10 @@ def main():
     if plan.get("reply", 0) not in (0, 1):
         ap.error("--plan reply takes 0 or 1: a longer reply would need my own moves in between, which plan_line does not play")
     player = JepaPlayer(a.model, db, a.mix, a.temp, score=a.score, evaluator=helper, deals=a.deals, log=logf, judge=a.judge, window_model=a.window_model, window_horizon=a.window_horizon,
-                        plan={**{k: (v if k in ("secs", "gate") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
+                        plan={**{k: (v if k in ("secs", "gate", "rmix") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
-                        follow_horizon=a.follow_horizon)
+                        follow_horizon=a.follow_horizon, plan_log=a.plan_log,
+                        policy=a.policy, policy_at=a.policy_at, root_model=a.root_model, line_model=a.line_model)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin
 
@@ -685,9 +827,11 @@ def main():
         t = msg.get("t")
         if t == "hello":
             player.new_game(msg.get("seed", 0), msg)
+            player.log_plan({"t": "hello", "you": msg.get("you"), "seed": msg.get("seed"), "names": [player.decks is not None]})
             # v1 unless a mode needs simulations (v2 also brings both deck lists and `over`)
             out = {"t": "ready", "v": 2, "name": a.name, "sim": True} if player.needs_sim and 2 in (msg.get("versions") or []) else {"t": "ready", "v": 1, "name": a.name}
         elif t == "over":
+            player.log_plan({"t": "over", "you": msg.get("you"), "winner": msg.get("winner"), "outcome": msg.get("outcome"), "round": msg.get("round")})
             if player.stats.get("macros"):
                 log(f"macros picked at rounds' first windows: {player.stats['macros']}")
             if player.score == "plan" and player.stats.get("windows"):
@@ -712,6 +856,8 @@ def main():
         else:
             continue
         send(out)
+    if player.plan_log is not None:
+        player.plan_log.close()
 
 
 if __name__ == "__main__":

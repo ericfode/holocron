@@ -72,7 +72,7 @@ g = torch.Generator(device="cpu").manual_seed(a.seed)
 p = {k: v.clone().requires_grad_(True) for k, v in old.items()}  # start from the model's own head
 opt = torch.optim.AdamW(list(p.values()), lr=a.lr, weight_decay=1e-2)
 tr_t = torch.tensor(tr, device=dev)
-best = None
+best = (old_bce, old_acc, 0, {k: v.detach().cpu().numpy().copy() for k, v in old.items()})  # keep the own head unless a refit beats it
 for step in range(1, a.steps + 1):
     idx = tr_t[torch.randint(0, len(tr), (a.batch,), generator=g).to(dev)]
     l = bce(head(p, torch.nn.functional.dropout(Z[idx], 0.1)), Y[idx])

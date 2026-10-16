@@ -103,3 +103,62 @@ its own shuffles):
 
 Over both deal sets the value-judged bot and the mean-judged bot are equal within noise; the value-judged one (one
 model, already the 58.7% bot) stays the pick.
+
+**More on-policy data (tx-o2)**: tx-t10's recipe + all six on-policy parts (87,821 points from the bots' own games
+against c-clock, 25% of the branch draws), no decision loss. Yardstick flat (own-positions top-1 0.671, regret 0.97
+pts; rush 0.810). Play: without the simulator 28.7%, -5.7 [-9.3, -1.9] vs tx-t10-fs-rc; as the value-judged hybrid
+56.7%, -2.1 [-6.0, +1.9]. With tx-o1 (18k points: -4.1 and +0.7), more on-policy branch data makes the
+no-simulator bot worse and leaves the hybrid alone. Closed for this model.
+
+**Planner breadth**: roots 32 and follow 10 (16 and 6 by default) changed 4 of 688 games: 59.0%, +0.3 [-0.3, +0.9].
+Planned windows use 13.6 lines and 0.40 s on average, far under the caps (150 lines, 5 s); breadth is not a lever.
+
+## Planner data, a settled-board judge and a policy head (coordinator's steps 1-3)
+
+**Data**: the 58.7% bot with `--plan-log` against c-clock on new deals (ladder seed 50001, no key): 6,318 games in 59
+minutes, won 60.5% (3,769-2,462). `plan_data.py`: 6,231 decided games, 92,094 planned windows, 91,469 judged boards.
+
+**Judge** (`fit_value.py` on the picked move's best judged board, label = game won; tx-t10-sb): held-out BCE 0.494 ->
+0.4745, accuracy 0.746 -> 0.760. As `--plan-model`: 60.5%, +1.6 [-1.5, +4.7] vs the 58.7% bot (p=0.38).
+
+**Policy head** (`policy_train.py`, frozen tx-t10-e, per candidate [z, zs, zs-z, v] -> 128 -> 1, softmax over up to 24
+candidates; pol-1): held-out agreement with the planner 0.556 (imagined best) -> 0.642; the planner's own value lost by
+the pick 2.19 -> 1.45 pts. In play:
+
+| bot | won | paired |
+|---|---|---|
+| no simulator, the policy at every window (`--policy-at all`) | 28.8% | -5.5 [-8.7, -2.5] vs tx-t10-fs-rc |
+| no simulator, the policy only where the imagined spread is 0.04+ (`--policy-at above`) | 34.0% | -0.3 [-3.1, +2.5] |
+| hybrid, the policy at the windows below the gate (`--policy-at gated`) | 50.9% | -8.2 [-11.0, -5.4] vs the 58.7% bot |
+
+Copying the planner's pick better offline does not win games: outside the windows it was trained on it hurts, inside
+them it is neutral. The planner's value is the move together with its planned follow-ups; a move-only policy gets none
+of the follow-ups.
+
+**More planner data and the judge again**: a second batch of 12,636 games (seed 60001, no key; the bot won 60.6%)
+brings the data to 18,673 decided games, 275,318 planned windows and 273,457 judged boards. The judge refit on all of it
+(tx-t10-sb2): held-out BCE 0.4748 -> 0.4301, accuracy 0.768 -> 0.798. As `--plan-model` on the test deals: 60.7%, +2.2
+[-1.0, +5.4] vs the 58.7% bot (p=0.23). On the fresh deals with one fixed key for both bots (ladder seed 40001,
+`--key 23c49785...` = sha256 of "jepa fresh deals 40001": the same shuffles, paired game by game): the 58.7% bot 61.7%
+(424-264), sb2 62.5% (430-257), +0.9 [-2.5, +4.2] (p=0.67). Not confirmed; the planner keeps tx-t10's own head. A
+better win predictor on the planner's settled boards (+3 accuracy points) moves play by about a point at most.
+
+## A smarter opponent in the planner's look-ahead (`--plan reply=1,reply_by=1|2[,rmix=w]`)
+
+The line plays one opponent action after my move settles, chosen by the imagined scores instead of like rush, then
+judges the board. 702 test deals, paired against the 58.7% bot:
+
+| variant | won | paired |
+|---|---|---|
+| reply_by=2: the reply my imagined score likes least (scored from my seat), judged after it | 52.4% | -6.3 [-9.6, -2.9] |
+| reply_by=2, rmix=0.5: the mean of the board before and after that reply | 56.3% | -2.3 [-4.9, +0.3] |
+| reply_by=1: the opponent's own imagined best (scored from its seat), judged after it | 61.0% | +2.5 [-0.6, +5.7] (p=0.15) |
+
+Planned windows took 0.5-0.7 s (13 lines). The model has no head for the opponent's move, so the third variant the
+coordinator asked for (the opponent plays its predicted move) was not run. Scoring the opponent's options from my seat
+is out of distribution (the model was trained on the mover's own options) and gives nonsense replies; from its own
+seat the reply is plausible.
+
+Fresh-deal check of reply_by=1 (seed 40001, the same fixed key as the 58.7% bot's run there): 61.7% (423-263) against
+61.8%, -0.1 [-3.5, +3.1]. Not confirmed. Like the judge refit (+2.2 on the test deals, +0.9 fresh), a +2 on the 702 test
+deals has not survived the fresh deals; the 58.7% bot stays.
