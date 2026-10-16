@@ -2,10 +2,12 @@ use super::{Policy, Rng};
 use crate::cards::{CardDb, CardInfo};
 use crate::protocol::{other, Action, Decide, DistShare, Distribute, Hello, PlayerView, State, UnitView};
 use std::collections::{HashMap, HashSet};
+use std::sync::Arc;
 
 /// Greedy v2: the greedy rules plus card knowledge and combat math, still one decision at a time with no lookahead.
 ///
-/// - Reads card stats from the engine's card JSON (`cards.rs`), so it knows costs, aspects, keywords and upgrade stats.
+/// - Reads card stats from the game's card data (`cards.rs`, from `hello`), so it knows costs, aspects, keywords and
+///   upgrade stats.
 /// - Action window: lethal attacks first, then attacks that kill a ready enemy unit, then the most expensive card it
 ///   can play (units first, removal only when there is something to remove, leader deploy when affordable), then
 ///   the remaining attacks, then claim initiative, then pass.
@@ -17,7 +19,8 @@ use std::collections::{HashMap, HashSet};
 /// - Same loop guards as greedy.
 #[derive(Clone)]
 pub struct Greedy2 {
-    db: &'static CardDb,
+    /// This game's cards, from `hello`; a copy made for a playout shares them.
+    db: Arc<CardDb>,
     rng: Rng,
     round: u32,
     last_window_pick: Option<String>,
@@ -32,10 +35,7 @@ const MAX_REPEATS: u32 = 12;
 const RESOURCE_CAP: u32 = 9;
 
 impl Greedy2 {
-    pub fn new(db: &'static CardDb) -> Self {
-        if db.len() == 0 {
-            eprintln!("greedy2: no card data (set SWU_CARD_JSON or run from the repo root); playing without card stats");
-        }
+    pub fn new(db: Arc<CardDb>) -> Self {
         Greedy2 {
             db,
             rng: Rng::default(),
@@ -155,7 +155,7 @@ fn aspect_penalty(card: &CardInfo, have: &[String]) -> i32 {
 
 /// Everything a decision needs, from this seat.
 struct Ctx<'a> {
-    db: &'static CardDb,
+    db: &'a CardDb,
     me: &'a str,
     state: &'a State,
     my: &'a PlayerView,
@@ -166,12 +166,12 @@ struct Ctx<'a> {
 }
 
 impl<'a> Ctx<'a> {
-    fn card(&self, a: &Action) -> Option<&'static CardInfo> {
+    fn card(&self, a: &Action) -> Option<&'a CardInfo> {
         let c = a.card.as_ref();
         self.db.find(Some(a.label.as_str()), c.and_then(|c| c.s.as_deref()), c.and_then(|c| c.n.as_deref()))
     }
 
-    fn unit_info(&self, u: &UnitView) -> Option<&'static CardInfo> {
+    fn unit_info(&self, u: &UnitView) -> Option<&'a CardInfo> {
         self.db.find(None, u.s.as_deref(), u.n.as_deref())
     }
 
@@ -637,7 +637,7 @@ impl<'a> Ctx<'a> {
 }
 
 impl Greedy2 {
-    fn ctx<'a>(&self, req: &'a Decide, empty: &'a PlayerView) -> Ctx<'a> {
+    fn ctx<'a>(&'a self, req: &'a Decide, empty: &'a PlayerView) -> Ctx<'a> {
         let me = req.you.as_str();
         let my = req.state.players.get(me).unwrap_or(empty);
         let op = req.state.players.get(other(me)).unwrap_or(empty);
@@ -650,7 +650,7 @@ impl Greedy2 {
         if let Some(c) = self.db.find(None, my.base.s.as_deref(), my.base.n.as_deref()) {
             aspects.extend(c.aspects().iter().cloned());
         }
-        let mut cx = Ctx { db: self.db, me, state: &req.state, my, op, aspects, spend: HashSet::new() };
+        let mut cx = Ctx { db: &self.db, me, state: &req.state, my, op, aspects, spend: HashSet::new() };
         if req.prompt.action_window {
             cx.spend = cx.best_spend(&req.actions);
         }
@@ -710,13 +710,21 @@ impl Greedy2 {
         *self.picks.entry(format!("{prompt_key}|{key}")).or_insert(0) += 1;
     }
 
-    pub fn db(&self) -> &'static CardDb {
-        self.db
+    /// This game's card table.
+    pub fn db(&self) -> Arc<CardDb> {
+        self.db.clone()
     }
 }
 
 impl Policy for Greedy2 {
     fn new_game(&mut self, hello: &Hello) {
+        // the game's cards; a playout's hello has none and keeps the table this copy came with
+        if let Some(db) = hello.card_db() {
+            if db.len() == 0 {
+                eprintln!("greedy2: no cards in hello; playing without card stats");
+            }
+            self.db = Arc::new(db);
+        }
         self.rng.seed(hello.seed);
         self.round = 0;
         self.last_window_pick = None;
@@ -752,7 +760,7 @@ mod tests {
     use super::*;
     use crate::cards::test_card;
 
-    fn db() -> &'static CardDb {
+    fn db() -> Arc<CardDb> {
         let mut db = CardDb::default();
         db.insert(test_card("wampa", r#"{"title":"Wampa","cost":4,"power":4,"hp":5,"aspects":["aggression"],"types":["unit"],"setId":{"set":"SOR","number":38}}"#));
         db.insert(test_card("cheap-guy", r#"{"title":"Cheap Guy","cost":1,"power":1,"hp":2,"aspects":["villainy"],"types":["unit"]}"#));
@@ -760,7 +768,7 @@ mod tests {
         db.insert(test_card("takedown", r#"{"title":"Takedown","cost":4,"text":"Defeat a unit with 5 or less remaining HP.","types":["event"]}"#));
         db.insert(test_card("vader", r#"{"title":"Darth Vader","cost":7,"aspects":["aggression","villainy"],"types":["leader"],"setId":{"set":"SOR","number":10}}"#));
         db.insert(test_card("outpost", r#"{"title":"Outpost","aspects":["vigilance"],"types":["base"],"setId":{"set":"LAW","number":19}}"#));
-        Box::leak(Box::new(db))
+        Arc::new(db)
     }
 
     fn req(prompt: &str, state: &str, actions: &str) -> Decide {
@@ -867,6 +875,34 @@ mod tests {
         let have = vec!["heroism".to_string(), "vigilance".to_string()];
         assert_eq!(aspect_penalty(d.by_name("big-ship").unwrap(), &have), 2);
         assert_eq!(aspect_penalty(d.by_name("wampa").unwrap(), &have), 2);
+    }
+
+    /// The cards of `db()` as a hello carries them.
+    const HELLO_CARDS: &str = r#"[
+        {"title":"Cheap Guy","internalName":"cheap-guy","cost":1,"power":1,"hp":2,"aspects":["villainy"],"types":["unit"]},
+        {"title":"Darth Vader","internalName":"vader","cost":7,"aspects":["aggression","villainy"],"types":["leader"],"setId":{"set":"SOR","number":10}},
+        {"title":"Outpost","internalName":"outpost","aspects":["vigilance"],"types":["base"],"setId":{"set":"LAW","number":19}},
+        {"title":"Takedown","internalName":"takedown","cost":4,"text":"Defeat a unit with 5 or less remaining HP.","types":["event"]},
+        {"title":"Wampa","internalName":"wampa","cost":4,"power":4,"hp":5,"aspects":["aggression"],"types":["unit"],"setId":{"set":"SOR","number":38}}]"#;
+
+    #[test]
+    fn decides_from_the_cards_in_hello() {
+        let acts = r#"[{"i":0,"kind":"button","label":"Pass"},{"i":1,"kind":"card","label":"cheap-guy","card":{"id":"h1","zone":"hand","ctl":"p1"}},
+                       {"i":2,"kind":"card","label":"wampa","card":{"id":"h2","zone":"hand","ctl":"p1"}},{"i":3,"kind":"card","label":"takedown","card":{"id":"h3","zone":"hand","ctl":"p1"}}]"#;
+        let r = req(WINDOW, &state("[]", "[]", 0), acts);
+        let hello = |cards: &str| -> Hello { serde_json::from_str(&format!(r#"{{"t":"hello","v":1,"you":"p1","seed":7,"cards":{cards}}}"#)).unwrap() };
+        let mut g = Greedy2::new(Arc::default());
+        g.new_game(&hello(HELLO_CARDS));
+        assert_eq!(g.db().len(), 5);
+        assert_eq!(g.choose(&r), 2);
+        // a playout's copy and its hello without cards keep the game's table
+        let mut copy = g.clone();
+        copy.new_game(&Hello { v: 1, you: "p2".into(), seed: 9, ..Default::default() });
+        assert!(Arc::ptr_eq(&copy.db(), &g.db()));
+        // the next game has only its own cards: none here, so it no longer knows the wampa is the big play
+        g.new_game(&hello("[]"));
+        assert_eq!(g.db().len(), 0);
+        assert_ne!(g.choose(&r), 2);
     }
 
     #[test]

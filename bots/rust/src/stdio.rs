@@ -3,6 +3,7 @@
 
 use crate::policy::{Policy, SimOp, Simulator};
 use crate::protocol::{Reply, Request, Simulated, PROTOCOL, VERSION, VERSION_2};
+use serde_json::Value;
 use std::io::{self, BufRead, Write};
 
 pub struct Bot {
@@ -27,8 +28,10 @@ impl Bot {
             Request::Hello(h) if h.v != VERSION || (!h.protocol.is_empty() && h.protocol != PROTOCOL) => {
                 Reply::Error { error: format!("{} v{} not supported (want {PROTOCOL} v{VERSION})", h.protocol, h.v) }
             }
-            Request::Hello(h) => {
+            Request::Hello(mut h) => {
                 self.v = if h.versions.contains(&VERSION_2) { VERSION_2 } else { VERSION };
+                // a game's card data comes only with its hello: a hello without `cards` gets an empty table
+                h.cards.get_or_insert_with(|| Value::Array(Vec::new()));
                 self.policy.new_game(&h);
                 let wants = self.v == VERSION_2 && self.policy.wants_sim();
                 Reply::Ready { v: self.v, name: self.name.clone(), sim: wants.then_some(true) }
@@ -149,6 +152,24 @@ mod tests {
         let mut s = bot("search");
         assert_eq!(reply(&mut s, &v2), r#"{"t":"ready","v":2,"name":"search","sim":true}"#);
         assert_eq!(reply(&mut s, r#"{"t":"over","winner":"p1"}"#), r#"{"t":"ok"}"#);
+    }
+
+    #[test]
+    fn a_hello_with_an_odd_card_still_gets_ready() {
+        // only the wampa parses: the hello gets ready and greedy2 still knows the wampa is its big play
+        let wampa = r#"{"title":"Wampa","internalName":"wampa","cost":4,"power":4,"hp":5,"types":["unit"],"setId":{"set":"SOR","number":38}}"#;
+        let window = r#"{"t":"decide","seq":1,"you":"p1","prompt":{"type":"actionWindow","signature":"actionWindow|-","title":"Choose an action","promptTitle":"Action Window","selectCardMode":null,"selected":[],"actionWindow":true},"state":{"round":3,"phase":"action","initiative":"p2","players":{"p1":{"res":{"ready":4,"total":4}},"p2":{}}},"actions":[{"i":0,"kind":"button","label":"Pass"},{"i":1,"kind":"card","label":"x","card":{"id":"h1","zone":"hand","ctl":"p1"}},{"i":2,"kind":"card","label":"wampa","card":{"id":"h2","zone":"hand","ctl":"p1"}}]}"#;
+        let pick = |cards: &str| {
+            let mut b = bot("greedy2");
+            let hello = HELLO.replace(r#""seed":42,"#, &format!(r#""seed":42,"cards":{cards},"#));
+            assert_eq!(reply(&mut b, &hello), r#"{"t":"ready","v":1,"name":"greedy2"}"#);
+            reply(&mut b, window)
+        };
+        assert_eq!(pick(&format!(r#"[{wampa},{{"unique":null}},{{"title":7}},7]"#)), r#"{"t":"act","i":2}"#);
+        // the same window without the wampa's card data goes another way
+        assert_ne!(pick("[]"), r#"{"t":"act","i":2}"#);
+        let not_a_list = HELLO.replace(r#""seed":42,"#, r#""seed":42,"cards":"not a list","#);
+        assert_eq!(reply(&mut bot("search"), &not_a_list), r#"{"t":"ready","v":1,"name":"search"}"#);
     }
 
     #[test]

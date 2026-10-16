@@ -27,6 +27,7 @@
 const fs = require('fs');
 const path = require('path');
 const { answer, StdioClient } = require('../engine/stdio');
+const { folderCards } = require('../engine/all-cards');
 const { seededRng } = require('../engine/rng');
 const { gameMessage, decisionKey, legalActions, randomSplit } = require('./frame');
 const { Observer, lineText } = require('./observe');
@@ -42,6 +43,8 @@ const short = (x) => JSON.stringify(x)?.slice(0, 160);
 const minutes = (ms) => `${+(ms / 60000).toFixed(1)} minute${ms === 60000 ? '' : 's'}`;
 const noSim = async (req) => (req?.op === 'end' ? { t: 'simulated', op: 'end' } : { t: 'simulated', op: req?.op ?? null, error: 'simulations are off on Karabast' });
 const actionKey = (a) => `${a.kind}|${a.label}|${a.arg ?? ''}|${a.cardUuid ?? ''}`;
+// the card data hello carries, from the card json that `npm run get-cards` writes (as observe.js reads it)
+const CARD_DIR = process.env.SWU_CARD_JSON ?? path.join(__dirname, '..', 'forceteki', 'test', 'json');
 
 /** `p` with a time limit: resolves to its value, or rejects after `ms`. */
 function within(p, ms, what) {
@@ -58,7 +61,8 @@ class KarabastSeat {
      * ({ name, hello?, decide, over?, close? }, e.g. a StdioClient). opts: deck (our deck list, for hello), seed,
      * decideMs (10000), allowUndos (2), retryMs (1000), maxFailures (2), maxIgnored (4), paceMs (0: the least time from a
      * decision to its answer), chat (a line to send once, or null), log, startMs (180000: end with no result when no game frame comes this long after the match) and idleMs
-     * (600000: concede when a started game sends no frame this long).
+     * (600000: concede when a started game sends no frame this long), cards (hello's card data; default every card in
+     * the card folder, since only the opponent's leader and base are known).
      */
     constructor(sock, me, client, opts = {}) {
         this.sock = sock;
@@ -290,11 +294,13 @@ class KarabastSeat {
 
     async hello(gs) {
         const { deck, opponent } = this.obs.decks(gs, this.opts.deck ?? null);
+        // the opponent's deck is not known, so hello carries every card: a bot never reads card files. A copy, so an
+        // in-process client cannot change the cards the next game sends.
         const msg = {
             t: 'hello', protocol: 'swu-bot-stdio', v: 1, versions: [1, 2], bot: this.client.name, you: 'p1',
             seed: Math.floor(this.rng() * 2 ** 32), ms: 30000,
             players: [{ id: 'p1', name: 'p1', bot: this.client.name }, { id: 'p2', name: 'p2', bot: 'karabast-player' }],
-            deck, opponent
+            deck, opponent, cards: structuredClone(this.opts.cards ?? folderCards(CARD_DIR))
         };
         const r = await within(Promise.resolve(answer(this.client, msg, noSim)), 30000, 'hello');
         if (r?.t !== 'ready') {

@@ -7,10 +7,16 @@ or v2 (`spec/protocol.md`) when the referee offers it. No engine code is needed 
     cargo build --release --manifest-path bots/rust/Cargo.toml
     node bot/tournament.js --bots rust-greedy,heuristic --games 10 --out replays/rust
     node bots/rust/check.js 10 1                  # both Rust bots vs random-a, both seats
+    python3 bots/bundles.py rust_greedy2 rust_search   # arena bundles in build/arena/ (wasm32-wasip1)
 
 This crate and `bot/omni-rs` share the root Cargo workspace. The commands above now write the executable to
-`target/release/swu-bot-rs`; the bot registry uses that path. `omni-rs` imports this crate's card loader, but does
-not change these policies or replace their JavaScript simulation requests.
+`target/release/swu-bot-rs`; the bot registry uses that path. `omni-rs` imports this crate's card table (`CardDb`,
+`CardInfo`), but does not change these policies or replace their JavaScript simulation requests.
+
+Card data comes with each game's `hello`: `cards` holds the engine's card JSON for both decks and the tokens, kept as
+JSON in `Hello.cards` so that one card this build cannot read never fails the hello (`CardDb::from_values` skips it).
+`greedy2` and `search` build one table per game at `new_game` (an `Arc<CardDb>`); a playout's copy of greedy2, and the
+hello it makes for the other seat, share that table. The bot reads no card files.
 
 Policies (first CLI argument, registered as `rust-<policy>` in `bots/external-bots.json`):
 
@@ -18,9 +24,8 @@ Policies (first CLI argument, registered as `rust-<policy>` in `bots/external-bo
 - `greedy`: rules over the wire data only: play cards, attack with the biggest ready unit, hit enemy threats, help
   own units; loop guards for no-op choices.
 - `greedy2`: greedy plus card data and combat math. It reads costs, aspects, keywords and upgrade stats from the
-  engine's card JSON (`src/cards.rs`; `$SWU_CARD_JSON`, default `forceteki/test/json`, without it it falls back to
-  rules). Leader deploy first (it is free and the leader arrives ready), lethal attacks, attacks that kill a ready
-  enemy unit, then the set of hand cards that uses the most ready resources, most expensive first (removal held until
+  game's card data (`src/cards.rs`, from `hello`; without it it falls back to rules). Leader deploy first (it is free
+  and the leader arrives ready), lethal attacks, attacks that kill a ready enemy unit, then the set of hand cards that uses the most ready resources, most expensive first (removal held until
   there is a target), then the other attacks, then claim initiative. Attack targets
   weigh base damage against trades (kill value, damage taken back, shields, overwhelm, sentinels). Resources the
   expensive and off-aspect cards, keeps cheap on-aspect units. Sends its own damage/healing split for `distribute`.

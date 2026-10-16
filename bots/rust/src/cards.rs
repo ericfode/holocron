@@ -1,12 +1,13 @@
-//! Card data, read from the engine's card JSON (`forceteki/test/json/Card/*.json`, written by `npm run get-cards`).
+//! Card data, from the `cards` of a game's `hello`: the engine's card JSON (one object per card, as in
+//! `forceteki/test/json/Card/<name>.json`) for both decks and the tokens.
 //!
-//! The protocol sends card names and set codes but not stats, so a policy that wants costs, aspects or keywords loads
-//! them here. The folder is `$SWU_CARD_JSON`, else `forceteki/test/json` under the working directory (the adapter
-//! starts bots in the repo root). Missing data is not an error: lookups return None and policies fall back to rules.
+//! The `decide` messages name cards by set code, title and internal name but carry no stats, so a policy that wants
+//! costs, aspects or keywords looks them up here. The bot reads no card files. Missing data is not an error: lookups
+//! return None and policies fall back to rules.
 
 use serde::Deserialize;
+use serde_json::Value;
 use std::collections::HashMap;
-use std::path::{Path, PathBuf};
 
 #[derive(Debug, Deserialize, Default, Clone)]
 #[serde(rename_all = "camelCase")]
@@ -89,18 +90,12 @@ pub struct CardDb {
 }
 
 impl CardDb {
-    /// Load from `$SWU_CARD_JSON` or `forceteki/test/json`; an empty db if neither has a `Card/` folder.
-    pub fn load_default() -> CardDb {
-        let dir = std::env::var_os("SWU_CARD_JSON").map(PathBuf::from).unwrap_or_else(|| PathBuf::from("forceteki/test/json"));
-        CardDb::load(&dir)
-    }
-
-    pub fn load(dir: &Path) -> CardDb {
+    /// From card JSON objects (hello's `cards`), in their order; one that does not parse as a card is skipped, so one odd
+    /// card costs only itself.
+    pub fn from_values<'a>(cards: impl IntoIterator<Item = &'a Value>) -> CardDb {
         let mut db = CardDb::default();
-        let Ok(entries) = std::fs::read_dir(dir.join("Card")) else { return db };
-        for e in entries.flatten() {
-            let Ok(text) = std::fs::read_to_string(e.path()) else { continue };
-            if let Ok(card) = serde_json::from_str::<CardInfo>(&text) {
+        for v in cards {
+            if let Ok(card) = CardInfo::deserialize(v) {
                 db.insert(card);
             }
         }
@@ -155,6 +150,7 @@ pub fn test_card(name: &str, json: &str) -> CardInfo {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::path::Path;
 
     #[test]
     fn finds_a_card_by_any_printing() {
@@ -169,5 +165,64 @@ mod tests {
         assert_eq!(db.by_set_code("IBH_028").map(|c| c.title.as_str()), Some("Tauntaun Mount"));
         assert_eq!(db.by_set_code("IBH_015").map(|c| c.title.as_str()), Some("Tauntaun Mount"));
         assert_eq!(db.by_set_code("SOR_007").map(|c| c.title.as_str()), Some("Other"));
+    }
+
+    #[test]
+    fn from_values_skips_what_does_not_parse() {
+        let cards: Vec<Value> = serde_json::from_str(
+            r#"[{"title":"Tauntaun Mount","internalName":"tauntaun-mount","setId":{"set":"IBH","number":15},
+                 "setCodes":[{"set":"IBH","number":15},{"set":"IBH","number":28}]},
+                {"title":"Broken","internalName":"broken","unique":null}, 7, "wampa",
+                {"title":"Shield","internalName":"shield","setId":{"set":"SOR"},"types":["token","upgrade"]}]"#,
+        )
+        .unwrap();
+        let db = CardDb::from_values(&cards);
+        assert_eq!(db.len(), 2);
+        assert_eq!(db.by_set_code("IBH_028").map(|c| c.internal_name.as_str()), Some("tauntaun-mount"));
+        assert_eq!(db.find(None, None, Some("Shield")).map(|c| c.internal_name.as_str()), Some("shield"));
+        assert!(db.by_name("broken").is_none());
+    }
+
+    /// Every card file of the engine's card data (`$SWU_CARD_JSON` or forceteki/test/json at the repo root), sorted by
+    /// name; None when there is none.
+    fn card_files() -> Option<Vec<String>> {
+        let dir = std::env::var_os("SWU_CARD_JSON")
+            .map(std::path::PathBuf::from)
+            .unwrap_or_else(|| Path::new(env!("CARGO_MANIFEST_DIR")).join("../../forceteki/test/json"))
+            .join("Card");
+        let mut paths: Vec<_> = std::fs::read_dir(dir).ok()?.flatten().map(|e| e.path()).collect();
+        paths.sort();
+        Some(paths.iter().filter_map(|p| std::fs::read_to_string(p).ok()).collect())
+    }
+
+    #[test]
+    fn from_values_looks_up_like_the_card_files() {
+        let Some(texts) = card_files() else {
+            eprintln!("skipped: no forceteki/test/json (npm run get-cards in forceteki)");
+            return;
+        };
+        // the files as the bot used to read them, card by card, and the same cards as hello's JSON values
+        let mut files = CardDb::default();
+        for t in &texts {
+            if let Ok(card) = serde_json::from_str::<CardInfo>(t) {
+                files.insert(card);
+            }
+        }
+        let values: Vec<Value> = texts.iter().filter_map(|t| serde_json::from_str(t).ok()).collect();
+        let db = CardDb::from_values(&values);
+        assert!(files.len() > 2000, "{} cards", files.len());
+        assert_eq!(db.len(), files.len());
+        let name = |c: Option<&CardInfo>| c.map(|c| (c.internal_name.clone(), c.title.clone(), c.cost, c.power, c.hp, c.text.clone()));
+        for (n, c) in &files.by_name {
+            assert_eq!(name(db.by_name(n)), name(Some(c)));
+            assert_eq!(db.by_name(n).map(|d| (d.aspects().to_vec(), d.is("unit"), d.has_keyword("sentinel"))), Some((c.aspects().to_vec(), c.is("unit"), c.has_keyword("sentinel"))));
+        }
+        assert_eq!(db.by_set.len(), files.by_set.len());
+        for code in files.by_set.keys() {
+            assert_eq!(name(db.by_set_code(code)), name(files.by_set_code(code)), "{code}");
+        }
+        for title in files.by_title.keys() {
+            assert_eq!(name(db.by_title(title)), name(files.by_title(title)), "{title}");
+        }
     }
 }

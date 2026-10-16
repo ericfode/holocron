@@ -45,7 +45,8 @@ node karabast/fidelity.js --games 20                                            
 - Every protocol program in `bots/external-bots.json` can play (c-clock, rust-greedy2, ...), and `js-random`. The bot is
   seat `p1`. It never gets simulations (`sim: false`): Karabast keeps the deck order and the other hand.
 - `hello` carries our deck list. For the opponent it carries only the leader and base the table shows, with an empty
-  deck, since a Karabast opponent's list is not known.
+  deck, since a Karabast opponent's list is not known. For the same reason its `cards` hold every card of the card
+  data (`SWU_CARD_JSON` or `forceteki/test/json`), not only the two decks' cards: bots read no card files.
 - The seat sends only prompt answers (`cardClicked`, `menuButton`, `perCardMenuButton`, `statefulPromptResults`), plus
   `concede` and one chat line. It refuses `rollbackToSnapshot` (undo), timer resets and settings.
 - Undo prompts never reach the bot. In public games the opponent must approve each undo (Karabast's "undo with

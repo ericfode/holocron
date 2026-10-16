@@ -17,9 +17,12 @@ const fs = require('fs');
 const path = require('path');
 const { answer, StdioClient } = require('../../../engine/stdio');
 const { Observer } = require('../../../karabast/observe');
+const { folderCards } = require('../../../engine/all-cards');
 const { legalActions, decisionKey } = require('../../../karabast/frame');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
+// hello's card data: every card (as karabast/seat.js sends it, since the opponent's list is not known)
+const CARD_DIR = process.env.SWU_CARD_JSON ?? path.join(ROOT, 'forceteki', 'test', 'json');
 const noSim = async (req) => ({ t: 'simulated', op: req?.op ?? null, error: 'simulations are off on Karabast' });
 
 function args(argv) {
@@ -102,7 +105,8 @@ async function redecide(file, { bots, programs, deck, sink, stderr }) {
                 for (const x of clients) {
                     const r = await answer(x.c, {
                         t: 'hello', protocol: 'swu-bot-stdio', v: 1, versions: [1, 2], bot: x.name, you: 'p1', seed: 1, ms: 30000,
-                        players: [{ id: 'p1', name: 'p1', bot: x.name }, { id: 'p2', name: 'p2', bot: 'karabast-player' }], deck: own, opponent
+                        players: [{ id: 'p1', name: 'p1', bot: x.name }, { id: 'p2', name: 'p2', bot: 'karabast-player' }], deck: own, opponent,
+                        cards: structuredClone(folderCards(CARD_DIR))
                     }, noSim);
                     if (r?.t !== 'ready') {
                         throw new Error(`${x.name}: expected ready at hello, got ${JSON.stringify(r)?.slice(0, 120)}`);

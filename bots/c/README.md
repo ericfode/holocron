@@ -4,13 +4,16 @@ A Star Wars Unlimited bot in C (C11 plus POSIX `getline`, libc only). The engine
 runs forceteki and talks to this process over the stdio JSON Lines protocol in `spec/stdio-protocol.md`.
 
     make -C bots/c                                   # builds bots/c/swu-c
+    make -C bots/c test                              # tests of the card table (test_cards.c)
+    python3 bots/bundles.py c_clock                  # the arena bundle: build/arena/c_clock (bot.wasm, arena.json)
     node bot/tournament.js --bots c-clock,node-random --games 2 --out replays/c-check   # protocol check
     node lab/runners/ladder.js --bots c-clock,rush --games 10
     SWU_C_DEBUG=1 node bot/tournament.js --bots c-clock,rush --games 1 --out replays/c   # decisions on stderr
 
-Registered as `c-clock` (`"lang": "c"`) in `bots/external-bots.json`. Card data is read at start from
-`$SWU_CARD_JSON/Card/*.json` (default `forceteki/test/json`, about 2,500 files in ~0.1 s). Without it the bot still
-plays on the board stats the protocol sends.
+Registered as `c-clock` (`"lang": "c"`) in `bots/external-bots.json`. Card data comes with each game's `hello`:
+`cards` holds the engine's card JSON for both decks and the tokens, and the bot builds its card table from it at every
+hello (`cards_clear`, then `cards_add_all`). It reads no files. A hello without cards leaves the table empty, and the
+bot plays on the board stats the protocol sends.
 
 ## Strategy: who is the beatdown?
 
@@ -110,5 +113,7 @@ tests cannot see the change; `lab/analysis/karabast/redecide.js` on those games 
 ## Files
 
 - `bot.c`: protocol loop, observation parsing, the strategy.
-- `cards.c`: card data loader and lookups by set code, internal name and title.
+- `cards.c`: the card table filled from hello's `cards`, and lookups by set code, internal name and title (the first
+  card with a title in hello's order, which is by internal name).
+- `test_cards.c`: tests of the card table (`make -C bots/c test`).
 - `json.c`: a small in-place JSON parser with an arena allocator.

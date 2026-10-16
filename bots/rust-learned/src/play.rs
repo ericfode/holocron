@@ -155,7 +155,7 @@ fn write_thoughts(path: &std::path::Path, msg: &Value, sc: &Scored, chosen: usiz
     }
 }
 
-pub fn run(brain: Brain, name: &str) {
+pub fn run(mut brain: Brain, name: &str) {
     let stdin = std::io::stdin();
     let mut stdout = std::io::stdout().lock();
     let mut rng = Rng(1);
@@ -176,6 +176,8 @@ pub fn run(brain: Brain, name: &str) {
         };
         let reply = match msg["t"].as_str() {
             Some("hello") => {
+                // this game's cards (both decks and the tokens) come with hello; the bot reads no card files
+                brain.db = CardDb::from_values(msg["cards"].as_array().into_iter().flatten());
                 rng = Rng(msg["seed"].as_u64().unwrap_or(1));
                 seen.clear();
                 json!({"t": "ready", "v": 1, "name": name})

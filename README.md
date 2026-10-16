@@ -34,7 +34,7 @@ inside it; workarounds for engine bugs go in `engine/` or `bots/`.
 | `bots/players/`, `bots/examples/` | the in-process bots (random, rush, heuristic and its profiles, ISMCTS, omniscient) and the example protocol clients; `players/index.js` is the name registry |
 | `bots/c`, `rust`, `python`, `lisp`, `clojure`, `haskell`, `bend`, `wasm`, `jev`, `jepa`, `learned`, `rust-learned`, `rust-omni`, `omni` | bots in other languages and the research bots |
 | `bots/starters/` | the starter bots the arena hands to new builders |
-| `engine/` | the arena's game player (`env.js`, `view.js`, `protocol.js`, `match.js`, `game-pool.js`, `stdio.js`, `rng.js`, `recorder.js`, `decklists.js`, `cardpool.js`, `ratings.js`, `random-run.js`, `debug-seed.js`), copied from `swu_bot` at `7455601` so games can be played here; replaced by the arena's published player when it has one. Holocron's own checks of it: `protocol-test.js` (protocol conformance), `rollback-test.js`, `determinism-check.js [seed] [bot]` |
+| `engine/` | the arena's game player (`env.js`, `view.js`, `protocol.js`, `match.js`, `game-cards.js`, `game-pool.js`, `stdio.js`, `rng.js`, `recorder.js`, `decklists.js`, `cardpool.js`, `ratings.js`, `random-run.js`, `debug-seed.js`), copied from `swu_bot` at `7455601` so games can be played here, with the arena's card data in hello from `swu_bot` `1d819e2` (`game-cards.js`, `match.js`, `protocol.js`); replaced by the arena's published player when it has one. Holocron's own checks of it: `protocol-test.js` (protocol conformance), `rollback-test.js`, `determinism-check.js [seed] [bot]`; and `all-cards.js`, hello's cards (every card) for a seat that lacks a deck list (Karabast, `bots/jev/look.js`) |
 | `decks/` | real tournament deck lists (with the game player) |
 | `lab/runners/` | `ladder.js`, `ladder-worker.js`, `ladder-report.js`, `sweep.js`, ...: local round robins and gauntlets, parameter sweeps, measurement scripts |
 | `lab/eval/`, `lab/learn/`, `lab/info/` | position evaluators (win predictors), self-play learning, the knowledge dial |
@@ -58,18 +58,24 @@ npm run ladder -- --bots rush,heuristic,random --games 10   # local round robin 
 npm run realdeck:test -- --bot <bot>                          # 702 games vs c-clock on 27 real decks (lab/analysis/realdeck/README.md)
 npm test && npm run test:py && npm run analysis:test          # what CI runs, plus cargo and the C bot build
 cargo build --release                                         # Rust bots, binaries in target/release/
-make -C bots/c                                                # c-clock
+make -C bots/c && make -C bots/c test                         # c-clock and its card table tests
+python3 bots/bundles.py                                       # arena bundles in build/arena/ (bots/README.md, "Arena")
 SWU_TABLES_TOKEN=swu_r_... npm run open-tables                # the arena's open-table games into replays/open-tables (token: swu-arena.fly.dev/tables/logs)
 ```
 
 `bots/external-bots.json` names every bot program, so the name works in `--bots`.
 
+Every game's `hello` carries the card data for that game (`cards`: the engine's card JSON for both decks and the
+tokens, `engine/game-cards.js`), in local games as in the arena. A bot reads its cards from there, never from
+`forceteki/test/json`.
+
 ## Not here yet
 
 - `rust-omni` and the `omni` bot's Rust simulations need Kessel; they build again once Holocron takes Kessel as a
   dependency.
-- Building a bot into a submission bundle uses the arena's bundle tool (`bot/compiled/` in `swu_bot`) until the
-  arena publishes it.
+- Bots that still read the card folder: `jev`, the JEPA bots, `clj-forecast`, `haskell`, `lisp`, `wasm`, `omni`
+  (`bots/omni/lens.js`), and the learned JS bots and evaluators (`bots/learned/cards.js`, `lab/eval/cards.js`). `bend` and the `ports` bots build
+  their card tables from it. The C, Rust and Python bots take their cards from `hello`.
 
 ## License and credits
 

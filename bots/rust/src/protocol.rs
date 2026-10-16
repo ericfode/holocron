@@ -47,6 +47,19 @@ pub struct Hello {
     pub deck: Option<DeckList>,
     #[serde(default)]
     pub opponent: Option<DeckList>,
+    /// This game's card data: the card JSON of both decks and the tokens, a list of objects shaped like the engine's
+    /// card files. Kept as JSON, so that one card this build cannot read never fails the whole hello. None only in a
+    /// policy's own playouts (their hellos are made in-process).
+    #[serde(default)]
+    pub cards: Option<Value>,
+}
+
+impl Hello {
+    /// The card table of `cards` (empty when it is not a list); None when the hello has no `cards`.
+    pub fn card_db(&self) -> Option<crate::cards::CardDb> {
+        let cards = self.cards.as_ref()?;
+        Some(crate::cards::CardDb::from_values(cards.as_array().into_iter().flatten()))
+    }
 }
 
 /// A deck list from `hello`: set codes with counts, in the order the engine numbers the cards.

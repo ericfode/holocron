@@ -27,7 +27,8 @@ action (62) + card/label embedding (16) ──> a (64)
 
 Features (`src/features.rs`) are computed from the `decide` message only, from the deciding seat's
 point of view, so one model plays both seats and training uses the exact same code as play.
-Printed card stats (cost, power, HP, type, keywords) come from the engine's card data.
+Printed card stats (cost, power, HP, type, keywords) come from the engine's card data: in play from each game's `hello`
+(`cards`), in the offline commands from the card folder.
 
 When it plays, each legal action gets
 
@@ -116,5 +117,5 @@ node bot/tournament.js --bots rust-learned,rust-greedy --games 10 --out replays/
 Registered bots (`bots/external-bots.json`): on `models/learned-v4.safetensors`, `rust-learned` (Q only), `rust-learned-world`
 (`--world 1`), `rust-learned-heur` (`--heur 1`), `rust-learned-explore` (`--temp 0.3 --epsilon 0.05`, for collecting self-play data);
 on `models/bc-g2.safetensors`, `rust-learned-bc` (`--prior 100 --prior-all`: plays the imitation head). `SWU_LEARNED_THOUGHTS=<file>` makes the bot write its
-latest decision (top actions with win chances) for the research dashboard. Card data is read from
-`$SWU_CARD_DATA` (default `forceteki/test/json`).
+latest decision (top actions with win chances) for the research dashboard. `play` takes each game's card data from
+its `hello`; `train`, `train-prior`, `explain` and `info` read it from `$SWU_CARD_DATA` (default `forceteki/test/json`).

@@ -3,8 +3,8 @@
 
     node lab/runners/ladder.js --bots py-clock,rush --games 10
 
-Reads card data from forceteki/test/json (or $SWU_CARD_JSON). Set SWU_PY_TRACE=<file> to append every prompt it
-sees and the choice it made, one JSON line each (for debugging).
+Card data comes with each game's hello (`cards`); the bot reads no files. Set SWU_PY_TRACE=<file> to append every
+prompt it sees and the choice it made, one JSON line each (for debugging).
 """
 import json
 import os
@@ -24,10 +24,7 @@ def log(*parts):
 
 
 def main():
-    db = CardDb.load()
-    if not len(db):
-        log("no card data found (run from the repo root or set SWU_CARD_JSON); playing without card stats")
-    policy = Policy(db)
+    policy = Policy(CardDb())
     trace_path = os.environ.get("SWU_PY_TRACE")
     trace = open(trace_path, "a", encoding="utf-8") if trace_path else None
     for line in sys.stdin:
@@ -37,6 +34,10 @@ def main():
         msg = json.loads(line)
         t = msg.get("t")
         if t == "hello":
+            # this game's cards (both decks and the tokens), sent by the referee
+            policy.db = CardDb.from_cards(msg.get("cards"))
+            if not len(policy.db):
+                log("no cards in hello; playing without card stats")
             policy.reset()
             reply = {"t": "ready", "v": 1, "name": NAME}
         elif t == "decide":

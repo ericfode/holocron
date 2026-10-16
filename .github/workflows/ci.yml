@@ -57,4 +57,5 @@ jobs:
             grep -qF "$want" random-run.txt || { echo "::error::expected $want"; exit 1; }
           done
       - run: make -C bots/c
+      - run: make -C bots/c test
       - run: cargo build --release && cargo test

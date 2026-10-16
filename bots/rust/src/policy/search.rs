@@ -2,6 +2,7 @@ use super::greedy2::{unit_value, Greedy2};
 use super::{Policy, SimOp, Simulator};
 use crate::cards::CardDb;
 use crate::protocol::{other, Decide, DistShare, Hello, Over, PlayerView, Simulated, State};
+use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 /// Search: greedy2 plus a look ahead with protocol v2 simulations.
@@ -29,7 +30,7 @@ fn env_or<T: std::str::FromStr>(name: &str, default: T) -> T {
 }
 
 impl Search {
-    pub fn new(db: &'static CardDb) -> Self {
+    pub fn new(db: Arc<CardDb>) -> Self {
         Search {
             g: Greedy2::new(db),
             seed: 0,
@@ -254,8 +255,7 @@ mod tests {
 
     #[test]
     fn plays_the_action_whose_simulation_wins() {
-        let db: &'static CardDb = Box::leak(Box::new(CardDb::default()));
-        let mut s = Search::new(db);
+        let mut s = Search::new(Arc::default());
         s.new_game(&serde_json::from_str(r#"{"t":"hello","v":1,"you":"p1","seed":3}"#).unwrap());
         // greedy2 alone prefers the hand card (0); only the simulation knows that passing (1) wins
         let req: Decide = serde_json::from_str(
@@ -268,6 +268,62 @@ mod tests {
         let mut sim = Scripted { last: None, calls: vec![] };
         assert_eq!(s.choose_sim(&req, &mut sim), 1);
         assert_eq!(sim.calls, ["begin", "act", "begin", "act", "end"]);
+    }
+
+    /// A referee whose simulated game gives each seat one action window (Pass, a 1-cost and a 4-cost hand card with 4
+    /// resources ready), then ends: it records the actions of each playout (the candidate, then each seat's pick).
+    struct Windows {
+        playouts: Vec<Vec<usize>>,
+    }
+    impl Simulator for Windows {
+        fn sim(&mut self, op: SimOp) -> Simulated {
+            let SimOp::Act(i, _) = op else {
+                if let SimOp::Begin(_) = op {
+                    self.playouts.push(vec![]);
+                }
+                return Simulated { op: op.name().into(), ..Default::default() };
+            };
+            let acts = self.playouts.last_mut().unwrap();
+            acts.push(i);
+            let actor = match acts.len() {
+                1 => "p1",
+                2 => "p2",
+                _ => return serde_json::from_str(r#"{"t":"simulated","op":"act","over":{"winner":"p1"}}"#).unwrap(),
+            };
+            serde_json::from_str(&format!(
+                r#"{{"t":"simulated","op":"act","actor":"{actor}",
+                    "prompt":{{"type":"actionWindow","signature":"actionWindow|-","title":"Choose an action","selected":[],"actionWindow":true}},
+                    "state":{{"round":2,"phase":"action","players":{{"p1":{{"res":{{"ready":4,"total":4}}}},"p2":{{"res":{{"ready":4,"total":4}}}}}}}},
+                    "actions":[{{"i":0,"kind":"button","label":"Pass"}},{{"i":1,"kind":"card","label":"small","card":{{"id":"h1","zone":"hand","ctl":"{actor}"}}}},
+                               {{"i":2,"kind":"card","label":"big","card":{{"id":"h2","zone":"hand","ctl":"{actor}"}}}}]}}"#
+            ))
+            .unwrap()
+        }
+    }
+
+    #[test]
+    fn a_playout_plays_both_seats_with_the_game_cards() {
+        let req: Decide = serde_json::from_str(
+            r#"{"t":"decide","you":"p1","sim":true,"ms":10000,
+                "prompt":{"type":"actionWindow","signature":"actionWindow|-","title":"Choose an action","selected":[],"actionWindow":true},
+                "state":{"round":2,"phase":"action","players":{"p1":{"res":{"ready":3,"total":3}},"p2":{}}},
+                "actions":[{"i":0,"kind":"card","label":"x","card":{"id":"h9","zone":"hand","ctl":"p1"}},{"i":1,"kind":"button","label":"Claim Initiative"}]}"#,
+        )
+        .unwrap();
+        // each playout's two picks, my seat's and the other seat's
+        let picks = |cards: &str| -> Vec<Vec<usize>> {
+            let mut s = Search::new(Arc::default());
+            s.new_game(&serde_json::from_str(&format!(r#"{{"t":"hello","v":1,"you":"p1","seed":3,"cards":{cards}}}"#)).unwrap());
+            let mut sim = Windows { playouts: vec![] };
+            s.choose_sim(&req, &mut sim);
+            sim.playouts.iter().map(|p| p[1..].to_vec()).collect()
+        };
+        let cards = r#"[{"title":"Big","internalName":"big","cost":4,"power":4,"hp":5,"types":["unit"]},
+                        {"title":"Small","internalName":"small","cost":1,"power":1,"hp":1,"types":["unit"]}]"#;
+        // both seats play the 4-cost card: they know its cost from the game's cards
+        assert_eq!(picks(cards), [[2, 2], [2, 2]]);
+        // without the cards neither seat knows the costs
+        assert!(picks("[]").iter().all(|p| p != &[2, 2]), "{:?}", picks("[]"));
     }
 
     #[test]
@@ -299,8 +355,7 @@ mod tests {
                 .unwrap()
             }
         }
-        let db: &'static CardDb = Box::leak(Box::new(CardDb::default()));
-        let mut s = Search::new(db);
+        let mut s = Search::new(Arc::default());
         s.new_game(&serde_json::from_str(r#"{"t":"hello","v":1,"you":"p1","seed":3}"#).unwrap());
         let req: Decide = serde_json::from_str(
             r#"{"t":"decide","you":"p1","sim":true,"ms":90,
@@ -325,8 +380,7 @@ mod tests {
                 Simulated { op: op.name().into(), error: Some("off".into()), ..Default::default() }
             }
         }
-        let db: &'static CardDb = Box::leak(Box::new(CardDb::default()));
-        let mut s = Search::new(db);
+        let mut s = Search::new(Arc::default());
         s.new_game(&serde_json::from_str(r#"{"t":"hello","v":1,"you":"p1","seed":3}"#).unwrap());
         let req: Decide = serde_json::from_str(
             r#"{"t":"decide","you":"p1","sim":true,

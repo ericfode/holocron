@@ -43,17 +43,18 @@ Most folders have their own README. `external-bots.json` names every bot program
 Every bot is a client of the bot protocol (`spec/protocol.md` in the arena repo): JSON messages, over stdio for a program in any language or as plain objects in process.
 - `engine/stdio.js` — `StdioClient` runs a bot program; `serve(client)` runs an in-process client as a program. No engine dependency. `players/external.js` still exports it as `ExternalBot`.
 - `engine/protocol.js` — the referee: hello/decide/over, time limits, blame (a bot that breaks a game loses it), simulations (`sim` requests) on a separate copy of the engine with hidden cards dealt again.
+- Card data is the referee's job: every `hello` carries `cards`, the engine's card JSON (unchanged, one object per card) for both deck lists and the 13 tokens, sorted by internal name (`engine/game-cards.js`). A bot takes everything it knows about the cards from there and reads no card files. A lookup by title takes the first card with that title in this order (titles repeat across versions of a character). The Karabast seat, which does not know the opponent's list, sends every card.
 - `engine/rng.js` — seeded and keyed random streams; `engine/view.js` — what a seat sees (board, prompt, actions).
 - `ports/` — `heuristic-port` and `rush-port`: the heuristic (balanced, depth 1) and rush bots as protocol v2 programs, the heuristic looking ahead through simulations. They are how the two enter the arena as submitted entries; see `ports/README.md`.
 - `examples/random_bot.py`, `examples/random-bot.js`, `examples/search-bot.js` — reference clients (the last one searches with simulations). Register programs by name in `external-bots.json` (or `$SWU_EXTERNAL_BOTS`); the registry in `players/index.js` picks them up, so the name works in `--bots` for `lab/runners/ladder.js`. Entries name their files from the repo root (`bots/c/swu-c`, `bots/python/swu_clock.py`).
 
 ## Bots in other languages
 - `wasm/` — a bot written by hand in WebAssembly text (`bot.wat`) behind a thin stdio shim (`host.js`), registered as `wasm`. See `wasm/README.md`.
-- `python/` — `py-clock`, a Python bot (race-clock evaluation, beam search over attack sequences, card data from the engine JSON); see `python/README.md`.
+- `python/` — `py-clock`, a Python bot (race-clock evaluation, beam search over attack sequences, card data from `hello`); see `python/README.md`.
 - `c/` — `c-clock`, a bot in C on that protocol (`make -C bots/c` first), and `c-clock2` (`--v2`: Pilot deploys, no duplicate uniques). See `c/README.md`.
 - The full interface and replay format are written up in the arena repo's `spec/`.
 - `jev/jev_bot.py` — `jev`: each move is picked by TypeSafe's Jev model (a Choice over the legal actions). See `jev/README.md`.
-- `rust/` — Rust bot (`swu-bot-rs`, policies `random`, `greedy`, `greedy2` and `search`) speaking the stdio protocol (v1, or v2 with simulations when offered); registered as `rust-<policy>` in `external-bots.json`. `greedy2` reads card stats from `forceteki/test/json`. Build with `cargo build --release` at the repo root (Cargo workspace, binaries in `target/release/`), test with `cargo test --workspace`, then `node bots/rust/check.js [gamesPerSeat] [startSeed] [cardJsonDir]` plays both against `random-a` on the real engine. Why a subprocess rather than WASM or a native addon: see `rust/README.md`.
+- `rust/` — Rust bot (`swu-bot-rs`, policies `random`, `greedy`, `greedy2` and `search`) speaking the stdio protocol (v1, or v2 with simulations when offered); registered as `rust-<policy>` in `external-bots.json`. `greedy2` reads card stats from each game's `hello` (`cards`). Build with `cargo build --release` at the repo root (Cargo workspace, binaries in `target/release/`), test with `cargo test --workspace`, then `node bots/rust/check.js [gamesPerSeat] [startSeed] [cardJsonDir]` plays both against `random-a` on the real engine. Why a subprocess rather than WASM or a native addon: see `rust/README.md`.
 - `rust-omni/` — `rust-omni`: rust-search with its playouts in the native rules simulator (Kessel's `omni-rs`), in-process and about 15 times faster per decision. It searches only games whose decks come from the simulator's card pool (`node bots/rust-omni/pool-decks.js` makes such decks for `ladder.js --decks`); other games it plays as rust-search. See `rust-omni/README.md`.
 - `clojure/` — `clj-forecast` (Clojure): plays each legal action on its own immutable board model and lets the opponent answer in a 3-ply alpha-beta search; card stats from `forceteki/test/json`. Needs Java only (`clojure/run.sh` fetches Clojure from Maven Central). `bots/clojure/run.sh test` runs its tests. See `clojure/README.md`.
 - `lab/tools/synth-cards.js [outDir]` — writes a stand-in card-data folder (real card classes, invented stats, default `replays/.synth-cards`) for machines that cannot download card data. Pass the folder to `new Env(dir)` or as `cardJsonDir` above. Results on it are plumbing checks, not SWU balance numbers.
@@ -100,3 +101,9 @@ Every bot is a client of the bot protocol (`spec/protocol.md` in the arena repo)
 ## Arena
 - The hosted arena (submissions, the arena window, the WebAssembly bundles and rated rounds) lives in the arena repo
   (`ericfode/swu_bot`, `bot/arena/` and `bot/compiled/` there); Holocron sends it bots and reads results back.
+- `python3 bots/bundles.py` builds the arena bundles of `c_clock`, `rust_greedy2` and `rust_search` (WASI preview 1:
+  `bot.wasm` and `arena.json`, schema `swu-arena-bot/1`, no card data mounted) and the source folder of `py_clock`
+  for the arena's Python intake, all in `build/arena/<name>/` (not in git). `--arena <swu_bot checkout>` checks the
+  three WebAssembly bundles with the arena's `bot/compiled/bundle.py` (the `py_clock` folder is checked by the arena's
+  intake when it is submitted). It needs rustc's `wasm32-wasip1` target and the Python package
+  `ziglang` 0.17.0.

@@ -9,7 +9,14 @@ swu-c: $(OBJ)
 %.o: %.c cards.h json.h
 	$(CC) $(CFLAGS) -c $<
 
-clean:
-	rm -f swu-c $(OBJ)
+# the card table filled from a hello's cards
+test: test_cards
+	./test_cards
 
-.PHONY: clean
+test_cards: test_cards.o cards.o json.o
+	$(CC) $(CFLAGS) -o $@ test_cards.o cards.o json.o -lm
+
+clean:
+	rm -f swu-c test_cards $(OBJ) test_cards.o
+
+.PHONY: clean test

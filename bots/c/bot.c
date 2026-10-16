@@ -1671,16 +1671,6 @@ int main(int argc, char **argv) {
             uniqueFix = 1;
         }
     }
-    const char *root = getenv("SWU_CARD_JSON");
-    char dir[4096];
-    snprintf(dir, sizeof dir, "%s/Card", root && *root ? root : "forceteki/test/json");
-    int ncards = cards_load(dir);
-    if (debug) {
-        fprintf(stderr, "[c-clock] %d cards from %s\n", ncards, dir);
-    }
-    if (ncards <= 0) {
-        fprintf(stderr, "[c-clock] no card data in %s: playing on board stats only\n", dir);
-    }
     reset_game();
 
     Arena arena;
@@ -1701,6 +1691,15 @@ int main(int argc, char **argv) {
         }
         const char *t = jstr(jget(m, "t"), "");
         if (!strcmp(t, "hello")) {
+            /* the referee sends this game's cards (both decks and the tokens) in hello: the bot reads no files */
+            cards_clear();
+            int ncards = cards_add_all(jget(m, "cards"));
+            if (debug) {
+                fprintf(stderr, "[c-clock] %d cards from hello\n", ncards);
+            }
+            if (ncards <= 0) {
+                fprintf(stderr, "[c-clock] no cards in hello: playing on board stats only\n");
+            }
             reset_game();
             snprintf(G.me, sizeof G.me, "%s", jstr(jget(m, "you"), "p1"));
             reply(v3 ? "{\"t\":\"ready\",\"v\":1,\"name\":\"c-clock3\"}" : v2 ? "{\"t\":\"ready\",\"v\":1,\"name\":\"c-clock2\"}" : "{\"t\":\"ready\",\"v\":1,\"name\":\"c-clock\"}");

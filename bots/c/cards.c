@@ -1,7 +1,6 @@
 #include "cards.h"
 #include "json.h"
 
-#include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,6 +14,8 @@ typedef struct {
 } Map;
 
 static Map by_primary, by_set, by_internal, by_title; /* by_primary: each card's own setId; by_set: reprint codes */
+static Card **all; /* every card added, to free them */
+static unsigned nall, capall;
 
 static unsigned hash(const char *s) {
     unsigned h = 2166136261u;
@@ -69,6 +70,29 @@ static const Card *map_get(const Map *m, const char *key) {
     return NULL;
 }
 
+static void map_clear(Map *m) {
+    for (unsigned i = 0; i < m->cap; i++) {
+        free(m->keys[i]);
+    }
+    free(m->keys);
+    free(m->vals);
+    memset(m, 0, sizeof *m);
+}
+
+void cards_clear(void) {
+    map_clear(&by_primary);
+    map_clear(&by_set);
+    map_clear(&by_internal);
+    map_clear(&by_title);
+    for (unsigned i = 0; i < nall; i++) {
+        free(all[i]->title);
+        free(all[i]->internal);
+        free(all[i]->text);
+        free(all[i]);
+    }
+    nall = 0;
+}
+
 const Card *card_by_set(const char *set) {
     /* a reprint code can be another card's own number: the card's own setId wins whatever the load order */
     const Card *c = map_get(&by_primary, set);
@@ -77,27 +101,7 @@ const Card *card_by_set(const char *set) {
 const Card *card_by_internal(const char *name) { return map_get(&by_internal, name); }
 const Card *card_by_title(const char *title) { return map_get(&by_title, title); }
 
-/* ---------- loading ---------- */
-
-static char *read_file(const char *path) {
-    FILE *f = fopen(path, "rb");
-    if (!f) {
-        return NULL;
-    }
-    fseek(f, 0, SEEK_END);
-    long n = ftell(f);
-    fseek(f, 0, SEEK_SET);
-    char *buf = malloc((size_t)n + 1);
-    if (buf && fread(buf, 1, (size_t)n, f) != (size_t)n) {
-        free(buf);
-        buf = NULL;
-    }
-    fclose(f);
-    if (buf) {
-        buf[n] = '\0';
-    }
-    return buf;
-}
+/* ---------- adding cards ---------- */
 
 /* "Raid 2" -> 2 (the number after the keyword at the start of a line of rules text) */
 static int keyword_amount(const char *text, const char *kw) {
@@ -123,8 +127,13 @@ static const struct { const char *name; int bit; } TYPES[] = {
     { "token", T_TOKEN },
 };
 
-static void add_card(JVal *j) {
+static void add_card(const JVal *j) {
     Card *c = calloc(1, sizeof *c);
+    if (nall == capall) {
+        capall = capall ? capall * 2 : 256;
+        all = realloc(all, capall * sizeof *all);
+    }
+    all[nall++] = c;
     c->title = strdup(jstr(jget(j, "title"), ""));
     c->internal = strdup(jstr(jget(j, "internalName"), ""));
     c->text = strdup(jstr(jget(j, "text"), ""));
@@ -177,35 +186,13 @@ static void add_card(JVal *j) {
     map_put(&by_title, c->title, c);
 }
 
-int cards_load(const char *dir) {
-    DIR *d = opendir(dir);
-    if (!d) {
-        return -1;
-    }
-    Arena a;
-    arena_init(&a, 1 << 20);
+int cards_add_all(const JVal *list) {
     int n = 0;
-    struct dirent *e;
-    char path[4096];
-    while ((e = readdir(d))) {
-        size_t len = strlen(e->d_name);
-        /* skip _cardMap.json and friends */
-        if (len < 6 || strcmp(e->d_name + len - 5, ".json") || e->d_name[0] == '_') {
-            continue;
-        }
-        snprintf(path, sizeof path, "%s/%s", dir, e->d_name);
-        char *text = read_file(path);
-        if (!text) {
-            continue;
-        }
-        JVal *j = json_parse(text, &a);
-        if (j && j->t == J_OBJ) {
+    for (const JVal *j = list && list->t == J_ARR ? list->child : NULL; j; j = j->next) {
+        if (j->t == J_OBJ) {
             add_card(j);
             n++;
         }
-        free(text);
-        arena_reset(&a);
     }
-    closedir(d);
     return n;
 }
