@@ -84,3 +84,10 @@ python3 bots/jepa/jepa_bot.py --model bots/jepa/models/tx-t10.safetensors --wind
 
 Files: `l1.json` / `l1ids.json` / `root1.json` (all metrics), `l1-resid.npz` (line model), `root1.npz` (root model),
 `play-runs.txt` (game logs and paired results). No bot is registered or shipped.
+
+## Inside the hybrid (claude/jepa-lines-hybrid)
+
+The 58.7% bot plus `--line-model bots/jepa/notes/lines/l1-resid.npz`: the line model scores the follow-up prompts the
+planner does not plan (planned follow-ups now also join the line, so later prompts see the whole line). 702 test deals:
+59.0% vs 58.7%, +0.3 [-2.0, +2.6] (30 vs 28 discordant games, p=0.90). Under the +2 bar, so no fresh-deal run. The
+planner already makes most of the follow-ups that matter; the line model's gain is for the bot without the simulator.

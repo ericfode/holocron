@@ -17,3 +17,10 @@ c-clock        BT  1515  Elo  1506  373-314-0  incomplete 15  forfeits 0  54%
 lr-line        BT  1485  Elo  1494  314-373-0  incomplete 15  forfeits 0  46%
 paired vs tx-t10-fs-rc (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
   lr-line        685 paired games: 45.7 vs 35.5 -> +10.2 pts [+6.9, +13.5]; only lr-line won 105, only tx-t10-fs-rc won 35, sign test p=0.000
+c-clock        BT  1500  Elo  1501  1-1-0  incomplete 0  forfeits 0  50%
+LH lh-line rc=0: lh-line                          688  59.0 [55.3, 62.6]          +63 | no mirror run
+tracebacks: 0
+paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  lh-line        687 paired games: 59.0 vs 58.7 -> +0.3 pts [-2.0, +2.6]; only lh-line won 30, only tx-t10-g04-rc-fs-pv won 28, sign test p=0.896
+gain +0.3 < 2: no fresh-deal run
+LH_DONE
