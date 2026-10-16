@@ -24,3 +24,8 @@ paired vs tx-t10-g04-rc-fs-pv (bootstrap over seeds, 10000 draws; sign test on g
   lh-line        687 paired games: 59.0 vs 58.7 -> +0.3 pts [-2.0, +2.6]; only lh-line won 30, only tx-t10-g04-rc-fs-pv won 28, sign test p=0.896
 gain +0.3 < 2: no fresh-deal run
 LH_DONE
+RA lr-line-ra rc=0: lr-line-ra                       686  44.2 [40.5, 47.9]          -41 | no mirror run
+tracebacks: 0
+paired vs lr-line (bootstrap over seeds, 10000 draws; sign test on games exactly one won)
+  lr-line-ra     682 paired games: 44.4 vs 43.8 -> +0.6 pts [-2.8, +4.1]; only lr-line-ra won 75, only lr-line won 71, sign test p=0.804
+RA_DONE
