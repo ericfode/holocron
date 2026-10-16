@@ -15,7 +15,6 @@ use omni_rs::{Action as SimAction, Engine};
 use serde_json::Value;
 use std::collections::HashSet;
 use std::time::{Duration, Instant};
-use swu_bot_rs::cards::CardDb;
 use swu_bot_rs::policy::greedy2::Greedy2;
 use swu_bot_rs::policy::search::{evaluate, Search, Weights};
 use swu_bot_rs::policy::{Policy, Rng, Simulator};
@@ -60,9 +59,9 @@ pub fn load_engine(path: &str) -> Result<(Engine, Pool), String> {
 }
 
 impl OmniSearch {
-    pub fn new(db: &'static CardDb, engine: Result<(Engine, Pool), String>) -> Self {
+    pub fn new(engine: Result<(Engine, Pool), String>) -> Self {
         OmniSearch {
-            base: Search::new(db),
+            base: Search::new(Default::default()),
             engine,
             table: Err("no game yet".into()),
             me: Seat::P1,
@@ -338,8 +337,7 @@ mod tests {
     }
 
     fn bot() -> OmniSearch {
-        let db: &'static CardDb = Box::leak(Box::new(CardDb::default()));
-        let mut b = OmniSearch::new(db, Ok(engine()));
+        let mut b = OmniSearch::new(Ok(engine()));
         b.new_game(&hello("p1"));
         b
     }

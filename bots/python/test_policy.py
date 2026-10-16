@@ -1,6 +1,9 @@
 """Unit tests on mock boards (no engine, no card files): python3 -m unittest discover -s bots/python"""
+import json
 import os
+import subprocess
 import sys
+import tempfile
 import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -12,29 +15,23 @@ from cards import CardDb, aspect_penalty  # noqa: E402
 from policy import Policy  # noqa: E402
 
 
-def make_db():
-    db = CardDb()
-    for d in [
-        {"title": "Wampa", "internalName": "wampa", "cost": 4, "power": 4, "hp": 5, "aspects": ["aggression"], "types": ["unit"],
-         "arena": "ground", "setId": {"set": "SOR", "number": 38}},
-        {"title": "Cheap Guy", "internalName": "cheap-guy", "cost": 1, "power": 1, "hp": 2, "aspects": ["villainy"], "types": ["unit"],
-         "arena": "ground", "setId": {"set": "SOR", "number": 1}},
-        {"title": "Big Ship", "internalName": "big-ship", "cost": 8, "power": 8, "hp": 8, "aspects": ["heroism", "heroism"],
-         "types": ["unit"], "arena": "space", "setId": {"set": "SOR", "number": 2}},
-        {"title": "Takedown", "internalName": "takedown", "cost": 4, "text": "Defeat a unit with 5 or less remaining HP.",
-         "aspects": [], "types": ["event"], "setId": {"set": "SOR", "number": 77}},
-        {"title": "Wall", "internalName": "wall", "cost": 3, "power": 1, "hp": 6, "keywords": ["sentinel"], "aspects": [],
-         "types": ["unit"], "arena": "ground", "setId": {"set": "SOR", "number": 3}},
-        {"title": "Darth Vader", "internalName": "vader", "cost": 7, "power": 5, "hp": 8, "aspects": ["aggression", "villainy"],
-         "types": ["leader"], "setId": {"set": "SOR", "number": 10}},
-        {"title": "Outpost", "internalName": "outpost", "hp": 30, "aspects": ["vigilance"], "types": ["base"],
-         "setId": {"set": "LAW", "number": 19}},
-    ]:
-        db.add(d)
-    return db
-
-
-DB = make_db()
+CARDS = [
+    {"title": "Wampa", "internalName": "wampa", "cost": 4, "power": 4, "hp": 5, "aspects": ["aggression"], "types": ["unit"],
+     "arena": "ground", "setId": {"set": "SOR", "number": 38}},
+    {"title": "Cheap Guy", "internalName": "cheap-guy", "cost": 1, "power": 1, "hp": 2, "aspects": ["villainy"], "types": ["unit"],
+     "arena": "ground", "setId": {"set": "SOR", "number": 1}},
+    {"title": "Big Ship", "internalName": "big-ship", "cost": 8, "power": 8, "hp": 8, "aspects": ["heroism", "heroism"],
+     "types": ["unit"], "arena": "space", "setId": {"set": "SOR", "number": 2}},
+    {"title": "Takedown", "internalName": "takedown", "cost": 4, "text": "Defeat a unit with 5 or less remaining HP.",
+     "aspects": [], "types": ["event"], "setId": {"set": "SOR", "number": 77}},
+    {"title": "Wall", "internalName": "wall", "cost": 3, "power": 1, "hp": 6, "keywords": ["sentinel"], "aspects": [],
+     "types": ["unit"], "arena": "ground", "setId": {"set": "SOR", "number": 3}},
+    {"title": "Darth Vader", "internalName": "vader", "cost": 7, "power": 5, "hp": 8, "aspects": ["aggression", "villainy"],
+     "types": ["leader"], "setId": {"set": "SOR", "number": 10}},
+    {"title": "Outpost", "internalName": "outpost", "hp": 30, "aspects": ["vigilance"], "types": ["base"],
+     "setId": {"set": "LAW", "number": 19}},
+]
+DB = CardDb.from_cards(CARDS)
 WINDOW = {"type": "actionWindow", "signature": "actionWindow|-", "title": "Choose an action", "promptTitle": "Action Window",
           "selectCardMode": None, "selected": [], "actionWindow": True}
 ATTACK = {"type": None, "signature": "-|single", "title": "Choose a target for attack", "promptTitle": "Rebel",
@@ -72,6 +69,50 @@ def card_act(label, cid, zone, ctl, s=None):
 
 def button(label):
     return {"kind": "button", "label": label}
+
+
+class CardDbTest(unittest.TestCase):
+    def test_from_cards_indexes_every_printing_and_skips_what_is_not_a_card(self):
+        db = CardDb.from_cards([
+            {"title": "Tauntaun Mount", "internalName": "tauntaun-mount", "cost": 3, "keywords": ["Raid"], "text": "Raid 2",
+             "setId": {"set": "IBH", "number": 15}, "setCodes": [{"set": "IBH", "number": 15}, {"set": "IBH", "number": 28}]},
+            7, None, "wampa",
+            {"title": "Shield", "internalName": "shield", "types": ["token", "upgrade"], "setId": {"set": "SOR"}},
+        ])
+        self.assertEqual(len(db), 2)
+        self.assertEqual(db.find("IBH_015").internal, "tauntaun-mount")
+        self.assertEqual(db.find("IBH_028").internal, "tauntaun-mount")  # a reprint code
+        self.assertEqual(db.find(None, "shield").title, "Shield")
+        self.assertEqual(db.find(None, None, "tauntaun mount").raid, 2)
+        self.assertIsNone(db.find("SOR_038", "wampa", "Wampa"))
+        self.assertEqual(len(CardDb.from_cards(None)), 0)
+        self.assertEqual(len(CardDb.from_cards({"wampa": CARDS[0]})), 0)  # cards is a list
+
+
+class StdioTest(unittest.TestCase):
+    """swu_clock.py as the referee runs it: its card data comes only from hello."""
+
+    def test_plays_from_the_cards_in_hello_and_reads_no_files(self):
+        me = side("p1", ready=5, total=5, mine=True,
+                  hand=[{"id": "h1", "n": "Cheap Guy", "s": "SOR_001"}, {"id": "h2", "n": "Wampa", "s": "SOR_038"},
+                        {"id": "h3", "n": "Takedown", "s": "SOR_077"}])
+        acts = [button("Pass"), card_act("cheap-guy", "h1", "hand", "p1", "SOR_001"), card_act("wampa", "h2", "hand", "p1", "SOR_038"),
+                card_act("takedown", "h3", "hand", "p1", "SOR_077")]
+        decide = msg(WINDOW, me, side("p2"), acts)
+        hello = {"t": "hello", "v": 1, "you": "p1", "seed": 1, "cards": CARDS}
+        # the second game's hello brings no cards: the table from the first game is gone
+        lines = [hello, decide, dict(hello, cards=[]), decide]
+        env = dict(os.environ, SWU_CARD_JSON="/nonexistent", PYTHONHASHSEED="0")
+        with tempfile.TemporaryDirectory() as cwd:  # no forceteki/test/json below it either
+            r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "swu_clock.py")],
+                               input="".join(json.dumps(m) + "\n" for m in lines), capture_output=True, text=True,
+                               env=env, cwd=cwd, timeout=60)
+        replies = [json.loads(line) for line in r.stdout.splitlines()]
+        self.assertEqual(len(replies), 4, r.stderr)
+        self.assertEqual(replies[0], {"t": "ready", "v": 1, "name": "py-clock"})
+        self.assertEqual(acts[replies[1]["i"]]["label"], "wampa")  # costs from hello: the 4-cost unit uses the most
+        self.assertEqual(replies[2]["t"], "ready")
+        self.assertNotEqual(acts[replies[3]["i"]]["label"], "wampa")
 
 
 class EffectsTest(unittest.TestCase):

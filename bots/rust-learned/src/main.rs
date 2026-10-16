@@ -6,8 +6,9 @@
 //!   swu-learned train-prior --data DIR --teacher-bots rust-greedy --init M --out M2 [--epochs 3] [--full]
 //!   swu-learned info
 //!
-//! `play` speaks spec/stdio-protocol.md on stdin/stdout. Card data is read from $SWU_CARD_DATA
-//! (default forceteki/test/json, relative to the working directory the adapter starts us in).
+//! `play` speaks spec/stdio-protocol.md on stdin/stdout and takes each game's card data from its `hello` (`cards`).
+//! The offline commands read card data from $SWU_CARD_DATA (default forceteki/test/json, relative to the working
+//! directory).
 
 mod cards;
 mod features;
@@ -55,7 +56,7 @@ fn main() {
                 thoughts: flag(&args, "thoughts").or_else(|| std::env::var("SWU_LEARNED_THOUGHTS").ok()).map(PathBuf::from),
             };
             let name = flag(&args, "name").unwrap_or_else(|| "rust-learned".into());
-            play::run(play::Brain::new(net, card_db(), cfg), &name);
+            play::run(play::Brain::new(net, cards::CardDb::default(), cfg), &name);
         }
         "train" => {
             let data: Vec<PathBuf> = flag(&args, "data").expect("--data").split(',').map(PathBuf::from).collect();

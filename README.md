@@ -58,18 +58,24 @@ npm run ladder -- --bots rush,heuristic,random --games 10   # local round robin 
 npm run realdeck:test -- --bot <bot>                          # 702 games vs c-clock on 27 real decks (lab/analysis/realdeck/README.md)
 npm test && npm run test:py && npm run analysis:test          # what CI runs, plus cargo and the C bot build
 cargo build --release                                         # Rust bots, binaries in target/release/
-make -C bots/c                                                # c-clock
+make -C bots/c && make -C bots/c test                         # c-clock and its card table tests
+python3 bots/bundles.py                                       # arena bundles in build/arena/ (bots/README.md, "Arena")
 SWU_TABLES_TOKEN=swu_r_... npm run open-tables                # the arena's open-table games into replays/open-tables (token: swu-arena.fly.dev/tables/logs)
 ```
 
 `bots/external-bots.json` names every bot program, so the name works in `--bots`.
 
+Every game's `hello` carries the card data for that game (`cards`: the engine's card JSON for both decks and the
+tokens, `engine/game-cards.js`), in local games as in the arena. A bot reads its cards from there, never from
+`forceteki/test/json`.
+
 ## Not here yet
 
 - `rust-omni` and the `omni` bot's Rust simulations need Kessel; they build again once Holocron takes Kessel as a
   dependency.
-- Building a bot into a submission bundle uses the arena's bundle tool (`bot/compiled/` in `swu_bot`) until the
-  arena publishes it.
+- Bots that still read the card folder: `jev`, the JEPA bots, `clj-forecast`, `haskell`, `lisp`, `wasm`, and the
+  learned JS bots and evaluators (`bots/learned/cards.js`, `lab/eval/cards.js`). `bend` and the `ports` bots build
+  their card tables from it. The C, Rust and Python bots take their cards from `hello`.
 
 ## License and credits
 

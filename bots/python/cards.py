@@ -1,12 +1,9 @@
-"""Card data from the engine's card JSON (forceteki/test/json/Card/*.json, the output of `npm run get-cards`).
+"""Card data from hello's `cards`: the engine's card JSON, one object per card, for both decks and the tokens.
 
-The stdio protocol sends card names and set codes but no costs or keywords, so the bot reads them here.
+The `decide` messages name cards by set code, title and internal name but carry no costs or keywords, so the bot
+looks them up here. The table is built again at each hello; the bot reads no files.
 """
-import json
-import os
 import re
-
-DEFAULT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "forceteki", "test", "json")
 
 _N_KEYWORDS = {"raid": re.compile(r"\braid (\d+)"), "restore": re.compile(r"\brestore (\d+)")}
 
@@ -83,15 +80,12 @@ class CardDb:
         return c
 
     @classmethod
-    def load(cls, path=None):
+    def from_cards(cls, cards):
+        """The table of hello's `cards` (a list of card objects), in its order; anything but a card object is skipped."""
         db = cls()
-        folder = os.path.join(path or os.environ.get("SWU_CARD_JSON") or DEFAULT_DIR, "Card")
-        if not os.path.isdir(folder):
-            return db
-        for name in os.listdir(folder):
-            if name.endswith(".json"):
-                with open(os.path.join(folder, name), encoding="utf-8") as f:
-                    db.add(json.load(f))
+        for d in cards if isinstance(cards, list) else []:
+            if isinstance(d, dict):
+                db.add(d)
         return db
 
     def __len__(self):

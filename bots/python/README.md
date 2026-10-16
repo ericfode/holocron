@@ -5,10 +5,16 @@ A Star Wars Unlimited bot in Python 3 (standard library only). It plays through 
 
     node lab/runners/ladder.js --bots py-clock,rush --games 10
     python3 -m unittest discover -s bots/python      # tests on mock boards, no engine needed
+    python3 bots/bundles.py py_clock                 # build/arena/py_clock: the files for the arena's Python intake
 
-Registered in `bots/external-bots.json` as `py-clock` (`"lang": "python"`). It reads card costs, keywords and text
-from the engine's card JSON (`forceteki/test/json`, or `$SWU_CARD_JSON`); without it, it still plays from the
-board numbers alone. `SWU_PY_TRACE=<file>` appends every prompt and the choice made (one JSON line each).
+Registered in `bots/external-bots.json` as `py-clock` (`"lang": "python"`). Card costs, keywords and text come with
+each game's `hello`: `cards` holds the engine's card JSON for both decks and the tokens, and the bot builds its card
+table from it (`CardDb.from_cards`). It reads no files. With no cards in hello it still plays from the board numbers
+alone. `SWU_PY_TRACE=<file>` appends every prompt and the choice made (one JSON line each).
+
+For the arena, `bots/bundles.py` copies the bot's modules (not the tests) into `build/arena/py_clock`; submit that
+folder as a Python bot with entry `swu_clock.py`. The arena runs it on CPython for WASI, a 32-bit build, so `hash()`
+and set order differ from 64-bit Python and a few games can go another way.
 
 ## Strategy: the clock
 
@@ -36,12 +42,12 @@ board numbers alone. `SWU_PY_TRACE=<file>` appends every prompt and the choice m
 | File | What |
 | --- | --- |
 | `swu_clock.py` | Entry point: the JSON Lines loop. A crash in a rule plays action 0 instead of losing the game. |
-| `cards.py` | Card data loader and aspect penalty. |
+| `cards.py` | The card table from hello's `cards`, and the aspect penalty. |
 | `board.py` | Board model from the `decide` message, unit values and the clock. |
 | `planner.py` | Combat simulation and the beam search over attack sequences. |
 | `effects.py` | Reads effects and pick counts from prompt and card text. |
 | `policy.py` | One handler per prompt shape. |
-| `test_policy.py` | Unit tests on mock boards. |
+| `test_policy.py` | Unit tests on mock boards, and one run of `swu_clock.py` with cards only in hello. |
 
 ## Engine bug found while testing
 

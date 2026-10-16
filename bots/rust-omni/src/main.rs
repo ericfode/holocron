@@ -10,7 +10,6 @@
 mod omni;
 mod view;
 
-use swu_bot_rs::cards::CardDb;
 use swu_bot_rs::stdio;
 
 fn main() {
@@ -19,6 +18,6 @@ fn main() {
     if let Err(e) = &engine {
         eprintln!("rust-omni: no simulator ({e}); playing as rust-search");
     }
-    let db: &'static CardDb = Box::leak(Box::new(CardDb::load_default()));
-    stdio::run("swu-omni-bot/omni".into(), Box::new(omni::OmniSearch::new(db, engine)));
+    // card data comes with each game's hello (rust-search's greedy2 keeps it)
+    stdio::run("swu-omni-bot/omni".into(), Box::new(omni::OmniSearch::new(engine)));
 }

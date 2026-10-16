@@ -1,6 +1,9 @@
-/* Card data from the engine's card JSON (forceteki/test/json/Card/<name>.json), looked up by set code, internal name or title. */
+/* This game's card data, from hello's `cards` (the engine's card JSON, one object per card), looked up by set code,
+   internal name or title. */
 #ifndef SWU_CARDS_H
 #define SWU_CARDS_H
+
+#include "json.h"
 
 enum { ASP_VIGILANCE, ASP_COMMAND, ASP_AGGRESSION, ASP_CUNNING, ASP_VILLAINY, ASP_HEROISM, ASP_N };
 
@@ -27,8 +30,11 @@ typedef struct Card {
     int unique;
 } Card;
 
-/* Loads every card file in `dir` (the Card folder). Returns the number of cards, or -1 if the folder can't be read. */
-int cards_load(const char *dir);
+/* Adds every card object of `list` (hello's `cards`, an array). Returns the number added. The strings are copied, so
+   `list` can be freed afterwards. */
+int cards_add_all(const JVal *list);
+/* Forgets every card, before the next game's. */
+void cards_clear(void);
 const Card *card_by_set(const char *set);       /* "SOR_095" */
 const Card *card_by_internal(const char *name); /* "luke-skywalker#faithful-friend" */
 const Card *card_by_title(const char *title);   /* first card with that title */

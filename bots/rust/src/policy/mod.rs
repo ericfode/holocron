@@ -5,8 +5,8 @@ pub mod greedy2;
 mod random;
 pub mod search;
 
-use crate::cards::CardDb;
 use crate::protocol::{Decide, DistShare, Hello, Simulated};
+use std::sync::Arc;
 
 /// One v2 `sim` request.
 pub enum SimOp {
@@ -33,7 +33,8 @@ pub trait Simulator {
 }
 
 pub trait Policy {
-    /// A new game starts (protocol `hello`): reset per-game state and reseed.
+    /// A new game starts (protocol `hello`): reset per-game state and reseed, and take the game's card data from
+    /// `hello.cards` (a hello without `cards`, as a playout makes, keeps the table the policy has).
     fn new_game(&mut self, hello: &Hello);
     fn choose(&mut self, req: &Decide) -> usize;
     /// When the chosen action is a `distribute`, the split to send with it (None: the engine side picks one).
@@ -56,9 +57,9 @@ pub fn create(name: &str) -> Option<Box<dyn Policy>> {
     match name {
         "random" => Some(Box::new(random::Random::default())),
         "greedy" => Some(Box::new(greedy::Greedy::default())),
-        // card data is read once per process; the bot process serves many games
-        "greedy2" => Some(Box::new(greedy2::Greedy2::new(Box::leak(Box::new(CardDb::load_default()))))),
-        "search" => Some(Box::new(search::Search::new(Box::leak(Box::new(CardDb::load_default()))))),
+        // no cards until a hello brings this game's
+        "greedy2" => Some(Box::new(greedy2::Greedy2::new(Arc::default()))),
+        "search" => Some(Box::new(search::Search::new(Arc::default()))),
         _ => None,
     }
 }

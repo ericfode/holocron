@@ -3,6 +3,7 @@
 
 use crate::policy::{Policy, SimOp, Simulator};
 use crate::protocol::{Reply, Request, Simulated, PROTOCOL, VERSION, VERSION_2};
+use serde_json::Value;
 use std::io::{self, BufRead, Write};
 
 pub struct Bot {
@@ -27,8 +28,10 @@ impl Bot {
             Request::Hello(h) if h.v != VERSION || (!h.protocol.is_empty() && h.protocol != PROTOCOL) => {
                 Reply::Error { error: format!("{} v{} not supported (want {PROTOCOL} v{VERSION})", h.protocol, h.v) }
             }
-            Request::Hello(h) => {
+            Request::Hello(mut h) => {
                 self.v = if h.versions.contains(&VERSION_2) { VERSION_2 } else { VERSION };
+                // a game's card data comes only with its hello: a hello without `cards` gets an empty table
+                h.cards.get_or_insert_with(|| Value::Array(Vec::new()));
                 self.policy.new_game(&h);
                 let wants = self.v == VERSION_2 && self.policy.wants_sim();
                 Reply::Ready { v: self.v, name: self.name.clone(), sim: wants.then_some(true) }
@@ -149,6 +152,17 @@ mod tests {
         let mut s = bot("search");
         assert_eq!(reply(&mut s, &v2), r#"{"t":"ready","v":2,"name":"search","sim":true}"#);
         assert_eq!(reply(&mut s, r#"{"t":"over","winner":"p1"}"#), r#"{"t":"ok"}"#);
+    }
+
+    #[test]
+    fn a_hello_with_an_odd_card_still_gets_ready() {
+        let odd = HELLO.replace(
+            r#""seed":42,"#,
+            r#""seed":42,"cards":[{"title":"Wampa","internalName":"wampa","cost":4,"types":["unit"],"setId":{"set":"SOR","number":38}},{"unique":null},7],"#,
+        );
+        assert_eq!(reply(&mut bot("greedy2"), &odd), r#"{"t":"ready","v":1,"name":"greedy2"}"#);
+        let not_a_list = HELLO.replace(r#""seed":42,"#, r#""seed":42,"cards":"not a list","#);
+        assert_eq!(reply(&mut bot("search"), &not_a_list), r#"{"t":"ready","v":1,"name":"search"}"#);
     }
 
     #[test]

@@ -1,5 +1,6 @@
 node_modules/
 /target/
+/build/
 .env
 .env.*
 !.env.example
@@ -11,6 +12,7 @@ lab/analysis/node_modules/
 lab/analysis/.cache/
 lab/analysis/out/
 bots/c/swu-c
+bots/c/test_cards
 bots/c/*.o
 bots/haskell/build/
 bots/lisp/swu-lisp
