@@ -68,7 +68,10 @@ async function pull({ base = BASE, token, out, fetchImpl = globalThis.fetch, log
         try {
             const buf = Buffer.from(await (await get(`/api/open/games/${row.id}.jsonl`)).arrayBuffer());
             const sha = crypto.createHash('sha256').update(buf).digest('hex');
-            if (row.sha256 && sha !== row.sha256) {
+            if (!/^[0-9a-f]{64}$/.test(String(row.sha256 ?? ''))) {
+                throw new Error('the listing has no sha256 for it');
+            }
+            if (sha !== row.sha256) {
                 throw new Error(`sha256 ${sha.slice(0, 12)} is not the listed ${String(row.sha256).slice(0, 12)}`);
             }
             writeAtomic(file, buf);

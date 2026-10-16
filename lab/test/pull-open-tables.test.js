@@ -24,7 +24,7 @@ function arena(games, { page = 2 } = {}) {
         if (u.pathname === '/api/open/games') {
             const since = u.searchParams.get('since');
             const after = games.filter((g) => !since || g.playedAt > since);
-            const rows = after.slice(0, page).map((g) => ({ id: g.id, p1: 'pl_aaaaaa', p2: 'tinybot-v2', outcome: 'won', winner: 'pl_aaaaaa', playedAt: g.playedAt, sha256: g.sha ?? sha(g.body) }));
+            const rows = after.slice(0, page).map((g) => ({ id: g.id, p1: 'pl_aaaaaa', p2: 'tinybot-v2', outcome: 'won', winner: 'pl_aaaaaa', playedAt: g.playedAt, sha256: g.sha === undefined ? sha(g.body) : g.sha }));
             return json(200, { result: { games: rows, next: after.length > page ? rows.at(-1).playedAt : null } });
         }
         const g = games.find((x) => u.pathname === `/api/open/games/${x.id}.jsonl`);
@@ -61,6 +61,12 @@ test('pulls every game page by page, then only the new ones, refuses a replay wh
         a.asked.length = 0;
         await pull({ base: 'http://w', token: TOKEN, out, fetchImpl: a.fetchImpl });
         assert.ok(a.asked[0].includes('since=2026-10-16T00%3A05'), 'then after the newest game again');
+
+        // a game listed with no sha256 is not kept
+        games.push({ id: 'open-00000006-00000006', playedAt: '2026-10-16T00:06:00.000Z', body: 'z\n', sha: null });
+        const unchecked = await pull({ base: 'http://w', token: TOKEN, out, fetchImpl: a.fetchImpl });
+        assert.deepStrictEqual([unchecked.added, unchecked.games], [0, 5]);
+        assert.match(unchecked.failed[0], /open-00000006-00000006: the listing has no sha256/);
     } finally {
         fs.rmSync(out, { recursive: true, force: true });
     }
