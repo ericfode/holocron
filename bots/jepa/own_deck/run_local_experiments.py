@@ -63,6 +63,23 @@ def write_json(path,data):
     Path(path).write_text(json.dumps(data,indent=2,allow_nan=False)+"\n")
 
 
+def json_primitives(value):
+    """Strip subclasses/custom pickle reducers before cross-process transport."""
+    return json.loads(json.dumps(value,allow_nan=False))
+
+
+def runtime_metadata(torch):
+    # TorchVersion is a str subclass whose pickle reducer imports Torch again.
+    return dict(python=str(platform.python_version()),numpy=str(np.__version__),
+                torch=str(torch.__version__),device="cpu")
+
+
+def finalized_memory_bound(per_pid_peaks,recorded_tree_peak,final_supervisor_peak):
+    peaks=dict(per_pid_peaks)
+    peaks["supervisor"]=max(peaks.get("supervisor",0.),float(final_supervisor_peak))
+    return peaks,max(float(recorded_tree_peak),sum(peaks.values()))
+
+
 def peak_rss_mib():
     size=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     return size/(1024**2) if sys.platform=="darwin" else size/1024
@@ -289,7 +306,7 @@ def train_arm(data,config,arm,schedule,writer,outdir,base_path,supplement_path,c
             checkpoints.append({"path":str(outdir/name),"sha256":sha(outdir/name)})
     return dict(status="completed",arm=arm,updates=config.steps,trace=trace,checkpoints=checkpoints,
                 frozenBaseTensorsUnchanged=True,optimizerParameterNames=[*D.supplemental_shapes(),"aux.w","aux.b"],
-                runtime=dict(python=platform.python_version(),numpy=np.__version__,torch=torch.__version__,device="cpu"))
+                runtime=runtime_metadata(torch))
 
 
 class WorkerEvents:
@@ -299,7 +316,7 @@ class WorkerEvents:
 
     def emit(self,kind,phase,step,**kwargs):
         self.phase,self.step=phase,int(step)
-        self.messages.put(("event",dict(kind=kind,phase=phase,step=step,**kwargs)))
+        self.messages.put(("event",json_primitives(dict(kind=kind,phase=phase,step=step,**kwargs))))
 
     def heartbeat(self):
         self.report_rss()
@@ -319,7 +336,7 @@ def _worker_entry(messages,acknowledged,data,config,arm,schedule,outdir,base,sup
     try:
         writer.report_rss()
         result=train_arm(data,config,arm,schedule,writer,outdir,base,supplement,started)
-        writer.report_rss(); messages.put(("result",result))
+        writer.report_rss(); messages.put(("result",json_primitives(result)))
         if not acknowledged.wait(timeout=3.): raise RuntimeError("parent did not acknowledge terminal result")
     except BaseException as exc:
         messages.put(("failure",dict(reason=str(exc),type=type(exc).__name__,step=writer.step)))
@@ -393,6 +410,11 @@ def supervise_worker(target,args,writer,arm_seconds,campaign_started,campaign_se
                 if metrics is not None: metrics["tree_peak_rss_mib"]=tree_peak
                 writer.emit(**payload)
             elif kind=="result":
+                # The worker is waiting for acknowledgement, so sample both
+                # processes after unpickling, before allowing normal child exit.
+                try: sample_owned_tree()
+                except OSError as exc: reason="terminal owned-PID RSS guard failed closed: "+str(exc); break
+                if tree_peak>rss_mib: reason="parent-enforced terminal process-tree peak-RSS cap"; break
                 result=payload; acknowledged.set(); break
             elif kind=="failure":
                 reason=payload["type"]+": "+payload["reason"]; acknowledged.set(); break
@@ -409,6 +431,11 @@ def supervise_worker(target,args,writer,arm_seconds,campaign_started,campaign_se
         elif result is not None and process.exitcode!=0:
             result=None; reason=f"worker reported result but exited nonzero ({process.exitcode})"
         messages.close(); messages.join_thread()
+        # Deserializing terminal data or shutdown can raise the supervisor peak.
+        # Keep the conservative per-PID sum consistent with the final receipt.
+        per_pid_peaks,tree_peak=finalized_memory_bound(per_pid_peaks,tree_peak,peak_rss_mib())
+        if result is not None and tree_peak>rss_mib:
+            result=None; reason="parent-enforced final process-tree peak-RSS cap"
     evidence=dict(owned_worker_pid=process.pid,worker_peak_rss_mib=worker_peak,supervisor_peak_rss_mib=peak_rss_mib(),
                   observed_tree_peak_rss_mib=tree_peak,elapsed_seconds=time.monotonic()-started,exitcode=process.exitcode,
                   owned_pids=owned_pids,per_pid_peak_rss_mib=per_pid_peaks,

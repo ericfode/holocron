@@ -1,9 +1,11 @@
 """Bounded runner admission/control/owned-child watchdog tests; no training."""
 import copy
 import json
+import pickle
 from pathlib import Path
 import tempfile
 import time
+import threading
 import types
 import unittest
 from unittest import mock
@@ -11,6 +13,15 @@ from unittest import mock
 import numpy as np
 
 import run_local_experiments as R
+
+
+def forbidden_unpickle():
+    raise AssertionError("a backend-specific pickle reducer escaped the worker")
+
+
+class BackendVersion(str):
+    def __reduce__(self):
+        return forbidden_unpickle,()
 
 
 def fixture():
@@ -31,6 +42,28 @@ def fixture():
 
 
 class LocalRunnerTests(unittest.TestCase):
+    def test_runtime_versions_and_worker_results_are_plain_json_values(self):
+        runtime=R.runtime_metadata(types.SimpleNamespace(__version__=BackendVersion("test-version")))
+        self.assertIs(type(runtime["torch"]),str)
+        # Exercise the terminal worker transport with its training function mocked.
+        messages=R.queue.Queue(); acknowledged=threading.Event(); acknowledged.set()
+        fake=dict(status="completed",runtime={"torch":BackendVersion("test-version")})
+        with mock.patch.object(R,"train_arm",return_value=fake):
+            R._worker_entry(messages,acknowledged,None,None,None,None,None,None,None,None)
+        results=[]
+        while not messages.empty():
+            kind,payload=messages.get()
+            if kind=="result": results.append(payload)
+        self.assertEqual(len(results),1)
+        self.assertIs(type(results[0]["runtime"]["torch"]),str)
+        self.assertEqual(pickle.loads(pickle.dumps(results[0])),fake)
+
+    def test_final_parent_peak_is_included_in_conservative_tree_bound(self):
+        peaks,total=R.finalized_memory_bound({"supervisor":41.515625,"worker":279.703125,"resource_tracker":18.09375},339.3125,203.25)
+        self.assertEqual(peaks["supervisor"],203.25)
+        self.assertEqual(total,501.046875)
+        self.assertGreaterEqual(total,sum(peaks.values()))
+
     def test_allocation_caps(self):
         self.assertEqual(R.Config().validate().steps,100)
         for kwargs in ({"steps":101},{"batch":17},{"seed":18},{"max_arm_seconds":121},
