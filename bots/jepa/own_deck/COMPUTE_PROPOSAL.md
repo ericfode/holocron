@@ -1,5 +1,10 @@
 # Proposed bounded own-deck experiment
 
+This larger action/decision comparison remains unlaunched. The subsequently
+authorized 3×100-step local declaration-readout pilot is a different, smaller
+experiment, documented in [LIVE_EXPERIMENTS.md](LIVE_EXPERIMENTS.md). Its
+composition targets do not fulfill the consequence-supervision gates below.
+
 **Proposal only. No real-data fit, data collection, game run or opponent
 execution is allocated or launched by this implementation.** The present
 remaining-card row is unknown. The next proposed controls are neutral, correct
