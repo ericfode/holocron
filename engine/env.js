@@ -27,6 +27,8 @@ const { setCodeToString } = b('Util.js');
 const { UndoMode } = b('game/core/snapshot/SnapshotManager.js');
 const { cards: implementedCards, overrideNotImplementedCards } = b('game/cards/Index.js');
 const { Card } = b('game/core/card/Card.js');
+const { StateWatcherLibrary } = b('game/stateWatchers/StateWatcherLibrary.js');
+const { observeStateEvidence, instrumentStateEvidence } = require('../bots/omni/rs/state-evidence');
 
 const scheduler = {
     setTimeout: () => ({ cancel: () => undefined }),
@@ -183,6 +185,7 @@ class EnvGame {
             userTimeoutDisconnect: () => undefined,
             undoMode: undo ? UndoMode.Free : UndoMode.Disabled
         }, { router: makeRouter(this.sink) });
+        observeStateEvidence(this, new StateWatcherLibrary(this.game), { undo });
         if (undo) {
             // with undo on, an unpayable cost would offer an 'Undo' that rolls the game back; keep the rules of undo off
             this.game.costPaymentRecoveryPolicy = { allowRollback: () => false, rollbackRequiresApproval: () => false, allowAbandon: () => true };
@@ -196,6 +199,7 @@ class EnvGame {
 
     async start() {
         await this.game.initialiseAsync();
+        instrumentStateEvidence(this);
         this.started = true;
     }
 

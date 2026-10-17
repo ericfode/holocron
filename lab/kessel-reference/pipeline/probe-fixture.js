@@ -179,6 +179,7 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'on-defense') return require('./on-defense-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'upgrade-return') return require('./upgrade-return-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'cost-query') return require('./cost-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'disclose') return require('./disclose-probe-fixture').fixture(env, pool, scenario, seed);
     const setup = await constructProbeFixture(env, pool, scenario, seed);
     const { eg, rng, bot, deck, own, enemy, source, activation, targets } = setup,
         p = scenario.probe;
@@ -411,6 +412,8 @@ module.exports = {
     constructProbeFixture,
     buildDeck,
     dependencies: [
+        'kessel:cards/pipeline/disclose-probes.js',
+        'lab/kessel-reference/pipeline/disclose-probe-fixture.js',
         'kessel:cards/pipeline/keyword-inventory-probes.js',
         'lab/kessel-reference/pipeline/keyword-inventory-probe-fixture.js',
         'bots/omni/rs/make-pool.js',
@@ -468,6 +471,7 @@ module.exports = {
         'lab/kessel-reference/pipeline/upgrade-return-probe-fixture.js',
         'engine/env.js',
         'bots/omni/rs/state.js',
+        'bots/omni/rs/state-evidence.js',
         'bots/players/index.js',
     ],
 };

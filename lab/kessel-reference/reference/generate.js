@@ -27,21 +27,41 @@ function sourceIdentity() {
     const expectedEngineRevision = pinnedEngine(repo);
     const sources = {};
     // Capture helper code as well as the selected scenario. Recorder and chooser changes affect reference games.
-    for (const file of ['engine/env.js', 'engine/view.js', 'bots/omni/rs/state.js', 'bots/omni/rs/pool.js', 'lab/kessel-reference/reference/generate.js']) sources[file] = sha256(fs.readFileSync(path.join(repo, file)));
+    for (const file of ['engine/env.js', 'engine/view.js', 'bots/omni/rs/state.js', 'bots/omni/rs/state-evidence.js', 'bots/omni/rs/pool.js', 'lab/kessel-reference/reference/generate.js']) sources[file] = sha256(fs.readFileSync(path.join(repo, file)));
     return { engineRevision, expectedEngineRevision, engineSourceSha256: treeHash(path.join(engine, 'server')), engineBuildSha256: treeHash(path.join(engine, 'build/server')),
         cardDataSha256: treeHash(path.join(engine, 'test/json')), scenarioLibrarySha256: treeHash(path.join(__dirname, 'scenarios')),
         playerCodeSha256: treeHash(path.join(repo, 'bots/players')), pipelineCodeSha256: treeHash(path.join(repo, 'lab/kessel-reference/pipeline')),
         plannerCodeSha256: treeHash(kesselPath('cards/pipeline')), sources };
+}
+// Explicit automatic probes are executable definitions, not historical named
+// cases. Their fixed fixture dispatch, exact caseDefinition, sourceIdentity and
+// prepared execution inventory bind the source used by the recording. They do
+// not consume the named registry. Any named/default/mixed request still validates
+// every indexed source before selecting or executing a case.
+function selectGenerationEntries(options, dependencies = {}) {
+    const registry = dependencies.registry ?? (() => lib.registry());
+    const readSource = dependencies.readSource ?? (file => fs.readFileSync(indexedSource(file)));
+    const selectCases = dependencies.selectCases ?? ((selection, index) => lib.selectCases(selection, index));
+    const explicit = options.entries;
+    const automatic = entry => entry?.kind === 'probe' && typeof entry.id === 'string' && entry.id.startsWith('auto/');
+    if (explicit != null) {
+        assert.ok(Array.isArray(explicit) && explicit.length, 'Explicit generation entries must be a nonempty array');
+        for (const entry of explicit.filter(automatic)) {
+            assert.equal(entry.source?.module, '../pipeline/probe-fixture.js', 'Automatic probes require the canonical probe fixture');
+        }
+        if (explicit.every(automatic)) return { entries: explicit, index: null };
+    }
+    const index = registry();
+    for (const [file, expected] of Object.entries(index.sources))
+        assert.equal(sha256(readSource(file)), expected, 'Stale reference index; run index first');
+    return { entries: explicit ?? selectCases(options, index), index };
 }
 async function generate(options) {
     assert.ok(options.out, 'generate needs --out NEW_DIRECTORY');
     const out = path.resolve(options.out);
     assert.ok(!fs.existsSync(out), 'Use a fresh output directory');
     assert.ok(options.entries?.length || options.case || options.card || options.behavior, 'Select --case, --card, or --behavior');
-    const index = lib.registry();
-    // Reading the index never loads the engine; only generation/indexing require its build.
-    for (const [file, expected] of Object.entries(index.sources)) assert.equal(sha256(fs.readFileSync(indexedSource(file))), expected, 'Stale reference index; run index first');
-    const entries = options.entries ?? lib.selectCases(options, index);
+    const { entries, index } = selectGenerationEntries(options);
     const cataloguePath = options.catalogue ?? kesselPath('compiler/generated/catalog.json'), catalogue = lib.read(cataloguePath);
     for (const entry of entries.filter(c => c.kind === 'play')) {
         const card = catalogue.cards.find(c => c.setCode === entry.focusCardIds[0]);
@@ -135,4 +155,4 @@ function prepareEngine() {
     fs.writeFileSync(receiptFile, JSON.stringify(receipt, null, 2) + '\n');
     return receipt;
 }
-module.exports = { generate, sourceIdentity, treeHash, prepareEngine, verifyPreparedEngine };
+module.exports = { selectGenerationEntries, generate, sourceIdentity, treeHash, prepareEngine, verifyPreparedEngine };
