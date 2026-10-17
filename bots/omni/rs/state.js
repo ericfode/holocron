@@ -1,4 +1,5 @@
 'use strict';
+const { stateEvidence } = require('./state-evidence');
 
 function phaseStats(card) {
     let power = 0, hp = 0;
@@ -99,7 +100,7 @@ function fullState(eg, actor = null) {
             out: !!p.passedActionPhase
         };
     }
-    return { forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
+    return { ...stateEvidence(eg), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
 }
 function normalizeArg(eg, value) {
     if (typeof value === 'string' && eg.game.state.allCards.includes(value)) return eg.cardId(value);
