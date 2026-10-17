@@ -12,6 +12,8 @@ serde_json = "=1.0.154"
 
 [features]
 diagnostics = []
+# Research graph only; the default continues to embed the original graph and checkpoints.
+own-deck = []
 
 [profile.release]
 opt-level = 3

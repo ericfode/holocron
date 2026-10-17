@@ -1,4 +1,4 @@
-"""Compile the unchanged tinygrad C kernels using already installed toolchains.
+"""Compile checked-in tinygrad C kernels using already installed toolchains.
 
 Native builds use Clang. The bounded WASM build retargets unoptimized Clang IR
 using Rust's installed LLVM tools. This route retains i64 setter indices and
@@ -18,9 +18,11 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--target', required=True)
+    p.add_argument('--generated', type=Path, help='kernel directory (default: unchanged baseline generated/)')
     a = p.parse_args()
     a.out.mkdir(parents=True, exist_ok=True)
     root = Path(__file__).resolve().parent
+    generated = a.generated or root / 'generated'
     wasm = a.target == 'wasm32-unknown-unknown'
     if a.target.startswith('wasm') and not wasm:
         p.error('this verified recipe supports wasm32-unknown-unknown with explicit WASI imports')
@@ -29,7 +31,7 @@ def main():
         host = next(x.split(': ', 1)[1] for x in subprocess.check_output(['rustc', '-vV'], text=True).splitlines() if x.startswith('host:'))
         llc = sysroot / 'lib/rustlib' / host / 'bin/llc'
     for name in ('jepa_context', 'jepa_predict4'):
-        src = root / 'generated' / (name + '.c')
+        src = generated / (name + '.c')
         obj = a.out / (name + '.o')
         if not wasm:
             run('clang', '-O2', '-ffp-contract=off', '-fno-common', '-c', src, '-o', obj)

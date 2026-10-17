@@ -211,6 +211,8 @@ pub struct Encoded {
     pub state: Vec<f32>,
     pub actions: Actions,
     pub tokens: Tokens,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub own_deck: Option<crate::own_deck::OwnDeckContext>,
 }
 
 pub fn hash_id(text: &str) -> i32 {
@@ -623,5 +625,6 @@ pub fn encode(msg: &Value, t: &CardTables) -> Encoded {
         state: encode_state(msg, t),
         actions: encode_actions(msg, t),
         tokens: encode_tokens(msg, t),
+        own_deck: None,
     }
 }

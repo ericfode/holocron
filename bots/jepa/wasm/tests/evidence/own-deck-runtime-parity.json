@@ -1,0 +1,216 @@
+{
+  "schema": "swu-jepa-own-deck-runtime-parity/1",
+  "purpose": "engineering fixture only",
+  "reference": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/tests/fixtures/own-deck-runtime-reference.json",
+  "referenceSha256": "d0f4a503754fd3dd3ab5926accbae941ce46b8308694c8c10035525a71381178",
+  "protocolReferenceSha256": "3f2c43a7e6b0169a34c08b83e8167d0f87ea4b78da7534a0e70e71cdf8359e8b",
+  "provenance": {
+    "engineeringOnly": true,
+    "supplementalSha256": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123",
+    "baselineReferenceSha256": "3f2c43a7e6b0169a34c08b83e8167d0f87ea4b78da7534a0e70e71cdf8359e8b",
+    "checkpoints": {
+      "model": {
+        "file": "tx-t10.safetensors",
+        "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+      },
+      "windowModel": {
+        "file": "tx-t10-e.safetensors",
+        "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+      }
+    }
+  },
+  "absoluteTolerance": 1e-05,
+  "sourcePins": {
+    "kernelGraph": "generated-own-deck",
+    "cargoFeatures": [
+      "diagnostics",
+      "own-deck"
+    ],
+    "files": {
+      "bots/jepa/models/tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+      "bots/jepa/models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+      "bots/jepa/wasm/build_kernels.py": "0775a6ab6f42eb9427e6d6f73818ae3aa51a454316d8e0619811853723d8e260",
+      "bots/jepa/wasm/controller/Cargo.lock": "1ce0635bb16ff7e141d20a924bb721b28fa75613344a4b2d36b9638ec76de7d7",
+      "bots/jepa/wasm/controller/Cargo.toml": "335153cd89fcdf9cc42b43d6821382b4989e804099a5df0a6091cd53dbeb08de",
+      "bots/jepa/wasm/controller/src/clock.rs": "580d553a673dbf79a8a813a49f749b372b54db1b32ca91f6fdada9a6f40d0a75",
+      "bots/jepa/wasm/controller/src/controller.rs": "0fec6d1b976f998e43623f9f44e3b242ca8dd1d8aea4379f2c4b545fc354df81",
+      "bots/jepa/wasm/controller/src/features.rs": "55604587bc0a0d115bdd03948d2fa84dd0687f063631aae104868d7cb281ee9b",
+      "bots/jepa/wasm/controller/src/lib.rs": "16b3bffcaa6c6bedfb976136f157783f1f9f99a32c735e1d182dd0c9eacb2e36",
+      "bots/jepa/wasm/controller/src/own_deck.rs": "4dc2616a552267eb9725acdb0f43dbe4b150c8d567378f875313afc5bf46f987",
+      "bots/jepa/wasm/controller/src/resource.rs": "fe59760883f91dd47df770a00c8258ac8fd81af5236c95b6424a7fca9c0a564c",
+      "bots/jepa/wasm/controller/src/rng.rs": "5d0ab65575afd208414a8210d9cdf8ee1badc338c689f3a35950d469e3cf1260",
+      "bots/jepa/wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123",
+      "bots/jepa/wasm/generated-own-deck/jepa_cached.h": "d56013395b9dc83dd194be94ffacb2c1f7ada94ffd6245d965de32c4298aebd6",
+      "bots/jepa/wasm/generated-own-deck/jepa_context.c": "8b103cebc23a711568ccf13c1d9ad64921c06fb1b4c76ff63a144522657758ae",
+      "bots/jepa/wasm/generated-own-deck/jepa_context.json": "0f0f9c11cdf08f3a9d539bd02a0d13d9ba1a58d73eca048c220993a9791dbefd",
+      "bots/jepa/wasm/generated-own-deck/jepa_predict4.c": "b03525d680d70d2d61383928ad63b70a7a07c66ba61248c443035d6c68b06a90",
+      "bots/jepa/wasm/generated-own-deck/jepa_predict4.json": "c526fff3deacc7a51b4ea859098f4387acc35f5d816ff48d250a55e04e60d323",
+      "bots/jepa/wasm/generated-own-deck/manifest.json": "340a1f7e84dc50dae836fd409da7c4cbe7de8ccd35916eaa5c2c31cf15f0bcfc",
+      "bots/jepa/wasm/runtime/Cargo.lock": "a654b253eb5542580e14dfe15f5681ace5ef13c398cb83d890509a78e4a813bb",
+      "bots/jepa/wasm/runtime/Cargo.toml": "1b60de5742384e56fb7f5482f8bc0dd18e35b6087c1bf2a6568f9e65f9510865",
+      "bots/jepa/wasm/runtime/build.rs": "4a546f7877c968fa7d9440fdf000b484511ca0e23e2e5fab25d1ddc2b9913746",
+      "bots/jepa/wasm/runtime/src/backend.rs": "d599bd1cfde0761fea1bcead50aa23ee1b09cee3a4551bda0ce6f9dd45d8dcde",
+      "bots/jepa/wasm/runtime/src/main.rs": "2592497825581567cf69ce43231b9d6dafe3a69351db087197a65cc618e4a6e8",
+      "bots/jepa/wasm/runtime/src/transport.rs": "56d11ccea64bc2d1174801f412130c8719be2b588a0faf085d484b6276b81d08",
+      "bots/jepa/wasm/tests/check_own_deck_runtime.py": "1bcc0c4626466996b4f56bfdb08636e8339442d670d69a57841e700ef62ac1c3",
+      "bots/jepa/wasm/tests/check_runtime.py": "1e996871816d4754e7fb20b984c158e03a93f9e79c7b9428c7eabc9e2486d6f8"
+    },
+    "sha256": "49a28f15b1c1ad1917216edb880a16510f803f427e6829ad1a75a3507df08dca"
+  },
+  "backends": [
+    {
+      "backend": "native",
+      "artifact": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/runtime/target/own-deck/release/jepa-wasi",
+      "artifactSha256": "2355336f2df38778bf2db281bc76f790db2bb9ca3b967558fa9bb25abeb404f1",
+      "artifactBytes": 2748784,
+      "tensors": {
+        "cases": 378,
+        "distinctContexts": 42,
+        "maximumContextValueError": 2.5033950805664062e-06,
+        "maximumLogitError": 4.5299530029296875e-06,
+        "allBestActionIndicesMatch": true,
+        "kernelStats": {
+          "cacheHits": 714,
+          "contextCalls": 42,
+          "predictCalls": 432
+        }
+      },
+      "boundaries": {
+        "implicitNeutralMatchesExplicit": true,
+        "bothDeckRowsInvalidateCache": true,
+        "malformedContextsRejected": [
+          "shape",
+          "version",
+          "nonfinite"
+        ]
+      },
+      "protocol": {
+        "cases": 9,
+        "allChoicesMatchNumpy": true,
+        "resourcePolicy": "c-clock",
+        "simulatorMessages": 0,
+        "reports": [
+          {
+            "name": "neutral/window-p1",
+            "pick": 2
+          },
+          {
+            "name": "neutral/window-p2",
+            "pick": 1
+          },
+          {
+            "name": "neutral/crowded-token-truncation",
+            "pick": 2
+          },
+          {
+            "name": "original/window-p1",
+            "pick": 2
+          },
+          {
+            "name": "original/window-p2",
+            "pick": 1
+          },
+          {
+            "name": "original/crowded-token-truncation",
+            "pick": 2
+          },
+          {
+            "name": "original-plus-remaining/window-p1",
+            "pick": 2
+          },
+          {
+            "name": "original-plus-remaining/window-p2",
+            "pick": 1
+          },
+          {
+            "name": "original-plus-remaining/crowded-token-truncation",
+            "pick": 2
+          }
+        ]
+      },
+      "elapsedSeconds": 0.373
+    },
+    {
+      "backend": "wasm-wasi",
+      "artifact": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/runtime/target/own-deck/wasm32-unknown-unknown/release/jepa-wasi.wasm",
+      "artifactSha256": "2c6ee087a7f3f55f0c36a83b576f19cb00ad40ccbbb5310bbf057f8305fb2731",
+      "artifactBytes": 2667558,
+      "tensors": {
+        "cases": 378,
+        "distinctContexts": 42,
+        "maximumContextValueError": 2.5033950805664062e-06,
+        "maximumLogitError": 4.5299530029296875e-06,
+        "allBestActionIndicesMatch": true,
+        "kernelStats": {
+          "cacheHits": 714,
+          "contextCalls": 42,
+          "predictCalls": 432
+        }
+      },
+      "boundaries": {
+        "implicitNeutralMatchesExplicit": true,
+        "bothDeckRowsInvalidateCache": true,
+        "malformedContextsRejected": [
+          "shape",
+          "version",
+          "nonfinite"
+        ]
+      },
+      "protocol": {
+        "cases": 9,
+        "allChoicesMatchNumpy": true,
+        "resourcePolicy": "c-clock",
+        "simulatorMessages": 0,
+        "reports": [
+          {
+            "name": "neutral/window-p1",
+            "pick": 2
+          },
+          {
+            "name": "neutral/window-p2",
+            "pick": 1
+          },
+          {
+            "name": "neutral/crowded-token-truncation",
+            "pick": 2
+          },
+          {
+            "name": "original/window-p1",
+            "pick": 2
+          },
+          {
+            "name": "original/window-p2",
+            "pick": 1
+          },
+          {
+            "name": "original/crowded-token-truncation",
+            "pick": 2
+          },
+          {
+            "name": "original-plus-remaining/window-p1",
+            "pick": 2
+          },
+          {
+            "name": "original-plus-remaining/window-p2",
+            "pick": 1
+          },
+          {
+            "name": "original-plus-remaining/crowded-token-truncation",
+            "pick": 2
+          }
+        ]
+      },
+      "elapsedSeconds": 0.786
+    }
+  ],
+  "legacyBoundaries": [
+    {
+      "backend": "native",
+      "suppliedDeckContextRejected": true
+    },
+    {
+      "backend": "wasm-wasi",
+      "suppliedDeckContextRejected": true
+    }
+  ]
+}

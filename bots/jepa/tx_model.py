@@ -103,7 +103,14 @@ class NumpyTx:
         w = self.w
         return self.lin(f"b{i}.f2", M.relu(self.lin(f"b{i}.f1", _ln(x, w[f"b{i}.ln2.g"], w[f"b{i}.ln2.b"]))))
 
-    def forward(self, state, ids, feats, mask, act=None, aid=None, hsel=None):
+    def _initial_context(self, state, ids, feats, mask, own_deck):
+        """Extension point: legacy models retain precisely their original context."""
+        if own_deck is not None:
+            raise ValueError("own_deck requires the explicit own-deck model format")
+        x = np.concatenate([self.lin("sin", state)[:, None], self.lin("tin", np.concatenate([feats, M.embed(self.w, ids)], -1))], 1)
+        return x, np.concatenate([np.ones((len(state), 1), np.float32), mask], 1)
+
+    def forward(self, state, ids, feats, mask, act=None, aid=None, hsel=None, *, own_deck=None):
         """state [B,73], ids/feats/mask [B,T..], act [B,K,62], aid [B,K] -> z [B,D], ẑ [B,K,len(hsel),D] or None.
         hsel: indexes into self.horizons of the move tokens to run (default all).
         Same numbers as one masked attention over [context, move tokens] (struct_mask, as the trainer runs it): context
@@ -114,9 +121,8 @@ class NumpyTx:
         hz = len(hors)
         ids, feats, mask = ids[:, :T], feats[:, :T].astype(np.float32), mask[:, :T].astype(np.float32)
         B, t = ids.shape
-        x = np.concatenate([self.lin("sin", state)[:, None], self.lin("tin", np.concatenate([feats, M.embed(w, ids)], -1))], 1)
-        kval = np.concatenate([np.ones((B, 1), np.float32), mask], 1)
-        c = 1 + t
+        x, kval = self._initial_context(state, ids, feats, mask, own_deck)
+        c = x.shape[1]
         k = 0
         xm = None
         if act is not None:
@@ -150,9 +156,10 @@ class NumpyTx:
         zb = np.broadcast_to(z[:, None, None, :], (B, k, hz, D))
         return z, zb + self.lin("p2", M.relu(self.lin("p1", np.concatenate([zb, ao], -1))))
 
-    def encode(self, state, tok_ids, tok_feats, tok_mask):
-        z, _ = self.forward(state, tok_ids, tok_feats, tok_mask)
+    def encode(self, state, tok_ids, tok_feats, tok_mask, *, own_deck=None):
+        z, _ = self.forward(state, tok_ids, tok_feats, tok_mask, own_deck=own_deck)
         self._ctx = (state, tok_ids, tok_feats, tok_mask) if len(state) == 1 else None
+        self._own_deck = own_deck
         self._cache = {}
         return z
 
@@ -174,7 +181,7 @@ class NumpyTx:
             act, aid = a
             grp = self.groups[g]
             step = max(1, self.CHUNK_TOKENS // len(grp))
-            parts = [self.forward(*self._ctx, act[None, k:k + step], aid[None, k:k + step], hsel=grp)[1][0] for k in range(0, len(act), step)]
+            parts = [self.forward(*self._ctx, act[None, k:k + step], aid[None, k:k + step], hsel=grp, own_deck=self._own_deck)[1][0] for k in range(0, len(act), step)]
             self._cache[g] = (a, np.concatenate(parts) if parts else np.zeros((0, len(grp), D), np.float32))
         return self._cache[g][1][:, self.groups[g].index(hi)]
 
@@ -192,6 +199,9 @@ def load(path):
     w, meta = M.load_safetensors(path)
     if meta.get("format") == "swu-jepa-tx/1":
         return NumpyTx(w, meta), meta
+    if meta.get("format") == "swu-jepa-tx-own-deck/1":
+        from own_deck_model import NumpyOwnDeckTx
+        return NumpyOwnDeckTx(w, meta), meta
     return M.NumpyJepa(w), meta
 
 

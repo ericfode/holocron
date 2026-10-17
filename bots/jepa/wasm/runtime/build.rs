@@ -4,6 +4,11 @@ fn main() {
     let out = PathBuf::from(env::var("OUT_DIR").unwrap());
     let target = env::var("TARGET").unwrap();
     let script = here.join("../build_kernels.py");
+    let generated = if env::var_os("CARGO_FEATURE_OWN_DECK").is_some() {
+        "generated-own-deck"
+    } else {
+        "generated"
+    };
     assert!(
         Command::new("python3")
             .arg(&script)
@@ -11,6 +16,8 @@ fn main() {
             .arg(&out)
             .arg("--target")
             .arg(&target)
+            .arg("--generated")
+            .arg(here.join("..").join(generated))
             .status()
             .unwrap()
             .success(),
@@ -23,7 +30,7 @@ fn main() {
         );
         println!(
             "cargo:rerun-if-changed={}",
-            here.join(format!("../generated/{name}.c")).display()
+            here.join(format!("../{generated}/{name}.c")).display()
         );
     }
     if target == "wasm32-unknown-unknown" {

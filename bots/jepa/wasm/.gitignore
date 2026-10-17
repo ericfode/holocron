@@ -12,3 +12,5 @@ host-evidence/probe-bundle/
 host-evidence/probe-bundle.*
 host-evidence/compiled-cache/
 tests/evidence/
+generated-own-deck/*.dylib
+generated-own-deck/*.js

@@ -1,0 +1,348 @@
+{
+  "prefix": "jepa_predict4",
+  "net": "jepa_predict4_net",
+  "set_buf": "jepa_predict4_set_buf",
+  "bindings": [
+    {
+      "index": 0,
+      "name": "w.emb_a",
+      "bytes": 4096
+    },
+    {
+      "index": 1,
+      "name": "w.emb_b",
+      "bytes": 2048
+    },
+    {
+      "index": 2,
+      "name": "w.emb_c",
+      "bytes": 3904
+    },
+    {
+      "index": 3,
+      "name": "w.hor",
+      "bytes": 2304
+    },
+    {
+      "index": 4,
+      "name": "w.ain.w",
+      "bytes": 19968
+    },
+    {
+      "index": 5,
+      "name": "w.ain.b",
+      "bytes": 256
+    },
+    {
+      "index": 6,
+      "name": "w.b0.ln1.g",
+      "bytes": 256
+    },
+    {
+      "index": 7,
+      "name": "w.b0.ln1.b",
+      "bytes": 256
+    },
+    {
+      "index": 8,
+      "name": "w.b0.q.w",
+      "bytes": 16384
+    },
+    {
+      "index": 9,
+      "name": "w.b0.q.b",
+      "bytes": 256
+    },
+    {
+      "index": 10,
+      "name": "w.b0.k.w",
+      "bytes": 16384
+    },
+    {
+      "index": 11,
+      "name": "w.b0.k.b",
+      "bytes": 256
+    },
+    {
+      "index": 12,
+      "name": "w.b0.v.w",
+      "bytes": 16384
+    },
+    {
+      "index": 13,
+      "name": "w.b0.v.b",
+      "bytes": 256
+    },
+    {
+      "index": 14,
+      "name": "w.b0.o.w",
+      "bytes": 16384
+    },
+    {
+      "index": 15,
+      "name": "w.b0.o.b",
+      "bytes": 256
+    },
+    {
+      "index": 16,
+      "name": "w.b0.ln2.g",
+      "bytes": 256
+    },
+    {
+      "index": 17,
+      "name": "w.b0.ln2.b",
+      "bytes": 256
+    },
+    {
+      "index": 18,
+      "name": "w.b0.f1.w",
+      "bytes": 32768
+    },
+    {
+      "index": 19,
+      "name": "w.b0.f1.b",
+      "bytes": 512
+    },
+    {
+      "index": 20,
+      "name": "w.b0.f2.w",
+      "bytes": 32768
+    },
+    {
+      "index": 21,
+      "name": "w.b0.f2.b",
+      "bytes": 256
+    },
+    {
+      "index": 22,
+      "name": "w.b1.ln1.g",
+      "bytes": 256
+    },
+    {
+      "index": 23,
+      "name": "w.b1.ln1.b",
+      "bytes": 256
+    },
+    {
+      "index": 24,
+      "name": "w.b1.q.w",
+      "bytes": 16384
+    },
+    {
+      "index": 25,
+      "name": "w.b1.q.b",
+      "bytes": 256
+    },
+    {
+      "index": 26,
+      "name": "w.b1.k.w",
+      "bytes": 16384
+    },
+    {
+      "index": 27,
+      "name": "w.b1.k.b",
+      "bytes": 256
+    },
+    {
+      "index": 28,
+      "name": "w.b1.v.w",
+      "bytes": 16384
+    },
+    {
+      "index": 29,
+      "name": "w.b1.v.b",
+      "bytes": 256
+    },
+    {
+      "index": 30,
+      "name": "w.b1.o.w",
+      "bytes": 16384
+    },
+    {
+      "index": 31,
+      "name": "w.b1.o.b",
+      "bytes": 256
+    },
+    {
+      "index": 32,
+      "name": "w.b1.ln2.g",
+      "bytes": 256
+    },
+    {
+      "index": 33,
+      "name": "w.b1.ln2.b",
+      "bytes": 256
+    },
+    {
+      "index": 34,
+      "name": "w.b1.f1.w",
+      "bytes": 32768
+    },
+    {
+      "index": 35,
+      "name": "w.b1.f1.b",
+      "bytes": 512
+    },
+    {
+      "index": 36,
+      "name": "w.b1.f2.w",
+      "bytes": 32768
+    },
+    {
+      "index": 37,
+      "name": "w.b1.f2.b",
+      "bytes": 256
+    },
+    {
+      "index": 38,
+      "name": "w.lnf.g",
+      "bytes": 256
+    },
+    {
+      "index": 39,
+      "name": "w.lnf.b",
+      "bytes": 256
+    },
+    {
+      "index": 40,
+      "name": "w.p1.w",
+      "bytes": 163840
+    },
+    {
+      "index": 41,
+      "name": "w.p1.b",
+      "bytes": 1024
+    },
+    {
+      "index": 42,
+      "name": "w.p2.w",
+      "bytes": 98304
+    },
+    {
+      "index": 43,
+      "name": "w.p2.b",
+      "bytes": 384
+    },
+    {
+      "index": 44,
+      "name": "w.v1.w",
+      "bytes": 24576
+    },
+    {
+      "index": 45,
+      "name": "w.v1.b",
+      "bytes": 256
+    },
+    {
+      "index": 46,
+      "name": "w.v2.w",
+      "bytes": 256
+    },
+    {
+      "index": 47,
+      "name": "w.v2.b",
+      "bytes": 4
+    }
+  ],
+  "inputs": [
+    {
+      "shape": [
+        1,
+        96
+      ],
+      "dtype": "f32",
+      "bytes": 384
+    },
+    {
+      "shape": [
+        1,
+        4,
+        27,
+        16
+      ],
+      "dtype": "f32",
+      "bytes": 6912
+    },
+    {
+      "shape": [
+        1,
+        4,
+        27,
+        16
+      ],
+      "dtype": "f32",
+      "bytes": 6912
+    },
+    {
+      "shape": [
+        1,
+        4,
+        27,
+        16
+      ],
+      "dtype": "f32",
+      "bytes": 6912
+    },
+    {
+      "shape": [
+        1,
+        4,
+        27,
+        16
+      ],
+      "dtype": "f32",
+      "bytes": 6912
+    },
+    {
+      "shape": [
+        1,
+        26
+      ],
+      "dtype": "f32",
+      "bytes": 104
+    },
+    {
+      "shape": [
+        1,
+        4,
+        62
+      ],
+      "dtype": "f32",
+      "bytes": 992
+    },
+    {
+      "shape": [
+        1,
+        4
+      ],
+      "dtype": "i32",
+      "bytes": 16
+    },
+    {
+      "shape": [
+        1
+      ],
+      "dtype": "i32",
+      "bytes": 4
+    }
+  ],
+  "outputs": [
+    {
+      "shape": [
+        1,
+        4,
+        96
+      ],
+      "bytes": 1536
+    },
+    {
+      "shape": [
+        4
+      ],
+      "bytes": 16
+    }
+  ],
+  "calls": 37,
+  "unique_kernels": 37,
+  "scratch_bytes": 21152
+}
