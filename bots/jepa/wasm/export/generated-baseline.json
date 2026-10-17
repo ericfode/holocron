@@ -1,0 +1,25 @@
+{
+  "tinygrad_commit": "87378331e816d8c9ed71328569efa08f6bcb50fc",
+  "files": {
+    "jepa_cached.h": {
+      "bytes": 650,
+      "sha256": "c537d6208f7a843e5e1c488275eae3350f562687a86904908b2ebf727949ede9"
+    },
+    "jepa_context.c": {
+      "bytes": 174060,
+      "sha256": "332e3a66e689b3fa7b0782929f561789db0947c951e523aa2ff82f2cd0b7937f"
+    },
+    "jepa_context.json": {
+      "bytes": 5012,
+      "sha256": "71492c8a4ebf664ce8024036f64551efff94bae58b36a48d019041886fe86244"
+    },
+    "jepa_predict4.c": {
+      "bytes": 112001,
+      "sha256": "fa9b2773373ebeeb6410cb7f107c2c3ab592ad7d4a421348b058196285b58642"
+    },
+    "jepa_predict4.json": {
+      "bytes": 5108,
+      "sha256": "d89b884e8d7de85f9cacb780bafb99fa592526a4a40bde0c6b3f2b24a7e183f3"
+    }
+  }
+}

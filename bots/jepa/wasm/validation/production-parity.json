@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "artifactSha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+  "artifactBytes": 2534886,
+  "runnerVersion": "wasmtime 44.0.1 (f302ebd6b 2026-04-30)",
+  "vectors": {
+    "cases": 7,
+    "allRepliesMatch": true,
+    "names": [
+      "window-p1",
+      "window-p2",
+      "followup-p1",
+      "resource-p1",
+      "resource-stop-p2",
+      "action-kinds-p2",
+      "crowded-token-truncation"
+    ]
+  },
+  "behaviors": [
+    {
+      "name": "below-gate-p1",
+      "simulatorMessages": 0,
+      "passed": true
+    },
+    {
+      "name": "above-gate-p1",
+      "simulatorMessages": 12,
+      "passed": true
+    },
+    {
+      "name": "low-time-fallback-p1",
+      "simulatorMessages": 2,
+      "passed": true
+    },
+    {
+      "name": "below-gate-p2",
+      "simulatorMessages": 0,
+      "passed": true
+    },
+    {
+      "name": "above-gate-p2",
+      "simulatorMessages": 12,
+      "passed": true
+    },
+    {
+      "name": "low-time-fallback-p2",
+      "simulatorMessages": 2,
+      "passed": true
+    }
+  ],
+  "rejected": [
+    "v1-only",
+    "string-version",
+    "boolean-version",
+    "imagined-legacy-fallback",
+    "diagnostics-disabled"
+  ],
+  "scope": "Final production module, synthetic JS transcript parity and strict-v2 boundary; no tensor diagnostics, engine games or admission"
+}

@@ -1,0 +1,404 @@
+{
+  "schema": "swu-jepa-runtime-parity/1",
+  "reference": "$TASK_ROOT/holocron-wasm/bots/jepa/wasm/tests/fixtures/runtime-reference.json",
+  "referenceSha256": "3f2c43a7e6b0169a34c08b83e8167d0f87ea4b78da7534a0e70e71cdf8359e8b",
+  "provenance": {
+    "implementationSha256": "1cc76a771552eb13493f7e1af1c78d13e619fc62279ef50fe3156efe81409e85",
+    "checkpoints": {
+      "model": {
+        "file": "tx-t10.safetensors",
+        "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+        "metadata": {
+          "format": "swu-jepa-tx/1",
+          "D": "96",
+          "dm": "64",
+          "layers": "2",
+          "heads": "4",
+          "tmax": "24",
+          "settle": "1",
+          "horizons": "[1, 4]",
+          "state_dim": "73",
+          "action_dim": "62",
+          "token_dim": "21",
+          "tiers": "r,r2",
+          "macros": "face,trade,hold"
+        }
+      },
+      "windowModel": {
+        "file": "tx-t10-e.safetensors",
+        "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+        "metadata": {
+          "format": "swu-jepa-tx/1",
+          "D": "96",
+          "dm": "64",
+          "layers": "2",
+          "heads": "4",
+          "tmax": "24",
+          "settle": "1",
+          "horizons": "[1, 4]",
+          "state_dim": "73",
+          "action_dim": "62",
+          "token_dim": "21",
+          "tiers": "r,r2",
+          "macros": "face,trade,hold",
+          "value": "evaluator copy on settled rank positions (fit_veval.py)"
+        }
+      }
+    }
+  },
+  "absoluteTolerance": 1e-05,
+  "backends": [
+    {
+      "backend": "native",
+      "artifact": "$TASK_ROOT/holocron-wasm/bots/jepa/wasm/runtime/target/release/jepa-wasi",
+      "artifactSha256": "123f853889cb4c33f0fd20f9f1147c11b767cff92b817b8674b59a68cc78806b",
+      "artifactBytes": 2649504,
+      "tensors": {
+        "cases": 126,
+        "distinctContexts": 14,
+        "maximumContextValueError": 1.3485240727417747e-06,
+        "maximumLogitError": 3.1174978076808912e-06,
+        "allBestActionIndicesMatch": true,
+        "kernelStats": {
+          "cacheHits": 238,
+          "contextCalls": 14,
+          "predictCalls": 144
+        }
+      },
+      "vectors": {
+        "cases": 7,
+        "allRepliesMatch": true,
+        "names": [
+          "window-p1",
+          "window-p2",
+          "followup-p1",
+          "resource-p1",
+          "resource-stop-p2",
+          "action-kinds-p2",
+          "crowded-token-truncation"
+        ]
+      },
+      "behavior": {
+        "cases": 6,
+        "allRepliesAndTranscriptsMatch": true,
+        "reports": [
+          {
+            "name": "below-gate-p1",
+            "gate": 0.04,
+            "simulatorMessages": 0,
+            "rootPick": 0,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 1,
+              "leaves": 0,
+              "lines": 0,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          },
+          {
+            "name": "above-gate-p1",
+            "gate": 0.04,
+            "simulatorMessages": 12,
+            "rootPick": 1,
+            "followPick": 1,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 1,
+              "gated": 0,
+              "leaves": 4,
+              "lines": 4,
+              "planned": 1,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 1,
+              "contextCalls": 3,
+              "predictCalls": 3
+            }
+          },
+          {
+            "name": "low-time-fallback-p1",
+            "gate": 0.04,
+            "simulatorMessages": 2,
+            "rootPick": 2,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 0,
+              "leaves": 0,
+              "lines": 1,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          },
+          {
+            "name": "below-gate-p2",
+            "gate": 0.04,
+            "simulatorMessages": 0,
+            "rootPick": 0,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 1,
+              "leaves": 0,
+              "lines": 0,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          },
+          {
+            "name": "above-gate-p2",
+            "gate": 0.04,
+            "simulatorMessages": 12,
+            "rootPick": 1,
+            "followPick": 1,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 1,
+              "gated": 0,
+              "leaves": 4,
+              "lines": 4,
+              "planned": 1,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 1,
+              "contextCalls": 3,
+              "predictCalls": 3
+            }
+          },
+          {
+            "name": "low-time-fallback-p2",
+            "gate": 0.04,
+            "simulatorMessages": 2,
+            "rootPick": 1,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 0,
+              "leaves": 0,
+              "lines": 1,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          }
+        ]
+      },
+      "elapsedSeconds": 0.312
+    },
+    {
+      "backend": "wasm-wasi",
+      "artifact": "$TASK_ROOT/holocron-wasm/bots/jepa/wasm/runtime/target/wasm32-unknown-unknown/release/jepa-wasi.wasm",
+      "artifactSha256": "7f834fc9e3d8b51784233e11a09e1e6be3f296aa303f312f963a6dd435c5455d",
+      "artifactBytes": 2554309,
+      "tensors": {
+        "cases": 126,
+        "distinctContexts": 14,
+        "maximumContextValueError": 1.3485240727417747e-06,
+        "maximumLogitError": 3.1174978076808912e-06,
+        "allBestActionIndicesMatch": true,
+        "kernelStats": {
+          "cacheHits": 238,
+          "contextCalls": 14,
+          "predictCalls": 144
+        }
+      },
+      "vectors": {
+        "cases": 7,
+        "allRepliesMatch": true,
+        "names": [
+          "window-p1",
+          "window-p2",
+          "followup-p1",
+          "resource-p1",
+          "resource-stop-p2",
+          "action-kinds-p2",
+          "crowded-token-truncation"
+        ]
+      },
+      "behavior": {
+        "cases": 6,
+        "allRepliesAndTranscriptsMatch": true,
+        "reports": [
+          {
+            "name": "below-gate-p1",
+            "gate": 0.04,
+            "simulatorMessages": 0,
+            "rootPick": 0,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 1,
+              "leaves": 0,
+              "lines": 0,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          },
+          {
+            "name": "above-gate-p1",
+            "gate": 0.04,
+            "simulatorMessages": 12,
+            "rootPick": 1,
+            "followPick": 1,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 1,
+              "gated": 0,
+              "leaves": 4,
+              "lines": 4,
+              "planned": 1,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 1,
+              "contextCalls": 3,
+              "predictCalls": 3
+            }
+          },
+          {
+            "name": "low-time-fallback-p1",
+            "gate": 0.04,
+            "simulatorMessages": 2,
+            "rootPick": 2,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 0,
+              "leaves": 0,
+              "lines": 1,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          },
+          {
+            "name": "below-gate-p2",
+            "gate": 0.04,
+            "simulatorMessages": 0,
+            "rootPick": 0,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 1,
+              "leaves": 0,
+              "lines": 0,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          },
+          {
+            "name": "above-gate-p2",
+            "gate": 0.04,
+            "simulatorMessages": 12,
+            "rootPick": 1,
+            "followPick": 1,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 1,
+              "gated": 0,
+              "leaves": 4,
+              "lines": 4,
+              "planned": 1,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 1,
+              "contextCalls": 3,
+              "predictCalls": 3
+            }
+          },
+          {
+            "name": "low-time-fallback-p2",
+            "gate": 0.04,
+            "simulatorMessages": 2,
+            "rootPick": 1,
+            "followPick": null,
+            "controllerStats": {
+              "dropped": 0,
+              "failed": 0,
+              "followed": 0,
+              "gated": 0,
+              "leaves": 0,
+              "lines": 1,
+              "planned": 0,
+              "unplanned": 0,
+              "windows": 1
+            },
+            "kernelStats": {
+              "cacheHits": 0,
+              "contextCalls": 1,
+              "predictCalls": 1
+            }
+          }
+        ]
+      },
+      "elapsedSeconds": 0.514
+    }
+  ]
+}
