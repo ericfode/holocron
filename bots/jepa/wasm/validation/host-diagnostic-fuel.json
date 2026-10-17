@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "failure": null,
+  "command": [
+    "$TASK_ROOT/runtime-venv/bin/python",
+    "-I",
+    "$TASK_ROOT/jepa-wasm/bot/compiled/run.py",
+    "$TASK_ROOT/holocron-wasm/build/arena/jepa_tx_gate_wasm",
+    "--fuel",
+    "1000000000",
+    "--start-fuel",
+    "1000000000"
+  ],
+  "bundle_sha256": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+  "bundle_after_sha256": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+  "bundle_unchanged": true,
+  "stderr_tail": "",
+  "arena_revision": "3afa1f8bbf3bc45a08359f15b96291d55c641fa6",
+  "verified_host_git_blobs": {
+    "run.py": "ba056825450d874e0f20b758c298fae4bf6a9d81",
+    "bundle.py": "b065fc53391b37a6c6d4cf0fadff603dc4fa9ed1",
+    "toolchain.json": "d3673d31ca03b944fa5e4349857fae9decfffd8f"
+  },
+  "fixture": "synthetic window-p1 and followup-p1; canned simulations, no rules engine",
+  "games": 2,
+  "simulation_requests": 50,
+  "simulation_operations": {
+    "begin": 16,
+    "act": 32,
+    "end": 2
+  },
+  "timings": [
+    {
+      "game": 0,
+      "phase": "hello",
+      "ms": 115.6754579860717
+    },
+    {
+      "game": 0,
+      "phase": "decide",
+      "ms": 9.474291931837797
+    },
+    {
+      "game": 1,
+      "phase": "hello",
+      "ms": 0.13274990487843752
+    },
+    {
+      "game": 1,
+      "phase": "decide",
+      "ms": 8.139332989230752
+    }
+  ],
+  "host_exit": 0,
+  "elapsed_ms": 209.61920905392617,
+  "host_stats": [
+    {
+      "bundle": "jepa_tx_gate_wasm",
+      "replies": 6,
+      "sims": 50,
+      "pinned": false,
+      "startup_ms": 85.0,
+      "compile_ms": 50.0,
+      "cached": false,
+      "run_s": 0.02,
+      "guest_memory_mb": 16.0,
+      "exit": 0,
+      "fuel": {
+        "n": 6,
+        "total": 390194848,
+        "p50": 24019893,
+        "p95": 197039573,
+        "max": 197039573
+      }
+    }
+  ],
+  "scope": "Protocol and host integration only; no full games or gameplay-strength evidence"
+}

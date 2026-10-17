@@ -76,28 +76,28 @@ Python controller needs a compatible generated-C integration (such as a built-in
 extension in a rebuilt CPython WASI) or a different reviewed route. That integration
 and its total memory/startup/decision cost have not been demonstrated here.
 
-At evidence creation, `/opt/homebrew/bin/python3 -I` cannot import `wasmtime` and
-the task-local pinned CPython WASI runtime is absent. `blocked-host-run/` records
-that actual host invocation failing before any reply. It is not successful host
-compatibility evidence. No package was installed by this task.
-
-Update: the parent task subsequently provisioned pinned Wasmtime 49.0.0 in
-`task-4/runtime-venv/bin/python`; this interpreter passes `-I` import. The official
-CPython WASI release-asset download remains blocked, so no interpreter overhead
-number is available. The next runnable target is the native WASI controller.
+The parent task provisioned pinned Wasmtime 49.0.0 in
+`task-4/runtime-venv/bin/python`; this interpreter passes `-I` import and runs the
+native controller. The official CPython WASI release-asset download remains
+blocked, so no Python-interpreter overhead number is available. The ignored
+`blocked-host-run/` folder is an earlier failed attempt using system Python before
+the pinned interpreter existed; it is superseded by the successful final native
+checks below.
 
 ## Executed native controller results
 
-The parent task built `holocron-wasm/build/arena/jepa_tx_gate_wasm`. Its finished
-entry is 2,535,206 bytes, SHA-256
-`47012cdd7741bb2ba9b4be0e5697f77ad8349136284bd2def1ed47de58d31a71`.
+The parent task built `holocron-wasm/build/arena/jepa_tx_gate_wasm` from published
+source commit `6485d31df4bb15242e02f281b8ddd4176aedd931`, with source SHA-256
+`570ec9d86e6a4e86bae273ff458902a0294575e37c3a9815df95746c4fe89cd5`.
+Its frozen entry is 2,534,886 bytes, SHA-256
+`6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3`.
 The final checker accepted it, and independently hashing the canonical tar agrees
 with checker ID
-`3a571a612fe767d308a72cca8c29df55d7b04bfe0a9dcc012f3da6cc58e5c705`.
-Tar size is 2,549,760 bytes; reproducible gzip is 1,963,002 bytes. Imports are only
+`80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c`.
+Tar size is 2,549,760 bytes; reproducible gzip is 1,963,050 bytes. Imports are only
 WASI preview1 clock, environment, stdin/stdout and exit functions. The native
 manifest honestly declares `deterministic:false` because the planner has a clock
-deadline. Validation details and the exact tar are in `native-bundle-check/`.
+deadline. Validation details and the exact tar are in `final-bundle-check/`.
 
 All three final runs below assert the exact final Arena host blobs, use pinned
 Wasmtime 49.0.0, and hash the complete canonical bundle before and after execution.
@@ -106,26 +106,28 @@ one guest process; these are not full games or real-engine simulations.
 
 | Result directory | Mode | Sim requests | Final replies | Exit | Linear memory |
 |---|---|---:|---:|---:|---:|
-| `native-host-normal-bound/` | actual Arena invocation, no fuel flag | 50 (16 begin, 32 act, 2 end) | 6 | 0 | 16 MiB |
-| `native-host-sim-error-bound/` | inject simulation error at request 2 | 46 (15 begin, 29 act, 2 end) | 6 | 0 | 16 MiB |
-| `native-host-diagnostic-fuel-bound/` | diagnostic fuel 1 billion per final reply | 50 | 6 | 0 | 16 MiB |
+| `final-host-normal/` | actual Arena invocation, no fuel flag | 50 (16 begin, 32 act, 2 end) | 6 | 0 | 16 MiB |
+| `final-host-error/` | inject simulation error at request 2 | 46 (15 begin, 29 act, 2 end) | 6 | 0 | 16 MiB |
+| `final-host-fuel/` | diagnostic fuel 1 billion per final reply | 50 | 6 | 0 | 16 MiB |
 
 There was no stderr in these runs. Every session explicitly negotiated
 `ready.v:2,sim:true`, returned a legal real-action index and acknowledged `over`.
 The error run continued after its injected failure, cleaned up and completed the
-second session as well. Normal-run externally measured first hello was 136.64 ms,
-second hello 0.159 ms, and decides 11.99/10.13 ms. Cold module compilation was
-48.6 ms. These are tiny synthetic decisions on this Mac; they do not establish
+second session as well. Normal-run externally measured first hello was 95.56 ms,
+second hello 0.131 ms, and decides 8.02/6.93 ms. Cold module compilation was
+32.5 ms. These are tiny synthetic decisions on this Mac; they do not establish
 full-game time-bank fitness or process RSS.
 
-The fuel diagnostic consumed 390,194,388 units across six final reply intervals;
-maximum was 197,039,462 for one complete exchange. Sim output did not refill fuel.
+The fuel diagnostic consumed 390,194,848 units across six final reply intervals;
+maximum was 197,039,573 for one complete exchange. Sim output did not refill fuel.
 This enables fuel only for measurement; Arena's actual command still has no fuel
 flag. Source-level admission rules and transport are verified, but the hosted
 admission function was not invoked and no submission or rated game ran.
 
-Earlier unbound-named run folders retain the first smoke measurements; the
-`*-bound` folders are the final reports with explicit before/after bundle IDs.
+Earlier `native-*` folders retain preliminary build measurements. Only the
+`final-*` folders and `final-host-summary.json` describe the frozen bundle above.
+Raw run folders, compiled caches and tar files are ignored; the parent task
+curates compact public validation evidence separately.
 
 ## Bundle and digest check
 
@@ -154,7 +156,7 @@ inside this folder only. Example, from this folder:
 ../../../../../runtime-venv/bin/python -I check_native_bundle.py \
   --arena ../../../../../jepa-wasm \
   --bundle ../../../../build/arena/jepa_tx_gate_wasm \
-  --out native-bundle-check
+  --out fresh-final-bundle-check
 ```
 
 For the actual native controller, use protocol 2, kind `wasm`, platform

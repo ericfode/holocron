@@ -73,3 +73,8 @@ whole-check verification timings, not decision-latency benchmarks.
 files. It retains logits and context values but omits latent arrays to keep the fixture compact. Override
 `JEPA_REFERENCE_JS`, `JEPA_REFERENCE_HELPERS`, and `JEPA_REFERENCE_MODELS` for a different checkout. Generation and
 verification perform no training, full-engine games, installs or network operations.
+
+`check_production.py` checks the final module without enabling diagnostics: seven ordinary decisions and six exact
+JavaScript simulator transcripts, plus rejection of v1-only/string/boolean offers, legacy imagined-mode fallback
+and diagnostic requests. Run it with `--wasm build/arena/jepa_tx_gate_wasm/bot.wasm --report /tmp/production-parity.json`.
+The report records the actual entry hash. This uses CLI Wasmtime 44; final Arena host checks separately use pinned49.

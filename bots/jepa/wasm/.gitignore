@@ -4,6 +4,10 @@ __pycache__/
 host-evidence/*-run*/
 host-evidence/native-*/
 host-evidence/native-host-summary.json
+host-evidence/final-bundle-check/
+host-evidence/final-host-*/
+host-evidence/final-host-summary.json
+host-evidence/probe-bundle-evidence.json
 host-evidence/probe-bundle/
 host-evidence/probe-bundle.*
 host-evidence/compiled-cache/
