@@ -1,0 +1,523 @@
+{
+  "batches": [
+    {
+      "backward": true,
+      "batch": 1,
+      "fusion_activation_rms": {
+        "bag": 0.011163003780014912,
+        "context": 0.4893011737416486,
+        "query": 0.6697802021027915
+      },
+      "fusion_gradient_rms": {
+        "bag": 0.0016004345971153517,
+        "context": 0.004357965879279001,
+        "query": 0.0016165146082560526
+      },
+      "input_gradient_rms_physical_units": {
+        "chosen_base": 0.00418455815462389,
+        "chosen_damage_per30": 0.0002594240781004695,
+        "chosen_ground": 0.007019678138007707,
+        "chosen_hp_per30": 0.00012293781720963283,
+        "chosen_own": 0.002932564512579159,
+        "chosen_remaining_hp_per30": 0.000137899554616022,
+        "chosen_shields": 0.0008598943987610756,
+        "chosen_space": 0.0010670425200055324,
+        "chosen_unit": 0.004672328051142942,
+        "opponent_base_damage_per30": 7.781394024362866e-05,
+        "opponent_ground_count": 0.0020636557731163983,
+        "opponent_space_count": 0.0019127986755782802,
+        "own_base_damage_per30": 0.00021161119069739817,
+        "own_ground_count": 0.005220542041123437,
+        "own_space_count": 0.0015934687303857105,
+        "physical_resources": 0.0008762032500753896,
+        "ready_resources": 0.008849525848489425,
+        "source_deployed": 0.0016524035794661497,
+        "source_exhausted": 0.026626980103435078
+      },
+      "loss": 0.09288335591554642,
+      "module_gradients_preclip": {
+        "context_projection": {
+          "gradient_coordinates": 320,
+          "l2": 0.1256923616798802,
+          "nonzero_coordinates": 224,
+          "nonzero_fraction": 0.7,
+          "parameters": 320,
+          "rms": 0.007026416624217545
+        },
+        "head": {
+          "gradient_coordinates": 1799,
+          "l2": 0.12713242423986637,
+          "nonzero_coordinates": 1799,
+          "nonzero_fraction": 1.0,
+          "parameters": 1799,
+          "rms": 0.002997372695487854
+        },
+        "leaf": {
+          "gradient_coordinates": 800,
+          "l2": 0.010436216474257874,
+          "nonzero_coordinates": 800,
+          "nonzero_fraction": 1.0,
+          "parameters": 800,
+          "rms": 0.00036897597194392526
+        },
+        "path_embedding": {
+          "gradient_coordinates": 1088,
+          "l2": 0.0011890732743788052,
+          "nonzero_coordinates": 432,
+          "nonzero_fraction": 0.39705882352941174,
+          "parameters": 1088,
+          "rms": 3.604907872693282e-05
+        },
+        "path_gru": {
+          "gradient_coordinates": 1632,
+          "l2": 0.004143004461713759,
+          "nonzero_coordinates": 1632,
+          "nonzero_fraction": 1.0,
+          "parameters": 1632,
+          "rms": 0.00010255464220768194
+        },
+        "scalar": {
+          "gradient_coordinates": 48,
+          "l2": 0.0020438178320582832,
+          "nonzero_coordinates": 48,
+          "nonzero_fraction": 1.0,
+          "parameters": 48,
+          "rms": 0.0002949996938783518
+        },
+        "status_projection": {
+          "gradient_coordinates": 80,
+          "l2": 0.012489930497585046,
+          "nonzero_coordinates": 16,
+          "nonzero_fraction": 0.2,
+          "parameters": 80,
+          "rms": 0.0013964166813423967
+        },
+        "type_embedding": {
+          "gradient_coordinates": 224,
+          "l2": 0.0011467440351351072,
+          "nonzero_coordinates": 112,
+          "nonzero_fraction": 0.5,
+          "parameters": 224,
+          "rms": 7.662005874646839e-05
+        },
+        "value_embedding": {
+          "gradient_coordinates": 768,
+          "l2": 0.0009657317085235114,
+          "nonzero_coordinates": 384,
+          "nonzero_fraction": 0.5,
+          "parameters": 768,
+          "rms": 3.484784136756291e-05
+        }
+      },
+      "name": "training-objective",
+      "observed_coordinates": 41
+    },
+    {
+      "backward": true,
+      "batch": 2,
+      "fusion_activation_rms": {
+        "bag": 0.011163003780014912,
+        "context": 0.4893011737416486,
+        "query": 0.6697802021027915
+      },
+      "fusion_gradient_rms": {
+        "bag": 0.0019739478208944546,
+        "context": 0.01385803474097447,
+        "query": 0.0020570845312265127
+      },
+      "input_gradient_rms_physical_units": {
+        "chosen_base": 0.008918654882074281,
+        "chosen_damage_per30": 0.0010936640506980153,
+        "chosen_ground": 0.020249698353975325,
+        "chosen_hp_per30": 9.497673454487148e-05,
+        "chosen_own": 0.0026759470953914735,
+        "chosen_remaining_hp_per30": 0.00047001526267656627,
+        "chosen_shields": 0.003227139320359692,
+        "chosen_space": 0.0037990460300022237,
+        "chosen_unit": 0.01256431020009268,
+        "opponent_base_damage_per30": 0.00028151367701938836,
+        "opponent_ground_count": 0.008437234127997186,
+        "opponent_space_count": 0.00689021967718017,
+        "own_base_damage_per30": 0.0008566384818585626,
+        "own_ground_count": 0.021234828479916555,
+        "own_space_count": 0.005789345480216731,
+        "physical_resources": 0.0015370613506114428,
+        "ready_resources": 0.03055297040503752,
+        "source_deployed": 0.006371545839425434,
+        "source_exhausted": 0.098450423201986
+      },
+      "loss": 0.10868184268474579,
+      "module_gradients_preclip": {
+        "context_projection": {
+          "gradient_coordinates": 320,
+          "l2": 0.4056980906529407,
+          "nonzero_coordinates": 224,
+          "nonzero_fraction": 0.7,
+          "parameters": 320,
+          "rms": 0.022679212726046186
+        },
+        "head": {
+          "gradient_coordinates": 1799,
+          "l2": 0.205102391427992,
+          "nonzero_coordinates": 1601,
+          "nonzero_fraction": 0.8899388549193996,
+          "parameters": 1799,
+          "rms": 0.004835653150809228
+        },
+        "leaf": {
+          "gradient_coordinates": 800,
+          "l2": 0.018542940846447694,
+          "nonzero_coordinates": 800,
+          "nonzero_fraction": 1.0,
+          "parameters": 800,
+          "rms": 0.0006555919607832091
+        },
+        "path_embedding": {
+          "gradient_coordinates": 1088,
+          "l2": 0.001898690294134857,
+          "nonzero_coordinates": 432,
+          "nonzero_fraction": 0.39705882352941174,
+          "parameters": 1088,
+          "rms": 5.756250465480206e-05
+        },
+        "path_gru": {
+          "gradient_coordinates": 1632,
+          "l2": 0.006684826212467161,
+          "nonzero_coordinates": 1632,
+          "nonzero_fraction": 1.0,
+          "parameters": 1632,
+          "rms": 0.00016547410623751069
+        },
+        "scalar": {
+          "gradient_coordinates": 48,
+          "l2": 0.0029069753099253246,
+          "nonzero_coordinates": 48,
+          "nonzero_fraction": 1.0,
+          "parameters": 48,
+          "rms": 0.0004195857444282455
+        },
+        "status_projection": {
+          "gradient_coordinates": 80,
+          "l2": 0.024323043515884567,
+          "nonzero_coordinates": 16,
+          "nonzero_fraction": 0.2,
+          "parameters": 80,
+          "rms": 0.0027193989360601687
+        },
+        "type_embedding": {
+          "gradient_coordinates": 224,
+          "l2": 0.0016276791979126155,
+          "nonzero_coordinates": 112,
+          "nonzero_fraction": 0.5,
+          "parameters": 224,
+          "rms": 0.00010875389096728611
+        },
+        "value_embedding": {
+          "gradient_coordinates": 768,
+          "l2": 0.0013030429016311295,
+          "nonzero_coordinates": 384,
+          "nonzero_fraction": 0.5,
+          "parameters": 768,
+          "rms": 4.701951062639773e-05
+        }
+      },
+      "name": "source-use-head",
+      "observed_coordinates": 10
+    },
+    {
+      "backward": true,
+      "batch": 3,
+      "fusion_activation_rms": {
+        "bag": 0.011163003780014912,
+        "context": 0.4893011737416486,
+        "query": 0.6697802021027915
+      },
+      "fusion_gradient_rms": {
+        "bag": 0.0002792424097298999,
+        "context": 0.00030514435218196103,
+        "query": 0.000392934495248629
+      },
+      "input_gradient_rms_physical_units": {
+        "chosen_base": 0.00011655468465204421,
+        "chosen_damage_per30": 6.907750460234955e-06,
+        "chosen_ground": 0.00011723011499983305,
+        "chosen_hp_per30": 6.086884761448552e-06,
+        "chosen_own": 0.00012205665467959988,
+        "chosen_remaining_hp_per30": 8.142814482827046e-06,
+        "chosen_shields": 0.00014063945238785222,
+        "chosen_space": 0.00015284113014333117,
+        "chosen_unit": 4.304805168839757e-05,
+        "opponent_base_damage_per30": 6.308104255131925e-06,
+        "opponent_ground_count": 0.00020213889792287525,
+        "opponent_space_count": 0.00016602933236233605,
+        "own_base_damage_per30": 5.564020223652046e-06,
+        "own_ground_count": 0.0002907742527451804,
+        "own_space_count": 0.0001110348356213827,
+        "physical_resources": 3.468538057574199e-05,
+        "ready_resources": 0.00019138074360101394,
+        "source_deployed": 0.0002364510757028811,
+        "source_exhausted": 0.0001916045576379969
+      },
+      "loss": 0.0006426834152080119,
+      "module_gradients_preclip": {
+        "context_projection": {
+          "gradient_coordinates": 320,
+          "l2": 0.005091356670070843,
+          "nonzero_coordinates": 208,
+          "nonzero_fraction": 0.65,
+          "parameters": 320,
+          "rms": 0.0002846154902993843
+        },
+        "head": {
+          "gradient_coordinates": 1799,
+          "l2": 0.08554538438305721,
+          "nonzero_coordinates": 1601,
+          "nonzero_fraction": 0.8899388549193996,
+          "parameters": 1799,
+          "rms": 0.0020168843700408483
+        },
+        "leaf": {
+          "gradient_coordinates": 800,
+          "l2": 0.0027345613298188137,
+          "nonzero_coordinates": 800,
+          "nonzero_fraction": 1.0,
+          "parameters": 800,
+          "rms": 9.668134299426932e-05
+        },
+        "path_embedding": {
+          "gradient_coordinates": 1088,
+          "l2": 0.00024652063187017887,
+          "nonzero_coordinates": 432,
+          "nonzero_fraction": 0.39705882352941174,
+          "parameters": 1088,
+          "rms": 7.4737544418731975e-06
+        },
+        "path_gru": {
+          "gradient_coordinates": 1632,
+          "l2": 0.0008619953830212567,
+          "nonzero_coordinates": 1632,
+          "nonzero_fraction": 1.0,
+          "parameters": 1632,
+          "rms": 2.1337565263893367e-05
+        },
+        "scalar": {
+          "gradient_coordinates": 48,
+          "l2": 0.00045634962959353696,
+          "nonzero_coordinates": 48,
+          "nonzero_fraction": 1.0,
+          "parameters": 48,
+          "rms": 6.586839537260365e-05
+        },
+        "status_projection": {
+          "gradient_coordinates": 80,
+          "l2": 0.003011160717091386,
+          "nonzero_coordinates": 16,
+          "nonzero_fraction": 0.2,
+          "parameters": 80,
+          "rms": 0.00033665800272966755
+        },
+        "type_embedding": {
+          "gradient_coordinates": 224,
+          "l2": 0.0002561231644472792,
+          "nonzero_coordinates": 112,
+          "nonzero_fraction": 0.5,
+          "parameters": 224,
+          "rms": 1.7112948753179987e-05
+        },
+        "value_embedding": {
+          "gradient_coordinates": 768,
+          "l2": 0.0002133341432545439,
+          "nonzero_coordinates": 384,
+          "nonzero_fraction": 0.5,
+          "parameters": 768,
+          "rms": 7.698032814709319e-06
+        }
+      },
+      "name": "damage-head",
+      "observed_coordinates": 5
+    },
+    {
+      "backward": false,
+      "bag_rms": 0.011163003780014912,
+      "batch": 4,
+      "context_between_rows_rms": 0.39268666762432286,
+      "context_rms": 0.47306673567944657,
+      "max_abs_bag_minus_query_over60": 9.313225746154785e-10,
+      "name": "saved-correct-baseline",
+      "query_between_rows_rms": 0.19433294864653503,
+      "query_rms": 0.6697802021027915
+    },
+    {
+      "backward": false,
+      "batch": 5,
+      "labels_used": false,
+      "logit_delta_max": 3.8780429363250732,
+      "logit_delta_rms": 1.9632736557670605,
+      "name": "zero-query-and-bag-at-fusion",
+      "per_head_logit_delta_rms": {
+        "cost_resource": 0.8296710687453414,
+        "damage_delta": 0.6577232855680296,
+        "followup_source_offered": 2.986006414372319,
+        "source_exhausted_after": 3.027848757185485,
+        "source_use": 0.35227095455011925,
+        "target_allowed": 2.365736153152684,
+        "terminal": 1.4336126933365365
+      }
+    },
+    {
+      "backward": false,
+      "batch": 6,
+      "labels_used": false,
+      "logit_delta_max": 1.7456724643707275,
+      "logit_delta_rms": 0.8034472300866203,
+      "name": "swap-two-known-programs-same-context",
+      "per_head_logit_delta_rms": {
+        "cost_resource": 0.3931369506650622,
+        "damage_delta": 0.1499732879472632,
+        "followup_source_offered": 1.0655774715837545,
+        "source_exhausted_after": 1.0735612382893769,
+        "source_use": 0.40690628190739475,
+        "target_allowed": 1.2612414506630376,
+        "terminal": 0.5452996536130854
+      }
+    },
+    {
+      "backward": false,
+      "batch": 7,
+      "labels_used": false,
+      "logit_delta_max": 5.9977874755859375,
+      "logit_delta_rms": 2.1340182358491626,
+      "name": "flip-source-exhausted-public-input",
+      "per_head_logit_delta_rms": {
+        "cost_resource": 0.8103132796145579,
+        "damage_delta": 0.12819279351069948,
+        "followup_source_offered": 0.9728945100610622,
+        "source_exhausted_after": 1.6410996598966852,
+        "source_use": 5.024355221549243,
+        "target_allowed": 1.4595665649173661,
+        "terminal": 0.4370172101597782
+      }
+    },
+    {
+      "backward": false,
+      "batch": 8,
+      "changed_rows": 10,
+      "labels_used": false,
+      "logit_delta_max": 0.15549063682556152,
+      "logit_delta_rms": 0.032048356158659766,
+      "name": "unit-remaining-hp1-versus2-public-input",
+      "per_head_logit_delta_rms": {
+        "cost_resource": 0.010765058488649337,
+        "damage_delta": 0.001632081176649908,
+        "followup_source_offered": 0.011462376111864195,
+        "source_exhausted_after": 0.01791061166260791,
+        "source_use": 0.07188133275545767,
+        "target_allowed": 0.0074715058616983375,
+        "terminal": 0.03736581698924989
+      }
+    },
+    {
+      "backward": false,
+      "batch": 9,
+      "edited_program_literals": 2,
+      "labels_used": false,
+      "logit_delta_max": 0.0003314018249511719,
+      "logit_delta_rms": 0.0001537211059071403,
+      "name": "known-amount1-to2-no-native-mutant-label",
+      "per_head_logit_delta_rms": {
+        "cost_resource": 7.288237495103693e-05,
+        "damage_delta": 4.4228275580263305e-05,
+        "followup_source_offered": 0.0002270015253538751,
+        "source_exhausted_after": 0.0002263345197589938,
+        "source_use": 5.401746414331339e-05,
+        "target_allowed": 0.0001848117270985661,
+        "terminal": 0.0001353255320209126
+      }
+    }
+  ],
+  "checkpoint_sha256_after": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27",
+  "checkpoint_sha256_before": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27",
+  "conclusion": "Semantic path is connected and model is program-sensitive, but this checkpoint is almost insensitive to a literal quantity change. Two familiar identities and constant damage labels cannot establish learned semantics.",
+  "counters": {
+    "backwards": 3,
+    "batches": 9,
+    "forwards": 9,
+    "optimizer_updates": 0
+  },
+  "dataset_sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+  "diagnostic_receipt": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/prior-diagnostic/receipt.json",
+    "sha256": "171e5ba9ce92661e4710802e27a3470819b2080feaaa524e1a8a059df6b58dbd"
+  },
+  "executed_source_snapshot": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/prior-diagnostic/executed-source.py",
+    "sha256": "00ea4e648aaf498fcc47c3bdc15bb34cddf8f53f7e6a636e420a6b400103d10f"
+  },
+  "guard": {
+    "elapsed_seconds": 1.3804728749673814,
+    "exitcode": 0,
+    "limitations": "RSS stop guard samples known parent/worker/resource-tracker PIDs via libproc; conservative per-PID peak sum merges rusage peaks. It is not an instantaneous OS memory limit. Worker creates no descendant workers.",
+    "observed_tree_peak_rss_mib": 268.6875,
+    "owned_pids": {
+      "resource_tracker": 77037,
+      "supervisor": 77000,
+      "worker": 77038
+    },
+    "owned_worker_pid": 77038,
+    "per_pid_peak_rss_mib": {
+      "resource_tracker": 18.125,
+      "supervisor": 36.65625,
+      "worker": 213.90625
+    },
+    "sample_interval_seconds": 0.1,
+    "status": "completed",
+    "stop_reason": null,
+    "supervisor_peak_rss_mib": 36.65625,
+    "worker_peak_rss_mib": 189.96875
+  },
+  "limitations": [
+    "Instantaneous post-training gradients do not reconstruct training history or prove which program semantics were learned.",
+    "Zero/swap/quantity interventions are unlabelled synthetic feature edits, not native counterfactual transition labels.",
+    "Parameter gradient size depends on scale/dimension; RMS/nonzero coverage and input sensitivity accompany L2 norms."
+  ],
+  "next_design": {
+    "action_bag_branch": "removed; no deck claim",
+    "controls": [
+      "correct IR",
+      "ID-only with heldout UNK",
+      "train-partition wrong IR with seeded per-example draws",
+      "context-only uniform unavailable IR"
+    ],
+    "loss": "train-only scales; balanced per-head masked loss; constant heads auxiliary and separately reported",
+    "path_composition": "depth-conditioned key interaction before nonlinear path/value map, not additive key+depth sum",
+    "pooling": "active semantic and role means, normalized program representation",
+    "split": "10 seen/2 heldout program identities crossed with10 seen/4 heldout state families; no alias or exact program overlap",
+    "status": "proposal/source preparation only; no optimizer fit authorized yet"
+  },
+  "prior_source_sha256": "0b0826951cd880e8920e496c54c9a27c7a69032e726ec52f5354cead3e56bece",
+  "schema": "jepa-prior-pilot-diagnostic-summary/1",
+  "status": "completed",
+  "structural_facts": {
+    "all_head_macro_constant_fraction": 0.42857142857142855,
+    "constant_coordinate_fraction": 0.34146341463414637,
+    "hp_feature_divisor": 30,
+    "one_copy_capability_bag_divisor": 60,
+    "token_sum_divisor": 64,
+    "training_constant_heads": [
+      "damage_delta",
+      "source_exhausted_after",
+      "followup_source_offered"
+    ],
+    "training_head_support": [
+      10,
+      7,
+      5,
+      5,
+      5,
+      4,
+      5
+    ]
+  },
+  "weights_unchanged": true,
+  "worker_seconds": 1.160326375043951
+}
