@@ -1,6 +1,6 @@
 {
   "schema": "typed-transition-pilot-proposal/1",
-  "status": "proposed-not-launched",
+  "status": "superseded-before-launch",
   "purpose": "Test a small shared typed encoder against independent engine transitions; alignment is auxiliary",
   "source_commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
   "admission_before_launch": [
@@ -71,5 +71,7 @@
     "recorded_case": "Readying an enemy Cinta is followed by its immediate lethal attack. No saving alternative is proven.",
     "next_fixture": "An independently admitted readiness/ownership/terminal microfixture, rather than replay counterfactuals through an unsupported bridge.",
     "current_gap": "The present typed adapter does not admit Ready effects or full-game reconstruction; extend and verify that subset separately before using the diagnostic as a training fixture."
-  }
+  },
+  "superseded_by": "SUPPORTED_TRANSITION_DESIGN.md and supported-transition allocation/run receipts",
+  "supersession_reason": "Eric explicitly requested a useful experiment using existing verified runtime coverage. The old eight-card held-out-ID gate is no longer a launch requirement. The immediate two-card pilot holds out grouped public context families and makes no unseen-card claim."
 }
