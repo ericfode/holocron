@@ -8,6 +8,12 @@ import publication_portable as B
 
 
 class PortablePublicationTests(unittest.TestCase):
+    def spaces(self):
+        keys = ["deck", "card"] + ["independent_controls_" + str(i) for i in range(6)] + ["actual_corpus_card", "actual_corpus_deck"]
+        return {key: dict(id="space-" + key, vectors_url=key + ".json", artifact_sha256="a" * 64,
+                          vectors_url_bytes=10, dimension=32 if key == "actual_corpus_deck" else 16,
+                          entity_count=27, semantic_validated=False) for key in keys}
+
     def closure(self, root):
         stage = root / "bundle"; stage.mkdir()
         return B.Closure(stage)
@@ -84,6 +90,28 @@ class PortablePublicationTests(unittest.TestCase):
             for filename in ("first.zip", "second.zip"):
                 B.deterministic_zip(data, root / filename)
             self.assertEqual((root / "first.zip").read_bytes(), (root / "second.zip").read_bytes())
+
+    def test_original_default_remains_exactly33_artifacts_and_six_assay_spaces(self):
+        spaces = self.spaces()
+        result = B.select_vector_spaces(dict.fromkeys(range(33)), {"spaces": spaces})
+        self.assertEqual([row["id"] for row in result], ["space-independent_controls_" + str(i) for i in range(6)])
+        with self.assertRaises(ValueError):
+            B.select_vector_spaces(dict.fromkeys(range(38)), {"spaces": spaces})
+
+    def test_explicit38_artifacts_and_all10_exact_ids_preserve_legacy_and_dimensions(self):
+        spaces = self.spaces(); expected = [row["id"] for row in spaces.values()]
+        result = B.select_vector_spaces(dict.fromkeys(range(38)), {"spaces": spaces}, expected_artifact_count=38,
+                                        expected_space_count=10, all_registered_spaces=True, expected_space_ids=expected)
+        self.assertEqual([row["id"] for row in result], expected)
+        self.assertEqual(result[-1]["dimension"], 32)
+        self.assertTrue(all(row["semantic_validated"] is False for row in result))
+        for missing_ids in (None, expected[:-1], expected[:-1] + [expected[0]]):
+            with self.subTest(ids=missing_ids), self.assertRaises(ValueError):
+                B.select_vector_spaces(dict.fromkeys(range(38)), {"spaces": spaces}, expected_artifact_count=38,
+                                       expected_space_count=10, all_registered_spaces=True, expected_space_ids=missing_ids)
+        with self.assertRaises(ValueError):
+            B.select_vector_spaces(dict.fromkeys(range(38)), {"spaces": spaces}, expected_artifact_count=38,
+                                   expected_space_count=9, all_registered_spaces=True, expected_space_ids=expected)
 
 
 if __name__ == "__main__":

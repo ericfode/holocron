@@ -251,7 +251,38 @@ def deterministic_zip(bundle, destination):
             archive.writestr(info, path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
 
 
-def build(pointer_path, out):
+def select_vector_spaces(scientific, embedding_value, *, expected_artifact_count=33, expected_space_count=6,
+                         all_registered_spaces=False, expected_space_ids=None):
+    """Freeze a selection explicitly; legacy callers retain the six-space assay."""
+    if any(type(n) is not int or n < 1 for n in (expected_artifact_count, expected_space_count)):
+        raise ValueError("positive explicit artifact/space counts required")
+    if len(scientific) != expected_artifact_count:
+        raise ValueError("scientific artifact count differs from frozen expectation")
+    if type(all_registered_spaces) is not bool:
+        raise ValueError("all_registered_spaces must be explicit boolean")
+    if all_registered_spaces and expected_space_ids is None:
+        raise ValueError("all registered spaces require frozen exact space IDs")
+    selected = [space for key, space in embedding_value["spaces"].items()
+                if all_registered_spaces or key.startswith("independent_controls_")]
+    ids = [space["id"] for space in selected]
+    if len(selected) != expected_space_count or len(ids) != len(set(ids)):
+        raise ValueError("vector space count/unique IDs differ from frozen expectation")
+    if expected_space_ids is not None:
+        expected = list(expected_space_ids)
+        if len(expected) != len(set(expected)) or set(expected) != set(ids):
+            raise ValueError("exact vector space IDs differ from frozen expectation")
+    result = []
+    for space in selected:
+        if space.get("semantic_validated") is not False:
+            raise ValueError("unvalidated-space status must remain explicit")
+        result.append(dict(id=space["id"], url="assets/" + Path(space["vectors_url"]).name,
+                           sha256=space["artifact_sha256"], bytes=space["vectors_url_bytes"],
+                           dimension=space["dimension"], rows=space["entity_count"], semantic_validated=False))
+    return result
+
+
+def build(pointer_path, out, *, expected_artifact_count=33, expected_space_count=6,
+          all_registered_spaces=False, expected_space_ids=None):
     pointer_path, out = Path(pointer_path).resolve(), Path(out).resolve()
     verified = P.verify_pointer(pointer_path)
     if out.exists() or out.with_suffix(".zip").exists():
@@ -264,28 +295,28 @@ def build(pointer_path, out):
     handoff = closure.copy(handoff_pin, pointer_path, "handoff.json")
     sanitized_index = closure.values[index["url"]]
     scientific = sanitized_index["artifacts"]
-    vector_spaces = []
     embedding_entry = scientific.get("embedding_index")
-    if embedding_entry:
-        embedding_value = closure.values["assets/" + Path(embedding_entry["url"]).name]
-        for key, space in embedding_value["spaces"].items():
-            if key.startswith("independent_controls_"):
-                base = "assets/" + Path(space["vectors_url"]).name
-                vector_spaces.append(dict(id=space["id"], url=base, sha256=space["artifact_sha256"], bytes=space["vectors_url_bytes"],
-                                          dimension=space["dimension"], rows=space["entity_count"], semantic_validated=False))
-    if len(scientific) != 33 or len(vector_spaces) != 6:
-        raise ValueError("expected33 current scientific artifact entries and6 new vector spaces")
+    if not embedding_entry:
+        raise ValueError("embedding index artifact required")
+    embedding_value = closure.values["assets/" + Path(embedding_entry["url"]).name]
+    vector_spaces = select_vector_spaces(scientific, embedding_value, expected_artifact_count=expected_artifact_count,
+                                        expected_space_count=expected_space_count, all_registered_spaces=all_registered_spaces,
+                                        expected_space_ids=expected_space_ids)
     payload = dict(schema="jepa-portable-research-ui/1", publication=verified["publication"], counts=sanitized_index["counts"],
                    limits=sanitized_index.get("current_limits", []), scientific_artifacts=scientific, vector_spaces=vector_spaces,
                    semantic_validated=False, data_policy="All data URLs are relative hash/byte-pinned bundle files. Provenance paths are never fetch URLs. No scientific results or support flags were recomputed.")
+    if "space_groups" in embedding_value:
+        payload["space_groups"] = embedding_value["space_groups"]
     payload_pin = closure.store("ui-payload.json", P.encoded(payload))
     manifest = dict(schema=SCHEMA, publication_id=verified["publication_id"], publication=verified["publication"],
                     artifacts=dict(research_index={k: index[k] for k in ("url", "sha256", "bytes")},
                                    handoff={k: handoff[k] for k in ("url", "sha256", "bytes")}, ui_payload=payload_pin),
-                    scientific_artifact_count=33, vector_spaces=vector_spaces, fetchable_closure_complete=True,
+                    scientific_artifact_count=expected_artifact_count, vector_spaces=vector_spaces, fetchable_closure_complete=True,
                     provenance=dict(core_stable_pointer=P.pinned(pointer_path, pointer_path.read_bytes()), original_scope=verified["scope"]),
                     provenance_policy="Raw original bytes are under provenance/raw; host/source/code/checkpoint/history/live-feed paths are non-fetch metadata. Required scientific data pins never silently downgrade on mismatch.",
                     semantic_validated=False, neural_forwards=0, optimizer_updates=0, native_calls=0, paid_jobs=0)
+    if "space_groups" in embedding_value:
+        manifest["space_groups"] = embedding_value["space_groups"]
     closure.store("manifest.json", P.encoded(manifest))
     checksums = dict(schema="jepa-portable-checksums/1", files=[closure.records[key] for key in sorted(closure.records)],
                      self_hash="Excluded to avoid a hash cycle; external export receipt pins this file and deterministic ZIP.")
@@ -306,8 +337,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pointer", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--expected-artifact-count", type=int, default=33)
+    parser.add_argument("--expected-space-count", type=int, default=6)
+    parser.add_argument("--all-registered-spaces", action="store_true")
+    parser.add_argument("--expected-space-id", action="append", dest="expected_space_ids")
     args = parser.parse_args()
-    print(json.dumps(build(args.pointer, args.out), indent=2))
+    print(json.dumps(build(args.pointer, args.out, expected_artifact_count=args.expected_artifact_count,
+                           expected_space_count=args.expected_space_count, all_registered_spaces=args.all_registered_spaces,
+                           expected_space_ids=args.expected_space_ids), indent=2))
 
 
 if __name__ == "__main__":
