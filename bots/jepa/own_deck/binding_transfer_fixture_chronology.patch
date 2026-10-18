@@ -1,0 +1,37 @@
+--- a/bots/jepa/own_deck/binding_transfer_native_collector/src/main.rs
++++ b/bots/jepa/own_deck/binding_transfer_native_collector/src/main.rs
+@@ -108,10 +108,21 @@
+             "after_attack_programs":s.after_attack_programs,"event_group_active":s.event_group.active,"support_pending":s.support.pending}}))
+ }
+ 
+-fn attach_fixture(e:&Engine,s:&mut State,owner:Seat,code:&str,host:CardId)->CardId{
+-    let id=add(e,s,owner,code);let old=s.card(host).upgrades;
+-    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=old;s.card_mut(host).upgrades=id;
+-    s.registration_order.push(id).unwrap();id
++fn attach_fixture(e:&Engine,s:&mut State,owner:Seat,code:&str,host:CardId)->Result<CardId,String>{
++    if host==0||host>=s.next_id||!s.card(host).present{return Err("invalid fixture attachment host".into());}
++    // Match native Engine::attach chronology: ordinary upgrades append at tail.
++    // Validate the existing chain before allocating or changing any links.
++    let mut tail=0;let mut current=s.card(host).upgrades;let mut seen=vec![];
++    while current!=0{
++        if current>=s.next_id||seen.contains(&current){return Err("invalid/cyclic fixture attachment chain".into());}
++        let card=s.card(current);
++        if !card.present||card.parent!=host{return Err("fixture attachment parent mismatch".into());}
++        seen.push(current);tail=current;current=card.next_upgrade;
++    }
++    let id=add(e,s,owner,code);
++    if tail==0{s.card_mut(host).upgrades=id;}else{s.card_mut(tail).next_upgrade=id;}
++    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=0;
++    s.registration_order.push(id)?;Ok(id)
+ }
+ fn fixture(e:&Engine,world:&Value,plan:&Value)->Result<(State,[CardId;8],Vec<CardId>),String>{
+     let h=&plan["helpers"];let get=|name:&str|h[name].as_str().unwrap();let mut s=State{hidden_history_exact:true,..State::default()};
+@@ -125,7 +136,7 @@
+             refs[3]=unit(e,&mut s,Seat::P2,get("victim"));s.card_mut(refs[3]).damage=world["victim_damage"].as_u64().ok_or("victim damage missing")? as u16;
+             refs[4]=unit(e,&mut s,Seat::P2,get("unused_anchor"));
+             for code in h["victim_upgrades"].as_array().ok_or("victim upgrades missing")?{
+-                attachments.push(attach_fixture(e,&mut s,Seat::P2,code.as_str().ok_or("victim upgrade code missing")?,refs[3]));
++                attachments.push(attach_fixture(e,&mut s,Seat::P2,code.as_str().ok_or("victim upgrade code missing")?,refs[3])?);
+             }
+         },
+         Some("simultaneous-damage")=>{
