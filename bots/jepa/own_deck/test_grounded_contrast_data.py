@@ -133,13 +133,14 @@ class GroundedContrastReceiptTests(unittest.TestCase):
                 projections["source"]["exhausted"] = state["source_exhausted"]
                 for slot, fields in state["overrides"].items():
                     projections[slot].update(fields)
-                before = dict(state=dict(players=dict(p1=dict(resources=[dict(exhausted=i >= state["ready_resources"]) for i in range(3)]))),
-                              projections=projections, offeredActions=[], decision="ActionWindow", terminal=False, sourceInstance=None)
+                before = dict(state=dict(players=dict(p1=dict(resources=[dict(exhausted=i >= state["ready_resources"]) for i in range(3)], leader=dict(id=refs["source"], deployed=False))), activePlayer="p1", phase="action"),
+                              projections=projections, offeredActions=[], decision="Window", terminal=False, sourceInstance=None, settled=True, abilityProgramPlusOne=0,
+                              settlement=dict(decision="Window", ability_program=0, death_depth=0, death_pending=0, death_window=0, pending_programs=0, pending_triggers=0, after_attack_triggers=0, after_attack_programs=0, event_group_active=False, support_pending=False))
                 queries = [dict(chosen_ref=s, chosen_id=refs[s], targetAction=None, after=None, following=None, followupPass=None, engineError=None,
                                 targets={n: 0 for n in G.TARGETS}, target_mask={n: n == "source_use" for n in G.TARGETS}) for s in G.CANDIDATES]
                 records.append(dict(card=code, abilityPath=["abilities", program["side"], program["index"]], context_family=state["id"], context_group="family-" + str(state["id"]),
                                     identity_partition=program["partition"], state_partition=state["partition"], refs=refs, before=before, sourceAction=None, sourceOpened=None,
-                                    menuAction=None, targetPrompt=None, cancelAction=None, cancelled=None, queries=queries, source_use=False, source_use_known=True, engine_error_branches=0))
+                                    menuAction=None, postActivation=None, activationCompletion="not-offered", targetPrompt=None, cancelAction=None, cancelled=None, queries=queries, source_use=False, source_use_known=True, engine_error_branches=0))
         selected = sorted(set(G.CORE_CODES) | set(plan["helpers"].values()) | set(plan["required_native_tokens"]))
         return dict(schema="jepa-grounded-native-transitions/1", sourceRevision=G.REVISION, collectionPlan=copy.deepcopy(plan), collectionPlanSha256=G.sha(self.plan_path),
                     candidateOrder=list(G.CANDIDATES), targetNames=list(G.TARGETS), applyCalls=0, selectedWholeCards=selected, selectedCatalogueSha256=G.native_catalog_hash(self.catalog, selected),
@@ -157,7 +158,9 @@ class GroundedContrastReceiptTests(unittest.TestCase):
         case["before"]["offeredActions"] = [source]
         prompt = copy.deepcopy(case["before"])
         prompt.update(decision="AbilityTarget", sourceInstance=case["refs"]["source"], offeredActions=[action])
-        case.update(sourceAction=source, sourceOpened=copy.deepcopy(prompt), targetPrompt=prompt, source_use=True)
+        prompt.update(settled=False, abilityProgramPlusOne=1)
+        prompt["settlement"].update(decision="AbilityTarget", ability_program=1)
+        case.update(sourceAction=source, sourceOpened=copy.deepcopy(prompt), postActivation=copy.deepcopy(prompt), activationCompletion="target-prompt", targetPrompt=prompt, source_use=True)
         for query in case["queries"]:
             query["targets"]["source_use"] = 1
             query["target_mask"]["target_allowed"] = True
@@ -185,6 +188,7 @@ class GroundedContrastReceiptTests(unittest.TestCase):
         self.assertEqual(arrays["target_mask"][..., :2].sum(), 0)
         self.assertEqual(arrays["candidate_allowed_mask"].sum(), 0)
         self.assertTrue((arrays["primary_candidate_mask"][:, 7] == 0).all())
+        self.assertTrue((arrays["source_diagnostic_mask"][:, 7] == 1).all())
         self.assertEqual(len(set(arrays["state_fingerprints"])), 14)
         self.assertEqual(manifest["native_engine_error_branches"], 0)
 
@@ -251,6 +255,49 @@ class GroundedContrastReceiptTests(unittest.TestCase):
         arrays, _ = self.convert(receipt)
         self.assertEqual(arrays["target_mask"][..., 3].sum(), 0)
         self.assertEqual(arrays["targets"][..., 8].sum(), 1)
+
+    def test_pending_continuation_not_final_outcomes_and_false_settlement_rejected(self):
+        receipt, _, query = self.committed()
+        query["after"]["settlement"]["death_pending"] = 1
+        query["after"]["settled"] = False
+        query["pendingOutcome"] = "Native unresolved continuation"
+        for name in G.TARGETS[2:]: query["target_mask"][name] = False
+        arrays, _ = self.convert(receipt)
+        self.assertEqual(arrays["target_mask"].sum(), 0)
+        self.assertEqual(arrays["candidate_allowed"].sum(), 1)
+        query["after"]["settled"] = True
+        with self.assertRaisesRegex(ValueError, "settled flag"):
+            self.convert(receipt)
+
+    def test_finished_leader_without_target_has_known_source_unknown_target(self):
+        receipt = self.receipt()
+        case = next(c for c in receipt["cases"] if c["card"] == "ASH_011" and c["context_family"] == 0)
+        source = dict(kind="card", card=case["refs"]["source"], label="source")
+        case["before"]["offeredActions"] = [source]
+        finished = copy.deepcopy(case["before"])
+        finished["offeredActions"] = []
+        case.update(sourceAction=source, sourceOpened=copy.deepcopy(finished), postActivation=finished, activationCompletion="finished-without-target", source_use=True)
+        for query in case["queries"]: query["targets"]["source_use"] = 1
+        arrays, _ = self.convert(receipt)
+        self.assertEqual(arrays["source_use"].sum(), 1)
+        self.assertEqual(arrays["candidate_allowed_mask"].sum(), 0)
+        self.assertEqual(arrays["target_mask"].sum(), 0)
+
+    def test_followup_absence_requires_own_settled_action_window(self):
+        receipt, _, query = self.committed()
+        action = dict(kind="button", arg="pass", label="Pass")
+        query["after"]["offeredActions"] = [action]
+        query.update(followupPass=action, following=copy.deepcopy(query["after"]))
+        query["following"]["offeredActions"] = []
+        query["targets"]["followup_source_offered"] = 0
+        query["target_mask"]["followup_source_offered"] = True
+        self.convert(receipt)
+        for field, value in (("activePlayer", "p2"), ("phase", "regroup")):
+            changed = copy.deepcopy(receipt)
+            candidate = next(c for c in changed["cases"] if c["card"] == "ASH_011" and c["context_family"] == 0)["queries"][3]
+            candidate["following"]["state"][field] = value
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "follow-up absence"):
+                self.convert(changed)
 
 
 if __name__ == "__main__":

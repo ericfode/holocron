@@ -325,6 +325,22 @@ def action_for(capture, identity):
     return [a for a in capture["offeredActions"] if a.get("kind") == "card" and a.get("card") == identity]
 
 
+def settled_capture(capture):
+    """Check explicit native continuation/death queues; a prompt is not an outcome."""
+    witness = capture["settlement"]
+    if witness["decision"] != capture["decision"] or witness["ability_program"] != capture["abilityProgramPlusOne"]:
+        raise ValueError("native settlement witness/capture differs")
+    counts = ("ability_program", "death_depth", "death_pending", "death_window", "pending_programs", "pending_triggers", "after_attack_triggers", "after_attack_programs")
+    if any(type(witness[k]) is not int or witness[k] < 0 for k in counts):
+        raise ValueError("native settlement queue counters invalid")
+    event_active, support_pending = boolean(witness["event_group_active"]), boolean(witness["support_pending"])
+    value = boolean(capture["terminal"]) or (capture["decision"] == "Window" and all(witness[k] == 0 for k in counts)
+            and not event_active and not support_pending)
+    if boolean(capture["settled"]) != value:
+        raise ValueError("native settled flag differs from explicit continuation witness")
+    return value
+
+
 def validate_collection_plan(plan, report):
     frozen = split_plan(report)
     if plan.get("schema") != "grounded-native-collection-plan/1" or plan.get("source_revision") != REVISION:
@@ -371,6 +387,9 @@ def validate_query(case, query, slot, allowed):
         raise ValueError("native candidate label differs from actual target prompt")
     if query.get("targetAction") is not None and (prompt is None or query["targetAction"] not in action_for(prompt, identity)):
         raise ValueError("target commit was not an exact offered candidate tuple")
+    error = query.get("engineError")
+    if error is not None and (not isinstance(error, str) or not error.startswith("NATIVE_APPLY_ERROR: ") or not allowed or query.get("targetAction") is None):
+        raise ValueError("native error must belong to an actual offered commit")
     if after is None:
         if any(masks[name] for name in TARGETS[2:]):
             raise ValueError("uncommitted/error outcomes must remain unknown")
@@ -379,6 +398,12 @@ def validate_query(case, query, slot, allowed):
     else:
         if not allowed or query.get("targetAction") is None or query.get("engineError") is not None:
             raise ValueError("native commit binding/error inconsistency")
+        if not settled_capture(after):
+            if any(masks[name] for name in TARGETS[2:]) or query.get("following") is not None or query.get("followupPass") is not None:
+                raise ValueError("pending native continuation outcomes/follow-up must remain unknown")
+            if not isinstance(query.get("pendingOutcome"), str):
+                raise ValueError("pending native continuation needs explicit pendingOutcome")
+            return [0.] * 11, [0.] * 11
         pre, post = before["projections"][slot], after["projections"][slot]
         observed = dict(cost_resource=ready_resources(before) - ready_resources(after),
                         source_exhausted_after=after["projections"]["source"]["exhausted"], terminal=after["terminal"],
@@ -395,10 +420,13 @@ def validate_query(case, query, slot, allowed):
     if following is None and masks["followup_source_offered"]:
         raise ValueError("unobserved follow-up must remain unknown")
     if following is not None:
+        settled_capture(following)
         if after is None or query.get("followupPass") not in after["offeredActions"]:
             raise ValueError("follow-up was not an exact offered action")
         # Presence of a unit card can mean attack. The collector labels only absence.
-        if masks["followup_source_offered"] and (values["followup_source_offered"] != 0 or action_for(following, case["refs"]["source"])):
+        if masks["followup_source_offered"] and (values["followup_source_offered"] != 0 or action_for(following, case["refs"]["source"])
+                or not settled_capture(following) or following["terminal"] or following["decision"] != "Window"
+                or following["state"]["activePlayer"] != "p1" or following["state"]["phase"] != "action"):
             raise ValueError("follow-up absence label differs from native offers")
     return [scalar(values[n]) if masks[n] and j >= 2 else 0. for j, n in enumerate(TARGETS)], [float(masks[n] and j >= 2) for j, n in enumerate(TARGETS)]
 
@@ -434,6 +462,11 @@ def convert_receipt(receipt, report, plan, catalog, plan_sha256):
     matched_states, error_count = {}, 0
     for case in cases:
         code, family, before = case["card"], case["context_family"], case["before"]
+        for capture in (before, case.get("sourceOpened"), case.get("postActivation"), case.get("targetPrompt"), case.get("cancelled")):
+            if capture is not None:
+                settled_capture(capture)
+        if not before["settled"] or before["decision"] != "Window":
+            raise ValueError("root must be a settled public action window")
         if case.get("abilityPath") != selected[code]["ability_path"] or case.get("identity_partition") != ("train" if code in TRAIN_CODES else "heldout") or case.get("state_partition") != ("train" if family < 10 else "state-holdout"):
             raise ValueError("native root binding/split differs")
         if set(case["refs"]) != set(CANDIDATES) or len(set(case["refs"].values())) != 8:
@@ -463,16 +496,30 @@ def convert_receipt(receipt, report, plan, catalog, plan_sha256):
         if case.get("source_use_known") is not True or type(case.get("source_use")) is not bool:
             raise ValueError("native source availability must be known once per root")
         source_action, opened, menu = case.get("sourceAction"), case.get("sourceOpened"), case.get("menuAction")
+        post = case.get("postActivation")
         if source_action is not None and (source_action not in action_for(before, case["refs"]["source"]) or opened is None):
             raise ValueError("native source action not an exact initial offered tuple")
-        if menu is not None and (opened is None or menu not in opened["offeredActions"] or menu.get("arg") != 0 or menu.get("label") in ("Attack", "Cancel")):
+        if menu is not None and (opened is None or menu not in opened["offeredActions"] or type(menu.get("arg")) is not int or menu["arg"] != 0 or menu.get("label") in ("Attack", "Cancel")):
             raise ValueError("native selected unit menu binding differs")
-        available = menu is not None or (opened is not None and opened["decision"] in ("AbilityTarget", "AbilityNoEffect"))
+        if source_action is not None and (post is None or (menu is None and post != opened)):
+            raise ValueError("native post-activation witness missing/different")
+        if source_action is None and any(value is not None for value in (opened, menu, post)):
+            raise ValueError("native activation exists without offered source action")
+        leader_finished = False
+        if post is not None and selected[code]["source_form"] == "leader" and settled_capture(post):
+            leader = post["state"]["players"]["p1"]["leader"]
+            leader_finished = leader["id"] == case["refs"]["source"] and leader["deployed"] is False
+        available = menu is not None or (opened is not None and opened["decision"] in ("AbilityTarget", "AbilityNoEffect")) or leader_finished
         if available != case["source_use"]:
             raise ValueError("source-use label confuses card attack affordance with ability")
+        if available and not settled_capture(post) and (post["sourceInstance"] != case["refs"]["source"] or post["abilityProgramPlusOne"] <= 0):
+            raise ValueError("native unresolved selected ability source/program differs")
         prompt = case.get("targetPrompt")
         if prompt is not None and (not available or prompt["sourceInstance"] != case["refs"]["source"] or prompt["decision"] != "AbilityTarget"):
             raise ValueError("native actual target prompt binding differs")
+        completion = "target-prompt" if prompt is not None else "finished-without-target" if available and settled_capture(post) else "pending-without-target" if available else "attack-only" if source_action is not None else "not-offered"
+        if case.get("activationCompletion") != completion:
+            raise ValueError("native activation completion witness differs")
         if case.get("cancelled") is not None and (case["cancelled"]["state"] != before["state"] or case["cancelled"]["offeredActions"] != before["offeredActions"]):
             raise ValueError("native cancellation did not restore untouched root")
         if len(case["queries"]) != 8:

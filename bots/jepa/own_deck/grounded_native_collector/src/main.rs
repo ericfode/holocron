@@ -55,7 +55,7 @@ fn projection(e:&Engine,s:&State,wire:&Value,id:CardId)->Result<Value,String>{
     let card=native_card(wire,id);let hp=card.and_then(|v|v["hp"].as_i64()).or(info.hp.map(i64::from));
     let power=card.and_then(|v|v["power"].as_i64()).or(info.power.map(i64::from));
     Ok(json!({"id":cid(id),"code":if c.present{json!(e.definitions[c.def as usize].code)}else{Value::Null},"zone":z,"owner":if c.present{json!(c.owner.as_str())}else{Value::Null},
-        "present":c.present,"in_arena":z=="ground"||z=="space","attackable":["ground","space","base"].contains(&z),
+        "present":c.present,"in_arena":z=="ground"||z=="space","attackable":(["ground","space","base"].contains(&z)),
         "is_unit":info.is("unit")||(info.is("leader")&&c.deployed),"is_base":info.is("base"),
         "damage":c.damage,"exhausted":c.exhausted,"hp":if c.present{hp.unwrap_or(0)}else{0},"power":if c.present{power.unwrap_or(0)}else{0},
         "shield_count":token_count(s,c.shield)?,"xp_count":token_count(s,c.experience)?,

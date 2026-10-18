@@ -26,8 +26,8 @@
     },
     {
       "path": "src/main.rs",
-      "sha256": "a78e916b01db394c06422f6cd6378cfa64e20879ffd96fc14f8b0b4ea22df943",
-      "bytes": 22534
+      "sha256": "02a29057287a275b1c3b9709790dd3d8c0a530eb1b3dcad83888f9532af00d2a",
+      "bytes": 22536
     },
     {
       "path": "supervise.py",
