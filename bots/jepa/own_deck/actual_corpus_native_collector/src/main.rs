@@ -61,12 +61,29 @@ fn projection(e:&Engine,s:&State,wire:&Value,id:CardId)->Result<Value,String>{
         "shield_count":token_count(s,c.shield)?,"xp_count":token_count(s,c.experience)?,
         "known":{"identity":c.present,"owner":c.present,"damage":c.present&&damageable,"exhausted":c.present&&physical_unit,"hp":c.present&&hp.is_some()&&damageable,"power":c.present&&power.is_some()&&physical_unit,"shield_count":c.present&&physical_unit,"xp_count":c.present&&physical_unit}}))
 }
-fn capture(e:&Engine,s:&State,refs:&[CardId;8])->Result<Value,String>{
+fn public_printed_has_trait(plan:&Value,code:&str,name:&str)->Result<bool,String>{
+    // These fixtures contain no trait-changing effects. Read the complete public
+    // pinned row keyed by the ACTUAL runtime definition code, not private fields.
+    let row=plan.get("selected_whole_rows").and_then(|v|v.get(code)).ok_or("public whole-card trait row missing")?;
+    let traits=row.get("card").and_then(|v|v.get("traits")).and_then(Value::as_array).ok_or("public printed traits missing")?;
+    if traits.iter().any(|v|!v.is_string()){return Err("public printed traits malformed".into());}
+    Ok(traits.iter().any(|v|v.as_str()==Some(name)))
+}
+fn other_fighter_count(e:&Engine,s:&State,refs:&[CardId;8],plan:&Value)->Result<usize,String>{
+    let mut count=0;
+    for &id in s.player(Seat::P1).ground.as_slice().iter().chain(s.player(Seat::P1).space.as_slice()){
+        if id==refs[0]{continue;}
+        let code=e.definitions[s.card(id).def as usize].code.as_str();
+        if public_printed_has_trait(plan,code,"fighter")?{count+=1;}
+    }
+    Ok(count)
+}
+fn capture(e:&Engine,s:&State,refs:&[CardId;8],plan:&Value)->Result<Value,String>{
     let wire=e.snapshot(s);let mut projections=serde_json::Map::new();
     for (slot,id) in SLOTS.iter().zip(refs){projections.insert((*slot).into(),projection(e,s,&wire,*id)?);}
     Ok(json!({"decision":format!("{:?}",s.decision),"actor":s.actor(),"sourceInstance":if s.source==0{Value::Null}else{json!(cid(s.source))},
         "abilityProgramPlusOne":s.ability_program,"abilityPc":s.ability_pc,"abilityCommitted":s.ability_committed,
-        "other_friendly_space_count":s.player(Seat::P1).space.as_slice().iter().filter(|id|**id!=refs[0]).count(),"other_friendly_fighter_count":s.player(Seat::P1).ground.as_slice().iter().chain(s.player(Seat::P1).space.as_slice()).filter(|id|**id!=refs[0]&&e.definitions[s.card(**id).def as usize].info.traits.iter().any(|t|t=="fighter")).count(),"own_aspect_sources":{"base":e.definitions[s.card(s.player(Seat::P1).base).def as usize].code,"leader":e.definitions[s.card(s.player(Seat::P1).leader).def as usize].code},"state":wire,"projections":projections,"offeredActions":e.legal_actions(s),"terminal":s.is_terminal(),"settled":settled(s),
+        "other_friendly_space_count":s.player(Seat::P1).space.as_slice().iter().filter(|id|**id!=refs[0]).count(),"other_friendly_fighter_count":other_fighter_count(e,s,refs,plan)?,"own_aspect_sources":{"base":e.definitions[s.card(s.player(Seat::P1).base).def as usize].code,"leader":e.definitions[s.card(s.player(Seat::P1).leader).def as usize].code},"state":wire,"projections":projections,"offeredActions":e.legal_actions(s),"terminal":s.is_terminal(),"settled":settled(s),
         "settlement":{"decision":format!("{:?}",s.decision),"ability_program":s.ability_program,"death_depth":s.death_depth,
             "death_pending":s.death_pending.len,"death_window":s.death_window.len,"pending_programs":s.pending_programs,
             "pending_triggers":s.pending_triggers,"after_attack_triggers":s.after_attack_triggers,
@@ -95,12 +112,12 @@ fn offered(e:&Engine,s:&State,id:CardId)->Option<Action>{e.legal_actions(s).into
 struct Budget{started:Instant,calls:usize,path:PathBuf,context:String}
 impl Budget{
     fn trace(&self,row:&Value)->Result<(),String>{let mut f=fs::OpenOptions::new().append(true).open(&self.path).map_err(|e|e.to_string())?;serde_json::to_writer(&mut f,row).map_err(|e|e.to_string())?;f.write_all(b"\n").and_then(|_|f.flush()).and_then(|_|f.sync_all()).map_err(|e|e.to_string())}
-    fn apply(&mut self,e:&Engine,s:&State,a:&Action,refs:&[CardId;8],branch:&str)->Result<State,String>{
+    fn apply(&mut self,e:&Engine,s:&State,a:&Action,refs:&[CardId;8],branch:&str,plan:&Value)->Result<State,String>{
         if self.calls>=MAX_APPLY||self.started.elapsed().as_secs()>=MAX_SECONDS{return Err("native global quota reached".into());}
         if !e.legal_actions(s).contains(a){return Err("unoffered native action rejected before apply".into());}
-        self.trace(&json!({"phase":"beforeApply","applyCall":self.calls+1,"context":self.context,"branch":branch,"before":capture(e,s,refs)?,"offeredAction":a}))?;
+        self.trace(&json!({"phase":"beforeApply","applyCall":self.calls+1,"context":self.context,"branch":branch,"before":capture(e,s,refs,plan)?,"offeredAction":a}))?;
         self.calls+=1;let result=e.apply(s,a);
-        let row=match &result{Ok(t)=>json!({"phase":"afterApply","applyCall":self.calls,"context":self.context,"branch":branch,"after":capture(e,t,refs)?}),Err(error)=>json!({"phase":"applyError","applyCall":self.calls,"context":self.context,"branch":branch,"error":error})};
+        let row=match &result{Ok(t)=>json!({"phase":"afterApply","applyCall":self.calls,"context":self.context,"branch":branch,"after":capture(e,t,refs,plan)?}),Err(error)=>json!({"phase":"applyError","applyCall":self.calls,"context":self.context,"branch":branch,"error":error})};
         self.trace(&row)?;result.map_err(|error|format!("NATIVE_APPLY_ERROR: {error}"))
     }
 }
@@ -114,29 +131,29 @@ fn run_case(e:&Engine,b:&mut Budget,card:&Value,context:&Value,plan:&Value)->Res
         let host=s.card(uid).parent;let mut query=s;query.source=uid;query.decision=Decision::UpgradeTarget;
         let actions=e.legal_actions(&query);
         if !actions.iter().any(|a|a.id()==Some(host)){return Err("native public upgrade-target query rejects fixture host".into());}
-        attachment_witnesses.push(json!({"upgrade":cid(uid),"host":cid(host),"publicTargetQuery":capture(e,&query,&refs)?,"offeredHost":offered(e,&query,host)}));
+        attachment_witnesses.push(json!({"upgrade":cid(uid),"host":cid(host),"publicTargetQuery":capture(e,&query,&refs,plan)?,"offeredHost":offered(e,&query,host)}));
     }
     let chosen=if ["SEC_163","LOF_155"].contains(&code){context["upgrade_choice"].as_str().unwrap()}else if code=="JTL_217"{"friendly_ground"}else if ["LOF_077","JTL_078"].contains(&code){context["unit_choice"].as_str().unwrap()}else{"source"};
     let chosen_index=SLOTS.iter().position(|v|*v==chosen).ok_or("unknown declared target role")?;
     let mut refmap=serde_json::Map::new();for (name,id) in SLOTS.iter().zip(refs){refmap.insert((*name).into(),json!(cid(id)));}
     let mut row=json!({"card":code,"state_family":context["id"],"identity_partition":card["partition"],"state_partition":context["partition"],"refs":refmap,"chosen_ref":chosen,
-        "before":capture(e,&s,&refs)?,"publicSnapshotRoundtripExact":true,"attachmentTargetWitnesses":attachment_witnesses,"playAction":null,"steps":[],"targetPrompt":null,"targetAction":null,"final":null,"engineError":null,"completion":"play-unavailable","applyCalls":0});
+        "before":capture(e,&s,&refs,plan)?,"publicSnapshotRoundtripExact":true,"attachmentTargetWitnesses":attachment_witnesses,"playAction":null,"steps":[],"targetPrompt":null,"targetAction":null,"final":null,"engineError":null,"completion":"play-unavailable","applyCalls":0});
     let Some(play)=offered(e,&s,refs[0])else{b.trace(&json!({"phase":"contextComplete","context":b.context,"case":row}))?;return Ok(row);};
     row["playAction"]=json!(play);let mut next_action=Some((play,"play-own-hand"));let mut committed_target=false;
     loop{
         if b.calls-start>=8{row["completion"]=json!("per-root-apply-cap-unsettled");break;}
         let Some((action,stage))=next_action.take()else{break;};
-        let native_before=capture(e,&s,&refs)?;
-        match b.apply(e,&s,&action,&refs,stage){
+        let native_before=capture(e,&s,&refs,plan)?;
+        match b.apply(e,&s,&action,&refs,stage,plan){
             Err(error)if error.starts_with("NATIVE_APPLY_ERROR: ")=>{row["engineError"]=json!(error);row["completion"]=json!("native-error");break;},
             Err(error)=>return Err(error),
-            Ok(after)=>{s=after;row["steps"].as_array_mut().unwrap().push(json!({"stage":stage,"before":native_before,"action":action,"after":capture(e,&s,&refs)?}));}
+            Ok(after)=>{s=after;row["steps"].as_array_mut().unwrap().push(json!({"stage":stage,"before":native_before,"action":action,"after":capture(e,&s,&refs,plan)?}));}
         }
-        if settled(&s){row["final"]=capture(e,&s,&refs)?;row["completion"]=json!("settled");break;}
+        if settled(&s){row["final"]=capture(e,&s,&refs,plan)?;row["completion"]=json!("settled");break;}
         let actions=e.legal_actions(&s);
         if s.decision==Decision::AbilityTarget{
             if !row["targetPrompt"].is_null(){row["completion"]=json!("unreviewed-second-target-prompt");break;}
-            row["targetPrompt"]=capture(e,&s,&refs)?;
+            row["targetPrompt"]=capture(e,&s,&refs,plan)?;
             if let Some(action)=offered(e,&s,refs[chosen_index]){row["targetAction"]=json!(action);committed_target=true;next_action=Some((action,"chosen-target"));}
             else if let Some(action)=actions.into_iter().find(|a|a.arg.as_ref().and_then(Value::as_str)==Some("passAbility")||a.arg.as_ref().and_then(Value::as_str)==Some("cancel")||a.label=="Cancel"){
                 next_action=Some((action,"decline-unoffered-target"));
@@ -152,7 +169,7 @@ fn run_case(e:&Engine,b:&mut Budget,card:&Value,context:&Value,plan:&Value)->Res
         }else{row["completion"]=json!(format!("unreviewed-continuation-{:?}",s.decision));break;}
     }
     row["applyCalls"]=json!(b.calls-start);row["chosenTargetCommitted"]=json!(committed_target);
-    row["lastObserved"]=capture(e,&s,&refs)?;
+    row["lastObserved"]=capture(e,&s,&refs,plan)?;
     b.trace(&json!({"phase":"contextComplete","context":b.context,"applyCalls":b.calls,"case":row}))?;Ok(row)
 }
 fn run()->Result<Value,String>{
