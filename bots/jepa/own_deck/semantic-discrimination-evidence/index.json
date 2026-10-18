@@ -1,0 +1,17 @@
+{
+  "files": 126,
+  "manifest": {
+    "bytes": 86470,
+    "path": "manifest.json",
+    "sha256": "cee8cd7d8ad193057dc3584287f6a4937008391069f4d275d7c8abd95fbcdedb"
+  },
+  "raw_bytes": 39278156,
+  "schema": "jepa-semantic-discrimination-evidence/1",
+  "semantic_validated": false,
+  "source_freeze_commits": [
+    "b94dd4cfb9b63a3199805526398b925d3fdedc65",
+    "fea073737d9b7564278f752cb4dcb9a65023ef14",
+    "c546f0e3b54f363d74d503ebc2bbc425a8c28250"
+  ],
+  "stored_bytes": 3144165
+}
