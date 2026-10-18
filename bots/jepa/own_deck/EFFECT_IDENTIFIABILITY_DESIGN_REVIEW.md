@@ -1,8 +1,8 @@
 # Effect identifiability versus capacity: independent design review
 
-Status: conditional conceptual clearance for the next bounded experiment
-after PR35, with exact native/learner source freeze still pending. This report
-grants no execution approval. The reviewer has read saved sources/results only and has
+Status: **final static review passed** for the exact native/converter/learner
+sources pinned below. Actual native support sealing and the coordinator's
+campaign freeze remain execution gates. The reviewer has read saved sources/results only and has
 run no native call, neural forward, optimizer, fit or metric replay.
 
 The smallest useful contrast keeps the card encoder and predictor capacity
@@ -114,8 +114,10 @@ The subsequent root [hypothesis](EFFECT_IDENTIFIABILITY_HYPOTHESIS.md) and
 [learner protocol](EFFECT_IDENTIFIABILITY_LEARNER_PROTOCOL.md) fix a positive
 gate before labels: rich typed must have at least 10% lower primary
 family-first identifiable target-effect error than the strongest eligible
-sparse/ID/unused/wrong/training-prior control. Primary effect heads need at
-least four TRAIN observations including observed zero and nonzero. Correlated
+sparse/ID/unused/wrong/training-prior/literal-zero control. The root added the
+literal-zero control before label collection; both primary and contrast gates
+must compare all six controls. Primary effect heads need at least four TRAIN
+observations including at least two observed zero and two nonzero. Correlated
 power/HP errors count as one statistic group; at least two held families and
 three held program groups must have support. Source cost/location and offered
 membership remain secondary.
@@ -129,6 +131,12 @@ least four observed pairs from two families. Unknown pairs remain listed and
 unknown; measured signs cannot select the panel. These choices are a frozen
 new test, not a replay of untouched research evidence. Actual source and
 label-support checks still gate execution and interpretation.
+The root subsequently made support a **pre-fit** gate: all four planned
+mechanics need at least two observed-zero and two nonzero TRAIN coordinates;
+at least two held families/three actually observed program groups and four
+fixed contrast pairs across two families must be measured. These are mask and
+support checks, not held-error selection. Insufficient support stops before
+optimizer updates; it cannot silently choose a smaller convenient objective.
 
 * Rich improves over sparse at fixed capacity on the same adequately supported
   held families: the supervision intervention helped this model/cohort. This
@@ -198,6 +206,144 @@ contract `7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141`;
 independent qualification audit
 `f378dd7ad0849978da5f52203a0b2266da671d1926eff8df4dc7af38edf565a3`.
 
-Pending: exact native source/plan and observed support, new learner protocol,
-source/configuration pins and the compatible saved-baseline subset. Those are
-execution gates, not requests for additional unbounded computation.
+The initial proposal's pending source/plan/protocol pins and saved-baseline
+scope are resolved in the concrete review below. Actual native observations,
+support admission and coordinator campaign freeze remain execution gates,
+not requests for additional unbounded computation.
+
+## Concrete source review: native freeze and learner frontend
+
+The native freeze has no remaining collector/plan blocker for the bounded
+48-root collection. Independently read and hashed source manifest
+`2cb14e583fc7dec3cd987c036d64823cde568bf3ccd73984fee8b98264f20e1a`:
+all seven project files and 106 execution-input pins matched. The subsequent
+metadata-only guard revision was independently rehashed with the same counts
+and no mismatches: current manifest
+`81a25f88b545653c0cfb1feb0676f767202a1d2029fb3a382043e956bc98a767`,
+current supervisor
+`fb92460a08677466d5d68cfcd84138c2f89026b1e77878828011dc350117be80`.
+It skips only confirmed errno3 exited-owned-PID reads, recording PID/error/
+elapsed time; other RSS errors still fail. The initial manifest/supervisor
+below remain historical pins. Collector
+`native_effect_v2_collector/src/main.rs` is
+`5c875ea5e5dfeae6ab0b8c3243c1996b0d9f142691609aafa0803d2062d1b756`;
+supervisor is
+`7d73b14c94c369f9094b22e55686741d4fd507057e37006b5b40e1f2c44d9882`;
+both collection-plan copies are
+`73be341d31db061e3aea543e820b45c3355ba9a21b26b74193b945531157562f`.
+The plan/converter-preparation source `native_effect_v2.py` is
+`87b2e26917f3dc4c608cc32a61c3624ab1dc2392ccd388976f73da069b39d1b3`.
+This is source clearance, not an observed native endpoint or authorization.
+
+The collector uses the exact source in own hand, actual legal play and target
+menus, lawful preattached helper witnesses and snapshot/load equality. It
+retains full source definitions and public before/intermediate/final captures;
+there is no alternate-target fallback. Five applies/root and 240 total are
+bounded under the shared 256-call ceiling. Area observation, attachment parent,
+chosen target and source entry remain distinct modes. The shared hash-chained
+lease precedes preflight, and all attempts/builds/failures consume the fixed
+native allocation. The sampled memory bound is not an OS memory reservation
+or a claim of CPU affinity.
+
+The learner's concrete frontend and pure tests were read without executing
+them. `canonical_document` preserves complete ordered abilities, executable
+amounts, event root/ordered steps and binder invocation/read timing. Reviewed
+UI annotations are removed recursively; structured semantic literals reject
+rather than having their fields deleted. Alpha-normalization scopes by ability
+and hook and assigns deterministic slots by first canonical occurrence.
+Tests cover old-eight document/tensor parity, renamed callback equality,
+repeated/distinct binders, distinct hook scopes, unknown timing rejection and
+display cleanup preserving genuine effects. This clears the frontend contract
+in the final source pinned below.
+
+The repaired input-conflict API hashes actual semantic-bank tensors or the
+actual ID/UNKNOWN table contract, plus only the context/candidate/intent used
+by the corresponding source or branch head. Output masks are recorded
+separately and cannot split two known labels into different input groups.
+Correct/sparse typed conflicts gate the fit. ID-held-UNKNOWN and wrong-card
+information-loss conflicts are retained descriptively, not used to invalidate
+the cohort. Training-only literal scaling and zeroed held bank rows are
+visible; sparse masks change exactly the five TRAIN target-delta heads.
+Common rich-TRAIN head coefficients avoid changing the loss denominator.
+
+The final frozen receipt converter
+`4bd12522d2abc2cd5bfd9862a6934a925f8c49e93fb721ac52d492fbd2ed5985`
+now has no remaining source blocker. Its pure-test source is
+`6e3f993f712144033b0fc6ca773e091717f1ab9d32185daa0c57693cc9fec53f`;
+the owner reports eight tests passing, which this reviewer did not run. The
+earlier `637017bf…` source / `5c31e277…` tests are superseded. It
+checks raw own-arena membership/traits against OTHER Fighter/space inputs,
+ordered named ABI and the complete root grid, paid/settled outcomes, actual chosen
+or intended-parent commitment, physical attachment, observed area anchors and
+same-zone known numeric fields. Entry transitions remain secondary source
+facts, not primary continuous-unit effects. It explicitly checks every SEC_051
+capture for the same surviving enemy IDs, positive remaining HP and absent XP,
+and checks JTL_079's surviving intended host. Actual receipt/support sealing
+remains pending; no numerical
+support or model result has been asserted from these source checks.
+The final delta also distinguishes a recorded target attempt from a successful
+target commit; only the latter can own future effects. Engine errors and pending
+outcomes retain masked evidence and explicit `fit_blockers`. Each partition/card/
+head reports zero/positive/negative coordinate and root counts. Native family IDs
+remain provenance; the learner must separately join authoritative template and
+program groups rather than treating native display grouping as truth.
+
+## Final learner source clearance
+
+No remaining implementation blocker was found in final learner
+`effect_identifiability_fit.py`, SHA256
+`90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765`.
+Test source SHA256:
+`f16a166fba700a6444ccb50ada297bc27004d6bd51225d9e6fde814b78d528f6`;
+the owner reports sixteen pure tests passing, including actual own-process
+RSS smoke and cleanup failures. This reviewer read tests but ran none.
+Protocol SHA256:
+`6460784227c7ba3ca42dbd09482c7deeff66f4014f9d71a16fb17053cc38fe53`;
+hypothesis SHA256:
+`a1565a40d1e8c83da9326d3274b266ace4da2e3bd39e4521ef3165646f8743a7`.
+
+Prepared plan
+`experiments/effect-identifiability-v2/learner-prepared-v3.json` SHA256
+`bb0274e55006d4829f25bf43d46bae240c9e8a015805e6cd281b1668a11a2aaf`:
+all 25 protected pins independently matched. It is **prepared, not executed**.
+The earlier `32a77df0…` source / prepared-v2 `7013fe92…` are superseded by
+the final narrow output-flag correction, without a new scientific contrast.
+
+The final guard uses the checked macOS `proc_pidinfo` flavor4/96-byte
+`PROC_PIDTASKINFO` ABI, explicit ctypes signatures and resident bytes8…15;
+it rejects nonfinite/nonpositive time, validates initial RSS, samples live own
+RSS, validates final RSS and restores the timer/handler on failed entry/exit.
+Numerical imports occur within the guard. This is sampled live memory, not an
+instantaneous OS reservation. No further live-resource API assumption was
+found in the fixed single-worker source.
+
+The final seal joins canonical program groups from the strict12 contract,
+checks native blockers and exact public-intent/ABI/grid, rejects actual typed
+co-known input conflicts, and writes an admission-failure artifact before any
+neural import if the fixed support gate fails. Unsupported identities no longer
+inflate observed program-group support. The contrast deadband and TRAIN
+eligibility are explicit. All six controls, including literal zero, compete in
+both 10% error gates; the fixed family-first direction threshold is .75.
+
+All new arms allocate 11,856 parameters. Rich and sparse typed both train
+11,728; ID trains6,768, unused typed6,640 and wrong typed11,728. Public table
+cardinality changes from PR35 are disclosed rather than calling this an exact
+11,168-parameter replay. The complete cloned initial checkpoint is saved.
+All arms use the same 200 precomputed batches, seed/update settings, full held
+evaluation masks and TRAIN-only transforms; the sparse intervention changes
+only the five TRAIN delta masks. Held semantic bank rows are zero throughout
+training and ID-held entries remain UNKNOWN0. Postclip gradient diagnostics are
+correctly named. Protected pins are rechecked after the fixed 1,000 updates,
+1,011 forwards and zero export forwards; failed attempts remain charged.
+
+The saved PR35 diagnostic uses one batch containing old replay anchors plus
+the two compatible new TRAIN identities, with old documents/vocabulary/scales/
+checkpoint and replay-parity tolerance1e−5. It makes no claim about the five
+new held identities. A successful limited native gate is exported separately
+as `held_behavior_gate_passed`; **`semantic_validated` always remains false**,
+because complete attack/death-hook/all-state behavior is unmeasured.
+
+Static GO was sent to the coordinator for these exact sources under the frozen
+quotas, conditional on actual endpoint/support sealing and campaign freeze.
+No native collection, conversion, neural forward, optimizer, fit, metric replay
+or test was executed by this reviewer. This review changes one report only.

@@ -33,11 +33,16 @@ an input. Full definitions remain intact; surviving SEC_051 fixtures leave its
 death/Experience hook unmeasured. Display cleanup and scoped callback alpha-
 normalization preserve executable fields and are reviewed separately.
 
+Before fitting, all four planned mechanics require at least two observed zero
+and two nonzero TRAIN roots per head. Held support must cover two families and
+three program groups; the fixed contrast panel needs four measured pairs in two
+families. Missing support stops the fit and remains a collection result.
+
 The predeclared primary outcome is family-first held error on identifiable
-target consequences, with both observed zero and nonzero TRAIN support. Source
-cost/location and membership are secondary. A positive gate requires at least
-10% lower primary error than the strongest eligible sparse/ID/untrained/wrong/constant
-control, together with the protocol's fixed direction/contrast checks and all
+target consequences. Source cost/location and membership are secondary. A positive gate requires at least
+10% lower primary error than the strongest eligible sparse/ID/untrained/wrong,
+training-mean or literal-zero control, together with the protocol's fixed
+direction/contrast checks and all
 per-family errors. Untrained primitives, correlated HP/power coordinates and
 single-family exceptions cannot be counted as independent successes. No nearest-
 neighbor or printed-composition result can pass this gate.
