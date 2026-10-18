@@ -50,6 +50,29 @@ compiler hash:
 
 ## Small coherent extension
 
+Deck-list order is not a semantic input. Canonicalize card identities and sum
+copy counts before encoding; preserve multiplicity. The current implementation
+does this structurally, using sorted canonical counts in Python and an ordered
+map in Rust, then count-weighted invariant pooling. It has no positional
+embedding for entries in the deck list. Original/remaining role embeddings
+identify information roles, not arbitrary card positions.
+
+Any later per-card interactions must also obey the set contract: shared card
+encoders and permutation-equivariant attention, followed by sum/count pooling
+or invariant role-query attention. A learned deck-list position must not be
+introduced. Grouped-count attention would need explicit multiplicity weights
+to agree with expanded copies; treating a grouped entry as one copy would
+violate the contract. Repeated permutations and grouped/expanded-copy checks
+apply to features, latent queries and downstream scores, within declared
+numeric tolerances.
+
+This invariance applies to unordered composition. Ordered children inside an
+effect program, sequential continuations and timing remain ordered. A future
+belief state must preserve legitimately observed top/bottom constraints in a
+separate explicit structure, rather than infer order from an original list or
+discard known constraints during bag pooling. Current remaining rows do not
+implement that belief structure; hidden draw order is never an input.
+
 Share a typed card-capability encoder across deck, visible state and candidate
 actions. Encode operation kinds, ordered child edges, conditions, numeric
 expressions, target predicates, timing, costs, continuations and granted-host

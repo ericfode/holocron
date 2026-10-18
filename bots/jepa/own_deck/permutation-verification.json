@@ -1,0 +1,103 @@
+{
+  "schema": "jepa-own-deck-permutation-verification/1",
+  "status": "PASS",
+  "seed": 61423,
+  "forms": [
+    "grouped",
+    "expanded",
+    "split-reprints",
+    "expanded-reprints"
+  ],
+  "permutations_per_form": 64,
+  "equivalent_forms_tested": 256,
+  "model_checkpoint_roles": 2,
+  "horizons_per_action": 9,
+  "actions": 4,
+  "feature_bit_identity": true,
+  "model_output_bit_identity": true,
+  "maximum_absolute_errors": {
+    "features": 0.0,
+    "pooled_identity": 0.0,
+    "role_tokens": 0.0,
+    "z": 0.0,
+    "action_latents": 0.0,
+    "context_value": 0.0,
+    "action_values": 0.0
+  },
+  "required_output_tolerance": 1e-06,
+  "multiplicity_sensitivity": {
+    "tx-t10.safetensors": {
+      "extra-copy": {
+        "z": 0.0027619004249572754,
+        "action_latents": 0.01071077585220337,
+        "context_value": 0.00016236305236816406,
+        "action_values": 0.01325845718383789
+      },
+      "same-total-copy-transfer": {
+        "z": 0.01276707649230957,
+        "action_latents": 0.037615180015563965,
+        "context_value": 0.0042572021484375,
+        "action_values": 0.04514193534851074
+      }
+    },
+    "tx-t10-e.safetensors": {
+      "extra-copy": {
+        "z": 0.0027619004249572754,
+        "action_latents": 0.01071077585220337,
+        "context_value": 0.000503242015838623,
+        "action_values": 0.016758322715759277
+      },
+      "same-total-copy-transfer": {
+        "z": 0.01276707649230957,
+        "action_latents": 0.037615180015563965,
+        "context_value": 0.0013279914855957031,
+        "action_values": 0.05246394872665405
+      }
+    }
+  },
+  "rust": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/controller/target/debug/examples/own_deck_encode",
+    "sha256": "49fc8dea9bd84a9ebddc4dd1aec139f3b6958bdeb91d65b08c9a563beccdddd2",
+    "cases": 281,
+    "float_coordinates": 116334,
+    "bit_mismatches": 0,
+    "limitation": "Existing pure encoder executable used read-only; no build or graph export. Its hash is recorded separately from current source hashes."
+  },
+  "structural_chain": [
+    "Printed aliases normalize to canonical IDs and integer copy counts aggregate before features.",
+    "Python iterates sorted canonical counts; Rust uses BTreeMap entries. Neither assigns per-card deck-list positions.",
+    "Fixed count histograms produce a copy-weighted sum through shared embedding tables.",
+    "din projects metadata plus pooled identity into two fixed original/remaining role tokens, independent of24 live-card capacity.",
+    "The transformer sees those two role tokens, never a sequence of cards in declared deck-list order."
+  ],
+  "scope": [
+    "Unordered original composition is invariant to list serialization, duplicate grouping and reprint alias choice; multiplicity remains meaningful.",
+    "Future effect AST instruction order and legitimately observed top/bottom positions are ordered semantics and must not be erased by this invariant.",
+    "No effect-program semantics, unknown draw order, opponent-private information, optimization, gameplay or paid computation is introduced."
+  ],
+  "source_sha256": {
+    "own_deck/test_permutation_contract.py": "88230c1d4e05b88f75ea124d88ad3f551e3ad7b2c7b78a96d827ccedd8fdb801",
+    "own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "own_deck_model.py": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16",
+    "tx_model.py": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877",
+    "wasm/controller/src/own_deck.rs": "4dc2616a552267eb9725acdb0f43dbe4b150c8d567378f875313afc5bf46f987",
+    "wasm/controller/examples/own_deck_encode.rs": "91fc348bb6fe4f0c72ed0a26edb010d53043c6e05e53453569e39e74ee10cedd"
+  },
+  "fixture_sha256": {
+    "wasm/tests/fixtures/runtime-reference.json": "3f2c43a7e6b0169a34c08b83e8167d0f87ea4b78da7534a0e70e71cdf8359e8b",
+    "wasm/controller/fixtures/own-deck-contract.json": "cc6b20b30cd4f4305ec27258bd7dee86c1360e97826b756129c7a15db97a9141"
+  },
+  "generated_case_sha256": "b0b54fffecc4002135dd23d2e056d1f226555199e878556c8571639344101215",
+  "immutable_before": {
+    "models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "models/tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+    "wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+  },
+  "immutable_after": {
+    "models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "models/tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+    "wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+  },
+  "tests_run": 5,
+  "skips": []
+}
