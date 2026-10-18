@@ -1,0 +1,67 @@
+{
+  "schema": "jepa-card-program-embedding-manifest/1",
+  "created_at_utc": "2026-10-18T00:42:32.709215+00:00",
+  "semantic_validated": false,
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/card-embeddings.json",
+    "sha256": "cb38796bc31498aac1fde5f91e282bc814a9314ca1c076b02fbc5432f2223f04"
+  },
+  "checkpoint": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir.npz",
+    "sha256": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27"
+  },
+  "raw_fit_result": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/result.json",
+    "sha256": "cc8905d8224ceaf180333cd33e6e54f6718f37703a254e123fbe02254d1ec570"
+  },
+  "encoder_contract": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir-contract.json",
+    "sha256": "b18b8a3029f4e11c1c11610c13d5d30dee49e7947e98d368c5ef03efdc2c00d4"
+  },
+  "dataset_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.manifest.json",
+    "sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e"
+  },
+  "encoder_schema": "jepa-typed-transition-numeric/1",
+  "vocab_sha256": "72bb6e274c117b8abadc38ef31430ea3ee27168376a48a6f31bb92e4947057d5",
+  "program_order": [
+    "ASH_011",
+    "IBH_053"
+  ],
+  "source_revision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+  "encoder_sources": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/train_structured_transition.py",
+      "sha256": "0b0826951cd880e8920e496c54c9a27c7a69032e726ec52f5354cead3e56bece"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/typed_ir_alignment.py",
+      "sha256": "25a05e39e8e432e2003127747d2c311fe32d225528ac60db9afa05aee5b856c9"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/export_embeddings.py",
+      "sha256": "53d563bb3c181c1661dcd620b3ac998d641e17f13805a0d0ff5cab0526e4a520"
+    }
+  ],
+  "checkpoint_updates_before_export": 200,
+  "optimizer_updates_during_export": 0,
+  "model_forward_calls": 1,
+  "model_forward_programs": 2,
+  "operation": "TypedTransition.encode_program_bank once; no forward_transition, native action, held-out metric or ranking evaluation.",
+  "elapsed_seconds": 1.1126552920322865,
+  "process_peak_rss_mib": 297.71875,
+  "native_calls": 0,
+  "paid_jobs": 0,
+  "normalization": {
+    "raw": "unaltered16d learned program output",
+    "unit": "raw/L2norm when norm>1e-12; zero-norm cosine unavailable",
+    "fitted": false
+  },
+  "limitations": [
+    "Only two trained card IDs; both occur in training and validation contexts, with no held-out identity evidence.",
+    "Correct IR did not establish an advantage over the matched controls; vector proximity has no validated behavioral or neighbor-quality interpretation.",
+    "One pair cannot support a useful nearest-neighbor quality or metric-generalization claim.",
+    "Selected undeployed leader abilities only, not full-card, multi-effect sequence, deck synergy or production model representations.",
+    "These16d program vectors form a separate space from96d deck latents and must never be compared directly."
+  ]
+}

@@ -1,0 +1,533 @@
+{
+  "accounting": {
+    "conservative_receipt_seconds": 5.774724791990593,
+    "credit_reason": "CPython exited with status 2 before opening the trainer main script. Exact stderr, absent progress/output, and zero matching feed events were independently verified. The raw 600-update reservation and its 0.0569289589766413-second time debit are preserved, followed by an explicit 600-update credit in the same append-only ledger. No elapsed time or actual optimizer work was refunded.",
+    "credit_records": [
+      {
+        "event": "missing-main-update-credit",
+        "matching_run_events": 0,
+        "output_absent": true,
+        "preserved_active_seconds": 0.0569289589766413,
+        "progress_absent": true,
+        "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/supervisor-receipt.json",
+        "receipt_sha256": "bf6a91e1709ead9a07afbb48889a9be31c1d3f44b9a8c60464413223e3c82d56",
+        "stage_id": "fit-1792283785983450000",
+        "stderr_sha256": "8d807e88ac5751019b8f3829ba925ec419176f9ae8a7077980b6ce8b7c8aa65c",
+        "updates_credited": 600,
+        "verified_actual_updates": 0
+      }
+    ],
+    "cumulative_active_seconds": 5.774309332831763,
+    "cumulative_reported_prior_plus_new_updates": 1300,
+    "engine_apply_attempts": 32,
+    "first_collection_failure": {
+      "bytes": 2504,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-1/supervisor-receipt.json",
+      "sha256": "d11a2bbfcfd5d0e6a6828436fb8024b18fe02b53bd7b0c15d1e354c13fae5e29"
+    },
+    "first_fit_startup_failure": {
+      "bytes": 5299,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/supervisor-receipt.json",
+      "sha256": "bf6a91e1709ead9a07afbb48889a9be31c1d3f44b9a8c60464413223e3c82d56"
+    },
+    "inner_guard": {
+      "elapsed_seconds": 3.4658037499757484,
+      "exitcode": 0,
+      "limitations": "RSS stop guard samples known parent/worker/resource-tracker PIDs via libproc; conservative per-PID peak sum merges rusage peaks. It is not an instantaneous OS memory limit. Worker creates no descendant workers.",
+      "observed_tree_peak_rss_mib": 343.96875,
+      "owned_pids": {
+        "resource_tracker": 64204,
+        "supervisor": 64202,
+        "worker": 64205
+      },
+      "owned_worker_pid": 64205,
+      "per_pid_peak_rss_mib": {
+        "resource_tracker": 18.28125,
+        "supervisor": 43.859375,
+        "worker": 281.828125
+      },
+      "sample_interval_seconds": 0.1,
+      "status": "completed",
+      "stop_reason": null,
+      "supervisor_peak_rss_mib": 43.859375,
+      "worker_peak_rss_mib": 281.8125
+    },
+    "interpretation": "Sampled known-owned process/group stop guards with rusage peaks; not instantaneous OS memory reservation.",
+    "ledger": {
+      "bytes": 11341,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/campaign-ledger.jsonl",
+      "sha256": "11c8c719f162b14c810af5bffa74aa86ca47d494e5afcac2732b934248a082e5"
+    },
+    "max_collector_engine_applies": 64,
+    "max_engine_apply_attempts": 96,
+    "max_sampled_rss_bytes": 2147483648,
+    "max_shared_seconds": 120,
+    "net_updates": 600,
+    "outer_guard": {
+      "bytes": 5417,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-2/supervisor-receipt.json",
+      "sha256": "c0caab75fb3adfc4fa1717d35eb95ea7d1443bfa486681cc65fd24dfcde59110"
+    },
+    "paid_jobs": 0,
+    "paid_spend_usd": 0,
+    "prior_completed_updates": 700,
+    "raw_completed_or_reserved_updates": 1200,
+    "receipt_minus_ledger_seconds": 0.0004154591588303447,
+    "sampled_campaign_peak_bytes": 525893632,
+    "sampled_outer_peak_bytes": 399212544,
+    "sampled_outer_peak_scope": "successful fit only",
+    "sampled_per_attempt_peak_bytes": {
+      "attempt-1": 209354752,
+      "attempt-2": 525893632,
+      "fit-guard-1": 55967744,
+      "fit-guard-2": 399212544
+    },
+    "timing_note": "Receipt final snapshots are slightly later than the durable stage-finish debit. Both totals preserve failed attempts and remain below the same allocation.",
+    "unused_preexecution_updates_credited": 600
+  },
+  "arms": [
+    {
+      "arm": "correct-ir",
+      "checkpoint": {
+        "bytes": 32378,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir.npz",
+        "sha256": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27"
+      },
+      "contract": {
+        "bytes": 11826,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir-contract.json",
+        "sha256": "b18b8a3029f4e11c1c11610c13d5d30dee49e7947e98d368c5ef03efdc2c00d4"
+      },
+      "final": {
+        "cost_resource_mae": 0.2464016228914261,
+        "cost_resource_n": 2,
+        "damage_delta_mae": 0.062200069427490234,
+        "damage_delta_n": 2,
+        "followup_source_offered_accuracy": 1.0,
+        "followup_source_offered_mae": 0.006061062682420015,
+        "followup_source_offered_n": 1,
+        "masked_mae": 0.22656637396559948,
+        "observed_labels": 18,
+        "source_exhausted_after_accuracy": 1.0,
+        "source_exhausted_after_mae": 0.009858936071395874,
+        "source_exhausted_after_n": 2,
+        "source_use_accuracy": 0.8333333333333334,
+        "source_use_balanced_accuracy": 0.8333333333333333,
+        "source_use_mae": 0.26665908967455226,
+        "source_use_n": 6,
+        "target_allowed_accuracy": 0.6666666666666666,
+        "target_allowed_balanced_accuracy": 0.5,
+        "target_allowed_mae": 0.4279340108235677,
+        "target_allowed_n": 3,
+        "terminal_accuracy": 0.5,
+        "terminal_balanced_accuracy": 0.5,
+        "terminal_mae": 0.2757279206998646,
+        "terminal_n": 2
+      },
+      "golden": {
+        "bytes": 129936,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir-golden.npz",
+        "sha256": "7aa31decc0da3a756b29dfcb68ec091f2580514e5eb5e68682d559944e810f7e"
+      },
+      "initial_validation_mae": 0.5474331318918202,
+      "parameter_count": 6759,
+      "updates": 200
+    },
+    {
+      "arm": "id-only",
+      "checkpoint": {
+        "bytes": 32378,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only.npz",
+        "sha256": "76c15c482531c06504dd9a8c99d39a57f9a4edcc30a433f71e491957fef99ef6"
+      },
+      "contract": {
+        "bytes": 11820,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only-contract.json",
+        "sha256": "3f9a7accec4da984f96c68962d4f18bb6190de2c8ec59c32c8db872ae8a8761f"
+      },
+      "final": {
+        "cost_resource_mae": 0.17153536528348923,
+        "cost_resource_n": 2,
+        "damage_delta_mae": 0.024582892656326294,
+        "damage_delta_n": 2,
+        "followup_source_offered_accuracy": 1.0,
+        "followup_source_offered_mae": 0.005253067705780268,
+        "followup_source_offered_n": 1,
+        "masked_mae": 0.20574232560789418,
+        "observed_labels": 18,
+        "source_exhausted_after_accuracy": 1.0,
+        "source_exhausted_after_mae": 0.008970052003860474,
+        "source_exhausted_after_n": 2,
+        "source_use_accuracy": 0.8333333333333334,
+        "source_use_balanced_accuracy": 0.8333333333333333,
+        "source_use_mae": 0.26779917255043983,
+        "source_use_n": 6,
+        "target_allowed_accuracy": 0.6666666666666666,
+        "target_allowed_balanced_accuracy": 0.5,
+        "target_allowed_mae": 0.3956584731737773,
+        "target_allowed_n": 3,
+        "terminal_accuracy": 1.0,
+        "terminal_balanced_accuracy": 1.0,
+        "terminal_mae": 0.24708085926249623,
+        "terminal_n": 2
+      },
+      "golden": {
+        "bytes": 129936,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only-golden.npz",
+        "sha256": "8fee217e44c41cfc9dfe6a85c9d75dd62bab44548286516e4b303416e61f6f09"
+      },
+      "initial_validation_mae": 0.5502453419483371,
+      "parameter_count": 6759,
+      "updates": 200
+    },
+    {
+      "arm": "wrong-ir",
+      "checkpoint": {
+        "bytes": 32378,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/wrong-ir.npz",
+        "sha256": "6fd641eee6dff5347e01af8e7b7756469cf2282e623df19d1e27ba845c6a427b"
+      },
+      "contract": {
+        "bytes": 11822,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/wrong-ir-contract.json",
+        "sha256": "eee2b77584cdb26cca17e13418d3342711b56b5f46c5529af95b28934abdf318"
+      },
+      "final": {
+        "cost_resource_mae": 0.2066173329949379,
+        "cost_resource_n": 2,
+        "damage_delta_mae": 0.03429493308067322,
+        "damage_delta_n": 2,
+        "followup_source_offered_accuracy": 1.0,
+        "followup_source_offered_mae": 0.004437608178704977,
+        "followup_source_offered_n": 1,
+        "masked_mae": 0.20961480393695334,
+        "observed_labels": 18,
+        "source_exhausted_after_accuracy": 1.0,
+        "source_exhausted_after_mae": 0.009672939777374268,
+        "source_exhausted_after_n": 2,
+        "source_use_accuracy": 0.8333333333333334,
+        "source_use_balanced_accuracy": 0.8333333333333333,
+        "source_use_mae": 0.2663584624727567,
+        "source_use_n": 6,
+        "target_allowed_accuracy": 0.6666666666666666,
+        "target_allowed_balanced_accuracy": 0.5,
+        "target_allowed_mae": 0.39936808745066327,
+        "target_allowed_n": 3,
+        "terminal_accuracy": 1.0,
+        "terminal_balanced_accuracy": 1.0,
+        "terminal_mae": 0.23560170689597726,
+        "terminal_n": 2
+      },
+      "golden": {
+        "bytes": 129936,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/wrong-ir-golden.npz",
+        "sha256": "9807cb7b1e93bc5dcb1fc1ee0c1a05000240cfdb91930bc6f5f002a03f7f20ca"
+      },
+      "initial_validation_mae": 0.5474195331335068,
+      "parameter_count": 6759,
+      "updates": 200
+    }
+  ],
+  "baselines": {
+    "naive_zero_copy": {
+      "cost_resource_mae": 0.5,
+      "cost_resource_n": 2,
+      "damage_delta_mae": 1.0,
+      "damage_delta_n": 2,
+      "followup_source_offered_accuracy": 1.0,
+      "followup_source_offered_mae": 0.0,
+      "followup_source_offered_n": 1,
+      "masked_mae": 0.6111111111111112,
+      "observed_labels": 18,
+      "source_exhausted_after_accuracy": 0.0,
+      "source_exhausted_after_mae": 1.0,
+      "source_exhausted_after_n": 2,
+      "source_use_accuracy": 0.5,
+      "source_use_balanced_accuracy": 0.5,
+      "source_use_mae": 0.5,
+      "source_use_n": 6,
+      "target_allowed_accuracy": 0.3333333333333333,
+      "target_allowed_balanced_accuracy": 0.5,
+      "target_allowed_mae": 0.6666666666666666,
+      "target_allowed_n": 3,
+      "terminal_accuracy": 0.5,
+      "terminal_balanced_accuracy": 0.5,
+      "terminal_mae": 0.5,
+      "terminal_n": 2
+    },
+    "naive_zero_copy_definition": "Explicitly naive no-fit zero availability/followup/cost/damage/terminal; copies public preaction source_exhausted. No legal-rule inference or offered-mask input.",
+    "train_prior": {
+      "cost_resource_mae": 0.5,
+      "cost_resource_n": 2,
+      "damage_delta_mae": 0.0,
+      "damage_delta_n": 2,
+      "followup_source_offered_accuracy": 1.0,
+      "followup_source_offered_mae": 0.0,
+      "followup_source_offered_n": 1,
+      "masked_mae": 0.3492063482602437,
+      "observed_labels": 18,
+      "source_exhausted_after_accuracy": 1.0,
+      "source_exhausted_after_mae": 0.0,
+      "source_exhausted_after_n": 2,
+      "source_use_accuracy": 0.5,
+      "source_use_balanced_accuracy": 0.5,
+      "source_use_mae": 0.5,
+      "source_use_n": 6,
+      "target_allowed_accuracy": 0.6666666666666666,
+      "target_allowed_balanced_accuracy": 0.5,
+      "target_allowed_mae": 0.4285714228947957,
+      "target_allowed_n": 3,
+      "terminal_accuracy": 0.5,
+      "terminal_balanced_accuracy": 0.5,
+      "terminal_mae": 0.5,
+      "terminal_n": 2
+    }
+  },
+  "conclusion": "All three learned arms beat the simple baselines on this tiny context holdout; correct IR has no observed advantage over ID-only or fixed wrong IR. No held-out-card, effect-composition, world-model or strength claim.",
+  "data": {
+    "artifacts": {
+      "manifest": {
+        "bytes": 285522,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.manifest.json",
+        "sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e"
+      },
+      "native_receipt": {
+        "bytes": 222313,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-2/native-receipt.json",
+        "sha256": "b208f5f6083bc4c19d4e15ed2d8e820e8e144fd14f633deea1d29d24cfc8061c"
+      },
+      "npz": {
+        "bytes": 4076,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.npz",
+        "sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865"
+      }
+    },
+    "capability_bag": "One copy of the source program; synthetic unordered capability multiset, not a real deck, remaining-deck ledger or composition-learning dataset.",
+    "card_identities": [
+      "ASH_011",
+      "IBH_053"
+    ],
+    "constant_known_targets": {
+      "damage_delta": 1,
+      "followup_source_offered": 0,
+      "source_exhausted_after": 1
+    },
+    "inputs": "Nineteen public pre-action scalars and selected typed program. No offered-action mask, later state, hidden draw order, opponent private data, card title/text or card identity in correct IR.",
+    "known_support": {
+      "cost_resource": {
+        "train": 5,
+        "val": 2
+      },
+      "damage_delta": {
+        "train": 5,
+        "val": 2
+      },
+      "followup_source_offered": {
+        "train": 4,
+        "val": 1
+      },
+      "source_exhausted_after": {
+        "train": 5,
+        "val": 2
+      },
+      "source_use": {
+        "train": 10,
+        "val": 6
+      },
+      "target_allowed": {
+        "train": 7,
+        "val": 3
+      },
+      "terminal": {
+        "train": 5,
+        "val": 2
+      }
+    },
+    "known_training_coordinates": 41,
+    "known_validation_coordinates": 18,
+    "label_provenance": "Only saved native Engine::legal_actions/snapshots and terminal-aware committed-state captures. Missing/unexecuted labels masked; no synthetic_transition or encoder-derived labels.",
+    "rows": 16,
+    "split": "Both identities appear in both partitions. Full context families and exact encoded contexts are disjoint; no held-out-card test.",
+    "target_variation": {
+      "cost_resource": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      },
+      "damage_delta": {
+        "train": [
+          1.0
+        ],
+        "val": [
+          1.0
+        ]
+      },
+      "followup_source_offered": {
+        "train": [
+          0.0
+        ],
+        "val": [
+          0.0
+        ]
+      },
+      "source_exhausted_after": {
+        "train": [
+          1.0
+        ],
+        "val": [
+          1.0
+        ]
+      },
+      "source_use": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      },
+      "target_allowed": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      },
+      "terminal": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "train_context_families": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "train_rows": 10,
+    "unknown_coordinates": 53,
+    "validation_context_families": [
+      5,
+      6,
+      7
+    ],
+    "validation_rows": 6,
+    "varying_targets": [
+      "source_use",
+      "target_allowed",
+      "cost_resource",
+      "terminal"
+    ]
+  },
+  "interpretation_limits": [
+    "One seed, two identities, six validation contexts and eighteen known labels; no uncertainty interval or broad performance conclusion.",
+    "Fixed wrong-IR swap is an invertible code shared across training and validation, so the model can learn a remapping. ID-only can memorize both identities.",
+    "Known damage/exhaust/followup targets are constant. Report per-target support and naive baselines alongside aggregate MAE.",
+    "Both abilities are simple single-effect damage programs. Structural sequence/condition/count sensitivity tests do not establish learned compositional or persistent/granted semantics.",
+    "No playing games, opponents, seven-loss reproduction, actor training, model rewrite, production/WASM export, deployment or paid compute in this pilot."
+  ],
+  "method": {
+    "allocated_versus_effective": "Identical allocated graph/parameters and padded tensor shapes. ID-only uses one root opaque token, so path-GRU gradients are inactive through its zero-length path; equal allocation does not mean equal effective feature/gradient use.",
+    "arms": [
+      "correct-ir",
+      "id-only",
+      "wrong-ir"
+    ],
+    "held_out_validation_forwards": 6,
+    "identical_initialization": true,
+    "initialization_sha256": "ddfbe5b559fd5e84fa9932a3a2fe5c88d69b8810440feb5fb3d2c41143f5c937",
+    "label_free_golden_forwards": 3,
+    "loss": "Observed binary BCE-with-logits and continuous MSE, averaged over available labels; AdamW lr.003, decay.0001, gradient clip1, batch8, CPU1.",
+    "parameters_per_arm": 6759,
+    "seed": 17,
+    "shared_batch_schedule": {
+      "bytes": 12928,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/batch-schedule.npy",
+      "sha256": "6f2d39d89039402605e635d4536d13272e9835e8e019bd1c701575a25b9b3886"
+    },
+    "steps_per_arm": 200,
+    "updates_completed": 600
+  },
+  "numerical_handoff": {
+    "dynamic_remaining_deck": "unknown; unsupported",
+    "original_deck_shape_unchanged": [
+      2,
+      207
+    ],
+    "output_columns": 7,
+    "parser_inspection_semantic_cap_separate": 512,
+    "path_components": 16,
+    "production_integration": false,
+    "program_slots": 8,
+    "reference": "make_model(torch,F).forward_transition(context,query,counts,bank); each arm contract pins vocab, columns/scales/masks, named weights and five-case golden inputs/logits.",
+    "role_slots": 32,
+    "schema": "jepa-typed-transition-numeric/1",
+    "semantic_slots": 64,
+    "statuses": [
+      "known",
+      "unknown",
+      "neutral",
+      "unsupported",
+      "ambiguous"
+    ],
+    "width": 16
+  },
+  "proof_artifacts": {
+    "adapter": {
+      "bytes": 32106,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/typed_ir_alignment.py",
+      "sha256": "25a05e39e8e432e2003127747d2c311fe32d225528ac60db9afa05aee5b856c9"
+    },
+    "model_source": {
+      "bytes": 30309,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/train_structured_transition.py",
+      "sha256": "0b0826951cd880e8920e496c54c9a27c7a69032e726ec52f5354cead3e56bece"
+    },
+    "preflight": {
+      "bytes": 638,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/structured-preflight.json",
+      "sha256": "9405173ebe97ded820f357bdc1106c3016ff3f40797ad298c6b34210c6415aea"
+    },
+    "run_manifest": {
+      "bytes": 11598,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/manifest.json",
+      "sha256": "f7998b922a9960875554c04bded293b59602dc969020e18d14ac898cd3fc955b"
+    },
+    "run_result": {
+      "bytes": 17052,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/result.json",
+      "sha256": "cc8905d8224ceaf180333cd33e6e54f6718f37703a254e123fbe02254d1ec570"
+    },
+    "shared_contract": {
+      "bytes": 8946,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/contract.json",
+      "sha256": "03bad3b85435afbd8efec68f9eab4890081604136cdb43f03f106c4640167f06"
+    },
+    "tests": {
+      "bytes": 7438,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_train_structured_transition.py",
+      "sha256": "340473c6c43e2e8d3e2fad6267c1fabf56fd8422ce649aee9c424cdfc9b90e85"
+    }
+  },
+  "run_id": "supported-transition-s17-20261018-v2",
+  "schema": "jepa-supported-transition-summary/1",
+  "source_commit": "c0b1527fce1f69c658f5db6c2d06800c8e9fb88b",
+  "status": "completed"
+}

@@ -2,6 +2,7 @@
 mod clock;
 pub mod controller;
 pub mod features;
+pub mod own_deck;
 pub mod resource;
 pub mod rng;
 

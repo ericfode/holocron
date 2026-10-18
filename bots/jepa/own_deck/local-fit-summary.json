@@ -1,0 +1,150 @@
+{
+  "schema": "jepa-original-local-fit-summary/1",
+  "training_commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+  "guard_fix_commit": "15410edd42b0f2eaacfe41da3daa399c1e6a9a54",
+  "dataset_sha256": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091",
+  "manifest_sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+  "train_examples": 22,
+  "val_examples": 5,
+  "seeds": [
+    17
+  ],
+  "total_optimizer_updates": 300,
+  "total_validation_forwards": 63,
+  "total_worker_wall_seconds": 8.234168875031173,
+  "corrected_max_conservative_tree_rss_mib": 501.046875,
+  "memory_correction_receipt": "local-runner-memory-correction.json",
+  "modal_jobs_launched": 0,
+  "modal_batch_spend_usd": 0,
+  "runs": [
+    {
+      "arm": "neutral",
+      "run_id": "original-eb5c6d9-20261017T2356Z-neutral-s17",
+      "updates": 100,
+      "result_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/result.json",
+      "result_sha256": "b3754bc932d2fa4dc6813834c7dee44380afaa80f3d7defcf9a7dd5bcb4aa087",
+      "baseline": {
+        "val_loss": 0.18605073516858261,
+        "val_count_mae_copies": 38.57881897687912,
+        "val_curve_mae": 0.2903573379936543,
+        "val_draw_mae": 0.8651099056005478
+      },
+      "final": {
+        "val_loss": 0.017180158080181227,
+        "val_count_mae_copies": 3.284621000289917,
+        "val_curve_mae": 0.09949821625328199,
+        "val_draw_mae": 0.15185074210166932
+      },
+      "train_mean_prior": {
+        "val_loss": 0.0150234234344644,
+        "val_count_mae_copies": 3.72727632522583,
+        "val_curve_mae": 0.09155911325096068,
+        "val_draw_mae": 0.16078895926475525
+      },
+      "validation_forwards": 21,
+      "worker_elapsed_seconds": 3.582800625008531,
+      "exitcode": 0,
+      "frozen_base_tensors_unchanged": true,
+      "protected_checkpoint_hashes_unchanged": true,
+      "checkpoints": [
+        {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/final-deck.safetensors",
+          "sha256": "d0dba5d6edc5681408b7b6e72ee9b87098511f054ff84f8b20765ba910d22bba"
+        },
+        {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/aux-head.safetensors",
+          "sha256": "f678b12be023069765c21308b811ff69c41376a96e5b3c81041f189a2e626aaa"
+        }
+      ]
+    },
+    {
+      "arm": "original",
+      "run_id": "original-eb5c6d9-20261017T2356Z-original-s17",
+      "updates": 100,
+      "result_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/result.json",
+      "result_sha256": "e1279bafcfa331a0874104eadf945256013a077c1d96c316ca955fa837a78378",
+      "baseline": {
+        "val_loss": 0.16200703630301785,
+        "val_count_mae_copies": 43.894528806209564,
+        "val_curve_mae": 0.2516559370031411,
+        "val_draw_mae": 0.8153217065148055
+      },
+      "final": {
+        "val_loss": 0.008274079519096202,
+        "val_count_mae_copies": 4.123816967010498,
+        "val_curve_mae": 0.06081738902933218,
+        "val_draw_mae": 0.10748713612556457
+      },
+      "train_mean_prior": {
+        "val_loss": 0.0150234234344644,
+        "val_count_mae_copies": 3.72727632522583,
+        "val_curve_mae": 0.09155911325096068,
+        "val_draw_mae": 0.16078895926475525
+      },
+      "validation_forwards": 21,
+      "worker_elapsed_seconds": 2.2629764169687405,
+      "exitcode": 0,
+      "frozen_base_tensors_unchanged": true,
+      "protected_checkpoint_hashes_unchanged": true,
+      "checkpoints": [
+        {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+          "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+        },
+        {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/aux-head.safetensors",
+          "sha256": "4f440acbbafd2dd870ab9a42f85b46aa14315add0bd7ed916688b73afc6b378f"
+        }
+      ]
+    },
+    {
+      "arm": "wrong-own",
+      "run_id": "original-eb5c6d9-20261017T2356Z-wrong-own-s17",
+      "updates": 100,
+      "result_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/result.json",
+      "result_sha256": "4a1fb65d86c42a464032924c9496166c0a50ac66e5f1827c535a29b74a343aef",
+      "baseline": {
+        "val_loss": 0.16314247497026346,
+        "val_count_mae_copies": 43.89452996850014,
+        "val_curve_mae": 0.2522139729254625,
+        "val_draw_mae": 0.8153217280749232
+      },
+      "final": {
+        "val_loss": 0.01690541780094522,
+        "val_count_mae_copies": 1.8904323577880857,
+        "val_curve_mae": 0.09809483023021709,
+        "val_draw_mae": 0.15897703766822815
+      },
+      "train_mean_prior": {
+        "val_loss": 0.0150234234344644,
+        "val_count_mae_copies": 3.72727632522583,
+        "val_curve_mae": 0.09155911325096068,
+        "val_draw_mae": 0.16078895926475525
+      },
+      "validation_forwards": 21,
+      "worker_elapsed_seconds": 2.388391833053902,
+      "exitcode": 0,
+      "frozen_base_tensors_unchanged": true,
+      "protected_checkpoint_hashes_unchanged": true,
+      "checkpoints": [
+        {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/final-deck.safetensors",
+          "sha256": "5ace6b0ff4b4b7d5033bd078a20e6a3218edfb08504237f77b39a3698dd641a0"
+        },
+        {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/aux-head.safetensors",
+          "sha256": "01eefd7b1b7460a861d13d90528a362954b096f1fb71fe10e64cbaea9210e177"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Auxiliary original-composition regression only; no action/transition loss, real games or playing-strength evidence.",
+    "One seed, five held-out decks across four families; identities may overlap train/validation.",
+    "17 of 27 wrong-deck assignments differ in total count; status and metadata coverage match.",
+    "Correct-original is worse on total-count MAE than both trained controls; total loss gain is not universal per target.",
+    "Current-format tournament legality was not a label or admission requirement for the composition readout.",
+    "Reported RSS is a conservative sum of sampled per-PID peaks, not an instantaneous OS limit.",
+    "Raw results and checkpoints were preserved; post-hoc memory correction consumed zero additional updates."
+  ]
+}

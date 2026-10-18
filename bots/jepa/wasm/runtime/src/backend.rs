@@ -7,14 +7,29 @@ use std::sync::Mutex;
 
 const RAW: &[u8] = include_bytes!("../../../models/tx-t10.safetensors");
 const EVALUATOR: &[u8] = include_bytes!("../../../models/tx-t10-e.safetensors");
+#[cfg(not(feature = "own-deck"))]
 const CONTEXT_META: &str = include_str!("../../generated/jepa_context.json");
+#[cfg(not(feature = "own-deck"))]
 const PREDICT_META: &str = include_str!("../../generated/jepa_predict4.json");
+#[cfg(feature = "own-deck")]
+const CONTEXT_META: &str = include_str!("../../generated-own-deck/jepa_context.json");
+#[cfg(feature = "own-deck")]
+const PREDICT_META: &str = include_str!("../../generated-own-deck/jepa_predict4.json");
+// These deterministic initial parameters are an engineering fixture, not a
+// trained candidate. Neither of the original checkpoints is rewritten.
+#[cfg(feature = "own-deck")]
+const DECK_INIT: &[u8] = include_bytes!("../../generated-own-deck/deck-init.safetensors");
 const TOKEN_LIMIT: usize = 24;
+#[cfg(not(feature = "own-deck"))]
+const DECK_SLOTS: usize = 0;
+#[cfg(feature = "own-deck")]
+const DECK_SLOTS: usize = 2;
+const CONTEXT_TOKEN_LIMIT: usize = TOKEN_LIMIT + DECK_SLOTS;
 const TOKEN_DIM: usize = 21;
 const STATE_DIM: usize = 73;
 const ACTION_DIM: usize = 62;
 const LATENT_DIM: usize = 96;
-const KV_SIZE: usize = 4 * 25 * 16;
+const KV_SIZE: usize = 4 * (CONTEXT_TOKEN_LIMIT + 1) * 16;
 const BATCH: usize = 4;
 const HORIZONS: [&str; 9] = [
     "1", "4", "s", "r:face", "r:trade", "r:hold", "r2:face", "r2:trade", "r2:hold",
@@ -30,6 +45,7 @@ type SetterIndex = usize;
 extern "C" {
     fn jepa_context_set_buf(index: SetterIndex, pointer: *const c_void);
     fn jepa_predict4_set_buf(index: SetterIndex, pointer: *const c_void);
+    #[cfg(not(feature = "own-deck"))]
     fn jepa_context_net(
         z: *mut f32,
         k0: *mut f32,
@@ -41,6 +57,20 @@ extern "C" {
         ids: *const i32,
         features: *const f32,
         mask: *const f32,
+    );
+    #[cfg(feature = "own-deck")]
+    fn jepa_context_net(
+        z: *mut f32,
+        k0: *mut f32,
+        v0: *mut f32,
+        k1: *mut f32,
+        v1: *mut f32,
+        value: *mut f32,
+        state: *const f32,
+        ids: *const i32,
+        features: *const f32,
+        mask: *const f32,
+        deck: *const f32,
     );
     fn jepa_predict4_net(
         latents: *mut f32,
@@ -262,6 +292,10 @@ fn load_bindings(
 }
 
 fn validate_context(encoded: &Encoded) -> Result<(), String> {
+    #[cfg(not(feature = "own-deck"))]
+    if encoded.own_deck.is_some() {
+        return Err("own-deck context requires the opt-in own-deck runtime feature".into());
+    }
     if encoded.state.len() != STATE_DIM
         || encoded.tokens.ids.len() != encoded.tokens.n
         || encoded.tokens.n.checked_mul(TOKEN_DIM) != Some(encoded.tokens.feats.len())
@@ -283,6 +317,26 @@ fn validate_context(encoded: &Encoded) -> Result<(), String> {
     Ok(())
 }
 
+#[cfg(feature = "own-deck")]
+fn deck_features(encoded: &Encoded) -> Result<Floats, String> {
+    use jepa_controller::own_deck::{OwnDeckContext, ROWS, ROW_DIM, VERSION};
+    let neutral;
+    let deck = match encoded.own_deck.as_ref() {
+        Some(deck) => deck,
+        None => {
+            neutral = OwnDeckContext::neutral();
+            &neutral
+        }
+    };
+    if deck.version != VERSION || deck.features.len() != ROWS * ROW_DIM {
+        return Err("own-deck context version or shape mismatch".into());
+    }
+    if !deck.features.iter().all(|x| x.is_finite()) {
+        return Err("nonfinite own-deck context".into());
+    }
+    Ok(Floats::copy(&deck.features))
+}
+
 fn context_key(encoded: &Encoded) -> Vec<u32> {
     let mut key =
         Vec::with_capacity(STATE_DIM + 1 + encoded.tokens.ids.len() + encoded.tokens.feats.len());
@@ -296,14 +350,52 @@ fn context_key(encoded: &Encoded) -> Vec<u32> {
 impl KernelModel {
     pub fn new() -> Result<Self, String> {
         let weights = [load_checkpoint(RAW)?, load_checkpoint(EVALUATOR)?];
+        #[cfg(feature = "own-deck")]
+        let weights = {
+            let supplemental = load_checkpoint(DECK_INIT)?;
+            let expected = [("din.w", 66 * 64), ("din.b", 64), ("drole", 2 * 64)];
+            if supplemental.len() != expected.len()
+                || expected.iter().any(|(name, count)| {
+                    supplemental.get(*name).map(|tensor| tensor.len) != Some(*count)
+                })
+            {
+                return Err("invalid own-deck initialized supplemental tensors".into());
+            }
+            let mut banks = weights;
+            for bank in &mut banks {
+                for (name, tensor) in &supplemental {
+                    if bank.contains_key(name) {
+                        return Err(format!(
+                            "own-deck supplement replaces checkpoint tensor {name}"
+                        ));
+                    }
+                    bank.insert(name.clone(), Floats::copy(tensor.as_slice()));
+                }
+            }
+            banks
+        };
+        #[cfg(not(feature = "own-deck"))]
+        let context_inputs = vec![292, 96, 2016, 96];
+        #[cfg(feature = "own-deck")]
+        let context_inputs = vec![292, 96, 2016, 96, 2 * 207 * 4];
         let context_bindings = load_bindings(
             CONTEXT_META,
-            &[292, 96, 2016, 96],
-            &[384, 6400, 6400, 6400, 6400, 4],
+            &context_inputs,
+            &[384, KV_SIZE * 4, KV_SIZE * 4, KV_SIZE * 4, KV_SIZE * 4, 4],
         )?;
         let predict_bindings = load_bindings(
             PREDICT_META,
-            &[384, 6400, 6400, 6400, 6400, 96, 992, 16, 4],
+            &[
+                384,
+                KV_SIZE * 4,
+                KV_SIZE * 4,
+                KV_SIZE * 4,
+                KV_SIZE * 4,
+                CONTEXT_TOKEN_LIMIT * 4,
+                992,
+                16,
+                4,
+            ],
             &[1536, 16],
         )?;
         for bank in &weights {
@@ -351,6 +443,13 @@ impl KernelModel {
     fn ensure_context(&mut self, role: usize, encoded: &Encoded) -> Result<(), String> {
         validate_context(encoded)?;
         let key = context_key(encoded);
+        #[cfg(feature = "own-deck")]
+        let (key, deck) = {
+            let deck = deck_features(encoded)?;
+            let mut key = key;
+            key.extend(deck.as_slice().iter().map(|x| x.to_bits()));
+            (key, deck)
+        };
         if self.contexts[role].as_ref().is_some_and(|c| c.key == key) {
             self.stats.context_cache_hits += 1;
             return Ok(());
@@ -366,10 +465,13 @@ impl KernelModel {
             key,
             z: Floats::zeros(LATENT_DIM),
             kv: std::array::from_fn(|_| Floats::zeros(KV_SIZE)),
-            mask: Floats::zeros(TOKEN_LIMIT),
+            mask: Floats::zeros(CONTEXT_TOKEN_LIMIT),
             value: 0.0,
         };
         cache.mask.as_mut_slice()[..used].fill(1.0);
+        // Dedicated unknown/neutral tokens remain present in all research
+        // variants, giving the ablation the same context capacity.
+        cache.mask.as_mut_slice()[TOKEN_LIMIT..].fill(1.0);
         let mut value = Floats::zeros(1);
         let _guard = KERNEL_LOCK
             .lock()
@@ -387,6 +489,8 @@ impl KernelModel {
                 ids.0.as_ptr(),
                 feats.as_ptr(),
                 cache.mask.as_ptr(),
+                #[cfg(feature = "own-deck")]
+                deck.as_ptr(),
             );
         }
         self.stats.context_calls += 1;

@@ -1,0 +1,242 @@
+{
+  "schema": "supported-transition-evidence-index/1",
+  "collection_commit": "843b7a2d7d2d369b2b5301678403cdf18979ae1e",
+  "model_commit": "544a5c00307dbe0429277a91ed4a80ea20c8c0cf",
+  "run_source_commit": "c0b1527fce1f69c658f5db6c2d06800c8e9fb88b",
+  "files": [
+    {
+      "path": "supported-transitions.npz",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.npz",
+      "sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+      "bytes": 4076
+    },
+    {
+      "path": "supported-transitions.manifest.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.manifest.json",
+      "sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e",
+      "bytes": 285522
+    },
+    {
+      "path": "supported-transition-plan.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transition-plan.json",
+      "sha256": "df02294e60f092945bee318d1f9c78e4e9febc8bc50560a7a0bb2f7504b08555",
+      "bytes": 43796
+    },
+    {
+      "path": "supported-transition-data-review.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transition-data-review.json",
+      "sha256": "fc73061c72eea374ace2998923c266dd91debdbeea0ed29ed459b248254cd967",
+      "bytes": 3757
+    },
+    {
+      "path": "structured-preflight.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/structured-preflight.json",
+      "sha256": "9405173ebe97ded820f357bdc1106c3016ff3f40797ad298c6b34210c6415aea",
+      "bytes": 638
+    },
+    {
+      "path": "campaign-ledger.jsonl",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/campaign-ledger.jsonl",
+      "sha256": "11c8c719f162b14c810af5bffa74aa86ca47d494e5afcac2732b934248a082e5",
+      "bytes": 11341
+    },
+    {
+      "path": "fit-progress-2.jsonl",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-progress-2.jsonl",
+      "sha256": "802af7e9dfe38b705910ad1d5a7db91ab526dca39619990fc35a3b6792804d1f",
+      "bytes": 37568
+    },
+    {
+      "path": "fit-command-absolute.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-command-absolute.json",
+      "sha256": "43639e133ec4496ac4bf5afb4f4176c62714a0dc27857f3d6c69a3ae9f31411e",
+      "bytes": 7214
+    },
+    {
+      "path": "attempt-1/supervisor-receipt.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-1/supervisor-receipt.json",
+      "sha256": "d11a2bbfcfd5d0e6a6828436fb8024b18fe02b53bd7b0c15d1e354c13fae5e29",
+      "bytes": 2504
+    },
+    {
+      "path": "attempt-1/build.stderr.log",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-1/build.stderr.log",
+      "sha256": "750199569f58351ad69c8fa7289c72f32be121022a6a91eb275d6d2b4b865679",
+      "bytes": 2455
+    },
+    {
+      "path": "attempt-2/supervisor-receipt.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-2/supervisor-receipt.json",
+      "sha256": "8703eadf459bb157e0983d32e13901ece2e41084b231da921bd0dd8e3c783253",
+      "bytes": 3035
+    },
+    {
+      "path": "attempt-2/native-receipt.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-2/native-receipt.json",
+      "sha256": "b208f5f6083bc4c19d4e15ed2d8e820e8e144fd14f633deea1d29d24cfc8061c",
+      "bytes": 222313
+    },
+    {
+      "path": "attempt-2/native-transitions.jsonl",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-2/native-transitions.jsonl",
+      "sha256": "bc90f4b7de49d4edf3a75995d78280c45259f82223ea79fb64fd52b5db3c26b5",
+      "bytes": 225771
+    },
+    {
+      "path": "fit-guard-1/supervisor-receipt.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/supervisor-receipt.json",
+      "sha256": "bf6a91e1709ead9a07afbb48889a9be31c1d3f44b9a8c60464413223e3c82d56",
+      "bytes": 5299
+    },
+    {
+      "path": "fit-guard-1/fit.stderr.log",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/fit.stderr.log",
+      "sha256": "8d807e88ac5751019b8f3829ba925ec419176f9ae8a7077980b6ce8b7c8aa65c",
+      "bytes": 272
+    },
+    {
+      "path": "fit-guard-1/fit.stdout.log",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/fit.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "fit-guard-2/supervisor-receipt.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-2/supervisor-receipt.json",
+      "sha256": "c0caab75fb3adfc4fa1717d35eb95ea7d1443bfa486681cc65fd24dfcde59110",
+      "bytes": 5417
+    },
+    {
+      "path": "fit-2/result.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/result.json",
+      "sha256": "cc8905d8224ceaf180333cd33e6e54f6718f37703a254e123fbe02254d1ec570",
+      "bytes": 17052
+    },
+    {
+      "path": "fit-2/contract.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/contract.json",
+      "sha256": "03bad3b85435afbd8efec68f9eab4890081604136cdb43f03f106c4640167f06",
+      "bytes": 8946
+    },
+    {
+      "path": "fit-2/manifest.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/manifest.json",
+      "sha256": "f7998b922a9960875554c04bded293b59602dc969020e18d14ac898cd3fc955b",
+      "bytes": 11598
+    },
+    {
+      "path": "fit-2/batch-schedule.npy",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/batch-schedule.npy",
+      "sha256": "6f2d39d89039402605e635d4536d13272e9835e8e019bd1c701575a25b9b3886",
+      "bytes": 12928
+    },
+    {
+      "path": "fit-2/correct-ir.npz",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir.npz",
+      "sha256": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27",
+      "bytes": 32378
+    },
+    {
+      "path": "fit-2/correct-ir-contract.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir-contract.json",
+      "sha256": "b18b8a3029f4e11c1c11610c13d5d30dee49e7947e98d368c5ef03efdc2c00d4",
+      "bytes": 11826
+    },
+    {
+      "path": "fit-2/correct-ir-golden.npz",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir-golden.npz",
+      "sha256": "7aa31decc0da3a756b29dfcb68ec091f2580514e5eb5e68682d559944e810f7e",
+      "bytes": 129936
+    },
+    {
+      "path": "fit-2/id-only.npz",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only.npz",
+      "sha256": "76c15c482531c06504dd9a8c99d39a57f9a4edcc30a433f71e491957fef99ef6",
+      "bytes": 32378
+    },
+    {
+      "path": "fit-2/id-only-contract.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only-contract.json",
+      "sha256": "3f9a7accec4da984f96c68962d4f18bb6190de2c8ec59c32c8db872ae8a8761f",
+      "bytes": 11820
+    },
+    {
+      "path": "fit-2/id-only-golden.npz",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only-golden.npz",
+      "sha256": "8fee217e44c41cfc9dfe6a85c9d75dd62bab44548286516e4b303416e61f6f09",
+      "bytes": 129936
+    },
+    {
+      "path": "fit-2/wrong-ir.npz",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/wrong-ir.npz",
+      "sha256": "6fd641eee6dff5347e01af8e7b7756469cf2282e623df19d1e27ba845c6a427b",
+      "bytes": 32378
+    },
+    {
+      "path": "fit-2/wrong-ir-contract.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/wrong-ir-contract.json",
+      "sha256": "eee2b77584cdb26cca17e13418d3342711b56b5f46c5529af95b28934abdf318",
+      "bytes": 11822
+    },
+    {
+      "path": "fit-2/wrong-ir-golden.npz",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/wrong-ir-golden.npz",
+      "sha256": "9807cb7b1e93bc5dcb1fc1ee0c1a05000240cfdb91930bc6f5f002a03f7f20ca",
+      "bytes": 129936
+    },
+    {
+      "path": "run-events.jsonl",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl",
+      "filter_run_id": "supported-transition-s17-20261018-v2",
+      "sha256": "250c5f78026214f8a87f0ddf7eb3066f82a03646b1e7d8d23ff97a1db69750e1",
+      "bytes": 65834
+    },
+    {
+      "path": "embeddings/index.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/index.json",
+      "sha256": "07dc35eec0d8a839a483e87ec0efad64930e6a962c1d5c50e69c81ab45b923f7",
+      "bytes": 3958
+    },
+    {
+      "path": "embeddings/deck-embeddings.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+      "bytes": 295074
+    },
+    {
+      "path": "embeddings/deck-embeddings.manifest.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json",
+      "sha256": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090",
+      "bytes": 4651
+    },
+    {
+      "path": "embeddings/card-embeddings.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/card-embeddings.json",
+      "sha256": "cb38796bc31498aac1fde5f91e282bc814a9314ca1c076b02fbc5432f2223f04",
+      "bytes": 4267
+    },
+    {
+      "path": "embeddings/card-embeddings.manifest.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/card-embeddings.manifest.json",
+      "sha256": "2b00012274e2042ccb46ca8a97a1996f4ee2f0a0ebe657ea5435f48d5a4bc664",
+      "bytes": 3474
+    },
+    {
+      "path": "embeddings/export-run.json",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/export-run.json",
+      "sha256": "7a58650d974375b8a82516ccfa8fcd8b03aa8737cbab6313bde921c33d62366d",
+      "bytes": 1122
+    }
+  ],
+  "note": "Raw files preserved byte-for-byte; absolute paths inside original receipts are provenance. Resolve portable copies using this index. Research artifacts only; no production adapter or activation.",
+  "embedding_exports": {
+    "deck_rows": 27,
+    "deck_dimension": 96,
+    "card_rows": 2,
+    "card_dimension": 16,
+    "model_forward_calls": 2,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "semantic_validated": false
+  }
+}

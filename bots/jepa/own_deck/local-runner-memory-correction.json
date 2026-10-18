@@ -1,0 +1,137 @@
+{
+  "schema": "jepa-local-run-memory-correction/1",
+  "original_training_commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+  "cause": "torch.__version__ was transported as a TorchVersion string subclass, whose pickle reducer imported Torch in the supervisor. The final supervisor peak was recorded separately but not merged into the tree bound.",
+  "training_rerun": false,
+  "additional_optimizer_updates": 0,
+  "raw_results_modified": false,
+  "formula": "corrected_supervisor=max(sampled supervisor peak, recorded final supervisor peak); corrected_bound=max(raw tree bound, sum of corrected per-PID peaks)",
+  "interpretation": "Post-hoc conservative sum of independently observed peaks, not a reconstructed simultaneous RSS trace or an instantaneous OS memory limit.",
+  "runs": [
+    {
+      "run_id": "original-eb5c6d9-20261017T2356Z-neutral-s17",
+      "arm": "neutral",
+      "updates": 100,
+      "exitcode": 0,
+      "raw_result_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/result.json",
+      "raw_result_sha256": "b3754bc932d2fa4dc6813834c7dee44380afaa80f3d7defcf9a7dd5bcb4aa087",
+      "raw_per_pid_peak_rss_mib": {
+        "supervisor": 41.515625,
+        "worker": 279.703125,
+        "resource_tracker": 18.09375
+      },
+      "recorded_final_supervisor_peak_rss_mib": 203.25,
+      "corrected_per_pid_peak_rss_mib": {
+        "supervisor": 203.25,
+        "worker": 279.703125,
+        "resource_tracker": 18.09375
+      },
+      "raw_tree_peak_rss_mib": 339.3125,
+      "corrected_conservative_tree_peak_rss_mib": 501.046875,
+      "correction_delta_mib": 161.734375,
+      "allocated_rss_cap_mib": 2048.0,
+      "corrected_bound_below_cap": true
+    },
+    {
+      "run_id": "original-eb5c6d9-20261017T2356Z-original-s17",
+      "arm": "original",
+      "updates": 100,
+      "exitcode": 0,
+      "raw_result_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/result.json",
+      "raw_result_sha256": "e1279bafcfa331a0874104eadf945256013a077c1d96c316ca955fa837a78378",
+      "raw_per_pid_peak_rss_mib": {
+        "supervisor": 203.9375,
+        "worker": 277.625,
+        "resource_tracker": 18.09375
+      },
+      "recorded_final_supervisor_peak_rss_mib": 203.9375,
+      "corrected_per_pid_peak_rss_mib": {
+        "supervisor": 203.9375,
+        "worker": 277.625,
+        "resource_tracker": 18.09375
+      },
+      "raw_tree_peak_rss_mib": 499.65625,
+      "corrected_conservative_tree_peak_rss_mib": 499.65625,
+      "correction_delta_mib": 0.0,
+      "allocated_rss_cap_mib": 2048.0,
+      "corrected_bound_below_cap": true
+    },
+    {
+      "run_id": "original-eb5c6d9-20261017T2356Z-wrong-own-s17",
+      "arm": "wrong-own",
+      "updates": 100,
+      "exitcode": 0,
+      "raw_result_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/result.json",
+      "raw_result_sha256": "4a1fb65d86c42a464032924c9496166c0a50ac66e5f1827c535a29b74a343aef",
+      "raw_per_pid_peak_rss_mib": {
+        "supervisor": 203.984375,
+        "worker": 277.984375,
+        "resource_tracker": 18.09375
+      },
+      "recorded_final_supervisor_peak_rss_mib": 203.984375,
+      "corrected_per_pid_peak_rss_mib": {
+        "supervisor": 203.984375,
+        "worker": 277.984375,
+        "resource_tracker": 18.09375
+      },
+      "raw_tree_peak_rss_mib": 500.0625,
+      "corrected_conservative_tree_peak_rss_mib": 500.0625,
+      "correction_delta_mib": 0.0,
+      "allocated_rss_cap_mib": 2048.0,
+      "corrected_bound_below_cap": true
+    }
+  ],
+  "required_append_only_correction_events": [
+    {
+      "run_id": "original-eb5c6d9-20261017T2356Z-neutral-s17",
+      "kind": "artifact",
+      "phase": "completed",
+      "step": 100,
+      "status": "completed",
+      "metrics": {
+        "raw_tree_peak_rss_mib": 339.3125,
+        "corrected_tree_peak_rss_mib": 501.046875,
+        "memory_correction_delta_mib": 161.734375
+      },
+      "artifacts": {
+        "memory_correction_receipt": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/local-runner-memory-correction.json"
+      },
+      "correction_of": {
+        "original_training_commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+        "raw_result_sha256": "b3754bc932d2fa4dc6813834c7dee44380afaa80f3d7defcf9a7dd5bcb4aa087"
+      }
+    }
+  ],
+  "feed_modified_by_this_correction": false,
+  "regression_tests": {
+    "status": "PASS",
+    "testsRun": 12,
+    "scope": "Plain runtime metadata, JSON-primitive terminal transport, final-parent-peak merge, admission and owned-child guard tests. No training."
+  },
+  "fix_source_sha256": {
+    "bots/jepa/own_deck/run_local_experiments.py": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+    "bots/jepa/own_deck/test_local_experiments.py": "944082376986d51d1fe2f1d7bf259a74559559d9052508c2fcceb42c4df692e7"
+  },
+  "immutable_artifacts_before": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/result.json": "b3754bc932d2fa4dc6813834c7dee44380afaa80f3d7defcf9a7dd5bcb4aa087",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/final-deck.safetensors": "d0dba5d6edc5681408b7b6e72ee9b87098511f054ff84f8b20765ba910d22bba",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/aux-head.safetensors": "f678b12be023069765c21308b811ff69c41376a96e5b3c81041f189a2e626aaa",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/result.json": "e1279bafcfa331a0874104eadf945256013a077c1d96c316ca955fa837a78378",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/aux-head.safetensors": "4f440acbbafd2dd870ab9a42f85b46aa14315add0bd7ed916688b73afc6b378f",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/result.json": "4a1fb65d86c42a464032924c9496166c0a50ac66e5f1827c535a29b74a343aef",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/final-deck.safetensors": "5ace6b0ff4b4b7d5033bd078a20e6a3218edfb08504237f77b39a3698dd641a0",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/aux-head.safetensors": "01eefd7b1b7460a861d13d90528a362954b096f1fb71fe10e64cbaea9210e177"
+  },
+  "immutable_artifacts_after": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/result.json": "b3754bc932d2fa4dc6813834c7dee44380afaa80f3d7defcf9a7dd5bcb4aa087",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/final-deck.safetensors": "d0dba5d6edc5681408b7b6e72ee9b87098511f054ff84f8b20765ba910d22bba",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/aux-head.safetensors": "f678b12be023069765c21308b811ff69c41376a96e5b3c81041f189a2e626aaa",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/result.json": "e1279bafcfa331a0874104eadf945256013a077c1d96c316ca955fa837a78378",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/aux-head.safetensors": "4f440acbbafd2dd870ab9a42f85b46aa14315add0bd7ed916688b73afc6b378f",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/result.json": "4a1fb65d86c42a464032924c9496166c0a50ac66e5f1827c535a29b74a343aef",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/final-deck.safetensors": "5ace6b0ff4b4b7d5033bd078a20e6a3218edfb08504237f77b39a3698dd641a0",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/aux-head.safetensors": "01eefd7b1b7460a861d13d90528a362954b096f1fb71fe10e64cbaea9210e177"
+  }
+}

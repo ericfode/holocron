@@ -27,6 +27,15 @@ written = []
 if a.replays:
     with np.load(a.replays) as z:
         r = {k: z[k] for k in ("state", "act", "aid", "win", "game", "nxt1", "nxt4")}
+        # Deck context has independent capacity. It must never be sliced by
+        # --tmax or reconstructed from the older unseen/omniscient label arrays.
+        if "own_deck" in z.files:
+            if z["own_deck"].shape != (len(r["state"]), 2, 207):
+                raise ValueError("own_deck must have shape [rows, 2, 207]")
+            r["own_deck"] = z["own_deck"].astype(np.float32)
+            for key in ("gid", "seat", "seq"):
+                if key in z.files:
+                    r[key] = z[key]
         r["tok_ids"] = z["tok_ids"][:, :T]
         r["tok_feats"] = z["tok_feats"][:, :T]
         r["tok_mask"] = z["tok_mask"][:, :T]

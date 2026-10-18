@@ -1,0 +1,53 @@
+{
+  "schema": "own-deck-training-verification/1",
+  "status": "PASS",
+  "testsRun": 9,
+  "skips": [],
+  "cpuThreads": 1,
+  "elapsedSeconds": 1.159,
+  "syntheticOptimizerUpdates": 1,
+  "optimizer": "SGD, lr=0.0001, supplemental tensors only",
+  "supplementalParameters": 4416,
+  "checks": [
+    "22 Rust/Python cases: 9,108 f32 coordinates bit-identical",
+    "factorized counts equal copy-weighted shared embeddings",
+    "all 24 live cards remain alongside 2 deck slots",
+    "legacy fixture logits unchanged within 0.00001",
+    "state/action/value and cached predictions retain original-deck context",
+    "PyTorch versus NumPy z/pred/value parity",
+    "finite nonzero gradients for all 3 supplemental tensors",
+    "base tensors unchanged after synthetic update",
+    "post-update full and supplemental-only checkpoint round-trips"
+  ],
+  "python": "3.11.15",
+  "numpy": "2.4.6",
+  "torch": "2.8.0",
+  "device": "cpu",
+  "sourceSha256": {
+    "own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "own_deck_model.py": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16",
+    "test_own_deck.py": "c59725ec4cee390351d3e4ccc3256c928627903155e11d751a36f4cb7c8ae8b3",
+    "tx_model.py": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877",
+    "wasm/export/export_own_deck.py": "75f1f87da806198a9d2d4c1aa82acb3c5c9d60b64e25c78eb080d17f79c509de",
+    "own_deck/verify_training.py": "41baf1de9870feee68995a6879af58976cd956da84da572361c0ad39016a9068"
+  },
+  "inputSha256": {
+    "wasm/controller/fixtures/own-deck-contract.json": "cc6b20b30cd4f4305ec27258bd7dee86c1360e97826b756129c7a15db97a9141",
+    "wasm/tests/fixtures/runtime-reference.json": "3f2c43a7e6b0169a34c08b83e8167d0f87ea4b78da7534a0e70e71cdf8359e8b",
+    "wasm/tests/fixtures/own-deck-runtime-reference.json": "d0f4a503754fd3dd3ab5926accbae941ce46b8308694c8c10035525a71381178"
+  },
+  "immutableBefore": {
+    "models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "models/tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+    "wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+  },
+  "immutableAfter": {
+    "models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "models/tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+    "wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+  },
+  "limitations": [
+    "Synthetic update proves gradient and serialization wiring only; no strength claim.",
+    "Remaining row has no observation ledger and is explicitly unknown."
+  ]
+}

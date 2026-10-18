@@ -108,3 +108,64 @@ cargo build --offline --manifest-path runtime/Cargo.toml --target wasm32-unknown
 route retargets unoptimized LLVM IR before optimization; it does not install a
 toolchain or require this export directory. The integration's runtime reference
 and behavior checks remain the gate after any re-export.
+
+## Opt-in own-deck graph
+
+`export_own_deck.py` exports the separately selected graph under
+`generated-own-deck/`. It preserves all 24 live-card inputs and adds two
+independent role/status-bearing context tokens. The 207 inputs per deck row
+contain 50 metadata coordinates and 157 factorized identity counts. Multiplying
+those three count histograms by the existing embedding tables exactly produces
+a copy-weighted sum of the shared 16-dimensional card embedding, without a
+fixed distinct-card-list limit. The new `din.w`, `din.b`, and `drole` tensors
+are stored separately in `deck-init.safetensors` (4,416 float parameters).
+
+This artifact is deterministic untrained engineering scaffolding. It is not a
+strength-tested replacement for either baseline checkpoint. The default runtime
+continues to select `generated/`; enable the runtime's `own-deck` feature only
+for the matched experimental variants.
+
+With the same pinned tinygrad checkout and NumPy available:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$TINYGRAD_CHECKOUT" DEV=CPU:CLANGJIT CPU_COUNT=1 python3 export/export_own_deck.py --export --build-native
+```
+
+The script writes the separate supplemental weights only if absent, allowing a
+trained **supplemental-only** checkpoint to be placed there before re-export.
+The baseline model files are read-only inputs. With no `--export`, it regenerates
+only the compact bounded NumPy reference and validates the supplemental file.
+That reference covers all seven existing observation fixtures, both checkpoint
+roles, all nine horizons, and all three variant statuses. It records context
+value and prediction logits; latent and gradient parity are checked directly by
+`bots/jepa/test_own_deck.py` using NumPy and PyTorch.
+
+Run the focused correctness checks from the repository root using an existing
+Python environment with NumPy and PyTorch:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s bots/jepa -p test_own_deck.py -v
+```
+
+PyTorch is imported lazily and that one test skips if unavailable; a passing
+training-path claim requires that test to run. The test performs one synthetic
+SGD update of supplemental tensors only, checks finite nonzero gradients,
+checks base-weight immutability, and round-trips both the full opt-in checkpoint
+and supplemental-only deployment format. It never writes the baseline files.
+The reusable `own_deck_model.run_torch` callable has no training CLI side effects.
+
+The recorded local training check used an existing Python 3.11 environment plus
+read-only cached PyTorch 2.8.0 dependencies. This exact session command installs
+nothing and leaves those caches unchanged (`PYTHONDONTWRITEBYTECODE=1`):
+
+```sh
+DECK_TEST_CACHE=/Users/ericfode/.cache/uv/archive-v0
+PYTHONDONTWRITEBYTECODE=1 \
+PYTHONPATH="$DECK_TEST_CACHE/rehTsShR29rpWi8Dqz5BL:$DECK_TEST_CACHE/ntYsJgeLWxSB0rhe6n9sh:$DECK_TEST_CACHE/5i8dYw1S9c5zrvrF0rCIy:$DECK_TEST_CACHE/C7W22kpzl1cAe-Hdx0N-2:$DECK_TEST_CACHE/F1isPlsf9ooQ4EGhGPl5V:$DECK_TEST_CACHE/PVyRmcnszTpMFeVdyuyJs:$DECK_TEST_CACHE/fDmWyEr9slZLLcHdlujql:$DECK_TEST_CACHE/khxszcG0X4WuYCMH_DEdE:$DECK_TEST_CACHE/7h7hIgcQT6GjZZGqqRrhM" \
+/Users/ericfode/src/crown-jepa/.venv/bin/python bots/jepa/own_deck/verify_training.py
+```
+
+`own_deck/training-verification.json` records the test result, exact source and
+fixture hashes, and before/after hashes proving both baseline checkpoint files
+and the checked-in supplemental initialization stayed unchanged. The synthetic
+updated weights exist only in a temporary directory and are removed by the test.

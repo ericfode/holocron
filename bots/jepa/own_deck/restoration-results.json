@@ -1,0 +1,414 @@
+{
+  "schema": "own-deck-restoration-summary/1",
+  "commit": "bef4e82fe7ceb7100eac8b2572275fc0dd64b0b9",
+  "result_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/restoration-bef4e82-s17/result.json",
+  "result_sha256": "f7bd9c87b1f6ae78b9c63498966e9914358d75f4d957e361aacb20fc76509f97",
+  "dataset": {
+    "npz_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/restoration-data.npz",
+    "npz_sha256": "dce64d6f628ca11202d35fb140ccf412f00b5a60498f0247145207108c8ea69c",
+    "manifest_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/restoration-data.manifest.json",
+    "manifest_sha256": "2ce4c0f69057060e757e3fbe00297c2c7bf1f8f4bb964c684c55e3d660eb9d77",
+    "base_checkpoint_sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "engineering_initialization_sha256": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123",
+    "train_examples": 48,
+    "heldout_examples": 8,
+    "heldout_restoration_points": 27,
+    "primary_experiment_admitted": true,
+    "train_family_ids": [
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-79f2f8f622f1e979d55699bdc2d7ca21f3d911fcc304b1fbb234dae39a07d792",
+      "family-910adb0c4fc425184f94f1217ce99529eb1fb9a2bb8dae23c5e99b689b382425",
+      "family-aed567b86372d62069dd6459790f1ce6db1b6c6c6bc5999b7d77122294f6ad47",
+      "family-d39d23810c835d165d9fda7709ab2a2a379675a33b32ae6f5af9e315e2d2ba6c",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-ee8b387dd13d5289313eef2cbe4c3265926d2a2bb5545eaac0e5026c4b36a087"
+    ],
+    "val_family_ids": [
+      "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+    ],
+    "source_sha256": {
+      "own_deck/restoration_probe.py": "3e7124d0ebca9bfe15b9780acc8aeefaab03ed8205745f859cc1275ad8cac4b6",
+      "own_deck/run_events.py": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+      "own_deck/run_local_experiments.py": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+      "own_deck_model.py": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16",
+      "own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+      "tx_model.py": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877"
+    }
+  },
+  "config": {
+    "seed": 17,
+    "steps": 200,
+    "learning_rate": 0.05,
+    "ridge": 0.001,
+    "max_seconds": 60.0,
+    "max_rss_mib": 2048.0,
+    "arms": [
+      "frozen-latent",
+      "printed-only-frozen-latent"
+    ],
+    "objective": "class-balanced logistic + L2 on frozen96d latent",
+    "training_rows": "fit_partition=train only",
+    "size_fields_masked": [
+      4,
+      5,
+      6,
+      49
+    ],
+    "identity_mass": "each factor normalized to1",
+    "printed_only_masks": "identity50:207; printed traits retained",
+    "selection": "fixed final step; no CV or checkpoint search",
+    "cpu_threads": 1,
+    "scope": "admitted construction fixture probe",
+    "guard": "one owned NumPy worker for both arms; parent-enforced 60s campaign and 2048MiB sampled process-tree threshold",
+    "validation_diagnostics": "baseline and final only per arm; four total, never selection"
+  },
+  "updates_completed": 400,
+  "elapsed_seconds": 0.1130907500628382,
+  "guard": {
+    "owned_worker_pid": 26759,
+    "worker_peak_rss_mib": 46.1875,
+    "supervisor_peak_rss_mib": 41.25,
+    "observed_tree_peak_rss_mib": 105.9375,
+    "elapsed_seconds": 0.09123433299828321,
+    "exitcode": 0,
+    "owned_pids": {
+      "supervisor": 26749,
+      "worker": 26759,
+      "resource_tracker": 26758
+    },
+    "per_pid_peak_rss_mib": {
+      "supervisor": 41.25,
+      "worker": 46.40625,
+      "resource_tracker": 18.28125
+    },
+    "sample_interval_seconds": 0.1,
+    "status": "completed",
+    "stop_reason": null,
+    "limitations": "RSS stop guard samples known parent/worker/resource-tracker PIDs via libproc; conservative per-PID peak sum merges rusage peaks. It is not an instantaneous OS memory limit. Worker creates no descendant workers."
+  },
+  "frozen_checkpoints_unchanged": true,
+  "modal_batch_spend_usd": 0,
+  "conclusion": "No aggregate restoration gain established by this weak frozen-latent provenance classifier; no scaling or monotonicity enforcement.",
+  "arms": {
+    "frozen-latent": {
+      "validation": {
+        "baseline": {
+          "family_macro_log_loss": 0.6948046260049788,
+          "family_macro_accuracy": 0.5,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.6962184815283115,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.693653883138202,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.694541513348423,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "final": {
+          "family_macro_log_loss": 0.6967861445919844,
+          "family_macro_accuracy": 0.4166666666666667,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.6979714969510906,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.6973194192034777,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.695067517621385,
+              "accuracy": 0.25,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "evaluations": 2,
+        "used_for_selection": false
+      },
+      "family_first_same_count_aggregate": {
+        "mean_same_count_delta": -0.001365392598174321,
+        "family_mean_deltas": {
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0006033911328292008,
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.0020233090687940825,
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.00146947759289968
+        },
+        "n_families": 3,
+        "n_sources": 3,
+        "n_restoration_groups": 4,
+        "n_packages": 1,
+        "n_dependent_points": 9
+      },
+      "per_restoration_fraction": {
+        "0.0": {
+          "mean_same_count_delta": 0.0,
+          "family_mean_deltas": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": 0.0,
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": 0.0,
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": 0.0
+          },
+          "n_families": 3,
+          "n_sources": 3,
+          "n_restoration_groups": 4,
+          "n_packages": 1,
+          "n_dependent_points": 4
+        },
+        "0.5": {
+          "mean_same_count_delta": -0.0013364766458170418,
+          "family_mean_deltas": {
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0013364766458170418
+          },
+          "n_families": 1,
+          "n_sources": 1,
+          "n_restoration_groups": 1,
+          "n_packages": 1,
+          "n_dependent_points": 1
+        },
+        "1.0": {
+          "mean_same_count_delta": -0.002355766078583806,
+          "family_mean_deltas": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0012067822656584015,
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.004046618137588165,
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0018138978325048516
+          },
+          "n_families": 3,
+          "n_sources": 3,
+          "n_restoration_groups": 4,
+          "n_packages": 1,
+          "n_dependent_points": 4
+        }
+      },
+      "groups": {
+        "source-02-individual-4b50907e1dd3": {
+          "source_idx": 2,
+          "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+          "restoration_endpoint_delta": -0.007705186493142668,
+          "adjacent_score_deltas": [
+            -0.007705186493142668
+          ],
+          "decreases": 1,
+          "nondecreasing_adjacent_fraction": 0.0
+        },
+        "source-02-rule-grounded-package-3ba3e78e60b1": {
+          "source_idx": 2,
+          "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+          "restoration_endpoint_delta": 0.004077390828132965,
+          "adjacent_score_deltas": [
+            -0.0013364766458170418,
+            0.005413867473950007
+          ],
+          "decreases": 1,
+          "nondecreasing_adjacent_fraction": 0.5
+        },
+        "source-14-individual-111db3b9a97d": {
+          "source_idx": 14,
+          "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "restoration_endpoint_delta": -0.004046618137588165,
+          "adjacent_score_deltas": [
+            -0.004046618137588165
+          ],
+          "decreases": 1,
+          "nondecreasing_adjacent_fraction": 0.0
+        },
+        "source-25-individual-b3f78bfc58e7": {
+          "source_idx": 25,
+          "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "restoration_endpoint_delta": -0.0012067822656584015,
+          "adjacent_score_deltas": [
+            -0.0012067822656584015
+          ],
+          "decreases": 1,
+          "nondecreasing_adjacent_fraction": 0.0
+        }
+      },
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/restoration-bef4e82-s17/frozen-latent.npz",
+        "sha256": "d1a5e408db1288f731afa5c73fdf3289d8fbd4dc5605c73f6ad84055daf63ced"
+      }
+    },
+    "printed-only-frozen-latent": {
+      "validation": {
+        "baseline": {
+          "family_macro_log_loss": 0.6950280998007915,
+          "family_macro_accuracy": 0.5,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.6966069306924754,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.6941733777090511,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.694303991000848,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "final": {
+          "family_macro_log_loss": 0.6993985711968232,
+          "family_macro_accuracy": 0.5,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.7079265067958744,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.6952285310562465,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.6950406757383492,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "evaluations": 2,
+        "used_for_selection": false
+      },
+      "family_first_same_count_aggregate": {
+        "mean_same_count_delta": -0.0005922164125545989,
+        "family_mean_deltas": {
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0001593541241055596,
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.0006828438692602079,
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0009344512442980291
+        },
+        "n_families": 3,
+        "n_sources": 3,
+        "n_restoration_groups": 4,
+        "n_packages": 1,
+        "n_dependent_points": 9
+      },
+      "per_restoration_fraction": {
+        "0.0": {
+          "mean_same_count_delta": 0.0,
+          "family_mean_deltas": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": 0.0,
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": 0.0,
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": 0.0
+          },
+          "n_families": 3,
+          "n_sources": 3,
+          "n_restoration_groups": 4,
+          "n_packages": 1,
+          "n_dependent_points": 4
+        },
+        "0.5": {
+          "mean_same_count_delta": -0.0012115816016969871,
+          "family_mean_deltas": {
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0012115816016969871
+          },
+          "n_families": 1,
+          "n_sources": 1,
+          "n_restoration_groups": 1,
+          "n_packages": 1,
+          "n_dependent_points": 1
+        },
+        "1.0": {
+          "mean_same_count_delta": -0.0011713347579544824,
+          "family_mean_deltas": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0003187082482111192,
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.0013656877385204158,
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.001829608287131912
+          },
+          "n_families": 3,
+          "n_sources": 3,
+          "n_restoration_groups": 4,
+          "n_packages": 1,
+          "n_dependent_points": 4
+        }
+      },
+      "groups": {
+        "source-02-individual-4b50907e1dd3": {
+          "source_idx": 2,
+          "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+          "restoration_endpoint_delta": -0.0014718185796547267,
+          "adjacent_score_deltas": [
+            -0.0014718185796547267
+          ],
+          "decreases": 1,
+          "nondecreasing_adjacent_fraction": 0.0
+        },
+        "source-02-rule-grounded-package-3ba3e78e60b1": {
+          "source_idx": 2,
+          "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+          "restoration_endpoint_delta": -0.002187397994609097,
+          "adjacent_score_deltas": [
+            -0.0012115816016969871,
+            -0.00097581639291211
+          ],
+          "decreases": 2,
+          "nondecreasing_adjacent_fraction": 0.0
+        },
+        "source-14-individual-111db3b9a97d": {
+          "source_idx": 14,
+          "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "restoration_endpoint_delta": -0.0013656877385204158,
+          "adjacent_score_deltas": [
+            -0.0013656877385204158
+          ],
+          "decreases": 1,
+          "nondecreasing_adjacent_fraction": 0.0
+        },
+        "source-25-individual-b3f78bfc58e7": {
+          "source_idx": 25,
+          "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "restoration_endpoint_delta": -0.0003187082482111192,
+          "adjacent_score_deltas": [
+            -0.0003187082482111192
+          ],
+          "decreases": 1,
+          "nondecreasing_adjacent_fraction": 0.0
+        }
+      },
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/restoration-bef4e82-s17/printed-only-frozen-latent.npz",
+        "sha256": "f5c96f00b5c468aabd5c5474feaf6417c1919d8ba5a20e30085e7e622c15ed85"
+      }
+    }
+  }
+}

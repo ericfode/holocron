@@ -1,0 +1,24 @@
+{
+  "schema": "own-deck-integrated-python-check/1",
+  "testsRun": 32,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsedSeconds": 2.499,
+  "torch": "2.8.0",
+  "scope": "Synthetic contract, gradient/update, actor/seat, trajectory-to-pack, remaining-gap and bounded frozen representation-probe checks; no real-data fit or games.",
+  "sourceSha256": {
+    "data.py": "04350a003519d3ddc9a3a832aecdc33c5e5b5bea1f7c063806dfbf48f7d48721",
+    "pack_data.py": "90115c163d94e57c85f14d4bacf3b736f93ac811a441c1760e5b138699484556",
+    "jepa_bot.py": "4bee3f680db49ca4aebb85b5c845479fb1608f91d686405535e5695f8351bfdb",
+    "own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "own_deck_model.py": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16",
+    "tx_model.py": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877",
+    "own_deck/probe_representation.py": "f078025d378ac4ac53b0a84fc931f5ae1cb39d616ea668901c074e61b5f93f22",
+    "test_own_deck.py": "c59725ec4cee390351d3e4ccc3256c928627903155e11d751a36f4cb7c8ae8b3",
+    "test_own_deck_player.py": "b86dea8367b85bdbe1bcdea891b4e22f2c0c76dbc1b7e12797cce4f782ce209f",
+    "own_deck/test_data.py": "3241d7bd722386339dcbf2baaabd331cb8a0e047837b84859e706b52319391df",
+    "own_deck/test_remaining_boundary.py": "6bffbee42673541e8cc8b75bdb9235e546d9e33a264b23928929d06f8aed6e16",
+    "own_deck/test_probes.py": "d02a910496ab8829ccfa63583ec5920c0ad59d6765cb011479e1d91485433940"
+  }
+}

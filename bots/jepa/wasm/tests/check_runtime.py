@@ -19,6 +19,27 @@ HERE = Path(__file__).resolve().parent
 HORIZONS = ("1", "4", "s", "r:face", "r:trade", "r:hold", "r2:face", "r2:trade", "r2:hold")
 
 
+def runtime_source_pins(graph="generated"):
+    """Pin the local compile inputs beside the artifact hash in parity reports."""
+    require(graph in ("generated", "generated-own-deck"), "unknown kernel graph")
+    wasm = HERE.parent
+    repo = wasm.parents[2]
+    paths = {wasm / "build_kernels.py", HERE / "check_runtime.py"}
+    paths.update(wasm.parent / "models" / name for name in ("tx-t10.safetensors", "tx-t10-e.safetensors"))
+    for crate in ("controller", "runtime"):
+        base = wasm / crate
+        paths.update((base / "src").rglob("*.rs"))
+        paths.update(p for name in ("Cargo.toml", "Cargo.lock", "build.rs") if (p := base / name).is_file())
+    paths.update(p for p in (wasm / graph).iterdir()
+                 if p.is_file() and p.suffix in (".c", ".h", ".json", ".safetensors"))
+    if graph == "generated-own-deck":
+        paths.add(HERE / "check_own_deck_runtime.py")
+    files = {str(p.relative_to(repo)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return {"kernelGraph": graph, "cargoFeatures": ["diagnostics"] + (["own-deck"] if graph != "generated" else []),
+            "files": files,
+            "sha256": hashlib.sha256(json.dumps(files, sort_keys=True, separators=(",", ":")).encode()).hexdigest()}
+
+
 def require(condition, message):
     if not condition:
         raise AssertionError(message)
@@ -210,9 +231,11 @@ def main():
     args = parser.parse_args()
     require(args.native or args.wasm, "provide --native and/or --wasm")
     reference = json.loads(args.reference.read_text())
+    sources = runtime_source_pins()
     report = {"schema": "swu-jepa-runtime-parity/1", "reference": str(args.reference.resolve()),
               "referenceSha256": hashlib.sha256(args.reference.read_bytes()).hexdigest(),
-              "provenance": reference["provenance"], "absoluteTolerance": args.tolerance, "backends": []}
+              "provenance": reference["provenance"], "absoluteTolerance": args.tolerance,
+              "sourcePins": sources, "backends": []}
     if args.native:
         native = args.native.resolve()
         report["backends"].append(check_backend("native", lambda _: [str(native)], reference, args, native))
@@ -222,6 +245,7 @@ def main():
         def command(config):
             return prefix + ["--env", "JEPA_CONFIG=" + json.dumps(config, separators=(",", ":")), str(wasm)]
         report["backends"].append(check_backend("wasm-wasi", command, reference, args, wasm))
+    require(runtime_source_pins() == sources, "runtime sources changed during verification")
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, indent=2) + "\n")

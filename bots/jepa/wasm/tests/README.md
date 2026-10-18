@@ -78,3 +78,41 @@ verification perform no training, full-engine games, installs or network operati
 JavaScript simulator transcripts, plus rejection of v1-only/string/boolean offers, legacy imagined-mode fallback
 and diagnostic requests. Run it with `--wasm build/arena/jepa_tx_gate_wasm/bot.wasm --report /tmp/production-parity.json`.
 The report records the actual entry hash. This uses CLI Wasmtime 44; final Arena host checks separately use pinned49.
+
+## Opt-in own-deck engineering checks
+
+The `own-deck` Cargo feature selects `generated-own-deck/`; default builds retain the original graph and checkpoint
+bytes. The new graph has 24 live-card slots plus two dedicated deck slots, rather than sharing the live-card limit.
+Its supplemental `din.w`, `din.b` and `drole` tensors are fixed initialization for engineering verification, not a
+trained strength candidate. All three research variants keep both deck slots present. Missing context becomes the
+explicit neutral rows; `original-plus-remaining` marks the remaining row unknown because no depletion ledger exists.
+
+Build the research diagnostics into a separate directory, preserving the baseline diagnostic binaries above:
+
+```sh
+CARGO_TARGET_DIR=bots/jepa/wasm/runtime/target/own-deck cargo build --offline --release \
+  --features diagnostics,own-deck --manifest-path bots/jepa/wasm/runtime/Cargo.toml
+CARGO_TARGET_DIR=bots/jepa/wasm/runtime/target/own-deck cargo build --offline --release \
+  --features diagnostics,own-deck --target wasm32-unknown-unknown \
+  --manifest-path bots/jepa/wasm/runtime/Cargo.toml
+python3 bots/jepa/wasm/tests/check_own_deck_runtime.py \
+  --native bots/jepa/wasm/runtime/target/own-deck/release/jepa-wasi \
+  --wasm bots/jepa/wasm/runtime/target/own-deck/wasm32-unknown-unknown/release/jepa-wasi.wasm \
+  --baseline-native bots/jepa/wasm/runtime/target/release/jepa-wasi \
+  --baseline-wasm bots/jepa/wasm/runtime/target/wasm32-unknown-unknown/release/jepa-wasi.wasm \
+  --report bots/jepa/wasm/tests/evidence/own-deck-runtime-parity.json
+```
+
+The standard-library-only checker compares 3 variants × 7 existing fixtures × 2 heads × 9 horizons: 378 tensor cases
+per backend. Context values and all action logits match the NumPy own-deck reference within `1e-5`; maximum observed
+errors were `2.5033950805664062e-6` and `4.5299530029296875e-6`. Nine ordinary hello/decide cases per backend build
+known original context from hello metadata and match the NumPy evaluator's settled-horizon choices. These use the
+fixed c-clock resource policy, a high gate, and no simulator calls. The checker also verifies implicit versus
+explicit neutral equivalence, cache invalidation from either deck row, rejection of invalid shape/version/nonfinite
+features, and rejection of supplied deck context by a legacy binary. This checks data plumbing and numerical parity;
+it does not measure playing strength. The original baseline suite separately retains its saved numerical errors,
+seven ordinary replies and six scripted planner cases on both backends.
+
+Both runtime parity reports include a `sourcePins` map and aggregate digest for the controller/runtime Rust sources,
+Cargo manifests and locks, build scripts, selected generated graph, and verification scripts. The checker rejects
+source changes during verification; artifact hashes identify the binaries actually exercised.

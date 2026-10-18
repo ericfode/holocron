@@ -53,6 +53,7 @@ import model as M  # noqa: E402
 import resource_policy as R  # noqa: E402
 import tx_model as X  # noqa: E402
 import line_models as LMOD  # noqa: E402
+import own_deck as OD  # noqa: E402
 
 
 def log(*a):
@@ -81,7 +82,7 @@ WAIT_PROMPT = {"type": "actionWindow", "actionWindow": True, "selectCardMode": N
 class JepaPlayer:
     def __init__(self, model_path, db, mix=0.5, temp=0.0, seed=0, score="imagined", evaluator=None, deals=1, log=None, judge="round", window_model=None,
                  plan=None, resource=None, plan_model=None, window_horizon="1", tiers=None, commit_macro=False, follow_horizon="1", plan_log=None, policy=None, policy_at="all",
-                 root_model=None, line_model=None, root_at="all"):
+                 root_model=None, line_model=None, root_at="all", own_deck="original"):
         self.net, self.meta = X.load(model_path)  # either format: the v1 JEPA or the transformer JEPA (tx_model.py)
         # optional model that scores only the planner's settled positions (e.g. a value head trained to rank moves)
         # --plan-model a,b: the planner's judge is the mean of the models' win chances on each settled board
@@ -89,6 +90,11 @@ class JepaPlayer:
         self.plan_net = self.plan_nets[0]
         # optional second model used only in action windows (e.g. a predictor fine-tuned on branches, which only cover windows)
         self.window_net = X.load(window_model)[0] if window_model else None
+        if own_deck not in OD.VARIANTS:
+            raise ValueError(f"unknown own-deck variant: {own_deck}")
+        self.own_deck_variant = own_deck
+        self.uses_own_deck = any(getattr(net, "supports_own_deck", False)
+                                 for net in [self.net, *self.plan_nets, self.window_net])
         self.db = db
         self.mix = mix
         self.temp = temp
@@ -141,6 +147,16 @@ class JepaPlayer:
         self.rng = random.Random(seed)
         self.seen = {}
         self.decks = None
+        self.own_deck_seat = None
+        self.own_deck_context = None
+        self.unknown_own_deck_context = None
+        if self.uses_own_deck:
+            # Retain only aggregate own-list features, never the hello or an
+            # opponent list. Missing seat/list/metadata stays explicitly unknown.
+            self.unknown_own_deck_context = OD.encode_hello({}, self.own_deck_variant)
+            self.own_deck_seat = hello.get("you") if hello and hello.get("you") in ("p1", "p2") else None
+            own = {"deck": hello.get("deck"), "cards": hello.get("cards")} if hello else {}
+            self.own_deck_context = OD.encode_hello(own, self.own_deck_variant)
         self.plan = []
         self.macro = None  # (round, macro index) kept by --commit-macro
         self.round_seen = None
@@ -151,6 +167,20 @@ class JepaPlayer:
             them = "p2" if you == "p1" else "p1"
             flat = lambda d: [c["id"] for c in d.get("deck") or [] for _ in range(int(c.get("count", 1)))]
             self.decks = {you: flat(hello["deck"]), them: flat(hello["opponent"])}
+
+    def encode_net(self, net, *batch, seat=None):
+        """Attach the original own bag only to its seat's value/policy input.
+
+        Opponent-perspective replies and missing actor roles receive an explicit
+        unknown bag. Legacy networks keep exactly their four positional inputs.
+        """
+        if not getattr(net, "supports_own_deck", False):
+            return net.encode(*batch)
+        context = (self.own_deck_context if self.own_deck_seat is not None and seat == self.own_deck_seat
+                   else self.unknown_own_deck_context)
+        if context is None:
+            context = OD.encode_hello({}, self.own_deck_variant)
+        return net.encode(*batch, own_deck=OD.as_array(context, batch=len(batch[0])))
 
     def policy_score(self, t):
         """The policy head's logits on the imagined best --policy-k moves (the others -inf)."""
@@ -181,7 +211,7 @@ class JepaPlayer:
         follow = self.follow_horizon == "s" and not window and (msg.get("state") or {}).get("phase") == "action"
         net = self.window_net if self.window_net is not None and (window or follow) else self.net
         e = F.encode(msg, self.db)
-        z = net.encode(e["state"][None], e["tok_ids"][None].astype(np.int64), e["tok_feats"][None], e["tok_mask"][None])
+        z = self.encode_net(net, e["state"][None], e["tok_ids"][None].astype(np.int64), e["tok_feats"][None], e["tok_mask"][None], seat=msg.get("you"))
         a = net.action(e["actions"], e["aids"].astype(np.int64))
         z1 = net.predict(z, a, 1)
         z4 = net.predict(z, a, 4)
@@ -361,8 +391,8 @@ class JepaPlayer:
                 pos = [{"you": me, "prompt": ends[i].get("prompt"), "state": ends[i].get("state"), "actions": ends[i].get("actions")} for i in live]
                 if "sim-v" in want:
                     es = [F.encode(m, self.db) for m in pos]
-                    z = self.net.encode(np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
-                                        np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
+                    z = self.encode_net(self.net, np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
+                                        np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]), seat=me)
                     done["sim-v"][live] = M.sigmoid(self.net.value(z))
                 if "sim-eval" in want:
                     to_act = [me if (m["prompt"] or {}).get("actionWindow") else None for m in pos]
@@ -522,7 +552,7 @@ class JepaPlayer:
             es = [F.encode(m, self.db) for m in pos]
             batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
                      np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
-            vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
+            vals[live] = np.mean([M.sigmoid(pn.value(self.encode_net(pn, *batch, seat=me))) for pn in self.plan_nets], 0)
         rmix = cfg.get("rmix", 1.0)
         if rmix < 1.0 and any(b is not None for b in pres):
             # --plan rmix=w: the value is (1 - w) x the board when my move settled + w x the board after the replies
@@ -567,7 +597,7 @@ class JepaPlayer:
             es = [F.encode(m, self.db) for m in pos]
             batch = (np.stack([e["state"] for e in es]), np.stack([e["tok_ids"] for e in es]).astype(np.int64),
                      np.stack([e["tok_feats"] for e in es]), np.stack([e["tok_mask"] for e in es]))
-            vals[live] = np.mean([M.sigmoid(pn.value(pn.encode(*batch))) for pn in self.plan_nets], 0)
+            vals[live] = np.mean([M.sigmoid(pn.value(self.encode_net(pn, *batch, seat=me))) for pn in self.plan_nets], 0)
         return vals
 
     def reply_pick(self, r, me, acts):
@@ -754,6 +784,8 @@ def main():
     ap = argparse.ArgumentParser()
     here = os.path.dirname(os.path.abspath(__file__))
     ap.add_argument("--model", default=os.path.join(here, "models", "jepa-v1.safetensors"))
+    ap.add_argument("--own-deck", choices=OD.VARIANTS, default="original",
+                    help="context for explicit own-deck checkpoints; legacy checkpoints retain their original inputs; remaining is unknown until a ledger exists")
     ap.add_argument("--mix", type=float, default=0.5, help="weight of the 4-decision horizon in the score")
     ap.add_argument("--temp", type=float, default=0.0, help="softmax temperature over scores; 0 = best move")
     ap.add_argument("--name", default="jepa")
@@ -802,7 +834,8 @@ def main():
                         plan={**{k: (v if k in ("secs", "gate", "rmix") else int(v)) for k, v in plan.items()}, "scorer": a.plan_scorer}, resource=a.resource, plan_model=a.plan_model,
                         tiers={k: float(v) for k, v in (kv.split("=") for kv in a.tiers.split(",") if kv)}, commit_macro=a.commit_macro,
                         follow_horizon=a.follow_horizon, plan_log=a.plan_log,
-                        policy=a.policy, policy_at=a.policy_at, root_model=a.root_model, line_model=a.line_model, root_at=a.root_at)
+                        policy=a.policy, policy_at=a.policy_at, root_model=a.root_model, line_model=a.line_model, root_at=a.root_at,
+                        own_deck=a.own_deck)
     thoughts = os.environ.get("SWU_JEPA_THOUGHTS")
     stdin = sys.stdin
 

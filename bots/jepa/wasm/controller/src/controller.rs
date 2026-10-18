@@ -1,6 +1,7 @@
 //! Protocol v2 and the table's gated, one-action planner, ported from jepa.js.
 use crate::clock::PlannerClock;
 use crate::features::{arr, encode, js_number, py_truthy, s, truthy, you, CardTables, Encoded};
+use crate::own_deck::{OwnDeckContext, OwnDeckVariant};
 use crate::{resource, rng::PyRandom};
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
@@ -70,6 +71,7 @@ pub struct Config {
     pub follow_horizon: String,
     pub resource: Option<String>,
     pub plan: PlanConfig,
+    pub own_deck: Option<OwnDeckVariant>,
 }
 impl Default for Config {
     fn default() -> Self {
@@ -81,6 +83,7 @@ impl Default for Config {
             follow_horizon: "s".into(),
             resource: Some("c-clock".into()),
             plan: PlanConfig::default(),
+            own_deck: None,
         }
     }
 }
@@ -118,6 +121,7 @@ pub struct JepaBot {
     pub stats: Stats,
     pub fail: Option<String>,
     pub plan: FollowPlan,
+    pub own_deck: Option<OwnDeckContext>,
     rng: PyRandom,
     seen: HashMap<String, Vec<usize>>,
     last: Option<Last>,
@@ -198,6 +202,7 @@ impl JepaBot {
             stats: Stats::default(),
             fail: None,
             plan: vec![],
+            own_deck: None,
             rng: PyRandom::new(0),
             seen: HashMap::new(),
             last: None,
@@ -210,10 +215,15 @@ impl JepaBot {
         self.fail = None;
         self.stats = Stats::default();
         self.last = None;
+        self.own_deck = None;
     }
     pub fn hello(&mut self, msg: &Value) -> Value {
         self.tables = CardTables::from_cards(&msg["cards"]);
         self.new_game(msg["seed"].as_f64().unwrap_or(0.0).trunc().abs() as u64);
+        self.own_deck = self
+            .config
+            .own_deck
+            .map(|variant| OwnDeckContext::from_original(variant, &msg["deck"], &msg["cards"]));
         if self.config.score != "imagined"
             && arr(msg, "versions").iter().any(|v| v.as_f64() == Some(2.0))
         {
@@ -225,6 +235,11 @@ impl JepaBot {
     pub fn over(&self) -> Value {
         json!({"t":"ok"})
     }
+    pub fn encode(&self, msg: &Value) -> Encoded {
+        let mut encoded = encode(msg, &self.tables);
+        encoded.own_deck = self.own_deck.clone();
+        encoded
+    }
     pub fn think<M: Model + ?Sized>(&self, msg: &Value, model: &mut M) -> Result<Vec<f64>, String> {
         let window = truthy(&msg["prompt"]["actionWindow"]);
         let follow =
@@ -234,7 +249,7 @@ impl JepaBot {
         } else {
             ModelRole::Raw
         };
-        let encoded = encode(msg, &self.tables);
+        let encoded = self.encode(msg);
         let n = encoded.actions.n;
         let settled = model.has_horizon(role, "s");
         let mut values = |h: &str| -> Result<Vec<f64>, String> {
@@ -563,7 +578,7 @@ impl JepaBot {
                 } else {
                     json!({"you":me,"prompt":{"type":"actionWindow","actionWindow":true,"selectCardMode":null,"selected":[]},"state":r["state"],"actions":acts})
                 };
-                sigmoid(model.context_value(ModelRole::Raw, &encode(&pos, &self.tables))?)
+                sigmoid(model.context_value(ModelRole::Raw, &self.encode(&pos))?)
             };
             let root = line.taken[0];
             if value > scores[root] {

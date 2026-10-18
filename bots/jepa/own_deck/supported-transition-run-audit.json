@@ -1,0 +1,714 @@
+{
+  "schema": "jepa-supported-transition-run-audit/1",
+  "status": "PASS",
+  "checked_at_utc": "2026-10-18T00:45:44.176481+00:00",
+  "scope": "Independent saved-byte and arithmetic audit with Python standard library only. No forward pass, NumPy/Torch/training-module import, native/engine execution, tests, export, cloud call or PR mutation by this auditor.",
+  "source_commit": "c0b1527fce1f69c658f5db6c2d06800c8e9fb88b",
+  "verified_groups": [
+    "Source bytes match run and committed source pins; dataset inputs match source hashes.",
+    "The 16 dataset rows partition into 10 training and 6 validation rows by families 0\u20134 versus 5\u20137, without encoded or canonical context overlap.",
+    "Native snapshots independently reproduce 59 known scalar targets; 32 before/after call pairs and 16 contexts agree with packed data.",
+    "Four attempts and one explicit missing-main credit preserve the raw 1,200-update debit and every time debit; net and actual updates are 600.",
+    "Durable progress is exactly 1 through 600, with 200 updates per arm; the shared batch schedule selects training rows only.",
+    "All 23 run events have matching source, configuration and data provenance; the terminal event records completed step 600.",
+    "The fit used six initial/final validation calls and three finite label-free ABI fixtures; all arms have 6,759 parameters and matching shape and initialization receipts.",
+    "Result traces equal event metrics after excluding supervisor RSS telemetry; weighted-MAE arithmetic and the simple prior and no-delta baselines agree.",
+    "All 37 portable files match their indexed hashes; 36 match original bytes and one is the exact 23-line run-event subset.",
+    "The baseline entry, manifest, canonical bundle and both original checkpoints remain unchanged."
+  ],
+  "dataset": {
+    "npz_sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+    "manifest_sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e",
+    "native_receipt_sha256": "b208f5f6083bc4c19d4e15ed2d8e820e8e144fd14f633deea1d29d24cfc8061c",
+    "native_journal_sha256": "bc90f4b7de49d4edf3a75995d78280c45259f82223ea79fb64fd52b5db3c26b5",
+    "rows": 16,
+    "train_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "validation_rows": [
+      5,
+      6,
+      7,
+      13,
+      14,
+      15
+    ],
+    "train_context_families": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "validation_context_families": [
+      5,
+      6,
+      7
+    ],
+    "held_out_card_ids": false,
+    "numeric_context_overlap": false,
+    "canonical_context_fingerprint_overlap": false,
+    "known_native_scalar_projections_verified": 59,
+    "target_known_support": {
+      "source_use": {
+        "train": 10,
+        "val": 6
+      },
+      "target_allowed": {
+        "train": 7,
+        "val": 3
+      },
+      "cost_resource": {
+        "train": 5,
+        "val": 2
+      },
+      "damage_delta": {
+        "train": 5,
+        "val": 2
+      },
+      "source_exhausted_after": {
+        "train": 5,
+        "val": 2
+      },
+      "followup_source_offered": {
+        "train": 4,
+        "val": 1
+      },
+      "terminal": {
+        "train": 5,
+        "val": 2
+      }
+    },
+    "target_variation": {
+      "source_use": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      },
+      "target_allowed": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      },
+      "cost_resource": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      },
+      "damage_delta": {
+        "train": [
+          1.0
+        ],
+        "val": [
+          1.0
+        ]
+      },
+      "source_exhausted_after": {
+        "train": [
+          1.0
+        ],
+        "val": [
+          1.0
+        ]
+      },
+      "followup_source_offered": {
+        "train": [
+          0.0
+        ],
+        "val": [
+          0.0
+        ]
+      },
+      "terminal": {
+        "train": [
+          0.0,
+          1.0
+        ],
+        "val": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "known_validation_labels": 18
+  },
+  "accounting": {
+    "attempts": [
+      {
+        "attempt": "attempt-1",
+        "sha256": "d11a2bbfcfd5d0e6a6828436fb8024b18fe02b53bd7b0c15d1e354c13fae5e29",
+        "status": "failed",
+        "active_seconds": 0.16542070801369846,
+        "engine_apply_attempts": 0,
+        "raw_update_debit": 0,
+        "sampled_conservative_peak_bytes": 209354752
+      },
+      {
+        "attempt": "attempt-2",
+        "sha256": "8703eadf459bb157e0983d32e13901ece2e41084b231da921bd0dd8e3c783253",
+        "status": "completed",
+        "active_seconds": 1.8373387500178069,
+        "engine_apply_attempts": 32,
+        "raw_update_debit": 0,
+        "sampled_conservative_peak_bytes": 525893632
+      },
+      {
+        "attempt": "fit-guard-1",
+        "sha256": "bf6a91e1709ead9a07afbb48889a9be31c1d3f44b9a8c60464413223e3c82d56",
+        "status": "failed",
+        "active_seconds": 0.05704633402638137,
+        "engine_apply_attempts": 0,
+        "raw_update_debit": 600,
+        "sampled_conservative_peak_bytes": 55967744
+      },
+      {
+        "attempt": "fit-guard-2",
+        "sha256": "c0caab75fb3adfc4fa1717d35eb95ea7d1443bfa486681cc65fd24dfcde59110",
+        "status": "completed",
+        "active_seconds": 3.7149189999327064,
+        "engine_apply_attempts": 0,
+        "raw_update_debit": 600,
+        "sampled_conservative_peak_bytes": 399212544
+      }
+    ],
+    "ledger_sha256": "11c8c719f162b14c810af5bffa74aa86ca47d494e5afcac2732b934248a082e5",
+    "raw_update_debits": 1200,
+    "explicit_verified_preentry_update_credit": 600,
+    "actual_optimizer_updates": 600,
+    "net_update_debit": 600,
+    "native_apply_attempts": 32,
+    "ledger_active_seconds": 5.774309332831763,
+    "conservative_sum_attempt_receipt_seconds": 5.774724791990593,
+    "receipt_minus_ledger_seconds": 0.0004154591588303447,
+    "active_limit_seconds": 120,
+    "apply_limit": 96,
+    "update_limit": 600,
+    "sampled_rss_limit_bytes": 2147483648,
+    "maximum_attempt_sampled_conservative_peak_bytes": 525893632,
+    "one_preentry_credit": {
+      "event": "missing-main-update-credit",
+      "proof": {
+        "actual_updates_verified": 0,
+        "cwd": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/supported_native_collector",
+        "events_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl",
+        "events_sha256_at_verification": "227618134b92852d6e3bcfbd0283745917d4fc2e5e0d05d8d87893fa5a7d06a1",
+        "exact_diagnostic": "/Users/ericfode/src/crown-jepa/.venv/bin/python: can't open file '/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/supported_native_collector/bots/jepa/own_deck/train_structured_transition.py': [Errno 2] No such file or directory\n",
+        "finish_record_sha256": "5752021b6726dad7e14a82995732f60b365f5b2f187d10e4374c75930e7b45a9",
+        "matching_run_events": 0,
+        "missing_main_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/supported_native_collector/bots/jepa/own_deck/train_structured_transition.py",
+        "output_absent": true,
+        "output_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-1",
+        "preserved_active_seconds": 0.0569289589766413,
+        "progress_absent": true,
+        "progress_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-progress-1.jsonl",
+        "python_executable": "/Users/ericfode/src/crown-jepa/.venv/bin/python",
+        "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/supervisor-receipt.json",
+        "receipt_sha256": "bf6a91e1709ead9a07afbb48889a9be31c1d3f44b9a8c60464413223e3c82d56",
+        "run_id": "supported-transition-s17-20261018",
+        "scope": "verified-cpython-missing-main-before-trainer-entry",
+        "source_manifest_sha256": "ada4704708f233866b8ce1a79fe919a33a798cd0fd21c0b9e552d76d4f210871",
+        "start_record_sha256": "7632cac3330871bd9af502cf0a5092f9daeebee8707f2a336c48cb761b4fa50e",
+        "stderr_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/fit.stderr.log",
+        "stderr_sha256": "8d807e88ac5751019b8f3829ba925ec419176f9ae8a7077980b6ce8b7c8aa65c",
+        "stdout_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/fit.stdout.log",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stage_id": "fit-1792283785983450000",
+      "updates_credited": 600
+    },
+    "memory_scope": "Sampled owned process-group peaks plus rusage; not an instantaneous OS memory cap. Conservative PID sums can include sequential children."
+  },
+  "events": {
+    "run_id": "supported-transition-s17-20261018-v2",
+    "count": 23,
+    "sequences_contiguous": true,
+    "terminal_status": "completed",
+    "terminal_step": 600,
+    "heldout_evaluations": 6,
+    "label_free_ABI_forwards": 3,
+    "subset_sha256": "be79f5b5dba15ea0d4f30e344e9879646026fb109273ff4a925c123fc89f539c",
+    "result_sha256": "cc8905d8224ceaf180333cd33e6e54f6718f37703a254e123fbe02254d1ec570",
+    "run_manifest_sha256": "f7998b922a9960875554c04bded293b59602dc969020e18d14ac898cd3fc955b",
+    "contract_sha256": "03bad3b85435afbd8efec68f9eab4890081604136cdb43f03f106c4640167f06",
+    "progress_sha256": "802af7e9dfe38b705910ad1d5a7db91ab526dca39619990fc35a3b6792804d1f",
+    "batch_schedule_sha256": "6f2d39d89039402605e635d4536d13272e9835e8e019bd1c701575a25b9b3886"
+  },
+  "arms": [
+    {
+      "arm": "correct-ir",
+      "updates": 200,
+      "parameter_count": 6759,
+      "weight_tensor_count": 20,
+      "initialization_sha256": "ddfbe5b559fd5e84fa9932a3a2fe5c88d69b8810440feb5fb3d2c41143f5c937",
+      "checkpoint_sha256": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27",
+      "contract_sha256": "b18b8a3029f4e11c1c11610c13d5d30dee49e7947e98d368c5ef03efdc2c00d4",
+      "golden_sha256": "7aa31decc0da3a756b29dfcb68ec091f2580514e5eb5e68682d559944e810f7e",
+      "initial_validation": {
+        "step": 0,
+        "observed_labels": 18,
+        "masked_mae": 0.5474331318918202,
+        "source_use_n": 6,
+        "source_use_mae": 0.4911498427391052,
+        "source_use_accuracy": 0.6666666666666666,
+        "source_use_balanced_accuracy": 0.6666666666666666,
+        "target_allowed_n": 3,
+        "target_allowed_mae": 0.5151750942071279,
+        "target_allowed_accuracy": 0.3333333333333333,
+        "target_allowed_balanced_accuracy": 0.5,
+        "cost_resource_n": 2,
+        "cost_resource_mae": 0.5396102722734213,
+        "damage_delta_n": 2,
+        "damage_delta_mae": 0.8446329981088638,
+        "source_exhausted_after_n": 2,
+        "source_exhausted_after_mae": 0.5238602459430695,
+        "source_exhausted_after_accuracy": 0.0,
+        "followup_source_offered_n": 1,
+        "followup_source_offered_mae": 0.5484377145767212,
+        "followup_source_offered_accuracy": 0.0,
+        "terminal_n": 2,
+        "terminal_mae": 0.4983636438846588,
+        "terminal_accuracy": 0.5,
+        "terminal_balanced_accuracy": 0.5
+      },
+      "final_validation": {
+        "step": 200,
+        "observed_labels": 18,
+        "masked_mae": 0.22656637396559948,
+        "source_use_n": 6,
+        "source_use_mae": 0.26665908967455226,
+        "source_use_accuracy": 0.8333333333333334,
+        "source_use_balanced_accuracy": 0.8333333333333333,
+        "target_allowed_n": 3,
+        "target_allowed_mae": 0.4279340108235677,
+        "target_allowed_accuracy": 0.6666666666666666,
+        "target_allowed_balanced_accuracy": 0.5,
+        "cost_resource_n": 2,
+        "cost_resource_mae": 0.2464016228914261,
+        "damage_delta_n": 2,
+        "damage_delta_mae": 0.062200069427490234,
+        "source_exhausted_after_n": 2,
+        "source_exhausted_after_mae": 0.009858936071395874,
+        "source_exhausted_after_accuracy": 1.0,
+        "followup_source_offered_n": 1,
+        "followup_source_offered_mae": 0.006061062682420015,
+        "followup_source_offered_accuracy": 1.0,
+        "terminal_n": 2,
+        "terminal_mae": 0.2757279206998646,
+        "terminal_accuracy": 0.5,
+        "terminal_balanced_accuracy": 0.5,
+        "train_loss": 0.07489211112260818,
+        "grad_norm": 0.3160853087902069,
+        "updates_completed": 200
+      }
+    },
+    {
+      "arm": "id-only",
+      "updates": 200,
+      "parameter_count": 6759,
+      "weight_tensor_count": 20,
+      "initialization_sha256": "ddfbe5b559fd5e84fa9932a3a2fe5c88d69b8810440feb5fb3d2c41143f5c937",
+      "checkpoint_sha256": "76c15c482531c06504dd9a8c99d39a57f9a4edcc30a433f71e491957fef99ef6",
+      "contract_sha256": "3f9a7accec4da984f96c68962d4f18bb6190de2c8ec59c32c8db872ae8a8761f",
+      "golden_sha256": "8fee217e44c41cfc9dfe6a85c9d75dd62bab44548286516e4b303416e61f6f09",
+      "initial_validation": {
+        "step": 0,
+        "observed_labels": 18,
+        "masked_mae": 0.5502453419483371,
+        "source_use_n": 6,
+        "source_use_mae": 0.4909083694219589,
+        "source_use_accuracy": 0.6666666666666666,
+        "source_use_balanced_accuracy": 0.6666666666666666,
+        "target_allowed_n": 3,
+        "target_allowed_mae": 0.5156034032503763,
+        "target_allowed_accuracy": 0.3333333333333333,
+        "target_allowed_balanced_accuracy": 0.5,
+        "cost_resource_n": 2,
+        "cost_resource_mae": 0.5483528170734644,
+        "damage_delta_n": 2,
+        "damage_delta_mae": 0.8636772148311138,
+        "source_exhausted_after_n": 2,
+        "source_exhausted_after_mae": 0.5203131437301636,
+        "source_exhausted_after_accuracy": 0.0,
+        "followup_source_offered_n": 1,
+        "followup_source_offered_mae": 0.5503499507904053,
+        "followup_source_offered_accuracy": 0.0,
+        "terminal_n": 2,
+        "terminal_mae": 0.49855971336364746,
+        "terminal_accuracy": 0.5,
+        "terminal_balanced_accuracy": 0.5
+      },
+      "final_validation": {
+        "step": 200,
+        "observed_labels": 18,
+        "masked_mae": 0.20574232560789418,
+        "source_use_n": 6,
+        "source_use_mae": 0.26779917255043983,
+        "source_use_accuracy": 0.8333333333333334,
+        "source_use_balanced_accuracy": 0.8333333333333333,
+        "target_allowed_n": 3,
+        "target_allowed_mae": 0.3956584731737773,
+        "target_allowed_accuracy": 0.6666666666666666,
+        "target_allowed_balanced_accuracy": 0.5,
+        "cost_resource_n": 2,
+        "cost_resource_mae": 0.17153536528348923,
+        "damage_delta_n": 2,
+        "damage_delta_mae": 0.024582892656326294,
+        "source_exhausted_after_n": 2,
+        "source_exhausted_after_mae": 0.008970052003860474,
+        "source_exhausted_after_accuracy": 1.0,
+        "followup_source_offered_n": 1,
+        "followup_source_offered_mae": 0.005253067705780268,
+        "followup_source_offered_accuracy": 1.0,
+        "terminal_n": 2,
+        "terminal_mae": 0.24708085926249623,
+        "terminal_accuracy": 1.0,
+        "terminal_balanced_accuracy": 1.0,
+        "train_loss": 0.08475229889154434,
+        "grad_norm": 0.30239880084991455,
+        "updates_completed": 400
+      }
+    },
+    {
+      "arm": "wrong-ir",
+      "updates": 200,
+      "parameter_count": 6759,
+      "weight_tensor_count": 20,
+      "initialization_sha256": "ddfbe5b559fd5e84fa9932a3a2fe5c88d69b8810440feb5fb3d2c41143f5c937",
+      "checkpoint_sha256": "6fd641eee6dff5347e01af8e7b7756469cf2282e623df19d1e27ba845c6a427b",
+      "contract_sha256": "eee2b77584cdb26cca17e13418d3342711b56b5f46c5529af95b28934abdf318",
+      "golden_sha256": "9807cb7b1e93bc5dcb1fc1ee0c1a05000240cfdb91930bc6f5f002a03f7f20ca",
+      "initial_validation": {
+        "step": 0,
+        "observed_labels": 18,
+        "masked_mae": 0.5474195331335068,
+        "source_use_n": 6,
+        "source_use_mae": 0.49077556033929187,
+        "source_use_accuracy": 0.6666666666666666,
+        "source_use_balanced_accuracy": 0.6666666666666666,
+        "target_allowed_n": 3,
+        "target_allowed_mae": 0.5155301690101624,
+        "target_allowed_accuracy": 0.3333333333333333,
+        "target_allowed_balanced_accuracy": 0.5,
+        "cost_resource_n": 2,
+        "cost_resource_mae": 0.5395248383283615,
+        "damage_delta_n": 2,
+        "damage_delta_mae": 0.8444728404283524,
+        "source_exhausted_after_n": 2,
+        "source_exhausted_after_mae": 0.5237898528575897,
+        "source_exhausted_after_accuracy": 0.0,
+        "followup_source_offered_n": 1,
+        "followup_source_offered_mae": 0.5493277907371521,
+        "followup_source_offered_accuracy": 0.0,
+        "terminal_n": 2,
+        "terminal_mae": 0.49870243668556213,
+        "terminal_accuracy": 0.5,
+        "terminal_balanced_accuracy": 0.5
+      },
+      "final_validation": {
+        "step": 200,
+        "observed_labels": 18,
+        "masked_mae": 0.20961480393695334,
+        "source_use_n": 6,
+        "source_use_mae": 0.2663584624727567,
+        "source_use_accuracy": 0.8333333333333334,
+        "source_use_balanced_accuracy": 0.8333333333333333,
+        "target_allowed_n": 3,
+        "target_allowed_mae": 0.39936808745066327,
+        "target_allowed_accuracy": 0.6666666666666666,
+        "target_allowed_balanced_accuracy": 0.5,
+        "cost_resource_n": 2,
+        "cost_resource_mae": 0.2066173329949379,
+        "damage_delta_n": 2,
+        "damage_delta_mae": 0.03429493308067322,
+        "source_exhausted_after_n": 2,
+        "source_exhausted_after_mae": 0.009672939777374268,
+        "source_exhausted_after_accuracy": 1.0,
+        "followup_source_offered_n": 1,
+        "followup_source_offered_mae": 0.004437608178704977,
+        "followup_source_offered_accuracy": 1.0,
+        "terminal_n": 2,
+        "terminal_mae": 0.23560170689597726,
+        "terminal_accuracy": 1.0,
+        "terminal_balanced_accuracy": 1.0,
+        "train_loss": 0.0783623605966568,
+        "grad_norm": 0.3120780885219574,
+        "updates_completed": 600
+      }
+    }
+  ],
+  "baselines": {
+    "training_prior_reported_mae": 0.3492063482602437,
+    "training_prior_independently_recomputed_mae": 0.3492063492063492,
+    "no_delta_reported_mae": 0.6111111111111112,
+    "no_delta_independently_recomputed_mae": 0.6111111111111112,
+    "recomputation_tolerance": 1e-07
+  },
+  "portable_evidence": {
+    "index_sha256": "17d3ca658e4672d38919dca4e6d3343d3277252b40294e34cc39ccb9eaa5b3b2",
+    "file_count": 37,
+    "total_bytes": 1812292,
+    "byte_identical_original_copies": 36,
+    "successful_event_subset_exact": true,
+    "files": [
+      {
+        "path": "supported-transitions.npz",
+        "sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+        "bytes": 4076
+      },
+      {
+        "path": "supported-transitions.manifest.json",
+        "sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e",
+        "bytes": 285522
+      },
+      {
+        "path": "supported-transition-plan.json",
+        "sha256": "df02294e60f092945bee318d1f9c78e4e9febc8bc50560a7a0bb2f7504b08555",
+        "bytes": 43796
+      },
+      {
+        "path": "supported-transition-data-review.json",
+        "sha256": "fc73061c72eea374ace2998923c266dd91debdbeea0ed29ed459b248254cd967",
+        "bytes": 3757
+      },
+      {
+        "path": "structured-preflight.json",
+        "sha256": "9405173ebe97ded820f357bdc1106c3016ff3f40797ad298c6b34210c6415aea",
+        "bytes": 638
+      },
+      {
+        "path": "campaign-ledger.jsonl",
+        "sha256": "11c8c719f162b14c810af5bffa74aa86ca47d494e5afcac2732b934248a082e5",
+        "bytes": 11341
+      },
+      {
+        "path": "fit-progress-2.jsonl",
+        "sha256": "802af7e9dfe38b705910ad1d5a7db91ab526dca39619990fc35a3b6792804d1f",
+        "bytes": 37568
+      },
+      {
+        "path": "fit-command-absolute.json",
+        "sha256": "43639e133ec4496ac4bf5afb4f4176c62714a0dc27857f3d6c69a3ae9f31411e",
+        "bytes": 7214
+      },
+      {
+        "path": "attempt-1/supervisor-receipt.json",
+        "sha256": "d11a2bbfcfd5d0e6a6828436fb8024b18fe02b53bd7b0c15d1e354c13fae5e29",
+        "bytes": 2504
+      },
+      {
+        "path": "attempt-1/build.stderr.log",
+        "sha256": "750199569f58351ad69c8fa7289c72f32be121022a6a91eb275d6d2b4b865679",
+        "bytes": 2455
+      },
+      {
+        "path": "attempt-2/supervisor-receipt.json",
+        "sha256": "8703eadf459bb157e0983d32e13901ece2e41084b231da921bd0dd8e3c783253",
+        "bytes": 3035
+      },
+      {
+        "path": "attempt-2/native-receipt.json",
+        "sha256": "b208f5f6083bc4c19d4e15ed2d8e820e8e144fd14f633deea1d29d24cfc8061c",
+        "bytes": 222313
+      },
+      {
+        "path": "attempt-2/native-transitions.jsonl",
+        "sha256": "bc90f4b7de49d4edf3a75995d78280c45259f82223ea79fb64fd52b5db3c26b5",
+        "bytes": 225771
+      },
+      {
+        "path": "fit-guard-1/supervisor-receipt.json",
+        "sha256": "bf6a91e1709ead9a07afbb48889a9be31c1d3f44b9a8c60464413223e3c82d56",
+        "bytes": 5299
+      },
+      {
+        "path": "fit-guard-1/fit.stderr.log",
+        "sha256": "8d807e88ac5751019b8f3829ba925ec419176f9ae8a7077980b6ce8b7c8aa65c",
+        "bytes": 272
+      },
+      {
+        "path": "fit-guard-1/fit.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "fit-guard-2/supervisor-receipt.json",
+        "sha256": "c0caab75fb3adfc4fa1717d35eb95ea7d1443bfa486681cc65fd24dfcde59110",
+        "bytes": 5417
+      },
+      {
+        "path": "fit-2/result.json",
+        "sha256": "cc8905d8224ceaf180333cd33e6e54f6718f37703a254e123fbe02254d1ec570",
+        "bytes": 17052
+      },
+      {
+        "path": "fit-2/contract.json",
+        "sha256": "03bad3b85435afbd8efec68f9eab4890081604136cdb43f03f106c4640167f06",
+        "bytes": 8946
+      },
+      {
+        "path": "fit-2/manifest.json",
+        "sha256": "f7998b922a9960875554c04bded293b59602dc969020e18d14ac898cd3fc955b",
+        "bytes": 11598
+      },
+      {
+        "path": "fit-2/batch-schedule.npy",
+        "sha256": "6f2d39d89039402605e635d4536d13272e9835e8e019bd1c701575a25b9b3886",
+        "bytes": 12928
+      },
+      {
+        "path": "fit-2/correct-ir.npz",
+        "sha256": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27",
+        "bytes": 32378
+      },
+      {
+        "path": "fit-2/correct-ir-contract.json",
+        "sha256": "b18b8a3029f4e11c1c11610c13d5d30dee49e7947e98d368c5ef03efdc2c00d4",
+        "bytes": 11826
+      },
+      {
+        "path": "fit-2/correct-ir-golden.npz",
+        "sha256": "7aa31decc0da3a756b29dfcb68ec091f2580514e5eb5e68682d559944e810f7e",
+        "bytes": 129936
+      },
+      {
+        "path": "fit-2/id-only.npz",
+        "sha256": "76c15c482531c06504dd9a8c99d39a57f9a4edcc30a433f71e491957fef99ef6",
+        "bytes": 32378
+      },
+      {
+        "path": "fit-2/id-only-contract.json",
+        "sha256": "3f9a7accec4da984f96c68962d4f18bb6190de2c8ec59c32c8db872ae8a8761f",
+        "bytes": 11820
+      },
+      {
+        "path": "fit-2/id-only-golden.npz",
+        "sha256": "8fee217e44c41cfc9dfe6a85c9d75dd62bab44548286516e4b303416e61f6f09",
+        "bytes": 129936
+      },
+      {
+        "path": "fit-2/wrong-ir.npz",
+        "sha256": "6fd641eee6dff5347e01af8e7b7756469cf2282e623df19d1e27ba845c6a427b",
+        "bytes": 32378
+      },
+      {
+        "path": "fit-2/wrong-ir-contract.json",
+        "sha256": "eee2b77584cdb26cca17e13418d3342711b56b5f46c5529af95b28934abdf318",
+        "bytes": 11822
+      },
+      {
+        "path": "fit-2/wrong-ir-golden.npz",
+        "sha256": "9807cb7b1e93bc5dcb1fc1ee0c1a05000240cfdb91930bc6f5f002a03f7f20ca",
+        "bytes": 129936
+      },
+      {
+        "path": "run-events.jsonl",
+        "sha256": "250c5f78026214f8a87f0ddf7eb3066f82a03646b1e7d8d23ff97a1db69750e1",
+        "bytes": 65834
+      },
+      {
+        "path": "embeddings/index.json",
+        "sha256": "07dc35eec0d8a839a483e87ec0efad64930e6a962c1d5c50e69c81ab45b923f7",
+        "bytes": 3958
+      },
+      {
+        "path": "embeddings/deck-embeddings.json",
+        "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+        "bytes": 295074
+      },
+      {
+        "path": "embeddings/deck-embeddings.manifest.json",
+        "sha256": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090",
+        "bytes": 4651
+      },
+      {
+        "path": "embeddings/card-embeddings.json",
+        "sha256": "cb38796bc31498aac1fde5f91e282bc814a9314ca1c076b02fbc5432f2223f04",
+        "bytes": 4267
+      },
+      {
+        "path": "embeddings/card-embeddings.manifest.json",
+        "sha256": "2b00012274e2042ccb46ca8a97a1996f4ee2f0a0ebe657ea5435f48d5a4bc664",
+        "bytes": 3474
+      },
+      {
+        "path": "embeddings/export-run.json",
+        "sha256": "7a58650d974375b8a82516ccfa8fcd8b03aa8737cbab6313bde921c33d62366d",
+        "bytes": 1122
+      }
+    ]
+  },
+  "frozen_baseline": {
+    "files": [
+      {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+        "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a",
+        "bytes": 3976
+      },
+      {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+        "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+        "bytes": 2534886
+      }
+    ],
+    "canonical_bundle_sha256": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+    "unchanged_original_checkpoints": {
+      "tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+      "tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+    }
+  },
+  "global_batch": {
+    "prior_audited_updates": 700,
+    "new_actual_updates": 600,
+    "total_actual_updates": 1300,
+    "paid_jobs_recorded": 0,
+    "paid_spend_usd_recorded": 0
+  },
+  "separate_label_free_embedding_extraction": {
+    "receipt_sha256": "7a58650d974375b8a82516ccfa8fcd8b03aa8737cbab6313bde921c33d62366d",
+    "model_forward_calls": 2,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "paid_jobs": 0,
+    "elapsed_seconds": 1.2231781659647822,
+    "scope": "Separate authorized dashboard extraction after the completed fit; outside its six validation and three ABI forward counts."
+  },
+  "interpretation": {
+    "correct_ir_advantage_observed": false,
+    "correct_ir_minus_id_only_mae": 0.020824048357705294,
+    "correct_ir_minus_wrong_ir_mae": 0.01695157002864614,
+    "conclusion": "All trained arms beat these two simple no-fit baselines on aggregate MAE. Correct IR did not beat the matched controls. This two-ID context-holdout pilot does not establish better deck-aware action choices, held-out-card semantics or playing strength."
+  },
+  "limitations": [
+    "Trained validation predictions are not separately saved; this audit checks trace/event agreement and metric arithmetic without new inference.",
+    "Initial weights were not separately saved. Matching initialization is supported by source, shapes, shared schedule and recorded initialization hashes.",
+    "Only 18 known validation labels across 6 contexts. Damage delta, postaction exhaustion and followup reuse are constant on observed support.",
+    "Both focal IDs appear in train and validation; the fixed wrong-IR swap is an invertible identity code. Held-out-card distance ranking/retrieval is unsupported.",
+    "Synthetic capability counts are not an original/remaining deck or dynamic branch ledger.",
+    "Receipt/ledger timing differences remain explicit; both totals remain below the unchanged 120-second cap.",
+    "Paid-spend zero is documented local configuration/ledger evidence; no external billing query was performed."
+  ]
+}

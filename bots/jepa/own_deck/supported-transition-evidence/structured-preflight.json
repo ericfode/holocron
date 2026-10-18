@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "test_seconds": 0.037,
+  "optimizer_updates": 0,
+  "actual_rows": 16,
+  "train_rows": 10,
+  "val_rows": 6,
+  "source_sha256": "0b0826951cd880e8920e496c54c9a27c7a69032e726ec52f5354cead3e56bece",
+  "test_sha256": "340473c6c43e2e8d3e2fad6267c1fabf56fd8422ce649aee9c424cdfc9b90e85",
+  "dataset_sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+  "manifest_sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e",
+  "scope": "Forward/contract preflight only; exact encoded-context split overlap rejected."
+}

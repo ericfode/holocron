@@ -1,0 +1,1440 @@
+{
+  "schema": "jepa-supported-transition-data/1",
+  "status": "planned-native-labels-not-collected",
+  "sourceRevision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+  "maximum_card_goal": 8,
+  "selected_card_count": 2,
+  "maximum_is_not_an_admission_gate": true,
+  "programs": {
+    "ASH_011": {
+      "card": "ASH_011",
+      "ability_path": [
+        "abilities",
+        "leader",
+        0
+      ],
+      "whole_card_runtime_admitted": true,
+      "runtime_admission": {
+        "implementation": "sourceIr",
+        "internalName": "cad-bane#still-faster-than-you",
+        "setCode": "ASH_011"
+      },
+      "program": {
+        "trigger": "action",
+        "optional": false,
+        "requiresConfirmation": false,
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "unit",
+          "zone": "anyAttackable",
+          "optional": false,
+          "predicate": {
+            "kind": "binary",
+            "op": "&&",
+            "left": {
+              "kind": "query",
+              "name": "isUnit",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": []
+            },
+            "right": {
+              "kind": "binary",
+              "op": ">=",
+              "left": {
+                "kind": "ref",
+                "path": [
+                  "card",
+                  "remainingHp"
+                ]
+              },
+              "right": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          }
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 1 damage to a unit with 2 or more remaining HP",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "unit",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "&&",
+            "left": {
+              "kind": "query",
+              "name": "isUnit",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": []
+            },
+            "right": {
+              "kind": "binary",
+              "op": ">=",
+              "left": {
+                "kind": "ref",
+                "path": [
+                  "card",
+                  "remainingHp"
+                ]
+              },
+              "right": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          }
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "sourceHash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+      "sourcePath": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+      "card_row_sha256": "a3126d5eb2d4547da066b2b329424f843635fef8c0e23c4cbd75fd675bf3f230",
+      "canonical_card_id": "5648009238",
+      "identity_aliases": [
+        {
+          "set": "ASH",
+          "number": 11
+        }
+      ],
+      "complete_definition_preserved": true,
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      }
+    },
+    "IBH_053": {
+      "card": "IBH_053",
+      "ability_path": [
+        "abilities",
+        "leader",
+        0
+      ],
+      "whole_card_runtime_admitted": true,
+      "runtime_admission": {
+        "implementation": "sourceIr",
+        "internalName": "darth-vader#dont-fail-me-again",
+        "setCode": "IBH_053"
+      },
+      "program": {
+        "trigger": "action",
+        "optional": false,
+        "requiresConfirmation": false,
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "base",
+          "optional": false
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 1 damage to a base",
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "base"
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+      "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+      "card_row_sha256": "70d419122ee5435348b92fa6f72557ae529d87a40172765f388d5cfa2fdca02e",
+      "canonical_card_id": "9389694773",
+      "identity_aliases": [
+        {
+          "set": "IBH",
+          "number": 53
+        }
+      ],
+      "complete_definition_preserved": true,
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      }
+    }
+  },
+  "coverage_scan": {
+    "parseable_selected_abilities": [
+      {
+        "card": "ASH_011",
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "whole_card_runtime_admitted": true,
+        "runtime_admission": {
+          "implementation": "sourceIr",
+          "internalName": "cad-bane#still-faster-than-you",
+          "setCode": "ASH_011"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "unit",
+            "zone": "anyAttackable",
+            "optional": false,
+            "predicate": {
+              "kind": "binary",
+              "op": "&&",
+              "left": {
+                "kind": "query",
+                "name": "isUnit",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "args": []
+              },
+              "right": {
+                "kind": "binary",
+                "op": ">=",
+                "left": {
+                  "kind": "ref",
+                  "path": [
+                    "card",
+                    "remainingHp"
+                  ]
+                },
+                "right": {
+                  "kind": "const",
+                  "value": 2
+                }
+              }
+            }
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Deal 1 damage to a unit with 2 or more remaining HP",
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "unit",
+            "zone": "anyAttackable",
+            "predicate": {
+              "kind": "binary",
+              "op": "&&",
+              "left": {
+                "kind": "query",
+                "name": "isUnit",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "args": []
+              },
+              "right": {
+                "kind": "binary",
+                "op": ">=",
+                "left": {
+                  "kind": "ref",
+                  "path": [
+                    "card",
+                    "remainingHp"
+                  ]
+                },
+                "right": {
+                  "kind": "const",
+                  "value": 2
+                }
+              }
+            }
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "sourceHash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+        "sourcePath": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+        "card_row_sha256": "a3126d5eb2d4547da066b2b329424f843635fef8c0e23c4cbd75fd675bf3f230"
+      },
+      {
+        "card": "IBH_001",
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "whole_card_runtime_admitted": false,
+        "runtime_admission": {
+          "internalName": "leia-organa#get-to-your-transports",
+          "reason": "leia-organa#get-to-your-transports: invalid ability IR: unknown field `numCardsFunc`, expected one of `kind`, `mode`, `chooser`, `resultBinding`, `defaults`, `contextBinding`, `choosingPlayerOverride`, `delayOpponentBeforeCosts`, `cardTypes`, `zones`, `controller`, `predicate`, `optional`, `canChooseNoCards`, `promptTitleParts`, `resolverName`, `condition`, `mustChangeGameState`",
+          "setCode": "IBH_001"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "self",
+            "type": "unit",
+            "zone": "anyAttackable",
+            "optional": false
+          },
+          "effect": {
+            "kind": "heal",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Heal 1 damage from a friendly unit",
+          "costs": [
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "self",
+            "type": "unit",
+            "zone": "anyAttackable"
+          },
+          "effect": {
+            "kind": "heal",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "sourceHash": "3c0fe1607253abaacff9632e5c79b03128acb6238a8cddf1eb44a6b40abd3f71",
+        "sourcePath": "game/cards/06_IBH/leaders/LeiaOrganaGetToYourTransports.ts",
+        "card_row_sha256": "6e0843321c04b76e4e3920c01f68367852ff4efad32374561d9cc1a9b8284655"
+      },
+      {
+        "card": "IBH_016",
+        "ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "whole_card_runtime_admitted": true,
+        "runtime_admission": {
+          "implementation": "sourceIr",
+          "internalName": "ion-cannon",
+          "setCode": "IBH_016"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "any",
+            "zone": "arena",
+            "optional": false,
+            "arena": "space"
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 3
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Deal 3 damage to a space unit",
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "any",
+            "zone": "arena",
+            "arena": "space"
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 3
+            }
+          }
+        },
+        "sourceHash": "33bcd7885f19721a067493066a156ef0784095e22cc54002f7a695256f7f82ff",
+        "sourcePath": "game/cards/06_IBH/units/IonCannon.ts",
+        "card_row_sha256": "a0105431bf95fa44008605e8212a574f1a2e4a9243603a6cf7e84b6250065c8f"
+      },
+      {
+        "card": "IBH_053",
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "whole_card_runtime_admitted": true,
+        "runtime_admission": {
+          "implementation": "sourceIr",
+          "internalName": "darth-vader#dont-fail-me-again",
+          "setCode": "IBH_053"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "any",
+            "zone": "base",
+            "optional": false
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Deal 1 damage to a base",
+          "costs": [
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "any",
+            "zone": "base"
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+        "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+        "card_row_sha256": "70d419122ee5435348b92fa6f72557ae529d87a40172765f388d5cfa2fdca02e"
+      },
+      {
+        "card": "LOF_134",
+        "ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "whole_card_runtime_admitted": true,
+        "runtime_admission": {
+          "implementation": "sourceIr",
+          "internalName": "heavy-missile-gunship",
+          "setCode": "LOF_134"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "unit",
+            "zone": "arena",
+            "optional": false,
+            "arena": "ground"
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Deal 2 damage to a ground unit",
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "unit",
+            "zone": "arena",
+            "arena": "ground"
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          }
+        },
+        "sourceHash": "ab2b16abfa26887a3cd8ed8eddae001d64933372f51072933444a6c249b5f382",
+        "sourcePath": "game/cards/05_LOF/units/HeavyMissileGunship.ts",
+        "card_row_sha256": "1b1342233948f67b8b005c5bb183aa42b151d6cc2c3c768020f16e3e6a314766"
+      },
+      {
+        "card": "SHD_002",
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "whole_card_runtime_admitted": false,
+        "runtime_admission": {
+          "internalName": "qira#i-alone-survived",
+          "reason": "qira#i-alone-survived: invalid ability IR: unknown variant `systemPropertiesFactory`, expected one of `disclose`, `initiateAttack`, `constantEffectRegistration`, `gainTrait`, `loseTrait`, `discardOwnHand`, `discardDeck`, `createTokenUnit`, `damage`, `heal`, `draw`, `select`, `readyResources`, `payAdjustedResources`, `noAction`, `resourceCard`, `resourceCardSystem`, `moveToBottomOfDeck`, `dealsCombatDamageFirst`, `returnToHand`, `modifyStats`, `maximumPowerExperience`, `copyKeywords`, `gainKeyword`, `loseKeyword`, `ready`, `exhaust`, `defeat`, `giveShield`, `useForce`, `gainForce`, `giveWeakness`, `giveAdvantage`, `giveExperience`, `sequence`, `simultaneous`, `phaseModifiers`, `conditional`, `distributeHealing`, `cardRestriction`",
+          "setCode": "SHD_002"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            },
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            }
+          ],
+          "targetResolver": {
+            "owner": "self",
+            "type": "unit",
+            "zone": "anyAttackable",
+            "optional": false
+          },
+          "effect": {
+            "kind": "sequence",
+            "effects": [
+              {
+                "kind": "damage",
+                "target": "chosen",
+                "amount": {
+                  "kind": "const",
+                  "value": 2
+                }
+              },
+              {
+                "kind": "giveShield",
+                "target": "chosen",
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                }
+              }
+            ]
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Deal 2 damage to a friendly unit. Then, give a Shield token to it",
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            },
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            }
+          ],
+          "targetResolver": {
+            "owner": "self",
+            "type": "unit",
+            "zone": "anyAttackable"
+          },
+          "effect": {
+            "kind": "sequence",
+            "effects": [
+              {
+                "kind": "damage",
+                "target": "chosen",
+                "amount": {
+                  "kind": "const",
+                  "value": 2
+                }
+              },
+              {
+                "kind": "giveShield",
+                "target": "chosen",
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                }
+              }
+            ]
+          }
+        },
+        "sourceHash": "bb15f551f385efc4f8cd4cfa8b0b8f0b495da82825e9893e3c7ec1bf6c4b8295",
+        "sourcePath": "game/cards/02_SHD/leaders/QiraIAloneSurvived.ts",
+        "card_row_sha256": "a3f41434e771e74eee788c7f50a9160d96c440b1f54094f40374698e005d2390"
+      },
+      {
+        "card": "TWI_003",
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "whole_card_runtime_admitted": false,
+        "runtime_admission": {
+          "internalName": "obiwan-kenobi#patient-mentor",
+          "reason": "obiwan-kenobi#patient-mentor: invalid ability IR: unknown variant `eventResult`, expected one of `nativeTokenPredicate`, `historyQuery`, `dataMember`, `historyAttackCheck`, `arenaList`, `arenaFilter`, `arenaSome`, `arenaLength`, `collection`, `array`, `math`, `const`, `ref`, `binary`, `unary`, `conditional`, `query`",
+          "setCode": "TWI_003"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "unit",
+            "zone": "anyAttackable",
+            "optional": false
+          },
+          "effect": {
+            "kind": "heal",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Heal 1 damage from a unit",
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "unit",
+            "zone": "anyAttackable"
+          },
+          "effect": {
+            "kind": "heal",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          }
+        },
+        "sourceHash": "1c50554f2b11e4047738d8c4d0709c6a78de47195807908ebb73059eae16c55d",
+        "sourcePath": "game/cards/03_TWI/leaders/ObiWanKenobiPatientMentor.ts",
+        "card_row_sha256": "0f616934fa465c08501b1e31328ff0ff975f14d5551e776de39e5d4e7a60bb7b"
+      },
+      {
+        "card": "TWI_056",
+        "ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "whole_card_runtime_admitted": true,
+        "runtime_admission": {
+          "implementation": "sourceIr",
+          "internalName": "compassionate-senator",
+          "setCode": "TWI_056"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            },
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "any",
+            "zone": "anyAttackable",
+            "optional": false
+          },
+          "effect": {
+            "kind": "heal",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Heal 2 damage from a unit or base",
+          "costs": [
+            {
+              "kind": "exhaustSelf"
+            },
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "any",
+            "zone": "anyAttackable"
+          },
+          "effect": {
+            "kind": "heal",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          }
+        },
+        "sourceHash": "6c79fabbca6b5cee9e3c35fc0d1c7dfd3dfb0810b2a8c530942c98383efdf6e5",
+        "sourcePath": "game/cards/03_TWI/units/CompassionateSenator.ts",
+        "card_row_sha256": "0984fbbe441d5e4c83122edd498aeb1229676d329d68bb993d9bd79c1a23bd85"
+      },
+      {
+        "card": "TWI_157",
+        "ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "whole_card_runtime_admitted": true,
+        "runtime_admission": {
+          "implementation": "sourceIr",
+          "internalName": "disaffected-senator",
+          "setCode": "TWI_157"
+        },
+        "program": {
+          "trigger": "action",
+          "optional": false,
+          "requiresConfirmation": false,
+          "costs": [
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            },
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "base",
+            "zone": "anyAttackable",
+            "optional": false
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          }
+        },
+        "raw_ability": {
+          "trigger": "action",
+          "title": "Deal 2 damage to a base.",
+          "costs": [
+            {
+              "kind": "resources",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            },
+            {
+              "kind": "exhaustSelf"
+            }
+          ],
+          "targetResolver": {
+            "owner": "any",
+            "type": "base",
+            "zone": "anyAttackable"
+          },
+          "effect": {
+            "kind": "damage",
+            "target": "chosen",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          }
+        },
+        "sourceHash": "a9a96ae86ad7b5b280db15aeaf147208edb6c76a40e91e0257866be9410171df",
+        "sourcePath": "game/cards/03_TWI/units/DisaffectedSenator.ts",
+        "card_row_sha256": "020f393bcf59327b815780bd17e87ae80f2100a8b6dfcb467856b8fbef845efd"
+      }
+    ],
+    "parser_rejections": [
+      {
+        "side": "card",
+        "reason": "isUnit receiver must be selection card",
+        "count": 1
+      },
+      {
+        "side": "card",
+        "reason": "object identity comparison is not in the reviewed expression subset",
+        "count": 3
+      },
+      {
+        "side": "card",
+        "reason": "unreviewed cost",
+        "count": 6
+      },
+      {
+        "side": "card",
+        "reason": "unreviewed expression kind",
+        "count": 1
+      },
+      {
+        "side": "card",
+        "reason": "unreviewed query",
+        "count": 4
+      },
+      {
+        "side": "card",
+        "reason": "unsupported enum",
+        "count": 574
+      },
+      {
+        "side": "card",
+        "reason": "unsupported keys or missing typed fields",
+        "count": 1526
+      },
+      {
+        "side": "leader",
+        "reason": "unreviewed cost",
+        "count": 14
+      },
+      {
+        "side": "leader",
+        "reason": "unreviewed expression kind",
+        "count": 4
+      },
+      {
+        "side": "leader",
+        "reason": "unreviewed query",
+        "count": 7
+      },
+      {
+        "side": "leader",
+        "reason": "unreviewed reference path",
+        "count": 2
+      },
+      {
+        "side": "leader",
+        "reason": "unsupported enum",
+        "count": 17
+      },
+      {
+        "side": "leader",
+        "reason": "unsupported keys or missing typed fields",
+        "count": 134
+      },
+      {
+        "side": "unit",
+        "reason": "unreviewed cost",
+        "count": 2
+      },
+      {
+        "side": "unit",
+        "reason": "unsupported enum",
+        "count": 48
+      },
+      {
+        "side": "unit",
+        "reason": "unsupported keys or missing typed fields",
+        "count": 147
+      }
+    ],
+    "parser_parseable_count": 9,
+    "runtime_admitted_parseable_count": 6
+  },
+  "excluded_selected_abilities": [
+    {
+      "card": "IBH_001",
+      "ability_path": [
+        "abilities",
+        "leader",
+        0
+      ],
+      "whole_card_runtime_admitted": false,
+      "runtime_admission": {
+        "internalName": "leia-organa#get-to-your-transports",
+        "reason": "leia-organa#get-to-your-transports: invalid ability IR: unknown field `numCardsFunc`, expected one of `kind`, `mode`, `chooser`, `resultBinding`, `defaults`, `contextBinding`, `choosingPlayerOverride`, `delayOpponentBeforeCosts`, `cardTypes`, `zones`, `controller`, `predicate`, `optional`, `canChooseNoCards`, `promptTitleParts`, `resolverName`, `condition`, `mustChangeGameState`",
+        "setCode": "IBH_001"
+      },
+      "sourceHash": "3c0fe1607253abaacff9632e5c79b03128acb6238a8cddf1eb44a6b40abd3f71",
+      "sourcePath": "game/cards/06_IBH/leaders/LeiaOrganaGetToYourTransports.ts",
+      "card_row_sha256": "6e0843321c04b76e4e3920c01f68367852ff4efad32374561d9cc1a9b8284655",
+      "reason": "whole-card runtime rejected despite parseable selected ability"
+    },
+    {
+      "card": "IBH_016",
+      "ability_path": [
+        "abilities",
+        "card",
+        0
+      ],
+      "whole_card_runtime_admitted": true,
+      "runtime_admission": {
+        "implementation": "sourceIr",
+        "internalName": "ion-cannon",
+        "setCode": "IBH_016"
+      },
+      "sourceHash": "33bcd7885f19721a067493066a156ef0784095e22cc54002f7a695256f7f82ff",
+      "sourcePath": "game/cards/06_IBH/units/IonCannon.ts",
+      "card_row_sha256": "a0105431bf95fa44008605e8212a574f1a2e4a9243603a6cf7e84b6250065c8f",
+      "reason": "unit/card source-form action binding outside the existing verified leader microprobe; no runtime primitive expansion required"
+    },
+    {
+      "card": "LOF_134",
+      "ability_path": [
+        "abilities",
+        "card",
+        0
+      ],
+      "whole_card_runtime_admitted": true,
+      "runtime_admission": {
+        "implementation": "sourceIr",
+        "internalName": "heavy-missile-gunship",
+        "setCode": "LOF_134"
+      },
+      "sourceHash": "ab2b16abfa26887a3cd8ed8eddae001d64933372f51072933444a6c249b5f382",
+      "sourcePath": "game/cards/05_LOF/units/HeavyMissileGunship.ts",
+      "card_row_sha256": "1b1342233948f67b8b005c5bb183aa42b151d6cc2c3c768020f16e3e6a314766",
+      "reason": "unit/card source-form action binding outside the existing verified leader microprobe; no runtime primitive expansion required"
+    },
+    {
+      "card": "SHD_002",
+      "ability_path": [
+        "abilities",
+        "leader",
+        0
+      ],
+      "whole_card_runtime_admitted": false,
+      "runtime_admission": {
+        "internalName": "qira#i-alone-survived",
+        "reason": "qira#i-alone-survived: invalid ability IR: unknown variant `systemPropertiesFactory`, expected one of `disclose`, `initiateAttack`, `constantEffectRegistration`, `gainTrait`, `loseTrait`, `discardOwnHand`, `discardDeck`, `createTokenUnit`, `damage`, `heal`, `draw`, `select`, `readyResources`, `payAdjustedResources`, `noAction`, `resourceCard`, `resourceCardSystem`, `moveToBottomOfDeck`, `dealsCombatDamageFirst`, `returnToHand`, `modifyStats`, `maximumPowerExperience`, `copyKeywords`, `gainKeyword`, `loseKeyword`, `ready`, `exhaust`, `defeat`, `giveShield`, `useForce`, `gainForce`, `giveWeakness`, `giveAdvantage`, `giveExperience`, `sequence`, `simultaneous`, `phaseModifiers`, `conditional`, `distributeHealing`, `cardRestriction`",
+        "setCode": "SHD_002"
+      },
+      "sourceHash": "bb15f551f385efc4f8cd4cfa8b0b8f0b495da82825e9893e3c7ec1bf6c4b8295",
+      "sourcePath": "game/cards/02_SHD/leaders/QiraIAloneSurvived.ts",
+      "card_row_sha256": "a3f41434e771e74eee788c7f50a9160d96c440b1f54094f40374698e005d2390",
+      "reason": "whole-card runtime rejected despite parseable selected ability"
+    },
+    {
+      "card": "TWI_003",
+      "ability_path": [
+        "abilities",
+        "leader",
+        0
+      ],
+      "whole_card_runtime_admitted": false,
+      "runtime_admission": {
+        "internalName": "obiwan-kenobi#patient-mentor",
+        "reason": "obiwan-kenobi#patient-mentor: invalid ability IR: unknown variant `eventResult`, expected one of `nativeTokenPredicate`, `historyQuery`, `dataMember`, `historyAttackCheck`, `arenaList`, `arenaFilter`, `arenaSome`, `arenaLength`, `collection`, `array`, `math`, `const`, `ref`, `binary`, `unary`, `conditional`, `query`",
+        "setCode": "TWI_003"
+      },
+      "sourceHash": "1c50554f2b11e4047738d8c4d0709c6a78de47195807908ebb73059eae16c55d",
+      "sourcePath": "game/cards/03_TWI/leaders/ObiWanKenobiPatientMentor.ts",
+      "card_row_sha256": "0f616934fa465c08501b1e31328ff0ff975f14d5551e776de39e5d4e7a60bb7b",
+      "reason": "whole-card runtime rejected despite parseable selected ability"
+    },
+    {
+      "card": "TWI_056",
+      "ability_path": [
+        "abilities",
+        "card",
+        0
+      ],
+      "whole_card_runtime_admitted": true,
+      "runtime_admission": {
+        "implementation": "sourceIr",
+        "internalName": "compassionate-senator",
+        "setCode": "TWI_056"
+      },
+      "sourceHash": "6c79fabbca6b5cee9e3c35fc0d1c7dfd3dfb0810b2a8c530942c98383efdf6e5",
+      "sourcePath": "game/cards/03_TWI/units/CompassionateSenator.ts",
+      "card_row_sha256": "0984fbbe441d5e4c83122edd498aeb1229676d329d68bb993d9bd79c1a23bd85",
+      "reason": "unit/card source-form action binding outside the existing verified leader microprobe; no runtime primitive expansion required"
+    },
+    {
+      "card": "TWI_157",
+      "ability_path": [
+        "abilities",
+        "card",
+        0
+      ],
+      "whole_card_runtime_admitted": true,
+      "runtime_admission": {
+        "implementation": "sourceIr",
+        "internalName": "disaffected-senator",
+        "setCode": "TWI_157"
+      },
+      "sourceHash": "a9a96ae86ad7b5b280db15aeaf147208edb6c76a40e91e0257866be9410171df",
+      "sourcePath": "game/cards/03_TWI/units/DisaffectedSenator.ts",
+      "card_row_sha256": "020f393bcf59327b815780bd17e87ae80f2100a8b6dfcb467856b8fbef845efd",
+      "reason": "unit/card source-form action binding outside the existing verified leader microprobe; no runtime primitive expansion required"
+    }
+  ],
+  "complete_runtime_definition_codes": [
+    "ASH_011",
+    "IBH_053",
+    "ASH_019",
+    "LOF_256",
+    "TOKEN_SHIELD"
+  ],
+  "native_token_exception": "Exact unmodified TOKEN_SHIELD row remains compiler-unsupported and is admitted by the existing native token adapter.",
+  "context_families": [
+    {
+      "id": 0,
+      "name": "baseline",
+      "resource_ready": true,
+      "source_exhausted": false,
+      "first_owner": "p2",
+      "first_damage": 2,
+      "second_damage": 3,
+      "own_base_damage": 0,
+      "opponent_base_damage": 0
+    },
+    {
+      "id": 1,
+      "name": "no-ready-resource",
+      "resource_ready": false,
+      "source_exhausted": false,
+      "first_owner": "p2",
+      "first_damage": 2,
+      "second_damage": 3,
+      "own_base_damage": 0,
+      "opponent_base_damage": 0
+    },
+    {
+      "id": 2,
+      "name": "source-exhausted",
+      "resource_ready": true,
+      "source_exhausted": true,
+      "first_owner": "p2",
+      "first_damage": 2,
+      "second_damage": 3,
+      "own_base_damage": 0,
+      "opponent_base_damage": 0
+    },
+    {
+      "id": 3,
+      "name": "invalid-chosen-target",
+      "resource_ready": true,
+      "source_exhausted": false,
+      "first_owner": "p2",
+      "first_damage": 3,
+      "second_damage": 2,
+      "own_base_damage": 0,
+      "opponent_base_damage": 0
+    },
+    {
+      "id": 4,
+      "name": "friendly-terminal-train",
+      "resource_ready": true,
+      "source_exhausted": false,
+      "first_owner": "p1",
+      "first_damage": 0,
+      "second_damage": 3,
+      "own_base_damage": 29,
+      "opponent_base_damage": 0
+    },
+    {
+      "id": 5,
+      "name": "near-terminal",
+      "resource_ready": true,
+      "source_exhausted": false,
+      "first_owner": "p2",
+      "first_damage": 2,
+      "second_damage": 3,
+      "own_base_damage": 0,
+      "opponent_base_damage": 29
+    },
+    {
+      "id": 6,
+      "name": "resource-and-invalid-target",
+      "resource_ready": false,
+      "source_exhausted": false,
+      "first_owner": "p2",
+      "first_damage": 3,
+      "second_damage": 2,
+      "own_base_damage": 0,
+      "opponent_base_damage": 0
+    },
+    {
+      "id": 7,
+      "name": "exhausted-and-friendly",
+      "resource_ready": true,
+      "source_exhausted": true,
+      "first_owner": "p1",
+      "first_damage": 1,
+      "second_damage": 3,
+      "own_base_damage": 2,
+      "opponent_base_damage": 0
+    }
+  ],
+  "context_feature_names": [
+    "ready_resources",
+    "physical_resources",
+    "source_exhausted",
+    "source_deployed",
+    "chosen_own",
+    "chosen_unit",
+    "chosen_base",
+    "chosen_ground",
+    "chosen_space",
+    "chosen_hp_per30",
+    "chosen_damage_per30",
+    "chosen_remaining_hp_per30",
+    "chosen_shields",
+    "own_base_damage_per30",
+    "opponent_base_damage_per30",
+    "own_ground_count",
+    "opponent_ground_count",
+    "own_space_count",
+    "opponent_space_count"
+  ],
+  "target_names": [
+    "source_use",
+    "target_allowed",
+    "cost_resource",
+    "damage_delta",
+    "source_exhausted_after",
+    "followup_source_offered",
+    "terminal"
+  ],
+  "context_feature_units": [
+    "count",
+    "count",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "HP/30",
+    "damage/30",
+    "remaining HP/30",
+    "count",
+    "damage/30",
+    "damage/30",
+    "count",
+    "count",
+    "count",
+    "count"
+  ],
+  "prediction_time": "Pre-action source-use query with a predeclared chosen public reference; no native offered mask or later state is an input.",
+  "target_units": [
+    "boolean",
+    "boolean",
+    "copies of ready resources paid",
+    "damage counters after minus before",
+    "boolean",
+    "boolean",
+    "boolean"
+  ],
+  "target_normalization": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "target_semantics": {
+    "source_use": "source appears in native initial offered actions",
+    "target_allowed": "chosen reference appears in actual native target prompt; unknown when source cannot enter prompt",
+    "cost_resource": "before ready count minus committed after ready count",
+    "damage_delta": "chosen after damage minus before damage, including settled terminal commit",
+    "source_exhausted_after": "committed after source exhaustion",
+    "followup_source_offered": "actual subsequent own window offers source, unknown when terminal/no follow-up",
+    "terminal": "native settled committed state terminal status"
+  },
+  "split": {
+    "train_context_families": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "val_context_families": [
+      5,
+      6,
+      7
+    ],
+    "rule": "Group both card identities and all source/cancel/commit/follow-up branches by full context family; no row-random split.",
+    "held_out_card_ids": false,
+    "reprints_kept_with_canonical_identity": true
+  },
+  "collection": {
+    "max_context_cases": 16,
+    "max_engine_applies_including_failures": 64,
+    "parent_total_apply_ceiling": 96,
+    "current_contexts_also_query_native_exhaustion_resource_and_target_boundaries": true,
+    "label_source": "Engine::legal_actions and observed native snapshots only; no labels from typed parser, structural overlap or synthetic_transition"
+  },
+  "inputs": {
+    "only_pre_action_public_scalars": true,
+    "actual_offered_masks_are_targets_not_inputs": true,
+    "card_titles_source_paths_instance_ids_and_context_ids_model_inputs": false,
+    "hidden_draw_order_or_opponent_private_inputs": false
+  },
+  "target_mask_scope": "The learned target_allowed coordinate is one predeclared chosen-reference boolean; complete native candidate masks are preserved in raw records, not claimed as a learned full-mask head.",
+  "capability_bag": {
+    "scope": "One-count selected source program is a synthetic capability bag, not an original deck declaration; no deck-synergy evidence.",
+    "count_order_invariant": true
+  },
+  "limitations": [
+    "Two familiar IDs occur in both partitions: held-out-context diagnostic only, not held-out-card semantics.",
+    "With two IDs, ID-only and fixed wrong-IR controls may memorize or invert the program mapping.",
+    "Friendly terminal and enemy terminal contexts are predeclared in train and validation respectively; this remains a very small context bank.",
+    "Runtime admission and typed selected-ability coverage are distinct; no unsupported card side is removed.",
+    "No game, seven-loss reproduction, policy strength or paid job is part of this data preparation."
+  ],
+  "sources": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/manifest.json",
+      "sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/typed_ir_alignment.py",
+      "sha256": "25a05e39e8e432e2003127747d2c311fe32d225528ac60db9afa05aee5b856c9"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/supported_transition_data.py",
+      "sha256": "7e7fccc2c058a7b4a888c6cc61dedb548044bb43e5354647f4a05475091553ac"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/Cargo.toml",
+      "sha256": "318e6e1a6bfccb783ed26225e93d24eea3976760fa49cce3cdbdcf04aa62483a"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/Cargo.lock",
+      "sha256": "8029b7e5166f18ed7467b38d3c475cb5681d04c5e4ad6a65353173035231b085"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/lib.rs",
+      "sha256": "5f9c76548ca9ed079fbd539f787d59e36629848d6718ad112405930f4d082c5f"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/model.rs",
+      "sha256": "133b8c49c0c6801a9b650146f3744ee6d76d64a85d3efd9184e800fffe838aee"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/generic_runtime.rs",
+      "sha256": "d450e95cc9ada2664394773f2fe154cd36c5c2a51e32c2ca2bfcca4e7d8acc1d"
+    }
+  ]
+}

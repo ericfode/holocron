@@ -1,0 +1,144 @@
+{
+  "schema": "jepa-supported-transition-data-review/1",
+  "status": "PASS",
+  "checked_at_utc": "2026-10-18T00:37:22.067228+00:00",
+  "scope": "Saved-data read-only verification: no model, native engine, optimizer or paid execution.",
+  "dataset": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.npz",
+    "sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+    "manifest_sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e",
+    "native_receipt_sha256": "b208f5f6083bc4c19d4e15ed2d8e820e8e144fd14f633deea1d29d24cfc8061c"
+  },
+  "rows": 16,
+  "train_rows": 10,
+  "val_rows": 6,
+  "context_feature_width": 19,
+  "target_width": 7,
+  "known_target_coordinates": 59,
+  "unknown_target_coordinates": 53,
+  "actual_applies": 32,
+  "observed_apply_branches": {
+    "source_prompts": 10,
+    "cancels": 10,
+    "commits": 7,
+    "followup_passes": 5
+  },
+  "failed_prior_build_applies": 0,
+  "exact_public_context_overlap_train_val": 0,
+  "heldout_card_ids": false,
+  "known_target_support": {
+    "source_use": {
+      "train": 10,
+      "val": 6
+    },
+    "target_allowed": {
+      "train": 7,
+      "val": 3
+    },
+    "cost_resource": {
+      "train": 5,
+      "val": 2
+    },
+    "damage_delta": {
+      "train": 5,
+      "val": 2
+    },
+    "source_exhausted_after": {
+      "train": 5,
+      "val": 2
+    },
+    "followup_source_offered": {
+      "train": 4,
+      "val": 1
+    },
+    "terminal": {
+      "train": 5,
+      "val": 2
+    }
+  },
+  "target_variation": {
+    "source_use": {
+      "train": [
+        0.0,
+        1.0
+      ],
+      "val": [
+        0.0,
+        1.0
+      ]
+    },
+    "target_allowed": {
+      "train": [
+        0.0,
+        1.0
+      ],
+      "val": [
+        0.0,
+        1.0
+      ]
+    },
+    "cost_resource": {
+      "train": [
+        0.0,
+        1.0
+      ],
+      "val": [
+        0.0,
+        1.0
+      ]
+    },
+    "damage_delta": {
+      "train": [
+        1.0
+      ],
+      "val": [
+        1.0
+      ]
+    },
+    "source_exhausted_after": {
+      "train": [
+        1.0
+      ],
+      "val": [
+        1.0
+      ]
+    },
+    "followup_source_offered": {
+      "train": [
+        0.0
+      ],
+      "val": [
+        0.0
+      ]
+    },
+    "terminal": {
+      "train": [
+        0.0,
+        1.0
+      ],
+      "val": [
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "source_pins": {
+    "kessel_commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+    "holocron_collector_commit": "843b7a2",
+    "whole_definitions_preserved": true,
+    "catalog_raw_selected_abilities_match": true,
+    "project_files_verified": 6,
+    "pinned_execution_inputs_verified": 97,
+    "source_manifest_sha256": "ada4704708f233866b8ce1a79fe919a33a798cd0fd21c0b9e552d76d4f210871"
+  },
+  "all_known_labels_reconstructed_from_saved_native_offers_and_snapshots": true,
+  "unknown_targets_explicitly_masked": true,
+  "no_actual_legal_masks_in_input_coordinates": true,
+  "limitations": [
+    "Only two IDs, both in train and validation: no held-out-ID semantics claim; ID-only and wrong-IR mappings may memorize/invert.",
+    "Known damage deltas and source-exhausted-after values are constant1; observed follow-up source-use is constant0, with only1 validation observation.",
+    "Only2 validation committed outcomes and3 observed validation target prompts; full candidate masks are raw diagnostics, while the trained target is one chosen-target boolean.",
+    "Terminal has one positive training and one positive validation case, involving friendly and opposing bases respectively.",
+    "Native labels ground synthetic public microstates in this runtime, not playing strength or complete game/deck dynamics."
+  ]
+}

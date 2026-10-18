@@ -1,0 +1,567 @@
+{
+  "adapter_schema": "jepa-typed-ir-wiring/1",
+  "artifacts_sha256": {
+    "TYPED_IR_ALIGNMENT.md": "c386db60e1aa8627556bd8e3ceeaeef1d659911643a27306c10a34bacc35d41c",
+    "native_microprobe/Cargo.lock": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+    "native_microprobe/Cargo.toml": "5f3ba1ea95f91b99d43d0d5a76a5a210dc7c1d18bf6f9ff5fc4787320fcbb9d3",
+    "native_microprobe/README.md": "77cb4d79294aa2d1a76eb56a9ec09f1e3d108bc2d461cde0411920c3b13c7c3b",
+    "native_microprobe/source-manifest.json": "b65dbfc98be39627794d3e72f879c923afd59290fcf8d03cd57891b1e6ae9c06",
+    "native_microprobe/src/main.rs": "c8f2c28bc52f985e741de9b6ed9114be52a982dda7711e3b32268a4f79ce2808",
+    "native_microprobe/supervise.py": "b343fe3c34f8f9bec188747734466edc1948ba78afd96161a2f809852bb44533",
+    "test_typed_ir_alignment.py": "18f47f6a6a50cca1fc308a51b3228cc61f6985fc8d88946db25ab0bc4dc92619",
+    "typed_ir_alignment.py": "25a05e39e8e432e2003127747d2c311fe32d225528ac60db9afa05aee5b856c9"
+  },
+  "behavioral_distance": {
+    "held_out_card_retrieval": null,
+    "observed_components_source": "Actual Kessel offered target masks and snapshot cost/damage/exhaust/followup deltas in native.binding_checks; independent from feature tokens.",
+    "proposal": "Use matched public contexts; mask Hamming and normalized state-delta L1/distribution TV. Evaluate held-out-ID Spearman/retrieval against cosine/Euclidean; static global vector differs from context-conditioned query.",
+    "rank_correlation": null,
+    "reason": "Only two reviewed cards/one pair. Equivalent-mechanics distinct-ID and confusable-effects held-out bank not executed."
+  },
+  "cards": [
+    {
+      "card": "ASH_011",
+      "diagnostics": {
+        "frozen_info_nce_loss": 1.2303521280796643,
+        "interpretation": "Shared deterministic feature consistency only; no learned alignment or representation-success claim.",
+        "positive_index": 0,
+        "positive_unique_best": true,
+        "role_compatible_mask": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "scores": [
+          1.0,
+          0.9260705583459882,
+          0.9675588936937934,
+          0.9772727272727273,
+          0.9772727272727273
+        ],
+        "temperature": 0.07
+      },
+      "feature_count": 44,
+      "hard_negative_names": [
+        "cost",
+        "condition",
+        "target",
+        "effect"
+      ],
+      "hard_negatives_all_known": true,
+      "provenance": {
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "coverage": "selected ability only; not whole-card admission",
+        "setCode": "ASH_011",
+        "sourceHash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+        "sourcePath": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+        "status": "supported",
+        "whole_card_runtime_admission": {
+          "admitted": true,
+          "source": "compiler/generated/runtime-admission.json:26"
+        }
+      },
+      "synthetic_oracle": {
+        "after": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 4,
+            "hp": 10,
+            "owner": "opponent",
+            "shield": 0,
+            "type": "unit",
+            "zone": "arena"
+          },
+          "ready_resources": 3,
+          "source": {
+            "exhausted": true,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "before": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 3,
+            "hp": 10,
+            "owner": "opponent",
+            "shield": 0,
+            "type": "unit",
+            "zone": "arena"
+          },
+          "ready_resources": 3,
+          "source": {
+            "exhausted": false,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "followup_affordance": false,
+        "scope": "restricted synthetic nonlethal scalar/shield oracle; not Kessel execution"
+      }
+    },
+    {
+      "card": "IBH_001",
+      "diagnostics": {
+        "frozen_info_nce_loss": 0.9950372698282718,
+        "interpretation": "Shared deterministic feature consistency only; no learned alignment or representation-success claim.",
+        "positive_index": 0,
+        "positive_unique_best": true,
+        "role_compatible_mask": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "scores": [
+          1.0,
+          0.8718127501157389,
+          0.9428090415820634,
+          0.9583333333333334,
+          0.9583333333333334
+        ],
+        "temperature": 0.07
+      },
+      "feature_count": 24,
+      "hard_negative_names": [
+        "cost",
+        "condition",
+        "target",
+        "effect"
+      ],
+      "hard_negatives_all_known": true,
+      "provenance": {
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "coverage": "selected ability only; not whole-card admission",
+        "setCode": "IBH_001",
+        "sourceHash": "3c0fe1607253abaacff9632e5c79b03128acb6238a8cddf1eb44a6b40abd3f71",
+        "sourcePath": "game/cards/06_IBH/leaders/LeiaOrganaGetToYourTransports.ts",
+        "status": "supported",
+        "whole_card_runtime_admission": {
+          "admitted": false,
+          "reason": "unit-side numCardsFunc selector is unsupported",
+          "source": "compiler/generated/runtime-admission.json:7137"
+        }
+      },
+      "synthetic_oracle": {
+        "after": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 2,
+            "hp": 10,
+            "owner": "self",
+            "shield": 0,
+            "type": "unit",
+            "zone": "arena"
+          },
+          "ready_resources": 2,
+          "source": {
+            "exhausted": true,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "before": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 3,
+            "hp": 10,
+            "owner": "self",
+            "shield": 0,
+            "type": "unit",
+            "zone": "arena"
+          },
+          "ready_resources": 3,
+          "source": {
+            "exhausted": false,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "followup_affordance": false,
+        "scope": "restricted synthetic nonlethal scalar/shield oracle; not Kessel execution"
+      }
+    },
+    {
+      "card": "IBH_053",
+      "diagnostics": {
+        "frozen_info_nce_loss": 0.9950372698282718,
+        "interpretation": "Shared deterministic feature consistency only; no learned alignment or representation-success claim.",
+        "positive_index": 0,
+        "positive_unique_best": true,
+        "role_compatible_mask": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "scores": [
+          1.0,
+          0.8718127501157389,
+          0.9428090415820634,
+          0.9583333333333334,
+          0.9583333333333334
+        ],
+        "temperature": 0.07
+      },
+      "feature_count": 24,
+      "hard_negative_names": [
+        "cost",
+        "condition",
+        "target",
+        "effect"
+      ],
+      "hard_negatives_all_known": true,
+      "provenance": {
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "coverage": "selected ability only; not whole-card admission",
+        "setCode": "IBH_053",
+        "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+        "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+        "status": "supported",
+        "whole_card_runtime_admission": {
+          "admitted": true,
+          "source": "compiler/generated/runtime-admission.json:1546"
+        }
+      },
+      "synthetic_oracle": {
+        "after": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 4,
+            "hp": 10,
+            "owner": "opponent",
+            "shield": 0,
+            "type": "base",
+            "zone": "base"
+          },
+          "ready_resources": 2,
+          "source": {
+            "exhausted": true,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "before": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 3,
+            "hp": 10,
+            "owner": "opponent",
+            "shield": 0,
+            "type": "base",
+            "zone": "base"
+          },
+          "ready_resources": 3,
+          "source": {
+            "exhausted": false,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "followup_affordance": false,
+        "scope": "restricted synthetic nonlethal scalar/shield oracle; not Kessel execution"
+      }
+    },
+    {
+      "card": "SHD_002",
+      "diagnostics": {
+        "frozen_info_nce_loss": 1.1986582296427486,
+        "interpretation": "Shared deterministic feature consistency only; no learned alignment or representation-success claim.",
+        "positive_index": 0,
+        "positive_unique_best": true,
+        "role_compatible_mask": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "scores": [
+          1.0,
+          0.9062378100287981,
+          0.9586025865388216,
+          0.9705882352941176,
+          0.9705882352941176,
+          0.8823529411764706
+        ],
+        "temperature": 0.07
+      },
+      "feature_count": 34,
+      "hard_negative_names": [
+        "cost",
+        "condition",
+        "target",
+        "effect",
+        "sequence"
+      ],
+      "hard_negatives_all_known": true,
+      "provenance": {
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "coverage": "selected ability only; not whole-card admission",
+        "setCode": "SHD_002",
+        "sourceHash": "bb15f551f385efc4f8cd4cfa8b0b8f0b495da82825e9893e3c7ec1bf6c4b8295",
+        "sourcePath": "game/cards/02_SHD/leaders/QiraIAloneSurvived.ts",
+        "status": "supported",
+        "whole_card_runtime_admission": {
+          "admitted": false,
+          "reason": "unit-side systemPropertiesFactory is unsupported",
+          "source": "compiler/generated/runtime-admission.json:10002"
+        }
+      },
+      "synthetic_oracle": {
+        "after": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 5,
+            "hp": 10,
+            "owner": "self",
+            "shield": 1,
+            "type": "unit",
+            "zone": "arena"
+          },
+          "ready_resources": 2,
+          "source": {
+            "exhausted": true,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "before": {
+          "chosen": {
+            "arena": "ground",
+            "damage": 3,
+            "hp": 10,
+            "owner": "self",
+            "shield": 0,
+            "type": "unit",
+            "zone": "arena"
+          },
+          "ready_resources": 3,
+          "source": {
+            "exhausted": false,
+            "owner": "self",
+            "type": "leader"
+          }
+        },
+        "followup_affordance": false,
+        "scope": "restricted synthetic nonlethal scalar/shield oracle; not Kessel execution"
+      }
+    }
+  ],
+  "checks": {
+    "held_out_identity_semantics_unchanged": true,
+    "interpretation": "Metamorphic wiring checks, not a trained held-out-card generalization result.",
+    "object_key_permutations": 200,
+    "same_identity_hard_negatives_known": true,
+    "selected_abilities": 4
+  },
+  "contract": {
+    "coverage": "selected ability only; separate whole-card runtime admission",
+    "effect_sequence_indices": "preserved",
+    "latent_dimension": 96,
+    "max_role_tokens": 32,
+    "max_semantic_tokens": 512,
+    "numeric_feature_width": null,
+    "object_key_order": "invariant",
+    "production_graph_integration": false,
+    "production_own_deck_shape": [
+      2,
+      207
+    ],
+    "transformer_width": 64
+  },
+  "elapsed_seconds": 0.0011569580528885126,
+  "interpretation": "Identity-free typed path/count features and binding checks; positive program is injected by curated binding, so overlap is partly by construction.",
+  "learned_semantic_quality": null,
+  "limitations": [
+    "Structural/action-view program overlap is injected by curated binding, partly by construction; no learned semantic quality claim.",
+    "Only scalar nonlethal projection agreement for two actual abilities. Persistent/granted behaviors, broad rules equivalence, strategic strength unsupported.",
+    "No text model, raw-text encoder, optimizer update, paid compute or production graph/ABI integration.",
+    "Deck multiset invariance remains separate from ordered program semantics."
+  ],
+  "native": {
+    "apply_calls": 8,
+    "assertions": [
+      {
+        "card": "ASH_011",
+        "passed": [
+          "public fixture import roundtrip",
+          "source exhausted blocks action",
+          "resource boundary matches literal cost",
+          "source click defers costs until target commitment",
+          "eligible target offered and excluded target absent",
+          "cancel preserves state and legal actions",
+          "chosen target takes exactly one damage",
+          "source exhausts and resource paid iff literal cost",
+          "opponent offered pass returns priority",
+          "same leader cannot reuse ability"
+        ]
+      },
+      {
+        "card": "IBH_053",
+        "passed": [
+          "public fixture import roundtrip",
+          "source exhausted blocks action",
+          "resource boundary matches literal cost",
+          "source click defers costs until target commitment",
+          "eligible target offered and excluded target absent",
+          "cancel preserves state and legal actions",
+          "chosen target takes exactly one damage",
+          "source exhausts and resource paid iff literal cost",
+          "opponent offered pass returns priority",
+          "same leader cannot reuse ability"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "apply_calls": 0,
+        "cumulative_guarded_seconds": 2.587197875021957,
+        "error": "RuntimeError: RSS unavailable for owned PID 39879: return 0, errno 3",
+        "observed_peak_concurrent_rss_bytes": 242286592,
+        "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/attempt-1-evidence/supervisor-receipt.json",
+        "receipt_sha256": "a32ebadca8d301e50b27817c5fb4c17da413afe7a83405236e5859c9efbaa5d4",
+        "status": "failed",
+        "supervisor_sha256": "0205b17c8be0f9d26b7a94efb0ad2b10ec43a84e134b3badb5422067a0f42280"
+      },
+      {
+        "apply_calls": 0,
+        "cumulative_guarded_seconds": 20.406618250068277,
+        "error": "RuntimeError: native exited 1",
+        "observed_peak_concurrent_rss_bytes": 880164864,
+        "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/attempt-2-evidence/supervisor-receipt.json",
+        "receipt_sha256": "fb0d9a5e9c44c22ad9c7db852533ac734b7b97b66371203433071fe02e4a945b",
+        "status": "failed",
+        "supervisor_sha256": "d178d410876e3f5165997e73c2aff04ed11a8266257bb2c101ab2d510fea19dc"
+      },
+      {
+        "apply_calls": 8,
+        "cumulative_guarded_seconds": 22.604371791123413,
+        "error": null,
+        "observed_peak_concurrent_rss_bytes": 880164864,
+        "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/attempt-3/supervisor-receipt.json",
+        "receipt_sha256": "f24892a4a7137f61ee283b77339ca787770e998ed0305aa6d31575513f7962a3",
+        "status": "completed",
+        "supervisor_sha256": "b343fe3c34f8f9bec188747734466edc1948ba78afd96161a2f809852bb44533"
+      }
+    ],
+    "binding_checks": {
+      "behavioral_distance": {
+        "held_out_card_rank_correlation": null,
+        "held_out_card_retrieval": null,
+        "label_source": "Actual offered-target masks and before/after snapshots, independent of typed features.",
+        "reason": "Two cards/one pair cannot validate a distance metric or held-out-card ranking."
+      },
+      "rows": [
+        {
+          "actual_offered_action": {
+            "arg": null,
+            "card": "c5",
+            "kind": "card",
+            "label": "gifted-urchin",
+            "method": null
+          },
+          "binding_known": true,
+          "card": "ASH_011",
+          "observed": {
+            "followup_source_offered": false,
+            "ready_resource_delta": 0,
+            "source_exhausted": true,
+            "target_admissibility_mask": {
+              "opponent_base": false,
+              "opponent_unit_remaining_hp_1": false,
+              "opponent_unit_remaining_hp_2": true,
+              "own_base": false
+            },
+            "target_damage_delta": 1
+          },
+          "program_feature_count": 44,
+          "restricted_oracle_matches_observed_scalar_projection": true,
+          "stage": "abilityTarget"
+        },
+        {
+          "actual_offered_action": {
+            "arg": null,
+            "card": "c2",
+            "kind": "card",
+            "label": "fortress-of-the-great-mothers",
+            "method": null
+          },
+          "binding_known": true,
+          "card": "IBH_053",
+          "observed": {
+            "followup_source_offered": false,
+            "ready_resource_delta": -1,
+            "source_exhausted": true,
+            "target_admissibility_mask": {
+              "opponent_base": true,
+              "opponent_unit_remaining_hp_1": false,
+              "opponent_unit_remaining_hp_2": false,
+              "own_base": true
+            },
+            "target_damage_delta": 1
+          },
+          "program_feature_count": 24,
+          "restricted_oracle_matches_observed_scalar_projection": true,
+          "stage": "abilityTarget"
+        }
+      ],
+      "scope": "Actual Kessel public microstates, two reviewed abilities; curated structural binding, not learned semantic quality."
+    },
+    "forceteki_oracle_run": false,
+    "limits": {
+      "cargo_workers": 1,
+      "cumulative_guarded_seconds": 22.604371791123413,
+      "limitation": "Sampled stop guard, not instantaneous OS memory reservation; short-lived between-sample children/spikes may be missed.",
+      "max_total_engine_applies": 12,
+      "sampled_peak_concurrent_rss_bytes": 880164864,
+      "sampled_rss_stop_bytes": 2147483648,
+      "wall_limit_seconds": 120
+    },
+    "max_apply_calls": 12,
+    "microstates": "Synthetic public contexts, actual unmodified Kessel card abilities and rules execution.",
+    "persistent_granted_behavior": "unsupported",
+    "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/native-receipt.json",
+    "receipt_sha256": "23910d9e3ad777541295f17ca05c852c51905c79b500da3f319c55ac9e1c20e6",
+    "runtime_seconds": 0.378988042,
+    "source_manifest_sha256": "b65dbfc98be39627794d3e72f879c923afd59290fcf8d03cd57891b1e6ae9c06",
+    "status": "passed",
+    "transition_trace": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/attempt-3/native-transitions.jsonl",
+      "sha256": "013293bd63b9fb96fd57cbe6ad4fc3a504bd651a619d9a48f9bc80fa9b50cb3b"
+    }
+  },
+  "optimizer_steps": 0,
+  "schema": "jepa-typed-ir-verification/1",
+  "source_commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+  "tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 /Users/ericfode/src/crown-jepa/.venv/bin/python -m unittest discover -s bots/jepa/own_deck -p test_typed_ir_alignment.py -v",
+    "elapsed_seconds": 0.05982533295173198,
+    "errors": 0,
+    "failures": 0,
+    "run": 17,
+    "skipped": 0,
+    "status": "passed"
+  }
+}

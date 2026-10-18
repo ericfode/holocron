@@ -1,0 +1,72 @@
+{
+  "schema": "jepa-remaining-boundary/1",
+  "evidence": "synthetic input and numerical representation boundary only",
+  "remaining_supported": false,
+  "oracle_is_policy_input": false,
+  "hidden_draw_order_constructed": false,
+  "gameplay_strength_claim": false,
+  "records": [
+    {
+      "name": "depleted-TST_001",
+      "original_fingerprint": "a7c8e7a44f26a0375708660370b8b348290c6d7923b1f33a7d67afe226199fe0",
+      "remaining_fingerprint": "9c3f5e889bc5d12179febe6d5183efb0ecb8ea507b4522da8f21e1c98f255d25",
+      "original_count": 50,
+      "remaining_count": 42,
+      "remaining_target_A": 0,
+      "remaining_target_B": 3,
+      "probability_next_target_A": 0.0,
+      "original_known": true,
+      "remaining_known": false,
+      "encoded_sha256": "51692b768df96ebbd0d78f0dd5a2822cf6195fc27421e9031c62a8fcec5beca1",
+      "context_sha256": "4e789ff62b1ee632b1c70064998bac7d7662b3d1f5aa62a74a62fb03ea026be0"
+    },
+    {
+      "name": "depleted-TST_002",
+      "original_fingerprint": "a7c8e7a44f26a0375708660370b8b348290c6d7923b1f33a7d67afe226199fe0",
+      "remaining_fingerprint": "f312e6c1a60d4ed5a9c5d0356cfd711f15b770f54c9d9ca1bb8e73ad74978c98",
+      "original_count": 50,
+      "remaining_count": 42,
+      "remaining_target_A": 3,
+      "remaining_target_B": 0,
+      "probability_next_target_A": 0.07142857142857142,
+      "original_known": true,
+      "remaining_known": false,
+      "encoded_sha256": "51692b768df96ebbd0d78f0dd5a2822cf6195fc27421e9031c62a8fcec5beca1",
+      "context_sha256": "4e789ff62b1ee632b1c70064998bac7d7662b3d1f5aa62a74a62fb03ea026be0"
+    },
+    {
+      "name": "sibling-own-list-less-TST002-more-TST017",
+      "original_fingerprint": "2b5ac2cc1a1f9f689795456a9e33a99ed6c05703d241aad0ce0f6e790c683135",
+      "remaining_fingerprint": "4ebc6a3c3181ce5c2ac3acbdf692ab882692005298d5b79d9c9d104dd3069497",
+      "original_count": 50,
+      "remaining_count": 42,
+      "remaining_target_A": 0,
+      "remaining_target_B": 2,
+      "probability_next_target_A": 0.0,
+      "original_known": true,
+      "remaining_known": false,
+      "encoded_sha256": "51692b768df96ebbd0d78f0dd5a2822cf6195fc27421e9031c62a8fcec5beca1",
+      "context_sha256": "4338622017f169ffda95c9946826f757fd366aa3cdc5f1ca6e42060caa92003b"
+    }
+  ],
+  "depletion_pair_max_abs_delta": {
+    "z": 0.0,
+    "predicted_latents": 0.0,
+    "value_logits": 0.0
+  },
+  "limitation": "The current original-only context cannot distinguish these different remaining multisets; remaining stays explicitly unknown.",
+  "focused_tests": {
+    "passed": 7,
+    "failed": 0,
+    "command": "PYTHONDONTWRITEBYTECODE=1 /Users/ericfode/src/crown-jepa/.venv/bin/python -m unittest discover -s bots/jepa/own_deck -p test_remaining_boundary.py -v"
+  },
+  "known_flag_scope": "Printed metadata only; nested ability effect quantities, costs and targets are not encoded.",
+  "source_sha256": {
+    "bots/jepa/own_deck/test_remaining_boundary.py": "6bffbee42673541e8cc8b75bdb9235e546d9e33a264b23928929d06f8aed6e16",
+    "bots/jepa/features.py": "9df63ff4ebe5d69e9f3f92a0da07893bb0fd58dfc9c18510936f646527d20049",
+    "bots/jepa/own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "bots/jepa/own_deck_model.py": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16",
+    "bots/jepa/tx_model.py": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877"
+  },
+  "checkpoint_sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+}

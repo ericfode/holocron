@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local JEPA run event",
+  "type": "object",
+  "required": ["schema", "run_id", "sequence", "event_id", "timestamp", "heartbeat_at", "commit", "config", "config_sha256", "dataset", "phase", "step", "kind", "metrics", "limitations"],
+  "properties": {
+    "schema": {"const": "jepa-run-event/v1"},
+    "run_id": {"type": "string"},
+    "parent_run_id": {"type": "string"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "event_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "heartbeat_at": {"type": "string", "format": "date-time"},
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "config": {"type": "object"},
+    "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "dataset": {"type": "object", "description": "Manifest path/hash, split rule and input hashes; status=pending while preparing."},
+    "phase": {"type": "string"},
+    "step": {"type": "integer", "minimum": 0},
+    "kind": {"enum": ["status", "metric", "heartbeat", "artifact", "error"]},
+    "status": {"type": "string"},
+    "metrics": {"type": "object", "additionalProperties": {"type": "number"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "artifacts": {"type": "object"}
+  },
+  "additionalProperties": true
+}

@@ -35,11 +35,44 @@ OHAND = 12
 DISC = 24
 POOL = 32
 _db = None
+_own_variant = None
+_own_cards = None
 
 
-def _init(card_data):
-    global _db
+def _init(card_data, own_variant=None, own_cards=None):
+    global _db, _own_variant, _own_cards
     _db = F.load_cards(card_data)
+    _own_variant, _own_cards = own_variant, []
+    if own_cards:
+        with open(own_cards, encoding="utf8") as fh:
+            _own_cards = json.load(fh)
+        if not isinstance(_own_cards, list):
+            raise ValueError("--own-deck-cards must be a JSON array of printed card metadata")
+
+
+def original_contexts(game):
+    """Only the selected seat's original main list enters its dedicated context.
+
+    Trajectory headers contain original lists, not draw-pile snapshots. The
+    ordinary decision, labels, opponent list and hidden-state fields are never
+    passed to the context encoder. Missing lists remain explicitly unknown.
+    """
+    if _own_variant is None:
+        return None
+    from own_deck import own_deck_from_hello, INPUT_DIM
+    decks = game.get("decks") or {}
+    out = {}
+    for seat in ("p1", "p2"):
+        deck = decks.get(seat)
+        # from_replays.js writes bare main-list arrays. Also accept the native
+        # hello-shaped selected list, without its sideboard or arbitrary fields.
+        if isinstance(deck, list):
+            deck = {"deck": deck}
+        elif isinstance(deck, dict):
+            deck = {"deck": deck.get("deck")}
+        context = own_deck_from_hello({"deck": deck, "cards": _own_cards}, _own_variant)
+        out[seat] = np.asarray(context["features"], np.float32).reshape(2, INPUT_DIM)
+    return out
 
 
 def iter_games(path):
@@ -104,6 +137,8 @@ def encode_file(path, labels=False):
     cols = {k: [] for k in ("state", "tok_ids", "tok_feats", "tok_mask", "act", "aid", "nact", "win", "game", "nxt1", "nxt4", "seq", "bot", "gid", "seat", "disc", "pool", "poolk")}
     if labels:
         cols["ohand"], cols["ohn"] = [], []
+    if _own_variant is not None:
+        cols["own_deck"] = []
     n = 0
     games = 0
     for game, ds, end in iter_games(path):
@@ -111,6 +146,7 @@ def encode_file(path, labels=False):
             continue
         games += 1
         seats = {"p1": [], "p2": []}
+        own_context = original_contexts(game)
         start = n
         for d in ds:
             if not (0 <= d.get("i", -1) < len(d.get("actions") or [])):
@@ -135,6 +171,8 @@ def encode_file(path, labels=False):
             pi, pk = unseen(d, game.get("decks"))
             cols["pool"].append(pi)
             cols["poolk"].append(pk)
+            if own_context is not None:
+                cols["own_deck"].append(own_context[d["you"]])
             if labels:
                 if "oh" not in d:
                     raise SystemExit(f"{path}: --labels needs games written by from_replays.js --labels")
@@ -163,13 +201,20 @@ def main():
     ap.add_argument("--card-data", default=os.environ.get("SWU_CARD_DATA", "forceteki/test/json"))
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--labels", action="store_true", help="add the opponent's hand (games from from_replays.js --labels)")
+    ap.add_argument("--own-deck", choices=("neutral", "original", "original-plus-remaining"),
+                    help="opt-in independent original-deck rows; remaining is explicitly unknown")
+    ap.add_argument("--own-deck-cards", help="pinned hello.cards-compatible JSON array of printed metadata")
     ap.add_argument("dirs", nargs="+")
     a = ap.parse_args()
+    if a.own_deck not in (None, "neutral") and not a.own_deck_cards:
+        ap.error("--own-deck-cards is required for original-deck preparation")
+    if a.own_deck_cards and a.own_deck is None:
+        ap.error("--own-deck-cards requires --own-deck")
     files = sorted(f for d in a.dirs for f in (glob.glob(os.path.join(d, "*.jsonl.gz")) if os.path.isdir(d) else [d]))
     out = {}
     offset = 0
     total_games = 0
-    with Pool(a.workers, initializer=_init, initargs=(a.card_data,)) as pool:
+    with Pool(a.workers, initializer=_init, initargs=(a.card_data, a.own_deck, a.own_deck_cards)) as pool:
         for path, games, cols in pool.imap(partial(encode_file, labels=a.labels), files):
             m = len(cols["state"])
             gstart = np.asarray(cols.pop("gstart", []), np.int64) + offset
