@@ -1,0 +1,103 @@
+{
+  "schema": "jepa-restoration-premier-admission/1",
+  "checked_at_utc": "2026-10-18T00:02:39Z",
+  "live_suspension_captured_at_utc": "2026-10-17T23:56:31Z",
+  "primary_construction_scope_supported": true,
+  "extra_card_constraints_audited": true,
+  "allowed_printed_sets": [
+    "JTL",
+    "LOF",
+    "IBH",
+    "SEC",
+    "LAW",
+    "ASH"
+  ],
+  "suspended_codes": [
+    "ASH_011"
+  ],
+  "suspended_card_ids": [
+    "5648009238"
+  ],
+  "max_same_name_subtitle_copies": 3,
+  "minimum_main_count": 50,
+  "maximum_sideboard_count": 10,
+  "required_leader_count": 1,
+  "required_base_count": 1,
+  "base_min_overrides": {
+    "JTL_024": 60
+  },
+  "declared_printing_policy": "Require the raw declared set code to be allowed and resolve uniquely through the pinned catalog. No old-printing or reprint exemption is asserted.",
+  "sideboard_policy": "The research fixture explicitly declares an empty sideboard. Historical source event sideboards were omitted and are not reconstructed.",
+  "copy_identity_policy": "Unicode-normalized case-folded title plus subtitle across main and declared sideboard, irrespective of printing or finish.",
+  "scope": "Conservative current Premier constructed-deck declaration admission for the pinned 27-list main-card bank, not certification of historical events, card possession, authenticity, engine support, strategic quality, or every possible construction rule.",
+  "extra_card_constraints_audit": {
+    "scope": "All 19 distinct source leaders and 20 bases reviewed; every used main card scanned for explicit deck-size, copy-count, and deck-construction text against pinned card metadata.",
+    "found": [
+      {
+        "code": "JTL_024",
+        "title": "Data Vault",
+        "rule": "Your minimum deck size is increased by 10 cards.",
+        "minimum_main_count": 60
+      }
+    ],
+    "unsupported_old_printings": [
+      "SOR_030"
+    ],
+    "expected_excluded_source_indices": [
+      3
+    ],
+    "no_other_source_bank_construction_constraint_found": true
+  },
+  "matching_requirements": [
+    "Preserve original source family assignment and split, leader, base, and main-deck size.",
+    "Replacement cards must already occur in the original bank's main decks.",
+    "Preserve printed cost, types, arena, and aspects exactly.",
+    "Recheck the complete resulting declaration, including canonical name/subtitle copy counts and base-specific minimum.",
+    "Metadata or printing ambiguity fails admission; structural matching by itself does not establish eligibility."
+  ],
+  "sources": [
+    {
+      "url": "https://starwarsunlimited.com/organized-play",
+      "role": "Official link to current Comprehensive Event Guide."
+    },
+    {
+      "url": "https://cdn.starwarsunlimited.com//Comprehensive_Event_Guide_6_26_26_0110535972.pdf",
+      "section": "9.1.1, page 43",
+      "role": "Premier six-set list, leader/base counts, main minimum, sideboard cap, canonical copy cap. Its no-suspensions statement is superseded for this audit by the live Rules suspension list."
+    },
+    {
+      "url": "https://starwarsunlimited.com/how-to-play?chapter=rules",
+      "role": "Rendered live suspension list: Premier Cad Bane, Ashes of the Empire #11, card id 5648009238. The live list states suspended cards are illegal at events in the corresponding format."
+    },
+    {
+      "url": "https://starwarsunlimited.com/how-to-play?chapter=premier",
+      "role": "Official basic Premier construction overview; the more specific Event Guide and live suspension list govern this policy."
+    }
+  ],
+  "capture_provenance": {
+    "method": "Official Event Guide read through web PDF text extraction; live Rules page rendered in Chrome and inspected read-only.",
+    "official_source_byte_hash_available": false,
+    "caveat": "CDN direct download was unavailable; do not interpret this policy file's SHA256 as an official page/PDF byte hash. Rules v9 PDF and a general reprint exemption were not verified. No suspension effective date was exposed by the rendered list.",
+    "live_rules_linked_but_unread_pdf": "https://cdn.starwarsunlimited.com//SWH_Comp_Rules_v9_0_c4aa591948.pdf"
+  },
+  "bank": {
+    "path": "decks/ash-meta-2026-09.json",
+    "sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+    "source_commit": "a2df9722314b1233d16747f7e56186071106799c",
+    "source_count": 27,
+    "provenance_readme_sha256": "f41f5919b2c962bc90f9bb20cc4cb95df5396fab87856678ca3af5fb2ee58f0e",
+    "license_path": "decks/LICENSE.TCGEngine",
+    "license_sha256": "da76f8adfcaf4c4e8b4b6031bbe7a833d28d9746837c7964643343f969852073",
+    "license": "MIT, TCG-Engine copyright 2025",
+    "historical_event_legal_status": "Not independently certified."
+  },
+  "catalog": {
+    "repository": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source",
+    "commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+    "path": "compiler/generated/cards.json",
+    "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+    "manifest_sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c",
+    "compiler_hash": "d188828527e6459ea9c7b2673e4746960923f9d0904c190026e6d454b45a548e",
+    "construction_text_is_pinned_local_metadata_not_a_fresh_official_card_oracle": true
+  }
+}
