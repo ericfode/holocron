@@ -9,6 +9,8 @@ The chronology correction adds a separate `binding-transfer-fixture-validator`
 executable. It requires `--validate-fixtures-only NEW_RECEIPT.json` and returns
 before the action journal, application budget and collection loop. The separate
 fixture guard records construction checks with a zero-application allocation.
+All 26 construction checks passed; see
+[`BINDING_TRANSFER_FIXTURE_VALIDATION.md`](../BINDING_TRANSFER_FIXTURE_VALIDATION.md).
 A later action collection needs a new linked configuration and explicit budget;
 see [`BINDING_TRANSFER_NEXT_ALLOCATION.md`](../BINDING_TRANSFER_NEXT_ALLOCATION.md).
 

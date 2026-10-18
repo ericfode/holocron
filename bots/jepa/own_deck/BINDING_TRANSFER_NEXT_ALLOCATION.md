@@ -3,7 +3,7 @@
 **Proposal only.** This document initializes no ledger, grants no execution GO,
 and authorizes no build, collection, neural call, fit, retry or paid job. The
 coordinating agent must freeze the reviewed sources, exact commands, protected
-inputs and new linked accounting before any separately approved phase starts.
+inputs and new linked accounting before either proposed phase starts.
 
 ## Origin and preserved accounting
 
@@ -42,10 +42,14 @@ its file SHA-256 is
 The separate postmortem bookkeeping audit is not the unstarted saved-prediction
 verification stage. PR36/37 exposure remains separately linked, not reset.
 
-Let **D** be the actual charged time of the separately recorded debugging work,
-to be filled from its own immutable ledger and receipt. D is currently an
-unresolved accounting term, **not an assumed zero**. Any scientific calls or
-other exposure there must also be disclosed rather than hidden inside time.
+The separately recorded zero-application debugging work charged
+**D = 1.6639899580040947 seconds**: 0.5096349170198664 for the build and
+1.1543550409842283 for all 26 fixture checks. Its five-record ledger ends at
+`6321739736b349771bace38bdd607545c05c59fe4dd18f4d0978b62c1f365f30`.
+It recorded zero engine applications, neural forwards, updates, fits and paid
+spend; it produced no action outcomes or learned results. Including D, the
+binding-linked charged time is **111.76578145672102 seconds**, with the original
+160 charged applications unchanged.
 
 ## Phase A: proposed native repair allocation
 
@@ -63,8 +67,8 @@ phase, retains its full conservative reservation and gives no automatic retry.
 
 The proposed binding-linked charged-time ceiling after Phase A is
 **110.10179149871692 + D + 45 = 155.10179149871692 + D seconds**.
-Any comparison with the old 210-second bound must include D; this document does
-not silently assert that the resulting total fits it. Aggregate historical
+With the recorded D this is **156.76578145672102 seconds**, within the old
+agent-selected 210-second time envelope. Aggregate historical
 observed native exposure remains null even if the new phase is exactly counted.
 
 ## Phase B: conditional learner allocation
@@ -85,9 +89,11 @@ One CPU worker/thread and the sampled 1 GiB RSS threshold apply throughout.
 Together, the two proposed phases add at most **125 seconds**, so the new
 binding-linked ceiling would be
 **110.10179149871692 + D + 125 = 235.10179149871692 + D seconds**.
+With recorded debugging time, that is **236.76578145672102 seconds**.
 This is an **explicit proposed amendment of the old 210-second envelope**,
 not reuse of unspent time or permission to evade it. The count ceiling would
-remain 208. The authority must approve the new exact envelope before execution.
+remain 208. The coordinating agent must record and freeze the new exact envelope
+and execution GO before starting either phase.
 All stages reserve before work, journal durable exposure, count setup/imports,
 writes and cleanup inside their clocks, preserve failures, and leave uncertain
 cleanup pending. Old configurations, protected workspaces, checkpoints, reports

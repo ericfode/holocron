@@ -1,0 +1,183 @@
+{
+  "archive_manifest": {
+    "bytes": 150503,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/binding-transfer-v1-failed-archive/manifest.json",
+    "sha256": "5cd1e0bac1f7f04965e464e945e368777711a1704638d9e650f24af5105426ae"
+  },
+  "authorized_scope": "Fixture chronology repair and zero-Engine.apply snapshot/load validation only; no build or native process executed during preparation.",
+  "failed_execution_source_commit": "8dbf1ee7941ecae18033e344a71f41cae9c23f31",
+  "files": [
+    {
+      "original": {
+        "bytes": 23223,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/src/main.rs",
+        "sha256": "e8e698a9d1de4de90670c782076afb0f94e9816162dcd7351569394c836f5429"
+      },
+      "preserved": {
+        "bytes": 23223,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/src/main.rs",
+        "sha256": "e8e698a9d1de4de90670c782076afb0f94e9816162dcd7351569394c836f5429"
+      }
+    },
+    {
+      "original": {
+        "bytes": 543,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/Cargo.toml",
+        "sha256": "d75d465095456ab8bab5b22ff28c8b56b6fe6a34f2d280d88f361416ca401ae3"
+      },
+      "preserved": {
+        "bytes": 543,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/Cargo.toml",
+        "sha256": "d75d465095456ab8bab5b22ff28c8b56b6fe6a34f2d280d88f361416ca401ae3"
+      }
+    },
+    {
+      "original": {
+        "bytes": 9567,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/Cargo.lock",
+        "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+      },
+      "preserved": {
+        "bytes": 9567,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/Cargo.lock",
+        "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+      }
+    },
+    {
+      "original": {
+        "bytes": 107878,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/collection-plan.json",
+        "sha256": "0187415c122ba3353938c909f14b800198d65a41a56dcbb1d52197f4fe0bc52f"
+      },
+      "preserved": {
+        "bytes": 107878,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/collection-plan.json",
+        "sha256": "0187415c122ba3353938c909f14b800198d65a41a56dcbb1d52197f4fe0bc52f"
+      }
+    },
+    {
+      "original": {
+        "bytes": 42800,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/source-manifest.json",
+        "sha256": "9c6b9ce2d1ea9845671e64fc8f6c9006c755862559b4a25541872551892d983d"
+      },
+      "preserved": {
+        "bytes": 42800,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/source-manifest.json",
+        "sha256": "9c6b9ce2d1ea9845671e64fc8f6c9006c755862559b4a25541872551892d983d"
+      }
+    },
+    {
+      "original": {
+        "bytes": 23446,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/supervise.py",
+        "sha256": "3efe92e2e6e5f191fd95444655cf424b28420dc2db0b57c12e524359d035d958"
+      },
+      "preserved": {
+        "bytes": 23446,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/supervise.py",
+        "sha256": "3efe92e2e6e5f191fd95444655cf424b28420dc2db0b57c12e524359d035d958"
+      }
+    },
+    {
+      "original": {
+        "bytes": 12768,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/test_guard.py",
+        "sha256": "8a8776fe808bf06803b06d5b9d2ae845c95c8a23a8574431c84e86e24157540c"
+      },
+      "preserved": {
+        "bytes": 12768,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/test_guard.py",
+        "sha256": "8a8776fe808bf06803b06d5b9d2ae845c95c8a23a8574431c84e86e24157540c"
+      }
+    },
+    {
+      "original": {
+        "bytes": 5534,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/README.md",
+        "sha256": "652fdca25daa406037412d8953439e81e1f7e70cf86a7f771deb0a0eead7e37a"
+      },
+      "preserved": {
+        "bytes": 5534,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/native-collector/README.md",
+        "sha256": "652fdca25daa406037412d8953439e81e1f7e70cf86a7f771deb0a0eead7e37a"
+      }
+    },
+    {
+      "original": {
+        "bytes": 102809,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/campaign-config.json",
+        "sha256": "af9c88e239fbb62be22b4b78145b1160411dc7d9e0225edc09c226b4a727ca7c"
+      },
+      "preserved": {
+        "bytes": 102809,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/closed-failure/campaign-config.json",
+        "sha256": "af9c88e239fbb62be22b4b78145b1160411dc7d9e0225edc09c226b4a727ca7c"
+      }
+    },
+    {
+      "original": {
+        "bytes": 217862,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/campaign-ledger.jsonl",
+        "sha256": "ffb01088cc7c456b84e1c23a38720e5cfe060869e878236ec065d409fb37a4f2"
+      },
+      "preserved": {
+        "bytes": 217862,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/closed-failure/campaign-ledger.jsonl",
+        "sha256": "ffb01088cc7c456b84e1c23a38720e5cfe060869e878236ec065d409fb37a4f2"
+      }
+    },
+    {
+      "original": {
+        "bytes": 107878,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/native-plan-v3.json",
+        "sha256": "0187415c122ba3353938c909f14b800198d65a41a56dcbb1d52197f4fe0bc52f"
+      },
+      "preserved": {
+        "bytes": 107878,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/closed-failure/native-plan-v3.json",
+        "sha256": "0187415c122ba3353938c909f14b800198d65a41a56dcbb1d52197f4fe0bc52f"
+      }
+    },
+    {
+      "original": {
+        "bytes": 3876,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/native-build-1/supervisor-receipt.json",
+        "sha256": "955906a3afbde244c52fba4220092f3a1d420869b66d14a87cfb44377e1aa54a"
+      },
+      "preserved": {
+        "bytes": 3876,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/closed-failure/native-build-1/supervisor-receipt.json",
+        "sha256": "955906a3afbde244c52fba4220092f3a1d420869b66d14a87cfb44377e1aa54a"
+      }
+    },
+    {
+      "original": {
+        "bytes": 3628,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/native-attempt-1/supervisor-receipt.json",
+        "sha256": "52f46fc8f68abbdb1fce165ee5a9e442b2c9cceab0f3a7298151d6d9eb7db562"
+      },
+      "preserved": {
+        "bytes": 3628,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/closed-failure/native-attempt-1/supervisor-receipt.json",
+        "sha256": "52f46fc8f68abbdb1fce165ee5a9e442b2c9cceab0f3a7298151d6d9eb7db562"
+      }
+    },
+    {
+      "original": {
+        "bytes": 408,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/native-attempt-1/native-transitions.jsonl",
+        "sha256": "f2351c7a0f9220e71168b5782c24c9935a0079b89dbd6ef5abc3eab5f2674a16"
+      },
+      "preserved": {
+        "bytes": 408,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/closed-failure/native-attempt-1/native-transitions.jsonl",
+        "sha256": "f2351c7a0f9220e71168b5782c24c9935a0079b89dbd6ef5abc3eab5f2674a16"
+      }
+    }
+  ],
+  "old_failed_archive_immutable": true,
+  "old_failed_ledger_immutable": true,
+  "schema": "jepa-binding-transfer-fixture-validation-preservation/1",
+  "status": "pre-edit-bytes-preserved"
+}
