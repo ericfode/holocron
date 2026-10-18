@@ -1,0 +1,1816 @@
+{
+  "fixtures": [
+    {
+      "code": "IBH_013",
+      "expected_form": "event",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 5
+                },
+                "kind": "heal",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "title": "Heal 5 damage from a unit.",
+              "trigger": "event"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "EventCard",
+        "card": {
+          "aspects": [
+            "heroism"
+          ],
+          "cost": 3,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": null,
+          "id": "0375794695",
+          "internalName": "recovery",
+          "keywords": [],
+          "power": null,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 13,
+              "set": "IBH"
+            }
+          ],
+          "setId": {
+            "number": 13,
+            "set": "IBH"
+          },
+          "subtitle": "",
+          "text": "Heal 5 damage from a unit.",
+          "title": "Recovery",
+          "traits": [
+            "plan"
+          ],
+          "types": [
+            "event"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "Recovery",
+        "dataHash": "97b7ce11e6f93fe5795d1f8eeab4ea922c2d467c8ed6ab0a239e2628840c2616",
+        "id": "0375794695",
+        "internalName": "recovery",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:heal",
+          "targetType:unit",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ],
+        "setCode": "IBH_013",
+        "sourceHash": "7e59eddee85bd76fa9ab55c9d2fe6c9702d86ef409f5e305c6276e34a0beed06",
+        "sourcePath": "game/cards/06_IBH/events/Recovery.ts",
+        "status": "supported"
+      },
+      "row_sha256": "7fc25b47a74ddb5cbd4b3c02635b7938c41739b5251f940d9a819b2f912c990d",
+      "runtime_admitted": true
+    },
+    {
+      "code": "IBH_059",
+      "expected_form": "event",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 2
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "type": "any",
+                "zone": "base"
+              },
+              "title": "Deal 2 damage to a base",
+              "trigger": "event"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "EventCard",
+        "card": {
+          "aspects": [
+            "aggression"
+          ],
+          "cost": 2,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": null,
+          "id": "8290455967",
+          "internalName": "target-the-main-generator",
+          "keywords": [],
+          "power": null,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 59,
+              "set": "IBH"
+            },
+            {
+              "number": 71,
+              "set": "IBH"
+            }
+          ],
+          "setId": {
+            "number": 59,
+            "set": "IBH"
+          },
+          "subtitle": "",
+          "text": "Deal 2 damage to a base.",
+          "title": "Target the Main Generator",
+          "traits": [
+            "tactic"
+          ],
+          "types": [
+            "event"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "TargetTheMainGenerator",
+        "dataHash": "7b5782950b35b842a5e3cb31f411706a3148c56e395dc9b5011323bc53aeaa03",
+        "id": "8290455967",
+        "internalName": "target-the-main-generator",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:damage",
+          "targetType:any",
+          "targetZone:base",
+          "trigger:event"
+        ],
+        "setCode": "IBH_059",
+        "sourceHash": "13d31dd21cab08a2791f0cd24ebed30fba4947a7795aee0e10e658ad260b526b",
+        "sourcePath": "game/cards/06_IBH/events/TargetTheMainGenerator.ts",
+        "status": "supported"
+      },
+      "row_sha256": "6aa11d98cb078425babaa67ac63c2a1af5da25be92bcf64663e14f94083b5c95",
+      "runtime_admitted": true
+    },
+    {
+      "code": "IBH_061",
+      "expected_form": "event",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 3
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "title": "Deal 3 damage to a unit",
+              "trigger": "event"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "EventCard",
+        "card": {
+          "aspects": [
+            "aggression"
+          ],
+          "cost": 3,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": null,
+          "id": "7524197668",
+          "internalName": "were-in-trouble",
+          "keywords": [],
+          "power": null,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 61,
+              "set": "IBH"
+            },
+            {
+              "number": 86,
+              "set": "IBH"
+            }
+          ],
+          "setId": {
+            "number": 61,
+            "set": "IBH"
+          },
+          "subtitle": "",
+          "text": "Deal 3 damage to a unit.",
+          "title": "We're In Trouble",
+          "traits": [
+            "tactic"
+          ],
+          "types": [
+            "event"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "WereInTrouble",
+        "dataHash": "b03b2bdda6bf1f4aca5585bbd6025aa86f02df1edaab912d2f5e082bb566f1b7",
+        "id": "7524197668",
+        "internalName": "were-in-trouble",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:damage",
+          "targetType:unit",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ],
+        "setCode": "IBH_061",
+        "sourceHash": "966305fb493e39335072a35565ce6456ec1009fd6b7c473728afd6f4da8cc255",
+        "sourcePath": "game/cards/06_IBH/events/WereInTrouble.ts",
+        "status": "supported"
+      },
+      "row_sha256": "f053b3dce9553b7c7fcd032f8bac7bb533f253ea10440e17118b4944ab734da7",
+      "runtime_admitted": true
+    },
+    {
+      "code": "IBH_066",
+      "expected_form": "event",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 2
+                },
+                "kind": "heal",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "title": "Heal 2 damage from a unit",
+              "trigger": "event"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "EventCard",
+        "card": {
+          "aspects": [
+            "vigilance"
+          ],
+          "cost": 1,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": null,
+          "id": "7014669428",
+          "internalName": "too-strong-for-blasters",
+          "keywords": [],
+          "power": null,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 66,
+              "set": "IBH"
+            },
+            {
+              "number": 91,
+              "set": "IBH"
+            }
+          ],
+          "setId": {
+            "number": 66,
+            "set": "IBH"
+          },
+          "subtitle": "",
+          "text": "Heal 2 damage from a unit.",
+          "title": "Too Strong for Blasters",
+          "traits": [
+            "innate"
+          ],
+          "types": [
+            "event"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "TooStrongForBlasters",
+        "dataHash": "99854b7169f9f4598d8fa26171b61ef703705a3e0d21b75487bc885c0de0de0d",
+        "id": "7014669428",
+        "internalName": "too-strong-for-blasters",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:heal",
+          "targetType:unit",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ],
+        "setCode": "IBH_066",
+        "sourceHash": "16763802c58511542bba02d35176eec8eb48a521f85ae629f7e5021f3719935e",
+        "sourcePath": "game/cards/06_IBH/events/TooStrongForBlasters.ts",
+        "status": "supported"
+      },
+      "row_sha256": "c8e5595912f104fdcd4028886bbc4e2f46e83b28083ff69588ce1aec0c878d99",
+      "runtime_admitted": true
+    },
+    {
+      "code": "JTL_075",
+      "expected_form": "event",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 3
+                },
+                "kind": "heal",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "type": "any",
+                "zone": "anyAttackable"
+              },
+              "title": "Heal 3 damage from a unit or base",
+              "trigger": "event"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "EventCard",
+        "card": {
+          "aspects": [
+            "vigilance"
+          ],
+          "cost": 1,
+          "deployBox": null,
+          "epicAction": null,
+          "hp": null,
+          "id": "8679831560",
+          "internalName": "repair",
+          "keywords": [],
+          "power": null,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 74,
+              "set": "SOR"
+            },
+            {
+              "number": 75,
+              "set": "JTL"
+            }
+          ],
+          "setId": {
+            "number": 75,
+            "set": "JTL"
+          },
+          "subtitle": null,
+          "text": "Heal 3 damage from a unit or base.",
+          "title": "Repair",
+          "traits": [
+            "supply"
+          ],
+          "types": [
+            "event"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "Repair",
+        "dataHash": "82ff777d931e8f8138daf8913548c4cfa1377b8ecb327e616315ec41ede8a757",
+        "id": "8679831560",
+        "internalName": "repair",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:heal",
+          "targetType:any",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ],
+        "setCode": "JTL_075",
+        "sourceHash": "a820260484c82e83ac25b56ef34568d48077d7bfa6295a4b476bd420c628f92f",
+        "sourcePath": "game/cards/01_SOR/events/Repair.ts",
+        "status": "supported"
+      },
+      "row_sha256": "f521800fda804a1d1dfcb15775f3754d0a71d89d8392f3bbc2faf0adb2d392d7",
+      "runtime_admitted": true
+    },
+    {
+      "code": "TWI_170",
+      "expected_form": "event",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 2
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "type": "any",
+                "zone": "anyAttackable"
+              },
+              "title": "Deal 2 damage to a unit or base",
+              "trigger": "event"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "EventCard",
+        "card": {
+          "aspects": [
+            "aggression"
+          ],
+          "cost": 1,
+          "deployBox": null,
+          "epicAction": null,
+          "hp": null,
+          "id": "7826408293",
+          "internalName": "daring-raid",
+          "keywords": [],
+          "power": null,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 178,
+              "set": "SHD"
+            },
+            {
+              "number": 170,
+              "set": "TWI"
+            }
+          ],
+          "setId": {
+            "number": 170,
+            "set": "TWI"
+          },
+          "subtitle": "",
+          "text": "Deal 2 damage to a unit or base.",
+          "title": "Daring Raid",
+          "traits": [
+            "tactic"
+          ],
+          "types": [
+            "event"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "DaringRaid",
+        "dataHash": "0d20bb9fd98439330290b15f893a781ec8d34ec2b97b4aa437efb215251adb3f",
+        "id": "7826408293",
+        "internalName": "daring-raid",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:damage",
+          "targetType:any",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ],
+        "setCode": "TWI_170",
+        "sourceHash": "69a1fa1e0191248a0640baa6e91a8636e76814fef7451a08d400f2fd349e6816",
+        "sourcePath": "game/cards/02_SHD/events/DaringRaid.ts",
+        "status": "supported"
+      },
+      "row_sha256": "f43e761be160ab4e7ecbb7edd04fdecfc12fb0e01cef76ba8dfcf2a6ff878fa0",
+      "runtime_admitted": true
+    },
+    {
+      "code": "TWI_174",
+      "expected_form": "event",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 4
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "title": "Deal 4 damage to a unit.",
+              "trigger": "event"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "EventCard",
+        "card": {
+          "aspects": [
+            "aggression"
+          ],
+          "cost": 3,
+          "deployBox": null,
+          "epicAction": null,
+          "hp": null,
+          "id": "8148673131",
+          "internalName": "open-fire",
+          "keywords": [],
+          "power": null,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 172,
+              "set": "SOR"
+            },
+            {
+              "number": 174,
+              "set": "TWI"
+            }
+          ],
+          "setId": {
+            "number": 174,
+            "set": "TWI"
+          },
+          "subtitle": null,
+          "text": "Deal 4 damage to a unit.",
+          "title": "Open Fire",
+          "traits": [
+            "tactic"
+          ],
+          "types": [
+            "event"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "OpenFire",
+        "dataHash": "fd9827786392769d33914048b3709cc018853225b8b48d890d4248341baebf57",
+        "id": "8148673131",
+        "internalName": "open-fire",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:damage",
+          "targetType:unit",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ],
+        "setCode": "TWI_174",
+        "sourceHash": "e99017d7da9c5604552433078263b58582eb20bfd810662dc5b4510e406aa7a6",
+        "sourcePath": "game/cards/01_SOR/events/OpenFire.ts",
+        "status": "supported"
+      },
+      "row_sha256": "2f33ba37a8a9bc5a89d4653417c2bb179e7d1407430c0278117c78a90ef09aac",
+      "runtime_admitted": true
+    },
+    {
+      "code": "ASH_081",
+      "expected_form": "whenPlayed",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 3
+                },
+                "kind": "heal",
+                "target": "chosen"
+              },
+              "optional": true,
+              "targetResolver": {
+                "owner": "any",
+                "type": "any",
+                "zone": "anyAttackable"
+              },
+              "title": "Heal 3 damage from a unit or base",
+              "trigger": "whenPlayed"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "NonLeaderUnitCard",
+        "card": {
+          "arena": "space",
+          "aspects": [
+            "vigilance"
+          ],
+          "cost": 5,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 6,
+          "id": "0656766123",
+          "internalName": "nebulonc-frigate",
+          "keywords": [],
+          "power": 3,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 81,
+              "set": "ASH"
+            }
+          ],
+          "setId": {
+            "number": 81,
+            "set": "ASH"
+          },
+          "subtitle": "",
+          "text": "When Played: You may heal 3 damage from a unit or base.",
+          "title": "Nebulon-C Frigate",
+          "traits": [
+            "new republic",
+            "vehicle",
+            "capital ship"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "NebulonCFrigate",
+        "dataHash": "7ec4ac9fef822ecddad2d9a0033c122c93b547a3600b3edd6eac0abf29fb9f5c",
+        "id": "0656766123",
+        "internalName": "nebulonc-frigate",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit",
+          "ir:const",
+          "ir:heal",
+          "targetType:any",
+          "targetZone:anyAttackable",
+          "trigger:whenPlayed"
+        ],
+        "setCode": "ASH_081",
+        "sourceHash": "232da404bac1b606528d5639829c1a4812f1313dcb4c54c94c76afeb60497e3c",
+        "sourcePath": "game/cards/08_ASH/units/Nebulon-CFrigate.ts",
+        "status": "supported"
+      },
+      "row_sha256": "8f6e0d9619f3d10ec3849eb2864199572375df54a52423cdbce1eabdc7a03db6",
+      "runtime_admitted": true
+    },
+    {
+      "code": "ASH_259",
+      "expected_form": "whenPlayed",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "optional": true,
+              "targetResolver": {
+                "arena": "ground",
+                "owner": "any",
+                "type": "unit",
+                "zone": "arena"
+              },
+              "title": "Deal 1 damage to a ground unit",
+              "trigger": "whenPlayed"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "NonLeaderUnitCard",
+        "card": {
+          "arena": "ground",
+          "aspects": [],
+          "cost": 1,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 1,
+          "id": "2632789465",
+          "internalName": "lep-ratcatcher",
+          "keywords": [],
+          "power": 1,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 259,
+              "set": "ASH"
+            }
+          ],
+          "setId": {
+            "number": 259,
+            "set": "ASH"
+          },
+          "subtitle": "",
+          "text": "When Played: You may deal 1 damage to a ground unit.",
+          "title": "LEP Ratcatcher",
+          "traits": [
+            "droid"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "LEPRatcatcher",
+        "dataHash": "6e95bca2c5a0522daab4ab31b74546631e5255d6b4a4176b4a058f8bf0b35314",
+        "id": "2632789465",
+        "internalName": "lep-ratcatcher",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit",
+          "ir:const",
+          "ir:damage",
+          "targetType:unit",
+          "targetZone:arena",
+          "trigger:whenPlayed"
+        ],
+        "setCode": "ASH_259",
+        "sourceHash": "b163e8d861d0c3b5392d22b1dc91390451d5ea525d428a17f76de21937eb87e7",
+        "sourcePath": "game/cards/08_ASH/units/LEPRatcatcher.ts",
+        "status": "supported"
+      },
+      "row_sha256": "5d01a4cbb3a81fa410e2147891380834a187fa6f5584dfebf87256b7df28c2ed",
+      "runtime_admitted": true
+    },
+    {
+      "code": "HMW_158",
+      "expected_form": "whenPlayed",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 4
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "self",
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "title": "Deal 4 damage to a friendly unit",
+              "trigger": "whenPlayed"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "NonLeaderUnitCard",
+        "card": {
+          "arena": "space",
+          "aspects": [
+            "aggression",
+            "villainy"
+          ],
+          "cost": 6,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 8,
+          "id": "0405244910",
+          "internalName": "battlescarred-destroyer",
+          "keywords": [],
+          "power": 7,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 158,
+              "set": "HMW"
+            }
+          ],
+          "setId": {
+            "number": 158,
+            "set": "HMW"
+          },
+          "subtitle": "",
+          "text": "When Played: Deal 4 damage to a friendly unit.",
+          "title": "Battle-Scarred Destroyer",
+          "traits": [
+            "imperial",
+            "vehicle",
+            "capital ship"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "BattleScarredDestroyer",
+        "dataHash": "f047b6e09ab10863120581e7c0f9354b5aebf29f42c60abc5fa1f89845cb5cb0",
+        "id": "0405244910",
+        "internalName": "battlescarred-destroyer",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit",
+          "ir:const",
+          "ir:damage",
+          "targetType:unit",
+          "targetZone:anyAttackable",
+          "trigger:whenPlayed"
+        ],
+        "setCode": "HMW_158",
+        "sourceHash": "d05cb582b2b1132ace068a488d3945841c64d74a812b6ffe820485be0133311e",
+        "sourcePath": "game/cards/09_HMW/units/BattleScarredDestroyer.ts",
+        "status": "supported"
+      },
+      "row_sha256": "6661913f9bc0fe60191b09ea4341147d20becbe2f0193b2f0349bd9a7733184a",
+      "runtime_admitted": true
+    },
+    {
+      "code": "ASH_201",
+      "expected_form": "plain-profile",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [],
+          "leader": [],
+          "unit": []
+        },
+        "card": {
+          "arena": "space",
+          "aspects": [
+            "cunning",
+            "heroism"
+          ],
+          "cost": 1,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 2,
+          "id": "9620848758",
+          "internalName": "open-circle-ace",
+          "keywords": [],
+          "power": 2,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 201,
+              "set": "ASH"
+            }
+          ],
+          "setId": {
+            "number": 201,
+            "set": "ASH"
+          },
+          "subtitle": "",
+          "text": "",
+          "title": "Open Circle Ace",
+          "traits": [
+            "republic",
+            "vehicle",
+            "fighter"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "dataHash": "7a7c83e894e670c693a2e915324ba4eae814b6df398e4f05fcee03d0ace6bf84",
+        "id": "9620848758",
+        "internalName": "open-circle-ace",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit"
+        ],
+        "setCode": "ASH_201",
+        "sourceHash": null,
+        "sourcePath": null,
+        "status": "supported"
+      },
+      "row_sha256": "e64ede4ad9c4780b9fc3e6041348e7cab40d3ecb76f8562c94a63ab9b82905c3",
+      "runtime_admitted": true
+    },
+    {
+      "code": "JTL_095",
+      "expected_form": "plain-profile",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [],
+          "leader": [],
+          "unit": []
+        },
+        "card": {
+          "arena": "space",
+          "aspects": [
+            "command",
+            "heroism"
+          ],
+          "cost": 2,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 2,
+          "id": "7653629848",
+          "internalName": "phoenix-squadron-awing",
+          "keywords": [],
+          "power": 3,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 95,
+              "set": "JTL"
+            }
+          ],
+          "setId": {
+            "number": 95,
+            "set": "JTL"
+          },
+          "subtitle": "",
+          "text": "",
+          "title": "Phoenix Squadron A-Wing",
+          "traits": [
+            "rebel",
+            "vehicle",
+            "fighter"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "dataHash": "bcb346e69a8db2504a3894fce1c13ba53d1bc4da6aa4eba3efbd6cd584d425ff",
+        "id": "7653629848",
+        "internalName": "phoenix-squadron-awing",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit"
+        ],
+        "setCode": "JTL_095",
+        "sourceHash": null,
+        "sourcePath": null,
+        "status": "supported"
+      },
+      "row_sha256": "e91e7ebc868d9669f169d41cb7d521a5946f5475c8e4fb3006357b8c12547967",
+      "runtime_admitted": true
+    },
+    {
+      "code": "SEC_080",
+      "expected_form": "plain-profile",
+      "expected_full_card_supported": true,
+      "row": {
+        "abilities": {
+          "card": [],
+          "leader": [],
+          "unit": []
+        },
+        "card": {
+          "arena": "ground",
+          "aspects": [
+            "command",
+            "villainy"
+          ],
+          "cost": 2,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 3,
+          "id": "2529211493",
+          "internalName": "imperial-dark-trooper",
+          "keywords": [],
+          "power": 3,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 80,
+              "set": "SEC"
+            }
+          ],
+          "setId": {
+            "number": 80,
+            "set": "SEC"
+          },
+          "subtitle": "",
+          "text": "",
+          "title": "Imperial Dark Trooper",
+          "traits": [
+            "imperial",
+            "droid",
+            "trooper"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "dataHash": "e9ce1653075d0947947dcfcfef7e1a1c3042324e330d3ee9b0eebf3438cebc8c",
+        "id": "2529211493",
+        "internalName": "imperial-dark-trooper",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit"
+        ],
+        "setCode": "SEC_080",
+        "sourceHash": null,
+        "sourcePath": null,
+        "status": "supported"
+      },
+      "row_sha256": "b13c9b0d08e692f65267bd7438321cd293d2e0619177f19651065263b47992b5",
+      "runtime_admitted": true
+    },
+    {
+      "code": "ASH_011",
+      "expected_form": "unsupported",
+      "expected_full_card_supported": false,
+      "row": {
+        "abilities": {
+          "card": [],
+          "leader": [
+            {
+              "costs": [
+                {
+                  "kind": "exhaustSelf"
+                }
+              ],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "targetResolver": {
+                "owner": "any",
+                "predicate": {
+                  "kind": "binary",
+                  "left": {
+                    "args": [],
+                    "kind": "query",
+                    "name": "isUnit",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "card"
+                      ]
+                    }
+                  },
+                  "op": "&&",
+                  "right": {
+                    "kind": "binary",
+                    "left": {
+                      "kind": "ref",
+                      "path": [
+                        "card",
+                        "remainingHp"
+                      ]
+                    },
+                    "op": ">=",
+                    "right": {
+                      "kind": "const",
+                      "value": 2
+                    }
+                  }
+                },
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "title": "Deal 1 damage to a unit with 2 or more remaining HP",
+              "trigger": "action"
+            }
+          ],
+          "unit": [
+            {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "optional": true,
+              "targetResolver": {
+                "owner": "any",
+                "predicate": {
+                  "kind": "binary",
+                  "left": {
+                    "args": [],
+                    "kind": "query",
+                    "name": "isUnit",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "card"
+                      ]
+                    }
+                  },
+                  "op": "&&",
+                  "right": {
+                    "kind": "binary",
+                    "left": {
+                      "kind": "ref",
+                      "path": [
+                        "card",
+                        "remainingHp"
+                      ]
+                    },
+                    "op": ">=",
+                    "right": {
+                      "kind": "const",
+                      "value": 2
+                    }
+                  }
+                },
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "title": "Deal 1 damage to a unit with 2 or more remaining HP",
+              "trigger": "onAttack"
+            }
+          ]
+        },
+        "baseClass": "LeaderUnitCard",
+        "card": {
+          "arena": "ground",
+          "aspects": [
+            "aggression",
+            "villainy"
+          ],
+          "cost": 6,
+          "deployBox": "Overwhelm (When attacking an enemy unit, deal excess damage to the opponent's base.)\nOn Attack: You may deal 1 damage to a unit with 2 or more remaining HP.",
+          "epicAction": "Epic Action: If you control 6 or more resources, deploy this leader.",
+          "hp": 7,
+          "id": "5648009238",
+          "internalName": "cad-bane#still-faster-than-you",
+          "keywords": [
+            "overwhelm"
+          ],
+          "power": 4,
+          "rules": "Shields prevent all damage from a unit with Overwhelm. There is no excess damage since the defender is not defeated.\nIf the defender is defeated during an attack before combat damage is dealt, all combat damage is considered excess damage for Overwhelm.\n",
+          "setCodes": [
+            {
+              "number": 11,
+              "set": "ASH"
+            }
+          ],
+          "setId": {
+            "number": 11,
+            "set": "ASH"
+          },
+          "subtitle": "Still Faster than You",
+          "text": "Action [Exhaust]: Deal 1 damage to a unit with 2 or more remaining HP.",
+          "title": "Cad Bane",
+          "traits": [
+            "underworld",
+            "bounty hunter"
+          ],
+          "types": [
+            "leader"
+          ],
+          "unique": true,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "CadBaneStillFasterThanYou",
+        "dataHash": "f7185bf63952d93f0dfebf07f4cd0eeaef8f52ddff9e4832b2f493f0726fb79e",
+        "id": "5648009238",
+        "internalName": "cad-bane#still-faster-than-you",
+        "keywordValues": {
+          "overwhelm": 1
+        },
+        "requiredCapabilities": [
+          "binary:&&",
+          "binary:>=",
+          "cardType:leader",
+          "ir:binary",
+          "ir:const",
+          "ir:damage",
+          "ir:exhaustSelf",
+          "ir:query",
+          "ir:ref",
+          "keyword:overwhelm",
+          "query:isUnit",
+          "ref:card",
+          "ref:card.remainingHp",
+          "targetType:unit",
+          "targetZone:anyAttackable",
+          "trigger:action",
+          "trigger:onAttack"
+        ],
+        "setCode": "ASH_011",
+        "sourceHash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+        "sourcePath": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+        "status": "supported"
+      },
+      "row_sha256": "a3126d5eb2d4547da066b2b329424f843635fef8c0e23c4cbd75fd675bf3f230",
+      "runtime_admitted": true
+    },
+    {
+      "code": "LAW_045",
+      "expected_form": "unsupported",
+      "expected_full_card_supported": false,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "contextTitle": [
+                {
+                  "kind": "const",
+                  "value": "Deal "
+                },
+                {
+                  "condition": {
+                    "kind": "binary",
+                    "left": {
+                      "args": [
+                        {
+                          "kind": "binary",
+                          "left": {
+                            "kind": "const",
+                            "value": true
+                          },
+                          "op": "&&",
+                          "right": {
+                            "args": [
+                              {
+                                "kind": "const",
+                                "value": "command"
+                              }
+                            ],
+                            "kind": "query",
+                            "name": "hasSomeAspect",
+                            "receiver": {
+                              "kind": "ref",
+                              "path": [
+                                "card"
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      "kind": "query",
+                      "name": "hasSomeArenaUnit",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "player"
+                        ]
+                      }
+                    },
+                    "op": "||",
+                    "right": {
+                      "args": [
+                        {
+                          "kind": "binary",
+                          "left": {
+                            "kind": "const",
+                            "value": true
+                          },
+                          "op": "&&",
+                          "right": {
+                            "args": [
+                              {
+                                "kind": "const",
+                                "value": "cunning"
+                              }
+                            ],
+                            "kind": "query",
+                            "name": "hasSomeAspect",
+                            "receiver": {
+                              "kind": "ref",
+                              "path": [
+                                "card"
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      "kind": "query",
+                      "name": "hasSomeArenaUnit",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "player"
+                        ]
+                      }
+                    }
+                  },
+                  "else": {
+                    "kind": "const",
+                    "value": 3
+                  },
+                  "kind": "conditional",
+                  "then": {
+                    "kind": "const",
+                    "value": 5
+                  }
+                },
+                {
+                  "kind": "const",
+                  "value": " damage to a ground unit"
+                }
+              ],
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "condition": {
+                    "kind": "binary",
+                    "left": {
+                      "args": [
+                        {
+                          "kind": "binary",
+                          "left": {
+                            "kind": "const",
+                            "value": true
+                          },
+                          "op": "&&",
+                          "right": {
+                            "args": [
+                              {
+                                "kind": "const",
+                                "value": "command"
+                              }
+                            ],
+                            "kind": "query",
+                            "name": "hasSomeAspect",
+                            "receiver": {
+                              "kind": "ref",
+                              "path": [
+                                "card"
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      "kind": "query",
+                      "name": "hasSomeArenaUnit",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "player"
+                        ]
+                      }
+                    },
+                    "op": "||",
+                    "right": {
+                      "args": [
+                        {
+                          "kind": "binary",
+                          "left": {
+                            "kind": "const",
+                            "value": true
+                          },
+                          "op": "&&",
+                          "right": {
+                            "args": [
+                              {
+                                "kind": "const",
+                                "value": "cunning"
+                              }
+                            ],
+                            "kind": "query",
+                            "name": "hasSomeAspect",
+                            "receiver": {
+                              "kind": "ref",
+                              "path": [
+                                "card"
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      "kind": "query",
+                      "name": "hasSomeArenaUnit",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "player"
+                        ]
+                      }
+                    }
+                  },
+                  "else": {
+                    "kind": "const",
+                    "value": 3
+                  },
+                  "kind": "conditional",
+                  "then": {
+                    "kind": "const",
+                    "value": 5
+                  }
+                },
+                "kind": "damage",
+                "target": "chosen"
+              },
+              "optional": true,
+              "targetResolver": {
+                "arena": "ground",
+                "owner": "any",
+                "type": "any",
+                "zone": "arena"
+              },
+              "title": "Deal 3 damage to a ground unit. If you control a Command or Cunning unit, deal 5 damage to a ground unit instead",
+              "trigger": "whenPlayed"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "NonLeaderUnitCard",
+        "card": {
+          "arena": "ground",
+          "aspects": [
+            "vigilance",
+            "aggression",
+            "heroism"
+          ],
+          "cost": 5,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 4,
+          "id": "6658095148",
+          "internalName": "zeb-orrelios#spectre-four",
+          "keywords": [
+            "sentinel"
+          ],
+          "power": 4,
+          "rules": "(ERRATA) Name: \"Zeb Orrelios\"\n",
+          "setCodes": [
+            {
+              "number": 45,
+              "set": "LAW"
+            }
+          ],
+          "setId": {
+            "number": 45,
+            "set": "LAW"
+          },
+          "subtitle": "Spectre Four",
+          "text": "Sentinel\nWhen Played: You may deal 3 damage to a ground unit. If you control a Command or Cunning unit, you may deal 5 damage to a ground unit instead.",
+          "title": "Zeb Orrelios",
+          "traits": [
+            "rebel",
+            "spectre"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": true,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "ZebOrreliosSpectreFour",
+        "dataHash": "af3546c223544e9e2a494e10b236b4b9f5e568fd3849b2fc0d3215379a527c54",
+        "id": "6658095148",
+        "internalName": "zeb-orrelios#spectre-four",
+        "keywordValues": {
+          "sentinel": 1
+        },
+        "requiredCapabilities": [
+          "ability:then",
+          "binary:&&",
+          "binary:||",
+          "cardType:unit",
+          "ir:binary",
+          "ir:conditional",
+          "ir:const",
+          "ir:damage",
+          "ir:query",
+          "ir:ref",
+          "keyword:sentinel",
+          "query:hasSomeArenaUnit",
+          "query:hasSomeAspect",
+          "ref:card",
+          "ref:player",
+          "targetType:any",
+          "targetZone:arena",
+          "trigger:whenPlayed"
+        ],
+        "setCode": "LAW_045",
+        "sourceHash": "7ee0f3c468a25a0d69c1bbeea8c2eeef792052cd337fcf5e5cbef41c523ebc1d",
+        "sourcePath": "game/cards/07_LAW/units/ZebOrreliosSpectreFour.ts",
+        "status": "supported"
+      },
+      "row_sha256": "0ae0f06d6485d2a2e98c15eb921815b22fd52543f2c27bc5de69eecce4a19ddc",
+      "runtime_admitted": true
+    },
+    {
+      "code": "ASH_071",
+      "expected_form": "unsupported",
+      "expected_full_card_supported": false,
+      "row": {
+        "abilities": {
+          "card": [
+            {
+              "costs": [],
+              "effect": {
+                "effects": [
+                  {
+                    "amount": {
+                      "kind": "const",
+                      "value": 1
+                    },
+                    "kind": "damage",
+                    "target": "self"
+                  },
+                  {
+                    "effect": {
+                      "amount": {
+                        "kind": "const",
+                        "value": 1
+                      },
+                      "kind": "damage",
+                      "target": "chosen"
+                    },
+                    "kind": "select",
+                    "targetResolver": {
+                      "arena": "space",
+                      "owner": "opponent",
+                      "type": "unit",
+                      "zone": "arena"
+                    }
+                  }
+                ],
+                "kind": "simultaneous"
+              },
+              "title": "Deal 1 damage to this unit and an enemy space unit",
+              "trigger": "whenPlayed"
+            }
+          ],
+          "leader": [],
+          "unit": []
+        },
+        "baseClass": "NonLeaderUnitCard",
+        "card": {
+          "arena": "space",
+          "aspects": [
+            "vigilance"
+          ],
+          "cost": 2,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 3,
+          "id": "3515403989",
+          "internalName": "battered-haulcraft",
+          "keywords": [],
+          "power": 2,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 71,
+              "set": "ASH"
+            }
+          ],
+          "setId": {
+            "number": 71,
+            "set": "ASH"
+          },
+          "subtitle": "",
+          "text": "When Played: Deal 1 damage to this unit and 1 damage to an enemy space unit.",
+          "title": "Battered Haulcraft",
+          "traits": [
+            "vehicle",
+            "transport"
+          ],
+          "types": [
+            "unit"
+          ],
+          "unique": false,
+          "upgradeHp": null,
+          "upgradePower": null
+        },
+        "className": "BatteredHaulcraft",
+        "dataHash": "91e668a5fb9f12e71e760b3d48da74ff8e5c23aed003410e2e0dd500dffb2a93",
+        "id": "3515403989",
+        "internalName": "battered-haulcraft",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit",
+          "ir:const",
+          "ir:damage",
+          "ir:select",
+          "ir:simultaneous",
+          "targetType:unit",
+          "targetZone:arena",
+          "trigger:whenPlayed"
+        ],
+        "setCode": "ASH_071",
+        "sourceHash": "456128a27da7476608caa9aa5344abee3395e1d6262939f9fe721577793e61a9",
+        "sourcePath": "game/cards/08_ASH/units/BatteredHaulcraft.ts",
+        "status": "supported"
+      },
+      "row_sha256": "ac2fe61613d3a467e872d0000ba56815cc10edd764e0e13d2e411e46c0db71cf",
+      "runtime_admitted": true
+    },
+    {
+      "code": "LOF_151",
+      "expected_form": "unsupported",
+      "expected_full_card_supported": false,
+      "row": {
+        "abilities": {
+          "card": [],
+          "leader": [],
+          "unit": []
+        },
+        "attachCondition": {
+          "kind": "binary",
+          "left": {
+            "args": [
+              {
+                "kind": "const",
+                "value": "jedi"
+              }
+            ],
+            "kind": "query",
+            "name": "hasSomeTrait",
+            "receiver": {
+              "kind": "ref",
+              "path": [
+                "card"
+              ]
+            }
+          },
+          "op": "&&",
+          "right": {
+            "kind": "unary",
+            "op": "!",
+            "value": {
+              "args": [
+                {
+                  "kind": "const",
+                  "value": "vehicle"
+                }
+              ],
+              "kind": "query",
+              "name": "hasSomeTrait",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              }
+            }
+          }
+        },
+        "baseClass": "UpgradeCard",
+        "card": {
+          "aspects": [
+            "aggression",
+            "heroism"
+          ],
+          "cost": 2,
+          "deployBox": null,
+          "epicAction": "",
+          "hp": 2,
+          "id": "6885149318",
+          "internalName": "knights-saber",
+          "keywords": [],
+          "power": 3,
+          "rules": null,
+          "setCodes": [
+            {
+              "number": 151,
+              "set": "LOF"
+            }
+          ],
+          "setId": {
+            "number": 151,
+            "set": "LOF"
+          },
+          "subtitle": "",
+          "text": "Attach to a Jedi non-Vehicle unit.",
+          "title": "Knight's Saber",
+          "traits": [
+            "item",
+            "weapon",
+            "lightsaber"
+          ],
+          "types": [
+            "upgrade"
+          ],
+          "unique": false,
+          "upgradeHp": 2,
+          "upgradePower": 3
+        },
+        "className": "KnightsSaber",
+        "dataHash": "53b28a1187f7d7ab955b200466b316c6ecba558ffd67f9602d55d26c554c98f6",
+        "id": "6885149318",
+        "internalName": "knights-saber",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "binary:&&",
+          "cardType:upgrade",
+          "ir:binary",
+          "ir:const",
+          "ir:query",
+          "ir:ref",
+          "ir:unary",
+          "query:hasSomeTrait",
+          "ref:card",
+          "unary:!"
+        ],
+        "setCode": "LOF_151",
+        "sourceHash": "3ac3d3f0d25b28cdd75571181cc5419d7ca9f29424cb5b85ecaba171b8183dcf",
+        "sourcePath": "game/cards/05_LOF/upgrades/KnightsSaber.ts",
+        "status": "supported"
+      },
+      "row_sha256": "e7bbfb2ae791c55f4d5d6f87ebedeb9ac1d87fae28cdd725bb6fd5ead07b96e4",
+      "runtime_admitted": true
+    }
+  ],
+  "schema": "jepa-real-ir-adapter-fixtures/1",
+  "scope": "Selected representative public raw rows only; no catalogue-wide adapter audit, outcomes, models or native execution.",
+  "source_pins": {
+    "catalogue": {
+      "bytes": 12675831,
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    "engine_revision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+    "runtime_admission": {
+      "bytes": 725184,
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    }
+  }
+}
