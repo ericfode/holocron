@@ -1,0 +1,637 @@
+{
+  "controls": {
+    "bound": {
+      "attachment-parent-binding": {
+        "target_damage_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_exhausted_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_hp_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_power_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_removed": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_shield_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        }
+      },
+      "own-aspect-condition": {
+        "target_damage_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 0
+        },
+        "target_exhausted_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_hp_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_power_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_removed": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_shield_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        }
+      }
+    },
+    "legacy-omission": {
+      "attachment-parent-binding": {
+        "target_damage_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 16,
+          "zero_truth": 0
+        },
+        "target_exhausted_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 16,
+          "zero_truth": 0
+        },
+        "target_hp_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 16,
+          "zero_truth": 0
+        },
+        "target_power_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 16,
+          "zero_truth": 0
+        },
+        "target_removed": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 16,
+          "zero_truth": 0
+        },
+        "target_shield_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 16,
+          "zero_truth": 0
+        }
+      },
+      "own-aspect-condition": {
+        "target_damage_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 8,
+          "zero_truth": 0
+        },
+        "target_exhausted_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 8,
+          "zero_truth": 0
+        },
+        "target_hp_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 8,
+          "zero_truth": 0
+        },
+        "target_power_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 8,
+          "zero_truth": 0
+        },
+        "target_removed": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 8,
+          "zero_truth": 0
+        },
+        "target_shield_delta": {
+          "exact": 0,
+          "known": 0,
+          "mae": null,
+          "max_error": null,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": null,
+          "unknown": 8,
+          "zero_truth": 0
+        }
+      }
+    },
+    "same-info-unbound": {
+      "attachment-parent-binding": {
+        "target_damage_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_exhausted_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_hp_delta": {
+          "exact": 8,
+          "known": 16,
+          "mae": 1.5,
+          "max_error": 3.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 0.5,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_power_delta": {
+          "exact": 8,
+          "known": 16,
+          "mae": 0.5,
+          "max_error": 1.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 0.5,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_removed": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_shield_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        }
+      },
+      "own-aspect-condition": {
+        "target_damage_delta": {
+          "exact": 6,
+          "known": 8,
+          "mae": 0.5,
+          "max_error": 2.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 0
+        },
+        "target_exhausted_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_hp_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_power_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_removed": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_shield_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        }
+      }
+    },
+    "wrong-owner": {
+      "attachment-parent-binding": {
+        "target_damage_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_exhausted_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_hp_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_power_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_removed": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        },
+        "target_shield_delta": {
+          "exact": 16,
+          "known": 16,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 16
+        }
+      },
+      "own-aspect-condition": {
+        "target_damage_delta": {
+          "exact": 4,
+          "known": 8,
+          "mae": 1.0,
+          "max_error": 2.0,
+          "negative_truth": 0,
+          "positive_truth": 8,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 0
+        },
+        "target_exhausted_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_hp_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_power_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_removed": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        },
+        "target_shield_delta": {
+          "exact": 8,
+          "known": 8,
+          "mae": 0.0,
+          "max_error": 0.0,
+          "negative_truth": 0,
+          "positive_truth": 0,
+          "signed_accuracy": 1.0,
+          "unknown": 0,
+          "zero_truth": 8
+        }
+      }
+    }
+  },
+  "counts": {
+    "bound_numeric_coordinates": 120,
+    "bound_removed_coordinates": 24,
+    "observation_anchors": 24,
+    "roots": 16
+  },
+  "kind": "scores",
+  "legacy_unknown_scope": "Zero coverage is this strict control's abstention, not a maximum-capability claim.",
+  "limitations": [
+    "No source is used as TRAIN; fresh native outcomes follow prior inspection of both source programs, not blind universal interpretation.",
+    "Legacy collision is same-card original18/34 architecture/input-contract sufficiency, not old checkpoint inference or a new embedding-row lookup.",
+    "Attachment branch is an expanded actual-action transition observing selected and unselected hosts; old chosen-only masks are not retroactively wrong.",
+    "Source-head intended-only input/label records are separate from branch/observation-anchor records.",
+    "Balanced-pair absolute-error floors are |observed label difference|/2 for identical input; no fitted estimator or generalization of fixed-fallback errors.",
+    "Only numeric surviving endpoints qualified; keyword grant/attack/defeat/hidden/draw behavior is not validated.",
+    "Native order control swaps host creation/registration order and IDs with logical roles preserved; the distinct pure synthetic alpha test renames every fixture reference."
+  ],
+  "mechanic_primary": {
+    "damage": {
+      "cohort": "own-aspect-condition",
+      "coordinates": 8
+    },
+    "hp": {
+      "cohort": "attachment-parent-binding",
+      "coordinates": 16
+    },
+    "power": {
+      "cohort": "attachment-parent-binding",
+      "coordinates": 16
+    }
+  },
+  "native_applies": 0,
+  "native_roots": 16,
+  "neural_forwards": 0,
+  "numerical_fits": 0,
+  "optimizer_updates": 0,
+  "provenance": {
+    "builder": {
+      "bytes": 17840,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/build_public_input_binding_deliverables.py",
+      "sha256": "570db50a3a252c5ab2c117d3bb8c03c43c832e78fa22acbe4d2044426024332f"
+    },
+    "inputs": [
+      {
+        "bytes": 213413,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json",
+        "sha256": "dc42bb849c8531c0df47ded7503536f0da66b5f9a039d750738b0471dc82b39c"
+      },
+      {
+        "bytes": 1030944,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+        "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2"
+      },
+      {
+        "bytes": 59018,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+        "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47"
+      },
+      {
+        "bytes": 32605,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-config.json",
+        "sha256": "29208bc06f3c68243812321aa09ce173f43d5a559cde0788b31d29b8c80280dc"
+      },
+      {
+        "bytes": 42610,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+        "sha256": "7e23b61f5defc3f07199b87693dcfc36a4a80e3ca8f795a473e8c0d8bf7ede05"
+      },
+      {
+        "bytes": 8883,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-ledger.jsonl",
+        "sha256": "a5701e1b3ac3342de0f72299481cdedf9c22c9334d19d606fb58148330a424f1"
+      }
+    ]
+  },
+  "schema": "public-input-binding-dashboard-view/1",
+  "scientific_numbers_recomputed": false,
+  "semantic_validated": false,
+  "source_programs": 2,
+  "source_train_codes": [],
+  "statistical_independence_not_claimed": true
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "jepa-public-input-binding-supplemental-analysis/1",
+  "seconds": 12.0,
+  "argv": [
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_supplemental_verify.py",
+    "--plan",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+    "--receipt",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-receipt.json",
+    "--journal",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-transitions.jsonl",
+    "--predictions",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+    "--predictor-source",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding.py",
+    "--out",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json"
+  ],
+  "outputs": [
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json"
+  ],
+  "pins": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-controls-receipt.json",
+      "sha256": "675e0770169442983e9da053d5498aef751d80d544b322b25d2da1ee97ff2af5",
+      "bytes": 1033
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-receipt.json",
+      "sha256": "3bed323441e3e40d16808cf0e0f19c8728dc121e0783ce48174f4ba4fad5638f",
+      "bytes": 847
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+      "sha256": "7e23b61f5defc3f07199b87693dcfc36a4a80e3ca8f795a473e8c0d8bf7ede05",
+      "bytes": 42610
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-receipt.json",
+      "sha256": "4e8a4d5435c15960bceef5f103fa884c2ef5ebfda0aa33af0727e039774a3986",
+      "bytes": 2498166
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-transitions.jsonl",
+      "sha256": "04fb639864e5415a6ebed3b886c173afc6a430de0f3217b5c94e19c813f03b47",
+      "bytes": 1588636
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+      "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47",
+      "bytes": 59018
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+      "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2",
+      "bytes": 1030944
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect_identifiability_fit.py",
+      "sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765",
+      "bytes": 59333
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding.py",
+      "sha256": "f40a77bd9fb0e08f692624fe4841d4a4352bd87436d84a1ac51725ef5a5afde5",
+      "bytes": 20340
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_accounting.py",
+      "sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7",
+      "bytes": 20171
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_supplemental_analysis.py",
+      "sha256": "b1aff6830be817e12971e1e387c5fdd0a5953530cfb99e0cefd54af74e6904af",
+      "bytes": 8329
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_supplemental_verify.py",
+      "sha256": "a9a723c02abb20aa790b40e8e36f7c12cfbc7b32a456bb8ce54dd85487e3c016",
+      "bytes": 42826
+    }
+  ]
+}

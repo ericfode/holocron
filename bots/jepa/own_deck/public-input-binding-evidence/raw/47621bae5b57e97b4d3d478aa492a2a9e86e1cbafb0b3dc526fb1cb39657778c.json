@@ -1,0 +1,90 @@
+{
+  "stage": "native-build",
+  "phase": "native",
+  "command": [
+    "cargo",
+    "build",
+    "--offline",
+    "--locked",
+    "--manifest-path",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/Cargo.toml",
+    "--bin",
+    "public-input-binding-recovery-collector",
+    "-j",
+    "1"
+  ],
+  "source_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/source-manifest.json",
+    "sha256": "48b80906dc75fc3379664971e4aeff72e90b16deaa6af65ddbcebe8b364f760b",
+    "bytes": 36670
+  },
+  "accounting": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_accounting.py",
+    "sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7",
+    "bytes": 20171
+  },
+  "max_active_seconds": 30.0,
+  "reserved_native_applies": 0,
+  "max_sampled_bytes": 1073741824,
+  "sample_interval_seconds": 0.05,
+  "optimizer_updates": 0,
+  "neural_forwards": 0,
+  "numerical_fits": 0,
+  "paid_jobs": 0,
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+  "build_profile": {
+    "opt_level": 0,
+    "debug": 0,
+    "incremental": false,
+    "codegen_override": null,
+    "rustflags": [],
+    "cargo_build_workers": 1,
+    "os_single_core_affinity": false
+  },
+  "no_retries": true,
+  "binary": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-recovery-collector",
+  "ledger_initialized": true,
+  "status": "completed",
+  "phases": [],
+  "observed_per_pid_peak_bytes": {
+    "86536": 64651264,
+    "86544": 40108032,
+    "86545": 163184640,
+    "86553": 16990208,
+    "86554": 70975488,
+    "86555": 65863680
+  },
+  "sample_count": 7,
+  "exited_owned_pid_skips": [
+    {
+      "pid": 86544,
+      "errno": 3,
+      "error": "[Errno 3] owned PID 86544 RSS unavailable (0)",
+      "elapsed_seconds": 0.42330304090864956
+    }
+  ],
+  "active_seconds": 0.43212429096456617,
+  "owned_pgid": 86544,
+  "observed_live_sum_bytes": 64651264,
+  "observed_peak_live_sum_bytes": 313901056,
+  "observed_conservative_peak_sum_bytes": 313901056,
+  "exit_code": 0,
+  "supervisor_maxrss_bytes": 81821696,
+  "max_single_child_rusage_peak_bytes": 170229760,
+  "cleanup_verified": true,
+  "memory_limitation": "50ms live owned-RSS samples; max with parent rusage peak plus maximum single child peak, not an OS process-tree reservation",
+  "known_native_apply_lower_bound": 0,
+  "observed_native_applies": 0,
+  "native_journal_verified": true,
+  "proofs": [
+    {
+      "role": "built-collector-binary",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-recovery-collector",
+      "sha256": "43c91f87f37df16740a3d4018d2242caba2fbb850b6c27a41ce801396886bf75",
+      "bytes": 17138080
+    }
+  ],
+  "charged_native_applies": 0,
+  "charged_seconds": 0.43143224995583296,
+  "ledger_last_record_sha256": "2a4dbef79e28dd481c5fe2df4bc14bfa3ca34bab66ac7ceb2385428248c475e0"
+}

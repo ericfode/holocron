@@ -1,0 +1,87 @@
+{
+  "schema": "public-input-binding-startup-failure-audit/1",
+  "created_at_utc": "2026-10-18T04:38:38.143384+00:00",
+  "status": "static-pre-apply-failure-proven",
+  "source_commit": "30e49a50d9495b17a428a2793046381d1ab02d81",
+  "evidence": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-ledger.jsonl",
+      "sha256": "1b0c327d468d2553454b09e95eeb58287b42c75790510e2ec957968ba9929b3b",
+      "bytes": 25221
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-config.json",
+      "sha256": "1d8f12230684db02f09ee252b3f592dc594b4dcea3b62c33792fbfc37d090f76",
+      "bytes": 22912
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/supervisor-receipt.json",
+      "sha256": "a08cf905552eccb2ffaea0d655f38db837c2ceaafcc07388b640e1b003dcfe74",
+      "bytes": 3154
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/stderr.log",
+      "sha256": "f54525f3d50a218f10d00d9986ad6faf1079e69d8b8fc590a01912ca7ad43b25",
+      "bytes": 54
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/src/main.rs",
+      "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c",
+      "bytes": 21787
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/generic_runtime.rs",
+      "sha256": "d450e95cc9ada2664394773f2fe154cd36c5c2a51e32c2ca2bfcca4e7d8acc1d",
+      "bytes": 223073
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-collector",
+      "sha256": "bf4b1ce81d9356d7d7949193406bc57656a3234a9711c042bb2e3f42fd3e4148",
+      "bytes": 17132960
+    }
+  ],
+  "parent_ledger_final_record": "4be4736ee8c9bb8f0105bec597ca863d01626071b3de97991e8fd9feb3fcc953",
+  "source_control_flow": {
+    "unique_engine_error_line": 657,
+    "collector_fallible_engine_construction_line": 210,
+    "collector_journal_creation_line": 213,
+    "sole_engine_apply_line": 145,
+    "explanation": "Engine construction returns Err through Rust ? before journal/Budget/fixture loop; main prints the unique error and exits1. No fixture, Engine.apply or labels are reached."
+  },
+  "filesystem": {
+    "native_journal_exists": false,
+    "native_receipt_exists": false
+  },
+  "recorded_accounting": {
+    "observed_native_applies": null,
+    "known_native_apply_lower_bound": 0,
+    "charged_native_applies": 80,
+    "charged_native_collect_seconds": 60.0,
+    "charged_native_build_seconds": 0.4496478328946978
+  },
+  "supplemental_forensic_conclusion": {
+    "engine_apply_calls": 0,
+    "kind": "source-control-flow proof; not journal-observed and no ledger credit"
+  },
+  "recovery_constraints": {
+    "one_explicit_recovery": true,
+    "additional_native_apply_ceiling": 80,
+    "combined_v1_v2_charged_native_apply_ceiling": 160,
+    "combined_v1_v2_native_seconds_ceiling": 180,
+    "shared_analysis_seconds_ceiling": 30,
+    "combined_seconds_ceiling": 210,
+    "neural_forwards": 0,
+    "optimizer_updates": 0,
+    "numerical_fits": 0,
+    "paid_spend_usd": 0,
+    "same_worlds_and_predictors": true,
+    "only_catalogue_change": "add full reviewed native TOKEN_SHIELD support definition; no physical Shield fixtures; no engine or source-card edits",
+    "old_binary_must_remain_pinned": true
+  },
+  "restrictions": "v1 ledger/config/source remain immutable; do not retry v1 or erase failure. v1 observed count stays unknown despite supplemental proof0. No additional recovery if the once-only v2 fails without a separately authorized review."
+}

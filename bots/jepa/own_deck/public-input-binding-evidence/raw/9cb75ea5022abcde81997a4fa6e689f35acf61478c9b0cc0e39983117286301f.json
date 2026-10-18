@@ -1,0 +1,2082 @@
+{
+  "artifacts": [
+    {
+      "bytes": 2565683,
+      "id": "data",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/data.json",
+      "role": "data",
+      "sha256": "55cc23cde2b7ae237749f4a2b627cbc0ab091d46898eb1729e3e298b31f3658c"
+    },
+    {
+      "bytes": 17952,
+      "id": "scores",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/scores.json",
+      "role": "scores",
+      "sha256": "54d2b5a91c9a78467fa7ce7113061646bcc69b25869571bb3257d32e3b362dac"
+    },
+    {
+      "bytes": 60711,
+      "id": "causal-pairs",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/causal-pairs.json",
+      "role": "causal-pairs",
+      "sha256": "248a0a1378a889cbc972d5c57f6e292171034da784c4fcd001130e2770fc3931"
+    },
+    {
+      "bytes": 224595,
+      "id": "encoding-controls",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/encoding-controls.json",
+      "role": "encoding-controls",
+      "sha256": "57e0127242cc381ee2e2d74bf742e49a587c6b0504a31374f95a37e500fac290"
+    },
+    {
+      "bytes": 376618,
+      "id": "contract",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/contract.json",
+      "role": "contract",
+      "sha256": "e3b808505e9813953b83a4150f019300f351d18e4caab18c886ca6e6466a106c"
+    },
+    {
+      "bytes": 24128,
+      "id": "verification",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/verification.json",
+      "role": "verification",
+      "sha256": "fdd2ea5078c3cc883ea4c32362e691e69ed6459d109697dff0384af45d76aec4"
+    },
+    {
+      "bytes": 11807,
+      "id": "accounting",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/accounting.json",
+      "role": "accounting",
+      "sha256": "e5aacb24cb4c81715e18053f3ed84fda483232b3fac56d862a1ef2a69bd82ddc"
+    },
+    {
+      "bytes": 12824,
+      "id": "failures",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/failures.json",
+      "role": "verification",
+      "sha256": "f56e3a89abaaeee33c3739820069774cd1532a03535d5d2e720bc5d960f34d2f"
+    },
+    {
+      "bytes": 7538,
+      "id": "report",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+      "role": "report",
+      "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3"
+    },
+    {
+      "bytes": 16231,
+      "id": "protected-after",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/protected-after.json",
+      "role": "verification",
+      "sha256": "533fd975130b33dbbfb3de4fc00713f6dd74b3f0abfb8b0834cbf5ced6d829f7"
+    },
+    {
+      "bytes": 989,
+      "id": "focused-checks",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/focused-checks.json",
+      "role": "verification",
+      "sha256": "7529b5f78054bb0e4806363e2bf1f229021ef9500d496bcf3fd84ffd61b78a90"
+    },
+    {
+      "bytes": 953824,
+      "id": "raw-0000-bee3f6012331",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10-e.safetensors",
+      "role": "source",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+    },
+    {
+      "bytes": 953760,
+      "id": "raw-0001-50b8f9a2c378",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10.safetensors",
+      "role": "source",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    {
+      "bytes": 3976,
+      "id": "raw-0002-34b42e6fe1f3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+      "role": "source",
+      "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a"
+    },
+    {
+      "bytes": 2534886,
+      "id": "raw-0003-6356747ac4ca",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+      "role": "source",
+      "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3"
+    },
+    {
+      "bytes": 953824,
+      "id": "raw-0004-bee3f6012331",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10-e.safetensors",
+      "role": "source",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+    },
+    {
+      "bytes": 953760,
+      "id": "raw-0005-50b8f9a2c378",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10.safetensors",
+      "role": "source",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    {
+      "bytes": 9600,
+      "id": "raw-0006-8029b7e5166f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/Cargo.lock",
+      "role": "source",
+      "sha256": "8029b7e5166f18ed7467b38d3c475cb5681d04c5e4ad6a65353173035231b085"
+    },
+    {
+      "bytes": 387,
+      "id": "raw-0007-318e6e1a6bfc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/Cargo.toml",
+      "role": "source",
+      "sha256": "318e6e1a6bfccb783ed26225e93d24eea3976760fa49cce3cdbdcf04aa62483a"
+    },
+    {
+      "bytes": 12675831,
+      "id": "raw-0008-0219449c7fbd",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "role": "source",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    {
+      "bytes": 58854,
+      "id": "raw-0009-8dff12ddaa83",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/coverage.json",
+      "role": "source",
+      "sha256": "8dff12ddaa8309be2cbe759796c2494c0b56736295b039c8e5a1250d3fc2c672"
+    },
+    {
+      "bytes": 16505,
+      "id": "raw-0010-e7fcc4e28aa2",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/diagnostics.json",
+      "role": "source",
+      "sha256": "e7fcc4e28aa20138e70516866f0b3e0127bce5de1c49063f34a8634acf07f12b"
+    },
+    {
+      "bytes": 789236,
+      "id": "raw-0011-53d572533bd0",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/inputs.json",
+      "role": "source",
+      "sha256": "53d572533bd027d2683e363b821bd1f92ba012b8284a82967bb2c5ac73605c13"
+    },
+    {
+      "bytes": 53273,
+      "id": "raw-0012-ae9f8e4ee760",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/manifest.json",
+      "role": "source",
+      "sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c"
+    },
+    {
+      "bytes": 725184,
+      "id": "raw-0013-91553fdcd786",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "role": "source",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    },
+    {
+      "bytes": 1052338,
+      "id": "raw-0014-d056565f1c13",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-pool.json",
+      "role": "source",
+      "sha256": "d056565f1c13d2ca5423ef855f9d1f0f40a3dd482eb4085817a79ee8f307e36c"
+    },
+    {
+      "bytes": 630,
+      "id": "raw-0015-09c291d7ca97",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/Cargo.toml",
+      "role": "source",
+      "sha256": "09c291d7ca97a67252c14158e2118403a5d2d7d67ccfed8843183432f467d511"
+    },
+    {
+      "bytes": 11017,
+      "id": "raw-0016-3ea823128ca1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/build.rs",
+      "role": "source",
+      "sha256": "3ea823128ca1732b2a7757fbb2e775b923b7810cffd55efd4af21e8fc5fcad98"
+    },
+    {
+      "bytes": 8762,
+      "id": "raw-0017-62daafa25674",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/examples/state_search_bench.rs",
+      "role": "source",
+      "sha256": "62daafa25674675145520dae6739bc2a9892fc9a4f8b5b9a082914c23122103b"
+    },
+    {
+      "bytes": 17569,
+      "id": "raw-0018-4a77237063ce",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/expression_codegen.rs",
+      "role": "source",
+      "sha256": "4a77237063ce409b96b448d860f256ba727efaa1f00795cc14b0cf95c2ce9fb1"
+    },
+    {
+      "bytes": 341468,
+      "id": "raw-0019-21735d5e9030",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/ability_ir.rs",
+      "role": "source",
+      "sha256": "21735d5e9030b1d7d20910d6d650b0c6935a5a221e017114f121cce40ec75b84"
+    },
+    {
+      "bytes": 5290,
+      "id": "raw-0020-73eb0fed25a2",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/activation_contract.rs",
+      "role": "source",
+      "sha256": "73eb0fed25a2cef7b7cd8850276125b7e6f2ecbfd0b9cb8cae28cf85b427c7af"
+    },
+    {
+      "bytes": 2413,
+      "id": "raw-0021-8f10b820c716",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/activation_contract_tests.rs",
+      "role": "source",
+      "sha256": "8f10b820c7169a8055879ab611a73aff2f6d98944ef4dc6ffaea0e887c494384"
+    },
+    {
+      "bytes": 2946,
+      "id": "raw-0022-7f77b1415f54",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/activation_runtime_tests.rs",
+      "role": "source",
+      "sha256": "7f77b1415f54bfb8c1133f29e092190ca4c9799899681b32e522939a31fb6c8e"
+    },
+    {
+      "bytes": 2574,
+      "id": "raw-0023-ac6ed5de5315",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/admission.rs",
+      "role": "source",
+      "sha256": "ac6ed5de53155f742bb263b7484c4709ac623bee02dd896b89e3b382655cee67"
+    },
+    {
+      "bytes": 5336,
+      "id": "raw-0024-7f38b655bc1f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/admission_tests.rs",
+      "role": "source",
+      "sha256": "7f38b655bc1f383a427f7cac38c6b505f07a44c401cb573d34887ff96f1414eb"
+    },
+    {
+      "bytes": 3724,
+      "id": "raw-0025-bd13504b4556",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/advantage.rs",
+      "role": "source",
+      "sha256": "bd13504b4556ee41a26c5c67c95d588e14ad0297eb4be13f237cfc3a90061389"
+    },
+    {
+      "bytes": 35223,
+      "id": "raw-0026-deb79eeef634",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/advantage_tests.rs",
+      "role": "source",
+      "sha256": "deb79eeef6348c573149df9eafd783511329e9cd8b2c8705e4960e07208d3335"
+    },
+    {
+      "bytes": 3561,
+      "id": "raw-0027-57b3160234c9",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/ahsoka_integrated_tests.rs",
+      "role": "source",
+      "sha256": "57b3160234c911feaa88f88fb69a7542cecc0fe233761b53041440b1b17dd029"
+    },
+    {
+      "bytes": 16291,
+      "id": "raw-0028-73febc62e368",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_constant_tests.rs",
+      "role": "source",
+      "sha256": "73febc62e36805310ad379e7184625caa469f7e6a899c0d17a66ee132014def4"
+    },
+    {
+      "bytes": 13876,
+      "id": "raw-0029-1ad125fa480b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_constants.rs",
+      "role": "source",
+      "sha256": "1ad125fa480bee586174442c2ad2fe74a0250ae28578390db36cc1e7c4fcc667"
+    },
+    {
+      "bytes": 10032,
+      "id": "raw-0030-cded9a413b61",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_registration.rs",
+      "role": "source",
+      "sha256": "cded9a413b6119dfa5bd54743b8ccb70262063849771d905a525d8cfc9b0b887"
+    },
+    {
+      "bytes": 15248,
+      "id": "raw-0031-7c645eed13be",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_registration_tests.rs",
+      "role": "source",
+      "sha256": "7c645eed13becd0cd02a9fe18db784b91b4469358a6a60f775254c5747106f3f"
+    },
+    {
+      "bytes": 20933,
+      "id": "raw-0032-d5cf5f150ab1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attack_end_tests.rs",
+      "role": "source",
+      "sha256": "d5cf5f150ab1dd4f49c8d176d60c82c9479832c658dac22d68eaf92983c03c9e"
+    },
+    {
+      "bytes": 2999,
+      "id": "raw-0033-e7a64e802a13",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attack_history.rs",
+      "role": "source",
+      "sha256": "e7a64e802a13b8423cb01feb9e444384353bdcd88d393fc59ad2969624010cb9"
+    },
+    {
+      "bytes": 5323,
+      "id": "raw-0034-55757681de4e",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/batch_attack_condition_tests.rs",
+      "role": "source",
+      "sha256": "55757681de4eaa765bfb5e2942d2ed4bcb040c46f79ce1e51df3765f4ef8e9c2"
+    },
+    {
+      "bytes": 7368,
+      "id": "raw-0035-cf69b2e5581c",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/batch_damage_default_source_tests.rs",
+      "role": "source",
+      "sha256": "cf69b2e5581cf6252fbf6c364339e15b580a17c0e6ee771ab69e44085415141d"
+    },
+    {
+      "bytes": 4859,
+      "id": "raw-0036-0164e95af376",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/batch_plain_upgrade_tests.rs",
+      "role": "source",
+      "sha256": "0164e95af37670b16fcf2d9662cc8912c49df1cc37829b353a9487df0899b7ae"
+    },
+    {
+      "bytes": 15078,
+      "id": "raw-0037-1b3ac0b4158c",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bin/kessel-pimc.rs",
+      "role": "source",
+      "sha256": "1b3ac0b4158cb4a0aa1cc6e346569f49c2d07b0af0ebc811ec6d0fb190a4a5cb"
+    },
+    {
+      "bytes": 9363,
+      "id": "raw-0038-05e8648f7ec5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_family_tests.rs",
+      "role": "source",
+      "sha256": "05e8648f7ec517b4362d4b4413fbe1757dd3f0c290111e589200040dbef609ed"
+    },
+    {
+      "bytes": 6998,
+      "id": "raw-0039-5ab3a48bb069",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_floor_tests.rs",
+      "role": "source",
+      "sha256": "5ab3a48bb069e33351d2130aeb01fdadea9c942f9b52c08e2ac0074eec272be2"
+    },
+    {
+      "bytes": 10194,
+      "id": "raw-0040-2355fcb08574",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_inventory_tests.rs",
+      "role": "source",
+      "sha256": "2355fcb085748d6aa9c8adeba740588d87fb5f3a99f1718e3a8a7b1d11376657"
+    },
+    {
+      "bytes": 8474,
+      "id": "raw-0041-45803ca75982",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_reductions.rs",
+      "role": "source",
+      "sha256": "45803ca759821b58fc5e7b798b586f52ec171fa09b69b6386531b7b29da47808"
+    },
+    {
+      "bytes": 20876,
+      "id": "raw-0042-3dbc80355a10",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/card_restriction_tests.rs",
+      "role": "source",
+      "sha256": "3dbc80355a103e56bb21181a25ac88c9d4c94a8751389c45fbee304672244c4e"
+    },
+    {
+      "bytes": 5991,
+      "id": "raw-0043-c3b3c397c4b7",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/cards.rs",
+      "role": "source",
+      "sha256": "c3b3c397c4b79dd081a7cbc9f8255ad0761518c118f3ae0c14df956f7a7dc72c"
+    },
+    {
+      "bytes": 4907,
+      "id": "raw-0044-915e7cb0a43b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/catalogue_io.rs",
+      "role": "source",
+      "sha256": "915e7cb0a43be44d8b27366576837cfa7af7411edaa76559f9ed9071c7f9d988"
+    },
+    {
+      "bytes": 13349,
+      "id": "raw-0045-d5e73c0cb851",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/check.rs",
+      "role": "source",
+      "sha256": "d5e73c0cb851ed1156a615318afb6f8999cf3f95480da706dede51157e5de7d8"
+    },
+    {
+      "bytes": 17278,
+      "id": "raw-0046-98b6c81ed044",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/cleanup_integration_tests.rs",
+      "role": "source",
+      "sha256": "98b6c81ed0446dab41710e32e1aa27335f6c70ebbd1a67c6a82dfe751727f75a"
+    },
+    {
+      "bytes": 16289,
+      "id": "raw-0047-592c11e6eb65",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/collection_query_tests.rs",
+      "role": "source",
+      "sha256": "592c11e6eb6555be69b3d0f0e25cc2bfb240ef20256d7f4446f5b7a6c7260711"
+    },
+    {
+      "bytes": 6701,
+      "id": "raw-0048-5c0eb7291021",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/compatibility_tests.rs",
+      "role": "source",
+      "sha256": "5c0eb72910218b9fc7ebd8368d2fadfb87faaa26a7196e9b6f5afe130eb07b9d"
+    },
+    {
+      "bytes": 25340,
+      "id": "raw-0049-92450db3df0e",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/controlled_title_tests.rs",
+      "role": "source",
+      "sha256": "92450db3df0ea95ade9d361468aa276f4f9430862841b540181f543f0d54193a"
+    },
+    {
+      "bytes": 29264,
+      "id": "raw-0050-18ef9491b43f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/death_hook_tests.rs",
+      "role": "source",
+      "sha256": "18ef9491b43f171a50ec5aa85e2ae8719db5b2890b150cb5cb169ca2980a4a65"
+    },
+    {
+      "bytes": 8470,
+      "id": "raw-0051-0a0d5132f6ef",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/death_hooks.rs",
+      "role": "source",
+      "sha256": "0a0d5132f6ef8f0cfb2f05a0e4657a52549edb10ba338fdd299b11fd0f65f8dc"
+    },
+    {
+      "bytes": 11950,
+      "id": "raw-0052-f4d2a4e92806",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/deck_search.rs",
+      "role": "source",
+      "sha256": "f4d2a4e92806e130a522c16abfb1d711723d24b907900781f54c4a250e8d8cca"
+    },
+    {
+      "bytes": 8733,
+      "id": "raw-0053-46a86b052263",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/deck_search_tests.rs",
+      "role": "source",
+      "sha256": "46a86b052263947751fe823cfcbd59f27cb9843dac3ff54bbac7c984b3d1b1d3"
+    },
+    {
+      "bytes": 16803,
+      "id": "raw-0054-5f818e2627f5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/disclose_runtime_tests.rs",
+      "role": "source",
+      "sha256": "5f818e2627f5e6ae09481b054038701ce103497ea70c2c49a3757de490f13da9"
+    },
+    {
+      "bytes": 7502,
+      "id": "raw-0055-9f83faf950e5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/expr_search_tests.rs",
+      "role": "source",
+      "sha256": "9f83faf950e58a363f1615f7bfada4585d78b6e72adcc8ae75cea140c57e2b6a"
+    },
+    {
+      "bytes": 7854,
+      "id": "raw-0056-4fdac64353a0",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/force_cost_tests.rs",
+      "role": "source",
+      "sha256": "4fdac64353a0e837f2c633f45f8bca1c2f5c149746c6b73b89dc2657272d004d"
+    },
+    {
+      "bytes": 223073,
+      "id": "raw-0057-d450e95cc9ad",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/generic_runtime.rs",
+      "role": "source",
+      "sha256": "d450e95cc9ada2664394773f2fe154cd36c5c2a51e32c2ca2bfcca4e7d8acc1d"
+    },
+    {
+      "bytes": 410686,
+      "id": "raw-0058-28166f076c26",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/generic_runtime_tests.rs",
+      "role": "source",
+      "sha256": "28166f076c2663493342ecdce1ff9cc6623f94670fe07e0f10eaee1fb5ef9695"
+    },
+    {
+      "bytes": 3881,
+      "id": "raw-0059-9a4bc1cdfa9f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/json_scan_tests.rs",
+      "role": "source",
+      "sha256": "9a4bc1cdfa9f6da6a7fd7a8025467eed90d7d5c1fd08957cedc4afb1d121c5dd"
+    },
+    {
+      "bytes": 1831,
+      "id": "raw-0060-ace9369bfa80",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/legacy_leader.rs",
+      "role": "source",
+      "sha256": "ace9369bfa8040058b5e205a2a8da1cfb497b79d289361bab90f4783c5622546"
+    },
+    {
+      "bytes": 943,
+      "id": "raw-0061-5f9c76548ca9",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/lib.rs",
+      "role": "source",
+      "sha256": "5f9c76548ca9ed079fbd539f787d59e36629848d6718ad112405930f4d082c5f"
+    },
+    {
+      "bytes": 4288,
+      "id": "raw-0062-c7e5cef0b1b1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/live_power_maximum.rs",
+      "role": "source",
+      "sha256": "c7e5cef0b1b1b1bd3be373a033e89d37f2ee98313554861eee18fb6c4009d18b"
+    },
+    {
+      "bytes": 16994,
+      "id": "raw-0063-34a94e6ced40",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/main.rs",
+      "role": "source",
+      "sha256": "34a94e6ced4085d438fc9efb6b1f7ea25fdfa9360a27b654d1b52bdfa091c039"
+    },
+    {
+      "bytes": 9905,
+      "id": "raw-0064-edb70d205609",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/maximum_snapshot_tests.rs",
+      "role": "source",
+      "sha256": "edb70d2056095bb182c1c21f8922248cf99e7c98499f50f59a0224c934ef49bc"
+    },
+    {
+      "bytes": 44711,
+      "id": "raw-0065-133b8c49c0c6",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/model.rs",
+      "role": "source",
+      "sha256": "133b8c49c0c6801a9b650146f3744ee6d76d64a85d3efd9184e800fffe838aee"
+    },
+    {
+      "bytes": 11804,
+      "id": "raw-0066-27058e8dc046",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_attack.rs",
+      "role": "source",
+      "sha256": "27058e8dc0467078175480b963762b549cdc6e7159f19b6a6ed1cfb58d33c5ee"
+    },
+    {
+      "bytes": 24018,
+      "id": "raw-0067-fff095fd1af8",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_attack_tests.rs",
+      "role": "source",
+      "sha256": "fff095fd1af8957c231a87c80351a322a0db2d666d378d67feb8a91dcda39d00"
+    },
+    {
+      "bytes": 4580,
+      "id": "raw-0068-0c673a51d845",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_heal_weakness_tests.rs",
+      "role": "source",
+      "sha256": "0c673a51d8450838f409c1066875faa325d35a15ed2c23645109aa57cb988d08"
+    },
+    {
+      "bytes": 16693,
+      "id": "raw-0069-cb11c912c7ec",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_predicate_tests.rs",
+      "role": "source",
+      "sha256": "cb11c912c7ec9b170431fcfba6aacd42547308db42e0d969794785367fe6abfc"
+    },
+    {
+      "bytes": 16397,
+      "id": "raw-0070-0182f13e2787",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/pay_adjusted_resources_tests.rs",
+      "role": "source",
+      "sha256": "0182f13e27874283ed42a4a87d1e3acca69409722838225e87f909ec1501a8d5"
+    },
+    {
+      "bytes": 11116,
+      "id": "raw-0071-11088ae0ddd9",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/phase_history.rs",
+      "role": "source",
+      "sha256": "11088ae0ddd9d7826322871e8cdd8b609e10710926089a1203fe8d840acca2d1"
+    },
+    {
+      "bytes": 18695,
+      "id": "raw-0072-96d0e9041617",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/phase_history_tests.rs",
+      "role": "source",
+      "sha256": "96d0e9041617a45941c5bc896176e755cadc30f3f2fa6333088f34009542e1a4"
+    },
+    {
+      "bytes": 21203,
+      "id": "raw-0073-4995934a2586",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/physical_attachment_tests.rs",
+      "role": "source",
+      "sha256": "4995934a2586f5d28707a86ec76492c674d009e59ba436749a954b0f416c9698"
+    },
+    {
+      "bytes": 50610,
+      "id": "raw-0074-e403e89d918a",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/prepared_runtime.rs",
+      "role": "source",
+      "sha256": "e403e89d918ab5c636a28c56caf0bde6113f23b0c64fa25aaaabd709c3f8ead4"
+    },
+    {
+      "bytes": 6506,
+      "id": "raw-0075-c081d1d43d2b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/recipe_contract_tests.rs",
+      "role": "source",
+      "sha256": "c081d1d43d2b4cd2adde6a30ddabc402000699fe71a2f4ed74fb5f85e34afb01"
+    },
+    {
+      "bytes": 5082,
+      "id": "raw-0076-832a107f8f12",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/registration_runtime.rs",
+      "role": "source",
+      "sha256": "832a107f8f12865c8d4b5f592c8fb77efb1a8202bb115919746d4b5b9422821c"
+    },
+    {
+      "bytes": 6960,
+      "id": "raw-0077-57cf48776a2f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/replacement_initiative_tests.rs",
+      "role": "source",
+      "sha256": "57cf48776a2fa2e7fc0da2255cec8087dc0dbb2d9f0b57523660a3979c60bd71"
+    },
+    {
+      "bytes": 21023,
+      "id": "raw-0078-8010394c11fb",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/resolved_event_tests.rs",
+      "role": "source",
+      "sha256": "8010394c11fb442a2157bf226967f40919988ef18e239e162a2ab0eff5061d8a"
+    },
+    {
+      "bytes": 22460,
+      "id": "raw-0079-7ef5155a2a43",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/search.rs",
+      "role": "source",
+      "sha256": "7ef5155a2a4364ea8edf32faab87c19b951f718a28d07db1087e5faa57ee16b3"
+    },
+    {
+      "bytes": 30062,
+      "id": "raw-0080-6264924e3988",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_contract.rs",
+      "role": "source",
+      "sha256": "6264924e3988d82fb1d95a5fe3021076c4dc95ab064f1bd0905c6d4238cb5c95"
+    },
+    {
+      "bytes": 12484,
+      "id": "raw-0081-40b1bf382c64",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_contract_tests.rs",
+      "role": "source",
+      "sha256": "40b1bf382c64181d8f8b5bd5c577c493493533ae2e343bef9ebe454067fca4e5"
+    },
+    {
+      "bytes": 3845,
+      "id": "raw-0082-19fe41a48850",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_runtime.rs",
+      "role": "source",
+      "sha256": "19fe41a48850f0857dd6f048a0a8318ba56837c8fd4d86f87d515bf449d99ab7"
+    },
+    {
+      "bytes": 23618,
+      "id": "raw-0083-6b08a74a0692",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_tests.rs",
+      "role": "source",
+      "sha256": "6b08a74a069246082f1450d1e66077d7ddbe2681db11adbb3553b974d38597ef"
+    },
+    {
+      "bytes": 80992,
+      "id": "raw-0084-2c6e9bb165e5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/simulator.rs",
+      "role": "source",
+      "sha256": "2c6e9bb165e53f37b73ef9e9804d4e3375123f04390218bf5e34a2988a0a65a1"
+    },
+    {
+      "bytes": 20861,
+      "id": "raw-0085-81ba910a076f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/simulator_tests.rs",
+      "role": "source",
+      "sha256": "81ba910a076f3d59d4d2881a3f85ace8c3ca7f6b3a09ffd14515be2427a7fa94"
+    },
+    {
+      "bytes": 4562,
+      "id": "raw-0086-488a0efe9c8e",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/snapshot_evidence.rs",
+      "role": "source",
+      "sha256": "488a0efe9c8e3d5e85b852c6a6649a7368d7b435fdb49163e3610b3342ea15c7"
+    },
+    {
+      "bytes": 5608,
+      "id": "raw-0087-ad349d96a055",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/source_guard_tests.rs",
+      "role": "source",
+      "sha256": "ad349d96a05559fe15b8cbeaf0aa409eedd86e3d94b2ef16624bdd8dd3a1bdd0"
+    },
+    {
+      "bytes": 21912,
+      "id": "raw-0088-0611bc413dd9",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/static_ongoing.rs",
+      "role": "source",
+      "sha256": "0611bc413dd9590b122652515036098d6bc61eb563c7e96c0a3409c94b9c757c"
+    },
+    {
+      "bytes": 30553,
+      "id": "raw-0089-a3988814fa5b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/static_ongoing_tests.rs",
+      "role": "source",
+      "sha256": "a3988814fa5befda65f05cbd70f25fcf87c13984eef2ba0ef47483257e6c56d2"
+    },
+    {
+      "bytes": 17890,
+      "id": "raw-0090-56c511ae4994",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/support_runtime.rs",
+      "role": "source",
+      "sha256": "56c511ae49943858495136982e40ea8bc21c90c5759641e374c8956b8a221f30"
+    },
+    {
+      "bytes": 31524,
+      "id": "raw-0091-c8f7a4de99b3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/support_tests.rs",
+      "role": "source",
+      "sha256": "c8f7a4de99b386426b0273766984196055dd9724a478ce766a6d91981b6a643b"
+    },
+    {
+      "bytes": 8157,
+      "id": "raw-0092-dd5e20f0efd4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/title_consumer_tests.rs",
+      "role": "source",
+      "sha256": "dd5e20f0efd4ad10a47bc56085fcf48e2e9dfa1883f2e72f4d094e4f8f41bf02"
+    },
+    {
+      "bytes": 15649,
+      "id": "raw-0093-a2c3db71a88b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/trait_inventory_tests.rs",
+      "role": "source",
+      "sha256": "a2c3db71a88b3b2704f1f5ccaea30e42836ef3d0903c09765c3df20768be4456"
+    },
+    {
+      "bytes": 36472,
+      "id": "raw-0094-432be7f0896b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/validation.rs",
+      "role": "source",
+      "sha256": "432be7f0896bbe30c4def81dbd691a913a2c5201f80f1031ab6f62e8c61bbb18"
+    },
+    {
+      "bytes": 22658,
+      "id": "raw-0095-a2c97bd7229d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/zone_statics_tests.rs",
+      "role": "source",
+      "sha256": "a2c97bd7229d8979516e003908fcd2acf4235b9c38e73fcf0e84fdfa0c7fb057"
+    },
+    {
+      "bytes": 7462,
+      "id": "raw-0096-0b523aa67cdc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/architecture_boundaries.rs",
+      "role": "source",
+      "sha256": "0b523aa67cdc77711330ebcac0dfa41fa71415f34eb097bfb8d3c9204c91e43f"
+    },
+    {
+      "bytes": 1130,
+      "id": "raw-0097-7c8ad51570dd",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/compiled_conformance.rs",
+      "role": "source",
+      "sha256": "7c8ad51570dd8f30f41624e117d5b94de3b646617ca99bc5cff372e2c388ff29"
+    },
+    {
+      "bytes": 2892,
+      "id": "raw-0098-3af1a5ab08cf",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/conformance.rs",
+      "role": "source",
+      "sha256": "3af1a5ab08cf73783a6c86d1a5ac89c2c5e56580535f6112003619a85cad0049"
+    },
+    {
+      "bytes": 4786,
+      "id": "raw-0099-26a7ec83da5b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/reference_conformance.rs",
+      "role": "source",
+      "sha256": "26a7ec83da5bdcb5376c73f3bd8ff731c8da82b9b53b6aeb8835f0dd25d4b511"
+    },
+    {
+      "bytes": 2222,
+      "id": "raw-0100-6c109082940f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/source_only_contracts.rs",
+      "role": "source",
+      "sha256": "6c109082940fcf0ca60a581191f57b1620f2e839ab43fbd4ea2de7205fa89ddb"
+    },
+    {
+      "bytes": 4046,
+      "id": "raw-0101-2cd94f935590",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/state_boundaries.rs",
+      "role": "source",
+      "sha256": "2cd94f9355907b10335184797dc739dea941f97ec7d05dafd9108c8181aa2ed7"
+    },
+    {
+      "bytes": 4424,
+      "id": "raw-0102-d5ff8dcea040",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/token_attack_admission.rs",
+      "role": "source",
+      "sha256": "d5ff8dcea0407f34e2aeee80ecbbbd3538bcb5678e221cdb0afa63d148d9d597"
+    },
+    {
+      "bytes": 3858872,
+      "id": "raw-0103-34f24d5a0739",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "role": "source",
+      "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69"
+    },
+    {
+      "bytes": 4543,
+      "id": "raw-0104-e3f8cc1227f5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "role": "source",
+      "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa"
+    },
+    {
+      "bytes": 1498747,
+      "id": "raw-0105-dd3ec9dc77f1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+      "role": "source",
+      "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+    },
+    {
+      "bytes": 268246,
+      "id": "raw-0106-2d6b1b116a7c",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+      "role": "source",
+      "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+    },
+    {
+      "bytes": 86319,
+      "id": "raw-0107-5c6c528448c4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+      "role": "source",
+      "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+    },
+    {
+      "bytes": 20662,
+      "id": "raw-0108-1d1f6f413dd1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+      "role": "source",
+      "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622"
+    },
+    {
+      "bytes": 613574,
+      "id": "raw-0109-6eadc7c3231c",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/learner-plan.json",
+      "role": "source",
+      "sha256": "6eadc7c3231c93b8aeebf85e1d6d44bb16b98ff80143283cc84c95071a3dd3b2"
+    },
+    {
+      "bytes": 295074,
+      "id": "raw-0110-7917ee4d76e8",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "role": "source",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301"
+    },
+    {
+      "bytes": 23069,
+      "id": "raw-0111-145cdedc7ae4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+      "role": "source",
+      "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86"
+    },
+    {
+      "bytes": 31405,
+      "id": "raw-0112-8821c9ef54ad",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/analysis-ledger.jsonl",
+      "role": "source",
+      "sha256": "8821c9ef54ad2e3749ff5f7d598e633a9453669fb14cdc973359e613af36dd62"
+    },
+    {
+      "bytes": 10069,
+      "id": "raw-0113-86a3970efc4c",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/campaign-ledger.jsonl",
+      "role": "source",
+      "sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19"
+    },
+    {
+      "bytes": 7815302,
+      "id": "raw-0114-ca05cfb716e7",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/native-effect-v2/native-effect-v2.manifest.json",
+      "role": "source",
+      "sha256": "ca05cfb716e7f7996109b87d32b607407848b843a23935a74c23823618b8e9a0"
+    },
+    {
+      "bytes": 6916,
+      "id": "raw-0115-2254eef79afa",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/native-effect-v2/native-effect-v2.npz",
+      "role": "source",
+      "sha256": "2254eef79afaa2da7cca145522ec8d05a6b2e374c71387d4cfe09b7b0c47a122"
+    },
+    {
+      "bytes": 22912,
+      "id": "raw-0116-1d8f12230684",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-config.json",
+      "role": "source",
+      "sha256": "1d8f12230684db02f09ee252b3f592dc594b4dcea3b62c33792fbfc37d090f76"
+    },
+    {
+      "bytes": 25221,
+      "id": "raw-0117-1b0c327d468d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-ledger.jsonl",
+      "role": "source",
+      "sha256": "1b0c327d468d2553454b09e95eeb58287b42c75790510e2ec957968ba9929b3b"
+    },
+    {
+      "bytes": 258187,
+      "id": "raw-0118-9502838f4c1e",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/coverage-contract.json",
+      "role": "source",
+      "sha256": "9502838f4c1ee3b88f5e11f528518014b91bd15a450e7fd7d01ca3877cd9740a"
+    },
+    {
+      "bytes": 3858,
+      "id": "raw-0119-52d5300b0685",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/freeze_source.py",
+      "role": "source",
+      "sha256": "52d5300b0685f7f9ae11d9a3229d14c7c30bacf71c370ebecf7b1af30879dd41"
+    },
+    {
+      "bytes": 54,
+      "id": "raw-0120-f54525f3d50a",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/stderr.log",
+      "role": "source",
+      "sha256": "f54525f3d50a218f10d00d9986ad6faf1079e69d8b8fc590a01912ca7ad43b25"
+    },
+    {
+      "bytes": 0,
+      "id": "raw-0121-e3b0c44298fc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/stdout.log",
+      "role": "source",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 3154,
+      "id": "raw-0122-a08cf905552e",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/supervisor-receipt.json",
+      "role": "source",
+      "sha256": "a08cf905552eccb2ffaea0d655f38db837c2ceaafcc07388b640e1b003dcfe74"
+    },
+    {
+      "bytes": 1838,
+      "id": "raw-0123-30f0706eab3d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-build-1/stderr.log",
+      "role": "source",
+      "sha256": "30f0706eab3d7c140b7bf810855d3743bcf5cb9dac118fd232b25e4cc58d9f1d"
+    },
+    {
+      "bytes": 0,
+      "id": "raw-0124-e3b0c44298fc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-build-1/stdout.log",
+      "role": "source",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 3164,
+      "id": "raw-0125-2939e99c7d2d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-build-1/supervisor-receipt.json",
+      "role": "source",
+      "sha256": "2939e99c7d2d8c76bb66a770a606ba18cddf631b6e2cfb23f8011565abb6fa26"
+    },
+    {
+      "bytes": 1669,
+      "id": "raw-0126-7de605d541ca",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-build-preflight-v2.json",
+      "role": "source",
+      "sha256": "7de605d541ca43928dd884564b679b516dfcef8683f48b691c80216a00ba4920"
+    },
+    {
+      "bytes": 1669,
+      "id": "raw-0127-0f6582412522",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-build-preflight.json",
+      "role": "source",
+      "sha256": "0f65824125225a6dd7bf63ce00d4a36c213ea74e9c25c63c3a0ab48eee303f89"
+    },
+    {
+      "bytes": 1643,
+      "id": "raw-0128-2bee5d58bd1d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-collect-preflight-v2.json",
+      "role": "source",
+      "sha256": "2bee5d58bd1d7df2b8b264e1acc6eff5572b8fe6c5cef228451868586d7fc027"
+    },
+    {
+      "bytes": 1643,
+      "id": "raw-0129-13023a9dd749",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-collect-preflight.json",
+      "role": "source",
+      "sha256": "13023a9dd7497cfb2135100ab301cc64f488287d9627bedb7ce32e7080cff105"
+    },
+    {
+      "bytes": 56737,
+      "id": "raw-0130-0888fd95b7c3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-plan.json",
+      "role": "source",
+      "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128"
+    },
+    {
+      "bytes": 0,
+      "id": "raw-0131-e3b0c44298fc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/native-build-preflight.json.empty-rejected-stdout",
+      "role": "source",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "id": "raw-0132-e3b0c44298fc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/native-collect-preflight.json.empty-rejected-stdout",
+      "role": "source",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 490,
+      "id": "raw-0133-4881b52890d3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/rejection.json",
+      "role": "source",
+      "sha256": "4881b52890d33c0d14a10f16dafdd1a6195f83acf6103c5b68f24460dd66d3a8"
+    },
+    {
+      "bytes": 31121,
+      "id": "raw-0134-d330c9c4d4e5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+      "role": "source",
+      "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+    },
+    {
+      "bytes": 16594,
+      "id": "raw-0135-b1bebea870f0",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/supervise.py",
+      "role": "source",
+      "sha256": "b1bebea870f0c7c51d8df251f970b46f738c700c70bd0ee783227f36408987a1"
+    },
+    {
+      "bytes": 31395,
+      "id": "raw-0136-cb3b78d8c86c",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+      "role": "source",
+      "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+    },
+    {
+      "bytes": 11075,
+      "id": "raw-0137-b8bab2ffaef5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/protected-before.json",
+      "role": "source",
+      "sha256": "b8bab2ffaef59fd8f3b9b308a5de7cc5509997090bb34415d5fd78c880a3c3b2"
+    },
+    {
+      "bytes": 4133,
+      "id": "raw-0138-16c5165af286",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/startup-failure-audit.json",
+      "role": "source",
+      "sha256": "16c5165af286b453e202d327224a722368588f6aae5a3f752e6fed7f623e1451"
+    },
+    {
+      "bytes": 33072,
+      "id": "raw-0139-c1afb2bcb815",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-controls-console.jsonl",
+      "role": "source",
+      "sha256": "c1afb2bcb815ddeb3ed4d764b71d4b2b1bc2b9b7c125413780bcbc11a9a9878a"
+    },
+    {
+      "bytes": 3089,
+      "id": "raw-0140-f7a513d067e8",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-controls-descriptor.json",
+      "role": "source",
+      "sha256": "f7a513d067e82e7b5cabad9963d4687bee98d58d67637cfbe85f53591dafb176"
+    },
+    {
+      "bytes": 1033,
+      "id": "raw-0141-675e07701694",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-controls-receipt.json",
+      "role": "source",
+      "sha256": "675e0770169442983e9da053d5498aef751d80d544b322b25d2da1ee97ff2af5"
+    },
+    {
+      "bytes": 32740,
+      "id": "raw-0142-a9ff1983a214",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-console.jsonl",
+      "role": "source",
+      "sha256": "a9ff1983a2146365ebc0ba9b0c96c109ee86197100a2a1725351b214f45fd6a5"
+    },
+    {
+      "bytes": 3725,
+      "id": "raw-0143-b5db25d42593",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-descriptor.json",
+      "role": "source",
+      "sha256": "b5db25d4259381ef9230bac66b4399cad215087348d2297228137ef5a9d55ec3"
+    },
+    {
+      "bytes": 847,
+      "id": "raw-0144-3bed323441e3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-receipt.json",
+      "role": "source",
+      "sha256": "3bed323441e3e40d16808cf0e0f19c8728dc121e0783ce48174f4ba4fad5638f"
+    },
+    {
+      "bytes": 17840,
+      "id": "raw-0145-570db50a3a25",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/build_public_input_binding_deliverables.py",
+      "role": "source",
+      "sha256": "570db50a3a252c5ab2c117d3bb8c03c43c832e78fa22acbe4d2044426024332f"
+    },
+    {
+      "bytes": 32605,
+      "id": "raw-0146-29208bc06f3c",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-config.json",
+      "role": "source",
+      "sha256": "29208bc06f3c68243812321aa09ce173f43d5a559cde0788b31d29b8c80280dc"
+    },
+    {
+      "bytes": 42610,
+      "id": "raw-0147-7e23b61f5def",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+      "role": "source",
+      "sha256": "7e23b61f5defc3f07199b87693dcfc36a4a80e3ca8f795a473e8c0d8bf7ede05"
+    },
+    {
+      "bytes": 989,
+      "id": "raw-0148-7529b5f78054",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/focused-checks.json",
+      "role": "source",
+      "sha256": "7529b5f78054bb0e4806363e2bf1f229021ef9500d496bcf3fd84ffd61b78a90"
+    },
+    {
+      "bytes": 4654,
+      "id": "raw-0149-9e383ed25a56",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/freeze_source.py",
+      "role": "source",
+      "sha256": "9e383ed25a56123ec8097afed2c9c9373d8f2fe809d6d802bf5bbf9136725556"
+    },
+    {
+      "bytes": 213413,
+      "id": "raw-0150-dc42bb849c85",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json",
+      "role": "source",
+      "sha256": "dc42bb849c8531c0df47ded7503536f0da66b5f9a039d750738b0471dc82b39c"
+    },
+    {
+      "bytes": 2498166,
+      "id": "raw-0151-4e8a4d5435c1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-receipt.json",
+      "role": "source",
+      "sha256": "4e8a4d5435c15960bceef5f103fa884c2ef5ebfda0aa33af0727e039774a3986"
+    },
+    {
+      "bytes": 1588636,
+      "id": "raw-0152-04fb639864e5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-transitions.jsonl",
+      "role": "source",
+      "sha256": "04fb639864e5415a6ebed3b886c173afc6a430de0f3217b5c94e19c813f03b47"
+    },
+    {
+      "bytes": 0,
+      "id": "raw-0153-e3b0c44298fc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/stderr.log",
+      "role": "source",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 174,
+      "id": "raw-0154-a75066d23dd5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/stdout.log",
+      "role": "source",
+      "sha256": "a75066d23dd51ce27ee9c21c22caf5f98ecb0a9e30d1af52b596a5edd670eef5"
+    },
+    {
+      "bytes": 4008,
+      "id": "raw-0155-67c238e3f5da",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/supervisor-receipt.json",
+      "role": "source",
+      "sha256": "67c238e3f5da589fa159677badf198fe2d8d399887f2c2ba68a9fb87229c9795"
+    },
+    {
+      "bytes": 1847,
+      "id": "raw-0156-37f5400e73d7",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-build-1/stderr.log",
+      "role": "source",
+      "sha256": "37f5400e73d729d238e6e47ebc6912898f58052c7544ff7d8172d7ec79d1510f"
+    },
+    {
+      "bytes": 0,
+      "id": "raw-0157-e3b0c44298fc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-build-1/stdout.log",
+      "role": "source",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 3243,
+      "id": "raw-0158-47621bae5b57",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-build-1/supervisor-receipt.json",
+      "role": "source",
+      "sha256": "47621bae5b57e97b4d3d478aa492a2a9e86e1cbafb0b3dc526fb1cb39657778c"
+    },
+    {
+      "bytes": 59018,
+      "id": "raw-0159-cabeec2ea8a5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+      "role": "source",
+      "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47"
+    },
+    {
+      "bytes": 1030944,
+      "id": "raw-0160-5c574a82f5d1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+      "role": "source",
+      "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2"
+    },
+    {
+      "bytes": 5159,
+      "id": "raw-0161-df38eebe8d97",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/preparation-receipt.json",
+      "role": "source",
+      "sha256": "df38eebe8d9717dcff17feee57d7ff65dc67c1feae3f669628207d4e66947eb7"
+    },
+    {
+      "bytes": 16231,
+      "id": "raw-0162-533fd975130b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/protected-after.json",
+      "role": "source",
+      "sha256": "533fd975130b33dbbfb3de4fc00713f6dd74b3f0abfb8b0834cbf5ced6d829f7"
+    },
+    {
+      "bytes": 1328,
+      "id": "raw-0163-6bed07d82bcf",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-console.jsonl",
+      "role": "source",
+      "sha256": "6bed07d82bcf03adfbf43842dc89de56f773f75fbe8473fd674140256e554569"
+    },
+    {
+      "bytes": 4335,
+      "id": "raw-0164-842b50095cbc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-descriptor.json",
+      "role": "source",
+      "sha256": "842b50095cbc43cc95c8cd07877866b890cbaf228b4f78fb8eaff08ee402a4e4"
+    },
+    {
+      "bytes": 8883,
+      "id": "raw-0165-a5701e1b3ac3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-ledger.jsonl",
+      "role": "source",
+      "sha256": "a5701e1b3ac3342de0f72299481cdedf9c22c9334d19d606fb58148330a424f1"
+    },
+    {
+      "bytes": 646,
+      "id": "raw-0166-474e2824ea16",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/.fingerprint/kessel-727c9bb789d5b905/lib-kessel.json",
+      "role": "source",
+      "sha256": "474e2824ea1621584caa13bdb863afeb10de62bf82b3b88d2aa9afe513164e18"
+    },
+    {
+      "bytes": 35875328,
+      "id": "raw-0167-12fc0a7f7e40",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/deps/libkessel-727c9bb789d5b905.rlib",
+      "role": "source",
+      "sha256": "12fc0a7f7e402cfb458d89fed0b4368a346198157acf319cc9fe5e2566a36983"
+    },
+    {
+      "bytes": 17132960,
+      "id": "raw-0168-bf4b1ce81d93",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-collector",
+      "role": "source",
+      "sha256": "bf4b1ce81d9356d7d7949193406bc57656a3234a9711c042bb2e3f42fd3e4148"
+    },
+    {
+      "bytes": 17138080,
+      "id": "raw-0169-43c91f87f37d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-recovery-collector",
+      "role": "source",
+      "sha256": "43c91f87f37df16740a3d4018d2242caba2fbb850b6c27a41ce801396886bf75"
+    },
+    {
+      "bytes": 34674,
+      "id": "raw-0170-88da6979813a",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+      "role": "source",
+      "sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b"
+    },
+    {
+      "bytes": 3061,
+      "id": "raw-0171-939a2ffaf9e6",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+      "role": "source",
+      "sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50"
+    },
+    {
+      "bytes": 9896,
+      "id": "raw-0172-7beab7491411",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+      "role": "source",
+      "sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141"
+    },
+    {
+      "bytes": 48446,
+      "id": "raw-0173-3c8305262a94",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+      "role": "source",
+      "sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11"
+    },
+    {
+      "bytes": 8457,
+      "id": "raw-0174-19ba75fce2ca",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+      "role": "source",
+      "sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc"
+    },
+    {
+      "bytes": 48285,
+      "id": "raw-0175-b89b6804b2f0",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+      "role": "source",
+      "sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c"
+    },
+    {
+      "bytes": 7959,
+      "id": "raw-0176-2bbc2eafc4ae",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+      "role": "source",
+      "sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb"
+    },
+    {
+      "bytes": 807838,
+      "id": "raw-0177-593314724ee9",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+      "role": "source",
+      "sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff"
+    },
+    {
+      "bytes": 48324,
+      "id": "raw-0178-29c6fc46d30a",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+      "role": "source",
+      "sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4"
+    },
+    {
+      "bytes": 8458,
+      "id": "raw-0179-a4eb04a0b364",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+      "role": "source",
+      "sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7"
+    },
+    {
+      "bytes": 953824,
+      "id": "raw-0180-bee3f6012331",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors",
+      "role": "source",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+    },
+    {
+      "bytes": 953760,
+      "id": "raw-0181-50b8f9a2c378",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "role": "source",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    {
+      "bytes": 6305,
+      "id": "raw-0182-5787bfde6ee5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "role": "source",
+      "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+    },
+    {
+      "bytes": 5872,
+      "id": "raw-0183-cdb40e3281d4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_PROTOCOL.md",
+      "role": "source",
+      "sha256": "cdb40e3281d4c09f24fd7202029965578ea69007500ecc4d7cce894d3e655d38"
+    },
+    {
+      "bytes": 2703,
+      "id": "raw-0184-8b502a8f69fd",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RECOVERY.md",
+      "role": "source",
+      "sha256": "8b502a8f69fdb3bd87bd086aa914f7aeb976683a0f8ebf78660384888ca602a5"
+    },
+    {
+      "bytes": 7538,
+      "id": "raw-0185-a217069922f9",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+      "role": "source",
+      "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3"
+    },
+    {
+      "bytes": 14977,
+      "id": "raw-0186-c93ffc307824",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+      "role": "source",
+      "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+    },
+    {
+      "bytes": 33271,
+      "id": "raw-0187-904ff7197c8f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+      "role": "source",
+      "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086"
+    },
+    {
+      "bytes": 28935,
+      "id": "raw-0188-2277c46cacb5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "role": "source",
+      "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+    },
+    {
+      "bytes": 238160,
+      "id": "raw-0189-2b5667edd8d0",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect-identifiability-evidence/index.json",
+      "role": "source",
+      "sha256": "2b5667edd8d01be5a3c0a69e72dca42bbaddced6955d37b98470b730a1c64297"
+    },
+    {
+      "bytes": 59333,
+      "id": "raw-0190-90ef1c0c6e2a",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect_identifiability_fit.py",
+      "role": "source",
+      "sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765"
+    },
+    {
+      "bytes": 48843,
+      "id": "raw-0191-ffef3fb99bdb",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+      "role": "source",
+      "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21"
+    },
+    {
+      "bytes": 63832,
+      "id": "raw-0192-75627c2a2527",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning-sanity-evidence/index.json",
+      "role": "source",
+      "sha256": "75627c2a2527af05859dada8767188fdb9e97622665922f93dbf412d889d7686"
+    },
+    {
+      "bytes": 20910,
+      "id": "raw-0193-5c875ea5e5df",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/src/main.rs",
+      "role": "source",
+      "sha256": "5c875ea5e5dfeae6ab0b8c3243c1996b0d9f142691609aafa0803d2062d1b756"
+    },
+    {
+      "bytes": 17284,
+      "id": "raw-0194-fb92460a0867",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/supervise.py",
+      "role": "source",
+      "sha256": "fb92460a08677466d5d68cfcd84138c2f89026b1e77878828011dc350117be80"
+    },
+    {
+      "bytes": 20340,
+      "id": "raw-0195-f40a77bd9fb0",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding.py",
+      "role": "source",
+      "sha256": "f40a77bd9fb0e08f692624fe4841d4a4352bd87436d84a1ac51725ef5a5afde5"
+    },
+    {
+      "bytes": 15360,
+      "id": "raw-0196-d32f5ffb27c7",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_accounting.py",
+      "role": "source",
+      "sha256": "d32f5ffb27c7d1fd761b74a51320957ba6b9b6f69657665c1f9f6ca66b4cd3ca"
+    },
+    {
+      "bytes": 6108,
+      "id": "raw-0197-9774479520df",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_analysis.py",
+      "role": "source",
+      "sha256": "9774479520df217028c8ef04ba186d78492afd01bf2f8d527581e1bd8eee6bc3"
+    },
+    {
+      "bytes": 9567,
+      "id": "raw-0198-1e807c215b0b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.lock",
+      "role": "source",
+      "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+    },
+    {
+      "bytes": 540,
+      "id": "raw-0199-9015c36e6d8d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.toml",
+      "role": "source",
+      "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e"
+    },
+    {
+      "bytes": 4382,
+      "id": "raw-0200-eee7e687115f",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/README.md",
+      "role": "source",
+      "sha256": "eee7e687115fd8da50ab712bfac3649aa32b37cbce4c488e7434adce5afa8394"
+    },
+    {
+      "bytes": 56737,
+      "id": "raw-0201-0888fd95b7c3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/collection-plan.json",
+      "role": "source",
+      "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128"
+    },
+    {
+      "bytes": 30038,
+      "id": "raw-0202-b9c856c60ccd",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/fixtures/whole-rows.json",
+      "role": "source",
+      "sha256": "b9c856c60ccd3be49531831079e00beb1cca139e7112066a2442d1f40a3833e4"
+    },
+    {
+      "bytes": 31550,
+      "id": "raw-0203-b931d23b06c4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/source-manifest.json",
+      "role": "source",
+      "sha256": "b931d23b06c445512485848ff64569f8eab6901d473b1fd9575f379af217a5c3"
+    },
+    {
+      "bytes": 21787,
+      "id": "raw-0204-f80e5fa4cce4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/src/main.rs",
+      "role": "source",
+      "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c"
+    },
+    {
+      "bytes": 17266,
+      "id": "raw-0205-292124d28a61",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/supervise.py",
+      "role": "source",
+      "sha256": "292124d28a618c13d81a450087b6264fca3033557d78d046baf4a826eedc30e0"
+    },
+    {
+      "bytes": 5366,
+      "id": "raw-0206-16bc94a00883",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/test_guard.py",
+      "role": "source",
+      "sha256": "16bc94a00883142bc5c5be9db8ad80bf7227bd66a8d04f3b375a3694faf00eff"
+    },
+    {
+      "bytes": 18264,
+      "id": "raw-0207-55c28333628d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_export.py",
+      "role": "source",
+      "sha256": "55c28333628d7549b57da03c2abc77fa7527f0fc249cc241c9d033af4b73b32a"
+    },
+    {
+      "bytes": 8962,
+      "id": "raw-0208-787c425fe8a9",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_native_plan.py",
+      "role": "source",
+      "sha256": "787c425fe8a9094bdf8e64cef68d82233c71d64ae8cf93b94316dc09daf7ffe2"
+    },
+    {
+      "bytes": 17486,
+      "id": "raw-0209-fae47199f855",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_publication.py",
+      "role": "source",
+      "sha256": "fae47199f855a9d188abbae016035bc1662b954267a12d94a754e3f274ed4957"
+    },
+    {
+      "bytes": 20171,
+      "id": "raw-0210-ac3cca800883",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_accounting.py",
+      "role": "source",
+      "sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7"
+    },
+    {
+      "bytes": 6117,
+      "id": "raw-0211-d3a02541b0a3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_analysis.py",
+      "role": "source",
+      "sha256": "d3a02541b0a3f40c32144e6a27bc12a59793ee5440962717dde581cc5272caf2"
+    },
+    {
+      "bytes": 9567,
+      "id": "raw-0212-1e807c215b0b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/Cargo.lock",
+      "role": "source",
+      "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+    },
+    {
+      "bytes": 549,
+      "id": "raw-0213-26760cc64089",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/Cargo.toml",
+      "role": "source",
+      "sha256": "26760cc640891beeef48317f2b433c79d59e72c7410afbe0704d4b15e0dbf671"
+    },
+    {
+      "bytes": 3309,
+      "id": "raw-0214-ec92af6933ed",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/README.md",
+      "role": "source",
+      "sha256": "ec92af6933ed1e817ab3636740e1727c0a38932e0d55dd9cb9c0b80515bce45f"
+    },
+    {
+      "bytes": 59018,
+      "id": "raw-0215-cabeec2ea8a5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/collection-plan.json",
+      "role": "source",
+      "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47"
+    },
+    {
+      "bytes": 56737,
+      "id": "raw-0216-0888fd95b7c3",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/fixtures/native-plan-v1.json",
+      "role": "source",
+      "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128"
+    },
+    {
+      "bytes": 1667,
+      "id": "raw-0217-18b49c33c710",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/fixtures/native-token-support.json",
+      "role": "source",
+      "sha256": "18b49c33c7104c862884fcc7dec8f948604fc98cda21403903fc90feb3b43b2a"
+    },
+    {
+      "bytes": 36670,
+      "id": "raw-0218-48b80906dc75",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/source-manifest.json",
+      "role": "source",
+      "sha256": "48b80906dc75fc3379664971e4aeff72e90b16deaa6af65ddbcebe8b364f760b"
+    },
+    {
+      "bytes": 21787,
+      "id": "raw-0219-f80e5fa4cce4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/src/main.rs",
+      "role": "source",
+      "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c"
+    },
+    {
+      "bytes": 19223,
+      "id": "raw-0220-eee7672b651a",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/supervise.py",
+      "role": "source",
+      "sha256": "eee7672b651a3578969fa6615997186a9e2e57f0f3c664b168fc0bb7218b51b4"
+    },
+    {
+      "bytes": 6962,
+      "id": "raw-0221-a57095eb7ebc",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/test_guard.py",
+      "role": "source",
+      "sha256": "a57095eb7ebc402b0f0b262bde8ac9799c534ff022c77709e61bfb10e1c343e2"
+    },
+    {
+      "bytes": 4613,
+      "id": "raw-0222-e6e319172b45",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_plan.py",
+      "role": "source",
+      "sha256": "e6e319172b4512e3d848220cab601b39fe70f5ab17e4972fbfa8323f718ea2eb"
+    },
+    {
+      "bytes": 8329,
+      "id": "raw-0223-b1aff6830be8",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_supplemental_analysis.py",
+      "role": "source",
+      "sha256": "b1aff6830be817e12971e1e387c5fdd0a5953530cfb99e0cefd54af74e6904af"
+    },
+    {
+      "bytes": 42826,
+      "id": "raw-0224-a9a723c02abb",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_supplemental_verify.py",
+      "role": "source",
+      "sha256": "a9a723c02abb20aa790b40e8e36f7c12cfbc7b32a456bb8ce54dd85487e3c016"
+    },
+    {
+      "bytes": 41102,
+      "id": "raw-0225-6d0f1bef8ffa",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_verify.py",
+      "role": "source",
+      "sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4"
+    },
+    {
+      "bytes": 5521,
+      "id": "raw-0226-ab31179bbae6",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+      "role": "source",
+      "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a"
+    },
+    {
+      "bytes": 30315,
+      "id": "raw-0227-b3826c443bd4",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+      "role": "source",
+      "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354"
+    },
+    {
+      "bytes": 5458,
+      "id": "raw-0228-a55e5bbaca6b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+      "role": "source",
+      "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a"
+    },
+    {
+      "bytes": 7954,
+      "id": "raw-0229-8fbbb2d9ecb1",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+      "role": "source",
+      "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+    },
+    {
+      "bytes": 8871,
+      "id": "raw-0230-95a92527033b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding.py",
+      "role": "source",
+      "sha256": "95a92527033bfd0d56944ede6f3e96c97cd739dd0490eef5a6a5bf9e3a5455a0"
+    },
+    {
+      "bytes": 7028,
+      "id": "raw-0231-d8c8929d1034",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_accounting.py",
+      "role": "source",
+      "sha256": "d8c8929d1034f0add53c7be291f9bdbc6baf820e4a3b246fbe5e1c258e3d787e"
+    },
+    {
+      "bytes": 3264,
+      "id": "raw-0232-e41c5795cad7",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_analysis.py",
+      "role": "source",
+      "sha256": "e41c5795cad78ef17a3f03a8360979530ee0257a2abc1a91210ff50ae816e269"
+    },
+    {
+      "bytes": 6763,
+      "id": "raw-0233-ba97a59a4e22",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_export.py",
+      "role": "source",
+      "sha256": "ba97a59a4e22fe0dc41bb4392420e4fd1b8f40b6455e328075deeab591376d98"
+    },
+    {
+      "bytes": 4545,
+      "id": "raw-0234-b804feba323d",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_native_plan.py",
+      "role": "source",
+      "sha256": "b804feba323d8cb78846926f0dc0556907df5b4a237ec88881bb85b8992144ec"
+    },
+    {
+      "bytes": 7836,
+      "id": "raw-0235-3b55d35e6616",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_recovery_accounting.py",
+      "role": "source",
+      "sha256": "3b55d35e6616ac457a9424db5689a230d23a074eaf0bfe14bb55bc547d5ec8e9"
+    },
+    {
+      "bytes": 3273,
+      "id": "raw-0236-19bfcc88e0e5",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_recovery_analysis.py",
+      "role": "source",
+      "sha256": "19bfcc88e0e515124ce5d5767a045c06575cbb11695a497b5cdb486cac025393"
+    },
+    {
+      "bytes": 3808,
+      "id": "raw-0237-ea85f3944214",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_recovery_plan.py",
+      "role": "source",
+      "sha256": "ea85f3944214139f7bde00b5ee0e4e092def8cdf3bd8d95b439c1899a4e38db6"
+    },
+    {
+      "bytes": 10903,
+      "id": "raw-0238-38a080a32854",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_verify.py",
+      "role": "source",
+      "sha256": "38a080a328540152a0279578b4b36b2361f802c894659938e352274a8312f67f"
+    },
+    {
+      "bytes": 40826,
+      "id": "raw-0239-b310315d153b",
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+      "role": "source",
+      "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+    }
+  ],
+  "provenance": {
+    "historical_prelaunch_pin_resolutions": [
+      {
+        "declared_pin": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "declaring_document": {
+          "bytes": 1669,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-build-preflight.json",
+          "sha256": "0f65824125225a6dd7bf63ce00d4a36c213ea74e9c25c63c3a0ab48eee303f89"
+        },
+        "saved_pin": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "declaring_document": {
+          "bytes": 1643,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-collect-preflight.json",
+          "sha256": "13023a9dd7497cfb2135100ab301cc64f488287d9627bedb7ce32e7080cff105"
+        },
+        "saved_pin": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 540,
+          "path": "Cargo.toml",
+          "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e"
+        },
+        "declaring_document": {
+          "bytes": 31121,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+          "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+        },
+        "saved_pin": {
+          "bytes": 540,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.toml",
+          "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 9567,
+          "path": "Cargo.lock",
+          "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+        },
+        "declaring_document": {
+          "bytes": 31121,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+          "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+        },
+        "saved_pin": {
+          "bytes": 9567,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/Cargo.lock",
+          "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 21787,
+          "path": "src/main.rs",
+          "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c"
+        },
+        "declaring_document": {
+          "bytes": 31121,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+          "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+        },
+        "saved_pin": {
+          "bytes": 21787,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/src/main.rs",
+          "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 4530,
+          "path": "test_guard.py",
+          "sha256": "8bc35d50f9cf59b55d6549915f8215fc143e0cd5d05ad3b85665824946c2be4e"
+        },
+        "declaring_document": {
+          "bytes": 31121,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+          "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+        },
+        "executed": false,
+        "reason": "Source amended before frozen executed config; exact earlier bytes not available. No verification implied.",
+        "status": "unresolved-unexecuted-prelaunch-declaration"
+      },
+      {
+        "declared_pin": {
+          "bytes": 4382,
+          "path": "README.md",
+          "sha256": "eee7e687115fd8da50ab712bfac3649aa32b37cbce4c488e7434adce5afa8394"
+        },
+        "declaring_document": {
+          "bytes": 31121,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+          "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+        },
+        "saved_pin": {
+          "bytes": 4382,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/README.md",
+          "sha256": "eee7e687115fd8da50ab712bfac3649aa32b37cbce4c488e7434adce5afa8394"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 56737,
+          "path": "collection-plan.json",
+          "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128"
+        },
+        "declaring_document": {
+          "bytes": 31121,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+          "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+        },
+        "saved_pin": {
+          "bytes": 56737,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/fixtures/native-plan-v1.json",
+          "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 30038,
+          "path": "fixtures/whole-rows.json",
+          "sha256": "b9c856c60ccd3be49531831079e00beb1cca139e7112066a2442d1f40a3833e4"
+        },
+        "declaring_document": {
+          "bytes": 31121,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-accounting-pin-rejection-v1/source-manifest.json",
+          "sha256": "d330c9c4d4e53c74fdeb05d4153b0f376ca3866f05b5d9febd4eafac790c2bab"
+        },
+        "saved_pin": {
+          "bytes": 30038,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/fixtures/whole-rows.json",
+          "sha256": "b9c856c60ccd3be49531831079e00beb1cca139e7112066a2442d1f40a3833e4"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 540,
+          "path": "Cargo.toml",
+          "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "saved_pin": {
+          "bytes": 540,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.toml",
+          "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 9567,
+          "path": "Cargo.lock",
+          "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "saved_pin": {
+          "bytes": 9567,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/Cargo.lock",
+          "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 21787,
+          "path": "src/main.rs",
+          "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "saved_pin": {
+          "bytes": 21787,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/src/main.rs",
+          "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 16594,
+          "path": "supervise.py",
+          "sha256": "abb8c97d1ee473ceb6af452d8c9ea6705426c28046c442996122dc38fe2b3105"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "executed": false,
+        "reason": "Source amended before frozen executed config; exact earlier bytes not available. No verification implied.",
+        "status": "unresolved-unexecuted-prelaunch-declaration"
+      },
+      {
+        "declared_pin": {
+          "bytes": 4530,
+          "path": "test_guard.py",
+          "sha256": "8bc35d50f9cf59b55d6549915f8215fc143e0cd5d05ad3b85665824946c2be4e"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "executed": false,
+        "reason": "Source amended before frozen executed config; exact earlier bytes not available. No verification implied.",
+        "status": "unresolved-unexecuted-prelaunch-declaration"
+      },
+      {
+        "declared_pin": {
+          "bytes": 4382,
+          "path": "README.md",
+          "sha256": "eee7e687115fd8da50ab712bfac3649aa32b37cbce4c488e7434adce5afa8394"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "saved_pin": {
+          "bytes": 4382,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/README.md",
+          "sha256": "eee7e687115fd8da50ab712bfac3649aa32b37cbce4c488e7434adce5afa8394"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 56737,
+          "path": "collection-plan.json",
+          "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "saved_pin": {
+          "bytes": 56737,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/fixtures/native-plan-v1.json",
+          "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128"
+        },
+        "status": "exact-byte-saved-location"
+      },
+      {
+        "declared_pin": {
+          "bytes": 30038,
+          "path": "fixtures/whole-rows.json",
+          "sha256": "b9c856c60ccd3be49531831079e00beb1cca139e7112066a2442d1f40a3833e4"
+        },
+        "declaring_document": {
+          "bytes": 31395,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/preparation-guard-cleanup-v1/source-manifest.json",
+          "sha256": "cb3b78d8c86cb187d2c879159bc440c9a8823a13d6f1e01317f1dc61782734ba"
+        },
+        "saved_pin": {
+          "bytes": 30038,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/fixtures/whole-rows.json",
+          "sha256": "b9c856c60ccd3be49531831079e00beb1cca139e7112066a2442d1f40a3833e4"
+        },
+        "status": "exact-byte-saved-location"
+      }
+    ]
+  },
+  "root_index_registry_artifact_id": "public-input-binding",
+  "schema": "public-input-binding-explicit-artifact-list/1",
+  "scientific_execution": {
+    "native_applies": 0,
+    "neural_forwards": 0,
+    "numerical_fits": 0,
+    "optimizer_updates": 0
+  },
+  "source_pin_scope": "All raw v1/v2 campaign files plus every explicit pin in those JSON documents and every direct config source pin.",
+  "study_artifact_ids": [
+    "data",
+    "scores",
+    "causal-pairs",
+    "encoding-controls",
+    "contract",
+    "verification",
+    "accounting",
+    "failures",
+    "report"
+  ]
+}

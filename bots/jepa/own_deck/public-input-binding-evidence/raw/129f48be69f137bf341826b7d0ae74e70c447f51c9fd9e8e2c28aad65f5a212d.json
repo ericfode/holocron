@@ -1,0 +1,79 @@
+{
+  "accounting": {
+    "analysis_charged_seconds": 15.38049870787654,
+    "charged_native_applies": 112,
+    "native_charged_seconds": 63.88703212386463,
+    "neural_forwards": 0,
+    "numerical_fits": 0,
+    "observed_native_applies": null,
+    "observed_v2_native_applies": 32,
+    "optimizer_updates": 0,
+    "paid_jobs": 0,
+    "paid_spend_usd": 0,
+    "static_forensic_is_not_journal_observation_or_credit": true,
+    "total_charged_seconds": 79.26753083174117,
+    "v1_static_forensic_engine_applies": 0
+  },
+  "archive_created": false,
+  "artifact_manifest": {
+    "bytes": 93576,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/export-artifacts.json",
+    "sha256": "9cb75ea5022abcde81997a4fa6e689f35acf61478c9b0cc0e39983117286301f"
+  },
+  "builder": {
+    "bytes": 17840,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/build_public_input_binding_deliverables.py",
+    "sha256": "570db50a3a252c5ab2c117d3bb8c03c43c832e78fa22acbe4d2044426024332f"
+  },
+  "explicit_artifacts": 251,
+  "outputs": [
+    {
+      "bytes": 2565683,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/data.json",
+      "sha256": "55cc23cde2b7ae237749f4a2b627cbc0ab091d46898eb1729e3e298b31f3658c"
+    },
+    {
+      "bytes": 17952,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/scores.json",
+      "sha256": "54d2b5a91c9a78467fa7ce7113061646bcc69b25869571bb3257d32e3b362dac"
+    },
+    {
+      "bytes": 60711,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/causal-pairs.json",
+      "sha256": "248a0a1378a889cbc972d5c57f6e292171034da784c4fcd001130e2770fc3931"
+    },
+    {
+      "bytes": 224595,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/encoding-controls.json",
+      "sha256": "57e0127242cc381ee2e2d74bf742e49a587c6b0504a31374f95a37e500fac290"
+    },
+    {
+      "bytes": 376618,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/contract.json",
+      "sha256": "e3b808505e9813953b83a4150f019300f351d18e4caab18c886ca6e6466a106c"
+    },
+    {
+      "bytes": 24128,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/verification.json",
+      "sha256": "fdd2ea5078c3cc883ea4c32362e691e69ed6459d109697dff0384af45d76aec4"
+    },
+    {
+      "bytes": 11807,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/accounting.json",
+      "sha256": "e5aacb24cb4c81715e18053f3ed84fda483232b3fac56d862a1ef2a69bd82ddc"
+    },
+    {
+      "bytes": 12824,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/dashboard-deliverables-v1/failures.json",
+      "sha256": "f56e3a89abaaeee33c3739820069774cd1532a03535d5d2e720bc5d960f34d2f"
+    }
+  ],
+  "raw_source_files": 240,
+  "report": {
+    "bytes": 7538,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+    "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3"
+  },
+  "schema": "public-input-binding-field-copy-receipt/1",
+  "status": "complete-field-copies-no-science"
+}

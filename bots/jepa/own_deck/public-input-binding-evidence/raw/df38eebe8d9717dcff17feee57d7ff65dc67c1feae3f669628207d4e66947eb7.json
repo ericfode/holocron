@@ -1,0 +1,123 @@
+{
+  "schema": "public-input-binding-recovery-preparation/1",
+  "status": "source-preflight-passed-no-execution",
+  "previews": [
+    {
+      "stage": "native-build",
+      "phase": "native",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/Cargo.toml",
+        "--bin",
+        "public-input-binding-recovery-collector",
+        "-j",
+        "1"
+      ],
+      "source_manifest": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/source-manifest.json",
+        "sha256": "48b80906dc75fc3379664971e4aeff72e90b16deaa6af65ddbcebe8b364f760b",
+        "bytes": 36670
+      },
+      "accounting": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_accounting.py",
+        "sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7",
+        "bytes": 20171
+      },
+      "max_active_seconds": 30.0,
+      "reserved_native_applies": 0,
+      "max_sampled_bytes": 1073741824,
+      "sample_interval_seconds": 0.05,
+      "optimizer_updates": 0,
+      "neural_forwards": 0,
+      "numerical_fits": 0,
+      "paid_jobs": 0,
+      "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+      "build_profile": {
+        "opt_level": 0,
+        "debug": 0,
+        "incremental": false,
+        "codegen_override": null,
+        "rustflags": [],
+        "cargo_build_workers": 1,
+        "os_single_core_affinity": false
+      },
+      "no_retries": true,
+      "binary": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-recovery-collector",
+      "ledger_initialized": false
+    },
+    {
+      "stage": "native-collect",
+      "phase": "native",
+      "command": [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-recovery-collector",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-receipt.json"
+      ],
+      "source_manifest": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/source-manifest.json",
+        "sha256": "48b80906dc75fc3379664971e4aeff72e90b16deaa6af65ddbcebe8b364f760b",
+        "bytes": 36670
+      },
+      "accounting": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_accounting.py",
+        "sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7",
+        "bytes": 20171
+      },
+      "max_active_seconds": 60.0,
+      "reserved_native_applies": 80,
+      "max_sampled_bytes": 1073741824,
+      "sample_interval_seconds": 0.05,
+      "optimizer_updates": 0,
+      "neural_forwards": 0,
+      "numerical_fits": 0,
+      "paid_jobs": 0,
+      "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+      "build_profile": {
+        "opt_level": 0,
+        "debug": 0,
+        "incremental": false,
+        "codegen_override": null,
+        "rustflags": [],
+        "cargo_build_workers": 1,
+        "os_single_core_affinity": false
+      },
+      "no_retries": true,
+      "binary": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-recovery-collector",
+      "ledger_initialized": false
+    }
+  ],
+  "tests": {
+    "plan": 6,
+    "guard": 11,
+    "total": 17,
+    "passed": true
+  },
+  "native_builds": 0,
+  "native_applies": 0,
+  "neural_forwards": 0,
+  "optimizer_updates": 0,
+  "paid_jobs": 0,
+  "source_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/source-manifest.json",
+    "sha256": "48b80906dc75fc3379664971e4aeff72e90b16deaa6af65ddbcebe8b364f760b",
+    "bytes": 36670
+  },
+  "guard": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/supervise.py",
+    "sha256": "eee7672b651a3578969fa6615997186a9e2e57f0f3c664b168fc0bb7218b51b4",
+    "bytes": 19223
+  },
+  "plan": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+    "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47",
+    "bytes": 59018
+  },
+  "protected_v1_binary": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-collector",
+    "sha256": "bf4b1ce81d9356d7d7949193406bc57656a3234a9711c042bb2e3f42fd3e4148",
+    "bytes": 17132960
+  }
+}
