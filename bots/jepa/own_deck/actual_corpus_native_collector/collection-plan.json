@@ -1,0 +1,3070 @@
+{
+  "schema": "actual-corpus-native-plan/1",
+  "status": "prepared-no-execution",
+  "source_revision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+  "cards": [
+    {
+      "code": "ASH_048",
+      "partition": "train",
+      "raw_card": {
+        "setCode": "ASH_048",
+        "id": "3962920521",
+        "internalName": "imperial-armored-commando",
+        "sourcePath": null,
+        "sourceHash": null,
+        "status": "supported",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": []
+        },
+        "card": {
+          "title": "Imperial Armored Commando",
+          "subtitle": "",
+          "cost": 4,
+          "hp": 3,
+          "power": 4,
+          "text": "Sentinel (Enemy units in this arena must attack a Sentinel when they attack you.)\nShielded (When you play this unit, give a Shield token to it.)",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": null,
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "3962920521",
+          "aspects": [
+            "vigilance",
+            "villainy"
+          ],
+          "traits": [
+            "imperial",
+            "trooper"
+          ],
+          "arena": "ground",
+          "keywords": [
+            "sentinel",
+            "shielded"
+          ],
+          "types": [
+            "unit"
+          ],
+          "setId": {
+            "set": "ASH",
+            "number": 48
+          },
+          "setCodes": [
+            {
+              "set": "ASH",
+              "number": 48
+            }
+          ],
+          "internalName": "imperial-armored-commando"
+        },
+        "dataHash": "8d7b865c3fc42ae0e5572402274ff329fa90af376e141207104b6ab56ddc7cf1",
+        "keywordValues": {
+          "sentinel": 1,
+          "shielded": 1
+        },
+        "requiredCapabilities": [
+          "cardType:unit",
+          "keyword:sentinel",
+          "keyword:shielded"
+        ]
+      },
+      "raw_row_sha256": "280194c38ab6e20791ba774a5fb9d2154ee5e8c0d6afc10256b14f8d9dc56b77",
+      "source_path": null,
+      "source_hash": null,
+      "canonical_card_id": "3962920521",
+      "aliases": [
+        {
+          "set": "ASH",
+          "number": 48
+        }
+      ],
+      "declared_copies": 19,
+      "source_deck_indices": [
+        0,
+        4,
+        5,
+        6,
+        11,
+        12,
+        13,
+        15
+      ],
+      "ability_paths": [],
+      "normalized_program_group": "4cbb79b5cb0dc27fbe0ee0b10315b0f68a7d8e38909d9661007fff9181f42618"
+    },
+    {
+      "code": "JTL_095",
+      "partition": "train",
+      "raw_card": {
+        "setCode": "JTL_095",
+        "id": "7653629848",
+        "internalName": "phoenix-squadron-awing",
+        "sourcePath": null,
+        "sourceHash": null,
+        "status": "supported",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": []
+        },
+        "card": {
+          "title": "Phoenix Squadron A-Wing",
+          "subtitle": "",
+          "cost": 2,
+          "hp": 2,
+          "power": 3,
+          "text": "",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": null,
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "7653629848",
+          "aspects": [
+            "command",
+            "heroism"
+          ],
+          "traits": [
+            "rebel",
+            "vehicle",
+            "fighter"
+          ],
+          "arena": "space",
+          "keywords": [],
+          "types": [
+            "unit"
+          ],
+          "setId": {
+            "set": "JTL",
+            "number": 95
+          },
+          "setCodes": [
+            {
+              "set": "JTL",
+              "number": 95
+            }
+          ],
+          "internalName": "phoenix-squadron-awing"
+        },
+        "dataHash": "bcb346e69a8db2504a3894fce1c13ba53d1bc4da6aa4eba3efbd6cd584d425ff",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit"
+        ]
+      },
+      "raw_row_sha256": "e91e7ebc868d9669f169d41cb7d521a5946f5475c8e4fb3006357b8c12547967",
+      "source_path": null,
+      "source_hash": null,
+      "canonical_card_id": "7653629848",
+      "aliases": [
+        {
+          "set": "JTL",
+          "number": 95
+        }
+      ],
+      "declared_copies": 9,
+      "source_deck_indices": [
+        2,
+        17,
+        21
+      ],
+      "ability_paths": [],
+      "normalized_program_group": "a6dd092d0a5afd9497bd74b18185c39b0ec7f65390fee429fa0a2e09cd752149"
+    },
+    {
+      "code": "SEC_163",
+      "partition": "train",
+      "raw_card": {
+        "setCode": "SEC_163",
+        "sourcePath": "game/cards/06_SEC/units/OuterRimConstable.ts",
+        "sourceHash": "fe916a76bcaf64376f2cd7b7183df7d32d8016c6035723a913e2b7d49d847d39",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": [
+            {
+              "trigger": "whenPlayed",
+              "title": "Defeat an upgrade.",
+              "costs": [],
+              "optional": true,
+              "targetResolver": {
+                "owner": "any",
+                "type": "upgrade",
+                "zone": "anyAttackable"
+              },
+              "effect": {
+                "kind": "defeat",
+                "target": "chosen"
+              }
+            }
+          ]
+        },
+        "className": "OuterRimConstable",
+        "baseClass": "NonLeaderUnitCard",
+        "id": "6387581059",
+        "internalName": "outer-rim-constable",
+        "status": "supported",
+        "card": {
+          "title": "Outer Rim Constable",
+          "subtitle": "",
+          "cost": 2,
+          "hp": 1,
+          "power": 3,
+          "text": "When Played: You may defeat an upgrade.",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": null,
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "6387581059",
+          "aspects": [
+            "aggression"
+          ],
+          "traits": [
+            "fringe",
+            "official"
+          ],
+          "arena": "ground",
+          "keywords": [],
+          "types": [
+            "unit"
+          ],
+          "setId": {
+            "set": "SEC",
+            "number": 163
+          },
+          "setCodes": [
+            {
+              "set": "SEC",
+              "number": 163
+            }
+          ],
+          "internalName": "outer-rim-constable"
+        },
+        "dataHash": "b2c968bc3ee8952df13eb9e8d7a8a216a66956d5a754a67407529ff999801803",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit",
+          "ir:defeat",
+          "targetType:upgrade",
+          "targetZone:anyAttackable",
+          "trigger:whenPlayed"
+        ]
+      },
+      "raw_row_sha256": "51d9a2217d3735d8f04d13bd9797ec7c728dd6d3514568ef93790dd752fc68b9",
+      "source_path": "game/cards/06_SEC/units/OuterRimConstable.ts",
+      "source_hash": "fe916a76bcaf64376f2cd7b7183df7d32d8016c6035723a913e2b7d49d847d39",
+      "canonical_card_id": "6387581059",
+      "aliases": [
+        {
+          "set": "SEC",
+          "number": 163
+        }
+      ],
+      "declared_copies": 13,
+      "source_deck_indices": [
+        6,
+        7,
+        8,
+        14,
+        22,
+        26
+      ],
+      "ability_paths": [
+        [
+          "abilities",
+          "card",
+          0
+        ]
+      ],
+      "normalized_program_group": "93e45bdeb4fac98938348bc7f1374264085039426d40ff2a8296098fd07a8880"
+    },
+    {
+      "code": "LOF_077",
+      "partition": "train",
+      "raw_card": {
+        "setCode": "LOF_077",
+        "sourcePath": "game/cards/05_LOF/events/CrushingBlow.ts",
+        "sourceHash": "b55ed10b0cdd0c76e6322be0fe8069d76b6ecbf2e70b81a7b9e5c416c246aa2c",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": [
+            {
+              "trigger": "event",
+              "title": "Defeat a non-leader unit that costs 2 or less",
+              "costs": [],
+              "targetResolver": {
+                "owner": "any",
+                "type": "nonLeaderUnit",
+                "zone": "anyAttackable",
+                "predicate": {
+                  "kind": "binary",
+                  "op": "&&",
+                  "left": {
+                    "kind": "query",
+                    "name": "isUnit",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "card"
+                      ]
+                    },
+                    "args": []
+                  },
+                  "right": {
+                    "kind": "binary",
+                    "op": "<=",
+                    "left": {
+                      "kind": "ref",
+                      "path": [
+                        "card",
+                        "cost"
+                      ]
+                    },
+                    "right": {
+                      "kind": "const",
+                      "value": 2
+                    }
+                  }
+                }
+              },
+              "effect": {
+                "kind": "defeat",
+                "target": "chosen"
+              }
+            }
+          ]
+        },
+        "className": "CrushingBlow",
+        "baseClass": "EventCard",
+        "id": "4218264341",
+        "internalName": "crushing-blow",
+        "status": "supported",
+        "card": {
+          "title": "Crushing Blow",
+          "subtitle": "",
+          "cost": 3,
+          "hp": null,
+          "power": null,
+          "text": "Defeat a non-leader unit that costs 2 or less.",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": "Abilities that refer to a card\u2019s cost always refer to its printed cost, regardless of modifiers.\n",
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "4218264341",
+          "aspects": [
+            "vigilance"
+          ],
+          "traits": [
+            "tactic"
+          ],
+          "keywords": [],
+          "types": [
+            "event"
+          ],
+          "setId": {
+            "set": "LOF",
+            "number": 77
+          },
+          "setCodes": [
+            {
+              "set": "LOF",
+              "number": 77
+            }
+          ],
+          "internalName": "crushing-blow"
+        },
+        "dataHash": "49af3f35a7e2b89269518b6f699ceeef3dd924dba28d2539f9a8466cba2c841c",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "binary:&&",
+          "binary:<=",
+          "cardType:event",
+          "ir:binary",
+          "ir:const",
+          "ir:defeat",
+          "ir:query",
+          "ir:ref",
+          "query:isUnit",
+          "ref:card",
+          "ref:card.cost",
+          "targetType:nonLeaderUnit",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ]
+      },
+      "raw_row_sha256": "9ffd6da1bdacf6818f83af475e47a239d6b3fdb004d5e1ee099439edc35c9bf5",
+      "source_path": "game/cards/05_LOF/events/CrushingBlow.ts",
+      "source_hash": "b55ed10b0cdd0c76e6322be0fe8069d76b6ecbf2e70b81a7b9e5c416c246aa2c",
+      "canonical_card_id": "4218264341",
+      "aliases": [
+        {
+          "set": "LOF",
+          "number": 77
+        }
+      ],
+      "declared_copies": 9,
+      "source_deck_indices": [
+        5,
+        11,
+        26
+      ],
+      "ability_paths": [
+        [
+          "abilities",
+          "card",
+          0
+        ]
+      ],
+      "normalized_program_group": "b338b6dc068e50ce6a7c5423b867318e84936f7405ab97beba20bcd44b2b891a"
+    },
+    {
+      "code": "JTL_078",
+      "partition": "train",
+      "raw_card": {
+        "setCode": "JTL_078",
+        "sourcePath": "game/cards/04_JTL/events/DirectHit.ts",
+        "sourceHash": "4d2a022d57b0fa1c07d6ca30a5c406964e74065cd432bf23eb89483f5429dd22",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": [
+            {
+              "trigger": "event",
+              "title": "Defeat a non-leader Vehicle unit",
+              "costs": [],
+              "targetResolver": {
+                "owner": "any",
+                "type": "nonLeaderUnit",
+                "zone": "anyAttackable",
+                "predicate": {
+                  "kind": "query",
+                  "name": "hasSomeTrait",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  },
+                  "args": [
+                    {
+                      "kind": "const",
+                      "value": "vehicle"
+                    }
+                  ]
+                }
+              },
+              "effect": {
+                "kind": "defeat",
+                "target": "chosen"
+              }
+            }
+          ]
+        },
+        "className": "DirectHit",
+        "baseClass": "EventCard",
+        "id": "5093056978",
+        "internalName": "direct-hit",
+        "status": "supported",
+        "card": {
+          "title": "Direct Hit",
+          "subtitle": "",
+          "cost": 4,
+          "hp": null,
+          "power": null,
+          "text": "Defeat a non-leader Vehicle unit.",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": null,
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "5093056978",
+          "aspects": [
+            "vigilance"
+          ],
+          "traits": [
+            "tactic"
+          ],
+          "keywords": [],
+          "types": [
+            "event"
+          ],
+          "setId": {
+            "set": "JTL",
+            "number": 78
+          },
+          "setCodes": [
+            {
+              "set": "JTL",
+              "number": 78
+            }
+          ],
+          "internalName": "direct-hit"
+        },
+        "dataHash": "8545e567811ea65fc84bfeef6a17b3d25c4e44e6a3a6472467526a40b8d7e156",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:event",
+          "ir:const",
+          "ir:defeat",
+          "ir:query",
+          "ir:ref",
+          "query:hasSomeTrait",
+          "ref:card",
+          "targetType:nonLeaderUnit",
+          "targetZone:anyAttackable",
+          "trigger:event"
+        ]
+      },
+      "raw_row_sha256": "bf3de4c5a9692eb91964947bfcdbb4202316cae9b2fae929a125635112237585",
+      "source_path": "game/cards/04_JTL/events/DirectHit.ts",
+      "source_hash": "4d2a022d57b0fa1c07d6ca30a5c406964e74065cd432bf23eb89483f5429dd22",
+      "canonical_card_id": "5093056978",
+      "aliases": [
+        {
+          "set": "JTL",
+          "number": 78
+        }
+      ],
+      "declared_copies": 6,
+      "source_deck_indices": [
+        6,
+        11,
+        19
+      ],
+      "ability_paths": [
+        [
+          "abilities",
+          "card",
+          0
+        ]
+      ],
+      "normalized_program_group": "cd6a91aeea1e19ea5c0bd9b80e2a03219d983e27d442625f160b747bfdafd6b6"
+    },
+    {
+      "code": "JTL_158",
+      "partition": "train",
+      "raw_card": {
+        "setCode": "JTL_158",
+        "sourcePath": "game/cards/04_JTL/units/CrackshotVWing.ts",
+        "sourceHash": "159e8c377488928cf8160460cca6ba2e1e51334e41c94eb6659325a828f5f9d7",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": [
+            {
+              "trigger": "whenPlayed",
+              "title": "Defeat this unit",
+              "costs": [],
+              "effect": {
+                "kind": "conditional",
+                "condition": {
+                  "kind": "query",
+                  "name": "hasSomeArenaUnit",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "player"
+                    ]
+                  },
+                  "args": [
+                    {
+                      "kind": "binary",
+                      "op": "&&",
+                      "left": {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "const",
+                          "value": true
+                        },
+                        "right": {
+                          "kind": "query",
+                          "name": "hasSomeTrait",
+                          "receiver": {
+                            "kind": "ref",
+                            "path": [
+                              "card"
+                            ]
+                          },
+                          "args": [
+                            {
+                              "kind": "const",
+                              "value": "fighter"
+                            }
+                          ]
+                        }
+                      },
+                      "right": {
+                        "kind": "binary",
+                        "op": "||",
+                        "left": {
+                          "kind": "unary",
+                          "op": "!",
+                          "value": {
+                            "kind": "ref",
+                            "path": [
+                              "source"
+                            ]
+                          }
+                        },
+                        "right": {
+                          "kind": "binary",
+                          "op": "!==",
+                          "left": {
+                            "kind": "ref",
+                            "path": [
+                              "card"
+                            ]
+                          },
+                          "right": {
+                            "kind": "ref",
+                            "path": [
+                              "source"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "onTrue": {
+                  "kind": "noAction"
+                },
+                "onFalse": {
+                  "kind": "damage",
+                  "target": "self",
+                  "amount": {
+                    "kind": "const",
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "className": "CrackshotVWing",
+        "baseClass": "NonLeaderUnitCard",
+        "id": "4159101997",
+        "internalName": "crackshot-vwing",
+        "status": "supported",
+        "card": {
+          "title": "Crackshot V-Wing",
+          "subtitle": "",
+          "cost": 1,
+          "hp": 2,
+          "power": 2,
+          "text": "When Played: If you control no other Fighter units, deal 1 damage to this unit.",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": null,
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "4159101997",
+          "aspects": [
+            "aggression"
+          ],
+          "traits": [
+            "republic",
+            "vehicle",
+            "fighter"
+          ],
+          "arena": "space",
+          "keywords": [],
+          "types": [
+            "unit"
+          ],
+          "setId": {
+            "set": "JTL",
+            "number": 158
+          },
+          "setCodes": [
+            {
+              "set": "JTL",
+              "number": 158
+            }
+          ],
+          "internalName": "crackshot-vwing"
+        },
+        "dataHash": "20dc2e1a107f474402d98eee32281d889bb01829531178a134d56647aa65fb03",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "binary:!==",
+          "binary:&&",
+          "binary:||",
+          "cardType:unit",
+          "ir:binary",
+          "ir:conditional",
+          "ir:const",
+          "ir:damage",
+          "ir:noAction",
+          "ir:query",
+          "ir:ref",
+          "ir:unary",
+          "query:hasSomeArenaUnit",
+          "query:hasSomeTrait",
+          "ref:card",
+          "ref:player",
+          "ref:source",
+          "trigger:whenPlayed",
+          "unary:!"
+        ]
+      },
+      "raw_row_sha256": "6048bcb804e9b7b056d7fc39535da7631d266ee566b2b5219fc06993b9fea7e2",
+      "source_path": "game/cards/04_JTL/units/CrackshotVWing.ts",
+      "source_hash": "159e8c377488928cf8160460cca6ba2e1e51334e41c94eb6659325a828f5f9d7",
+      "canonical_card_id": "4159101997",
+      "aliases": [
+        {
+          "set": "JTL",
+          "number": 158
+        }
+      ],
+      "declared_copies": 3,
+      "source_deck_indices": [
+        21
+      ],
+      "ability_paths": [
+        [
+          "abilities",
+          "card",
+          0
+        ]
+      ],
+      "normalized_program_group": "fbf51eebcc199debe9d76d4ce51b5204c54f2c6464cb723e4dc0b754ccb76bb3"
+    },
+    {
+      "code": "LOF_155",
+      "partition": "heldout",
+      "raw_card": {
+        "setCode": "LOF_155",
+        "sourcePath": "game/cards/05_LOF/units/DRK-1ProbeDroid.ts",
+        "sourceHash": "94727b090398a2aef64831a76d5cdd9d0c188bb1e7c83e9c0856bbc3e84df23c",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": [
+            {
+              "trigger": "whenPlayed",
+              "title": "Defeat a non-unique upgrade.",
+              "costs": [],
+              "optional": true,
+              "targetResolver": {
+                "owner": "any",
+                "type": "upgrade",
+                "zone": "anyAttackable",
+                "predicate": {
+                  "kind": "unary",
+                  "op": "!",
+                  "value": {
+                    "kind": "ref",
+                    "path": [
+                      "card",
+                      "unique"
+                    ]
+                  }
+                }
+              },
+              "effect": {
+                "kind": "defeat",
+                "target": "chosen"
+              }
+            }
+          ]
+        },
+        "className": "DRK1ProbeDroid",
+        "baseClass": "NonLeaderUnitCard",
+        "id": "1093502388",
+        "internalName": "drk1-probe-droid",
+        "status": "supported",
+        "card": {
+          "title": "DRK-1 Probe Droid",
+          "subtitle": "",
+          "cost": 2,
+          "hp": 3,
+          "power": 2,
+          "text": "When Played: You may defeat a non-<uq> (non-unique) upgrade.",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": null,
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "1093502388",
+          "aspects": [
+            "aggression"
+          ],
+          "traits": [
+            "droid"
+          ],
+          "arena": "ground",
+          "keywords": [],
+          "types": [
+            "unit"
+          ],
+          "setId": {
+            "set": "LOF",
+            "number": 155
+          },
+          "setCodes": [
+            {
+              "set": "LOF",
+              "number": 155
+            }
+          ],
+          "internalName": "drk1-probe-droid"
+        },
+        "dataHash": "c1baaeb9c84bdc28af0e5fc01b2fc5a3e9ad96d99321d4b43eefe58b8d96573d",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "cardType:unit",
+          "ir:defeat",
+          "ir:ref",
+          "ir:unary",
+          "ref:card.unique",
+          "targetType:upgrade",
+          "targetZone:anyAttackable",
+          "trigger:whenPlayed",
+          "unary:!"
+        ]
+      },
+      "raw_row_sha256": "0de06fef18c4646a30c7d15577ed8f4560e9b0c6438e6c93eda79cf0d7a337a4",
+      "source_path": "game/cards/05_LOF/units/DRK-1ProbeDroid.ts",
+      "source_hash": "94727b090398a2aef64831a76d5cdd9d0c188bb1e7c83e9c0856bbc3e84df23c",
+      "canonical_card_id": "1093502388",
+      "aliases": [
+        {
+          "set": "LOF",
+          "number": 155
+        }
+      ],
+      "declared_copies": 3,
+      "source_deck_indices": [
+        1
+      ],
+      "ability_paths": [
+        [
+          "abilities",
+          "card",
+          0
+        ]
+      ],
+      "normalized_program_group": "ca72e976ead82ac210fdad8fae2442c82c237c8de648c1de65f75587337fa390"
+    },
+    {
+      "code": "JTL_217",
+      "partition": "heldout",
+      "raw_card": {
+        "setCode": "JTL_217",
+        "sourcePath": "game/cards/04_JTL/units/DeathSpaceSkirmisher.ts",
+        "sourceHash": "ae8e4acb0ddb8613a37d52aaa504de8ed96abd3174bb7e316e70f21cdcb90b98",
+        "abilities": {
+          "leader": [],
+          "unit": [],
+          "card": [
+            {
+              "trigger": "whenPlayed",
+              "title": "Exhaust a unit.",
+              "costs": [],
+              "optional": true,
+              "targetResolver": {
+                "owner": "any",
+                "type": "unit",
+                "zone": "anyAttackable"
+              },
+              "effect": {
+                "kind": "conditional",
+                "condition": {
+                  "kind": "binary",
+                  "op": ">",
+                  "left": {
+                    "kind": "arenaLength",
+                    "receiver": {
+                      "kind": "arenaFilter",
+                      "receiver": {
+                        "kind": "arenaList",
+                        "receiver": {
+                          "kind": "ref",
+                          "path": [
+                            "player"
+                          ]
+                        },
+                        "predicate": {
+                          "kind": "binary",
+                          "op": "&&",
+                          "left": {
+                            "kind": "const",
+                            "value": true
+                          },
+                          "right": {
+                            "kind": "binary",
+                            "op": "||",
+                            "left": {
+                              "kind": "unary",
+                              "op": "!",
+                              "value": {
+                                "kind": "const",
+                                "value": "spaceArena"
+                              }
+                            },
+                            "right": {
+                              "kind": "binary",
+                              "op": "||",
+                              "left": {
+                                "kind": "binary",
+                                "op": "===",
+                                "left": {
+                                  "kind": "const",
+                                  "value": "spaceArena"
+                                },
+                                "right": {
+                                  "kind": "const",
+                                  "value": "anyArena"
+                                }
+                              },
+                              "right": {
+                                "kind": "binary",
+                                "op": "===",
+                                "left": {
+                                  "kind": "ref",
+                                  "path": [
+                                    "card",
+                                    "zoneName"
+                                  ]
+                                },
+                                "right": {
+                                  "kind": "const",
+                                  "value": "spaceArena"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "predicate": {
+                        "kind": "binary",
+                        "op": "!==",
+                        "left": {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        },
+                        "right": {
+                          "kind": "ref",
+                          "path": [
+                            "source"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "right": {
+                    "kind": "const",
+                    "value": 0
+                  }
+                },
+                "onTrue": {
+                  "kind": "exhaust",
+                  "target": "chosen"
+                },
+                "onFalse": {
+                  "kind": "noAction"
+                }
+              }
+            }
+          ]
+        },
+        "className": "DeathSpaceSkirmisher",
+        "baseClass": "NonLeaderUnitCard",
+        "id": "1303370295",
+        "internalName": "death-space-skirmisher",
+        "status": "supported",
+        "card": {
+          "title": "Death Space Skirmisher",
+          "subtitle": "",
+          "cost": 3,
+          "hp": 3,
+          "power": 3,
+          "text": "When Played: If you control another space unit, you may exhaust a unit.",
+          "deployBox": null,
+          "epicAction": "",
+          "unique": false,
+          "rules": null,
+          "upgradePower": null,
+          "upgradeHp": null,
+          "id": "1303370295",
+          "aspects": [
+            "cunning"
+          ],
+          "traits": [
+            "underworld",
+            "vehicle",
+            "fighter"
+          ],
+          "arena": "space",
+          "keywords": [],
+          "types": [
+            "unit"
+          ],
+          "setId": {
+            "set": "JTL",
+            "number": 217
+          },
+          "setCodes": [
+            {
+              "set": "JTL",
+              "number": 217
+            }
+          ],
+          "internalName": "death-space-skirmisher"
+        },
+        "dataHash": "8ce71ab8803ead80aab51dae49dbbbe406f3f257c172fe2cda8392e9373397a4",
+        "keywordValues": {},
+        "requiredCapabilities": [
+          "binary:!==",
+          "binary:&&",
+          "binary:===",
+          "binary:>",
+          "binary:||",
+          "cardType:unit",
+          "ir:arenaFilter",
+          "ir:arenaLength",
+          "ir:arenaList",
+          "ir:binary",
+          "ir:conditional",
+          "ir:const",
+          "ir:exhaust",
+          "ir:noAction",
+          "ir:ref",
+          "ir:unary",
+          "ref:card",
+          "ref:card.zoneName",
+          "ref:player",
+          "ref:source",
+          "targetType:unit",
+          "targetZone:anyAttackable",
+          "trigger:whenPlayed",
+          "unary:!"
+        ]
+      },
+      "raw_row_sha256": "e637ccbbb8b087572eeb02de246de29d04fc2da8b3d6b97ba9e2d82e0098188e",
+      "source_path": "game/cards/04_JTL/units/DeathSpaceSkirmisher.ts",
+      "source_hash": "ae8e4acb0ddb8613a37d52aaa504de8ed96abd3174bb7e316e70f21cdcb90b98",
+      "canonical_card_id": "1303370295",
+      "aliases": [
+        {
+          "set": "JTL",
+          "number": 217
+        }
+      ],
+      "declared_copies": 3,
+      "source_deck_indices": [
+        10
+      ],
+      "ability_paths": [
+        [
+          "abilities",
+          "card",
+          0
+        ]
+      ],
+      "normalized_program_group": "0f1e52a7d24ee33b4a36ddd8cd47adc882107140e5268e2350276dad6ef609c5"
+    }
+  ],
+  "contexts": [
+    {
+      "id": 0,
+      "name": "funded-no-other-space",
+      "partition": "train",
+      "ready_resources": 8,
+      "other_space": null,
+      "exhausted": false,
+      "upgrade_choice": "nonunique_upgrade",
+      "unit_choice": "enemy_vehicle_cheap"
+    },
+    {
+      "id": 1,
+      "name": "unfunded-no-other-space",
+      "partition": "train",
+      "ready_resources": 0,
+      "other_space": null,
+      "exhausted": false,
+      "upgrade_choice": "nonunique_upgrade",
+      "unit_choice": "enemy_vehicle_cheap"
+    },
+    {
+      "id": 2,
+      "name": "funded-other-fighter-expensive-unique",
+      "partition": "train",
+      "ready_resources": 8,
+      "other_space": "other_fighter",
+      "exhausted": true,
+      "upgrade_choice": "unique_upgrade",
+      "unit_choice": "enemy_vehicle_expensive"
+    },
+    {
+      "id": 3,
+      "name": "held-funded-other-nonfighter-ready",
+      "partition": "heldout",
+      "ready_resources": 8,
+      "other_space": "other_nonfighter",
+      "exhausted": false,
+      "upgrade_choice": "nonunique_upgrade",
+      "unit_choice": "enemy_vehicle_cheap"
+    }
+  ],
+  "helpers": {
+    "base": "ASH_019",
+    "leader": "IBH_053",
+    "ground": "LOF_093",
+    "host": "LOF_093",
+    "cheap": "TWI_253",
+    "expensive": "TWI_111",
+    "nonunique": "LOF_151",
+    "unique": "ASH_066",
+    "other_fighter": "TWI_253",
+    "other_nonfighter": "SHD_060",
+    "resource": "LOF_256"
+  },
+  "selected_whole_cards": [
+    "ASH_019",
+    "ASH_048",
+    "ASH_066",
+    "IBH_053",
+    "JTL_078",
+    "JTL_095",
+    "JTL_158",
+    "JTL_217",
+    "LOF_077",
+    "LOF_093",
+    "LOF_151",
+    "LOF_155",
+    "LOF_256",
+    "SEC_163",
+    "SHD_060",
+    "TOKEN_EXPERIENCE",
+    "TOKEN_SHIELD",
+    "TWI_111",
+    "TWI_253"
+  ],
+  "selected_whole_rows": {
+    "ASH_019": {
+      "setCode": "ASH_019",
+      "id": "7349221421",
+      "internalName": "fortress-of-the-great-mothers",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Fortress of the Great Mothers",
+        "subtitle": "",
+        "cost": null,
+        "hp": 30,
+        "power": null,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "7349221421",
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "peridea"
+        ],
+        "keywords": [],
+        "types": [
+          "base"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 19
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 19
+          }
+        ],
+        "internalName": "fortress-of-the-great-mothers"
+      },
+      "dataHash": "b1e5d2035bc16d2f0b286e465e728b144797b666fbf180cc510e67ffaefdefc0",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:base"
+      ]
+    },
+    "ASH_048": {
+      "setCode": "ASH_048",
+      "id": "3962920521",
+      "internalName": "imperial-armored-commando",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Imperial Armored Commando",
+        "subtitle": "",
+        "cost": 4,
+        "hp": 3,
+        "power": 4,
+        "text": "Sentinel (Enemy units in this arena must attack a Sentinel when they attack you.)\nShielded (When you play this unit, give a Shield token to it.)",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "3962920521",
+        "aspects": [
+          "vigilance",
+          "villainy"
+        ],
+        "traits": [
+          "imperial",
+          "trooper"
+        ],
+        "arena": "ground",
+        "keywords": [
+          "sentinel",
+          "shielded"
+        ],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 48
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 48
+          }
+        ],
+        "internalName": "imperial-armored-commando"
+      },
+      "dataHash": "8d7b865c3fc42ae0e5572402274ff329fa90af376e141207104b6ab56ddc7cf1",
+      "keywordValues": {
+        "sentinel": 1,
+        "shielded": 1
+      },
+      "requiredCapabilities": [
+        "cardType:unit",
+        "keyword:sentinel",
+        "keyword:shielded"
+      ]
+    },
+    "ASH_066": {
+      "setCode": "ASH_066",
+      "sourcePath": "game/cards/08_ASH/upgrades/LukesJediLightsaberConstructedByHand.ts",
+      "sourceHash": "0987a3df4d7de4148b8a5619066c818aefe6716c2693d9fbf4faa5fcc4aebf48",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "constant",
+            "title": "Give Sentinel to the attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "gainKeyword",
+              "target": "parent",
+              "duration": "persistent",
+              "keyword": "sentinel",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            "condition": {
+              "kind": "binary",
+              "op": "===",
+              "left": {
+                "kind": "ref",
+                "path": [
+                  "source",
+                  "parentCard",
+                  "title"
+                ]
+              },
+              "right": {
+                "kind": "const",
+                "value": "Luke Skywalker"
+              }
+            }
+          }
+        ]
+      },
+      "className": "LukesJediLightsaberConstructedByHand",
+      "baseClass": "UpgradeCard",
+      "id": "4924242543",
+      "internalName": "lukes-jedi-lightsaber#constructed-by-hand",
+      "attachCondition": {
+        "kind": "unary",
+        "op": "!",
+        "value": {
+          "kind": "query",
+          "name": "hasSomeTrait",
+          "receiver": {
+            "kind": "ref",
+            "path": [
+              "card"
+            ]
+          },
+          "args": [
+            {
+              "kind": "const",
+              "value": "vehicle"
+            }
+          ]
+        }
+      },
+      "status": "supported",
+      "card": {
+        "title": "Luke's Jedi Lightsaber",
+        "subtitle": "Constructed by Hand",
+        "cost": 3,
+        "hp": 3,
+        "power": 3,
+        "text": "Attach to a non-Vehicle unit.\nIf attached unit is Luke Skywalker, he gains Sentinel. (Enemy units in this arena must attack a Sentinel when they attack you.)",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": true,
+        "rules": null,
+        "upgradePower": 3,
+        "upgradeHp": 3,
+        "id": "4924242543",
+        "aspects": [
+          "vigilance",
+          "heroism"
+        ],
+        "traits": [
+          "item",
+          "weapon",
+          "lightsaber"
+        ],
+        "keywords": [
+          "sentinel"
+        ],
+        "types": [
+          "upgrade"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 66
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 66
+          }
+        ],
+        "internalName": "lukes-jedi-lightsaber#constructed-by-hand"
+      },
+      "dataHash": "790256fff18d0f9ad3ed56a8909a057014ee00d2073a26dff0e72e9785e8b1d5",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:===",
+        "cardType:upgrade",
+        "ir:binary",
+        "ir:const",
+        "ir:gainKeyword",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "keyword:sentinel",
+        "query:hasSomeTrait",
+        "ref:card",
+        "ref:source.parentCard.title",
+        "trigger:constant",
+        "unary:!"
+      ]
+    },
+    "IBH_053": {
+      "setCode": "IBH_053",
+      "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+      "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+      "abilities": {
+        "leader": [
+          {
+            "trigger": "action",
+            "title": "Deal 1 damage to a base",
+            "costs": [
+              {
+                "kind": "resources",
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                }
+              },
+              {
+                "kind": "exhaustSelf"
+              }
+            ],
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "effect": {
+              "kind": "damage",
+              "target": "chosen",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            }
+          }
+        ],
+        "unit": [
+          {
+            "trigger": "onAttack",
+            "title": "Deal 2 damage to a base",
+            "costs": [],
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "effect": {
+              "kind": "damage",
+              "target": "chosen",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          }
+        ],
+        "card": []
+      },
+      "className": "DarthVaderDontFailMeAgain",
+      "baseClass": "LeaderUnitCard",
+      "id": "9389694773",
+      "internalName": "darth-vader#dont-fail-me-again",
+      "status": "supported",
+      "card": {
+        "title": "Darth Vader",
+        "subtitle": "Don't Fail Me Again",
+        "cost": 6,
+        "hp": 8,
+        "power": 3,
+        "text": "Action [1 resource, Exhaust]: Deal 1 damage to a base.",
+        "deployBox": "On Attack: Deal 2 damage to a base.",
+        "epicAction": "Epic Action: If you control 6 or more resources, deploy this leader. (Flip him, ready him, and move him to the ground arena.)",
+        "unique": true,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9389694773",
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "traits": [
+          "force",
+          "imperial",
+          "sith"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "leader"
+        ],
+        "setId": {
+          "set": "IBH",
+          "number": 53
+        },
+        "setCodes": [
+          {
+            "set": "IBH",
+            "number": 53
+          }
+        ],
+        "internalName": "darth-vader#dont-fail-me-again"
+      },
+      "dataHash": "8e008bd17ac55ad59d2cc5ce2a879d3eb070e1d19f990b1c73e3e545ccd8bc8a",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:leader",
+        "ir:const",
+        "ir:damage",
+        "ir:exhaustSelf",
+        "ir:resources",
+        "targetType:any",
+        "targetZone:base",
+        "trigger:action",
+        "trigger:onAttack"
+      ]
+    },
+    "JTL_078": {
+      "setCode": "JTL_078",
+      "sourcePath": "game/cards/04_JTL/events/DirectHit.ts",
+      "sourceHash": "4d2a022d57b0fa1c07d6ca30a5c406964e74065cd432bf23eb89483f5429dd22",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "event",
+            "title": "Defeat a non-leader Vehicle unit",
+            "costs": [],
+            "targetResolver": {
+              "owner": "any",
+              "type": "nonLeaderUnit",
+              "zone": "anyAttackable",
+              "predicate": {
+                "kind": "query",
+                "name": "hasSomeTrait",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "args": [
+                  {
+                    "kind": "const",
+                    "value": "vehicle"
+                  }
+                ]
+              }
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      },
+      "className": "DirectHit",
+      "baseClass": "EventCard",
+      "id": "5093056978",
+      "internalName": "direct-hit",
+      "status": "supported",
+      "card": {
+        "title": "Direct Hit",
+        "subtitle": "",
+        "cost": 4,
+        "hp": null,
+        "power": null,
+        "text": "Defeat a non-leader Vehicle unit.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "5093056978",
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "tactic"
+        ],
+        "keywords": [],
+        "types": [
+          "event"
+        ],
+        "setId": {
+          "set": "JTL",
+          "number": 78
+        },
+        "setCodes": [
+          {
+            "set": "JTL",
+            "number": 78
+          }
+        ],
+        "internalName": "direct-hit"
+      },
+      "dataHash": "8545e567811ea65fc84bfeef6a17b3d25c4e44e6a3a6472467526a40b8d7e156",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:event",
+        "ir:const",
+        "ir:defeat",
+        "ir:query",
+        "ir:ref",
+        "query:hasSomeTrait",
+        "ref:card",
+        "targetType:nonLeaderUnit",
+        "targetZone:anyAttackable",
+        "trigger:event"
+      ]
+    },
+    "JTL_095": {
+      "setCode": "JTL_095",
+      "id": "7653629848",
+      "internalName": "phoenix-squadron-awing",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Phoenix Squadron A-Wing",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 2,
+        "power": 3,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "7653629848",
+        "aspects": [
+          "command",
+          "heroism"
+        ],
+        "traits": [
+          "rebel",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "JTL",
+          "number": 95
+        },
+        "setCodes": [
+          {
+            "set": "JTL",
+            "number": 95
+          }
+        ],
+        "internalName": "phoenix-squadron-awing"
+      },
+      "dataHash": "bcb346e69a8db2504a3894fce1c13ba53d1bc4da6aa4eba3efbd6cd584d425ff",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    "JTL_158": {
+      "setCode": "JTL_158",
+      "sourcePath": "game/cards/04_JTL/units/CrackshotVWing.ts",
+      "sourceHash": "159e8c377488928cf8160460cca6ba2e1e51334e41c94eb6659325a828f5f9d7",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "title": "Defeat this unit",
+            "costs": [],
+            "effect": {
+              "kind": "conditional",
+              "condition": {
+                "kind": "query",
+                "name": "hasSomeArenaUnit",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "player"
+                  ]
+                },
+                "args": [
+                  {
+                    "kind": "binary",
+                    "op": "&&",
+                    "left": {
+                      "kind": "binary",
+                      "op": "&&",
+                      "left": {
+                        "kind": "const",
+                        "value": true
+                      },
+                      "right": {
+                        "kind": "query",
+                        "name": "hasSomeTrait",
+                        "receiver": {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        },
+                        "args": [
+                          {
+                            "kind": "const",
+                            "value": "fighter"
+                          }
+                        ]
+                      }
+                    },
+                    "right": {
+                      "kind": "binary",
+                      "op": "||",
+                      "left": {
+                        "kind": "unary",
+                        "op": "!",
+                        "value": {
+                          "kind": "ref",
+                          "path": [
+                            "source"
+                          ]
+                        }
+                      },
+                      "right": {
+                        "kind": "binary",
+                        "op": "!==",
+                        "left": {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        },
+                        "right": {
+                          "kind": "ref",
+                          "path": [
+                            "source"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "onTrue": {
+                "kind": "noAction"
+              },
+              "onFalse": {
+                "kind": "damage",
+                "target": "self",
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "className": "CrackshotVWing",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "4159101997",
+      "internalName": "crackshot-vwing",
+      "status": "supported",
+      "card": {
+        "title": "Crackshot V-Wing",
+        "subtitle": "",
+        "cost": 1,
+        "hp": 2,
+        "power": 2,
+        "text": "When Played: If you control no other Fighter units, deal 1 damage to this unit.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "4159101997",
+        "aspects": [
+          "aggression"
+        ],
+        "traits": [
+          "republic",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "JTL",
+          "number": 158
+        },
+        "setCodes": [
+          {
+            "set": "JTL",
+            "number": 158
+          }
+        ],
+        "internalName": "crackshot-vwing"
+      },
+      "dataHash": "20dc2e1a107f474402d98eee32281d889bb01829531178a134d56647aa65fb03",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:!==",
+        "binary:&&",
+        "binary:||",
+        "cardType:unit",
+        "ir:binary",
+        "ir:conditional",
+        "ir:const",
+        "ir:damage",
+        "ir:noAction",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "query:hasSomeArenaUnit",
+        "query:hasSomeTrait",
+        "ref:card",
+        "ref:player",
+        "ref:source",
+        "trigger:whenPlayed",
+        "unary:!"
+      ]
+    },
+    "JTL_217": {
+      "setCode": "JTL_217",
+      "sourcePath": "game/cards/04_JTL/units/DeathSpaceSkirmisher.ts",
+      "sourceHash": "ae8e4acb0ddb8613a37d52aaa504de8ed96abd3174bb7e316e70f21cdcb90b98",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "title": "Exhaust a unit.",
+            "costs": [],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "unit",
+              "zone": "anyAttackable"
+            },
+            "effect": {
+              "kind": "conditional",
+              "condition": {
+                "kind": "binary",
+                "op": ">",
+                "left": {
+                  "kind": "arenaLength",
+                  "receiver": {
+                    "kind": "arenaFilter",
+                    "receiver": {
+                      "kind": "arenaList",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "player"
+                        ]
+                      },
+                      "predicate": {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "const",
+                          "value": true
+                        },
+                        "right": {
+                          "kind": "binary",
+                          "op": "||",
+                          "left": {
+                            "kind": "unary",
+                            "op": "!",
+                            "value": {
+                              "kind": "const",
+                              "value": "spaceArena"
+                            }
+                          },
+                          "right": {
+                            "kind": "binary",
+                            "op": "||",
+                            "left": {
+                              "kind": "binary",
+                              "op": "===",
+                              "left": {
+                                "kind": "const",
+                                "value": "spaceArena"
+                              },
+                              "right": {
+                                "kind": "const",
+                                "value": "anyArena"
+                              }
+                            },
+                            "right": {
+                              "kind": "binary",
+                              "op": "===",
+                              "left": {
+                                "kind": "ref",
+                                "path": [
+                                  "card",
+                                  "zoneName"
+                                ]
+                              },
+                              "right": {
+                                "kind": "const",
+                                "value": "spaceArena"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "predicate": {
+                      "kind": "binary",
+                      "op": "!==",
+                      "left": {
+                        "kind": "ref",
+                        "path": [
+                          "card"
+                        ]
+                      },
+                      "right": {
+                        "kind": "ref",
+                        "path": [
+                          "source"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "kind": "const",
+                  "value": 0
+                }
+              },
+              "onTrue": {
+                "kind": "exhaust",
+                "target": "chosen"
+              },
+              "onFalse": {
+                "kind": "noAction"
+              }
+            }
+          }
+        ]
+      },
+      "className": "DeathSpaceSkirmisher",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "1303370295",
+      "internalName": "death-space-skirmisher",
+      "status": "supported",
+      "card": {
+        "title": "Death Space Skirmisher",
+        "subtitle": "",
+        "cost": 3,
+        "hp": 3,
+        "power": 3,
+        "text": "When Played: If you control another space unit, you may exhaust a unit.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "1303370295",
+        "aspects": [
+          "cunning"
+        ],
+        "traits": [
+          "underworld",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "JTL",
+          "number": 217
+        },
+        "setCodes": [
+          {
+            "set": "JTL",
+            "number": 217
+          }
+        ],
+        "internalName": "death-space-skirmisher"
+      },
+      "dataHash": "8ce71ab8803ead80aab51dae49dbbbe406f3f257c172fe2cda8392e9373397a4",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:!==",
+        "binary:&&",
+        "binary:===",
+        "binary:>",
+        "binary:||",
+        "cardType:unit",
+        "ir:arenaFilter",
+        "ir:arenaLength",
+        "ir:arenaList",
+        "ir:binary",
+        "ir:conditional",
+        "ir:const",
+        "ir:exhaust",
+        "ir:noAction",
+        "ir:ref",
+        "ir:unary",
+        "ref:card",
+        "ref:card.zoneName",
+        "ref:player",
+        "ref:source",
+        "targetType:unit",
+        "targetZone:anyAttackable",
+        "trigger:whenPlayed",
+        "unary:!"
+      ]
+    },
+    "LOF_077": {
+      "setCode": "LOF_077",
+      "sourcePath": "game/cards/05_LOF/events/CrushingBlow.ts",
+      "sourceHash": "b55ed10b0cdd0c76e6322be0fe8069d76b6ecbf2e70b81a7b9e5c416c246aa2c",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "event",
+            "title": "Defeat a non-leader unit that costs 2 or less",
+            "costs": [],
+            "targetResolver": {
+              "owner": "any",
+              "type": "nonLeaderUnit",
+              "zone": "anyAttackable",
+              "predicate": {
+                "kind": "binary",
+                "op": "&&",
+                "left": {
+                  "kind": "query",
+                  "name": "isUnit",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  },
+                  "args": []
+                },
+                "right": {
+                  "kind": "binary",
+                  "op": "<=",
+                  "left": {
+                    "kind": "ref",
+                    "path": [
+                      "card",
+                      "cost"
+                    ]
+                  },
+                  "right": {
+                    "kind": "const",
+                    "value": 2
+                  }
+                }
+              }
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      },
+      "className": "CrushingBlow",
+      "baseClass": "EventCard",
+      "id": "4218264341",
+      "internalName": "crushing-blow",
+      "status": "supported",
+      "card": {
+        "title": "Crushing Blow",
+        "subtitle": "",
+        "cost": 3,
+        "hp": null,
+        "power": null,
+        "text": "Defeat a non-leader unit that costs 2 or less.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": "Abilities that refer to a card\u2019s cost always refer to its printed cost, regardless of modifiers.\n",
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "4218264341",
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "tactic"
+        ],
+        "keywords": [],
+        "types": [
+          "event"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 77
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 77
+          }
+        ],
+        "internalName": "crushing-blow"
+      },
+      "dataHash": "49af3f35a7e2b89269518b6f699ceeef3dd924dba28d2539f9a8466cba2c841c",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:&&",
+        "binary:<=",
+        "cardType:event",
+        "ir:binary",
+        "ir:const",
+        "ir:defeat",
+        "ir:query",
+        "ir:ref",
+        "query:isUnit",
+        "ref:card",
+        "ref:card.cost",
+        "targetType:nonLeaderUnit",
+        "targetZone:anyAttackable",
+        "trigger:event"
+      ]
+    },
+    "LOF_093": {
+      "setCode": "LOF_093",
+      "id": "4581577866",
+      "internalName": "gungi#finding-himself",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Gungi",
+        "subtitle": "Finding Himself",
+        "cost": 2,
+        "hp": 5,
+        "power": 2,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": true,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "4581577866",
+        "aspects": [
+          "command",
+          "heroism"
+        ],
+        "traits": [
+          "force",
+          "jedi",
+          "wookiee"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 93
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 93
+          }
+        ],
+        "internalName": "gungi#finding-himself"
+      },
+      "dataHash": "fe3a609ef4c0a5247d1d05ccf213da14be4193410e8ff9e237ed10d7d06750ce",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    "LOF_151": {
+      "setCode": "LOF_151",
+      "sourcePath": "game/cards/05_LOF/upgrades/KnightsSaber.ts",
+      "sourceHash": "3ac3d3f0d25b28cdd75571181cc5419d7ca9f29424cb5b85ecaba171b8183dcf",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "className": "KnightsSaber",
+      "baseClass": "UpgradeCard",
+      "id": "6885149318",
+      "internalName": "knights-saber",
+      "attachCondition": {
+        "kind": "binary",
+        "op": "&&",
+        "left": {
+          "kind": "query",
+          "name": "hasSomeTrait",
+          "receiver": {
+            "kind": "ref",
+            "path": [
+              "card"
+            ]
+          },
+          "args": [
+            {
+              "kind": "const",
+              "value": "jedi"
+            }
+          ]
+        },
+        "right": {
+          "kind": "unary",
+          "op": "!",
+          "value": {
+            "kind": "query",
+            "name": "hasSomeTrait",
+            "receiver": {
+              "kind": "ref",
+              "path": [
+                "card"
+              ]
+            },
+            "args": [
+              {
+                "kind": "const",
+                "value": "vehicle"
+              }
+            ]
+          }
+        }
+      },
+      "status": "supported",
+      "card": {
+        "title": "Knight's Saber",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 2,
+        "power": 3,
+        "text": "Attach to a Jedi non-Vehicle unit.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": 3,
+        "upgradeHp": 2,
+        "id": "6885149318",
+        "aspects": [
+          "aggression",
+          "heroism"
+        ],
+        "traits": [
+          "item",
+          "weapon",
+          "lightsaber"
+        ],
+        "keywords": [],
+        "types": [
+          "upgrade"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 151
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 151
+          }
+        ],
+        "internalName": "knights-saber"
+      },
+      "dataHash": "53b28a1187f7d7ab955b200466b316c6ecba558ffd67f9602d55d26c554c98f6",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:&&",
+        "cardType:upgrade",
+        "ir:binary",
+        "ir:const",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "query:hasSomeTrait",
+        "ref:card",
+        "unary:!"
+      ]
+    },
+    "LOF_155": {
+      "setCode": "LOF_155",
+      "sourcePath": "game/cards/05_LOF/units/DRK-1ProbeDroid.ts",
+      "sourceHash": "94727b090398a2aef64831a76d5cdd9d0c188bb1e7c83e9c0856bbc3e84df23c",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "title": "Defeat a non-unique upgrade.",
+            "costs": [],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "upgrade",
+              "zone": "anyAttackable",
+              "predicate": {
+                "kind": "unary",
+                "op": "!",
+                "value": {
+                  "kind": "ref",
+                  "path": [
+                    "card",
+                    "unique"
+                  ]
+                }
+              }
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      },
+      "className": "DRK1ProbeDroid",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "1093502388",
+      "internalName": "drk1-probe-droid",
+      "status": "supported",
+      "card": {
+        "title": "DRK-1 Probe Droid",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 3,
+        "power": 2,
+        "text": "When Played: You may defeat a non-<uq> (non-unique) upgrade.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "1093502388",
+        "aspects": [
+          "aggression"
+        ],
+        "traits": [
+          "droid"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 155
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 155
+          }
+        ],
+        "internalName": "drk1-probe-droid"
+      },
+      "dataHash": "c1baaeb9c84bdc28af0e5fc01b2fc5a3e9ad96d99321d4b43eefe58b8d96573d",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit",
+        "ir:defeat",
+        "ir:ref",
+        "ir:unary",
+        "ref:card.unique",
+        "targetType:upgrade",
+        "targetZone:anyAttackable",
+        "trigger:whenPlayed",
+        "unary:!"
+      ]
+    },
+    "LOF_256": {
+      "setCode": "LOF_256",
+      "id": "9014610567",
+      "internalName": "gifted-urchin",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Gifted Urchin",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 4,
+        "power": 1,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9014610567",
+        "aspects": [],
+        "traits": [
+          "force",
+          "fringe"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 256
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 256
+          }
+        ],
+        "internalName": "gifted-urchin"
+      },
+      "dataHash": "7fb71dd198239ad52b1a405648566d88a668882480d29f82397d13b0ceb646b9",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    "SEC_163": {
+      "setCode": "SEC_163",
+      "sourcePath": "game/cards/06_SEC/units/OuterRimConstable.ts",
+      "sourceHash": "fe916a76bcaf64376f2cd7b7183df7d32d8016c6035723a913e2b7d49d847d39",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "title": "Defeat an upgrade.",
+            "costs": [],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "upgrade",
+              "zone": "anyAttackable"
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      },
+      "className": "OuterRimConstable",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "6387581059",
+      "internalName": "outer-rim-constable",
+      "status": "supported",
+      "card": {
+        "title": "Outer Rim Constable",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 1,
+        "power": 3,
+        "text": "When Played: You may defeat an upgrade.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "6387581059",
+        "aspects": [
+          "aggression"
+        ],
+        "traits": [
+          "fringe",
+          "official"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "SEC",
+          "number": 163
+        },
+        "setCodes": [
+          {
+            "set": "SEC",
+            "number": 163
+          }
+        ],
+        "internalName": "outer-rim-constable"
+      },
+      "dataHash": "b2c968bc3ee8952df13eb9e8d7a8a216a66956d5a754a67407529ff999801803",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit",
+        "ir:defeat",
+        "targetType:upgrade",
+        "targetZone:anyAttackable",
+        "trigger:whenPlayed"
+      ]
+    },
+    "SHD_060": {
+      "setCode": "SHD_060",
+      "id": "5636691221",
+      "internalName": "hwk290-freighter",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "HWK-290 Freighter",
+        "subtitle": "",
+        "cost": 3,
+        "hp": 5,
+        "power": 2,
+        "text": "",
+        "deployBox": null,
+        "epicAction": null,
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "5636691221",
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "vehicle",
+          "transport"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "SHD",
+          "number": 60
+        },
+        "setCodes": [
+          {
+            "set": "SHD",
+            "number": 60
+          }
+        ],
+        "internalName": "hwk290-freighter"
+      },
+      "dataHash": "4f4e7558903b5c93a3ad4f677ed7ba595e26afeebee8bef14696184b90329ffd",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    "TOKEN_EXPERIENCE": {
+      "setCode": "TOKEN_EXPERIENCE",
+      "sourcePath": "game/cards/01_SOR/tokens/Experience.ts",
+      "sourceHash": "fccf00d13061bfc15447101a0dc82fc360f9b5d2e28a9da678684e8c93bc9d67",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "className": "Experience",
+      "baseClass": "TokenUpgradeCard",
+      "id": "2007868442",
+      "internalName": "experience",
+      "status": "unsupported",
+      "card": {
+        "title": "Experience",
+        "subtitle": null,
+        "cost": 0,
+        "hp": 1,
+        "power": 1,
+        "text": null,
+        "deployBox": null,
+        "epicAction": null,
+        "unique": false,
+        "rules": null,
+        "upgradePower": 1,
+        "upgradeHp": 1,
+        "id": "2007868442",
+        "aspects": [],
+        "traits": [
+          "learned"
+        ],
+        "keywords": [],
+        "types": [
+          "token",
+          "upgrade"
+        ],
+        "setId": {
+          "set": "SOR"
+        },
+        "internalName": "experience"
+      },
+      "dataHash": "cc1d7a3bf3344d8a95afdbba8607659ec1edd07e5282bb9eb9d3497b0f7f332b",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:token",
+        "cardType:upgrade"
+      ]
+    },
+    "TOKEN_SHIELD": {
+      "setCode": "TOKEN_SHIELD",
+      "sourcePath": "game/cards/01_SOR/tokens/Shield.ts",
+      "sourceHash": "39f1c6699c36ba309a8fe8e053f9b94ddbb8877991767b6664fcd88d447be91f",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "className": "Shield",
+      "baseClass": "TokenUpgradeCard",
+      "id": "8752877738",
+      "internalName": "shield",
+      "status": "unsupported",
+      "card": {
+        "title": "Shield",
+        "subtitle": null,
+        "cost": 0,
+        "hp": 0,
+        "power": 0,
+        "text": "If damage would be dealt to attached unit, prevent that damage. If you do, defeat a Shield token on it.",
+        "deployBox": null,
+        "epicAction": null,
+        "unique": false,
+        "rules": null,
+        "upgradePower": 0,
+        "upgradeHp": 0,
+        "id": "8752877738",
+        "aspects": [],
+        "traits": [
+          "armor"
+        ],
+        "keywords": [],
+        "types": [
+          "token",
+          "upgrade"
+        ],
+        "setId": {
+          "set": "SOR"
+        },
+        "internalName": "shield"
+      },
+      "dataHash": "3fe37b5b4c214e1a6971c2ea5e7729a7cad9bf983a384c20b56c404cbf41208b",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:token",
+        "cardType:upgrade"
+      ]
+    },
+    "TWI_111": {
+      "setCode": "TWI_111",
+      "id": "9176356859",
+      "internalName": "republic-arc170",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Republic ARC-170",
+        "subtitle": "",
+        "cost": 3,
+        "hp": 4,
+        "power": 3,
+        "text": "",
+        "deployBox": null,
+        "epicAction": null,
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9176356859",
+        "aspects": [
+          "command"
+        ],
+        "traits": [
+          "republic",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "TWI",
+          "number": 111
+        },
+        "setCodes": [
+          {
+            "set": "TWI",
+            "number": 111
+          }
+        ],
+        "internalName": "republic-arc170"
+      },
+      "dataHash": "34d23f5fa7d33563ee6e8b68ee57dea3cf06ba099f4ccca30797ba7180b766bf",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    "TWI_253": {
+      "setCode": "TWI_253",
+      "id": "2574847177",
+      "internalName": "headhunter-squadron",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Headhunter Squadron",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 4,
+        "power": 1,
+        "text": "",
+        "deployBox": null,
+        "epicAction": null,
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "2574847177",
+        "aspects": [],
+        "traits": [
+          "republic",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "TWI",
+          "number": 253
+        },
+        "setCodes": [
+          {
+            "set": "TWI",
+            "number": 253
+          }
+        ],
+        "internalName": "headhunter-squadron"
+      },
+      "dataHash": "702cc22f863b2748b89ead0f3cd8fafb758175bc1c677df77816b5a30ca5a81c",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    }
+  },
+  "selected_row_hashes": {
+    "ASH_019": "d6112952fba53ad3ec3dc2d89dbec08e4bbc6e98881fdca2dcdf9614b521677d",
+    "ASH_048": "280194c38ab6e20791ba774a5fb9d2154ee5e8c0d6afc10256b14f8d9dc56b77",
+    "ASH_066": "0b767c65b18aab712d42ce4bdc191f0a5f5a1d1341c46ad008c0543fc296e3c9",
+    "IBH_053": "70d419122ee5435348b92fa6f72557ae529d87a40172765f388d5cfa2fdca02e",
+    "JTL_078": "bf3de4c5a9692eb91964947bfcdbb4202316cae9b2fae929a125635112237585",
+    "JTL_095": "e91e7ebc868d9669f169d41cb7d521a5946f5475c8e4fb3006357b8c12547967",
+    "JTL_158": "6048bcb804e9b7b056d7fc39535da7631d266ee566b2b5219fc06993b9fea7e2",
+    "JTL_217": "e637ccbbb8b087572eeb02de246de29d04fc2da8b3d6b97ba9e2d82e0098188e",
+    "LOF_077": "9ffd6da1bdacf6818f83af475e47a239d6b3fdb004d5e1ee099439edc35c9bf5",
+    "LOF_093": "234e5219057ef5e795f20e4ade5e64dcbc161171cf0217707a07d3d27646e039",
+    "LOF_151": "e7bbfb2ae791c55f4d5d6f87ebedeb9ac1d87fae28cdd725bb6fd5ead07b96e4",
+    "LOF_155": "0de06fef18c4646a30c7d15577ed8f4560e9b0c6438e6c93eda79cf0d7a337a4",
+    "LOF_256": "756983fc88c77692e9909bd317f4f7a5a96f284fa73d90e472b6322d88bcf351",
+    "SEC_163": "51d9a2217d3735d8f04d13bd9797ec7c728dd6d3514568ef93790dd752fc68b9",
+    "SHD_060": "521f17f9f7e9a990e9e5997eb4eef08ed83ca3e9a2cf2ef0773dcb8515f01202",
+    "TOKEN_EXPERIENCE": "ae098c29da8353bd9f20b084ebc3bb02d2f83de139b8409602b75b61a482c731",
+    "TOKEN_SHIELD": "677c6916b4cce150b411c83708dcc1af953204fde4191e3a3039891a91a758be",
+    "TWI_111": "a6de29977904480f4ef0388af3c113795de96cd90ecb954402908a083c9c325d",
+    "TWI_253": "f83b668d2446147bcc340f3d066a3ef8c8a77ff508296f00c440e083363a68bc"
+  },
+  "candidate_order": [
+    "source",
+    "friendly_ground",
+    "enemy_vehicle_cheap",
+    "enemy_vehicle_expensive",
+    "nonunique_upgrade",
+    "unique_upgrade",
+    "own_base",
+    "opponent_base"
+  ],
+  "context_feature_names": [
+    "ready_resources",
+    "source_in_hand",
+    "own_aspect_vigilance",
+    "own_aspect_command",
+    "own_aspect_aggression",
+    "own_aspect_cunning",
+    "own_aspect_heroism",
+    "own_aspect_villainy",
+    "other_friendly_space_count",
+    "other_friendly_fighter_count",
+    "source_power",
+    "source_hp",
+    "source_damage",
+    "source_exhausted",
+    "known_source_power",
+    "known_source_hp",
+    "known_source_damage",
+    "known_source_exhausted"
+  ],
+  "candidate_feature_names": [
+    "owner_self",
+    "owner_opponent",
+    "is_unit",
+    "is_base",
+    "zone_ground",
+    "zone_space",
+    "same_source",
+    "present",
+    "damage",
+    "hp",
+    "remaining_hp",
+    "power",
+    "exhausted",
+    "shield_count",
+    "xp_count",
+    "known_damage",
+    "known_hp",
+    "known_remaining_hp",
+    "known_power",
+    "known_exhausted",
+    "known_shield_count",
+    "known_xp_count",
+    "trait_imperial",
+    "trait_creature",
+    "trait_spectre",
+    "known_traits",
+    "printed_cost",
+    "known_printed_cost",
+    "unique",
+    "known_unique",
+    "is_upgrade",
+    "is_leader",
+    "trait_vehicle",
+    "trait_fighter"
+  ],
+  "source_head_names": [
+    "play_available",
+    "play_committed",
+    "cost_resource",
+    "source_in_arena",
+    "source_in_discard",
+    "source_in_hand_after",
+    "source_damage_delta",
+    "source_shield_delta",
+    "source_exhausted_after"
+  ],
+  "source_binary_heads": [
+    "play_available",
+    "play_committed",
+    "source_in_arena",
+    "source_in_discard",
+    "source_in_hand_after",
+    "source_exhausted_after"
+  ],
+  "target_names": [
+    "target_allowed",
+    "target_removed",
+    "target_damage_delta",
+    "target_exhausted_delta",
+    "target_shield_delta",
+    "target_power_delta",
+    "target_hp_delta"
+  ],
+  "binary_heads": [
+    "target_allowed",
+    "target_removed"
+  ],
+  "source_head_units": {
+    "play_available": "boolean",
+    "play_committed": "boolean",
+    "cost_resource": "resource copies",
+    "source_in_arena": "boolean",
+    "source_in_discard": "boolean",
+    "source_in_hand_after": "boolean",
+    "source_damage_delta": "signed count",
+    "source_shield_delta": "signed count",
+    "source_exhausted_after": "boolean"
+  },
+  "target_units": {
+    "target_allowed": "boolean",
+    "target_removed": "boolean",
+    "target_damage_delta": "signed native stat/count",
+    "target_exhausted_delta": "signed native stat/count",
+    "target_shield_delta": "signed native stat/count",
+    "target_power_delta": "signed native stat/count",
+    "target_hp_delta": "signed native stat/count"
+  },
+  "expected_cases": 32,
+  "candidates_per_case": 8,
+  "max_applies_per_case": 8,
+  "collector_max_engine_applies": 256,
+  "campaign_max_seconds": 90,
+  "max_rss_bytes": 1073741824,
+  "cpu_threads": 1,
+  "optimizer_updates": 0,
+  "paid_jobs": 0,
+  "split": {
+    "train_codes": [
+      "ASH_048",
+      "JTL_095",
+      "SEC_163",
+      "LOF_077",
+      "JTL_078",
+      "JTL_158"
+    ],
+    "heldout_codes": [
+      "LOF_155",
+      "JTL_217"
+    ],
+    "train_state_families": [
+      0,
+      1,
+      2
+    ],
+    "heldout_state_families": [
+      3
+    ],
+    "cells": {
+      "train": 18,
+      "program_held": 6,
+      "state_held": 6,
+      "joint": 2
+    }
+  },
+  "coverage": {
+    "source_cards": 8,
+    "declared_source_copies": 65,
+    "source_deck_indices": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      19,
+      21,
+      22,
+      26
+    ],
+    "all_main_ids": 251,
+    "all_main_copies": 1432,
+    "runtime_admitted_main_ids": 115,
+    "runtime_admitted_main_copies": 635,
+    "qualification": "Only observed paths of selected8 cards, not all115 admitted or all251 main IDs."
+  },
+  "admission_scope": "runtime-admission gameConformance is explicitly not assessed by this report; native collection is a separate observed fixture check.",
+  "action_protocol": "Own hand -> actual offered play -> native entry/event -> sole complete trigger choices -> predeclared target if offered, otherwise actual Cancel if offered -> settled snapshot; at most8 actual applies/root. Never substitute another target. Unrecognized/unsettled/error path preserved with outcome masks0.",
+  "catalogue_scope": "Pin full generated catalogue/admission/shards and preserve complete selected rows plus exact helper/token definitions. Explicit subcatalog selection is recorded and checked by the unchanged runtime; no claim that full-pool admission implies all-state conformance.",
+  "privacy": "Own known hand and public arena/resources/base/leader/aspects only. No opponent hand, deck contents, hidden order, draws or opponent execution.",
+  "feature_scope": "Public before-play source stats/known masks, own aspects, OTHER friendly space/Fighter counts, and each candidate's public stats/printed cost/unique/type/Vehicle/Fighter. Full source metadata+all ordered abilities+keywordValues supplied separately; no raw opaque IDs in primary features.",
+  "action_intent": "selected_candidate_indices is a declared BEFORE-play candidate intent, not an observed offer. It is irrelevant to source availability but may enter a shared source head; post-play source heads require its candidate features because cancellation/commit changes cost and entry. Target membership remains a label only.",
+  "limitations": [
+    "Held LOF155 is a native fixture card holdout but occurs in inherited deck-training lists; JTL217 is inherited held-only.",
+    "Exhaust is wholly held in JTL217: one-card effect-family OOD diagnostic, not repeated held-effect proof.",
+    "Held selector unique is an explicit new predicate-path stress; do not claim every held primitive/path is seen.",
+    "Only two joint roots; no gameplay, strategic or broad semantic qualification.",
+    "ASH048 Shielded is observed on entry; Sentinel metadata preserved, attack-target behavior not tested here.",
+    "JTL158 executable effect is conditional SELF DAMAGE1, despite its display title. JTL217 excludes entering source from other-space count.",
+    "Printed-cost2/3 helpers are actual distinct cards TWI253/TWI111: both Vehicle/Fighter/space/HP4, power1vs3. No printed-cost override or one-field causal claim.",
+    "Full card frontend is complete definition coverage; measured behavior remains limited to play, entry and selected trigger in four synthetic public states."
+  ],
+  "source_pins": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+      "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json",
+      "sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+      "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/manifest.json",
+      "sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/inputs.json",
+      "sha256": "53d572533bd027d2683e363b821bd1f92ba012b8284a82967bb2c5ac73605c13"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/diagnostics.json",
+      "sha256": "e7fcc4e28aa20138e70516866f0b3e0127bce5de1c49063f34a8634acf07f12b"
+    }
+  ]
+}
