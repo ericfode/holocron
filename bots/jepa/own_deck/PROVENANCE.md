@@ -120,3 +120,14 @@ There is no remaining overlap blocker. Current task7 fit receipts and the
 append-only feed show all 300 composition and 400 frozen-probe head updates
 completed before the restart. They were checked from saved artifacts and were
 not restarted. No paid job or deployment had been launched by this batch.
+
+The old owner subsequently resumed a separate file-only loss audit and saved
+commit `0c6b5cc5a88cd6d8ea47ec885cb495dcb690dee5` in task5. Its
+`bots/jepa/research/resumed-research-report.md` records 934 decisions across
+seven losses, without bank exhaustion, and a public sequence where readying an
+enemy Cinta enables its immediate lethal reply. A saving alternative is not
+established. The pinned strict bridge cannot reproduce those full games.
+That authorized later task5 commit explains why its HEAD now differs from the
+earlier preserved snapshot; task7 did not edit that workspace. The original
+four untracked reports and frozen checkpoints remain preserved. This newer
+audit adds no training or games and does not overlap the task7 experiments.

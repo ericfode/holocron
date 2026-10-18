@@ -16,11 +16,21 @@
     "contexts_per_card": 3,
     "max_context_cases": 24,
     "max_engine_applies_total_including_failures": 96,
-    "labels": ["source-use and target masks", "paid costs", "visible state deltas", "subsequent affordances"],
+    "labels": [
+      "source-use and target masks",
+      "paid costs",
+      "visible state deltas",
+      "subsequent affordances",
+      "settled terminal status and final offered-action mask"
+    ],
     "private_information": "No hidden order, opponent hands or future outcomes in current inputs"
   },
   "fit": {
-    "arms": ["correct typed IR", "matched ID-only control", "partition-local wrong IR control"],
+    "arms": [
+      "correct typed IR",
+      "matched ID-only control",
+      "partition-local wrong IR control"
+    ],
     "max_trainable_parameters_per_arm": 32768,
     "seed": 17,
     "max_updates_per_arm": 200,
@@ -55,5 +65,11 @@
     "new_paid_allocation_usd": 0,
     "text_model_comparison": false,
     "note": "Local CPU first. This proposal does not launch a job or create a new spending allowance."
+  },
+  "diagnostic_priority": {
+    "source_commit": "0c6b5cc5a88cd6d8ea47ec885cb495dcb690dee5",
+    "recorded_case": "Readying an enemy Cinta is followed by its immediate lethal attack. No saving alternative is proven.",
+    "next_fixture": "An independently admitted readiness/ownership/terminal microfixture, rather than replay counterfactuals through an unsupported bridge.",
+    "current_gap": "The present typed adapter does not admit Ready effects or full-game reconstruction; extend and verify that subset separately before using the diagnostic as a training fixture."
   }
 }
