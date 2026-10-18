@@ -1,0 +1,328 @@
+{
+  "schema": "jepa-source-style-comparison-plan/1",
+  "status": "frozen-plan-awaiting-root-execution-GO",
+  "execution_performed": false,
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/audit_source_style_labels.py",
+    "sha256": "d1e9ceed4806db908bed2941ae1623869bdd71b63603714e1e275b366f2ba812",
+    "bytes": 23282
+  },
+  "inputs": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/source-style-labels.audit.json",
+      "sha256": "5fe066d1827bfca2b616946ed4404647236e185a690ba0012207d3eacc9e7b50",
+      "bytes": 38479
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json",
+      "sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+      "bytes": 19544
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.human.json",
+      "sha256": "7495da627d8ba43cc09fd97eefbd0bff12738cef590ff229ca85040394fdaeb2",
+      "bytes": 103481
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+      "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+      "bytes": 20662
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz",
+      "sha256": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091",
+      "bytes": 10057
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+      "bytes": 295074
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json",
+      "sha256": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090",
+      "bytes": 4651
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/train-transform.npz",
+      "sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325",
+      "bytes": 150064
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/receipt.json",
+      "sha256": "5cf027d5fcb6928cfe13574e196b7c57f0f0efc0b83d5fe311529a56f713183f",
+      "bytes": 778
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding_geometry_audit.py",
+      "sha256": "a8151c194f254e7d3d7444db24051ef53a5906665286cd54143069964439d12d",
+      "bytes": 24275
+    }
+  ],
+  "protected_checkpoints": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+      "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+    }
+  ],
+  "source_audit": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/source-style-labels.audit.json",
+    "sha256": "5fe066d1827bfca2b616946ed4404647236e185a690ba0012207d3eacc9e7b50",
+    "bytes": 38479
+  },
+  "labels": {
+    "classes": [
+      "hardcontrol",
+      "hyperaggro",
+      "midrange",
+      "softaggro",
+      "softcontrol"
+    ],
+    "source_field": "metadata.style",
+    "rule": "Exact categorical label equality, no assumed ordinal distance, no manual relabeling or title-derived labels",
+    "multi_or_ambiguous": "Preserve source lists/ambiguity if a later separately versioned source explicitly supplies them; do not fabricate here. Current pinned data has one label per row.",
+    "numeric_encoder_inputs": false,
+    "numeric_features": false,
+    "role": "Evaluation truth labels and, for optional frozen linear readout only, TRAIN22 supervised targets"
+  },
+  "split": {
+    "train_indices": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      26
+    ],
+    "validation_indices": [
+      2,
+      3,
+      10,
+      14,
+      25
+    ],
+    "inherited": true,
+    "resplit": false,
+    "train_families": 7,
+    "validation_families": 4,
+    "supported_validation_classes": [
+      "hyperaggro",
+      "midrange",
+      "softaggro"
+    ],
+    "unsupported_validation_classes": [
+      "hardcontrol",
+      "softcontrol"
+    ]
+  },
+  "methods": [
+    "raw_cosine",
+    "train_centered_cosine",
+    "train_shrunk_whitened_cosine",
+    "count_weighted_jaccard",
+    "printed_metadata_profile",
+    "train_majority"
+  ],
+  "transforms": {
+    "dtype": "float64",
+    "zero_norm_epsilon": 1e-12,
+    "fitted_on": "inherited TRAIN22 only",
+    "use_saved_transform": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/train-transform.npz",
+    "transform_sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325",
+    "mean": "TRAIN22 raw z96 arithmetic mean",
+    "white": "Saved alpha0.1 shrinkage: C_reg=0.9*C+0.1*trace(C)/96*I, C unbiased TRAIN22 covariance; (z-mean)@C_reg^(-1/2)",
+    "hyperparameter_search": false,
+    "no_new_neural_forward": true
+  },
+  "independent_baselines": {
+    "canonical_counts": "Declared MAIN canonical counts; weighted Jaccard=sum min / sum max; no leader/base/sideboard. Use all actual canonical identities for distances, not source names/style.",
+    "printed_profile": {
+      "groups": [
+        {
+          "name": "printed_mean_stats_per10",
+          "start": 8,
+          "stop": 11
+        },
+        {
+          "name": "type_and_arena_fractions",
+          "start": 11,
+          "stop": 16
+        },
+        {
+          "name": "printed_cost_curve",
+          "start": 16,
+          "stop": 25
+        },
+        {
+          "name": "keyword_fractions",
+          "start": 25,
+          "stop": 35
+        },
+        {
+          "name": "aspect_fractions",
+          "start": 35,
+          "stop": 41
+        }
+      ],
+      "distance": "Equal mean of five within-group mean absolute differences, similarity=-distance. Original known metadata row only; excludes status, ID hashes, hashed traits and source labels."
+    },
+    "train_majority": "Most frequent TRAIN22 style; ties lexicographic class order. No held prevalence used."
+  },
+  "nearest_neighbors": {
+    "primary": "Five inherited validation queries against TRAIN22, k=1 and3 fixed; no self/family leakage across inherited split",
+    "secondary": "Optional all27 leave-one-self-out and train22 leave-one-family-out results, explicitly descriptive; no parameter selection or primary pooling",
+    "label_agreement": "For each query/k, fraction of selected neighbor labels equal to query source style; report every query and aggregate by row, held family and supported class",
+    "ties": "Sort by descending score then ascending source_index for stable displayed neighbors/prediction. Also report whole equal-score tie sets using absolute tolerance1e-12 and fractional boundary-tie agreement; never silently resolve a tie as evidence.",
+    "prediction": "Top1 deterministic neighbor source style; top3 class vote with equal weights, ties lexicographic frozen classes; expose tied votes",
+    "nulls": "Zero-norm/unavailable scores are null with explicit excluded denominators, not zero similarities"
+  },
+  "optional_ridge": {
+    "enabled_in_frozen_plan": true,
+    "algorithm": "Closed-form multi-output ridge regression on one-hot TRAIN22 labels; alpha=1.0 fixed, intercept unpenalized, no optimizer",
+    "features": [
+      "raw z96",
+      "train-centered z96",
+      "saved train-shrunk-whitened z96",
+      "TRAIN22 canonical main-count vocabulary/60 plus one unseen-card-copy-count/60 channel",
+      "33 printed-profile coordinates across the fixed five groups"
+    ],
+    "normalization": "Each coordinate standardized with TRAIN22 mean and population standard deviation only; zero TRAIN variance mapped to0 for all rows, explicitly counted. No normalization fit on validation.",
+    "solver": "float64: center standardized X and one-hot Y using TRAIN22; W=X_train.T @ solve(X_train@X_train.T + I22, Y_train-Y_train_mean). Predict X@W + Y_train_mean; argmax frozen class order. Objective sum squared errors + 1.0*||W||².",
+    "counts_vocabulary": "Sorted TRAIN22 canonical IDs only. Validation-only IDs enter an explicit unseen-copy channel; no label/name-derived features.",
+    "interpretation": "Raw and centered z96 become equivalent under train standardization up to numerical error; not independent supporting results. Linear scores are not calibrated class probabilities.",
+    "no_hyperparameter_search": true,
+    "early_stopping": false
+  },
+  "reporting": {
+    "primary_accuracy": "Correct held predictions /5; predictions may be any of all five classes, not restricted to three held classes",
+    "confusion": "Full frozen five-class 5x5 count matrix, all supports printed; truth rows with zero support have count0 but recall/F1/accuracy fields null, never scored as0",
+    "macro": "Macro recall/F1 over the THREE supported held classes only; all-five-class macro=null/unsupported. Also print row and four-family macro accuracy; no independence claim.",
+    "per_query": "Source index, family, source style, prediction, neighbors/scores/ties, support and error; preserve uncertainty and prior-review exposure flags",
+    "no_inference": "No p values, significance, confidence intervals, strategy/strength/behavioral-truth claim, majority-vote reviewer truth, or selection of best transform after results"
+  },
+  "prior_exposure": {
+    "old_vectors_previously_inspected": true,
+    "inherited_validation_is_pristine": false,
+    "reviewed_held_sources": [
+      2,
+      3
+    ],
+    "new_ir_assay_unreviewed_background_sources": [
+      10,
+      14,
+      25
+    ],
+    "note": "This is a new weak-label question on an already inspected frozen representation. It is separate from score-blind synthetic IR controls and does not make their AST proxy semantic truth."
+  },
+  "support": {
+    "all": {
+      "rows": 27,
+      "families": 11,
+      "styles": {
+        "hardcontrol": {
+          "rows": 4,
+          "families": 2
+        },
+        "hyperaggro": {
+          "rows": 4,
+          "families": 4
+        },
+        "midrange": {
+          "rows": 7,
+          "families": 6
+        },
+        "softaggro": {
+          "rows": 5,
+          "families": 3
+        },
+        "softcontrol": {
+          "rows": 7,
+          "families": 4
+        }
+      }
+    },
+    "train": {
+      "rows": 22,
+      "families": 7,
+      "styles": {
+        "hardcontrol": {
+          "rows": 4,
+          "families": 2
+        },
+        "hyperaggro": {
+          "rows": 2,
+          "families": 2
+        },
+        "midrange": {
+          "rows": 6,
+          "families": 5
+        },
+        "softaggro": {
+          "rows": 3,
+          "families": 1
+        },
+        "softcontrol": {
+          "rows": 7,
+          "families": 4
+        }
+      }
+    },
+    "validation": {
+      "rows": 5,
+      "families": 4,
+      "styles": {
+        "hardcontrol": {
+          "rows": 0,
+          "families": 0
+        },
+        "hyperaggro": {
+          "rows": 2,
+          "families": 2
+        },
+        "midrange": {
+          "rows": 1,
+          "families": 1
+        },
+        "softaggro": {
+          "rows": 2,
+          "families": 2
+        },
+        "softcontrol": {
+          "rows": 0,
+          "families": 0
+        }
+      }
+    }
+  },
+  "limits": {
+    "total_preparation_plus_execution_wall_seconds": 20,
+    "cpu_seconds": 20,
+    "sampled_rss_bytes": 536870912,
+    "compute_threads": 1,
+    "neural_forwards": 0,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "paid_jobs": 0
+  },
+  "execution_rule": "Root must approve this exact plan before any metrics/closed-form fitting. Freeze runner source and guard/report all attempts; check source/transform/checkpoint hashes before and after. Do not modify old vectors, transforms, checkpoints, imported decks or existing control files."
+}
