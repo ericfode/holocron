@@ -1,0 +1,4272 @@
+{
+  "authored_files": [
+    {
+      "bytes": 906,
+      "path": "README.md",
+      "sha256": "8b7e6c991f4a1ef7602b5a1aca0128509b335468fe86a1fbb07e345501d2faef"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 26536,
+      "content_bytes": 123958,
+      "content_sha256": "6c1bde1ea5274547279f510200438a5b0d18c73e8275b1cfe00b45b453f2f3f5",
+      "encoding": "gzip",
+      "path": "native-v2/campaign-config.json.gz",
+      "role": "original-config",
+      "sha256": "2f0cf87cae9c6dc5b2ca176757c9a9d5c2ff032209ff65b4e7de23be29779fe0",
+      "source": {
+        "bytes": 123958,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/campaign-config.json",
+        "sha256": "6c1bde1ea5274547279f510200438a5b0d18c73e8275b1cfe00b45b453f2f3f5"
+      }
+    },
+    {
+      "bytes": 62299,
+      "content_bytes": 258090,
+      "content_sha256": "37d623f5f7a9675e49e8ebd74892244c3b9341e9391a387ae7383fe5449467c5",
+      "encoding": "gzip",
+      "path": "native-v2/campaign-ledger.jsonl.gz",
+      "role": "original-ledger",
+      "sha256": "839698e44580b95d8c4ea5de0ff17c0ba06d0ef5c4d92a945f826349092a22d8",
+      "source": {
+        "bytes": 258090,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/campaign-ledger.jsonl",
+        "sha256": "37d623f5f7a9675e49e8ebd74892244c3b9341e9391a387ae7383fe5449467c5"
+      }
+    },
+    {
+      "bytes": 928,
+      "content_bytes": 2085,
+      "content_sha256": "54c1e00aba765c624590249a2e843c892f72c0945a974f844a9ea57616866e23",
+      "encoding": "gzip",
+      "path": "native-v2/prep-1-stage-receipt.json.gz",
+      "role": "failed-prep-receipt",
+      "sha256": "c02558eb46aa3cdb83b63a830d4ccbaf11001db2db973284fa94aeb50bc04235",
+      "source": {
+        "bytes": 2085,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/prep-1-stage-receipt.json",
+        "sha256": "54c1e00aba765c624590249a2e843c892f72c0945a974f844a9ea57616866e23"
+      }
+    },
+    {
+      "bytes": 133059,
+      "content_bytes": 3869468,
+      "content_sha256": "3b7c030a6ab8b737bceef44ed7951fd97d133a425c6633c26f7ff6c70e6139f6",
+      "encoding": "gzip",
+      "path": "native-v2/native-attempt-1/native-receipt.json.gz",
+      "role": "native-receipt",
+      "sha256": "e91cc935bb38025afb3ad68aaadf91f1a7e2db0c58a00d4f85058d352698fd34",
+      "source": {
+        "bytes": 3869468,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-attempt-1/native-receipt.json",
+        "sha256": "3b7c030a6ab8b737bceef44ed7951fd97d133a425c6633c26f7ff6c70e6139f6"
+      }
+    },
+    {
+      "bytes": 38066,
+      "content_bytes": 2425246,
+      "content_sha256": "8819c0eea42c932db83a4540ce5bd4e38c0af0a6d01922d709b782ed9c3b0986",
+      "encoding": "gzip",
+      "path": "native-v2/native-attempt-1/native-transitions.jsonl.gz",
+      "role": "native-journal",
+      "sha256": "0ed2f30c2971d42609f1f8a2f704339b9de87b24eb8fc9a34132d2e18753964d",
+      "source": {
+        "bytes": 2425246,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-attempt-1/native-transitions.jsonl",
+        "sha256": "8819c0eea42c932db83a4540ce5bd4e38c0af0a6d01922d709b782ed9c3b0986"
+      }
+    },
+    {
+      "bytes": 14752,
+      "content_bytes": 107878,
+      "content_sha256": "0187415c122ba3353938c909f14b800198d65a41a56dcbb1d52197f4fe0bc52f",
+      "encoding": "gzip",
+      "path": "native-v2/native-plan.json.gz",
+      "role": "native-plan",
+      "sha256": "4098f78b2db40e57a25be259a815a6dd6cfc622fc38e7eb029fa540c1731498e",
+      "source": {
+        "bytes": 107878,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-plan.json",
+        "sha256": "0187415c122ba3353938c909f14b800198d65a41a56dcbb1d52197f4fe0bc52f"
+      }
+    },
+    {
+      "bytes": 17919,
+      "content_bytes": 90676,
+      "content_sha256": "c1a9e45742e1cf5d86d833fd3788943e8fc1fe96282a2e22b3d6d786fef0486e",
+      "encoding": "gzip",
+      "path": "repair/campaign-config.json.gz",
+      "role": "repair-config",
+      "sha256": "bb08f3b12b57b608473a46210836b7c362f0d2972f064af0c0d17393d67f345b",
+      "source": {
+        "bytes": 90676,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/campaign-config.json",
+        "sha256": "c1a9e45742e1cf5d86d833fd3788943e8fc1fe96282a2e22b3d6d786fef0486e"
+      }
+    },
+    {
+      "bytes": 21125,
+      "content_bytes": 98140,
+      "content_sha256": "38b24eddd4b43871091494fe4d6a442eadff3091e10cb9ed816ab3e603b1845d",
+      "encoding": "gzip",
+      "path": "repair/campaign-ledger.jsonl.gz",
+      "role": "repair-ledger",
+      "sha256": "22b8c8632906d160cb63d178c6631b407e7c9058fd10c0d46059e5756347b40e",
+      "source": {
+        "bytes": 98140,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/campaign-ledger.jsonl",
+        "sha256": "38b24eddd4b43871091494fe4d6a442eadff3091e10cb9ed816ab3e603b1845d"
+      }
+    },
+    {
+      "bytes": 1543,
+      "content_bytes": 4500,
+      "content_sha256": "c2a2b6fd4dc84705d5c6919ee2cdd92e59a44814cc8858a7df573ccdac1d5840",
+      "encoding": "gzip",
+      "path": "repair/repair-routing-v1.json.gz",
+      "role": "routing",
+      "sha256": "f43ba36f7f7f71c0b7156d7059c1ac378974ec6fadd798dac1d0dc0b33102e7a",
+      "source": {
+        "bytes": 4500,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/repair-routing-v1.json",
+        "sha256": "c2a2b6fd4dc84705d5c6919ee2cdd92e59a44814cc8858a7df573ccdac1d5840"
+      }
+    },
+    {
+      "bytes": 4759,
+      "content_bytes": 25770,
+      "content_sha256": "b674ff7a2eab3550e2dc138cf49b72ad9b0673724553e8914dc5494a46f668d2",
+      "encoding": "gzip",
+      "path": "native-v2/learner-prepared-v1.json.gz",
+      "role": "prepared",
+      "sha256": "6405df1ec932adb95433ba085754ad604943f01af849146cd56b517515b5b35c",
+      "source": {
+        "bytes": 25770,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/learner-prepared-v1.json",
+        "sha256": "b674ff7a2eab3550e2dc138cf49b72ad9b0673724553e8914dc5494a46f668d2"
+      }
+    },
+    {
+      "bytes": 10223,
+      "content_bytes": 43581,
+      "content_sha256": "144d6c5cc4e75396d0cd8a9827bad1ca6f1511481e12bb4ee2b887c8e6b40830",
+      "encoding": "gzip",
+      "path": "native-v2/native-source-manifest.json.gz",
+      "role": "source-plan",
+      "sha256": "e4216cbee98871d9e7bc34da56e16c05ece4ad62f96bb3c6920de61395237463",
+      "source": {
+        "bytes": 43581,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-source-manifest.json",
+        "sha256": "144d6c5cc4e75396d0cd8a9827bad1ca6f1511481e12bb4ee2b887c8e6b40830"
+      }
+    },
+    {
+      "bytes": 1249,
+      "content_bytes": 2969,
+      "content_sha256": "3f3c7d903c864db02f26ee3166ce2fff112e3a9c856e29c9a1e3912d05c513be",
+      "encoding": "gzip",
+      "path": "repair/evidence-source-freezes-v1.json.gz",
+      "role": "source-freeze",
+      "sha256": "5cf9365c2d341f345cc1b12005e0cffdc40d0cc1cfc176579a36b991b3ff9fd1",
+      "source": {
+        "bytes": 2969,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/evidence-source-freezes-v1.json",
+        "sha256": "3f3c7d903c864db02f26ee3166ce2fff112e3a9c856e29c9a1e3912d05c513be"
+      }
+    },
+    {
+      "bytes": 6207,
+      "content_bytes": 6207,
+      "content_sha256": "9df7e7a6ba49bee813acab9a689178074b785876e28829e0c827470a0b4c22d9",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "context_features.npy",
+          "candidate_features.npy",
+          "source_targets.npy",
+          "source_mask.npy",
+          "targets.npy",
+          "target_mask.npy",
+          "chosen_only_target_mask.npy",
+          "selected_candidate_indices.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "world_ids.npy",
+          "partition.npy",
+          "observation_modes.npy",
+          "train_idx.npy",
+          "family_held_idx.npy",
+          "state_held_idx.npy",
+          "joint_idx.npy",
+          "projected_context_features.npy",
+          "projected_candidate_features.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 95512
+      },
+      "path": "repair/prep-1/dataset.npz",
+      "role": "dataset",
+      "sha256": "9df7e7a6ba49bee813acab9a689178074b785876e28829e0c827470a0b4c22d9",
+      "source": {
+        "bytes": 6207,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/prep-1/dataset.npz",
+        "sha256": "9df7e7a6ba49bee813acab9a689178074b785876e28829e0c827470a0b4c22d9"
+      }
+    },
+    {
+      "bytes": 46903,
+      "content_bytes": 500060,
+      "content_sha256": "8ddfb62686e472b5cc29a88ca9ae124c6bf4b7487e51c6f44660d37275cb702b",
+      "encoding": "gzip",
+      "path": "repair/prep-1/dataset.manifest.json.gz",
+      "role": "dataset-manifest",
+      "sha256": "268e7e304253a9b955b40d4f44abe71030a907f4f3c30d843c28d3019d3dfca8",
+      "source": {
+        "bytes": 500060,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/prep-1/dataset.manifest.json",
+        "sha256": "8ddfb62686e472b5cc29a88ca9ae124c6bf4b7487e51c6f44660d37275cb702b"
+      }
+    },
+    {
+      "bytes": 25478,
+      "content_bytes": 182849,
+      "content_sha256": "563d8856e941915885b697b1d127e5899d78922fd2f57a4efd662ac8e1cf3d7d",
+      "encoding": "gzip",
+      "path": "repair/prep-1/sealed-fit-plan.json.gz",
+      "role": "sealed-plan",
+      "sha256": "eb8be8098b489302eae1b2139bac2d8e5b54912d1ecfa9e358315b6baa3c1913",
+      "source": {
+        "bytes": 182849,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/prep-1/sealed-fit-plan.json",
+        "sha256": "563d8856e941915885b697b1d127e5899d78922fd2f57a4efd662ac8e1cf3d7d"
+      }
+    },
+    {
+      "bytes": 2358,
+      "content_bytes": 25375,
+      "content_sha256": "62555193caaa16ad913fc3edf78115ad4e86e1a376fe4478b7f8b20dcad5ccf1",
+      "encoding": "gzip",
+      "path": "repair/prep-1-stage-receipt.json.gz",
+      "role": "prep-receipt",
+      "sha256": "43a0f3ae723fb8498e53bc2621eff0e2d8afa7c86268b1a6fa1c4c1c6b0c6be7",
+      "source": {
+        "bytes": 25375,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/prep-1-stage-receipt.json",
+        "sha256": "62555193caaa16ad913fc3edf78115ad4e86e1a376fe4478b7f8b20dcad5ccf1"
+      }
+    },
+    {
+      "bytes": 216226,
+      "content_bytes": 2104400,
+      "content_sha256": "30bfc09de6c58acbe39931c92a10c17737c23b5ea0ba409c8b2f441fbd986f2a",
+      "encoding": "gzip",
+      "path": "repair/fit-progress.jsonl.gz",
+      "role": "fit-progress",
+      "sha256": "0717233ce9b70d6ed589fd347312be5a59c957a3649d0fbbb5b28acb404b0361",
+      "source": {
+        "bytes": 2104400,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-progress.jsonl",
+        "sha256": "30bfc09de6c58acbe39931c92a10c17737c23b5ea0ba409c8b2f441fbd986f2a"
+      }
+    },
+    {
+      "bytes": 3688,
+      "content_bytes": 17168,
+      "content_sha256": "c2328584730b1e8561753cc6a43e49130cef07dd764f78e130ff8e672e579513",
+      "encoding": "gzip",
+      "path": "repair/fit-1-stage-receipt.json.gz",
+      "role": "fit-receipt",
+      "sha256": "6d34c1adcf93e6683feb6857d9148db9497230d73f690031c39bbdcf24b1386b",
+      "source": {
+        "bytes": 17168,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1-stage-receipt.json",
+        "sha256": "c2328584730b1e8561753cc6a43e49130cef07dd764f78e130ff8e672e579513"
+      }
+    },
+    {
+      "bytes": 524,
+      "content_bytes": 7487,
+      "content_sha256": "bfe2fa74b7bce32efbb165a879789135d87ac4dea61fc31f598431ad02ea119e",
+      "encoding": "gzip",
+      "path": "report-recovery/baseline-progress.jsonl.gz",
+      "role": "baseline-progress",
+      "sha256": "98d39fcdbf14118cb6791e656cdae3ab6c8dcf03c4635a7c1e4b33ac368ed16c",
+      "source": {
+        "bytes": 7487,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baseline-progress.jsonl",
+        "sha256": "bfe2fa74b7bce32efbb165a879789135d87ac4dea61fc31f598431ad02ea119e"
+      }
+    },
+    {
+      "bytes": 870,
+      "content_bytes": 2494,
+      "content_sha256": "3d2dac626d5acd4a715fd97cf273c58e72e6c8301af70c6e8b2b72322680ac75",
+      "encoding": "gzip",
+      "path": "report-recovery/baselines-1-stage-receipt.json.gz",
+      "role": "baseline-receipt",
+      "sha256": "21c2e34f880733b3297a78601328379228cbc75e5809a00b9476af6642cadcc4",
+      "source": {
+        "bytes": 2494,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1-stage-receipt.json",
+        "sha256": "3d2dac626d5acd4a715fd97cf273c58e72e6c8301af70c6e8b2b72322680ac75"
+      }
+    },
+    {
+      "bytes": 210572,
+      "content_bytes": 3860185,
+      "content_sha256": "071c8325a7486e6863b2fd2591ae81b27cc21207f5233a23eff1354689464dae",
+      "encoding": "gzip",
+      "path": "report-recovery/verify-result.json.gz",
+      "role": "verification",
+      "sha256": "ee3a76c61b5b5d2c994b7a274924cb648bb8d02d193517c209123771746be6d4",
+      "source": {
+        "bytes": 3860185,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/verify-result.json",
+        "sha256": "071c8325a7486e6863b2fd2591ae81b27cc21207f5233a23eff1354689464dae"
+      }
+    },
+    {
+      "bytes": 708,
+      "content_bytes": 1289,
+      "content_sha256": "8aa55dd0319d89a6a3db2c88682380d3948e4ac7d0e968d90ae5444403994650",
+      "encoding": "gzip",
+      "path": "report-recovery/verification-receipt.json.gz",
+      "role": "verification-receipt",
+      "sha256": "c0d5b8b4f12a9cd8a58d7c4b8c76b11a189368b69eb18f1400b47c5db1562200",
+      "source": {
+        "bytes": 1289,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/verification-receipt.json",
+        "sha256": "8aa55dd0319d89a6a3db2c88682380d3948e4ac7d0e968d90ae5444403994650"
+      }
+    },
+    {
+      "bytes": 6906,
+      "content_bytes": 6906,
+      "content_sha256": "f1a51fd7d21a3480064bbcd725dbf67a2f0bd45c118196fdfbb568ba1225704f",
+      "encoding": "identity",
+      "path": "source/BINDING_TRANSFER_V2_RESULTS.md",
+      "role": "report",
+      "sha256": "f1a51fd7d21a3480064bbcd725dbf67a2f0bd45c118196fdfbb568ba1225704f",
+      "source": {
+        "bytes": 6906,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_V2_RESULTS.md",
+        "sha256": "f1a51fd7d21a3480064bbcd725dbf67a2f0bd45c118196fdfbb568ba1225704f"
+      }
+    },
+    {
+      "bytes": 7870,
+      "content_bytes": 7870,
+      "content_sha256": "e07973c029cfcb8ea0317376fb4fb84f964880dbab497460a85b3eca106a7d30",
+      "encoding": "identity",
+      "path": "source/MODAL_BUDGET.md",
+      "role": "spend-document",
+      "sha256": "e07973c029cfcb8ea0317376fb4fb84f964880dbab497460a85b3eca106a7d30",
+      "source": {
+        "bytes": 7870,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/MODAL_BUDGET.md",
+        "sha256": "e07973c029cfcb8ea0317376fb4fb84f964880dbab497460a85b3eca106a7d30"
+      }
+    },
+    {
+      "bytes": 3165,
+      "content_bytes": 10449,
+      "content_sha256": "07de097cff445767df465b3b38319aaf99992c35ef16d15d4b4d068264e9a86e",
+      "encoding": "gzip",
+      "path": "report-recovery/experiment-closure.json.gz",
+      "role": "final-pins",
+      "sha256": "af83fe8b462bc3f908f72a28b492073bd67944888c0266164c3ba373c31e03c2",
+      "source": {
+        "bytes": 10449,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/experiment-closure.json",
+        "sha256": "07de097cff445767df465b3b38319aaf99992c35ef16d15d4b4d068264e9a86e"
+      }
+    },
+    {
+      "bytes": 23548,
+      "content_bytes": 127121,
+      "content_sha256": "fc72561d9031e756f6441fda75412ac7e19303f586b6c17c6a5a9518331a4012",
+      "encoding": "gzip",
+      "path": "report-recovery/campaign-config.json.gz",
+      "role": "recovery-config",
+      "sha256": "8cfaeda890dc68690a93c730c2ba7cc47283f3c3db4d1c615cb3e3e01015478e",
+      "source": {
+        "bytes": 127121,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/campaign-config.json",
+        "sha256": "fc72561d9031e756f6441fda75412ac7e19303f586b6c17c6a5a9518331a4012"
+      }
+    },
+    {
+      "bytes": 27764,
+      "content_bytes": 136762,
+      "content_sha256": "b0555b104dfc5301a26d0f84c1fd7264581830b4704226a14fcc857959087d2b",
+      "encoding": "gzip",
+      "path": "report-recovery/campaign-ledger.jsonl.gz",
+      "role": "recovery-ledger",
+      "sha256": "4c0aaf48f48184c5320619f0bf10b8f81b12ebf0d063c271b2224c31c8eb815a",
+      "source": {
+        "bytes": 136762,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/campaign-ledger.jsonl",
+        "sha256": "b0555b104dfc5301a26d0f84c1fd7264581830b4704226a14fcc857959087d2b"
+      }
+    },
+    {
+      "bytes": 501,
+      "content_bytes": 1080,
+      "content_sha256": "efa441506434c38fc6bda24f8e041b2fb0851627533d56fbb3a05aae469d897e",
+      "encoding": "gzip",
+      "path": "report-recovery/campaign-config-assembly-receipt.json.gz",
+      "role": "recovery-assembly-receipt",
+      "sha256": "e6451c8d764f9e0c71010fb71fbcd9f705fa12ecdfaf9c6b56ec0dbc28c1ed50",
+      "source": {
+        "bytes": 1080,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/campaign-config-assembly-receipt.json",
+        "sha256": "efa441506434c38fc6bda24f8e041b2fb0851627533d56fbb3a05aae469d897e"
+      }
+    },
+    {
+      "bytes": 3368,
+      "content_bytes": 16963,
+      "content_sha256": "ccdd667b40b0f34f34e656ceefdeaccab0800ddfd73bf4fd8893e5fcaeac9776",
+      "encoding": "gzip",
+      "path": "report-recovery/recover-1/source-inventory.json.gz",
+      "role": "recovery-source-inventory",
+      "sha256": "978ecd57ba39262bad339a5013658795d3ab95d3a909dcd92a7681fb58c0eb5f",
+      "source": {
+        "bytes": 16963,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/recover-1/source-inventory.json",
+        "sha256": "ccdd667b40b0f34f34e656ceefdeaccab0800ddfd73bf4fd8893e5fcaeac9776"
+      }
+    },
+    {
+      "bytes": 1196003,
+      "content_bytes": 29887281,
+      "content_sha256": "c215c7bc6870c4f919619b5d466d74c961afd2e7fab47694b91813e49cf09fd8",
+      "encoding": "gzip",
+      "path": "report-recovery/recover-1/result.json.gz",
+      "role": "recovered-result",
+      "sha256": "b10aff7b2db9e0ff4b4f9b4dea32fb5e8fbbf6f66fa0f6492ddea4b0e3f8690f",
+      "source": {
+        "bytes": 29887281,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/recover-1/result.json",
+        "sha256": "c215c7bc6870c4f919619b5d466d74c961afd2e7fab47694b91813e49cf09fd8"
+      }
+    },
+    {
+      "bytes": 825,
+      "content_bytes": 1875,
+      "content_sha256": "7f558799c74e6563f2e571c50b76643de7ebbe047be222fcc2602e1780068134",
+      "encoding": "gzip",
+      "path": "report-recovery/recover-1-stage-receipt.json.gz",
+      "role": "restoration-receipt",
+      "sha256": "76dc0a2baed3cd2234b51c1427b8dec3f7b7c0cb38ac036e853c63321210acba",
+      "source": {
+        "bytes": 1875,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/recover-1-stage-receipt.json",
+        "sha256": "7f558799c74e6563f2e571c50b76643de7ebbe047be222fcc2602e1780068134"
+      }
+    },
+    {
+      "bytes": 8575,
+      "content_bytes": 8575,
+      "content_sha256": "d68a1c57fb7508c7d9057805882e7e5bf16a6fee46d40f247c84b1a0b9e81a3f",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "x_C0R0.npy",
+          "c_C0R0.npy",
+          "x_C1R0.npy",
+          "c_C1R0.npy",
+          "x_C0R1.npy",
+          "c_C0R1.npy",
+          "x_C1R1.npy",
+          "c_C1R1.npy",
+          "x_ID-only.npy",
+          "c_ID-only.npy",
+          "x_untrained-typed.npy",
+          "c_untrained-typed.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 236160
+      },
+      "path": "repair/fit-1/consumed-inputs.npz",
+      "role": "fit",
+      "sha256": "d68a1c57fb7508c7d9057805882e7e5bf16a6fee46d40f247c84b1a0b9e81a3f",
+      "source": {
+        "bytes": 8575,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/consumed-inputs.npz",
+        "sha256": "d68a1c57fb7508c7d9057805882e7e5bf16a6fee46d40f247c84b1a0b9e81a3f"
+      }
+    },
+    {
+      "bytes": 2520,
+      "content_bytes": 14668,
+      "content_sha256": "ce59683f2410001f2d2c672d98fddc39cf531a95bf2afc4913feb27d40051ef5",
+      "encoding": "gzip",
+      "path": "repair/fit-1/contract.json.gz",
+      "role": "fit",
+      "sha256": "8989348720c31ad0028d577eb8752cf0c6f3cc29f674738155b151fb8a31b03d",
+      "source": {
+        "bytes": 14668,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/contract.json",
+        "sha256": "ce59683f2410001f2d2c672d98fddc39cf531a95bf2afc4913feb27d40051ef5"
+      }
+    },
+    {
+      "bytes": 12197,
+      "content_bytes": 12197,
+      "content_sha256": "8c1a4971957f9f8ec7650695fb979e86bdeea0cf1675395514628f008b514b02",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "full_path_ids.npy",
+          "full_path_lengths.npy",
+          "full_type_ids.npy",
+          "full_value_ids.npy",
+          "full_numeric.npy",
+          "full_token_mask.npy",
+          "full_slot_mask.npy",
+          "full_identity_indices.npy",
+          "restricted_path_ids.npy",
+          "restricted_path_lengths.npy",
+          "restricted_type_ids.npy",
+          "restricted_value_ids.npy",
+          "restricted_numeric.npy",
+          "restricted_token_mask.npy",
+          "restricted_slot_mask.npy",
+          "restricted_identity_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 2095272
+      },
+      "path": "repair/fit-1/program-inputs.npz",
+      "role": "fit",
+      "sha256": "8c1a4971957f9f8ec7650695fb979e86bdeea0cf1675395514628f008b514b02",
+      "source": {
+        "bytes": 12197,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/program-inputs.npz",
+        "sha256": "8c1a4971957f9f8ec7650695fb979e86bdeea0cf1675395514628f008b514b02"
+      }
+    },
+    {
+      "bytes": 3688,
+      "content_bytes": 17168,
+      "content_sha256": "c2328584730b1e8561753cc6a43e49130cef07dd764f78e130ff8e672e579513",
+      "encoding": "gzip",
+      "path": "repair/fit-1/receipt.json.gz",
+      "role": "fit",
+      "sha256": "6d34c1adcf93e6683feb6857d9148db9497230d73f690031c39bbdcf24b1386b",
+      "source": {
+        "bytes": 17168,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/receipt.json",
+        "sha256": "c2328584730b1e8561753cc6a43e49130cef07dd764f78e130ff8e672e579513"
+      }
+    },
+    {
+      "bytes": 49676,
+      "content_bytes": 49676,
+      "content_sha256": "c37fbbacb7f6b80fa6ad8f4fd09b9970f925c86807b42b85e7a768c705a3152f",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s17-C0R0-checkpoint.npz",
+      "role": "fit",
+      "sha256": "c37fbbacb7f6b80fa6ad8f4fd09b9970f925c86807b42b85e7a768c705a3152f",
+      "source": {
+        "bytes": 49676,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C0R0-checkpoint.npz",
+        "sha256": "c37fbbacb7f6b80fa6ad8f4fd09b9970f925c86807b42b85e7a768c705a3152f"
+      }
+    },
+    {
+      "bytes": 3554,
+      "content_bytes": 3554,
+      "content_sha256": "bb789c7f04d8ce211ddfce1aef017affa9a8d5361df24828b8d600fadcb2b59e",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C0R0-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "bb789c7f04d8ce211ddfce1aef017affa9a8d5361df24828b8d600fadcb2b59e",
+      "source": {
+        "bytes": 3554,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C0R0-step0-predictions.npz",
+        "sha256": "bb789c7f04d8ce211ddfce1aef017affa9a8d5361df24828b8d600fadcb2b59e"
+      }
+    },
+    {
+      "bytes": 3597,
+      "content_bytes": 3597,
+      "content_sha256": "4d2915d2a5e5824a94224e6472d3b2a1f5ee03b819a42166503ccf3b0efc5fb7",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C0R0-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "4d2915d2a5e5824a94224e6472d3b2a1f5ee03b819a42166503ccf3b0efc5fb7",
+      "source": {
+        "bytes": 3597,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C0R0-step300-predictions.npz",
+        "sha256": "4d2915d2a5e5824a94224e6472d3b2a1f5ee03b819a42166503ccf3b0efc5fb7"
+      }
+    },
+    {
+      "bytes": 49684,
+      "content_bytes": 49684,
+      "content_sha256": "a450fbb57da14661876fd726713b077f10c35afcbb0e53cd3845e037008837e6",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s17-C0R1-checkpoint.npz",
+      "role": "fit",
+      "sha256": "a450fbb57da14661876fd726713b077f10c35afcbb0e53cd3845e037008837e6",
+      "source": {
+        "bytes": 49684,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C0R1-checkpoint.npz",
+        "sha256": "a450fbb57da14661876fd726713b077f10c35afcbb0e53cd3845e037008837e6"
+      }
+    },
+    {
+      "bytes": 3793,
+      "content_bytes": 3793,
+      "content_sha256": "cb6922a752101cf06ef42e7d13f6da106ad179ef6739285678af7e938b194ea5",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C0R1-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "cb6922a752101cf06ef42e7d13f6da106ad179ef6739285678af7e938b194ea5",
+      "source": {
+        "bytes": 3793,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C0R1-step0-predictions.npz",
+        "sha256": "cb6922a752101cf06ef42e7d13f6da106ad179ef6739285678af7e938b194ea5"
+      }
+    },
+    {
+      "bytes": 3851,
+      "content_bytes": 3851,
+      "content_sha256": "47632f3dcf0b9e8bcd67f3f1ff4249cfcea8cbc2580f40ee6a1b588366460b61",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C0R1-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "47632f3dcf0b9e8bcd67f3f1ff4249cfcea8cbc2580f40ee6a1b588366460b61",
+      "source": {
+        "bytes": 3851,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C0R1-step300-predictions.npz",
+        "sha256": "47632f3dcf0b9e8bcd67f3f1ff4249cfcea8cbc2580f40ee6a1b588366460b61"
+      }
+    },
+    {
+      "bytes": 49696,
+      "content_bytes": 49696,
+      "content_sha256": "115879029be35b54dbaa90882fab71bb910412fa1b595044886d3925f85c9f27",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s17-C1R0-checkpoint.npz",
+      "role": "fit",
+      "sha256": "115879029be35b54dbaa90882fab71bb910412fa1b595044886d3925f85c9f27",
+      "source": {
+        "bytes": 49696,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C1R0-checkpoint.npz",
+        "sha256": "115879029be35b54dbaa90882fab71bb910412fa1b595044886d3925f85c9f27"
+      }
+    },
+    {
+      "bytes": 4352,
+      "content_bytes": 4352,
+      "content_sha256": "6cd5b5e9e21f21d6d11491c430bd1c7142a6228f44f4c4b64b842465de394f3d",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C1R0-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "6cd5b5e9e21f21d6d11491c430bd1c7142a6228f44f4c4b64b842465de394f3d",
+      "source": {
+        "bytes": 4352,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C1R0-step0-predictions.npz",
+        "sha256": "6cd5b5e9e21f21d6d11491c430bd1c7142a6228f44f4c4b64b842465de394f3d"
+      }
+    },
+    {
+      "bytes": 4409,
+      "content_bytes": 4409,
+      "content_sha256": "94a24e415c9ec60a9fb1f112a02263e4bf7ab071a37623b3017084fa7f26769a",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C1R0-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "94a24e415c9ec60a9fb1f112a02263e4bf7ab071a37623b3017084fa7f26769a",
+      "source": {
+        "bytes": 4409,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C1R0-step300-predictions.npz",
+        "sha256": "94a24e415c9ec60a9fb1f112a02263e4bf7ab071a37623b3017084fa7f26769a"
+      }
+    },
+    {
+      "bytes": 49709,
+      "content_bytes": 49709,
+      "content_sha256": "c8cb0ff4a0ef62a21146ce90660a6d445050cbfd1dcab283a652803f8decc7d2",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s17-C1R1-checkpoint.npz",
+      "role": "fit",
+      "sha256": "c8cb0ff4a0ef62a21146ce90660a6d445050cbfd1dcab283a652803f8decc7d2",
+      "source": {
+        "bytes": 49709,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C1R1-checkpoint.npz",
+        "sha256": "c8cb0ff4a0ef62a21146ce90660a6d445050cbfd1dcab283a652803f8decc7d2"
+      }
+    },
+    {
+      "bytes": 4582,
+      "content_bytes": 4582,
+      "content_sha256": "424e492b463333476e8e6c52d93674c0baee469f146dceeabe8bf947def2f73b",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C1R1-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "424e492b463333476e8e6c52d93674c0baee469f146dceeabe8bf947def2f73b",
+      "source": {
+        "bytes": 4582,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C1R1-step0-predictions.npz",
+        "sha256": "424e492b463333476e8e6c52d93674c0baee469f146dceeabe8bf947def2f73b"
+      }
+    },
+    {
+      "bytes": 4642,
+      "content_bytes": 4642,
+      "content_sha256": "dd82d18299d1847ddec7cd081462f226c392c5d241e5dd93cd23af76bda4dfa6",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-C1R1-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "dd82d18299d1847ddec7cd081462f226c392c5d241e5dd93cd23af76bda4dfa6",
+      "source": {
+        "bytes": 4642,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-C1R1-step300-predictions.npz",
+        "sha256": "dd82d18299d1847ddec7cd081462f226c392c5d241e5dd93cd23af76bda4dfa6"
+      }
+    },
+    {
+      "bytes": 49547,
+      "content_bytes": 49547,
+      "content_sha256": "11a7ab12b3ec88224be6b619c1ca1bc67c3f15234d28752613d0657199f44448",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s17-ID-only-checkpoint.npz",
+      "role": "fit",
+      "sha256": "11a7ab12b3ec88224be6b619c1ca1bc67c3f15234d28752613d0657199f44448",
+      "source": {
+        "bytes": 49547,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-ID-only-checkpoint.npz",
+        "sha256": "11a7ab12b3ec88224be6b619c1ca1bc67c3f15234d28752613d0657199f44448"
+      }
+    },
+    {
+      "bytes": 4207,
+      "content_bytes": 4207,
+      "content_sha256": "1efa4884b832d73b49747ddc72a69e9f9fa8c9f60dca1b53f4e35aa6b78d22df",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-ID-only-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "1efa4884b832d73b49747ddc72a69e9f9fa8c9f60dca1b53f4e35aa6b78d22df",
+      "source": {
+        "bytes": 4207,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-ID-only-step0-predictions.npz",
+        "sha256": "1efa4884b832d73b49747ddc72a69e9f9fa8c9f60dca1b53f4e35aa6b78d22df"
+      }
+    },
+    {
+      "bytes": 4270,
+      "content_bytes": 4270,
+      "content_sha256": "647845f6b6cd2a00c40e442dfd702d4465f1aec07df300848320e927a5309e47",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-ID-only-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "647845f6b6cd2a00c40e442dfd702d4465f1aec07df300848320e927a5309e47",
+      "source": {
+        "bytes": 4270,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-ID-only-step300-predictions.npz",
+        "sha256": "647845f6b6cd2a00c40e442dfd702d4465f1aec07df300848320e927a5309e47"
+      }
+    },
+    {
+      "bytes": 49027,
+      "content_bytes": 49027,
+      "content_sha256": "ab8337093a2ce28ac8e5a392c59fe662343703c3c93f24f84b061bf6637bd9fa",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s17-initial-checkpoint.npz",
+      "role": "fit",
+      "sha256": "ab8337093a2ce28ac8e5a392c59fe662343703c3c93f24f84b061bf6637bd9fa",
+      "source": {
+        "bytes": 49027,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-initial-checkpoint.npz",
+        "sha256": "ab8337093a2ce28ac8e5a392c59fe662343703c3c93f24f84b061bf6637bd9fa"
+      }
+    },
+    {
+      "bytes": 49601,
+      "content_bytes": 49601,
+      "content_sha256": "603b01fc2021c2e00c8680439d9907dd504205f0091742e06ef85973ad67771f",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s17-untrained-typed-checkpoint.npz",
+      "role": "fit",
+      "sha256": "603b01fc2021c2e00c8680439d9907dd504205f0091742e06ef85973ad67771f",
+      "source": {
+        "bytes": 49601,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-untrained-typed-checkpoint.npz",
+        "sha256": "603b01fc2021c2e00c8680439d9907dd504205f0091742e06ef85973ad67771f"
+      }
+    },
+    {
+      "bytes": 4582,
+      "content_bytes": 4582,
+      "content_sha256": "424e492b463333476e8e6c52d93674c0baee469f146dceeabe8bf947def2f73b",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-untrained-typed-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "424e492b463333476e8e6c52d93674c0baee469f146dceeabe8bf947def2f73b",
+      "source": {
+        "bytes": 4582,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-untrained-typed-step0-predictions.npz",
+        "sha256": "424e492b463333476e8e6c52d93674c0baee469f146dceeabe8bf947def2f73b"
+      }
+    },
+    {
+      "bytes": 4656,
+      "content_bytes": 4656,
+      "content_sha256": "73fad28f84dafeb45220568d2b12316dcd0d204d8dba7d129736824da086e22f",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s17-untrained-typed-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "73fad28f84dafeb45220568d2b12316dcd0d204d8dba7d129736824da086e22f",
+      "source": {
+        "bytes": 4656,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s17-untrained-typed-step300-predictions.npz",
+        "sha256": "73fad28f84dafeb45220568d2b12316dcd0d204d8dba7d129736824da086e22f"
+      }
+    },
+    {
+      "bytes": 49706,
+      "content_bytes": 49706,
+      "content_sha256": "64e7a810b9162613ac93c3b53dcd01d78d7abca72565170b4dc64aff240de639",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s29-C0R0-checkpoint.npz",
+      "role": "fit",
+      "sha256": "64e7a810b9162613ac93c3b53dcd01d78d7abca72565170b4dc64aff240de639",
+      "source": {
+        "bytes": 49706,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C0R0-checkpoint.npz",
+        "sha256": "64e7a810b9162613ac93c3b53dcd01d78d7abca72565170b4dc64aff240de639"
+      }
+    },
+    {
+      "bytes": 3575,
+      "content_bytes": 3575,
+      "content_sha256": "be3aff7ce5f501adb612e33e1eab776119a9e72e824dc2e687f4c57047bfe22b",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C0R0-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "be3aff7ce5f501adb612e33e1eab776119a9e72e824dc2e687f4c57047bfe22b",
+      "source": {
+        "bytes": 3575,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C0R0-step0-predictions.npz",
+        "sha256": "be3aff7ce5f501adb612e33e1eab776119a9e72e824dc2e687f4c57047bfe22b"
+      }
+    },
+    {
+      "bytes": 3629,
+      "content_bytes": 3629,
+      "content_sha256": "b4f2dfafeb46a3f2ac7a2edf24cb91681eee84aec1cd91506016b0321f9a7a9d",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C0R0-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "b4f2dfafeb46a3f2ac7a2edf24cb91681eee84aec1cd91506016b0321f9a7a9d",
+      "source": {
+        "bytes": 3629,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C0R0-step300-predictions.npz",
+        "sha256": "b4f2dfafeb46a3f2ac7a2edf24cb91681eee84aec1cd91506016b0321f9a7a9d"
+      }
+    },
+    {
+      "bytes": 49710,
+      "content_bytes": 49710,
+      "content_sha256": "4758cb081b3f2cdbcf1449e44f56c64fb502c8f92cddd3622cee104aa8f594c3",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s29-C0R1-checkpoint.npz",
+      "role": "fit",
+      "sha256": "4758cb081b3f2cdbcf1449e44f56c64fb502c8f92cddd3622cee104aa8f594c3",
+      "source": {
+        "bytes": 49710,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C0R1-checkpoint.npz",
+        "sha256": "4758cb081b3f2cdbcf1449e44f56c64fb502c8f92cddd3622cee104aa8f594c3"
+      }
+    },
+    {
+      "bytes": 3816,
+      "content_bytes": 3816,
+      "content_sha256": "3606193108fb8cfc09be7addac53f5eeace7fbbd40a70acb6ec1c375c8df6e66",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C0R1-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "3606193108fb8cfc09be7addac53f5eeace7fbbd40a70acb6ec1c375c8df6e66",
+      "source": {
+        "bytes": 3816,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C0R1-step0-predictions.npz",
+        "sha256": "3606193108fb8cfc09be7addac53f5eeace7fbbd40a70acb6ec1c375c8df6e66"
+      }
+    },
+    {
+      "bytes": 3861,
+      "content_bytes": 3861,
+      "content_sha256": "308a42b530f58dbb0777f59d8352796dbbe5ffd5f4ecd073e4232bd6ae870eb3",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C0R1-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "308a42b530f58dbb0777f59d8352796dbbe5ffd5f4ecd073e4232bd6ae870eb3",
+      "source": {
+        "bytes": 3861,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C0R1-step300-predictions.npz",
+        "sha256": "308a42b530f58dbb0777f59d8352796dbbe5ffd5f4ecd073e4232bd6ae870eb3"
+      }
+    },
+    {
+      "bytes": 49710,
+      "content_bytes": 49710,
+      "content_sha256": "0b19aa1cc569c92c4eeb067c205a06541a623cfad18087046db0ed8043c28d2d",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s29-C1R0-checkpoint.npz",
+      "role": "fit",
+      "sha256": "0b19aa1cc569c92c4eeb067c205a06541a623cfad18087046db0ed8043c28d2d",
+      "source": {
+        "bytes": 49710,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C1R0-checkpoint.npz",
+        "sha256": "0b19aa1cc569c92c4eeb067c205a06541a623cfad18087046db0ed8043c28d2d"
+      }
+    },
+    {
+      "bytes": 4344,
+      "content_bytes": 4344,
+      "content_sha256": "56735e852684ee14df2ee54a9280a0b4995a2e5918ad57774480b36b3885fa8c",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C1R0-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "56735e852684ee14df2ee54a9280a0b4995a2e5918ad57774480b36b3885fa8c",
+      "source": {
+        "bytes": 4344,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C1R0-step0-predictions.npz",
+        "sha256": "56735e852684ee14df2ee54a9280a0b4995a2e5918ad57774480b36b3885fa8c"
+      }
+    },
+    {
+      "bytes": 4414,
+      "content_bytes": 4414,
+      "content_sha256": "ae86936d6f1ab64e53415614ff84772ed86b9f17cf7c5ac088bc1f3d222e9b0b",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C1R0-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "ae86936d6f1ab64e53415614ff84772ed86b9f17cf7c5ac088bc1f3d222e9b0b",
+      "source": {
+        "bytes": 4414,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C1R0-step300-predictions.npz",
+        "sha256": "ae86936d6f1ab64e53415614ff84772ed86b9f17cf7c5ac088bc1f3d222e9b0b"
+      }
+    },
+    {
+      "bytes": 49700,
+      "content_bytes": 49700,
+      "content_sha256": "825cbecddb4fb444ac4744655883debca4b893dd70833df122fb32b0b75a6e2d",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s29-C1R1-checkpoint.npz",
+      "role": "fit",
+      "sha256": "825cbecddb4fb444ac4744655883debca4b893dd70833df122fb32b0b75a6e2d",
+      "source": {
+        "bytes": 49700,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C1R1-checkpoint.npz",
+        "sha256": "825cbecddb4fb444ac4744655883debca4b893dd70833df122fb32b0b75a6e2d"
+      }
+    },
+    {
+      "bytes": 4580,
+      "content_bytes": 4580,
+      "content_sha256": "abce34bdecdcc3b1543a719315a58e357a3e4ef97de06a1df0495638c08934d5",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C1R1-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "abce34bdecdcc3b1543a719315a58e357a3e4ef97de06a1df0495638c08934d5",
+      "source": {
+        "bytes": 4580,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C1R1-step0-predictions.npz",
+        "sha256": "abce34bdecdcc3b1543a719315a58e357a3e4ef97de06a1df0495638c08934d5"
+      }
+    },
+    {
+      "bytes": 4644,
+      "content_bytes": 4644,
+      "content_sha256": "d5d6df7f0fc1d6e4548935b9f4a4f3a2d483513f7f9e5b1bc877c194dd5aed85",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-C1R1-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "d5d6df7f0fc1d6e4548935b9f4a4f3a2d483513f7f9e5b1bc877c194dd5aed85",
+      "source": {
+        "bytes": 4644,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-C1R1-step300-predictions.npz",
+        "sha256": "d5d6df7f0fc1d6e4548935b9f4a4f3a2d483513f7f9e5b1bc877c194dd5aed85"
+      }
+    },
+    {
+      "bytes": 49561,
+      "content_bytes": 49561,
+      "content_sha256": "f7f640b97d63da7a81c4391a48130a088e48a918c805369629c853e43e05a3c1",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s29-ID-only-checkpoint.npz",
+      "role": "fit",
+      "sha256": "f7f640b97d63da7a81c4391a48130a088e48a918c805369629c853e43e05a3c1",
+      "source": {
+        "bytes": 49561,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-ID-only-checkpoint.npz",
+        "sha256": "f7f640b97d63da7a81c4391a48130a088e48a918c805369629c853e43e05a3c1"
+      }
+    },
+    {
+      "bytes": 4228,
+      "content_bytes": 4228,
+      "content_sha256": "e1bc9ba86a774968f13b9119b50dfec9c780dab1db47e7c582e5d1a067ee5595",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-ID-only-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "e1bc9ba86a774968f13b9119b50dfec9c780dab1db47e7c582e5d1a067ee5595",
+      "source": {
+        "bytes": 4228,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-ID-only-step0-predictions.npz",
+        "sha256": "e1bc9ba86a774968f13b9119b50dfec9c780dab1db47e7c582e5d1a067ee5595"
+      }
+    },
+    {
+      "bytes": 4255,
+      "content_bytes": 4255,
+      "content_sha256": "60c66cc84a53426024bc48694bf5861c4220f24ab0b79e5aa20fff5c1c1222a6",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-ID-only-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "60c66cc84a53426024bc48694bf5861c4220f24ab0b79e5aa20fff5c1c1222a6",
+      "source": {
+        "bytes": 4255,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-ID-only-step300-predictions.npz",
+        "sha256": "60c66cc84a53426024bc48694bf5861c4220f24ab0b79e5aa20fff5c1c1222a6"
+      }
+    },
+    {
+      "bytes": 49016,
+      "content_bytes": 49016,
+      "content_sha256": "4f0c90629f208150fb144efbf67932e241f462ec7665bcdb0e4b19ea09599cdd",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s29-initial-checkpoint.npz",
+      "role": "fit",
+      "sha256": "4f0c90629f208150fb144efbf67932e241f462ec7665bcdb0e4b19ea09599cdd",
+      "source": {
+        "bytes": 49016,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-initial-checkpoint.npz",
+        "sha256": "4f0c90629f208150fb144efbf67932e241f462ec7665bcdb0e4b19ea09599cdd"
+      }
+    },
+    {
+      "bytes": 49570,
+      "content_bytes": 49570,
+      "content_sha256": "8e72fb6dc64404c0a31a84805240a63aee26f4df7c24f3c50e71fbb643815ccc",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s29-untrained-typed-checkpoint.npz",
+      "role": "fit",
+      "sha256": "8e72fb6dc64404c0a31a84805240a63aee26f4df7c24f3c50e71fbb643815ccc",
+      "source": {
+        "bytes": 49570,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-untrained-typed-checkpoint.npz",
+        "sha256": "8e72fb6dc64404c0a31a84805240a63aee26f4df7c24f3c50e71fbb643815ccc"
+      }
+    },
+    {
+      "bytes": 4580,
+      "content_bytes": 4580,
+      "content_sha256": "abce34bdecdcc3b1543a719315a58e357a3e4ef97de06a1df0495638c08934d5",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-untrained-typed-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "abce34bdecdcc3b1543a719315a58e357a3e4ef97de06a1df0495638c08934d5",
+      "source": {
+        "bytes": 4580,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-untrained-typed-step0-predictions.npz",
+        "sha256": "abce34bdecdcc3b1543a719315a58e357a3e4ef97de06a1df0495638c08934d5"
+      }
+    },
+    {
+      "bytes": 4633,
+      "content_bytes": 4633,
+      "content_sha256": "abf43be235b16fc78744def82f2ff6e4e81de1b1068cc90b80a3de1b6f0283f5",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s29-untrained-typed-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "abf43be235b16fc78744def82f2ff6e4e81de1b1068cc90b80a3de1b6f0283f5",
+      "source": {
+        "bytes": 4633,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s29-untrained-typed-step300-predictions.npz",
+        "sha256": "abf43be235b16fc78744def82f2ff6e4e81de1b1068cc90b80a3de1b6f0283f5"
+      }
+    },
+    {
+      "bytes": 49702,
+      "content_bytes": 49702,
+      "content_sha256": "b60e71316808197f52d90cfe8e8e1f149321e363b37033743981d5bb72ca91a0",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s43-C0R0-checkpoint.npz",
+      "role": "fit",
+      "sha256": "b60e71316808197f52d90cfe8e8e1f149321e363b37033743981d5bb72ca91a0",
+      "source": {
+        "bytes": 49702,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C0R0-checkpoint.npz",
+        "sha256": "b60e71316808197f52d90cfe8e8e1f149321e363b37033743981d5bb72ca91a0"
+      }
+    },
+    {
+      "bytes": 3585,
+      "content_bytes": 3585,
+      "content_sha256": "34d347f669b25485efc5ab7fa1c85594b93739d790d42815adae9c404e2b5691",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C0R0-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "34d347f669b25485efc5ab7fa1c85594b93739d790d42815adae9c404e2b5691",
+      "source": {
+        "bytes": 3585,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C0R0-step0-predictions.npz",
+        "sha256": "34d347f669b25485efc5ab7fa1c85594b93739d790d42815adae9c404e2b5691"
+      }
+    },
+    {
+      "bytes": 3613,
+      "content_bytes": 3613,
+      "content_sha256": "ff51badd9ec6bbc5abbd1421bc654af51b14488e81f890fab59c534a3d06ba55",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C0R0-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "ff51badd9ec6bbc5abbd1421bc654af51b14488e81f890fab59c534a3d06ba55",
+      "source": {
+        "bytes": 3613,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C0R0-step300-predictions.npz",
+        "sha256": "ff51badd9ec6bbc5abbd1421bc654af51b14488e81f890fab59c534a3d06ba55"
+      }
+    },
+    {
+      "bytes": 49708,
+      "content_bytes": 49708,
+      "content_sha256": "009a3103924caf9ca49cb60e689bc4f0f00f533c44d469b1c1cd05e1f3baac45",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s43-C0R1-checkpoint.npz",
+      "role": "fit",
+      "sha256": "009a3103924caf9ca49cb60e689bc4f0f00f533c44d469b1c1cd05e1f3baac45",
+      "source": {
+        "bytes": 49708,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C0R1-checkpoint.npz",
+        "sha256": "009a3103924caf9ca49cb60e689bc4f0f00f533c44d469b1c1cd05e1f3baac45"
+      }
+    },
+    {
+      "bytes": 3812,
+      "content_bytes": 3812,
+      "content_sha256": "7cee66490d224bc7e99e3569eeb2dac51dc9234b405355c78657d52db0ef8970",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C0R1-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "7cee66490d224bc7e99e3569eeb2dac51dc9234b405355c78657d52db0ef8970",
+      "source": {
+        "bytes": 3812,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C0R1-step0-predictions.npz",
+        "sha256": "7cee66490d224bc7e99e3569eeb2dac51dc9234b405355c78657d52db0ef8970"
+      }
+    },
+    {
+      "bytes": 3856,
+      "content_bytes": 3856,
+      "content_sha256": "2d9c6e6fa059f91706d27fa21a69c35c96f4d2dbfb55e4ceb37c00ed3c4dd64d",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C0R1-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "2d9c6e6fa059f91706d27fa21a69c35c96f4d2dbfb55e4ceb37c00ed3c4dd64d",
+      "source": {
+        "bytes": 3856,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C0R1-step300-predictions.npz",
+        "sha256": "2d9c6e6fa059f91706d27fa21a69c35c96f4d2dbfb55e4ceb37c00ed3c4dd64d"
+      }
+    },
+    {
+      "bytes": 49722,
+      "content_bytes": 49722,
+      "content_sha256": "0274d7534676ff11bb16fc9393374093e47ac085ec08bf1c6ec503d28b866472",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s43-C1R0-checkpoint.npz",
+      "role": "fit",
+      "sha256": "0274d7534676ff11bb16fc9393374093e47ac085ec08bf1c6ec503d28b866472",
+      "source": {
+        "bytes": 49722,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C1R0-checkpoint.npz",
+        "sha256": "0274d7534676ff11bb16fc9393374093e47ac085ec08bf1c6ec503d28b866472"
+      }
+    },
+    {
+      "bytes": 4368,
+      "content_bytes": 4368,
+      "content_sha256": "c57778be99799426eafe6e0e116b03d0cdcc8e3f32124287c27404e4099c52b1",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C1R0-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "c57778be99799426eafe6e0e116b03d0cdcc8e3f32124287c27404e4099c52b1",
+      "source": {
+        "bytes": 4368,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C1R0-step0-predictions.npz",
+        "sha256": "c57778be99799426eafe6e0e116b03d0cdcc8e3f32124287c27404e4099c52b1"
+      }
+    },
+    {
+      "bytes": 4403,
+      "content_bytes": 4403,
+      "content_sha256": "b1df0124dba0e00aac16947c4663b88980dc24e71625ba242502ccde3c4247c3",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C1R0-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "b1df0124dba0e00aac16947c4663b88980dc24e71625ba242502ccde3c4247c3",
+      "source": {
+        "bytes": 4403,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C1R0-step300-predictions.npz",
+        "sha256": "b1df0124dba0e00aac16947c4663b88980dc24e71625ba242502ccde3c4247c3"
+      }
+    },
+    {
+      "bytes": 49693,
+      "content_bytes": 49693,
+      "content_sha256": "94e1849ca4194e94b57aa2b89fa07902ed40079ed3b67a72a742296cdf035a30",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s43-C1R1-checkpoint.npz",
+      "role": "fit",
+      "sha256": "94e1849ca4194e94b57aa2b89fa07902ed40079ed3b67a72a742296cdf035a30",
+      "source": {
+        "bytes": 49693,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C1R1-checkpoint.npz",
+        "sha256": "94e1849ca4194e94b57aa2b89fa07902ed40079ed3b67a72a742296cdf035a30"
+      }
+    },
+    {
+      "bytes": 4606,
+      "content_bytes": 4606,
+      "content_sha256": "b30bba1761c283b85affc63646ef179ae326b648876ccca194f37ba8af1f111c",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C1R1-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "b30bba1761c283b85affc63646ef179ae326b648876ccca194f37ba8af1f111c",
+      "source": {
+        "bytes": 4606,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C1R1-step0-predictions.npz",
+        "sha256": "b30bba1761c283b85affc63646ef179ae326b648876ccca194f37ba8af1f111c"
+      }
+    },
+    {
+      "bytes": 4653,
+      "content_bytes": 4653,
+      "content_sha256": "a68ec416c18ca3b7863be7449dbbaec08f929f144aef0170808a67c7d2a1fb06",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-C1R1-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "a68ec416c18ca3b7863be7449dbbaec08f929f144aef0170808a67c7d2a1fb06",
+      "source": {
+        "bytes": 4653,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-C1R1-step300-predictions.npz",
+        "sha256": "a68ec416c18ca3b7863be7449dbbaec08f929f144aef0170808a67c7d2a1fb06"
+      }
+    },
+    {
+      "bytes": 49585,
+      "content_bytes": 49585,
+      "content_sha256": "27aa6ae0a92789607bda306593ff6a2dd2fdc1210e75422bfc7577f9abb1c854",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s43-ID-only-checkpoint.npz",
+      "role": "fit",
+      "sha256": "27aa6ae0a92789607bda306593ff6a2dd2fdc1210e75422bfc7577f9abb1c854",
+      "source": {
+        "bytes": 49585,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-ID-only-checkpoint.npz",
+        "sha256": "27aa6ae0a92789607bda306593ff6a2dd2fdc1210e75422bfc7577f9abb1c854"
+      }
+    },
+    {
+      "bytes": 4197,
+      "content_bytes": 4197,
+      "content_sha256": "75260f6e24dda7ce50c6a8010bfb40e6fda9d70fd3876a20e060ec3215f867d4",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-ID-only-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "75260f6e24dda7ce50c6a8010bfb40e6fda9d70fd3876a20e060ec3215f867d4",
+      "source": {
+        "bytes": 4197,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-ID-only-step0-predictions.npz",
+        "sha256": "75260f6e24dda7ce50c6a8010bfb40e6fda9d70fd3876a20e060ec3215f867d4"
+      }
+    },
+    {
+      "bytes": 4272,
+      "content_bytes": 4272,
+      "content_sha256": "ad057af202bf02ca877aa3e34f96acda16981ab8ee742acc58dc8f093db18e62",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-ID-only-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "ad057af202bf02ca877aa3e34f96acda16981ab8ee742acc58dc8f093db18e62",
+      "source": {
+        "bytes": 4272,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-ID-only-step300-predictions.npz",
+        "sha256": "ad057af202bf02ca877aa3e34f96acda16981ab8ee742acc58dc8f093db18e62"
+      }
+    },
+    {
+      "bytes": 49026,
+      "content_bytes": 49026,
+      "content_sha256": "ff45394e4e63e66b9882645ae17b7855dabb337abccc879485a4e7f941b622a3",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s43-initial-checkpoint.npz",
+      "role": "fit",
+      "sha256": "ff45394e4e63e66b9882645ae17b7855dabb337abccc879485a4e7f941b622a3",
+      "source": {
+        "bytes": 49026,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-initial-checkpoint.npz",
+        "sha256": "ff45394e4e63e66b9882645ae17b7855dabb337abccc879485a4e7f941b622a3"
+      }
+    },
+    {
+      "bytes": 49550,
+      "content_bytes": 49550,
+      "content_sha256": "ea5806eb4d5333fc0daaf1883c9f211348335f96debb8a3e2882dfb1027f0f5e",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "depth.npy",
+          "edge.weight.npy",
+          "kind.weight.npy",
+          "value.weight.npy",
+          "numeric.weight.npy",
+          "numeric.bias.npy",
+          "leaf.0.weight.npy",
+          "leaf.0.bias.npy",
+          "leaf.2.weight.npy",
+          "leaf.2.bias.npy",
+          "card_projection.0.weight.npy",
+          "card_projection.0.bias.npy",
+          "card_projection.1.weight.npy",
+          "card_projection.1.bias.npy",
+          "identity.weight.npy",
+          "context.0.weight.npy",
+          "context.0.bias.npy",
+          "context.2.weight.npy",
+          "context.2.bias.npy",
+          "candidate.0.weight.npy",
+          "candidate.0.bias.npy",
+          "candidate.2.weight.npy",
+          "candidate.2.bias.npy",
+          "source_head.0.weight.npy",
+          "source_head.0.bias.npy",
+          "source_head.2.weight.npy",
+          "source_head.2.bias.npy",
+          "branch_head.0.weight.npy",
+          "branch_head.0.bias.npy",
+          "branch_head.2.weight.npy",
+          "branch_head.2.bias.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 50048
+      },
+      "path": "repair/fit-1/s43-untrained-typed-checkpoint.npz",
+      "role": "fit",
+      "sha256": "ea5806eb4d5333fc0daaf1883c9f211348335f96debb8a3e2882dfb1027f0f5e",
+      "source": {
+        "bytes": 49550,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-untrained-typed-checkpoint.npz",
+        "sha256": "ea5806eb4d5333fc0daaf1883c9f211348335f96debb8a3e2882dfb1027f0f5e"
+      }
+    },
+    {
+      "bytes": 4606,
+      "content_bytes": 4606,
+      "content_sha256": "b30bba1761c283b85affc63646ef179ae326b648876ccca194f37ba8af1f111c",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-untrained-typed-step0-predictions.npz",
+      "role": "fit",
+      "sha256": "b30bba1761c283b85affc63646ef179ae326b648876ccca194f37ba8af1f111c",
+      "source": {
+        "bytes": 4606,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-untrained-typed-step0-predictions.npz",
+        "sha256": "b30bba1761c283b85affc63646ef179ae326b648876ccca194f37ba8af1f111c"
+      }
+    },
+    {
+      "bytes": 4655,
+      "content_bytes": 4655,
+      "content_sha256": "814c24c1f7baf84b186cf86418032574853733043870770d612711317158bb28",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "card_vectors.npy",
+          "source_cards.npy",
+          "state_families.npy",
+          "selected_candidate_indices.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 9120
+      },
+      "path": "repair/fit-1/s43-untrained-typed-step300-predictions.npz",
+      "role": "fit",
+      "sha256": "814c24c1f7baf84b186cf86418032574853733043870770d612711317158bb28",
+      "source": {
+        "bytes": 4655,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/s43-untrained-typed-step300-predictions.npz",
+        "sha256": "814c24c1f7baf84b186cf86418032574853733043870770d612711317158bb28"
+      }
+    },
+    {
+      "bytes": 1217,
+      "content_bytes": 1217,
+      "content_sha256": "8623ac4f7916993172f2d5b409059945bad0bb1e304d91e19a414c440eb03e28",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "train_indices.npy",
+          "seeds.npy",
+          "arms.npy",
+          "selected_candidate_indices.npy",
+          "source_cards.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 2056
+      },
+      "path": "repair/fit-1/training-schedule.npz",
+      "role": "fit",
+      "sha256": "8623ac4f7916993172f2d5b409059945bad0bb1e304d91e19a414c440eb03e28",
+      "source": {
+        "bytes": 1217,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/fit-1/training-schedule.npz",
+        "sha256": "8623ac4f7916993172f2d5b409059945bad0bb1e304d91e19a414c440eb03e28"
+      }
+    },
+    {
+      "bytes": 7810,
+      "content_bytes": 7810,
+      "content_sha256": "6638dcdc8dd14aff55f3b150725df24810f4b179ed202636462e3866bcc4ad7c",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "raw_source.npy",
+          "raw_branch.npy",
+          "source_design.npy",
+          "branch_design.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 177568
+      },
+      "path": "report-recovery/baselines-1/C0R0-predictions.npz",
+      "role": "baselines",
+      "sha256": "6638dcdc8dd14aff55f3b150725df24810f4b179ed202636462e3866bcc4ad7c",
+      "source": {
+        "bytes": 7810,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/C0R0-predictions.npz",
+        "sha256": "6638dcdc8dd14aff55f3b150725df24810f4b179ed202636462e3866bcc4ad7c"
+      }
+    },
+    {
+      "bytes": 8477,
+      "content_bytes": 8477,
+      "content_sha256": "374838fbee9be46acab9581e0cce6948431ea8b4796e62cea44a40cc75830dfc",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "raw_source.npy",
+          "raw_branch.npy",
+          "source_design.npy",
+          "branch_design.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 177568
+      },
+      "path": "report-recovery/baselines-1/C0R1-predictions.npz",
+      "role": "baselines",
+      "sha256": "374838fbee9be46acab9581e0cce6948431ea8b4796e62cea44a40cc75830dfc",
+      "source": {
+        "bytes": 8477,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/C0R1-predictions.npz",
+        "sha256": "374838fbee9be46acab9581e0cce6948431ea8b4796e62cea44a40cc75830dfc"
+      }
+    },
+    {
+      "bytes": 10409,
+      "content_bytes": 10409,
+      "content_sha256": "a528b37e0cdd1fce5853bb2198447cf32c4af3d63f0fb65a660ddc36eefeeb27",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "raw_source.npy",
+          "raw_branch.npy",
+          "source_design.npy",
+          "branch_design.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 177568
+      },
+      "path": "report-recovery/baselines-1/C1R0-predictions.npz",
+      "role": "baselines",
+      "sha256": "a528b37e0cdd1fce5853bb2198447cf32c4af3d63f0fb65a660ddc36eefeeb27",
+      "source": {
+        "bytes": 10409,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/C1R0-predictions.npz",
+        "sha256": "a528b37e0cdd1fce5853bb2198447cf32c4af3d63f0fb65a660ddc36eefeeb27"
+      }
+    },
+    {
+      "bytes": 10975,
+      "content_bytes": 10975,
+      "content_sha256": "269d0b903bc73f19d83f6272d2482e7109e87465c65bcc0fb22f7c2a817aa2fb",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy",
+          "raw_source.npy",
+          "raw_branch.npy",
+          "source_design.npy",
+          "branch_design.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 177568
+      },
+      "path": "report-recovery/baselines-1/C1R1-predictions.npz",
+      "role": "baselines",
+      "sha256": "269d0b903bc73f19d83f6272d2482e7109e87465c65bcc0fb22f7c2a817aa2fb",
+      "source": {
+        "bytes": 10975,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/C1R1-predictions.npz",
+        "sha256": "269d0b903bc73f19d83f6272d2482e7109e87465c65bcc0fb22f7c2a817aa2fb"
+      }
+    },
+    {
+      "bytes": 870,
+      "content_bytes": 2494,
+      "content_sha256": "3d2dac626d5acd4a715fd97cf273c58e72e6c8301af70c6e8b2b72322680ac75",
+      "encoding": "gzip",
+      "path": "report-recovery/baselines-1/receipt.json.gz",
+      "role": "baselines",
+      "sha256": "21c2e34f880733b3297a78601328379228cbc75e5809a00b9476af6642cadcc4",
+      "source": {
+        "bytes": 2494,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/receipt.json",
+        "sha256": "3d2dac626d5acd4a715fd97cf273c58e72e6c8301af70c6e8b2b72322680ac75"
+      }
+    },
+    {
+      "bytes": 186772,
+      "content_bytes": 4693098,
+      "content_sha256": "a78cfe70356be3c1710abb832c9dd2613bc34cb84277c0a66425b174903bb422",
+      "encoding": "gzip",
+      "path": "report-recovery/baselines-1/result.json.gz",
+      "role": "baselines",
+      "sha256": "a5de2a2b6d9a15fc6c6571009b7d8b0cf3152f27b46a2677b38ee9bbfe38909a",
+      "source": {
+        "bytes": 4693098,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/result.json",
+        "sha256": "a78cfe70356be3c1710abb832c9dd2613bc34cb84277c0a66425b174903bb422"
+      }
+    },
+    {
+      "bytes": 497,
+      "content_bytes": 497,
+      "content_sha256": "ae6f3ffde449c42189b5a8b9b33cbf2e0023c7e2347c8dfb0a61e6028697d612",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 7016
+      },
+      "path": "report-recovery/baselines-1/train_mean-predictions.npz",
+      "role": "baselines",
+      "sha256": "ae6f3ffde449c42189b5a8b9b33cbf2e0023c7e2347c8dfb0a61e6028697d612",
+      "source": {
+        "bytes": 497,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/train_mean-predictions.npz",
+        "sha256": "ae6f3ffde449c42189b5a8b9b33cbf2e0023c7e2347c8dfb0a61e6028697d612"
+      }
+    },
+    {
+      "bytes": 440,
+      "content_bytes": 440,
+      "content_sha256": "a337ae58555087c8d8955f8758d91b0be6d533d1539272501d41bc7f296c7357",
+      "encoding": "identity",
+      "npz_inventory": {
+        "members": [
+          "source.npy",
+          "branch.npy"
+        ],
+        "scope": "ZIP metadata only; no array/framework load or numerical calculation.",
+        "uncompressed_member_bytes": 7016
+      },
+      "path": "report-recovery/baselines-1/zero-predictions.npz",
+      "role": "baselines",
+      "sha256": "a337ae58555087c8d8955f8758d91b0be6d533d1539272501d41bc7f296c7357",
+      "source": {
+        "bytes": 440,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/baselines-1/zero-predictions.npz",
+        "sha256": "a337ae58555087c8d8955f8758d91b0be6d533d1539272501d41bc7f296c7357"
+      }
+    },
+    {
+      "bytes": 1078,
+      "content_bytes": 5281,
+      "content_sha256": "33846ceb40ffcafe4e398ff8fb93516819ae6b419da47794f2ef2e2d71749ca3",
+      "encoding": "gzip",
+      "path": "native-v2/native-preparation-receipt.json.gz",
+      "role": "preparation",
+      "sha256": "4ce823183435218f0a13fb52c79acd4d91c56fd7f644b92682187a914cd6b414",
+      "source": {
+        "bytes": 5281,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-preparation-receipt.json",
+        "sha256": "33846ceb40ffcafe4e398ff8fb93516819ae6b419da47794f2ef2e2d71749ca3"
+      }
+    },
+    {
+      "bytes": 1309,
+      "content_bytes": 3741,
+      "content_sha256": "72b7bbc8d8bf87b78ff0957d2f92d05b453aa64e017821a24d84510737cf7292",
+      "encoding": "gzip",
+      "path": "native-v2/prelabel-routing-v1.json.gz",
+      "role": "preparation",
+      "sha256": "8844db324e6c4ec4422537a1c024e85ff8df133fccbf2ba3853fa17061607e8d",
+      "source": {
+        "bytes": 3741,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/prelabel-routing-v1.json",
+        "sha256": "72b7bbc8d8bf87b78ff0957d2f92d05b453aa64e017821a24d84510737cf7292"
+      }
+    },
+    {
+      "bytes": 928,
+      "content_bytes": 2085,
+      "content_sha256": "54c1e00aba765c624590249a2e843c892f72c0945a974f844a9ea57616866e23",
+      "encoding": "gzip",
+      "path": "native-v2/prep-1/receipt.json.gz",
+      "role": "preparation",
+      "sha256": "c02558eb46aa3cdb83b63a830d4ccbaf11001db2db973284fa94aeb50bc04235",
+      "source": {
+        "bytes": 2085,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/prep-1/receipt.json",
+        "sha256": "54c1e00aba765c624590249a2e843c892f72c0945a974f844a9ea57616866e23"
+      }
+    },
+    {
+      "bytes": 1984,
+      "content_bytes": 5381,
+      "content_sha256": "db64ce7ce0a033327fb07ce15ba972a4cf9bc6104d74c8582b1073a94732aeba",
+      "encoding": "gzip",
+      "path": "native-v2/native-attempt-1/supervisor-receipt.json.gz",
+      "role": "preparation",
+      "sha256": "14ca9f4383e2b100b3b1a0f3487f560addc620437fa12f6d9e0e1ec458fc9efb",
+      "source": {
+        "bytes": 5381,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-attempt-1/supervisor-receipt.json",
+        "sha256": "db64ce7ce0a033327fb07ce15ba972a4cf9bc6104d74c8582b1073a94732aeba"
+      }
+    },
+    {
+      "bytes": 1623,
+      "content_bytes": 4685,
+      "content_sha256": "220a8e41b47e1cd588b4f309c0481f6acbebd7453132bc03d06b7ecf8e6dcbc9",
+      "encoding": "gzip",
+      "path": "native-v2/native-build-1/supervisor-receipt.json.gz",
+      "role": "preparation",
+      "sha256": "645efdbe4b7f49e6fb0a4d29f3167e435ac3eb15083079d63e3ce01013d1056b",
+      "source": {
+        "bytes": 4685,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-build-1/supervisor-receipt.json",
+        "sha256": "220a8e41b47e1cd588b4f309c0481f6acbebd7453132bc03d06b7ecf8e6dcbc9"
+      }
+    },
+    {
+      "bytes": 212,
+      "content_bytes": 212,
+      "content_sha256": "2a248b7f6a90831d1a56c986fc075d19acb14901bd25e874d94ca08b5e50dbe8",
+      "encoding": "identity",
+      "path": "native-v2/native-attempt-1/stdout.log",
+      "role": "original-log",
+      "sha256": "2a248b7f6a90831d1a56c986fc075d19acb14901bd25e874d94ca08b5e50dbe8",
+      "source": {
+        "bytes": 212,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-attempt-1/stdout.log",
+        "sha256": "2a248b7f6a90831d1a56c986fc075d19acb14901bd25e874d94ca08b5e50dbe8"
+      }
+    },
+    {
+      "bytes": 0,
+      "content_bytes": 0,
+      "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "path": "native-v2/native-attempt-1/stderr.log",
+      "role": "original-log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-attempt-1/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "bytes": 0,
+      "content_bytes": 0,
+      "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "path": "native-v2/native-build-1/stdout.log",
+      "role": "original-log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-build-1/stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "bytes": 2134,
+      "content_bytes": 2134,
+      "content_sha256": "a4426e994727e996ec7edb76832230ff8fed4e8264ac3d7f81b1ab1fcaf9acfa",
+      "encoding": "identity",
+      "path": "native-v2/native-build-1/stderr.log",
+      "role": "original-log",
+      "sha256": "a4426e994727e996ec7edb76832230ff8fed4e8264ac3d7f81b1ab1fcaf9acfa",
+      "source": {
+        "bytes": 2134,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v2/native-build-1/stderr.log",
+        "sha256": "a4426e994727e996ec7edb76832230ff8fed4e8264ac3d7f81b1ab1fcaf9acfa"
+      }
+    },
+    {
+      "bytes": 497,
+      "content_bytes": 1056,
+      "content_sha256": "539d44cba270e43c6fa1e647a32b859d5388b5a4af51546fe2d479283305687d",
+      "encoding": "gzip",
+      "path": "repair/campaign-config-assembly-receipt.json.gz",
+      "role": "metadata",
+      "sha256": "97b15a157811752cdacd439bdc808d83cfa22cba187d28611630bdbb16bf4861",
+      "source": {
+        "bytes": 1056,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/campaign-config-assembly-receipt.json",
+        "sha256": "539d44cba270e43c6fa1e647a32b859d5388b5a4af51546fe2d479283305687d"
+      }
+    },
+    {
+      "bytes": 2358,
+      "content_bytes": 25375,
+      "content_sha256": "62555193caaa16ad913fc3edf78115ad4e86e1a376fe4478b7f8b20dcad5ccf1",
+      "encoding": "gzip",
+      "path": "repair/prep-1/receipt.json.gz",
+      "role": "metadata",
+      "sha256": "43a0f3ae723fb8498e53bc2621eff0e2d8afa7c86268b1a6fa1c4c1c6b0c6be7",
+      "source": {
+        "bytes": 25375,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/prep-1/receipt.json",
+        "sha256": "62555193caaa16ad913fc3edf78115ad4e86e1a376fe4478b7f8b20dcad5ccf1"
+      }
+    },
+    {
+      "bytes": 9071,
+      "content_bytes": 48830,
+      "content_sha256": "a1175ce9a2d2b57d19ae6bec6e0af570134e71062644247bf8fef79b89637cc4",
+      "encoding": "gzip",
+      "path": "report-recovery/decision-audit.json.gz",
+      "role": "metadata",
+      "sha256": "6516a9c5ec5990955e37aa859d0305725378d6e6cf04d296d1f8f26fe58a59a6",
+      "source": {
+        "bytes": 48830,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/decision-audit.json",
+        "sha256": "a1175ce9a2d2b57d19ae6bec6e0af570134e71062644247bf8fef79b89637cc4"
+      }
+    },
+    {
+      "bytes": 2789,
+      "content_bytes": 2789,
+      "content_sha256": "eb626b60f9836a830d1fdc21e3ebd694d52be04633815a6c0d5d9b64b4db52f9",
+      "encoding": "identity",
+      "path": "report-recovery/DECISION_AUDIT.md",
+      "role": "metadata",
+      "sha256": "eb626b60f9836a830d1fdc21e3ebd694d52be04633815a6c0d5d9b64b4db52f9",
+      "source": {
+        "bytes": 2789,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/DECISION_AUDIT.md",
+        "sha256": "eb626b60f9836a830d1fdc21e3ebd694d52be04633815a6c0d5d9b64b4db52f9"
+      }
+    },
+    {
+      "bytes": 15782,
+      "content_bytes": 15782,
+      "content_sha256": "26df12532f255d9aea8e6c8b19bcd701df868b48c43ed5148c4962b9abe566c8",
+      "encoding": "identity",
+      "path": "repair/assemble_binding_transfer_config.py",
+      "role": "source",
+      "sha256": "26df12532f255d9aea8e6c8b19bcd701df868b48c43ed5148c4962b9abe566c8",
+      "source": {
+        "bytes": 15782,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/assemble_binding_transfer_config.py",
+        "sha256": "26df12532f255d9aea8e6c8b19bcd701df868b48c43ed5148c4962b9abe566c8"
+      }
+    },
+    {
+      "bytes": 25434,
+      "content_bytes": 25434,
+      "content_sha256": "5a1637bd6ee4152546633b935aa759cc67f993af1d51583d99f3e519900b5d5d",
+      "encoding": "identity",
+      "path": "repair/package_evidence.py",
+      "role": "source",
+      "sha256": "5a1637bd6ee4152546633b935aa759cc67f993af1d51583d99f3e519900b5d5d",
+      "source": {
+        "bytes": 25434,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/package_evidence.py",
+        "sha256": "5a1637bd6ee4152546633b935aa759cc67f993af1d51583d99f3e519900b5d5d"
+      }
+    },
+    {
+      "bytes": 3810,
+      "content_bytes": 3810,
+      "content_sha256": "9db31ee1f8b2d2da01b956c438765a0246e9f2e18075dda46c7622fffc1cc106",
+      "encoding": "identity",
+      "path": "repair/test_assemble_binding_transfer_config.py",
+      "role": "source",
+      "sha256": "9db31ee1f8b2d2da01b956c438765a0246e9f2e18075dda46c7622fffc1cc106",
+      "source": {
+        "bytes": 3810,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/test_assemble_binding_transfer_config.py",
+        "sha256": "9db31ee1f8b2d2da01b956c438765a0246e9f2e18075dda46c7622fffc1cc106"
+      }
+    },
+    {
+      "bytes": 5135,
+      "content_bytes": 5135,
+      "content_sha256": "7e975b198768a58ed2e71d5e8759aed7a3897fbcf8215a74f4710c93dde76b3b",
+      "encoding": "identity",
+      "path": "repair/test_package_evidence.py",
+      "role": "source",
+      "sha256": "7e975b198768a58ed2e71d5e8759aed7a3897fbcf8215a74f4710c93dde76b3b",
+      "source": {
+        "bytes": 5135,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/test_package_evidence.py",
+        "sha256": "7e975b198768a58ed2e71d5e8759aed7a3897fbcf8215a74f4710c93dde76b3b"
+      }
+    },
+    {
+      "bytes": 15432,
+      "content_bytes": 15432,
+      "content_sha256": "b5a7295b9b7f73cd3deb2824acb512052642d6ef1353a26613a977d019305a5c",
+      "encoding": "identity",
+      "path": "report-recovery/assemble_binding_transfer_config.py",
+      "role": "source",
+      "sha256": "b5a7295b9b7f73cd3deb2824acb512052642d6ef1353a26613a977d019305a5c",
+      "source": {
+        "bytes": 15432,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/assemble_binding_transfer_config.py",
+        "sha256": "b5a7295b9b7f73cd3deb2824acb512052642d6ef1353a26613a977d019305a5c"
+      }
+    },
+    {
+      "bytes": 13926,
+      "content_bytes": 13926,
+      "content_sha256": "341c1d29794603055d82d3ccf009a70f75f6b1c49cde5698b2d482a683c9eb4c",
+      "encoding": "identity",
+      "path": "report-recovery/decision_audit_json_only.py",
+      "role": "source",
+      "sha256": "341c1d29794603055d82d3ccf009a70f75f6b1c49cde5698b2d482a683c9eb4c",
+      "source": {
+        "bytes": 13926,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/decision_audit_json_only.py",
+        "sha256": "341c1d29794603055d82d3ccf009a70f75f6b1c49cde5698b2d482a683c9eb4c"
+      }
+    },
+    {
+      "bytes": 4010,
+      "content_bytes": 4010,
+      "content_sha256": "47cf7c2017e8f4adaea5811819916f67ee2b209ce9e7a20462ce3903378d10b8",
+      "encoding": "identity",
+      "path": "report-recovery/test_assemble_binding_transfer_config.py",
+      "role": "source",
+      "sha256": "47cf7c2017e8f4adaea5811819916f67ee2b209ce9e7a20462ce3903378d10b8",
+      "source": {
+        "bytes": 4010,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/test_assemble_binding_transfer_config.py",
+        "sha256": "47cf7c2017e8f4adaea5811819916f67ee2b209ce9e7a20462ce3903378d10b8"
+      }
+    },
+    {
+      "bytes": 6305,
+      "content_bytes": 6305,
+      "content_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "encoding": "identity",
+      "path": "source/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "role": "source",
+      "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "source": {
+        "bytes": 6305,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+        "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+      }
+    },
+    {
+      "bytes": 4668,
+      "content_bytes": 4668,
+      "content_sha256": "b84be373304db19715a9b261c92faca61c14d2d70384b2f8018401594710254d",
+      "encoding": "identity",
+      "path": "source/AUDIT.md",
+      "role": "source",
+      "sha256": "b84be373304db19715a9b261c92faca61c14d2d70384b2f8018401594710254d",
+      "source": {
+        "bytes": 4668,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/AUDIT.md",
+        "sha256": "b84be373304db19715a9b261c92faca61c14d2d70384b2f8018401594710254d"
+      }
+    },
+    {
+      "bytes": 5754,
+      "content_bytes": 5754,
+      "content_sha256": "afaab46b02d2bcd1659524dd23aab4467966a995207ce3c9002c7ef3ab7c6577",
+      "encoding": "identity",
+      "path": "source/BINDING_TRANSFER_LEARNER_PROTOCOL.md",
+      "role": "source",
+      "sha256": "afaab46b02d2bcd1659524dd23aab4467966a995207ce3c9002c7ef3ab7c6577",
+      "source": {
+        "bytes": 5754,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_LEARNER_PROTOCOL.md",
+        "sha256": "afaab46b02d2bcd1659524dd23aab4467966a995207ce3c9002c7ef3ab7c6577"
+      }
+    },
+    {
+      "bytes": 21546,
+      "content_bytes": 21546,
+      "content_sha256": "5d8aae4dcab4900d252b95c3ad0f75c38324d9fa7884e86c198af3f544439e71",
+      "encoding": "identity",
+      "path": "source/BINDING_TRANSFER_PREREGISTRATION.md",
+      "role": "source",
+      "sha256": "5d8aae4dcab4900d252b95c3ad0f75c38324d9fa7884e86c198af3f544439e71",
+      "source": {
+        "bytes": 21546,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_PREREGISTRATION.md",
+        "sha256": "5d8aae4dcab4900d252b95c3ad0f75c38324d9fa7884e86c198af3f544439e71"
+      }
+    },
+    {
+      "bytes": 3456,
+      "content_bytes": 3456,
+      "content_sha256": "86e15287fc4688ee6fd88d9ef1b6bafa0c71d78782ac07006b3a38a91b60d998",
+      "encoding": "identity",
+      "path": "source/BINDING_TRANSFER_REPAIR_PROTOCOL.md",
+      "role": "source",
+      "sha256": "86e15287fc4688ee6fd88d9ef1b6bafa0c71d78782ac07006b3a38a91b60d998",
+      "source": {
+        "bytes": 3456,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_REPAIR_PROTOCOL.md",
+        "sha256": "86e15287fc4688ee6fd88d9ef1b6bafa0c71d78782ac07006b3a38a91b60d998"
+      }
+    },
+    {
+      "bytes": 2784,
+      "content_bytes": 2784,
+      "content_sha256": "c6f614f9b07c7670b007ae6a02d6e6ec4e9958b62c9ace74cdb770f071e8d656",
+      "encoding": "identity",
+      "path": "source/BINDING_TRANSFER_REPORT_RECOVERY_PROTOCOL.md",
+      "role": "source",
+      "sha256": "c6f614f9b07c7670b007ae6a02d6e6ec4e9958b62c9ace74cdb770f071e8d656",
+      "source": {
+        "bytes": 2784,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_REPORT_RECOVERY_PROTOCOL.md",
+        "sha256": "c6f614f9b07c7670b007ae6a02d6e6ec4e9958b62c9ace74cdb770f071e8d656"
+      }
+    },
+    {
+      "bytes": 5305,
+      "content_bytes": 5305,
+      "content_sha256": "673ecc49ff98fdbb788f40a2f738aeca9406d15726b4717856dee53db8cd5617",
+      "encoding": "identity",
+      "path": "source/BINDING_TRANSFER_V2_PROTOCOL.md",
+      "role": "source",
+      "sha256": "673ecc49ff98fdbb788f40a2f738aeca9406d15726b4717856dee53db8cd5617",
+      "source": {
+        "bytes": 5305,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_V2_PROTOCOL.md",
+        "sha256": "673ecc49ff98fdbb788f40a2f738aeca9406d15726b4717856dee53db8cd5617"
+      }
+    },
+    {
+      "bytes": 2046,
+      "content_bytes": 2046,
+      "content_sha256": "bf55ba10a70fdf63891a5c5e10bcc8b873e583196128942b55abc9acdad8d725",
+      "encoding": "identity",
+      "path": "source/BINDING_TRANSFER_V2_ROUTING.md",
+      "role": "source",
+      "sha256": "bf55ba10a70fdf63891a5c5e10bcc8b873e583196128942b55abc9acdad8d725",
+      "source": {
+        "bytes": 2046,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_V2_ROUTING.md",
+        "sha256": "bf55ba10a70fdf63891a5c5e10bcc8b873e583196128942b55abc9acdad8d725"
+      }
+    },
+    {
+      "bytes": 7815,
+      "content_bytes": 7815,
+      "content_sha256": "44f514bdbfa78bd00d8ca43ade1b0b3d22548eee0f8c78660f08c0eb3a6468de",
+      "encoding": "identity",
+      "path": "source/PROVENANCE.md",
+      "role": "source",
+      "sha256": "44f514bdbfa78bd00d8ca43ade1b0b3d22548eee0f8c78660f08c0eb3a6468de",
+      "source": {
+        "bytes": 7815,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PROVENANCE.md",
+        "sha256": "44f514bdbfa78bd00d8ca43ade1b0b3d22548eee0f8c78660f08c0eb3a6468de"
+      }
+    },
+    {
+      "bytes": 7538,
+      "content_bytes": 7538,
+      "content_sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3",
+      "encoding": "identity",
+      "path": "source/PUBLIC_INPUT_BINDING_RESULTS.md",
+      "role": "source",
+      "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3",
+      "source": {
+        "bytes": 7538,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+        "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3"
+      }
+    },
+    {
+      "bytes": 13544,
+      "content_bytes": 13544,
+      "content_sha256": "327b117307e98cf363a6e9f3cb9fcc7f23337f5a758a6243df24944a39d641b1",
+      "encoding": "identity",
+      "path": "source/TRANSFER_ATTRIBUTION_DESIGN_REVIEW.md",
+      "role": "source",
+      "sha256": "327b117307e98cf363a6e9f3cb9fcc7f23337f5a758a6243df24944a39d641b1",
+      "source": {
+        "bytes": 13544,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/TRANSFER_ATTRIBUTION_DESIGN_REVIEW.md",
+        "sha256": "327b117307e98cf363a6e9f3cb9fcc7f23337f5a758a6243df24944a39d641b1"
+      }
+    },
+    {
+      "bytes": 14977,
+      "content_bytes": 14977,
+      "content_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "encoding": "identity",
+      "path": "source/actual_corpus_coverage.py",
+      "role": "source",
+      "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "source": {
+        "bytes": 14977,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+        "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+      }
+    },
+    {
+      "bytes": 33271,
+      "content_bytes": 33271,
+      "content_sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+      "encoding": "identity",
+      "path": "source/actual_corpus_deck.py",
+      "role": "source",
+      "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+      "source": {
+        "bytes": 33271,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+        "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086"
+      }
+    },
+    {
+      "bytes": 28935,
+      "content_bytes": 28935,
+      "content_sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+      "encoding": "identity",
+      "path": "source/actual_corpus_native_plan.py",
+      "role": "source",
+      "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+      "source": {
+        "bytes": 28935,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+        "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+      }
+    },
+    {
+      "bytes": 25321,
+      "content_bytes": 25321,
+      "content_sha256": "51ad01b175d5367e27b5e0f8eebb91d2a417f73069cfdd865269cff714f012cd",
+      "encoding": "identity",
+      "path": "source/binding_transfer_accounting.py",
+      "role": "source",
+      "sha256": "51ad01b175d5367e27b5e0f8eebb91d2a417f73069cfdd865269cff714f012cd",
+      "source": {
+        "bytes": 25321,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_accounting.py",
+        "sha256": "51ad01b175d5367e27b5e0f8eebb91d2a417f73069cfdd865269cff714f012cd"
+      }
+    },
+    {
+      "bytes": 8692,
+      "content_bytes": 8692,
+      "content_sha256": "750043948139436b32bfc082e17c8015e9ba84c87103b257c89cca586c15116b",
+      "encoding": "identity",
+      "path": "source/binding_transfer_baselines.py",
+      "role": "source",
+      "sha256": "750043948139436b32bfc082e17c8015e9ba84c87103b257c89cca586c15116b",
+      "source": {
+        "bytes": 8692,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_baselines.py",
+        "sha256": "750043948139436b32bfc082e17c8015e9ba84c87103b257c89cca586c15116b"
+      }
+    },
+    {
+      "bytes": 34602,
+      "content_bytes": 34602,
+      "content_sha256": "7e0af843d21500f78307c95c6ad7f56f1d731d69c5a901725e81e0421ab5afb6",
+      "encoding": "identity",
+      "path": "source/binding_transfer_data.py",
+      "role": "source",
+      "sha256": "7e0af843d21500f78307c95c6ad7f56f1d731d69c5a901725e81e0421ab5afb6",
+      "source": {
+        "bytes": 34602,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_data.py",
+        "sha256": "7e0af843d21500f78307c95c6ad7f56f1d731d69c5a901725e81e0421ab5afb6"
+      }
+    },
+    {
+      "bytes": 35294,
+      "content_bytes": 35294,
+      "content_sha256": "b98316c7b1210fdd1f5db4e993f5d8738e25db46334f454b588f7c68324135bc",
+      "encoding": "identity",
+      "path": "source/binding_transfer_data_v2.py",
+      "role": "source",
+      "sha256": "b98316c7b1210fdd1f5db4e993f5d8738e25db46334f454b588f7c68324135bc",
+      "source": {
+        "bytes": 35294,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_data_v2.py",
+        "sha256": "b98316c7b1210fdd1f5db4e993f5d8738e25db46334f454b588f7c68324135bc"
+      }
+    },
+    {
+      "bytes": 34455,
+      "content_bytes": 34455,
+      "content_sha256": "85e77bdef0fefb18d23040a40f6be8121e82a724feba47124b76b622c8cde7ce",
+      "encoding": "identity",
+      "path": "source/binding_transfer_fit.py",
+      "role": "source",
+      "sha256": "85e77bdef0fefb18d23040a40f6be8121e82a724feba47124b76b622c8cde7ce",
+      "source": {
+        "bytes": 34455,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_fit.py",
+        "sha256": "85e77bdef0fefb18d23040a40f6be8121e82a724feba47124b76b622c8cde7ce"
+      }
+    },
+    {
+      "bytes": 9567,
+      "content_bytes": 9567,
+      "content_sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "encoding": "identity",
+      "path": "source/binding_transfer_native_collector/Cargo.lock",
+      "role": "source",
+      "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "source": {
+        "bytes": 9567,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/Cargo.lock",
+        "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+      }
+    },
+    {
+      "bytes": 718,
+      "content_bytes": 718,
+      "content_sha256": "6d791e9b70b31fb570febd49209faf452f7a997c690a717f5c5717f254d76010",
+      "encoding": "identity",
+      "path": "source/binding_transfer_native_collector/Cargo.toml",
+      "role": "source",
+      "sha256": "6d791e9b70b31fb570febd49209faf452f7a997c690a717f5c5717f254d76010",
+      "source": {
+        "bytes": 718,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/Cargo.toml",
+        "sha256": "6d791e9b70b31fb570febd49209faf452f7a997c690a717f5c5717f254d76010"
+      }
+    },
+    {
+      "bytes": 11885,
+      "content_bytes": 11885,
+      "content_sha256": "86a1103020233f04b9afaa9275488b912f6f2a6dc5259ac2a6f03624b9a8fb1f",
+      "encoding": "identity",
+      "path": "source/binding_transfer_native_plan.py",
+      "role": "source",
+      "sha256": "86a1103020233f04b9afaa9275488b912f6f2a6dc5259ac2a6f03624b9a8fb1f",
+      "source": {
+        "bytes": 11885,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_plan.py",
+        "sha256": "86a1103020233f04b9afaa9275488b912f6f2a6dc5259ac2a6f03624b9a8fb1f"
+      }
+    },
+    {
+      "bytes": 38602,
+      "content_bytes": 38602,
+      "content_sha256": "ba6a9938210db820b16306afa36561bcd4a4abffa7dac1d9a388623f5bec6215",
+      "encoding": "identity",
+      "path": "source/binding_transfer_next_accounting.py",
+      "role": "source",
+      "sha256": "ba6a9938210db820b16306afa36561bcd4a4abffa7dac1d9a388623f5bec6215",
+      "source": {
+        "bytes": 38602,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_next_accounting.py",
+        "sha256": "ba6a9938210db820b16306afa36561bcd4a4abffa7dac1d9a388623f5bec6215"
+      }
+    },
+    {
+      "bytes": 1762,
+      "content_bytes": 1762,
+      "content_sha256": "b9e7da6b0b307c8c393bfbb156e683ea0e701b9a8c3f9e38a7347954fa9ff813",
+      "encoding": "identity",
+      "path": "source/binding_transfer_next_native_collector/README.md",
+      "role": "source",
+      "sha256": "b9e7da6b0b307c8c393bfbb156e683ea0e701b9a8c3f9e38a7347954fa9ff813",
+      "source": {
+        "bytes": 1762,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_next_native_collector/README.md",
+        "sha256": "b9e7da6b0b307c8c393bfbb156e683ea0e701b9a8c3f9e38a7347954fa9ff813"
+      }
+    },
+    {
+      "bytes": 30282,
+      "content_bytes": 30282,
+      "content_sha256": "adc2da70c7ae29dbce8cc482254e644e7f7721ca733a2410e64fd991cf60aad9",
+      "encoding": "identity",
+      "path": "source/binding_transfer_next_native_collector/supervise.py",
+      "role": "source",
+      "sha256": "adc2da70c7ae29dbce8cc482254e644e7f7721ca733a2410e64fd991cf60aad9",
+      "source": {
+        "bytes": 30282,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_next_native_collector/supervise.py",
+        "sha256": "adc2da70c7ae29dbce8cc482254e644e7f7721ca733a2410e64fd991cf60aad9"
+      }
+    },
+    {
+      "bytes": 12766,
+      "content_bytes": 12766,
+      "content_sha256": "046d7808ab9fa81c641aa7292245f423b3a24847bd6baeed3189e3dc303b8c93",
+      "encoding": "identity",
+      "path": "source/binding_transfer_next_native_collector/test_guard.py",
+      "role": "source",
+      "sha256": "046d7808ab9fa81c641aa7292245f423b3a24847bd6baeed3189e3dc303b8c93",
+      "source": {
+        "bytes": 12766,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_next_native_collector/test_guard.py",
+        "sha256": "046d7808ab9fa81c641aa7292245f423b3a24847bd6baeed3189e3dc303b8c93"
+      }
+    },
+    {
+      "bytes": 7527,
+      "content_bytes": 7527,
+      "content_sha256": "04c85a0c8de874a2e274916566c43d5b6168780fdb1ce2e8d81aa38c83e4c2c5",
+      "encoding": "identity",
+      "path": "source/binding_transfer_next_native_collector/test_next_guard.py",
+      "role": "source",
+      "sha256": "04c85a0c8de874a2e274916566c43d5b6168780fdb1ce2e8d81aa38c83e4c2c5",
+      "source": {
+        "bytes": 7527,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_next_native_collector/test_next_guard.py",
+        "sha256": "04c85a0c8de874a2e274916566c43d5b6168780fdb1ce2e8d81aa38c83e4c2c5"
+      }
+    },
+    {
+      "bytes": 37581,
+      "content_bytes": 37581,
+      "content_sha256": "2adaed75d90abdc019e13685db84cf475ffdfa505e670f7bfd9e6c8cd219571f",
+      "encoding": "identity",
+      "path": "source/binding_transfer_next_verify.py",
+      "role": "source",
+      "sha256": "2adaed75d90abdc019e13685db84cf475ffdfa505e670f7bfd9e6c8cd219571f",
+      "source": {
+        "bytes": 37581,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_next_verify.py",
+        "sha256": "2adaed75d90abdc019e13685db84cf475ffdfa505e670f7bfd9e6c8cd219571f"
+      }
+    },
+    {
+      "bytes": 7927,
+      "content_bytes": 7927,
+      "content_sha256": "62ef18971fb80119036db68596144ac5cb62f55aca55976dac75704120d110ff",
+      "encoding": "identity",
+      "path": "source/binding_transfer_prep.py",
+      "role": "source",
+      "sha256": "62ef18971fb80119036db68596144ac5cb62f55aca55976dac75704120d110ff",
+      "source": {
+        "bytes": 7927,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_prep.py",
+        "sha256": "62ef18971fb80119036db68596144ac5cb62f55aca55976dac75704120d110ff"
+      }
+    },
+    {
+      "bytes": 10370,
+      "content_bytes": 10370,
+      "content_sha256": "ee8a9c6c13d5a1cb5475bcc74d0cd12584a2520333fb00eb238605da4efad2e1",
+      "encoding": "identity",
+      "path": "source/binding_transfer_repair.py",
+      "role": "source",
+      "sha256": "ee8a9c6c13d5a1cb5475bcc74d0cd12584a2520333fb00eb238605da4efad2e1",
+      "source": {
+        "bytes": 10370,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_repair.py",
+        "sha256": "ee8a9c6c13d5a1cb5475bcc74d0cd12584a2520333fb00eb238605da4efad2e1"
+      }
+    },
+    {
+      "bytes": 41477,
+      "content_bytes": 41477,
+      "content_sha256": "761b62596c76ed3f61dfee1f348fdd54a41a8e92d756eade8ecb90b3f9aa96bb",
+      "encoding": "identity",
+      "path": "source/binding_transfer_repair_accounting.py",
+      "role": "source",
+      "sha256": "761b62596c76ed3f61dfee1f348fdd54a41a8e92d756eade8ecb90b3f9aa96bb",
+      "source": {
+        "bytes": 41477,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_repair_accounting.py",
+        "sha256": "761b62596c76ed3f61dfee1f348fdd54a41a8e92d756eade8ecb90b3f9aa96bb"
+      }
+    },
+    {
+      "bytes": 8687,
+      "content_bytes": 8687,
+      "content_sha256": "13f2ed30060ab8618bcb87a874c9a41123284eac00cec1bfb7ae345d3e379e4e",
+      "encoding": "identity",
+      "path": "source/binding_transfer_repair_baselines.py",
+      "role": "source",
+      "sha256": "13f2ed30060ab8618bcb87a874c9a41123284eac00cec1bfb7ae345d3e379e4e",
+      "source": {
+        "bytes": 8687,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_repair_baselines.py",
+        "sha256": "13f2ed30060ab8618bcb87a874c9a41123284eac00cec1bfb7ae345d3e379e4e"
+      }
+    },
+    {
+      "bytes": 38184,
+      "content_bytes": 38184,
+      "content_sha256": "cb0661bd71feeedfbacf8656d18bf9cd8013de87219e2b633d8546af90fbd675",
+      "encoding": "identity",
+      "path": "source/binding_transfer_repair_verify.py",
+      "role": "source",
+      "sha256": "cb0661bd71feeedfbacf8656d18bf9cd8013de87219e2b633d8546af90fbd675",
+      "source": {
+        "bytes": 38184,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_repair_verify.py",
+        "sha256": "cb0661bd71feeedfbacf8656d18bf9cd8013de87219e2b633d8546af90fbd675"
+      }
+    },
+    {
+      "bytes": 59140,
+      "content_bytes": 59140,
+      "content_sha256": "b212f83d72e6e2eb2feb248d14dce4fbf2a4c8b3e468a2a22c9810cf051e3acb",
+      "encoding": "identity",
+      "path": "source/binding_transfer_report_accounting.py",
+      "role": "source",
+      "sha256": "b212f83d72e6e2eb2feb248d14dce4fbf2a4c8b3e468a2a22c9810cf051e3acb",
+      "source": {
+        "bytes": 59140,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_report_accounting.py",
+        "sha256": "b212f83d72e6e2eb2feb248d14dce4fbf2a4c8b3e468a2a22c9810cf051e3acb"
+      }
+    },
+    {
+      "bytes": 14487,
+      "content_bytes": 14487,
+      "content_sha256": "02ea0b8bc30cb7c8a0bd1469c5fe17c0c95eaf2b72d1c0f570edfe7b0e9f583e",
+      "encoding": "identity",
+      "path": "source/binding_transfer_report_recovery.py",
+      "role": "source",
+      "sha256": "02ea0b8bc30cb7c8a0bd1469c5fe17c0c95eaf2b72d1c0f570edfe7b0e9f583e",
+      "source": {
+        "bytes": 14487,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_report_recovery.py",
+        "sha256": "02ea0b8bc30cb7c8a0bd1469c5fe17c0c95eaf2b72d1c0f570edfe7b0e9f583e"
+      }
+    },
+    {
+      "bytes": 42020,
+      "content_bytes": 42020,
+      "content_sha256": "c0ad6c028a2454011eca4def61a1cc06d9755ed80f24b8c04ee4b8e2e3efb374",
+      "encoding": "identity",
+      "path": "source/binding_transfer_report_verify.py",
+      "role": "source",
+      "sha256": "c0ad6c028a2454011eca4def61a1cc06d9755ed80f24b8c04ee4b8e2e3efb374",
+      "source": {
+        "bytes": 42020,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_report_verify.py",
+        "sha256": "c0ad6c028a2454011eca4def61a1cc06d9755ed80f24b8c04ee4b8e2e3efb374"
+      }
+    },
+    {
+      "bytes": 7350,
+      "content_bytes": 7350,
+      "content_sha256": "69d55db63d7181d5909ded1525fb4afa5ffa1c79641e78ab871fb320c1461187",
+      "encoding": "identity",
+      "path": "source/binding_transfer_v2.py",
+      "role": "source",
+      "sha256": "69d55db63d7181d5909ded1525fb4afa5ffa1c79641e78ab871fb320c1461187",
+      "source": {
+        "bytes": 7350,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_v2.py",
+        "sha256": "69d55db63d7181d5909ded1525fb4afa5ffa1c79641e78ab871fb320c1461187"
+      }
+    },
+    {
+      "bytes": 59333,
+      "content_bytes": 59333,
+      "content_sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765",
+      "encoding": "identity",
+      "path": "source/effect_identifiability_fit.py",
+      "role": "source",
+      "sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765",
+      "source": {
+        "bytes": 59333,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect_identifiability_fit.py",
+        "sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765"
+      }
+    },
+    {
+      "bytes": 48843,
+      "content_bytes": 48843,
+      "content_sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21",
+      "encoding": "identity",
+      "path": "source/grounded_contrast_data.py",
+      "role": "source",
+      "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21",
+      "source": {
+        "bytes": 48843,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+        "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21"
+      }
+    },
+    {
+      "bytes": 30862,
+      "content_bytes": 30862,
+      "content_sha256": "477bbf31a63f2e321e3b0f85b24606d66659974c3342d7a991d6a234af75cbb4",
+      "encoding": "identity",
+      "path": "source/learning_sanity_data.py",
+      "role": "source",
+      "sha256": "477bbf31a63f2e321e3b0f85b24606d66659974c3342d7a991d6a234af75cbb4",
+      "source": {
+        "bytes": 30862,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning_sanity_data.py",
+        "sha256": "477bbf31a63f2e321e3b0f85b24606d66659974c3342d7a991d6a234af75cbb4"
+      }
+    },
+    {
+      "bytes": 20340,
+      "content_bytes": 20340,
+      "content_sha256": "f40a77bd9fb0e08f692624fe4841d4a4352bd87436d84a1ac51725ef5a5afde5",
+      "encoding": "identity",
+      "path": "source/public_input_binding.py",
+      "role": "source",
+      "sha256": "f40a77bd9fb0e08f692624fe4841d4a4352bd87436d84a1ac51725ef5a5afde5",
+      "source": {
+        "bytes": 20340,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding.py",
+        "sha256": "f40a77bd9fb0e08f692624fe4841d4a4352bd87436d84a1ac51725ef5a5afde5"
+      }
+    },
+    {
+      "bytes": 15360,
+      "content_bytes": 15360,
+      "content_sha256": "d32f5ffb27c7d1fd761b74a51320957ba6b9b6f69657665c1f9f6ca66b4cd3ca",
+      "encoding": "identity",
+      "path": "source/public_input_binding_accounting.py",
+      "role": "source",
+      "sha256": "d32f5ffb27c7d1fd761b74a51320957ba6b9b6f69657665c1f9f6ca66b4cd3ca",
+      "source": {
+        "bytes": 15360,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_accounting.py",
+        "sha256": "d32f5ffb27c7d1fd761b74a51320957ba6b9b6f69657665c1f9f6ca66b4cd3ca"
+      }
+    },
+    {
+      "bytes": 9567,
+      "content_bytes": 9567,
+      "content_sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "encoding": "identity",
+      "path": "source/public_input_binding_collector/Cargo.lock",
+      "role": "source",
+      "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "source": {
+        "bytes": 9567,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.lock",
+        "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+      }
+    },
+    {
+      "bytes": 540,
+      "content_bytes": 540,
+      "content_sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e",
+      "encoding": "identity",
+      "path": "source/public_input_binding_collector/Cargo.toml",
+      "role": "source",
+      "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e",
+      "source": {
+        "bytes": 540,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.toml",
+        "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e"
+      }
+    },
+    {
+      "bytes": 17266,
+      "content_bytes": 17266,
+      "content_sha256": "292124d28a618c13d81a450087b6264fca3033557d78d046baf4a826eedc30e0",
+      "encoding": "identity",
+      "path": "source/public_input_binding_collector/supervise.py",
+      "role": "source",
+      "sha256": "292124d28a618c13d81a450087b6264fca3033557d78d046baf4a826eedc30e0",
+      "source": {
+        "bytes": 17266,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/supervise.py",
+        "sha256": "292124d28a618c13d81a450087b6264fca3033557d78d046baf4a826eedc30e0"
+      }
+    },
+    {
+      "bytes": 13395,
+      "content_bytes": 13395,
+      "content_sha256": "4d53c2fb0b707c8b0982795413eabb9f198bfdd5794be27fb8dde0a42e1e929b",
+      "encoding": "identity",
+      "path": "source/public_input_binding_model_v1.py",
+      "role": "source",
+      "sha256": "4d53c2fb0b707c8b0982795413eabb9f198bfdd5794be27fb8dde0a42e1e929b",
+      "source": {
+        "bytes": 13395,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_model_v1.py",
+        "sha256": "4d53c2fb0b707c8b0982795413eabb9f198bfdd5794be27fb8dde0a42e1e929b"
+      }
+    },
+    {
+      "bytes": 20171,
+      "content_bytes": 20171,
+      "content_sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7",
+      "encoding": "identity",
+      "path": "source/public_input_binding_recovery_accounting.py",
+      "role": "source",
+      "sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7",
+      "source": {
+        "bytes": 20171,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_accounting.py",
+        "sha256": "ac3cca80088352a94873ce9b67ae0d746897f509d47a82e05bfc2cde81cbabe7"
+      }
+    },
+    {
+      "bytes": 19223,
+      "content_bytes": 19223,
+      "content_sha256": "eee7672b651a3578969fa6615997186a9e2e57f0f3c664b168fc0bb7218b51b4",
+      "encoding": "identity",
+      "path": "source/public_input_binding_recovery_collector/supervise.py",
+      "role": "source",
+      "sha256": "eee7672b651a3578969fa6615997186a9e2e57f0f3c664b168fc0bb7218b51b4",
+      "source": {
+        "bytes": 19223,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_collector/supervise.py",
+        "sha256": "eee7672b651a3578969fa6615997186a9e2e57f0f3c664b168fc0bb7218b51b4"
+      }
+    },
+    {
+      "bytes": 4613,
+      "content_bytes": 4613,
+      "content_sha256": "e6e319172b4512e3d848220cab601b39fe70f5ab17e4972fbfa8323f718ea2eb",
+      "encoding": "identity",
+      "path": "source/public_input_binding_recovery_plan.py",
+      "role": "source",
+      "sha256": "e6e319172b4512e3d848220cab601b39fe70f5ab17e4972fbfa8323f718ea2eb",
+      "source": {
+        "bytes": 4613,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_recovery_plan.py",
+        "sha256": "e6e319172b4512e3d848220cab601b39fe70f5ab17e4972fbfa8323f718ea2eb"
+      }
+    },
+    {
+      "bytes": 42826,
+      "content_bytes": 42826,
+      "content_sha256": "a9a723c02abb20aa790b40e8e36f7c12cfbc7b32a456bb8ce54dd85487e3c016",
+      "encoding": "identity",
+      "path": "source/public_input_binding_supplemental_verify.py",
+      "role": "source",
+      "sha256": "a9a723c02abb20aa790b40e8e36f7c12cfbc7b32a456bb8ce54dd85487e3c016",
+      "source": {
+        "bytes": 42826,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_supplemental_verify.py",
+        "sha256": "a9a723c02abb20aa790b40e8e36f7c12cfbc7b32a456bb8ce54dd85487e3c016"
+      }
+    },
+    {
+      "bytes": 41102,
+      "content_bytes": 41102,
+      "content_sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4",
+      "encoding": "identity",
+      "path": "source/public_input_binding_verify.py",
+      "role": "source",
+      "sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4",
+      "source": {
+        "bytes": 41102,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_verify.py",
+        "sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4"
+      }
+    },
+    {
+      "bytes": 5521,
+      "content_bytes": 5521,
+      "content_sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+      "encoding": "identity",
+      "path": "source/run_events.py",
+      "role": "source",
+      "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+      "source": {
+        "bytes": 5521,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+        "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a"
+      }
+    },
+    {
+      "bytes": 30315,
+      "content_bytes": 30315,
+      "content_sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+      "encoding": "identity",
+      "path": "source/run_local_experiments.py",
+      "role": "source",
+      "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+      "source": {
+        "bytes": 30315,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+        "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354"
+      }
+    },
+    {
+      "bytes": 5458,
+      "content_bytes": 5458,
+      "content_sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+      "encoding": "identity",
+      "path": "source/test_actual_corpus_coverage.py",
+      "role": "source",
+      "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+      "source": {
+        "bytes": 5458,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+        "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a"
+      }
+    },
+    {
+      "bytes": 7954,
+      "content_bytes": 7954,
+      "content_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "encoding": "identity",
+      "path": "source/test_actual_corpus_deck.py",
+      "role": "source",
+      "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "source": {
+        "bytes": 7954,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+        "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+      }
+    },
+    {
+      "bytes": 15446,
+      "content_bytes": 15446,
+      "content_sha256": "cf898f50a77b7d13509311772cbd8bfdaf3c50bb590ca5dd96dea2556e1ea855",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_accounting.py",
+      "role": "source",
+      "sha256": "cf898f50a77b7d13509311772cbd8bfdaf3c50bb590ca5dd96dea2556e1ea855",
+      "source": {
+        "bytes": 15446,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_accounting.py",
+        "sha256": "cf898f50a77b7d13509311772cbd8bfdaf3c50bb590ca5dd96dea2556e1ea855"
+      }
+    },
+    {
+      "bytes": 3394,
+      "content_bytes": 3394,
+      "content_sha256": "db79d6013c9f79ca3d34658d3e8e6f578ff18a4750ee3769f2a9d724733eff29",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_baselines.py",
+      "role": "source",
+      "sha256": "db79d6013c9f79ca3d34658d3e8e6f578ff18a4750ee3769f2a9d724733eff29",
+      "source": {
+        "bytes": 3394,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_baselines.py",
+        "sha256": "db79d6013c9f79ca3d34658d3e8e6f578ff18a4750ee3769f2a9d724733eff29"
+      }
+    },
+    {
+      "bytes": 18403,
+      "content_bytes": 18403,
+      "content_sha256": "b79bcc415a27a554a2de89d60dec4e6fc2beb4ef064eed4ca4ec583e1b1dd267",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_data.py",
+      "role": "source",
+      "sha256": "b79bcc415a27a554a2de89d60dec4e6fc2beb4ef064eed4ca4ec583e1b1dd267",
+      "source": {
+        "bytes": 18403,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_data.py",
+        "sha256": "b79bcc415a27a554a2de89d60dec4e6fc2beb4ef064eed4ca4ec583e1b1dd267"
+      }
+    },
+    {
+      "bytes": 4895,
+      "content_bytes": 4895,
+      "content_sha256": "776994ddd93db2f250171393c45dd4b2e6a24c9daaf4b912b39e94e99d9d57d5",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_data_v2.py",
+      "role": "source",
+      "sha256": "776994ddd93db2f250171393c45dd4b2e6a24c9daaf4b912b39e94e99d9d57d5",
+      "source": {
+        "bytes": 4895,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_data_v2.py",
+        "sha256": "776994ddd93db2f250171393c45dd4b2e6a24c9daaf4b912b39e94e99d9d57d5"
+      }
+    },
+    {
+      "bytes": 11497,
+      "content_bytes": 11497,
+      "content_sha256": "6d536bfcef7dd65bfd2495b20c03c6eb3285b41aa086ce079eeb5d2575e21d83",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_failure_publication.py",
+      "role": "source",
+      "sha256": "6d536bfcef7dd65bfd2495b20c03c6eb3285b41aa086ce079eeb5d2575e21d83",
+      "source": {
+        "bytes": 11497,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_failure_publication.py",
+        "sha256": "6d536bfcef7dd65bfd2495b20c03c6eb3285b41aa086ce079eeb5d2575e21d83"
+      }
+    },
+    {
+      "bytes": 8560,
+      "content_bytes": 8560,
+      "content_sha256": "79a740177f30ab9efbff0426654c2c98ae116919c5d40a835832fcbe4368d8d0",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_fit.py",
+      "role": "source",
+      "sha256": "79a740177f30ab9efbff0426654c2c98ae116919c5d40a835832fcbe4368d8d0",
+      "source": {
+        "bytes": 8560,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_fit.py",
+        "sha256": "79a740177f30ab9efbff0426654c2c98ae116919c5d40a835832fcbe4368d8d0"
+      }
+    },
+    {
+      "bytes": 9575,
+      "content_bytes": 9575,
+      "content_sha256": "bd55cf4357f8a4aa263a338e504be45a55b6c90f555f0c78a2173f71109ed846",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_fixture_evidence.py",
+      "role": "source",
+      "sha256": "bd55cf4357f8a4aa263a338e504be45a55b6c90f555f0c78a2173f71109ed846",
+      "source": {
+        "bytes": 9575,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_fixture_evidence.py",
+        "sha256": "bd55cf4357f8a4aa263a338e504be45a55b6c90f555f0c78a2173f71109ed846"
+      }
+    },
+    {
+      "bytes": 7110,
+      "content_bytes": 7110,
+      "content_sha256": "ce4da8ed523660321d6f537e26f3ed9667653fa300c546fbe7b39f5e055d9713",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_fixture_guard.py",
+      "role": "source",
+      "sha256": "ce4da8ed523660321d6f537e26f3ed9667653fa300c546fbe7b39f5e055d9713",
+      "source": {
+        "bytes": 7110,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_fixture_guard.py",
+        "sha256": "ce4da8ed523660321d6f537e26f3ed9667653fa300c546fbe7b39f5e055d9713"
+      }
+    },
+    {
+      "bytes": 5530,
+      "content_bytes": 5530,
+      "content_sha256": "0876eec27ae185993c8871ee57254026c387eab03ba4ab644644b111f70733a4",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_native_plan.py",
+      "role": "source",
+      "sha256": "0876eec27ae185993c8871ee57254026c387eab03ba4ab644644b111f70733a4",
+      "source": {
+        "bytes": 5530,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_native_plan.py",
+        "sha256": "0876eec27ae185993c8871ee57254026c387eab03ba4ab644644b111f70733a4"
+      }
+    },
+    {
+      "bytes": 17263,
+      "content_bytes": 17263,
+      "content_sha256": "365a196425e3ad6b7732afcb5b5eb623506f7bc1c11cd40f43253efdc594c2ff",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_next_accounting.py",
+      "role": "source",
+      "sha256": "365a196425e3ad6b7732afcb5b5eb623506f7bc1c11cd40f43253efdc594c2ff",
+      "source": {
+        "bytes": 17263,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_next_accounting.py",
+        "sha256": "365a196425e3ad6b7732afcb5b5eb623506f7bc1c11cd40f43253efdc594c2ff"
+      }
+    },
+    {
+      "bytes": 13275,
+      "content_bytes": 13275,
+      "content_sha256": "aedcc5005bfc8c18b6f15843ceb5a121344b7943557948c3e908801bc9f25691",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_next_verify.py",
+      "role": "source",
+      "sha256": "aedcc5005bfc8c18b6f15843ceb5a121344b7943557948c3e908801bc9f25691",
+      "source": {
+        "bytes": 13275,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_next_verify.py",
+        "sha256": "aedcc5005bfc8c18b6f15843ceb5a121344b7943557948c3e908801bc9f25691"
+      }
+    },
+    {
+      "bytes": 7024,
+      "content_bytes": 7024,
+      "content_sha256": "82fac4a61eb2c2c31b7215b1b2adc1934a71ce1ba33008f952cb0e5029025678",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_prep.py",
+      "role": "source",
+      "sha256": "82fac4a61eb2c2c31b7215b1b2adc1934a71ce1ba33008f952cb0e5029025678",
+      "source": {
+        "bytes": 7024,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_prep.py",
+        "sha256": "82fac4a61eb2c2c31b7215b1b2adc1934a71ce1ba33008f952cb0e5029025678"
+      }
+    },
+    {
+      "bytes": 5638,
+      "content_bytes": 5638,
+      "content_sha256": "0f4b1e3a3dbe8be80dda61b243546d3ae9d484c99b875184bbda13263decba96",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_repair.py",
+      "role": "source",
+      "sha256": "0f4b1e3a3dbe8be80dda61b243546d3ae9d484c99b875184bbda13263decba96",
+      "source": {
+        "bytes": 5638,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_repair.py",
+        "sha256": "0f4b1e3a3dbe8be80dda61b243546d3ae9d484c99b875184bbda13263decba96"
+      }
+    },
+    {
+      "bytes": 8590,
+      "content_bytes": 8590,
+      "content_sha256": "497d7d7a7e16812da7807e92fd6024066bba0516a224b8334c9e3074922c2e2d",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_repair_accounting.py",
+      "role": "source",
+      "sha256": "497d7d7a7e16812da7807e92fd6024066bba0516a224b8334c9e3074922c2e2d",
+      "source": {
+        "bytes": 8590,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_repair_accounting.py",
+        "sha256": "497d7d7a7e16812da7807e92fd6024066bba0516a224b8334c9e3074922c2e2d"
+      }
+    },
+    {
+      "bytes": 13994,
+      "content_bytes": 13994,
+      "content_sha256": "e02b77c6b45f6991e305755d94754f3c4045a4143040680a9d6d4589273a3af9",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_repair_verify.py",
+      "role": "source",
+      "sha256": "e02b77c6b45f6991e305755d94754f3c4045a4143040680a9d6d4589273a3af9",
+      "source": {
+        "bytes": 13994,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_repair_verify.py",
+        "sha256": "e02b77c6b45f6991e305755d94754f3c4045a4143040680a9d6d4589273a3af9"
+      }
+    },
+    {
+      "bytes": 7462,
+      "content_bytes": 7462,
+      "content_sha256": "16996d56cc49592f8f3332d6196b42d9a8d2c9cd93795c0b55a2609b0c8029f9",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_report_accounting.py",
+      "role": "source",
+      "sha256": "16996d56cc49592f8f3332d6196b42d9a8d2c9cd93795c0b55a2609b0c8029f9",
+      "source": {
+        "bytes": 7462,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_report_accounting.py",
+        "sha256": "16996d56cc49592f8f3332d6196b42d9a8d2c9cd93795c0b55a2609b0c8029f9"
+      }
+    },
+    {
+      "bytes": 5865,
+      "content_bytes": 5865,
+      "content_sha256": "23706c74d2fbd51f3996a4480bf941fd7e1d6db6d054634f0697a309bfb2526b",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_report_recovery.py",
+      "role": "source",
+      "sha256": "23706c74d2fbd51f3996a4480bf941fd7e1d6db6d054634f0697a309bfb2526b",
+      "source": {
+        "bytes": 5865,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_report_recovery.py",
+        "sha256": "23706c74d2fbd51f3996a4480bf941fd7e1d6db6d054634f0697a309bfb2526b"
+      }
+    },
+    {
+      "bytes": 19074,
+      "content_bytes": 19074,
+      "content_sha256": "526fd882f1f998e9908c83892fda84470676d4c635f80875a4e81e509d8f4425",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_report_verify.py",
+      "role": "source",
+      "sha256": "526fd882f1f998e9908c83892fda84470676d4c635f80875a4e81e509d8f4425",
+      "source": {
+        "bytes": 19074,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_report_verify.py",
+        "sha256": "526fd882f1f998e9908c83892fda84470676d4c635f80875a4e81e509d8f4425"
+      }
+    },
+    {
+      "bytes": 3825,
+      "content_bytes": 3825,
+      "content_sha256": "57eddb75839e4a44226705a4affddaf9aee07a4d37cac4242e36221e433eaf6a",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_v2.py",
+      "role": "source",
+      "sha256": "57eddb75839e4a44226705a4affddaf9aee07a4d37cac4242e36221e433eaf6a",
+      "source": {
+        "bytes": 3825,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_v2.py",
+        "sha256": "57eddb75839e4a44226705a4affddaf9aee07a4d37cac4242e36221e433eaf6a"
+      }
+    },
+    {
+      "bytes": 7753,
+      "content_bytes": 7753,
+      "content_sha256": "cb839dac970535eb6da6fe1cb685847b31f3b05988c55d0e8c039a60d24d4946",
+      "encoding": "identity",
+      "path": "source/test_binding_transfer_verify.py",
+      "role": "source",
+      "sha256": "cb839dac970535eb6da6fe1cb685847b31f3b05988c55d0e8c039a60d24d4946",
+      "source": {
+        "bytes": 7753,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_binding_transfer_verify.py",
+        "sha256": "cb839dac970535eb6da6fe1cb685847b31f3b05988c55d0e8c039a60d24d4946"
+      }
+    },
+    {
+      "bytes": 11503,
+      "content_bytes": 11503,
+      "content_sha256": "29a32fe71d702701348dc2c46a718a7d5ac2a6556f2378d13dff9c36a7443a74",
+      "encoding": "identity",
+      "path": "source/test_public_input_binding_model_v1.py",
+      "role": "source",
+      "sha256": "29a32fe71d702701348dc2c46a718a7d5ac2a6556f2378d13dff9c36a7443a74",
+      "source": {
+        "bytes": 11503,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_model_v1.py",
+        "sha256": "29a32fe71d702701348dc2c46a718a7d5ac2a6556f2378d13dff9c36a7443a74"
+      }
+    },
+    {
+      "bytes": 7836,
+      "content_bytes": 7836,
+      "content_sha256": "3b55d35e6616ac457a9424db5689a230d23a074eaf0bfe14bb55bc547d5ec8e9",
+      "encoding": "identity",
+      "path": "source/test_public_input_binding_recovery_accounting.py",
+      "role": "source",
+      "sha256": "3b55d35e6616ac457a9424db5689a230d23a074eaf0bfe14bb55bc547d5ec8e9",
+      "source": {
+        "bytes": 7836,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_recovery_accounting.py",
+        "sha256": "3b55d35e6616ac457a9424db5689a230d23a074eaf0bfe14bb55bc547d5ec8e9"
+      }
+    },
+    {
+      "bytes": 3808,
+      "content_bytes": 3808,
+      "content_sha256": "ea85f3944214139f7bde00b5ee0e4e092def8cdf3bd8d95b439c1899a4e38db6",
+      "encoding": "identity",
+      "path": "source/test_public_input_binding_recovery_plan.py",
+      "role": "source",
+      "sha256": "ea85f3944214139f7bde00b5ee0e4e092def8cdf3bd8d95b439c1899a4e38db6",
+      "source": {
+        "bytes": 3808,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_recovery_plan.py",
+        "sha256": "ea85f3944214139f7bde00b5ee0e4e092def8cdf3bd8d95b439c1899a4e38db6"
+      }
+    },
+    {
+      "bytes": 40826,
+      "content_bytes": 40826,
+      "content_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+      "encoding": "identity",
+      "path": "source/whole_card_encoder.py",
+      "role": "source",
+      "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+      "source": {
+        "bytes": 40826,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+        "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+      }
+    }
+  ],
+  "packager": {
+    "bytes": 25434,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/package_evidence.py",
+    "sha256": "5a1637bd6ee4152546633b935aa759cc67f993af1d51583d99f3e519900b5d5d"
+  },
+  "packaging_spec": {
+    "bytes": 77410,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-repair-v1/evidence-spec-v1.json",
+    "sha256": "4de8ac6537423742fefcfd41972404d28bd045cff078d56ed69e96ca10de974f"
+  },
+  "schema": "jepa-binding-transfer-repair-evidence/1",
+  "semantic_validated": false,
+  "status": "closed-bounded-experiment-evidence",
+  "summary": {
+    "baseline_inventory": {
+      "baseline_files": 8,
+      "prediction_files": 6
+    },
+    "files": 200,
+    "fit_durable_prefix": {
+      "evaluation_forwards": 36,
+      "export_forwards": 0,
+      "optimizer_updates": 5400,
+      "training_forwards": 5400
+    },
+    "fit_inventory": {
+      "fit_files": 62,
+      "initial_checkpoint_files": 3,
+      "prediction_files": 36,
+      "trained_checkpoint_files": 18
+    },
+    "original_fit_status": "failed-retained-no-credit",
+    "original_ledger_final_record_sha256": "0376fef55991b42b4ce573cba75b021d87db0a86ccec46918881a591600618c6",
+    "original_official_observed_fit_counters": {
+      "native_applies": 0,
+      "neural_forwards": null,
+      "numerical_fits": 0,
+      "optimizer_updates": null,
+      "paid_jobs": 0,
+      "paid_spend_usd": 0.0
+    },
+    "privacy": {
+      "discard_cards": 0,
+      "draw_pile_cards": 0,
+      "internal_runtime_counters": "Proof-only diagnostic metadata; excluded from learned before-input tensors.",
+      "no_hidden_draw_order": true,
+      "opponent_hand_cards": 0,
+      "opponent_resource_cards": 0,
+      "own_focus_source_codes": [
+        "ASH_071",
+        "ASH_228",
+        "JTL_085",
+        "LAW_045",
+        "LOF_053",
+        "LOF_215",
+        "LOF_261"
+      ],
+      "own_resource_codes": [
+        "LOF_256"
+      ],
+      "physical_codes": [
+        "ASH_019",
+        "ASH_056",
+        "ASH_066",
+        "ASH_071",
+        "ASH_228",
+        "IBH_053",
+        "JTL_085",
+        "JTL_095",
+        "LAW_045",
+        "LAW_175",
+        "LOF_053",
+        "LOF_215",
+        "LOF_256",
+        "LOF_261",
+        "SEC_028",
+        "SEC_094"
+      ],
+      "physical_shields": 0,
+      "raw_case_captures": 208,
+      "source_paths": "Local paths are provenance, never secret credentials or consumer fetch targets.",
+      "status": "authored-public-fixtures-only"
+    },
+    "raw_bytes": 51449359,
+    "recovered_result": {
+      "bytes": 29887281,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-report-recovery-v1/recover-1/result.json",
+      "sha256": "c215c7bc6870c4f919619b5d466d74c961afd2e7fab47694b91813e49cf09fd8"
+    },
+    "recovery_ledger_final_record_sha256": "49f6ab7443bb174e99c4baf1ad327e9365215bd9bb2daf12f0ae5bfed89e3105",
+    "remote_publication_performed": false,
+    "repair_ledger_final_record_sha256": "594157318901334828cfb11009afd6151c7c767f549e2c9fc9513e10e2fae0fe",
+    "science_performed_by_packager": {
+      "native_applies": 0,
+      "neural_forwards": 0,
+      "numerical_fits": 0,
+      "optimizer_updates": 0,
+      "paid_jobs": 0,
+      "paid_spend_usd": 0
+    },
+    "scope": "Bounded scientific evidence only; runtime dependencies, native binaries and preceding212MB archive/oldportableZIP closure are excluded.",
+    "semantic_validated": false,
+    "source_freeze_commit_root_attested": "fc86c73da25d8de591d0dc71bc76e6257208d34a",
+    "spend_document": [
+      {
+        "bytes": 7870,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/MODAL_BUDGET.md",
+        "sha256": "e07973c029cfcb8ea0317376fb4fb84f964880dbab497460a85b3eca106a7d30"
+      }
+    ],
+    "stored_payload_bytes": 4997955
+  }
+}

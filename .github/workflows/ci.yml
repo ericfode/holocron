@@ -53,9 +53,17 @@ jobs:
         run: |
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_fixture_guard.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_fixture_evidence.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_next_accounting.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_v2.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_repair_accounting.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_repair.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_report_accounting.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_report_recovery.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_v2_evidence.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_failure_publication.py'
           python3 -m unittest discover -s bots/jepa/own_deck/binding_transfer_native_collector -p 'test_guard.py'
           python3 -m unittest discover -s bots/jepa/own_deck/binding_transfer_native_collector -p 'test_fixture_validation.py'
+          python3 -m unittest discover -s bots/jepa/own_deck/binding_transfer_next_native_collector -p 'test_*.py'
       - run: npm --prefix lab/analysis ci && npm run analysis:test
       - name: Engine sanity check (seeds 1-3 give 594/342/486 steps)
         run: |
