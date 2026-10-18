@@ -1,0 +1,29 @@
+{
+  "schema": "jepa-independent-retrieval-embedding/1",
+  "status": "completed",
+  "result": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/result.json",
+    "sha256": "b6bfaec6365ffcc305a5aff8dd1a9fbbc032164858f812c3ac1f81d49c0362dc"
+  },
+  "plan": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/plan.json",
+    "sha256": "9a509e7bc86a9fdee255fbf57f1fd3677c671bf7dc5fd84123615e11d31ad44d"
+  },
+  "guard": {
+    "elapsed_seconds": 0.05945033300668001,
+    "cpu_seconds": 0.05850699999999999,
+    "peak_rss_bytes": 49315840,
+    "samples": 1,
+    "worker_pid": 2682,
+    "compute_threads": 1,
+    "limitation": "One owned process; RSS is sampled high-water rusage, not an instantaneous OS memory reservation. NumPy import is inside the guard."
+  },
+  "counters": {
+    "neural_forward_attempts": 1,
+    "initial_context_calls": 1,
+    "final_context_capture_calls": 1
+  },
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "paid_jobs": 0
+}

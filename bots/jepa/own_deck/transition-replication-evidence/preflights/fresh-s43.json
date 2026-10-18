@@ -1,0 +1,1443 @@
+{
+  "schema": "jepa-transition-replication/1",
+  "status": "preflight-no-neural-execution",
+  "config": {
+    "seed": 43,
+    "arms": [
+      "correct-ir",
+      "id-only",
+      "wrong-ir",
+      "context-only"
+    ],
+    "max_updates_per_arm": 0,
+    "max_updates": 0,
+    "max_native_applies": 2048,
+    "max_collection_roots": 168,
+    "max_collection_fit_seconds": 240,
+    "max_parameters": 32768,
+    "cpu_workers": 1,
+    "sampled_rss_stop_bytes": 2147483648,
+    "final_validation_batches": 4,
+    "postfit_usage_batches": 0,
+    "abi_embedding_batches": 0,
+    "constant_head_auxiliary_weight": 0.1,
+    "paid_jobs": 0,
+    "paid_spend_usd": 0,
+    "batch_size": 16,
+    "learning_rate": 0.003,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "gradient_clip_l2": 1.0,
+    "batch_seed": 44,
+    "wrong_train_seed": 45,
+    "wrong_eval_seed": 46,
+    "self_query_auxiliary_weight": 0.1,
+    "binary_class_weight_bounds": [
+      0.25,
+      5.0
+    ],
+    "continuous_scale_floor": 1.0,
+    "primary_min_observed_roots": 2,
+    "auxiliary_min_observed_roots": 1,
+    "primary_rule": "at least two distinct training labels and two observed training roots",
+    "source_self_policy": "slot7 auxiliary0.1; primary candidate slots0..6; no candidate pooling",
+    "wrong_eval_rule": "heldout identities swap each other; seen identities draw from training programs excluding equivalent group",
+    "train_input_scaling": "training roots and primary candidates only; known numeric columns centered/std floor1; booleans unchanged",
+    "heldout_cells": [
+      "program-held",
+      "state-held",
+      "joint-held"
+    ],
+    "primary_cell": "joint-held",
+    "cohort": "fresh",
+    "parameters_per_arm": 9020,
+    "updates_per_arm": 0,
+    "final_checkpoint_only": true,
+    "expected_counts": {
+      "optimizer_updates": 0,
+      "training_forward_batches": 0,
+      "backward_batches": 0,
+      "heldout_validation_batches": 4,
+      "usage_batches": 0,
+      "abi_embedding_batches": 0,
+      "native_calls": 0,
+      "paid_jobs": 0
+    },
+    "cumulative_campaign_updates": 4800,
+    "cumulative_campaign_seconds": 240,
+    "sampled_rss_bytes": 2147483648,
+    "heldout_labels_used_in_training": false,
+    "search": false,
+    "execution_mode": "evaluate",
+    "update_offset": 4800,
+    "new_primary": {
+      "cell": "joint-held",
+      "orientation": "SHD_004 minus TWI_206",
+      "candidate_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "admission": "same state and candidate, both actual native legal/settled/known",
+      "aggregation": "natural-unit per-head MAE plus equal train-scale head macro"
+    }
+  },
+  "sources": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/transition_replication_fit.py",
+      "sha256": "f4277ab29be9fdd26d6920e04d35eee4acbe6bd781c36968475b37a306af9a6e"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_model.py",
+      "sha256": "473bc2324cf62c0437effd631e8fec3cc5930d2aeee0d00255da3bd08747eaf2"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+      "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+      "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.npz",
+      "sha256": "fe67ed242fed1be794c498bc062bdb5031b9136aa0ac5f277cb6001964b632cc"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.manifest.json",
+      "sha256": "8ff5b35d4189e6c45994807366a9665e935779896b9a91d409ef97b55577bf64"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/contract.json",
+      "sha256": "29ba5cd39c3262bee8b2cd93719efdd96545d3e66d4f410084ca6a4048d660ce"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.npz",
+      "sha256": "83a0ec4125e3d97b54ebd910925558bed0c18b779b706417991a650da1dfed52"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.manifest.json",
+      "sha256": "c0206e0638a995b8237574cb11a697c35a0711d9a9f5dd9741314431bd4aea20"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/result.json",
+      "sha256": "5e2a93e4b2877e74af7b84546d3abf99c94556d5a13901aacdf12289c26b4df1"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/correct-ir.npz",
+      "sha256": "6a809f807dbac524f724a3a7383d7bc2b63d58248120da930a9293db6894be53"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/correct-ir-contract.json",
+      "sha256": "8ef79350453a243a93983051822dfcb62bdfb02e4f775bf376110d7ca16d2a8a"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/id-only.npz",
+      "sha256": "9dc9502d5739f3fcc3f4526d5bf8053427511e9c18ad07f5e71946750cac5152"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/id-only-contract.json",
+      "sha256": "389e40b762f09f78a68383417f3caf7901bfd5b2b64a85744376ce7beccf9d5f"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/wrong-ir.npz",
+      "sha256": "affb609639ca957ec61c393d46cb3176252b1289eba9a302c49af3e0c215f0b2"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/wrong-ir-contract.json",
+      "sha256": "c0665eff18d625d92832ac82bc28f7e681c1ca3c36bf0317eaf9ae856bea2667"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/context-only.npz",
+      "sha256": "f01b5c382acc760030e52128c1d709d449da64ef0959234f028c068b116f6f95"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/context-only-contract.json",
+      "sha256": "8c6af499b99e33f4400ac218d392bceb4f37670d1951fcdd5e1f0479a48844be"
+    }
+  ],
+  "inputs": {
+    "dataset": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.npz",
+    "manifest": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.manifest.json",
+    "vocabulary_contract": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/contract.json"
+  },
+  "split": {
+    "train_codes": [
+      "SOR_011",
+      "ASH_011",
+      "IBH_053",
+      "IBH_016",
+      "LOF_134",
+      "TWI_056",
+      "SHD_196",
+      "SOR_094",
+      "LOF_004",
+      "SOR_007"
+    ],
+    "heldout_codes": [
+      "SHD_004",
+      "TWI_206"
+    ],
+    "train_state_families": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "heldout_state_families": [
+      10,
+      11,
+      12,
+      13
+    ],
+    "expected_cell_counts": {
+      "train": 100,
+      "program-held": 20,
+      "state-held": 40,
+      "joint-held": 8
+    },
+    "primary": "joint-held",
+    "rule": "Both axes fixed before collection. All source/menu/cancel/commit/follow-up branches remain inside one card/state root. Familiar states in program-held and familiar IDs in state-held are intentional."
+  },
+  "input_scaling": {
+    "context_center": [
+      1.7999999523162842,
+      0.0
+    ],
+    "context_scale": [
+      1.0,
+      1.0
+    ],
+    "candidate_center": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5571428537368774,
+      11.285714149475098,
+      10.728571891784668,
+      2.5999999046325684,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "candidate_scale": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      3.4543378353118896,
+      11.840780258178711,
+      11.715582847595215,
+      1.496662974357605,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "numeric_known_columns": {
+      "8": 15,
+      "9": 16,
+      "10": 17,
+      "11": 18,
+      "13": 20,
+      "14": 21
+    },
+    "fit_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      24,
+      25,
+      26,
+      27,
+      28,
+      30,
+      31,
+      32,
+      33,
+      34,
+      36,
+      37,
+      38,
+      39,
+      40,
+      42,
+      43,
+      44,
+      45,
+      46,
+      48,
+      49,
+      50,
+      51,
+      52,
+      54,
+      55,
+      56,
+      57,
+      58,
+      60,
+      61,
+      62,
+      63,
+      64,
+      66,
+      67,
+      68,
+      69,
+      70,
+      72,
+      73,
+      74,
+      75,
+      76,
+      78,
+      79,
+      80,
+      81,
+      82,
+      84,
+      85,
+      86,
+      87,
+      88,
+      90,
+      91,
+      92,
+      93,
+      94,
+      96,
+      97,
+      98,
+      99,
+      100,
+      102,
+      103,
+      104,
+      105,
+      106,
+      108,
+      109,
+      110,
+      111,
+      112,
+      114,
+      115,
+      116,
+      117,
+      118
+    ],
+    "fit_candidates": "primary slots0..6 only"
+  },
+  "head_scaling": {
+    "primary": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      10
+    ],
+    "auxiliary": [
+      4,
+      9
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      0.0,
+      0.0,
+      0.5349794238683128,
+      0.7974683544303798,
+      0.0,
+      0.05907172995780591,
+      0.03375527426160337,
+      0.14767932489451477,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "class_weights": [
+      [
+        3.5714285714285716,
+        0.5813953488372093
+      ],
+      [
+        0.8451704545454546,
+        1.2242798353909465
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.5083682008368201,
+        5.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.5020661157024794,
+        5.0
+      ]
+    ],
+    "support": [
+      100,
+      595,
+      243,
+      237,
+      243,
+      237,
+      237,
+      237,
+      243,
+      85,
+      243
+    ],
+    "observed_roots": [
+      100,
+      85,
+      85,
+      84,
+      85,
+      84,
+      84,
+      84,
+      85,
+      85,
+      85
+    ],
+    "variation": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      [
+        1.0
+      ],
+      [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "numeric_scale": 1.0,
+  "schedule_sha256": null,
+  "wrong_schedule_sha256": null,
+  "wrong_eval_sha256": "7d7575419e585462a74cf754268e87375b7d1a98d8fa65000fc8b98cc52bceb1",
+  "paths": {
+    "out": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43",
+    "progress": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-updates.jsonl",
+    "ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/campaign-ledger.jsonl",
+    "events": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl"
+  },
+  "run_id": "transition-replication-fresh-s43-20261018-v1",
+  "campaign_id": "campaign-transition-replication-20261018",
+  "limitation": "Historical originalseed17 remains descriptive; fresh3seed checkpoint reuse tests a separate held split, conditional on exact100training-root equivalence. Seeds do not add independent held-out cards.",
+  "execution": "Coordinator GO and one owned shared-ledger stage required; preflight never imports Torch or constructs a model.",
+  "training_equivalence": {
+    "status": "exact100training-roots-scalers-programs-and-encoded-bank-equivalent",
+    "roots": 100,
+    "fields": {
+      "context_features": "c5f7893a21129702e1ada085bf1abd70d6f177f9ea15a7d2ba9eb4685edc8e17",
+      "candidate_features": "9b7169a439ce21ca4a899b649af25a33ff446741737666b70f38148fa27e208e",
+      "candidate_mask": "afb6c23155f2936a3f577dd04ba9095889207e6e3ff16e6a8aa25fd976a8eb6e",
+      "primary_candidate_mask": "70ae7fa11b70f62cfb643b9bb025e3a2264c52bdd8e00f48ce398fa3d226aae8",
+      "source_use": "b853e7381245af912b1483abb6c842159d00d282b2ee1a21c179e83f49114f7a",
+      "source_use_mask": "8d359e34feb56c3ff94e97b819b821a3bf3056b86b46f10c90185dd61f559ab8",
+      "candidate_allowed": "fe43e10dd7fb2255ba650e1dbe4aa0c1841fb0c0b7b15befdf9f265e711c2d5a",
+      "candidate_allowed_mask": "c7508d13e0e0371e6fccbf26365706e43f87a08f936ef6702ad13731c28454a0",
+      "targets": "16fb903fc1e36f8b2e2d9f700a59001dce0795489acd23b0397aaa505e60cc4f",
+      "target_mask": "22bb6074e0941fa32696e61d3f116ef0875971a1ea3c5e51cfba078692eaec04"
+    },
+    "bank_fields": {
+      "SOR_011/path_ids": "7a44f092cef9cc29ac30238e04c23e3a610e23d32a71eaeb3b7dbc73e883035e",
+      "SOR_011/path_lengths": "7c697be261b6598212b75c34bccba0135fc52ec173a7f4791155eba0583e18f6",
+      "SOR_011/type_ids": "9236d6e99d3fc105bdb67a20dc7023e4dc51cebe57534b4034f3a98cc52602b4",
+      "SOR_011/value_ids": "1a74e72ea99a3a017f8d992550aae35a5c85b6e7e5b1fdb957205069814e1bb8",
+      "SOR_011/numeric": "86b02c94b98951b283989c7717179318fbef1d3426e173e41b1f980076ecb395",
+      "SOR_011/token_mask": "46d7365fa301b26a85155d981ec73cd3ec73e534873032cc230ba7525edd7d58",
+      "SOR_011/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "SOR_011/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "SOR_011/identity_indices": "12ceaa6bd0c061443528cc7e9f37fdb11e6ad3806f9d321ca8935dbdc50b1e72",
+      "ASH_011/path_ids": "370de09ed139ac334858bec65f4ad85a42b37a2669a0f5c34f4f7217233e6687",
+      "ASH_011/path_lengths": "bd79776d20d60c7dce6699d8ccd94d6720e22ab3e020b889e99573fd133748cc",
+      "ASH_011/type_ids": "509e100514992567fe3638cd100eb36a6de97958c2ff3d63d8175dfd827faa41",
+      "ASH_011/value_ids": "99c085f45d6ea1a9eb2bc33dcbf9cbe202de7bdbef5892d2e694c812fd57b838",
+      "ASH_011/numeric": "b157bccaadb0c4c55ef083aeec83bf47f80e4e8bba2ea9e0e50c5f8278cfa72e",
+      "ASH_011/token_mask": "1b50657e3f9ed75e35cff551e749f69cbe3ee6a7cb340a95d3fa9c0e8e53daae",
+      "ASH_011/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "ASH_011/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "ASH_011/identity_indices": "3d542c565a8cf404b353c49a40c7e2175943338ab69b45b07e5572ba19a9345b",
+      "IBH_053/path_ids": "35902b24aa4b5eaa2279204d61fff763386c8c3b9d617d02a79d52cb4bff0484",
+      "IBH_053/path_lengths": "96d68a0768c1f6a9b2cf78d70e3ba24f948a1fb16755e5e3e5c62835233a28dc",
+      "IBH_053/type_ids": "ddcf4800696a0304f9271dce4fe49341601da23ebd12e59412cae4adb13373c2",
+      "IBH_053/value_ids": "455de7d55a9c78d33bdaee0284269528472affaceec564681f881cfb660572fe",
+      "IBH_053/numeric": "8279dc3ce0eaedcad8fd8477bbb650b80869593e5459020118d098d82113d13c",
+      "IBH_053/token_mask": "35993d31f4caf783cf3ba5d20972c6788833db4e96e18ea533062788026ad4d0",
+      "IBH_053/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "IBH_053/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "IBH_053/identity_indices": "556dffc4bb2f17c8d57345cc40fe77e4d572c1590acec9b560654f4ddfdda88e",
+      "IBH_016/path_ids": "47296dc7b19ef725c6e0873229f57a8cb2da86ea8614f996a72a889c87509d47",
+      "IBH_016/path_lengths": "a366dfadd0c6cbf50fdfb12d3bcc7559c7803fe38d534f22bed91514b6934499",
+      "IBH_016/type_ids": "f5673c06e607b2303b8f2d4ab76575492094edf7834b907a92f54286388d2091",
+      "IBH_016/value_ids": "b44fca21c2ee8f677ac3c8a6f833784c5f9c73db817d6169edd337ce95e92c32",
+      "IBH_016/numeric": "4a1fcfc0ee7d1ece73c863101fe7e7e8781964b3424675079fa1a897b077b7a1",
+      "IBH_016/token_mask": "e461875b641a2b045424814e0f72c7e1005d3c7150fce457d29dbaa07153213e",
+      "IBH_016/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "IBH_016/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "IBH_016/identity_indices": "d587114f6f881c7ec3077c92723410af988bbc8b833410743fffa8e038c2fa1a",
+      "LOF_134/path_ids": "47296dc7b19ef725c6e0873229f57a8cb2da86ea8614f996a72a889c87509d47",
+      "LOF_134/path_lengths": "a366dfadd0c6cbf50fdfb12d3bcc7559c7803fe38d534f22bed91514b6934499",
+      "LOF_134/type_ids": "f5673c06e607b2303b8f2d4ab76575492094edf7834b907a92f54286388d2091",
+      "LOF_134/value_ids": "2d994960f59e0e7820232f00f20a5bfba617ad693cd5289db6df00ba2c450b30",
+      "LOF_134/numeric": "ab2a72f314a68730f5e506d8e693ebd9bb83a578828a9ee69b2baf10bb675d55",
+      "LOF_134/token_mask": "e461875b641a2b045424814e0f72c7e1005d3c7150fce457d29dbaa07153213e",
+      "LOF_134/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "LOF_134/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "LOF_134/identity_indices": "33a1bd558df8b88badee21d05bb6c703f33ca49e26359487902d85fafea4d7b1",
+      "TWI_056/path_ids": "f3f496095e490fb48bb15864d98a36fafc5dc76fab9746edf9884a0bd446969d",
+      "TWI_056/path_lengths": "373a199ef5b65770f4edf086240dec7ce52e9dedfbf90aaf320267814a73e995",
+      "TWI_056/type_ids": "d759c3f7677e0c978e9cf8a90da33880252535cfe329b7299f9ce839569797df",
+      "TWI_056/value_ids": "3e6570b208fc31ebd73742b4bb9d7a60dff8fb70dc5213253948ded0ad451781",
+      "TWI_056/numeric": "d611a57476a072c07e47f366d5de8cf3ba7cd9bb7355d5504eb330088d227a23",
+      "TWI_056/token_mask": "35993d31f4caf783cf3ba5d20972c6788833db4e96e18ea533062788026ad4d0",
+      "TWI_056/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "TWI_056/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "TWI_056/identity_indices": "450d0a3e6ce4847ba4a655e5c61aaf3315c112e5f6f61eaf8820182de8e7279f",
+      "SHD_196/path_ids": "61be9c1719fc7ee6dfc9757c020cb6a7d9c905c59f3e2a4cde7cfeb383ae69c0",
+      "SHD_196/path_lengths": "b144efa791ae610c382919efbfe6c322d1ea640ef7ed3722b0dd525bc3d3aeeb",
+      "SHD_196/type_ids": "74c7ceae540c73d139eb213ae0fdd03bdefbd04650fdd7602d89426ca661eafe",
+      "SHD_196/value_ids": "d5f9107f36193eceeef6e3263e0afbb7ab8ac5adff197ad53633145ee146c710",
+      "SHD_196/numeric": "bc7dbb6a89b7d1b87819e1da6c84c5612fe37e60361cdcb93af0a2f88851bfaf",
+      "SHD_196/token_mask": "7062a7e5c9842a305a42fa8806858bc15825345452b4104f9b54d303563e3d51",
+      "SHD_196/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "SHD_196/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "SHD_196/identity_indices": "663c7358fbb70e143133535ea791fcec87e7586ee8cc001f3dc224b9732480aa",
+      "SOR_094/path_ids": "551195b53ad40b1edda74a7fa78f5bd71602d24ed3b2ae7ee15b6442df3edfb1",
+      "SOR_094/path_lengths": "0ee09d108bfd9269f16a9a6176cdfa3e5eb17204d61d75b4417a6165fe567ad2",
+      "SOR_094/type_ids": "c1d68ac681ea1d1971ca7dc2681792af1cd56bb816e68d34ba0bfaaf752cb47b",
+      "SOR_094/value_ids": "de35b152c7eefb0733bfa69be502882501edf4f5dfaff03b07c126965cd0f0c6",
+      "SOR_094/numeric": "f1dad85a49125e56c7792479d2be1d59a5aa4d46355172a23e67a8ed99559966",
+      "SOR_094/token_mask": "f0f23beb595f840221ac6d202fddd5d1892d5a677b66d4a30eb8573d66bbb8cd",
+      "SOR_094/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "SOR_094/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "SOR_094/identity_indices": "4c2306da2ed72d266aaec21ec11681d5f0bb5fe93f4e8b4ee49c3f54d66e09fd",
+      "LOF_004/path_ids": "a88c9712ee3d713005a6f063c03767439b089b71e8953b63d98e46b9bcbb67a2",
+      "LOF_004/path_lengths": "5cc0079d6a2e0288302d0b8ce959b6371164ebcb2288fd0a05ecee07e4f6f152",
+      "LOF_004/type_ids": "35a68fb4c4d70233c74bb1c79604ef1254c442379dc559ce7e09dce065a3f40d",
+      "LOF_004/value_ids": "6374cba09e04aa2359fd70fe8b30443777aea5e150fd58335442c4b3ea76c183",
+      "LOF_004/numeric": "4c075b59adb01e3ae2c811d3e80fd7b63e289ce1ae13887908ee30374ec232de",
+      "LOF_004/token_mask": "0fabb3e707caae1421bb614e9590b155d60821429c10ef2a72f37de3ba4472a4",
+      "LOF_004/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "LOF_004/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "LOF_004/identity_indices": "9e799f727965495043e69db84c266d9cd86444f3aae3b63dde2d03dab30659b9",
+      "SOR_007/path_ids": "fcb4754511408d3e64590269d0daa99bb6c5d0e2372cbb57db68d9aa7e4cf30f",
+      "SOR_007/path_lengths": "c82a58437ce98baea3af3716b7ca52951aad28ece1e07e155d5af4c0e5eb88ac",
+      "SOR_007/type_ids": "c45d959f693f8085f281feb21e639f09a2de13b1c0e760d0936cfdcc7b224d1d",
+      "SOR_007/value_ids": "5f8c326bbe215f266f0cb1da8a269eb7b75a0e25b68967c2a6bf7f734cfb92ed",
+      "SOR_007/numeric": "18c4f27b81f4e2b10c4a93c50248e6b17a2e3f0359ec1038effb8a79baa55591",
+      "SOR_007/token_mask": "94f4fa05c5d119b5e7d45d14bd7fb763a68535eab708cc0c46f9e77a5b9260f2",
+      "SOR_007/slot_mask": "df7472b00d75ba86cedc6043fc270c1e8a5dce274343bbdead88c42a5243dc48",
+      "SOR_007/status": "2807d83f5cbac6f62123c930a205ef4a7e2595c657d6cfac85040c9360b6f6b4",
+      "SOR_007/identity_indices": "f37b0a0468fcfaf76b26613ae6962f765fd4c5a964581ff2fa4758b05d58a424"
+    },
+    "canonical_roots": [
+      [
+        "ASH_011",
+        0
+      ],
+      [
+        "ASH_011",
+        1
+      ],
+      [
+        "ASH_011",
+        2
+      ],
+      [
+        "ASH_011",
+        3
+      ],
+      [
+        "ASH_011",
+        4
+      ],
+      [
+        "ASH_011",
+        5
+      ],
+      [
+        "ASH_011",
+        6
+      ],
+      [
+        "ASH_011",
+        7
+      ],
+      [
+        "ASH_011",
+        8
+      ],
+      [
+        "ASH_011",
+        9
+      ],
+      [
+        "IBH_016",
+        0
+      ],
+      [
+        "IBH_016",
+        1
+      ],
+      [
+        "IBH_016",
+        2
+      ],
+      [
+        "IBH_016",
+        3
+      ],
+      [
+        "IBH_016",
+        4
+      ],
+      [
+        "IBH_016",
+        5
+      ],
+      [
+        "IBH_016",
+        6
+      ],
+      [
+        "IBH_016",
+        7
+      ],
+      [
+        "IBH_016",
+        8
+      ],
+      [
+        "IBH_016",
+        9
+      ],
+      [
+        "IBH_053",
+        0
+      ],
+      [
+        "IBH_053",
+        1
+      ],
+      [
+        "IBH_053",
+        2
+      ],
+      [
+        "IBH_053",
+        3
+      ],
+      [
+        "IBH_053",
+        4
+      ],
+      [
+        "IBH_053",
+        5
+      ],
+      [
+        "IBH_053",
+        6
+      ],
+      [
+        "IBH_053",
+        7
+      ],
+      [
+        "IBH_053",
+        8
+      ],
+      [
+        "IBH_053",
+        9
+      ],
+      [
+        "LOF_004",
+        0
+      ],
+      [
+        "LOF_004",
+        1
+      ],
+      [
+        "LOF_004",
+        2
+      ],
+      [
+        "LOF_004",
+        3
+      ],
+      [
+        "LOF_004",
+        4
+      ],
+      [
+        "LOF_004",
+        5
+      ],
+      [
+        "LOF_004",
+        6
+      ],
+      [
+        "LOF_004",
+        7
+      ],
+      [
+        "LOF_004",
+        8
+      ],
+      [
+        "LOF_004",
+        9
+      ],
+      [
+        "LOF_134",
+        0
+      ],
+      [
+        "LOF_134",
+        1
+      ],
+      [
+        "LOF_134",
+        2
+      ],
+      [
+        "LOF_134",
+        3
+      ],
+      [
+        "LOF_134",
+        4
+      ],
+      [
+        "LOF_134",
+        5
+      ],
+      [
+        "LOF_134",
+        6
+      ],
+      [
+        "LOF_134",
+        7
+      ],
+      [
+        "LOF_134",
+        8
+      ],
+      [
+        "LOF_134",
+        9
+      ],
+      [
+        "SHD_196",
+        0
+      ],
+      [
+        "SHD_196",
+        1
+      ],
+      [
+        "SHD_196",
+        2
+      ],
+      [
+        "SHD_196",
+        3
+      ],
+      [
+        "SHD_196",
+        4
+      ],
+      [
+        "SHD_196",
+        5
+      ],
+      [
+        "SHD_196",
+        6
+      ],
+      [
+        "SHD_196",
+        7
+      ],
+      [
+        "SHD_196",
+        8
+      ],
+      [
+        "SHD_196",
+        9
+      ],
+      [
+        "SOR_007",
+        0
+      ],
+      [
+        "SOR_007",
+        1
+      ],
+      [
+        "SOR_007",
+        2
+      ],
+      [
+        "SOR_007",
+        3
+      ],
+      [
+        "SOR_007",
+        4
+      ],
+      [
+        "SOR_007",
+        5
+      ],
+      [
+        "SOR_007",
+        6
+      ],
+      [
+        "SOR_007",
+        7
+      ],
+      [
+        "SOR_007",
+        8
+      ],
+      [
+        "SOR_007",
+        9
+      ],
+      [
+        "SOR_011",
+        0
+      ],
+      [
+        "SOR_011",
+        1
+      ],
+      [
+        "SOR_011",
+        2
+      ],
+      [
+        "SOR_011",
+        3
+      ],
+      [
+        "SOR_011",
+        4
+      ],
+      [
+        "SOR_011",
+        5
+      ],
+      [
+        "SOR_011",
+        6
+      ],
+      [
+        "SOR_011",
+        7
+      ],
+      [
+        "SOR_011",
+        8
+      ],
+      [
+        "SOR_011",
+        9
+      ],
+      [
+        "SOR_094",
+        0
+      ],
+      [
+        "SOR_094",
+        1
+      ],
+      [
+        "SOR_094",
+        2
+      ],
+      [
+        "SOR_094",
+        3
+      ],
+      [
+        "SOR_094",
+        4
+      ],
+      [
+        "SOR_094",
+        5
+      ],
+      [
+        "SOR_094",
+        6
+      ],
+      [
+        "SOR_094",
+        7
+      ],
+      [
+        "SOR_094",
+        8
+      ],
+      [
+        "SOR_094",
+        9
+      ],
+      [
+        "TWI_056",
+        0
+      ],
+      [
+        "TWI_056",
+        1
+      ],
+      [
+        "TWI_056",
+        2
+      ],
+      [
+        "TWI_056",
+        3
+      ],
+      [
+        "TWI_056",
+        4
+      ],
+      [
+        "TWI_056",
+        5
+      ],
+      [
+        "TWI_056",
+        6
+      ],
+      [
+        "TWI_056",
+        7
+      ],
+      [
+        "TWI_056",
+        8
+      ],
+      [
+        "TWI_056",
+        9
+      ]
+    ],
+    "input_scaling": {
+      "context_center": [
+        1.7999999523162842,
+        0.0
+      ],
+      "context_scale": [
+        1.0,
+        1.0
+      ],
+      "candidate_center": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5571428537368774,
+        11.285714149475098,
+        10.728571891784668,
+        2.5999999046325684,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "candidate_scale": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        3.4543378353118896,
+        11.840780258178711,
+        11.715582847595215,
+        1.496662974357605,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "numeric_known_columns": {
+        "8": 15,
+        "9": 16,
+        "10": 17,
+        "11": 18,
+        "13": 20,
+        "14": 21
+      },
+      "fit_candidates": "primary slots0..6 only"
+    },
+    "head_scaling": {
+      "primary": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "auxiliary": [
+        4,
+        9
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.5349794238683128,
+        0.7974683544303798,
+        0.0,
+        0.05907172995780591,
+        0.03375527426160337,
+        0.14767932489451477,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "class_weights": [
+        [
+          3.5714285714285716,
+          0.5813953488372093
+        ],
+        [
+          0.8451704545454546,
+          1.2242798353909465
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5083682008368201,
+          5.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5020661157024794,
+          5.0
+        ]
+      ],
+      "support": [
+        100,
+        595,
+        243,
+        237,
+        243,
+        237,
+        237,
+        237,
+        243,
+        85,
+        243
+      ],
+      "observed_roots": [
+        100,
+        85,
+        85,
+        84,
+        85,
+        84,
+        84,
+        84,
+        85,
+        85,
+        85
+      ],
+      "variation": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          2.0
+        ],
+        [
+          -2.0,
+          -1.0,
+          0.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        [
+          1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "numeric_scale": 1.0,
+    "note": "Root/query indices and physical bank slots may differ; program-addressed inputs, identity indices and tensors match exactly. No retraining fallback is authorized."
+  },
+  "reference_checkpoints": {
+    "correct-ir": {
+      "checkpoint": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/correct-ir.npz",
+      "checkpoint_sha256": "6a809f807dbac524f724a3a7383d7bc2b63d58248120da930a9293db6894be53",
+      "contract": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/correct-ir-contract.json",
+      "contract_sha256": "8ef79350453a243a93983051822dfcb62bdfb02e4f775bf376110d7ca16d2a8a",
+      "initialization_sha256": "d59d76734342b58a653758f89e86ff20f085baab548b705a8eb29f72f4cb7f3b"
+    },
+    "id-only": {
+      "checkpoint": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/id-only.npz",
+      "checkpoint_sha256": "9dc9502d5739f3fcc3f4526d5bf8053427511e9c18ad07f5e71946750cac5152",
+      "contract": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/id-only-contract.json",
+      "contract_sha256": "389e40b762f09f78a68383417f3caf7901bfd5b2b64a85744376ce7beccf9d5f",
+      "initialization_sha256": "d59d76734342b58a653758f89e86ff20f085baab548b705a8eb29f72f4cb7f3b"
+    },
+    "wrong-ir": {
+      "checkpoint": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/wrong-ir.npz",
+      "checkpoint_sha256": "affb609639ca957ec61c393d46cb3176252b1289eba9a302c49af3e0c215f0b2",
+      "contract": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/wrong-ir-contract.json",
+      "contract_sha256": "c0665eff18d625d92832ac82bc28f7e681c1ca3c36bf0317eaf9ae856bea2667",
+      "initialization_sha256": "d59d76734342b58a653758f89e86ff20f085baab548b705a8eb29f72f4cb7f3b"
+    },
+    "context-only": {
+      "checkpoint": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/context-only.npz",
+      "checkpoint_sha256": "f01b5c382acc760030e52128c1d709d449da64ef0959234f028c068b116f6f95",
+      "contract": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/context-only-contract.json",
+      "contract_sha256": "8c6af499b99e33f4400ac218d392bceb4f37670d1951fcdd5e1f0479a48844be",
+      "initialization_sha256": "d59d76734342b58a653758f89e86ff20f085baab548b705a8eb29f72f4cb7f3b"
+    }
+  },
+  "worker_command": [
+    "/Users/ericfode/src/crown-jepa/.venv/bin/python",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/transition_replication_fit.py",
+    "--evaluate",
+    "--dataset",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.npz",
+    "--manifest",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.manifest.json",
+    "--vocabulary-contract",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/contract.json",
+    "--plan",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/preflights/fresh-s43.json",
+    "--ledger",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/campaign-ledger.jsonl",
+    "--progress",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-updates.jsonl",
+    "--events",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl",
+    "--out",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43",
+    "--seed",
+    "43",
+    "--cohort",
+    "fresh",
+    "--update-offset",
+    "4800",
+    "--run-id",
+    "transition-replication-fresh-s43-20261018-v1",
+    "--campaign-id",
+    "campaign-transition-replication-20261018",
+    "--reference-dataset",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.npz",
+    "--reference-manifest",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.manifest.json",
+    "--reference-result",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/result.json"
+  ],
+  "supervisor_command": [
+    "/Users/ericfode/src/crown-jepa/.venv/bin/python",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/transition_replication_collector/supervise.py",
+    "--stage",
+    "evaluate",
+    "--ledger",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/campaign-ledger.jsonl",
+    "--out",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43-guard",
+    "--progress",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-updates.jsonl",
+    "--max-updates",
+    "0",
+    "--execute",
+    "--command",
+    "/Users/ericfode/src/crown-jepa/.venv/bin/python",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/transition_replication_fit.py",
+    "--evaluate",
+    "--dataset",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.npz",
+    "--manifest",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.manifest.json",
+    "--vocabulary-contract",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/contract.json",
+    "--plan",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/preflights/fresh-s43.json",
+    "--ledger",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/campaign-ledger.jsonl",
+    "--progress",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-updates.jsonl",
+    "--events",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl",
+    "--out",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43",
+    "--seed",
+    "43",
+    "--cohort",
+    "fresh",
+    "--update-offset",
+    "4800",
+    "--run-id",
+    "transition-replication-fresh-s43-20261018-v1",
+    "--campaign-id",
+    "campaign-transition-replication-20261018",
+    "--reference-dataset",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.npz",
+    "--reference-manifest",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.manifest.json",
+    "--reference-result",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/fit-original-s43/result.json"
+  ]
+}

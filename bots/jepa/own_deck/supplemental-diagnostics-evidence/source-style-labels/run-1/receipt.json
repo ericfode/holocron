@@ -1,0 +1,32 @@
+{
+  "schema": "jepa-source-style-evaluation/1",
+  "status": "completed",
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/source_style_probe.py",
+    "sha256": "ed324ce1f61b93825a9afb9ba6194c67f0263dd954c81ccd2d0f20cc674e1807"
+  },
+  "plan": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/source-style-labels/plan.json",
+    "sha256": "e334807541bf85da388c962f45108ba67b654d37cb90906fb9b292a52bbae7fd"
+  },
+  "result": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/source-style-labels/run-1/result.json",
+    "sha256": "d37eb9d7779c32118f8851b2ecebb82d3607f1842d9602679fc8edb6eb21bbb2"
+  },
+  "guard": {
+    "elapsed_seconds": 0.04780033300630748,
+    "cpu_seconds": 0.041352,
+    "peak_rss_bytes": 39632896,
+    "samples": 0,
+    "worker_pid": 6486,
+    "compute_threads": 1,
+    "limitation": "One owned process; RSS is sampled high-water rusage, not an instantaneous OS memory reservation. NumPy import is inside the guard."
+  },
+  "preparation_elapsed_seconds": 0.011512833996675909,
+  "neural_forwards": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "closed_form_ridge_readouts": 5,
+  "protected_inputs_unchanged": true,
+  "aggregate_preparation_execution_seconds": 0.05931316700298339
+}

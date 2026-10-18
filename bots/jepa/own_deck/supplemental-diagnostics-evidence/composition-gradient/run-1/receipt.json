@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "plan_sha256": "9c07cafdc97cee524fc6883b69bb065fe582fae36953a3b0cf0bdf280229ba81",
+  "source_sha256": "00dadcc76c473e7bd4b2e2c56e4620c1024eb759fca86a209a9e408f0401b204",
+  "result_sha256": "db31fa0ba2f8f914ee8cb34991813936938eb9917235435e5ad5bc5b626a45db",
+  "counts": {
+    "production_forwards": 1,
+    "backwards": 1,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "paid_jobs": 0,
+    "checkpoint_writes": 0
+  },
+  "guard": {
+    "wall_seconds": 0.9189281250583008,
+    "cpu_seconds": 0.86337,
+    "peak_rss_bytes": 226836480,
+    "samples": 16,
+    "threads": 1,
+    "limitation": "Sampled process high-water RSS, not instantaneous OS memory reservation; NumPy/Torch imports inside guard."
+  }
+}

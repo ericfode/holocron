@@ -1,0 +1,2408 @@
+{
+  "schema": "own-deck-restoration-probe/1",
+  "status": "completed",
+  "commit": "bef4e82fe7ceb7100eac8b2572275fc0dd64b0b9",
+  "config": {
+    "seed": 17,
+    "steps": 200,
+    "learning_rate": 0.05,
+    "ridge": 0.001,
+    "max_seconds": 60.0,
+    "max_rss_mib": 2048.0,
+    "arms": [
+      "frozen-latent",
+      "printed-only-frozen-latent"
+    ],
+    "objective": "class-balanced logistic + L2 on frozen96d latent",
+    "training_rows": "fit_partition=train only",
+    "size_fields_masked": [
+      4,
+      5,
+      6,
+      49
+    ],
+    "identity_mass": "each factor normalized to1",
+    "printed_only_masks": "identity50:207; printed traits retained",
+    "selection": "fixed final step; no CV or checkpoint search",
+    "cpu_threads": 1,
+    "scope": "admitted construction fixture probe",
+    "guard": "one owned NumPy worker for both arms; parent-enforced 60s campaign and 2048MiB sampled process-tree threshold",
+    "validation_diagnostics": "baseline and final only per arm; four total, never selection"
+  },
+  "dataset": {
+    "npz_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/restoration-data.npz",
+    "npz_sha256": "dce64d6f628ca11202d35fb140ccf412f00b5a60498f0247145207108c8ea69c",
+    "manifest_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/restoration-data.manifest.json",
+    "manifest_sha256": "2ce4c0f69057060e757e3fbe00297c2c7bf1f8f4bb964c684c55e3d660eb9d77",
+    "base_checkpoint_sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "engineering_initialization_sha256": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123",
+    "train_examples": 48,
+    "heldout_examples": 8,
+    "heldout_restoration_points": 27,
+    "primary_experiment_admitted": true,
+    "train_family_ids": [
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-79f2f8f622f1e979d55699bdc2d7ca21f3d911fcc304b1fbb234dae39a07d792",
+      "family-910adb0c4fc425184f94f1217ce99529eb1fb9a2bb8dae23c5e99b689b382425",
+      "family-aed567b86372d62069dd6459790f1ce6db1b6c6c6bc5999b7d77122294f6ad47",
+      "family-d39d23810c835d165d9fda7709ab2a2a379675a33b32ae6f5af9e315e2d2ba6c",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-ee8b387dd13d5289313eef2cbe4c3265926d2a2bb5545eaac0e5026c4b36a087"
+    ],
+    "val_family_ids": [
+      "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+    ],
+    "source_sha256": {
+      "own_deck/restoration_probe.py": "3e7124d0ebca9bfe15b9780acc8aeefaab03ed8205745f859cc1275ad8cac4b6",
+      "own_deck/run_events.py": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+      "own_deck/run_local_experiments.py": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+      "own_deck_model.py": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16",
+      "own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+      "tx_model.py": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877"
+    }
+  },
+  "limitations": [
+    "Classifier of authored versus constructed declarations, not deck quality, legality, win probability, or playing strength.",
+    "Frozen baseline plus original engineering initialization; independent of auxiliary declaration fits.",
+    "No dynamic remaining-deck ledger, transition/effect objective, world-model fit, game, or opponent execution.",
+    "One seed, small inherited family holdout, and shared card identities limit generalization claims.",
+    "Incomplete-original-size curves are out-of-distribution diagnostics, never remaining-pile bad labels.",
+    "An IR trait-target relation grounds a package fixture, not strategic gain; the frozen encoder consumes printed traits, not program semantics."
+  ],
+  "factor_identity_overlap": {
+    "train_active_factor_bins": 152,
+    "val_active_factor_bins": 99,
+    "shared_factor_bins": 98,
+    "note": "Factor-bin overlap has hash collisions; exact card overlap must be reported from dataset lineage."
+  },
+  "exact_identity_overlap": {
+    "train_authored_canonical_cards": [
+      "ASH_027",
+      "ASH_030",
+      "ASH_031",
+      "ASH_032",
+      "ASH_040",
+      "ASH_042",
+      "ASH_044",
+      "ASH_045",
+      "ASH_048",
+      "ASH_049",
+      "ASH_050",
+      "ASH_052",
+      "ASH_053",
+      "ASH_055",
+      "ASH_056",
+      "ASH_059",
+      "ASH_060",
+      "ASH_062",
+      "ASH_063",
+      "ASH_065",
+      "ASH_071",
+      "ASH_072",
+      "ASH_073",
+      "ASH_077",
+      "ASH_079",
+      "ASH_081",
+      "ASH_097",
+      "ASH_098",
+      "ASH_099",
+      "ASH_102",
+      "ASH_103",
+      "ASH_109",
+      "ASH_110",
+      "ASH_114",
+      "ASH_116",
+      "ASH_118",
+      "ASH_133",
+      "ASH_146",
+      "ASH_148",
+      "ASH_149",
+      "ASH_153",
+      "ASH_157",
+      "ASH_159",
+      "ASH_161",
+      "ASH_163",
+      "ASH_171",
+      "ASH_182",
+      "ASH_191",
+      "ASH_192",
+      "ASH_194",
+      "ASH_195",
+      "ASH_196",
+      "ASH_199",
+      "ASH_208",
+      "ASH_219",
+      "ASH_220",
+      "ASH_222",
+      "ASH_224",
+      "ASH_243",
+      "ASH_247",
+      "ASH_248",
+      "ASH_253",
+      "IBH_104",
+      "JTL_032",
+      "JTL_033",
+      "JTL_038",
+      "JTL_039",
+      "JTL_041",
+      "JTL_043",
+      "JTL_049",
+      "JTL_060",
+      "JTL_062",
+      "JTL_063",
+      "JTL_076",
+      "JTL_078",
+      "JTL_079",
+      "JTL_080",
+      "JTL_089",
+      "JTL_095",
+      "JTL_096",
+      "JTL_102",
+      "JTL_103",
+      "JTL_112",
+      "JTL_118",
+      "JTL_121",
+      "JTL_125",
+      "JTL_131",
+      "JTL_133",
+      "JTL_137",
+      "JTL_140",
+      "JTL_142",
+      "JTL_143",
+      "JTL_144",
+      "JTL_147",
+      "JTL_149",
+      "JTL_151",
+      "JTL_153",
+      "JTL_158",
+      "JTL_162",
+      "JTL_174",
+      "JTL_175",
+      "JTL_180",
+      "JTL_181",
+      "JTL_203",
+      "JTL_221",
+      "JTL_235",
+      "JTL_237",
+      "JTL_240",
+      "JTL_242",
+      "JTL_245",
+      "JTL_250",
+      "LAW_037",
+      "LAW_038",
+      "LAW_039",
+      "LAW_041",
+      "LAW_044",
+      "LAW_045",
+      "LAW_049",
+      "LAW_050",
+      "LAW_058",
+      "LAW_067",
+      "LAW_075",
+      "LAW_078",
+      "LAW_089",
+      "LAW_095",
+      "LAW_097",
+      "LAW_099",
+      "LAW_101",
+      "LAW_108",
+      "LAW_112",
+      "LAW_113",
+      "LAW_118",
+      "LAW_127",
+      "LAW_129",
+      "LAW_131",
+      "LAW_132",
+      "LAW_133",
+      "LAW_135",
+      "LAW_148",
+      "LAW_149",
+      "LAW_152",
+      "LAW_159",
+      "LAW_173",
+      "LAW_174",
+      "LAW_175",
+      "LAW_191",
+      "LAW_202",
+      "LAW_219",
+      "LAW_223",
+      "LAW_228",
+      "LOF_031",
+      "LOF_035",
+      "LOF_045",
+      "LOF_046",
+      "LOF_047",
+      "LOF_053",
+      "LOF_057",
+      "LOF_059",
+      "LOF_061",
+      "LOF_070",
+      "LOF_077",
+      "LOF_079",
+      "LOF_091",
+      "LOF_093",
+      "LOF_094",
+      "LOF_096",
+      "LOF_100",
+      "LOF_102",
+      "LOF_129",
+      "LOF_130",
+      "LOF_132",
+      "LOF_144",
+      "LOF_147",
+      "LOF_155",
+      "LOF_160",
+      "LOF_183",
+      "LOF_191",
+      "LOF_192",
+      "LOF_213",
+      "LOF_215",
+      "LOF_231",
+      "LOF_261",
+      "SEC_028",
+      "SEC_037",
+      "SEC_038",
+      "SEC_046",
+      "SEC_048",
+      "SEC_051",
+      "SEC_068",
+      "SEC_069",
+      "SEC_070",
+      "SEC_075",
+      "SEC_078",
+      "SEC_080",
+      "SEC_087",
+      "SEC_088",
+      "SEC_094",
+      "SEC_098",
+      "SEC_101",
+      "SEC_110",
+      "SEC_111",
+      "SEC_133",
+      "SEC_142",
+      "SEC_148",
+      "SEC_163",
+      "SEC_170",
+      "SEC_171",
+      "SEC_172",
+      "SEC_176",
+      "SEC_179",
+      "SEC_180",
+      "SEC_182",
+      "SEC_183",
+      "SEC_186",
+      "SEC_199",
+      "SEC_204",
+      "SEC_215",
+      "SEC_233",
+      "SEC_255"
+    ],
+    "val_authored_canonical_cards": [
+      "ASH_056",
+      "ASH_062",
+      "ASH_077",
+      "ASH_079",
+      "ASH_084",
+      "ASH_090",
+      "ASH_110",
+      "ASH_135",
+      "ASH_153",
+      "ASH_157",
+      "ASH_167",
+      "ASH_183",
+      "ASH_194",
+      "ASH_199",
+      "ASH_201",
+      "ASH_203",
+      "ASH_204",
+      "ASH_208",
+      "ASH_222",
+      "ASH_224",
+      "ASH_228",
+      "ASH_230",
+      "ASH_248",
+      "ASH_253",
+      "JTL_081",
+      "JTL_085",
+      "JTL_095",
+      "JTL_096",
+      "JTL_102",
+      "JTL_103",
+      "JTL_115",
+      "JTL_203",
+      "JTL_212",
+      "JTL_217",
+      "JTL_221",
+      "JTL_249",
+      "JTL_250",
+      "LAW_037",
+      "LAW_038",
+      "LAW_039",
+      "LAW_041",
+      "LAW_054",
+      "LAW_078",
+      "LAW_127",
+      "LAW_129",
+      "LAW_135",
+      "LAW_191",
+      "LAW_211",
+      "LAW_217",
+      "LAW_229",
+      "LOF_038",
+      "LOF_091",
+      "LOF_093",
+      "LOF_096",
+      "LOF_108",
+      "LOF_151",
+      "LOF_191",
+      "LOF_192",
+      "LOF_206",
+      "LOF_215",
+      "SEC_046",
+      "SEC_057",
+      "SEC_069",
+      "SEC_082",
+      "SEC_099",
+      "SEC_101",
+      "SEC_111",
+      "SEC_137",
+      "SEC_148",
+      "SEC_163",
+      "SEC_176",
+      "SEC_179",
+      "SEC_186",
+      "SEC_189",
+      "SEC_195",
+      "SEC_204",
+      "SEC_213",
+      "SEC_215",
+      "SEC_232",
+      "SEC_233"
+    ],
+    "shared_authored_canonical_cards": [
+      "ASH_056",
+      "ASH_062",
+      "ASH_077",
+      "ASH_079",
+      "ASH_110",
+      "ASH_153",
+      "ASH_157",
+      "ASH_194",
+      "ASH_199",
+      "ASH_208",
+      "ASH_222",
+      "ASH_224",
+      "ASH_248",
+      "ASH_253",
+      "JTL_095",
+      "JTL_096",
+      "JTL_102",
+      "JTL_103",
+      "JTL_203",
+      "JTL_221",
+      "JTL_250",
+      "LAW_037",
+      "LAW_038",
+      "LAW_039",
+      "LAW_041",
+      "LAW_078",
+      "LAW_127",
+      "LAW_129",
+      "LAW_135",
+      "LAW_191",
+      "LOF_091",
+      "LOF_093",
+      "LOF_096",
+      "LOF_191",
+      "LOF_192",
+      "LOF_215",
+      "SEC_046",
+      "SEC_069",
+      "SEC_101",
+      "SEC_111",
+      "SEC_148",
+      "SEC_163",
+      "SEC_176",
+      "SEC_179",
+      "SEC_186",
+      "SEC_204",
+      "SEC_215",
+      "SEC_233"
+    ],
+    "unseen_card_generalization_claim": false
+  },
+  "historical_structural_diagnostic_only": false,
+  "updates_completed": 400,
+  "elapsed_seconds": 0.1130907500628382,
+  "arms": {
+    "frozen-latent": {
+      "curves": {
+        "score_name": "authored-vs-constructed score",
+        "calibration": "Balanced authored-vs-constructed training prior; not a calibrated quality/win probability.",
+        "groups": {
+          "source-02-individual-4b50907e1dd3": {
+            "source_idx": 2,
+            "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+            "metadata": {
+              "source_idx": 2,
+              "source_name": "ahsoka-tano_ash_blue",
+              "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+              "partition": "val",
+              "kind": "individual",
+              "removed_codes": [
+                "JTL_250"
+              ],
+              "removed_copies": 1,
+              "alternatives": [
+                "JTL_249"
+              ],
+              "controls": [
+                {
+                  "removed": "JTL_250",
+                  "alternative": "JTL_249",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": true,
+                  "source_traits": [
+                    "fighter",
+                    "rebel",
+                    "spectre",
+                    "vehicle"
+                  ],
+                  "alternative_traits": [
+                    "rebel",
+                    "transport",
+                    "vehicle"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": null,
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 49,
+                "score": 0.4934994655222423,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4931555001262691,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5008606866194117,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5008606866194117,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5008606866194117,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4931555001262691,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": -0.007705186493142668,
+            "adjacent_score_deltas": [
+              -0.007705186493142668
+            ],
+            "decreases": 1,
+            "nondecreasing_adjacent_fraction": 0.0,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.5008606866194117,
+                "matched_score": 0.5008606866194117,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 1.0,
+                "score": 0.4931555001262691,
+                "matched_score": 0.5008606866194117,
+                "delta": -0.007705186493142668
+              }
+            ]
+          },
+          "source-02-rule-grounded-package-3ba3e78e60b1": {
+            "source_idx": 2,
+            "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+            "metadata": {
+              "source_idx": 2,
+              "source_name": "ahsoka-tano_ash_blue",
+              "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+              "partition": "val",
+              "kind": "rule-grounded-package",
+              "removed_codes": [
+                "SEC_099",
+                "SEC_101"
+              ],
+              "removed_copies": 2,
+              "alternatives": [
+                "JTL_102",
+                "ASH_110"
+              ],
+              "controls": [
+                {
+                  "removed": "SEC_099",
+                  "alternative": "JTL_102",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": false,
+                  "source_traits": [
+                    "naboo",
+                    "transport",
+                    "vehicle"
+                  ],
+                  "alternative_traits": [
+                    "fighter",
+                    "resistance",
+                    "vehicle"
+                  ],
+                  "intentionally_absent_traits": [
+                    "naboo",
+                    "official"
+                  ]
+                },
+                {
+                  "removed": "SEC_101",
+                  "alternative": "ASH_110",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": true,
+                  "source_traits": [
+                    "naboo",
+                    "official"
+                  ],
+                  "alternative_traits": [
+                    "official",
+                    "rebel"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": {
+                "payoff": "SEC_101",
+                "trait": null,
+                "body_unit": true,
+                "predicate": "/abilities/card/1/onlyIfYouDoEffect/targetResolver/predicate/right",
+                "owner": "/abilities/card/1/onlyIfYouDoEffect/targetResolver/predicate/left/left/right",
+                "effect": "/abilities/card/1",
+                "mechanism": "other friendly unit sharing a source trait can enable contingent damage prevention",
+                "shared_traits": [
+                  "naboo"
+                ],
+                "body": "SEC_099",
+                "source_path": "game/cards/06_SEC/units/QueenAmidalaChampioningHerPeople.ts",
+                "source_hash": "60da5927505ce9ddcca9965557ff3daad3f30b263765af22e5a4ccf9ad73595c",
+                "data_hash": "a4f96936ae9513e0f3e75d9ceb6b182b0d6dac3946a1172863345b80ec9f4b78",
+                "ir_status": "supported",
+                "predicate_node": {
+                  "kind": "collection",
+                  "name": "some",
+                  "receiver": {
+                    "kind": "arrayFrom",
+                    "value": {
+                      "kind": "ref",
+                      "path": [
+                        "source",
+                        "traits"
+                      ]
+                    }
+                  },
+                  "args": [
+                    {
+                      "kind": "query",
+                      "name": "hasSomeTrait",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "card"
+                        ]
+                      },
+                      "args": [
+                        {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "limit": 256
+                },
+                "ownership_node": {
+                  "kind": "binary",
+                  "op": "===",
+                  "left": {
+                    "kind": "ref",
+                    "path": [
+                      "card",
+                      "controller"
+                    ]
+                  },
+                  "right": {
+                    "kind": "ref",
+                    "path": [
+                      "player"
+                    ]
+                  }
+                },
+                "effect_node": {
+                  "trigger": "damageModification",
+                  "kind": "damageModificationRegistration",
+                  "contract": "DamageModificationAbility",
+                  "title": "Defeat a friendly unit that shares a trait with Queen Amidala to prevent all damage to her",
+                  "optional": true,
+                  "onlyIfYouDoEffect": {
+                    "kind": "select",
+                    "targetResolver": {
+                      "owner": "any",
+                      "type": "any",
+                      "zone": "anyAttackable",
+                      "predicate": {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "binary",
+                          "op": "&&",
+                          "left": {
+                            "kind": "binary",
+                            "op": "&&",
+                            "left": {
+                              "kind": "query",
+                              "name": "isUnit",
+                              "receiver": {
+                                "kind": "ref",
+                                "path": [
+                                  "card"
+                                ]
+                              },
+                              "args": []
+                            },
+                            "right": {
+                              "kind": "binary",
+                              "op": "===",
+                              "left": {
+                                "kind": "ref",
+                                "path": [
+                                  "card",
+                                  "controller"
+                                ]
+                              },
+                              "right": {
+                                "kind": "ref",
+                                "path": [
+                                  "player"
+                                ]
+                              }
+                            }
+                          },
+                          "right": {
+                            "kind": "binary",
+                            "op": "!==",
+                            "left": {
+                              "kind": "ref",
+                              "path": [
+                                "card"
+                              ]
+                            },
+                            "right": {
+                              "kind": "ref",
+                              "path": [
+                                "source"
+                              ]
+                            }
+                          }
+                        },
+                        "right": {
+                          "kind": "collection",
+                          "name": "some",
+                          "receiver": {
+                            "kind": "arrayFrom",
+                            "value": {
+                              "kind": "ref",
+                              "path": [
+                                "source",
+                                "traits"
+                              ]
+                            }
+                          },
+                          "args": [
+                            {
+                              "kind": "query",
+                              "name": "hasSomeTrait",
+                              "receiver": {
+                                "kind": "ref",
+                                "path": [
+                                  "card"
+                                ]
+                              },
+                              "args": [
+                                {
+                                  "kind": "ref",
+                                  "path": [
+                                    "card"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "limit": 256
+                        }
+                      }
+                    },
+                    "effect": {
+                      "kind": "defeat",
+                      "target": "chosen"
+                    }
+                  },
+                  "modificationType": "all",
+                  "triggerContract": "damageEventBeforeResolution"
+                },
+                "claim_scope": "explicit source trait-dependent interaction, not demonstrated beneficial synergy or gameplay value"
+              },
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 48,
+                "score": 0.4873634105708659,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 49,
+                "score": 0.49158297045451166,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:incomplete-diagnostic:2",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 2,
+                "restored_copies": 2,
+                "actual_original_copies_restored": 2,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.4931555001262691,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.4890781092981361,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.4890781092981361,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:matched-alternative:2",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 2,
+                "restored_copies": 2,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.4890781092981361,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.4890781092981361,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.48774163265231907,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:true-restoration:2",
+                "kind": "true-restoration",
+                "paired_restoration_step": 2,
+                "restored_copies": 2,
+                "actual_original_copies_restored": 2,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.4931555001262691,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": 0.004077390828132965,
+            "adjacent_score_deltas": [
+              -0.0013364766458170418,
+              0.005413867473950007
+            ],
+            "decreases": 1,
+            "nondecreasing_adjacent_fraction": 0.5,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.4890781092981361,
+                "matched_score": 0.4890781092981361,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 0.5,
+                "score": 0.48774163265231907,
+                "matched_score": 0.4890781092981361,
+                "delta": -0.0013364766458170418
+              },
+              {
+                "restored_copies": 2,
+                "restoration_fraction": 1.0,
+                "score": 0.4931555001262691,
+                "matched_score": 0.4890781092981361,
+                "delta": 0.004077390828132965
+              }
+            ]
+          },
+          "source-14-individual-111db3b9a97d": {
+            "source_idx": 14,
+            "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+            "metadata": {
+              "source_idx": 14,
+              "source_name": "ezra-bridger_ash_yellow",
+              "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+              "partition": "val",
+              "kind": "individual",
+              "removed_codes": [
+                "ASH_253"
+              ],
+              "removed_copies": 1,
+              "alternatives": [
+                "JTL_249"
+              ],
+              "controls": [
+                {
+                  "removed": "ASH_253",
+                  "alternative": "JTL_249",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": false,
+                  "source_traits": [
+                    "fighter",
+                    "new republic",
+                    "vehicle"
+                  ],
+                  "alternative_traits": [
+                    "rebel",
+                    "transport",
+                    "vehicle"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": null,
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 49,
+                "score": 0.49111490128231217,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4903461992032514,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.49439281734083956,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.49439281734083956,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.49439281734083956,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4903461992032514,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": -0.004046618137588165,
+            "adjacent_score_deltas": [
+              -0.004046618137588165
+            ],
+            "decreases": 1,
+            "nondecreasing_adjacent_fraction": 0.0,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.49439281734083956,
+                "matched_score": 0.49439281734083956,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 1.0,
+                "score": 0.4903461992032514,
+                "matched_score": 0.49439281734083956,
+                "delta": -0.004046618137588165
+              }
+            ]
+          },
+          "source-25-individual-b3f78bfc58e7": {
+            "source_idx": 25,
+            "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+            "metadata": {
+              "source_idx": 25,
+              "source_name": "the-armorer_ash_nabat-village",
+              "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+              "partition": "val",
+              "kind": "individual",
+              "removed_codes": [
+                "LOF_108"
+              ],
+              "removed_copies": 1,
+              "alternatives": [
+                "SEC_111"
+              ],
+              "controls": [
+                {
+                  "removed": "LOF_108",
+                  "alternative": "SEC_111",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": false,
+                  "source_traits": [
+                    "underworld"
+                  ],
+                  "alternative_traits": [
+                    "gungan",
+                    "naboo",
+                    "official",
+                    "republic"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": null,
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 49,
+                "score": 0.5420823019961208,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5417939138082658,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5430006960739242,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5430006960739242,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5430006960739242,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5417939138082658,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": -0.0012067822656584015,
+            "adjacent_score_deltas": [
+              -0.0012067822656584015
+            ],
+            "decreases": 1,
+            "nondecreasing_adjacent_fraction": 0.0,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.5430006960739242,
+                "matched_score": 0.5430006960739242,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 1.0,
+                "score": 0.5417939138082658,
+                "matched_score": 0.5430006960739242,
+                "delta": -0.0012067822656584015
+              }
+            ]
+          }
+        },
+        "family_first_same_count_aggregate": {
+          "mean_same_count_delta": -0.001365392598174321,
+          "family_mean_deltas": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0006033911328292008,
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.0020233090687940825,
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.00146947759289968
+          },
+          "n_families": 3,
+          "n_sources": 3,
+          "n_restoration_groups": 4,
+          "n_packages": 1,
+          "n_dependent_points": 9
+        },
+        "per_restoration_fraction": {
+          "0.0": {
+            "mean_same_count_delta": 0.0,
+            "family_mean_deltas": {
+              "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": 0.0,
+              "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": 0.0,
+              "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": 0.0
+            },
+            "n_families": 3,
+            "n_sources": 3,
+            "n_restoration_groups": 4,
+            "n_packages": 1,
+            "n_dependent_points": 4
+          },
+          "0.5": {
+            "mean_same_count_delta": -0.0013364766458170418,
+            "family_mean_deltas": {
+              "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0013364766458170418
+            },
+            "n_families": 1,
+            "n_sources": 1,
+            "n_restoration_groups": 1,
+            "n_packages": 1,
+            "n_dependent_points": 1
+          },
+          "1.0": {
+            "mean_same_count_delta": -0.002355766078583806,
+            "family_mean_deltas": {
+              "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0012067822656584015,
+              "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.004046618137588165,
+              "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0018138978325048516
+            },
+            "n_families": 3,
+            "n_sources": 3,
+            "n_restoration_groups": 4,
+            "n_packages": 1,
+            "n_dependent_points": 4
+          }
+        },
+        "uncertainty": "Tiny inherited family holdout; no independent-variant sample claim or reliable population confidence interval.",
+        "matched_control": "The full-size matched-alternative deck is a constant anchor repeated at each paired step; it restores zero authored copies and provides no independent repeated observations.",
+        "incomplete_diagnostics": "Reported separately in group points; excluded from same-count aggregates and all fit labels."
+      },
+      "train_objective_before_first_update": 0.6933788228506073,
+      "train_objective_before_final_update": 0.6903399196440236,
+      "updates": 200,
+      "validation_provenance_diagnostics": {
+        "baseline": {
+          "family_macro_log_loss": 0.6948046260049788,
+          "family_macro_accuracy": 0.5,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.6962184815283115,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.693653883138202,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.694541513348423,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "final": {
+          "family_macro_log_loss": 0.6967861445919844,
+          "family_macro_accuracy": 0.4166666666666667,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.6979714969510906,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.6973194192034777,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.695067517621385,
+              "accuracy": 0.25,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "evaluations": 2,
+        "used_for_selection": false
+      },
+      "frozen_train_latent_mean_std": 0.11694359915718995,
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/restoration-bef4e82-s17/frozen-latent.npz",
+        "sha256": "d1a5e408db1288f731afa5c73fdf3289d8fbd4dc5605c73f6ad84055daf63ced"
+      }
+    },
+    "printed-only-frozen-latent": {
+      "curves": {
+        "score_name": "authored-vs-constructed score",
+        "calibration": "Balanced authored-vs-constructed training prior; not a calibrated quality/win probability.",
+        "groups": {
+          "source-02-individual-4b50907e1dd3": {
+            "source_idx": 2,
+            "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+            "metadata": {
+              "source_idx": 2,
+              "source_name": "ahsoka-tano_ash_blue",
+              "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+              "partition": "val",
+              "kind": "individual",
+              "removed_codes": [
+                "JTL_250"
+              ],
+              "removed_copies": 1,
+              "alternatives": [
+                "JTL_249"
+              ],
+              "controls": [
+                {
+                  "removed": "JTL_250",
+                  "alternative": "JTL_249",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": true,
+                  "source_traits": [
+                    "fighter",
+                    "rebel",
+                    "spectre",
+                    "vehicle"
+                  ],
+                  "alternative_traits": [
+                    "rebel",
+                    "transport",
+                    "vehicle"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": null,
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 49,
+                "score": 0.5035502806365166,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5046461725570094,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5061179911366641,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5061179911366641,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5061179911366641,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-individual-4b50907e1dd3:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5046461725570094,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": -0.0014718185796547267,
+            "adjacent_score_deltas": [
+              -0.0014718185796547267
+            ],
+            "decreases": 1,
+            "nondecreasing_adjacent_fraction": 0.0,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.5061179911366641,
+                "matched_score": 0.5061179911366641,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 1.0,
+                "score": 0.5046461725570094,
+                "matched_score": 0.5061179911366641,
+                "delta": -0.0014718185796547267
+              }
+            ]
+          },
+          "source-02-rule-grounded-package-3ba3e78e60b1": {
+            "source_idx": 2,
+            "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+            "metadata": {
+              "source_idx": 2,
+              "source_name": "ahsoka-tano_ash_blue",
+              "family_id": "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+              "partition": "val",
+              "kind": "rule-grounded-package",
+              "removed_codes": [
+                "SEC_099",
+                "SEC_101"
+              ],
+              "removed_copies": 2,
+              "alternatives": [
+                "JTL_102",
+                "ASH_110"
+              ],
+              "controls": [
+                {
+                  "removed": "SEC_099",
+                  "alternative": "JTL_102",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": false,
+                  "source_traits": [
+                    "naboo",
+                    "transport",
+                    "vehicle"
+                  ],
+                  "alternative_traits": [
+                    "fighter",
+                    "resistance",
+                    "vehicle"
+                  ],
+                  "intentionally_absent_traits": [
+                    "naboo",
+                    "official"
+                  ]
+                },
+                {
+                  "removed": "SEC_101",
+                  "alternative": "ASH_110",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": true,
+                  "source_traits": [
+                    "naboo",
+                    "official"
+                  ],
+                  "alternative_traits": [
+                    "official",
+                    "rebel"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": {
+                "payoff": "SEC_101",
+                "trait": null,
+                "body_unit": true,
+                "predicate": "/abilities/card/1/onlyIfYouDoEffect/targetResolver/predicate/right",
+                "owner": "/abilities/card/1/onlyIfYouDoEffect/targetResolver/predicate/left/left/right",
+                "effect": "/abilities/card/1",
+                "mechanism": "other friendly unit sharing a source trait can enable contingent damage prevention",
+                "shared_traits": [
+                  "naboo"
+                ],
+                "body": "SEC_099",
+                "source_path": "game/cards/06_SEC/units/QueenAmidalaChampioningHerPeople.ts",
+                "source_hash": "60da5927505ce9ddcca9965557ff3daad3f30b263765af22e5a4ccf9ad73595c",
+                "data_hash": "a4f96936ae9513e0f3e75d9ceb6b182b0d6dac3946a1172863345b80ec9f4b78",
+                "ir_status": "supported",
+                "predicate_node": {
+                  "kind": "collection",
+                  "name": "some",
+                  "receiver": {
+                    "kind": "arrayFrom",
+                    "value": {
+                      "kind": "ref",
+                      "path": [
+                        "source",
+                        "traits"
+                      ]
+                    }
+                  },
+                  "args": [
+                    {
+                      "kind": "query",
+                      "name": "hasSomeTrait",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "card"
+                        ]
+                      },
+                      "args": [
+                        {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "limit": 256
+                },
+                "ownership_node": {
+                  "kind": "binary",
+                  "op": "===",
+                  "left": {
+                    "kind": "ref",
+                    "path": [
+                      "card",
+                      "controller"
+                    ]
+                  },
+                  "right": {
+                    "kind": "ref",
+                    "path": [
+                      "player"
+                    ]
+                  }
+                },
+                "effect_node": {
+                  "trigger": "damageModification",
+                  "kind": "damageModificationRegistration",
+                  "contract": "DamageModificationAbility",
+                  "title": "Defeat a friendly unit that shares a trait with Queen Amidala to prevent all damage to her",
+                  "optional": true,
+                  "onlyIfYouDoEffect": {
+                    "kind": "select",
+                    "targetResolver": {
+                      "owner": "any",
+                      "type": "any",
+                      "zone": "anyAttackable",
+                      "predicate": {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "binary",
+                          "op": "&&",
+                          "left": {
+                            "kind": "binary",
+                            "op": "&&",
+                            "left": {
+                              "kind": "query",
+                              "name": "isUnit",
+                              "receiver": {
+                                "kind": "ref",
+                                "path": [
+                                  "card"
+                                ]
+                              },
+                              "args": []
+                            },
+                            "right": {
+                              "kind": "binary",
+                              "op": "===",
+                              "left": {
+                                "kind": "ref",
+                                "path": [
+                                  "card",
+                                  "controller"
+                                ]
+                              },
+                              "right": {
+                                "kind": "ref",
+                                "path": [
+                                  "player"
+                                ]
+                              }
+                            }
+                          },
+                          "right": {
+                            "kind": "binary",
+                            "op": "!==",
+                            "left": {
+                              "kind": "ref",
+                              "path": [
+                                "card"
+                              ]
+                            },
+                            "right": {
+                              "kind": "ref",
+                              "path": [
+                                "source"
+                              ]
+                            }
+                          }
+                        },
+                        "right": {
+                          "kind": "collection",
+                          "name": "some",
+                          "receiver": {
+                            "kind": "arrayFrom",
+                            "value": {
+                              "kind": "ref",
+                              "path": [
+                                "source",
+                                "traits"
+                              ]
+                            }
+                          },
+                          "args": [
+                            {
+                              "kind": "query",
+                              "name": "hasSomeTrait",
+                              "receiver": {
+                                "kind": "ref",
+                                "path": [
+                                  "card"
+                                ]
+                              },
+                              "args": [
+                                {
+                                  "kind": "ref",
+                                  "path": [
+                                    "card"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "limit": 256
+                        }
+                      }
+                    },
+                    "effect": {
+                      "kind": "defeat",
+                      "target": "chosen"
+                    }
+                  },
+                  "modificationType": "all",
+                  "triggerContract": "damageEventBeforeResolution"
+                },
+                "claim_scope": "explicit source trait-dependent interaction, not demonstrated beneficial synergy or gameplay value"
+              },
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 48,
+                "score": 0.5033164541313314,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 49,
+                "score": 0.5053387215078542,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:incomplete-diagnostic:2",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 2,
+                "restored_copies": 2,
+                "actual_original_copies_restored": 2,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.5046461725570094,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.5068335705516185,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.5068335705516185,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:matched-alternative:2",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 2,
+                "restored_copies": 2,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.5068335705516185,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.5068335705516185,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.5056219889499215,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-02-rule-grounded-package-3ba3e78e60b1:true-restoration:2",
+                "kind": "true-restoration",
+                "paired_restoration_step": 2,
+                "restored_copies": 2,
+                "actual_original_copies_restored": 2,
+                "constant_anchor": false,
+                "removed_copies": 2,
+                "total_count": 50,
+                "score": 0.5046461725570094,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": -0.002187397994609097,
+            "adjacent_score_deltas": [
+              -0.0012115816016969871,
+              -0.00097581639291211
+            ],
+            "decreases": 2,
+            "nondecreasing_adjacent_fraction": 0.0,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.5068335705516185,
+                "matched_score": 0.5068335705516185,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 0.5,
+                "score": 0.5056219889499215,
+                "matched_score": 0.5068335705516185,
+                "delta": -0.0012115816016969871
+              },
+              {
+                "restored_copies": 2,
+                "restoration_fraction": 1.0,
+                "score": 0.5046461725570094,
+                "matched_score": 0.5068335705516185,
+                "delta": -0.002187397994609097
+              }
+            ]
+          },
+          "source-14-individual-111db3b9a97d": {
+            "source_idx": 14,
+            "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+            "metadata": {
+              "source_idx": 14,
+              "source_name": "ezra-bridger_ash_yellow",
+              "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+              "partition": "val",
+              "kind": "individual",
+              "removed_codes": [
+                "ASH_253"
+              ],
+              "removed_copies": 1,
+              "alternatives": [
+                "JTL_249"
+              ],
+              "controls": [
+                {
+                  "removed": "ASH_253",
+                  "alternative": "JTL_249",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": false,
+                  "source_traits": [
+                    "fighter",
+                    "new republic",
+                    "vehicle"
+                  ],
+                  "alternative_traits": [
+                    "rebel",
+                    "transport",
+                    "vehicle"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": null,
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 49,
+                "score": 0.483657049241273,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4804456260641365,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4818113138026569,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4818113138026569,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4818113138026569,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-14-individual-111db3b9a97d:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.4804456260641365,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": -0.0013656877385204158,
+            "adjacent_score_deltas": [
+              -0.0013656877385204158
+            ],
+            "decreases": 1,
+            "nondecreasing_adjacent_fraction": 0.0,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.4818113138026569,
+                "matched_score": 0.4818113138026569,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 1.0,
+                "score": 0.4804456260641365,
+                "matched_score": 0.4818113138026569,
+                "delta": -0.0013656877385204158
+              }
+            ]
+          },
+          "source-25-individual-b3f78bfc58e7": {
+            "source_idx": 25,
+            "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+            "metadata": {
+              "source_idx": 25,
+              "source_name": "the-armorer_ash_nabat-village",
+              "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+              "partition": "val",
+              "kind": "individual",
+              "removed_codes": [
+                "LOF_108"
+              ],
+              "removed_copies": 1,
+              "alternatives": [
+                "SEC_111"
+              ],
+              "controls": [
+                {
+                  "removed": "LOF_108",
+                  "alternative": "SEC_111",
+                  "copies": 1,
+                  "exact_cost_type_arena_aspects": true,
+                  "exact_traits": false,
+                  "exact_keywords": false,
+                  "source_traits": [
+                    "underworld"
+                  ],
+                  "alternative_traits": [
+                    "gungan",
+                    "naboo",
+                    "official",
+                    "republic"
+                  ],
+                  "intentionally_absent_traits": []
+                }
+              ],
+              "rule_witness": null,
+              "fixed_N": true,
+              "original_count": 50,
+              "control_path": "fixed admitted matched-alternative anchor at every nominal restoration step; actual original copies restored always zero",
+              "quality_ordering_label": null,
+              "positive_claim": "authored-record provenance only",
+              "source_admission": {
+                "admitted": true,
+                "reasons": [],
+                "main_count": 50,
+                "minimum_main_count": 50,
+                "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+              }
+            },
+            "points": [
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:incomplete-diagnostic:0",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 49,
+                "score": 0.5874958542622709,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:incomplete-diagnostic:1",
+                "kind": "incomplete-diagnostic",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5842337043334551,
+                "out_of_distribution": true
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:matched-alternative:0",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5845524125816662,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:matched-alternative:1",
+                "kind": "matched-alternative",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": true,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5845524125816662,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:true-restoration:0",
+                "kind": "true-restoration",
+                "paired_restoration_step": 0,
+                "restored_copies": 0,
+                "actual_original_copies_restored": 0,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5845524125816662,
+                "out_of_distribution": false
+              },
+              {
+                "variant_id": "source-25-individual-b3f78bfc58e7:true-restoration:1",
+                "kind": "true-restoration",
+                "paired_restoration_step": 1,
+                "restored_copies": 1,
+                "actual_original_copies_restored": 1,
+                "constant_anchor": false,
+                "removed_copies": 1,
+                "total_count": 50,
+                "score": 0.5842337043334551,
+                "out_of_distribution": false
+              }
+            ],
+            "restoration_endpoint_delta": -0.0003187082482111192,
+            "adjacent_score_deltas": [
+              -0.0003187082482111192
+            ],
+            "decreases": 1,
+            "nondecreasing_adjacent_fraction": 0.0,
+            "paired_same_count": [
+              {
+                "restored_copies": 0,
+                "restoration_fraction": 0.0,
+                "score": 0.5845524125816662,
+                "matched_score": 0.5845524125816662,
+                "delta": 0.0
+              },
+              {
+                "restored_copies": 1,
+                "restoration_fraction": 1.0,
+                "score": 0.5842337043334551,
+                "matched_score": 0.5845524125816662,
+                "delta": -0.0003187082482111192
+              }
+            ]
+          }
+        },
+        "family_first_same_count_aggregate": {
+          "mean_same_count_delta": -0.0005922164125545989,
+          "family_mean_deltas": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0001593541241055596,
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.0006828438692602079,
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0009344512442980291
+          },
+          "n_families": 3,
+          "n_sources": 3,
+          "n_restoration_groups": 4,
+          "n_packages": 1,
+          "n_dependent_points": 9
+        },
+        "per_restoration_fraction": {
+          "0.0": {
+            "mean_same_count_delta": 0.0,
+            "family_mean_deltas": {
+              "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": 0.0,
+              "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": 0.0,
+              "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": 0.0
+            },
+            "n_families": 3,
+            "n_sources": 3,
+            "n_restoration_groups": 4,
+            "n_packages": 1,
+            "n_dependent_points": 4
+          },
+          "0.5": {
+            "mean_same_count_delta": -0.0012115816016969871,
+            "family_mean_deltas": {
+              "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.0012115816016969871
+            },
+            "n_families": 1,
+            "n_sources": 1,
+            "n_restoration_groups": 1,
+            "n_packages": 1,
+            "n_dependent_points": 1
+          },
+          "1.0": {
+            "mean_same_count_delta": -0.0011713347579544824,
+            "family_mean_deltas": {
+              "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": -0.0003187082482111192,
+              "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": -0.0013656877385204158,
+              "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": -0.001829608287131912
+            },
+            "n_families": 3,
+            "n_sources": 3,
+            "n_restoration_groups": 4,
+            "n_packages": 1,
+            "n_dependent_points": 4
+          }
+        },
+        "uncertainty": "Tiny inherited family holdout; no independent-variant sample claim or reliable population confidence interval.",
+        "matched_control": "The full-size matched-alternative deck is a constant anchor repeated at each paired step; it restores zero authored copies and provides no independent repeated observations.",
+        "incomplete_diagnostics": "Reported separately in group points; excluded from same-count aggregates and all fit labels."
+      },
+      "train_objective_before_first_update": 0.6934486655620217,
+      "train_objective_before_final_update": 0.6904937182927475,
+      "updates": 200,
+      "validation_provenance_diagnostics": {
+        "baseline": {
+          "family_macro_log_loss": 0.6950280998007915,
+          "family_macro_accuracy": 0.5,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.6966069306924754,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.6941733777090511,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.694303991000848,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "final": {
+          "family_macro_log_loss": 0.6993985711968232,
+          "family_macro_accuracy": 0.5,
+          "n_families": 3,
+          "n_sources": 3,
+          "per_family": {
+            "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a": {
+              "log_loss": 0.7079265067958744,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6": {
+              "log_loss": 0.6952285310562465,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 2
+            },
+            "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d": {
+              "log_loss": 0.6950406757383492,
+              "accuracy": 0.5,
+              "n_sources": 1,
+              "n_dependent_rows": 4
+            }
+          },
+          "label": "authored-record provenance; may reflect construction artifacts"
+        },
+        "evaluations": 2,
+        "used_for_selection": false
+      },
+      "frozen_train_latent_mean_std": 0.1113783056795319,
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/restoration-bef4e82-s17/printed-only-frozen-latent.npz",
+        "sha256": "f5c96f00b5c468aabd5c5474feaf6417c1919d8ba5a20e30085e7e622c15ed85"
+      }
+    }
+  },
+  "frozen_checkpoints_unchanged": true,
+  "immutable_before": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+  },
+  "immutable_after": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+  },
+  "guard": {
+    "owned_worker_pid": 26759,
+    "worker_peak_rss_mib": 46.1875,
+    "supervisor_peak_rss_mib": 41.25,
+    "observed_tree_peak_rss_mib": 105.9375,
+    "elapsed_seconds": 0.09123433299828321,
+    "exitcode": 0,
+    "owned_pids": {
+      "supervisor": 26749,
+      "worker": 26759,
+      "resource_tracker": 26758
+    },
+    "per_pid_peak_rss_mib": {
+      "supervisor": 41.25,
+      "worker": 46.40625,
+      "resource_tracker": 18.28125
+    },
+    "sample_interval_seconds": 0.1,
+    "status": "completed",
+    "stop_reason": null,
+    "limitations": "RSS stop guard samples known parent/worker/resource-tracker PIDs via libproc; conservative per-PID peak sum merges rusage peaks. It is not an instantaneous OS memory limit. Worker creates no descendant workers."
+  }
+}

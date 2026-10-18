@@ -1,0 +1,104 @@
+{
+  "schema": "jepa-independent-retrieval-browser-export-receipt/1",
+  "status": "completed",
+  "manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/manifest.json",
+    "sha256": "f23196b1d4196b324e6ecff0f433ec392aded96f328360c6b97f70644c394f52"
+  },
+  "stable_index": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/index.json",
+    "sha256": "d5bc6bbab7a9b194ce5b0d724c2bed97dc1eb48e62473ec8bacaef6604aa87a3"
+  },
+  "previous_index": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/previous-index.json",
+    "sha256": "4d2707a63ead3ddb80ea8b76fdf20dcafa5a376176b08ffafe50a9420b1f7223"
+  },
+  "artifacts": [
+    {
+      "id": "independent-controls-v1-full-raw-z96",
+      "vector_key": "full_z96",
+      "unit_vector_key": "raw_l2_unit",
+      "dimension": 96,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/full-raw-z96.json",
+        "sha256": "28ebbb50664b16d5d0f6088d98bbc9a29f2728521e2f810b674ef3a8d9fac7f4"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float32",
+      "raw_tensor_bytes_sha256": "b035c874318b29c397b9cebadfe3785906656d28e7dad0c7697315d1857ea5f0"
+    },
+    {
+      "id": "independent-controls-v1-full-centered-z96",
+      "vector_key": "frozen_train22_centered",
+      "unit_vector_key": "frozen_train22_centered_l2_unit",
+      "dimension": 96,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/full-centered-z96.json",
+        "sha256": "06f14c54be72fbdc3c29bbbfda0c714db9e6a60ad6b84e61bec97bbca99b6be7"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "3aff84bc558e6a7c394482cebfb0c0d1004bb3c0400bced32af39e445d61aea3"
+    },
+    {
+      "id": "independent-controls-v1-full-whitened-z96",
+      "vector_key": "frozen_train22_alpha01_whitened",
+      "unit_vector_key": "frozen_train22_alpha01_whitened_l2_unit",
+      "dimension": 96,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/full-whitened-z96.json",
+        "sha256": "67e498b04165bc66d01937c810d42daed28bc29a43d824fd84577305d59c29f6"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "ad4a3a3ffd6d8e833cf68503f435b01264db94663d23a2e7adb76f68b7c0ae74"
+    },
+    {
+      "id": "independent-controls-v1-original-token-raw-z64",
+      "vector_key": "original_branch64",
+      "unit_vector_key": "original_branch64_l2_unit",
+      "dimension": 64,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/original-token-raw-z64.json",
+        "sha256": "3abc56f2846e7333395250875da1bfe3835fe4214103a3a235607606b240f097"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "8d8961877f6841a01afeaa7aa915edff30500e82b7df063a7d068d8735a9da2d"
+    },
+    {
+      "id": "independent-controls-v1-original-token-centered-z64",
+      "vector_key": "original_branch64_train22_centered",
+      "unit_vector_key": "original_branch64_train22_centered_l2_unit",
+      "dimension": 64,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/original-token-centered-z64.json",
+        "sha256": "198b68e405c0448947b9962f2185a18a3e4e14da5890f04ae4f07637b126de27"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "b01495e2eaa658b3967567385132f75d6cf77d150915ef94f496d22683ce0239"
+    },
+    {
+      "id": "independent-controls-v1-original-token-whitened-z64",
+      "vector_key": "original_branch64_train22_alpha01_whitened",
+      "unit_vector_key": "original_branch64_train22_alpha01_whitened_l2_unit",
+      "dimension": 64,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/original-token-whitened-z64.json",
+        "sha256": "6dad209e2e07fef2c0e1453138746cece29582358057d31cb813ef4dbfe23020"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "d1d6462c400a48e0740c214e32ab961ea483b83fd1438465f0aa5f03455eff10"
+    }
+  ],
+  "old_files_unchanged": true,
+  "old_space_pointers_unchanged": true,
+  "added_spaces": 6,
+  "rows_per_space": 60,
+  "model_forward_calls": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "paid_jobs": 0
+}

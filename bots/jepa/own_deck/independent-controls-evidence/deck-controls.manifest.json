@@ -1,0 +1,5026 @@
+{
+  "schema": "jepa-independent-deck-controls/1",
+  "status": "prepared-awaiting-root-go",
+  "plan": {
+    "schema": "jepa-independent-retrieval-control-plan/1",
+    "seed": 314159,
+    "source_indices": [
+      10,
+      14,
+      25
+    ],
+    "maximum_modified": 24,
+    "maximum_rows": 36,
+    "minimum_primary_families": 3,
+    "minimum_slots_per_family": 1,
+    "maximum_slots_per_source": 2,
+    "doses": [
+      1,
+      2
+    ],
+    "source_choice": "Fixed held-out source families10/14/25; exclude all selected reviewed examples and their complete families, including02/03.",
+    "candidate_universe": "Main-deck printings in the pinned27-list source bank; exact cost/type/arena/aspect signature, novel canonical name/subtitle absent source, admitted full resulting declaration and complete sourceIr/dataOnly runtime-admitted IR.",
+    "pool_rule": "For each slot use exact-power/HP pool if it has>=2 alternatives with different IR distances; otherwise exact-core pool is a separately labeled confounded exploratory stratum. Choose strict slots first, then source code. No vector results used.",
+    "selection": "At most2 slots/source, source count>=2; independently min/max IR-only distance with printed-code tie break; no printed traits/keywords/stats in that selection distance.",
+    "proxy": {
+      "groups": [
+        "costs",
+        "conditions_targets",
+        "effects",
+        "trigger_structure"
+      ],
+      "weights": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "path_matching": "exact typed all-side ordered JSON path, containers retained; object keys sorted; root ability display title excluded",
+      "numeric": "abs(x-y)/max(1,abs(x),abs(y)); unmatched path/type is1; categorical mismatch is1; each group mean then equal group mean",
+      "semantics": "Structural proxy only, no execution or strategic meaning; no textual similarity or learned parameters"
+    },
+    "invariance": "Original anchor, reordered entries, expanded/split entries, and one genuine policy-admitted reprint if available; canonical and encoded-feature equality checked.",
+    "prior_controls": "New fixed operators/seeds; exclude any candidate composition identical to a previous reserved counterfactual; no prior scores/ranks read or used.",
+    "preparation_only": true,
+    "model_forward_calls": 0,
+    "neighbor_metrics": 0,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "paid_spend_usd": 0
+  },
+  "rows": [
+    {
+      "id": "independent-source-10",
+      "source_index": 10,
+      "kind": "anchor",
+      "family_id": "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+      "canonical_card_counts": {
+        "ASH_194": 2,
+        "ASH_199": 1,
+        "ASH_224": 2,
+        "JTL_081": 3,
+        "JTL_085": 3,
+        "JTL_115": 3,
+        "JTL_212": 3,
+        "JTL_217": 3,
+        "JTL_221": 3,
+        "LAW_135": 3,
+        "LAW_211": 3,
+        "LAW_217": 3,
+        "LOF_091": 2,
+        "SEC_082": 3,
+        "SEC_186": 3,
+        "SEC_189": 3,
+        "SEC_195": 1,
+        "SEC_213": 3,
+        "SEC_215": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_194",
+          "count": 2
+        },
+        {
+          "id": "ASH_199",
+          "count": 1
+        },
+        {
+          "id": "ASH_224",
+          "count": 2
+        },
+        {
+          "id": "JTL_081",
+          "count": 3
+        },
+        {
+          "id": "JTL_085",
+          "count": 3
+        },
+        {
+          "id": "JTL_115",
+          "count": 3
+        },
+        {
+          "id": "JTL_212",
+          "count": 3
+        },
+        {
+          "id": "JTL_217",
+          "count": 3
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "LAW_135",
+          "count": 3
+        },
+        {
+          "id": "LAW_211",
+          "count": 3
+        },
+        {
+          "id": "LAW_217",
+          "count": 3
+        },
+        {
+          "id": "LOF_091",
+          "count": 2
+        },
+        {
+          "id": "SEC_082",
+          "count": 3
+        },
+        {
+          "id": "SEC_186",
+          "count": 3
+        },
+        {
+          "id": "SEC_189",
+          "count": 3
+        },
+        {
+          "id": "SEC_195",
+          "count": 1
+        },
+        {
+          "id": "SEC_213",
+          "count": 3
+        },
+        {
+          "id": "SEC_215",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "JTL_006",
+        "count": 1
+      },
+      "base": {
+        "id": "ASH_026",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "b0f2810eaa3ea9a7119d837b78a1766921dcd5f0f342a1d6ed74361653473db9",
+      "original_source_fingerprint": "b0f2810eaa3ea9a7119d837b78a1766921dcd5f0f342a1d6ed74361653473db9",
+      "lineage": {
+        "source_index": 10,
+        "seed": 314159,
+        "inherited_partition": "validation",
+        "reviewed": false
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-10-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 26,
+        "unknown_copies": 24,
+        "unknown_cards": [
+          {
+            "code": "ASH_199",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_217",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_091",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_082",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_186",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_189",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_195",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_215",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/darth-vader_jtl_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-10-permutation",
+      "source_index": 10,
+      "kind": "permutation",
+      "family_id": "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+      "canonical_card_counts": {
+        "ASH_194": 2,
+        "ASH_199": 1,
+        "ASH_224": 2,
+        "JTL_081": 3,
+        "JTL_085": 3,
+        "JTL_115": 3,
+        "JTL_212": 3,
+        "JTL_217": 3,
+        "JTL_221": 3,
+        "LAW_135": 3,
+        "LAW_211": 3,
+        "LAW_217": 3,
+        "LOF_091": 2,
+        "SEC_082": 3,
+        "SEC_186": 3,
+        "SEC_189": 3,
+        "SEC_195": 1,
+        "SEC_213": 3,
+        "SEC_215": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "LAW_135",
+          "count": 3
+        },
+        {
+          "id": "SEC_189",
+          "count": 3
+        },
+        {
+          "id": "LAW_211",
+          "count": 3
+        },
+        {
+          "id": "SEC_195",
+          "count": 1
+        },
+        {
+          "id": "LOF_091",
+          "count": 2
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "SEC_215",
+          "count": 3
+        },
+        {
+          "id": "ASH_199",
+          "count": 1
+        },
+        {
+          "id": "ASH_224",
+          "count": 2
+        },
+        {
+          "id": "JTL_081",
+          "count": 3
+        },
+        {
+          "id": "SEC_082",
+          "count": 3
+        },
+        {
+          "id": "SEC_213",
+          "count": 3
+        },
+        {
+          "id": "LAW_217",
+          "count": 3
+        },
+        {
+          "id": "JTL_217",
+          "count": 3
+        },
+        {
+          "id": "JTL_085",
+          "count": 3
+        },
+        {
+          "id": "JTL_115",
+          "count": 3
+        },
+        {
+          "id": "ASH_194",
+          "count": 2
+        },
+        {
+          "id": "SEC_186",
+          "count": 3
+        },
+        {
+          "id": "JTL_212",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "JTL_006",
+        "count": 1
+      },
+      "base": {
+        "id": "ASH_026",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "b0f2810eaa3ea9a7119d837b78a1766921dcd5f0f342a1d6ed74361653473db9",
+      "original_source_fingerprint": "b0f2810eaa3ea9a7119d837b78a1766921dcd5f0f342a1d6ed74361653473db9",
+      "lineage": {
+        "seed": 314169,
+        "operation": "main-entry permutation"
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-10-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 26,
+        "unknown_copies": 24,
+        "unknown_cards": [
+          {
+            "code": "SEC_189",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_195",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_091",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_215",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_199",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_082",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_217",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_186",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/darth-vader_jtl_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-10-split",
+      "source_index": 10,
+      "kind": "split-entries",
+      "family_id": "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+      "canonical_card_counts": {
+        "ASH_194": 2,
+        "ASH_199": 1,
+        "ASH_224": 2,
+        "JTL_081": 3,
+        "JTL_085": 3,
+        "JTL_115": 3,
+        "JTL_212": 3,
+        "JTL_217": 3,
+        "JTL_221": 3,
+        "LAW_135": 3,
+        "LAW_211": 3,
+        "LAW_217": 3,
+        "LOF_091": 2,
+        "SEC_082": 3,
+        "SEC_186": 3,
+        "SEC_189": 3,
+        "SEC_195": 1,
+        "SEC_213": 3,
+        "SEC_215": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "SEC_215",
+          "count": 1
+        },
+        {
+          "id": "SEC_215",
+          "count": 1
+        },
+        {
+          "id": "SEC_215",
+          "count": 1
+        },
+        {
+          "id": "SEC_213",
+          "count": 1
+        },
+        {
+          "id": "SEC_213",
+          "count": 1
+        },
+        {
+          "id": "SEC_213",
+          "count": 1
+        },
+        {
+          "id": "SEC_195",
+          "count": 1
+        },
+        {
+          "id": "SEC_189",
+          "count": 1
+        },
+        {
+          "id": "SEC_189",
+          "count": 1
+        },
+        {
+          "id": "SEC_189",
+          "count": 1
+        },
+        {
+          "id": "SEC_186",
+          "count": 1
+        },
+        {
+          "id": "SEC_186",
+          "count": 1
+        },
+        {
+          "id": "SEC_186",
+          "count": 1
+        },
+        {
+          "id": "SEC_082",
+          "count": 1
+        },
+        {
+          "id": "SEC_082",
+          "count": 1
+        },
+        {
+          "id": "SEC_082",
+          "count": 1
+        },
+        {
+          "id": "LOF_091",
+          "count": 1
+        },
+        {
+          "id": "LOF_091",
+          "count": 1
+        },
+        {
+          "id": "LAW_217",
+          "count": 1
+        },
+        {
+          "id": "LAW_217",
+          "count": 1
+        },
+        {
+          "id": "LAW_217",
+          "count": 1
+        },
+        {
+          "id": "LAW_211",
+          "count": 1
+        },
+        {
+          "id": "LAW_211",
+          "count": 1
+        },
+        {
+          "id": "LAW_211",
+          "count": 1
+        },
+        {
+          "id": "LAW_135",
+          "count": 1
+        },
+        {
+          "id": "LAW_135",
+          "count": 1
+        },
+        {
+          "id": "LAW_135",
+          "count": 1
+        },
+        {
+          "id": "JTL_221",
+          "count": 1
+        },
+        {
+          "id": "JTL_221",
+          "count": 1
+        },
+        {
+          "id": "JTL_221",
+          "count": 1
+        },
+        {
+          "id": "JTL_217",
+          "count": 1
+        },
+        {
+          "id": "JTL_217",
+          "count": 1
+        },
+        {
+          "id": "JTL_217",
+          "count": 1
+        },
+        {
+          "id": "JTL_212",
+          "count": 1
+        },
+        {
+          "id": "JTL_212",
+          "count": 1
+        },
+        {
+          "id": "JTL_212",
+          "count": 1
+        },
+        {
+          "id": "JTL_115",
+          "count": 1
+        },
+        {
+          "id": "JTL_115",
+          "count": 1
+        },
+        {
+          "id": "JTL_115",
+          "count": 1
+        },
+        {
+          "id": "JTL_085",
+          "count": 1
+        },
+        {
+          "id": "JTL_085",
+          "count": 1
+        },
+        {
+          "id": "JTL_085",
+          "count": 1
+        },
+        {
+          "id": "JTL_081",
+          "count": 1
+        },
+        {
+          "id": "JTL_081",
+          "count": 1
+        },
+        {
+          "id": "JTL_081",
+          "count": 1
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_199",
+          "count": 1
+        },
+        {
+          "id": "ASH_194",
+          "count": 1
+        },
+        {
+          "id": "ASH_194",
+          "count": 1
+        }
+      ],
+      "leader": {
+        "id": "JTL_006",
+        "count": 1
+      },
+      "base": {
+        "id": "ASH_026",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "b0f2810eaa3ea9a7119d837b78a1766921dcd5f0f342a1d6ed74361653473db9",
+      "original_source_fingerprint": "b0f2810eaa3ea9a7119d837b78a1766921dcd5f0f342a1d6ed74361653473db9",
+      "lineage": {
+        "seed": 314159,
+        "operation": "expanded one-copy entries in reverse printed order"
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-10-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 26,
+        "unknown_copies": 24,
+        "unknown_cards": [
+          {
+            "code": "SEC_215",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_215",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_215",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_195",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_189",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_189",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_189",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_186",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_186",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_186",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_082",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_082",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_082",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_091",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_091",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_217",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_217",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_217",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_199",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/darth-vader_jtl_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-source-14",
+      "source_index": 14,
+      "kind": "anchor",
+      "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "canonical_card_counts": {
+        "ASH_153": 3,
+        "ASH_157": 3,
+        "ASH_167": 3,
+        "ASH_183": 1,
+        "ASH_204": 3,
+        "ASH_208": 2,
+        "ASH_222": 2,
+        "ASH_224": 1,
+        "ASH_253": 3,
+        "JTL_203": 3,
+        "JTL_221": 3,
+        "LAW_078": 3,
+        "LAW_191": 1,
+        "LOF_151": 3,
+        "LOF_192": 3,
+        "SEC_148": 3,
+        "SEC_163": 2,
+        "SEC_176": 3,
+        "SEC_179": 3,
+        "SEC_233": 2
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_153",
+          "count": 3
+        },
+        {
+          "id": "ASH_157",
+          "count": 3
+        },
+        {
+          "id": "ASH_167",
+          "count": 3
+        },
+        {
+          "id": "ASH_183",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 3
+        },
+        {
+          "id": "ASH_208",
+          "count": 2
+        },
+        {
+          "id": "ASH_222",
+          "count": 2
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 3
+        },
+        {
+          "id": "JTL_203",
+          "count": 3
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "LAW_078",
+          "count": 3
+        },
+        {
+          "id": "LAW_191",
+          "count": 1
+        },
+        {
+          "id": "LOF_151",
+          "count": 3
+        },
+        {
+          "id": "LOF_192",
+          "count": 3
+        },
+        {
+          "id": "SEC_148",
+          "count": 3
+        },
+        {
+          "id": "SEC_163",
+          "count": 2
+        },
+        {
+          "id": "SEC_176",
+          "count": 3
+        },
+        {
+          "id": "SEC_179",
+          "count": 3
+        },
+        {
+          "id": "SEC_233",
+          "count": 2
+        }
+      ],
+      "leader": {
+        "id": "ASH_013",
+        "count": 1
+      },
+      "base": {
+        "id": "SEC_025",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "original_source_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "lineage": {
+        "source_index": 14,
+        "seed": 314159,
+        "inherited_partition": "validation",
+        "reviewed": false
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-14-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 28,
+        "unknown_copies": 22,
+        "unknown_cards": [
+          {
+            "code": "ASH_183",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_191",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 3,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_233",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-14-ash_153-n1-ir-near",
+      "source_index": 14,
+      "kind": "ir-near",
+      "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "canonical_card_counts": {
+        "ASH_153": 2,
+        "ASH_157": 3,
+        "ASH_167": 3,
+        "ASH_183": 1,
+        "ASH_204": 3,
+        "ASH_208": 2,
+        "ASH_222": 2,
+        "ASH_224": 1,
+        "ASH_253": 3,
+        "JTL_203": 3,
+        "JTL_221": 3,
+        "LAW_078": 3,
+        "LAW_191": 1,
+        "LOF_144": 1,
+        "LOF_151": 3,
+        "LOF_192": 3,
+        "SEC_148": 3,
+        "SEC_163": 2,
+        "SEC_176": 3,
+        "SEC_179": 3,
+        "SEC_233": 2
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_153",
+          "count": 2
+        },
+        {
+          "id": "ASH_157",
+          "count": 3
+        },
+        {
+          "id": "ASH_167",
+          "count": 3
+        },
+        {
+          "id": "ASH_183",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 3
+        },
+        {
+          "id": "ASH_208",
+          "count": 2
+        },
+        {
+          "id": "ASH_222",
+          "count": 2
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 3
+        },
+        {
+          "id": "JTL_203",
+          "count": 3
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "LAW_078",
+          "count": 3
+        },
+        {
+          "id": "LAW_191",
+          "count": 1
+        },
+        {
+          "id": "LOF_144",
+          "count": 1
+        },
+        {
+          "id": "LOF_151",
+          "count": 3
+        },
+        {
+          "id": "LOF_192",
+          "count": 3
+        },
+        {
+          "id": "SEC_148",
+          "count": 3
+        },
+        {
+          "id": "SEC_163",
+          "count": 2
+        },
+        {
+          "id": "SEC_176",
+          "count": 3
+        },
+        {
+          "id": "SEC_179",
+          "count": 3
+        },
+        {
+          "id": "SEC_233",
+          "count": 2
+        }
+      ],
+      "leader": {
+        "id": "ASH_013",
+        "count": 1
+      },
+      "base": {
+        "id": "SEC_025",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "e58b5fe4d6ae325017f1f9367a094c2ac35c4da5c49066ae5f76e7d7adfd3a5d",
+      "original_source_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "ASH_153",
+        "replacement_card": "LOF_144",
+        "copies": 1,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-near",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.14404761904761904,
+          "parts": {
+            "costs": 0.0,
+            "conditions_targets": 0.3333333333333333,
+            "effects": 0.1,
+            "trigger_structure": 0.14285714285714285
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 0.6,
+            "keywords": 0.0,
+            "power": 0.6666666666666666,
+            "hp": 0.75,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 1.0
+          },
+          "distance": 0.4309523809523809,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 49,
+        "union_copies": 51,
+        "weighted_jaccard": 0.9607843137254902,
+        "l1_copies": 2
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 28,
+        "unknown_copies": 22,
+        "unknown_cards": [
+          {
+            "code": "ASH_183",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_191",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 3,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_233",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-14-ash_153-n1-ir-far",
+      "source_index": 14,
+      "kind": "ir-far",
+      "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "canonical_card_counts": {
+        "ASH_153": 2,
+        "ASH_157": 3,
+        "ASH_167": 3,
+        "ASH_183": 1,
+        "ASH_204": 3,
+        "ASH_208": 2,
+        "ASH_222": 2,
+        "ASH_224": 1,
+        "ASH_253": 3,
+        "JTL_147": 1,
+        "JTL_203": 3,
+        "JTL_221": 3,
+        "LAW_078": 3,
+        "LAW_191": 1,
+        "LOF_151": 3,
+        "LOF_192": 3,
+        "SEC_148": 3,
+        "SEC_163": 2,
+        "SEC_176": 3,
+        "SEC_179": 3,
+        "SEC_233": 2
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_153",
+          "count": 2
+        },
+        {
+          "id": "ASH_157",
+          "count": 3
+        },
+        {
+          "id": "ASH_167",
+          "count": 3
+        },
+        {
+          "id": "ASH_183",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 3
+        },
+        {
+          "id": "ASH_208",
+          "count": 2
+        },
+        {
+          "id": "ASH_222",
+          "count": 2
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 3
+        },
+        {
+          "id": "JTL_147",
+          "count": 1
+        },
+        {
+          "id": "JTL_203",
+          "count": 3
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "LAW_078",
+          "count": 3
+        },
+        {
+          "id": "LAW_191",
+          "count": 1
+        },
+        {
+          "id": "LOF_151",
+          "count": 3
+        },
+        {
+          "id": "LOF_192",
+          "count": 3
+        },
+        {
+          "id": "SEC_148",
+          "count": 3
+        },
+        {
+          "id": "SEC_163",
+          "count": 2
+        },
+        {
+          "id": "SEC_176",
+          "count": 3
+        },
+        {
+          "id": "SEC_179",
+          "count": 3
+        },
+        {
+          "id": "SEC_233",
+          "count": 2
+        }
+      ],
+      "leader": {
+        "id": "ASH_013",
+        "count": 1
+      },
+      "base": {
+        "id": "SEC_025",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "16ff21917e02ae5ced0359bbcbf6a80d4985942f1830101bf67ec961bc793cf2",
+      "original_source_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "ASH_153",
+        "replacement_card": "JTL_147",
+        "copies": 1,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-far",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.7630952380952382,
+          "parts": {
+            "costs": 0.5,
+            "conditions_targets": 1.0,
+            "effects": 0.9523809523809523,
+            "trigger_structure": 0.6
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 0.5,
+            "keywords": 0.0,
+            "power": 0.3333333333333333,
+            "hp": 0.6666666666666666,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 0.0
+          },
+          "distance": 0.21428571428571427,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 49,
+        "union_copies": 51,
+        "weighted_jaccard": 0.9607843137254902,
+        "l1_copies": 2
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 28,
+        "unknown_copies": 22,
+        "unknown_cards": [
+          {
+            "code": "ASH_183",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_191",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 3,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_233",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-14-ash_153-n2-ir-near",
+      "source_index": 14,
+      "kind": "ir-near",
+      "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "canonical_card_counts": {
+        "ASH_153": 1,
+        "ASH_157": 3,
+        "ASH_167": 3,
+        "ASH_183": 1,
+        "ASH_204": 3,
+        "ASH_208": 2,
+        "ASH_222": 2,
+        "ASH_224": 1,
+        "ASH_253": 3,
+        "JTL_203": 3,
+        "JTL_221": 3,
+        "LAW_078": 3,
+        "LAW_191": 1,
+        "LOF_144": 2,
+        "LOF_151": 3,
+        "LOF_192": 3,
+        "SEC_148": 3,
+        "SEC_163": 2,
+        "SEC_176": 3,
+        "SEC_179": 3,
+        "SEC_233": 2
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_153",
+          "count": 1
+        },
+        {
+          "id": "ASH_157",
+          "count": 3
+        },
+        {
+          "id": "ASH_167",
+          "count": 3
+        },
+        {
+          "id": "ASH_183",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 3
+        },
+        {
+          "id": "ASH_208",
+          "count": 2
+        },
+        {
+          "id": "ASH_222",
+          "count": 2
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 3
+        },
+        {
+          "id": "JTL_203",
+          "count": 3
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "LAW_078",
+          "count": 3
+        },
+        {
+          "id": "LAW_191",
+          "count": 1
+        },
+        {
+          "id": "LOF_144",
+          "count": 2
+        },
+        {
+          "id": "LOF_151",
+          "count": 3
+        },
+        {
+          "id": "LOF_192",
+          "count": 3
+        },
+        {
+          "id": "SEC_148",
+          "count": 3
+        },
+        {
+          "id": "SEC_163",
+          "count": 2
+        },
+        {
+          "id": "SEC_176",
+          "count": 3
+        },
+        {
+          "id": "SEC_179",
+          "count": 3
+        },
+        {
+          "id": "SEC_233",
+          "count": 2
+        }
+      ],
+      "leader": {
+        "id": "ASH_013",
+        "count": 1
+      },
+      "base": {
+        "id": "SEC_025",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "e7efef4d6f0ee53b01c1d0770baaaee61b369c87a26e5566e7be25f212347fb2",
+      "original_source_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "ASH_153",
+        "replacement_card": "LOF_144",
+        "copies": 2,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-near",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.14404761904761904,
+          "parts": {
+            "costs": 0.0,
+            "conditions_targets": 0.3333333333333333,
+            "effects": 0.1,
+            "trigger_structure": 0.14285714285714285
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 0.6,
+            "keywords": 0.0,
+            "power": 0.6666666666666666,
+            "hp": 0.75,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 1.0
+          },
+          "distance": 0.4309523809523809,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 48,
+        "union_copies": 52,
+        "weighted_jaccard": 0.9230769230769231,
+        "l1_copies": 4
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 28,
+        "unknown_copies": 22,
+        "unknown_cards": [
+          {
+            "code": "ASH_183",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_191",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 3,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_233",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-14-ash_153-n2-ir-far",
+      "source_index": 14,
+      "kind": "ir-far",
+      "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "canonical_card_counts": {
+        "ASH_153": 1,
+        "ASH_157": 3,
+        "ASH_167": 3,
+        "ASH_183": 1,
+        "ASH_204": 3,
+        "ASH_208": 2,
+        "ASH_222": 2,
+        "ASH_224": 1,
+        "ASH_253": 3,
+        "JTL_147": 2,
+        "JTL_203": 3,
+        "JTL_221": 3,
+        "LAW_078": 3,
+        "LAW_191": 1,
+        "LOF_151": 3,
+        "LOF_192": 3,
+        "SEC_148": 3,
+        "SEC_163": 2,
+        "SEC_176": 3,
+        "SEC_179": 3,
+        "SEC_233": 2
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_153",
+          "count": 1
+        },
+        {
+          "id": "ASH_157",
+          "count": 3
+        },
+        {
+          "id": "ASH_167",
+          "count": 3
+        },
+        {
+          "id": "ASH_183",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 3
+        },
+        {
+          "id": "ASH_208",
+          "count": 2
+        },
+        {
+          "id": "ASH_222",
+          "count": 2
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 3
+        },
+        {
+          "id": "JTL_147",
+          "count": 2
+        },
+        {
+          "id": "JTL_203",
+          "count": 3
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "LAW_078",
+          "count": 3
+        },
+        {
+          "id": "LAW_191",
+          "count": 1
+        },
+        {
+          "id": "LOF_151",
+          "count": 3
+        },
+        {
+          "id": "LOF_192",
+          "count": 3
+        },
+        {
+          "id": "SEC_148",
+          "count": 3
+        },
+        {
+          "id": "SEC_163",
+          "count": 2
+        },
+        {
+          "id": "SEC_176",
+          "count": 3
+        },
+        {
+          "id": "SEC_179",
+          "count": 3
+        },
+        {
+          "id": "SEC_233",
+          "count": 2
+        }
+      ],
+      "leader": {
+        "id": "ASH_013",
+        "count": 1
+      },
+      "base": {
+        "id": "SEC_025",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "99e98bb1955f9b4c8d48b6f24ada0e70c3fb15dd6c678907b66f4499ef9beb7a",
+      "original_source_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "ASH_153",
+        "replacement_card": "JTL_147",
+        "copies": 2,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-far",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.7630952380952382,
+          "parts": {
+            "costs": 0.5,
+            "conditions_targets": 1.0,
+            "effects": 0.9523809523809523,
+            "trigger_structure": 0.6
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 0.5,
+            "keywords": 0.0,
+            "power": 0.3333333333333333,
+            "hp": 0.6666666666666666,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 0.0
+          },
+          "distance": 0.21428571428571427,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 48,
+        "union_copies": 52,
+        "weighted_jaccard": 0.9230769230769231,
+        "l1_copies": 4
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 28,
+        "unknown_copies": 22,
+        "unknown_cards": [
+          {
+            "code": "ASH_183",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_191",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 3,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_233",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-14-permutation",
+      "source_index": 14,
+      "kind": "permutation",
+      "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "canonical_card_counts": {
+        "ASH_153": 3,
+        "ASH_157": 3,
+        "ASH_167": 3,
+        "ASH_183": 1,
+        "ASH_204": 3,
+        "ASH_208": 2,
+        "ASH_222": 2,
+        "ASH_224": 1,
+        "ASH_253": 3,
+        "JTL_203": 3,
+        "JTL_221": 3,
+        "LAW_078": 3,
+        "LAW_191": 1,
+        "LOF_151": 3,
+        "LOF_192": 3,
+        "SEC_148": 3,
+        "SEC_163": 2,
+        "SEC_176": 3,
+        "SEC_179": 3,
+        "SEC_233": 2
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "LAW_191",
+          "count": 1
+        },
+        {
+          "id": "SEC_179",
+          "count": 3
+        },
+        {
+          "id": "ASH_183",
+          "count": 1
+        },
+        {
+          "id": "ASH_157",
+          "count": 3
+        },
+        {
+          "id": "SEC_176",
+          "count": 3
+        },
+        {
+          "id": "LOF_192",
+          "count": 3
+        },
+        {
+          "id": "JTL_203",
+          "count": 3
+        },
+        {
+          "id": "ASH_253",
+          "count": 3
+        },
+        {
+          "id": "ASH_222",
+          "count": 2
+        },
+        {
+          "id": "ASH_208",
+          "count": 2
+        },
+        {
+          "id": "LAW_078",
+          "count": 3
+        },
+        {
+          "id": "SEC_233",
+          "count": 2
+        },
+        {
+          "id": "SEC_148",
+          "count": 3
+        },
+        {
+          "id": "LOF_151",
+          "count": 3
+        },
+        {
+          "id": "ASH_167",
+          "count": 3
+        },
+        {
+          "id": "JTL_221",
+          "count": 3
+        },
+        {
+          "id": "SEC_163",
+          "count": 2
+        },
+        {
+          "id": "ASH_204",
+          "count": 3
+        },
+        {
+          "id": "ASH_153",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "ASH_013",
+        "count": 1
+      },
+      "base": {
+        "id": "SEC_025",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "original_source_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "lineage": {
+        "seed": 314173,
+        "operation": "main-entry permutation"
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-14-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 28,
+        "unknown_copies": 22,
+        "unknown_cards": [
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_191",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_183",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 3,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_233",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-14-split",
+      "source_index": 14,
+      "kind": "split-entries",
+      "family_id": "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "canonical_card_counts": {
+        "ASH_153": 3,
+        "ASH_157": 3,
+        "ASH_167": 3,
+        "ASH_183": 1,
+        "ASH_204": 3,
+        "ASH_208": 2,
+        "ASH_222": 2,
+        "ASH_224": 1,
+        "ASH_253": 3,
+        "JTL_203": 3,
+        "JTL_221": 3,
+        "LAW_078": 3,
+        "LAW_191": 1,
+        "LOF_151": 3,
+        "LOF_192": 3,
+        "SEC_148": 3,
+        "SEC_163": 2,
+        "SEC_176": 3,
+        "SEC_179": 3,
+        "SEC_233": 2
+      },
+      "raw_declared_cards": [
+        {
+          "id": "SEC_233",
+          "count": 1
+        },
+        {
+          "id": "SEC_233",
+          "count": 1
+        },
+        {
+          "id": "SEC_179",
+          "count": 1
+        },
+        {
+          "id": "SEC_179",
+          "count": 1
+        },
+        {
+          "id": "SEC_179",
+          "count": 1
+        },
+        {
+          "id": "SEC_176",
+          "count": 1
+        },
+        {
+          "id": "SEC_176",
+          "count": 1
+        },
+        {
+          "id": "SEC_176",
+          "count": 1
+        },
+        {
+          "id": "SEC_163",
+          "count": 1
+        },
+        {
+          "id": "SEC_163",
+          "count": 1
+        },
+        {
+          "id": "SEC_148",
+          "count": 1
+        },
+        {
+          "id": "SEC_148",
+          "count": 1
+        },
+        {
+          "id": "SEC_148",
+          "count": 1
+        },
+        {
+          "id": "LOF_192",
+          "count": 1
+        },
+        {
+          "id": "LOF_192",
+          "count": 1
+        },
+        {
+          "id": "LOF_192",
+          "count": 1
+        },
+        {
+          "id": "LOF_151",
+          "count": 1
+        },
+        {
+          "id": "LOF_151",
+          "count": 1
+        },
+        {
+          "id": "LOF_151",
+          "count": 1
+        },
+        {
+          "id": "LAW_191",
+          "count": 1
+        },
+        {
+          "id": "LAW_078",
+          "count": 1
+        },
+        {
+          "id": "LAW_078",
+          "count": 1
+        },
+        {
+          "id": "LAW_078",
+          "count": 1
+        },
+        {
+          "id": "JTL_221",
+          "count": 1
+        },
+        {
+          "id": "JTL_221",
+          "count": 1
+        },
+        {
+          "id": "JTL_221",
+          "count": 1
+        },
+        {
+          "id": "JTL_203",
+          "count": 1
+        },
+        {
+          "id": "JTL_203",
+          "count": 1
+        },
+        {
+          "id": "JTL_203",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 1
+        },
+        {
+          "id": "ASH_253",
+          "count": 1
+        },
+        {
+          "id": "ASH_224",
+          "count": 1
+        },
+        {
+          "id": "ASH_222",
+          "count": 1
+        },
+        {
+          "id": "ASH_222",
+          "count": 1
+        },
+        {
+          "id": "ASH_208",
+          "count": 1
+        },
+        {
+          "id": "ASH_208",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 1
+        },
+        {
+          "id": "ASH_204",
+          "count": 1
+        },
+        {
+          "id": "ASH_183",
+          "count": 1
+        },
+        {
+          "id": "ASH_167",
+          "count": 1
+        },
+        {
+          "id": "ASH_167",
+          "count": 1
+        },
+        {
+          "id": "ASH_167",
+          "count": 1
+        },
+        {
+          "id": "ASH_157",
+          "count": 1
+        },
+        {
+          "id": "ASH_157",
+          "count": 1
+        },
+        {
+          "id": "ASH_157",
+          "count": 1
+        },
+        {
+          "id": "ASH_153",
+          "count": 1
+        },
+        {
+          "id": "ASH_153",
+          "count": 1
+        },
+        {
+          "id": "ASH_153",
+          "count": 1
+        }
+      ],
+      "leader": {
+        "id": "ASH_013",
+        "count": 1
+      },
+      "base": {
+        "id": "SEC_025",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "original_source_fingerprint": "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "lineage": {
+        "seed": 314159,
+        "operation": "expanded one-copy entries in reverse printed order"
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-14-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 28,
+        "unknown_copies": 22,
+        "unknown_cards": [
+          {
+            "code": "SEC_233",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_233",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_179",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 1,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 1,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_176",
+            "copies": 1,
+            "reasons": [
+              "catalog conversion is not supported",
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_191",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_221",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "JTL_203",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_224",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_208",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_204",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_183",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt"
+      ]
+    },
+    {
+      "id": "independent-source-25",
+      "source_index": 25,
+      "kind": "anchor",
+      "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "canonical_card_counts": {
+        "ASH_084": 3,
+        "ASH_090": 3,
+        "ASH_135": 3,
+        "ASH_228": 3,
+        "ASH_230": 3,
+        "LAW_037": 3,
+        "LAW_054": 3,
+        "LAW_129": 3,
+        "LAW_229": 3,
+        "LOF_038": 3,
+        "LOF_108": 2,
+        "LOF_206": 3,
+        "LOF_215": 3,
+        "SEC_057": 3,
+        "SEC_069": 3,
+        "SEC_137": 3,
+        "SEC_232": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_084",
+          "count": 3
+        },
+        {
+          "id": "ASH_090",
+          "count": 3
+        },
+        {
+          "id": "ASH_135",
+          "count": 3
+        },
+        {
+          "id": "ASH_228",
+          "count": 3
+        },
+        {
+          "id": "ASH_230",
+          "count": 3
+        },
+        {
+          "id": "LAW_037",
+          "count": 3
+        },
+        {
+          "id": "LAW_054",
+          "count": 3
+        },
+        {
+          "id": "LAW_129",
+          "count": 3
+        },
+        {
+          "id": "LAW_229",
+          "count": 3
+        },
+        {
+          "id": "LOF_038",
+          "count": 3
+        },
+        {
+          "id": "LOF_108",
+          "count": 2
+        },
+        {
+          "id": "LOF_206",
+          "count": 3
+        },
+        {
+          "id": "LOF_215",
+          "count": 3
+        },
+        {
+          "id": "SEC_057",
+          "count": 3
+        },
+        {
+          "id": "SEC_069",
+          "count": 3
+        },
+        {
+          "id": "SEC_137",
+          "count": 3
+        },
+        {
+          "id": "SEC_232",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "ASH_001",
+        "count": 1
+      },
+      "base": {
+        "id": "JTL_028",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "original_source_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "lineage": {
+        "source_index": 25,
+        "seed": 314159,
+        "inherited_partition": "validation",
+        "reviewed": false
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-25-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 15,
+        "unknown_copies": 35,
+        "unknown_cards": [
+          {
+            "code": "ASH_084",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt"
+      ]
+    },
+    {
+      "id": "independent-25-sec_057-n1-ir-near",
+      "source_index": 25,
+      "kind": "ir-near",
+      "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "canonical_card_counts": {
+        "ASH_084": 3,
+        "ASH_090": 3,
+        "ASH_135": 3,
+        "ASH_228": 3,
+        "ASH_230": 3,
+        "LAW_037": 3,
+        "LAW_054": 3,
+        "LAW_129": 3,
+        "LAW_229": 3,
+        "LOF_038": 3,
+        "LOF_061": 1,
+        "LOF_108": 2,
+        "LOF_206": 3,
+        "LOF_215": 3,
+        "SEC_057": 2,
+        "SEC_069": 3,
+        "SEC_137": 3,
+        "SEC_232": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_084",
+          "count": 3
+        },
+        {
+          "id": "ASH_090",
+          "count": 3
+        },
+        {
+          "id": "ASH_135",
+          "count": 3
+        },
+        {
+          "id": "ASH_228",
+          "count": 3
+        },
+        {
+          "id": "ASH_230",
+          "count": 3
+        },
+        {
+          "id": "LAW_037",
+          "count": 3
+        },
+        {
+          "id": "LAW_054",
+          "count": 3
+        },
+        {
+          "id": "LAW_129",
+          "count": 3
+        },
+        {
+          "id": "LAW_229",
+          "count": 3
+        },
+        {
+          "id": "LOF_038",
+          "count": 3
+        },
+        {
+          "id": "LOF_061",
+          "count": 1
+        },
+        {
+          "id": "LOF_108",
+          "count": 2
+        },
+        {
+          "id": "LOF_206",
+          "count": 3
+        },
+        {
+          "id": "LOF_215",
+          "count": 3
+        },
+        {
+          "id": "SEC_057",
+          "count": 2
+        },
+        {
+          "id": "SEC_069",
+          "count": 3
+        },
+        {
+          "id": "SEC_137",
+          "count": 3
+        },
+        {
+          "id": "SEC_232",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "ASH_001",
+        "count": 1
+      },
+      "base": {
+        "id": "JTL_028",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "fd9ed007ae2cab6f77d78b5ea3bb32f87898e8dbfd341b1b050e96dcbc60ec30",
+      "original_source_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "SEC_057",
+        "replacement_card": "LOF_061",
+        "copies": 1,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-near",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.0,
+          "parts": {
+            "costs": 0.0,
+            "conditions_targets": 0.0,
+            "effects": 0.0,
+            "trigger_structure": 0.0
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 0.5,
+            "keywords": 1.0,
+            "power": 1.0,
+            "hp": 0.5,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 1.0
+          },
+          "distance": 0.5714285714285714,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 49,
+        "union_copies": 51,
+        "weighted_jaccard": 0.9607843137254902,
+        "l1_copies": 2
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 15,
+        "unknown_copies": 35,
+        "unknown_cards": [
+          {
+            "code": "ASH_084",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt"
+      ]
+    },
+    {
+      "id": "independent-25-sec_057-n1-ir-far",
+      "source_index": 25,
+      "kind": "ir-far",
+      "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "canonical_card_counts": {
+        "ASH_084": 3,
+        "ASH_090": 3,
+        "ASH_135": 3,
+        "ASH_228": 3,
+        "ASH_230": 3,
+        "JTL_060": 1,
+        "LAW_037": 3,
+        "LAW_054": 3,
+        "LAW_129": 3,
+        "LAW_229": 3,
+        "LOF_038": 3,
+        "LOF_108": 2,
+        "LOF_206": 3,
+        "LOF_215": 3,
+        "SEC_057": 2,
+        "SEC_069": 3,
+        "SEC_137": 3,
+        "SEC_232": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_084",
+          "count": 3
+        },
+        {
+          "id": "ASH_090",
+          "count": 3
+        },
+        {
+          "id": "ASH_135",
+          "count": 3
+        },
+        {
+          "id": "ASH_228",
+          "count": 3
+        },
+        {
+          "id": "ASH_230",
+          "count": 3
+        },
+        {
+          "id": "JTL_060",
+          "count": 1
+        },
+        {
+          "id": "LAW_037",
+          "count": 3
+        },
+        {
+          "id": "LAW_054",
+          "count": 3
+        },
+        {
+          "id": "LAW_129",
+          "count": 3
+        },
+        {
+          "id": "LAW_229",
+          "count": 3
+        },
+        {
+          "id": "LOF_038",
+          "count": 3
+        },
+        {
+          "id": "LOF_108",
+          "count": 2
+        },
+        {
+          "id": "LOF_206",
+          "count": 3
+        },
+        {
+          "id": "LOF_215",
+          "count": 3
+        },
+        {
+          "id": "SEC_057",
+          "count": 2
+        },
+        {
+          "id": "SEC_069",
+          "count": 3
+        },
+        {
+          "id": "SEC_137",
+          "count": 3
+        },
+        {
+          "id": "SEC_232",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "ASH_001",
+        "count": 1
+      },
+      "base": {
+        "id": "JTL_028",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "cc9537ab4df1e4139b3e5ab8f0ad0948d1e10fa814bac9ec37b75b4ceda15131",
+      "original_source_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "SEC_057",
+        "replacement_card": "JTL_060",
+        "copies": 1,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-far",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.8928571428571428,
+          "parts": {
+            "costs": 1.0,
+            "conditions_targets": 1.0,
+            "effects": 1.0,
+            "trigger_structure": 0.5714285714285714
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 1.0,
+            "keywords": 1.0,
+            "power": 1.0,
+            "hp": 0.5,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 1.0
+          },
+          "distance": 0.6428571428571429,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 49,
+        "union_copies": 51,
+        "weighted_jaccard": 0.9607843137254902,
+        "l1_copies": 2
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 15,
+        "unknown_copies": 35,
+        "unknown_cards": [
+          {
+            "code": "ASH_084",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt"
+      ]
+    },
+    {
+      "id": "independent-25-sec_057-n2-ir-near",
+      "source_index": 25,
+      "kind": "ir-near",
+      "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "canonical_card_counts": {
+        "ASH_084": 3,
+        "ASH_090": 3,
+        "ASH_135": 3,
+        "ASH_228": 3,
+        "ASH_230": 3,
+        "LAW_037": 3,
+        "LAW_054": 3,
+        "LAW_129": 3,
+        "LAW_229": 3,
+        "LOF_038": 3,
+        "LOF_061": 2,
+        "LOF_108": 2,
+        "LOF_206": 3,
+        "LOF_215": 3,
+        "SEC_057": 1,
+        "SEC_069": 3,
+        "SEC_137": 3,
+        "SEC_232": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_084",
+          "count": 3
+        },
+        {
+          "id": "ASH_090",
+          "count": 3
+        },
+        {
+          "id": "ASH_135",
+          "count": 3
+        },
+        {
+          "id": "ASH_228",
+          "count": 3
+        },
+        {
+          "id": "ASH_230",
+          "count": 3
+        },
+        {
+          "id": "LAW_037",
+          "count": 3
+        },
+        {
+          "id": "LAW_054",
+          "count": 3
+        },
+        {
+          "id": "LAW_129",
+          "count": 3
+        },
+        {
+          "id": "LAW_229",
+          "count": 3
+        },
+        {
+          "id": "LOF_038",
+          "count": 3
+        },
+        {
+          "id": "LOF_061",
+          "count": 2
+        },
+        {
+          "id": "LOF_108",
+          "count": 2
+        },
+        {
+          "id": "LOF_206",
+          "count": 3
+        },
+        {
+          "id": "LOF_215",
+          "count": 3
+        },
+        {
+          "id": "SEC_057",
+          "count": 1
+        },
+        {
+          "id": "SEC_069",
+          "count": 3
+        },
+        {
+          "id": "SEC_137",
+          "count": 3
+        },
+        {
+          "id": "SEC_232",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "ASH_001",
+        "count": 1
+      },
+      "base": {
+        "id": "JTL_028",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "af7872c1276bcb7098c18735753748ac0c2f36683a337b1e573f83ec00e133bd",
+      "original_source_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "SEC_057",
+        "replacement_card": "LOF_061",
+        "copies": 2,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-near",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.0,
+          "parts": {
+            "costs": 0.0,
+            "conditions_targets": 0.0,
+            "effects": 0.0,
+            "trigger_structure": 0.0
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 0.5,
+            "keywords": 1.0,
+            "power": 1.0,
+            "hp": 0.5,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 1.0
+          },
+          "distance": 0.5714285714285714,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 48,
+        "union_copies": 52,
+        "weighted_jaccard": 0.9230769230769231,
+        "l1_copies": 4
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 15,
+        "unknown_copies": 35,
+        "unknown_cards": [
+          {
+            "code": "ASH_084",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt"
+      ]
+    },
+    {
+      "id": "independent-25-sec_057-n2-ir-far",
+      "source_index": 25,
+      "kind": "ir-far",
+      "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "canonical_card_counts": {
+        "ASH_084": 3,
+        "ASH_090": 3,
+        "ASH_135": 3,
+        "ASH_228": 3,
+        "ASH_230": 3,
+        "JTL_060": 2,
+        "LAW_037": 3,
+        "LAW_054": 3,
+        "LAW_129": 3,
+        "LAW_229": 3,
+        "LOF_038": 3,
+        "LOF_108": 2,
+        "LOF_206": 3,
+        "LOF_215": 3,
+        "SEC_057": 1,
+        "SEC_069": 3,
+        "SEC_137": 3,
+        "SEC_232": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_084",
+          "count": 3
+        },
+        {
+          "id": "ASH_090",
+          "count": 3
+        },
+        {
+          "id": "ASH_135",
+          "count": 3
+        },
+        {
+          "id": "ASH_228",
+          "count": 3
+        },
+        {
+          "id": "ASH_230",
+          "count": 3
+        },
+        {
+          "id": "JTL_060",
+          "count": 2
+        },
+        {
+          "id": "LAW_037",
+          "count": 3
+        },
+        {
+          "id": "LAW_054",
+          "count": 3
+        },
+        {
+          "id": "LAW_129",
+          "count": 3
+        },
+        {
+          "id": "LAW_229",
+          "count": 3
+        },
+        {
+          "id": "LOF_038",
+          "count": 3
+        },
+        {
+          "id": "LOF_108",
+          "count": 2
+        },
+        {
+          "id": "LOF_206",
+          "count": 3
+        },
+        {
+          "id": "LOF_215",
+          "count": 3
+        },
+        {
+          "id": "SEC_057",
+          "count": 1
+        },
+        {
+          "id": "SEC_069",
+          "count": 3
+        },
+        {
+          "id": "SEC_137",
+          "count": 3
+        },
+        {
+          "id": "SEC_232",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "ASH_001",
+        "count": 1
+      },
+      "base": {
+        "id": "JTL_028",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "bbb17e85769e9561239e2ce85283beed0609af38f05d9bab0e3d7b03f1a0ae51",
+      "original_source_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "lineage": {
+        "seed": 314159,
+        "source_card": "SEC_057",
+        "replacement_card": "JTL_060",
+        "copies": 2,
+        "new_operator": "fixed-IR-structural-extreme-exact-printed-core",
+        "inherited_partition": "validation",
+        "stratum": "exploratory-power-hp-confounded"
+      },
+      "mechanical_labels": {
+        "label": "ir-far",
+        "scope": "proxy-defined structural order, not behavioral truth",
+        "ir_only": {
+          "known": true,
+          "distance": 0.8928571428571428,
+          "parts": {
+            "costs": 1.0,
+            "conditions_targets": 1.0,
+            "effects": 1.0,
+            "trigger_structure": 0.5714285714285714
+          }
+        },
+        "printed_mechanics_unselected": {
+          "parts": {
+            "traits": 1.0,
+            "keywords": 1.0,
+            "power": 1.0,
+            "hp": 0.5,
+            "upgradePower": 0.0,
+            "upgradeHp": 0.0,
+            "unique": 1.0
+          },
+          "distance": 0.6428571428571429,
+          "unknown_fields": [],
+          "used_for_near_far_selection": false
+        },
+        "exact_power_hp": false,
+        "strict_primary": false
+      },
+      "invariance_group": null,
+      "count_baseline": {
+        "shared_copies": 48,
+        "union_copies": 52,
+        "weighted_jaccard": 0.9230769230769231,
+        "l1_copies": 4
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 15,
+        "unknown_copies": 35,
+        "unknown_cards": [
+          {
+            "code": "ASH_084",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt"
+      ]
+    },
+    {
+      "id": "independent-25-permutation",
+      "source_index": 25,
+      "kind": "permutation",
+      "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "canonical_card_counts": {
+        "ASH_084": 3,
+        "ASH_090": 3,
+        "ASH_135": 3,
+        "ASH_228": 3,
+        "ASH_230": 3,
+        "LAW_037": 3,
+        "LAW_054": 3,
+        "LAW_129": 3,
+        "LAW_229": 3,
+        "LOF_038": 3,
+        "LOF_108": 2,
+        "LOF_206": 3,
+        "LOF_215": 3,
+        "SEC_057": 3,
+        "SEC_069": 3,
+        "SEC_137": 3,
+        "SEC_232": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "ASH_090",
+          "count": 3
+        },
+        {
+          "id": "SEC_057",
+          "count": 3
+        },
+        {
+          "id": "ASH_230",
+          "count": 3
+        },
+        {
+          "id": "SEC_069",
+          "count": 3
+        },
+        {
+          "id": "SEC_137",
+          "count": 3
+        },
+        {
+          "id": "SEC_232",
+          "count": 3
+        },
+        {
+          "id": "ASH_135",
+          "count": 3
+        },
+        {
+          "id": "LAW_054",
+          "count": 3
+        },
+        {
+          "id": "LAW_037",
+          "count": 3
+        },
+        {
+          "id": "LOF_038",
+          "count": 3
+        },
+        {
+          "id": "LAW_129",
+          "count": 3
+        },
+        {
+          "id": "ASH_228",
+          "count": 3
+        },
+        {
+          "id": "LOF_206",
+          "count": 3
+        },
+        {
+          "id": "LAW_229",
+          "count": 3
+        },
+        {
+          "id": "ASH_084",
+          "count": 3
+        },
+        {
+          "id": "LOF_108",
+          "count": 2
+        },
+        {
+          "id": "LOF_215",
+          "count": 3
+        }
+      ],
+      "leader": {
+        "id": "ASH_001",
+        "count": 1
+      },
+      "base": {
+        "id": "JTL_028",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "original_source_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "lineage": {
+        "seed": 314184,
+        "operation": "main-entry permutation"
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-25-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 15,
+        "unknown_copies": 35,
+        "unknown_cards": [
+          {
+            "code": "ASH_090",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_084",
+            "copies": 3,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 2,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt"
+      ]
+    },
+    {
+      "id": "independent-25-split",
+      "source_index": 25,
+      "kind": "split-entries",
+      "family_id": "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+      "canonical_card_counts": {
+        "ASH_084": 3,
+        "ASH_090": 3,
+        "ASH_135": 3,
+        "ASH_228": 3,
+        "ASH_230": 3,
+        "LAW_037": 3,
+        "LAW_054": 3,
+        "LAW_129": 3,
+        "LAW_229": 3,
+        "LOF_038": 3,
+        "LOF_108": 2,
+        "LOF_206": 3,
+        "LOF_215": 3,
+        "SEC_057": 3,
+        "SEC_069": 3,
+        "SEC_137": 3,
+        "SEC_232": 3
+      },
+      "raw_declared_cards": [
+        {
+          "id": "SEC_232",
+          "count": 1
+        },
+        {
+          "id": "SEC_232",
+          "count": 1
+        },
+        {
+          "id": "SEC_232",
+          "count": 1
+        },
+        {
+          "id": "SEC_137",
+          "count": 1
+        },
+        {
+          "id": "SEC_137",
+          "count": 1
+        },
+        {
+          "id": "SEC_137",
+          "count": 1
+        },
+        {
+          "id": "SEC_069",
+          "count": 1
+        },
+        {
+          "id": "SEC_069",
+          "count": 1
+        },
+        {
+          "id": "SEC_069",
+          "count": 1
+        },
+        {
+          "id": "SEC_057",
+          "count": 1
+        },
+        {
+          "id": "SEC_057",
+          "count": 1
+        },
+        {
+          "id": "SEC_057",
+          "count": 1
+        },
+        {
+          "id": "LOF_215",
+          "count": 1
+        },
+        {
+          "id": "LOF_215",
+          "count": 1
+        },
+        {
+          "id": "LOF_215",
+          "count": 1
+        },
+        {
+          "id": "LOF_206",
+          "count": 1
+        },
+        {
+          "id": "LOF_206",
+          "count": 1
+        },
+        {
+          "id": "LOF_206",
+          "count": 1
+        },
+        {
+          "id": "LOF_108",
+          "count": 1
+        },
+        {
+          "id": "LOF_108",
+          "count": 1
+        },
+        {
+          "id": "LOF_038",
+          "count": 1
+        },
+        {
+          "id": "LOF_038",
+          "count": 1
+        },
+        {
+          "id": "LOF_038",
+          "count": 1
+        },
+        {
+          "id": "LAW_229",
+          "count": 1
+        },
+        {
+          "id": "LAW_229",
+          "count": 1
+        },
+        {
+          "id": "LAW_229",
+          "count": 1
+        },
+        {
+          "id": "LAW_129",
+          "count": 1
+        },
+        {
+          "id": "LAW_129",
+          "count": 1
+        },
+        {
+          "id": "LAW_129",
+          "count": 1
+        },
+        {
+          "id": "LAW_054",
+          "count": 1
+        },
+        {
+          "id": "LAW_054",
+          "count": 1
+        },
+        {
+          "id": "LAW_054",
+          "count": 1
+        },
+        {
+          "id": "LAW_037",
+          "count": 1
+        },
+        {
+          "id": "LAW_037",
+          "count": 1
+        },
+        {
+          "id": "LAW_037",
+          "count": 1
+        },
+        {
+          "id": "ASH_230",
+          "count": 1
+        },
+        {
+          "id": "ASH_230",
+          "count": 1
+        },
+        {
+          "id": "ASH_230",
+          "count": 1
+        },
+        {
+          "id": "ASH_228",
+          "count": 1
+        },
+        {
+          "id": "ASH_228",
+          "count": 1
+        },
+        {
+          "id": "ASH_228",
+          "count": 1
+        },
+        {
+          "id": "ASH_135",
+          "count": 1
+        },
+        {
+          "id": "ASH_135",
+          "count": 1
+        },
+        {
+          "id": "ASH_135",
+          "count": 1
+        },
+        {
+          "id": "ASH_090",
+          "count": 1
+        },
+        {
+          "id": "ASH_090",
+          "count": 1
+        },
+        {
+          "id": "ASH_090",
+          "count": 1
+        },
+        {
+          "id": "ASH_084",
+          "count": 1
+        },
+        {
+          "id": "ASH_084",
+          "count": 1
+        },
+        {
+          "id": "ASH_084",
+          "count": 1
+        }
+      ],
+      "leader": {
+        "id": "ASH_001",
+        "count": 1
+      },
+      "base": {
+        "id": "JTL_028",
+        "count": 1
+      },
+      "sideboard": [],
+      "composition_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "original_source_fingerprint": "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6",
+      "lineage": {
+        "seed": 314159,
+        "operation": "expanded one-copy entries in reverse printed order"
+      },
+      "mechanical_labels": {
+        "scope": "identity invariant; correctness only"
+      },
+      "invariance_group": "source-25-canonical-original",
+      "count_baseline": {
+        "shared_copies": 50,
+        "union_copies": 50,
+        "weighted_jaccard": 1.0,
+        "l1_copies": 0
+      },
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "main_count": 50,
+        "minimum_main_count": 50,
+        "scope": "new declared Premier main plus explicitly empty sideboard; no playability or strategy certification"
+      },
+      "complete_ir_coverage": {
+        "known_copies": 15,
+        "unknown_copies": 35,
+        "unknown_cards": [
+          {
+            "code": "SEC_232",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_232",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_137",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "SEC_069",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_206",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LOF_108",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_229",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_129",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "LAW_054",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_230",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_135",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_090",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_084",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_084",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          },
+          {
+            "code": "ASH_084",
+            "copies": 1,
+            "reasons": [
+              "whole card is not runtime-admitted"
+            ]
+          }
+        ],
+        "whole_deck_semantics_known": false
+      },
+      "source_urls": [
+        "https://github.com/TCG-Engine/TCGEngine/blob/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt"
+      ]
+    }
+  ],
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.npz",
+    "sha256": "4143cb1c792ee1e52d72a8fee9372d912fff002f78d174200891615dcde5c650"
+  },
+  "mechanical_inventory": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/mechanical-inventory.json",
+    "sha256": "9d0a7c6d31db18a61d9affcb2926ff969e6f72f3466a73fd96e32230a43c944e"
+  },
+  "sources": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_controls.py",
+      "sha256": "069e8b2714aeff7fa071022f496a3526d45f14139f841a91705e3129c5b3b8f3"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_deck_data.py",
+      "sha256": "40419ceaf7a6e68d9e28a4d66e5e7263905cb58c9fce7d670a7513941a60676b"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/restoration_data.py",
+      "sha256": "9a10f036d6b3582d549c0a5b5412ef5740c996d9f5c730b25cfe170c63ec5a31"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck.py",
+      "sha256": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+      "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json",
+      "sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/admission-policy.json",
+      "sha256": "0e9826aa46c2932d4856c9f5087c41beb06ca60805205cb852e061b2cca18e07"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/reviews-v2/joined-annotations.json",
+      "sha256": "4ebb903b8777fc3a8f6950ae22fef88aa28c451df6126895a405af729cdb8123"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/counterfactuals.json",
+      "sha256": "2e35574a5ac4f19bb43c450ac0fea02f0b54676eeb6691bbe654297402793cfe"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz",
+      "sha256": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091"
+    }
+  ],
+  "anchor_indices": {
+    "10": 0,
+    "14": 3,
+    "25": 10
+  },
+  "family_exclusion": {
+    "reviewed_source_indices": [
+      3,
+      5,
+      6,
+      7,
+      9,
+      11,
+      12,
+      13,
+      16,
+      20,
+      21,
+      22,
+      23
+    ],
+    "excluded_family_ids": [
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-79f2f8f622f1e979d55699bdc2d7ca21f3d911fcc304b1fbb234dae39a07d792",
+      "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-ee8b387dd13d5289313eef2cbe4c3265926d2a2bb5545eaac0e5026c4b36a087"
+    ],
+    "all_source_indices_in_excluded_families": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      26
+    ]
+  },
+  "support": {
+    "10": {
+      "slots": 0,
+      "strict_slots": 0,
+      "modified_rows": 0
+    },
+    "14": {
+      "slots": 1,
+      "strict_slots": 0,
+      "modified_rows": 4
+    },
+    "25": {
+      "slots": 1,
+      "strict_slots": 0,
+      "modified_rows": 4
+    }
+  },
+  "minimum_family_support_satisfied": false,
+  "minimum_strict_primary_support_satisfied": false,
+  "distinct_composition_feature_collisions": [],
+  "counts": {
+    "rows": 17,
+    "modified": 8,
+    "unique_source_compositions": 11,
+    "unique_feature_rows": 11
+  },
+  "inherited_validation_source_family_ids": [
+    "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+    "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+    "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a"
+  ],
+  "baseline_fields": {
+    "count": "Exact canonical copy intersection/union/L1; expected near/far tie at dose1/2",
+    "ir": "Per-card fixed typed ordered proxy; unknown is None",
+    "printed": "Separate fixed printed mechanics comparison; not used to select extrema"
+  },
+  "preparation_elapsed_seconds": 0.47623525001108646,
+  "model_forward_calls": 0,
+  "neighbor_metrics": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "paid_spend_usd": 0,
+  "protected_before": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_controls.py": "069e8b2714aeff7fa071022f496a3526d45f14139f841a91705e3129c5b3b8f3",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_deck_data.py": "40419ceaf7a6e68d9e28a4d66e5e7263905cb58c9fce7d670a7513941a60676b",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/restoration_data.py": "9a10f036d6b3582d549c0a5b5412ef5740c996d9f5c730b25cfe170c63ec5a31",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/admission-policy.json": "0e9826aa46c2932d4856c9f5087c41beb06ca60805205cb852e061b2cca18e07",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/reviews-v2/joined-annotations.json": "4ebb903b8777fc3a8f6950ae22fef88aa28c451df6126895a405af729cdb8123",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/counterfactuals.json": "2e35574a5ac4f19bb43c450ac0fea02f0b54676eeb6691bbe654297402793cfe",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091"
+  },
+  "protected_after": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_controls.py": "069e8b2714aeff7fa071022f496a3526d45f14139f841a91705e3129c5b3b8f3",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_deck_data.py": "40419ceaf7a6e68d9e28a4d66e5e7263905cb58c9fce7d670a7513941a60676b",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/restoration_data.py": "9a10f036d6b3582d549c0a5b5412ef5740c996d9f5c730b25cfe170c63ec5a31",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/admission-policy.json": "0e9826aa46c2932d4856c9f5087c41beb06ca60805205cb852e061b2cca18e07",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/reviews-v2/joined-annotations.json": "4ebb903b8777fc3a8f6950ae22fef88aa28c451df6126895a405af729cdb8123",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/counterfactuals.json": "2e35574a5ac4f19bb43c450ac0fea02f0b54676eeb6691bbe654297402793cfe",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091"
+  },
+  "protected_unchanged": true,
+  "limitations": [
+    "Near/far is defined by a fixed IR structural proxy, not behavioral distance, beneficial synergy, semantic ground truth or strength.",
+    "Selecting proxy extremes makes that proxy an oracle for its own labels. It is a declared comparison baseline, not independent validation of semantic correctness.",
+    "Strict exact-power/HP controls and prespecified power/HP-confounded fallback controls must be reported separately, never pooled as an unconfounded primary result.",
+    "Three source families are the independent roots; doses, variants and invariance views are dependent observations, not an enlarged population sample.",
+    "Unreviewed means absent from selected reviewer examples and their whole source families. Original vectors were already part of the global27-deck inventory; no claim of never-inspected original vectors is made.",
+    "Whole-card runtime admission is loader/schema evidence, not gameplay conformance or measured effects. No native runtime execution is performed here.",
+    "Unsupported/incomplete IR is explicitly unknown, never the zero-effect program. Shared unknown unchanged deck cards limit full-deck proxy coverage.",
+    "Canonical identity/permutation/reprint controls test representation correctness, not strategic quality; several views have the same composition.",
+    "No neural forward, neighbor metric, classifier, fit, engine call, paid job or opponent/private-state access occurs during preparation."
+  ]
+}

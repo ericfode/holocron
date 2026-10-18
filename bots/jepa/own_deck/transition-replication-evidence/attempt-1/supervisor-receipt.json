@@ -1,0 +1,90 @@
+{
+  "stage": "collect",
+  "commands": [
+    [
+      "build",
+      [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/transition_replication_collector/Cargo.toml",
+        "--bin",
+        "transition-replication-collector",
+        "-j",
+        "1"
+      ]
+    ],
+    [
+      "collect",
+      [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/transition-replication-collector",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/attempt-1/native-receipt.json"
+      ]
+    ]
+  ],
+  "source_manifest_sha256": "d5023094d644b018482ad9cb51cf5fb47740e542e63b1e080369e9bb31bc64ff",
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/campaign-ledger.jsonl",
+  "max_active_seconds": 240.0,
+  "max_engine_apply_attempts": 2048,
+  "max_updates": 4800,
+  "reserved_engine_applies": 2016,
+  "reserved_updates": 0,
+  "max_sampled_bytes": 2147483648,
+  "sample_interval_seconds": 0.05,
+  "scope": "one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals",
+  "prior_campaign_debits": {
+    "active_seconds": 0.0,
+    "engine_apply_attempts": 0,
+    "updates": 0
+  },
+  "status": "completed",
+  "phases": [
+    {
+      "name": "build",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/transition_replication_collector/Cargo.toml",
+        "--bin",
+        "transition-replication-collector",
+        "-j",
+        "1"
+      ],
+      "owned_pgid": 2736,
+      "exit_code": 0
+    },
+    {
+      "name": "collect",
+      "command": [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/transition-replication-collector",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/attempt-1/native-receipt.json"
+      ],
+      "owned_pgid": 2748,
+      "exit_code": 0
+    }
+  ],
+  "observed_per_pid_peak_bytes": {
+    "2728": 41517056,
+    "2736": 40091648,
+    "2737": 164937728,
+    "2745": 16908288,
+    "2746": 91242496,
+    "2747": 65880064,
+    "2748": 213696512,
+    "3002": 5636096
+  },
+  "sample_count": 800,
+  "attempt_active_seconds": 43.001333874999546,
+  "observed_conservative_peak_sum_bytes": 639909888,
+  "engine_apply_attempts": 980,
+  "native_receipt_sha256": "98c5dabba21490f1fbb2dc38f4b435ca6ab3efa5fdb019f40626670adeee4051",
+  "supervisor_maxrss_bytes": 175652864,
+  "children_maxrss_bytes": 213696512,
+  "completed_or_reserved_updates": 0,
+  "guard_limitation": "Sampled known-owned process-group RSS and rusage peaks; not an instantaneous OS memory reservation. Failed update stages conservatively debit reservation. Unfinished ledger stages forbid resets."
+}

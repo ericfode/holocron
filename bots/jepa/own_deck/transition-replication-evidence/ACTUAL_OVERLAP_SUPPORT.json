@@ -1,0 +1,299 @@
+{
+  "schema": "transition-replication-overlap-support/1",
+  "status": "PASS_FOUR_STATES_SAME_CANDIDATE_NATIVE_EFFECT_CONTRASTS",
+  "native_counts": {
+    "roots": 168,
+    "applies": 980,
+    "engine_errors": 0,
+    "queries": 1344,
+    "actual_prompts": 149,
+    "after": 452,
+    "pending": 0,
+    "joint_roots": 8,
+    "joint_source_true": 8,
+    "joint_source_known": 8,
+    "joint_primary_legal_known": 56,
+    "joint_primary_legal_true": 24
+  },
+  "paired_primary_heads": [
+    "cost_resource",
+    "xp_delta",
+    "target_exhausted_delta"
+  ],
+  "paired_candidate_cells": 8,
+  "state_family_support": [
+    {
+      "family": 10,
+      "mutual_known_committed_candidates": [
+        2,
+        3
+      ]
+    },
+    {
+      "family": 11,
+      "mutual_known_committed_candidates": [
+        2,
+        3
+      ]
+    },
+    {
+      "family": 12,
+      "mutual_known_committed_candidates": [
+        2,
+        3
+      ]
+    },
+    {
+      "family": 13,
+      "mutual_known_committed_candidates": [
+        2,
+        3
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "family": 10,
+      "candidate": "friendly_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": 0.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 0.0
+        }
+      }
+    },
+    {
+      "family": 10,
+      "candidate": "enemy_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": -1.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 1.0
+        }
+      }
+    },
+    {
+      "family": 11,
+      "candidate": "friendly_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": -1.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 1.0
+        }
+      }
+    },
+    {
+      "family": 11,
+      "candidate": "enemy_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": -1.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 1.0
+        }
+      }
+    },
+    {
+      "family": 12,
+      "candidate": "friendly_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": -1.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 1.0
+        }
+      }
+    },
+    {
+      "family": 12,
+      "candidate": "enemy_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": -1.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 1.0
+        }
+      }
+    },
+    {
+      "family": 13,
+      "candidate": "friendly_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": -1.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 1.0
+        }
+      }
+    },
+    {
+      "family": 13,
+      "candidate": "enemy_ground",
+      "known_heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "native_SHD004_minus_TWI206": {
+        "cost_resource": -1.0,
+        "xp_delta": 1.0,
+        "target_exhausted_delta": -1.0
+      },
+      "per_program": {
+        "SHD_004": {
+          "cost_resource": 1.0,
+          "xp_delta": 1.0,
+          "target_exhausted_delta": 0.0
+        },
+        "TWI_206": {
+          "cost_resource": 2.0,
+          "xp_delta": 0.0,
+          "target_exhausted_delta": 1.0
+        }
+      }
+    }
+  ],
+  "contrasts": {
+    "cost_resource": [
+      -1.0
+    ],
+    "xp_delta": [
+      1.0
+    ],
+    "target_exhausted_delta": [
+      -1.0,
+      0.0
+    ]
+  },
+  "limitations": [
+    "Eight pairs are nested in four state families and two fixed target roles, not eight independent scenarios.",
+    "Joint source-use is allpositive; it cannot validate negative availability transfer.",
+    "Fixed helper powers do not distinguish threshold4 from3.",
+    "Native target/property inputs are matched across programs; training labels/stats are separately bitexact to original."
+  ],
+  "artifacts": {
+    "dataset": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.npz",
+      "sha256": "fe67ed242fed1be794c498bc062bdb5031b9136aa0ac5f277cb6001964b632cc"
+    },
+    "manifest": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/transition-replication.manifest.json",
+      "sha256": "8ff5b35d4189e6c45994807366a9665e935779896b9a91d409ef97b55577bf64"
+    },
+    "native_receipt": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/attempt-1/native-receipt.json",
+      "sha256": "98c5dabba21490f1fbb2dc38f4b435ca6ab3efa5fdb019f40626670adeee4051"
+    }
+  },
+  "neural_forwards": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0
+}

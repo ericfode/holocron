@@ -1,0 +1,33 @@
+# Independent controls and replication
+
+2026-10-18 UTC. The deck representation retains useful composition information, but neither its raw cosine nor its transformed geometry is established as behavioral similarity. The current gradient path works. The supported decision is to preserve these diagnostics and investigate effect/literal binding before changing the architecture, adding a variance-only loss, scaling training or deploying a checkpoint.
+
+## Representation evidence
+
+The 97.05% common-mean energy indicates strong anisotropy. Centered numerical rank is 21/21, entropy effective rank 3.64; the vectors are not identical. Initial/final original-deck token statistics locate concentration before and after the frozen transformer, rather than attributing everything to the full public-context readout. The composition objective predicts 13 count/curve/unit statistics whose training target matrix has rank 11. It supplies no explicit effect, synergy, action-transition or cosine-distance supervision.
+
+A single 22-training-row diagnostic of the saved checkpoint and unchanged loss measured finite nonzero gradients through metadata, pooled identity, role and readout blocks. It used **one forward, one backward, zero updates**, with every parameter and protected file unchanged. Disabled remaining-deck inputs have zero observed variation; their continuous derivatives do not establish knowledge of remaining composition. See [diagnosis](DECK_REPRESENTATION_DIAGNOSIS.md).
+
+The score-blind authored-deck control search admitted **zero strict comparisons**; that primary hypothesis remains unsupported. A separately frozen synthetic structural-proxy assay admitted three modules. All six full96/token64 × raw/centered/whitened methods prefer the IR-nearer card in **2/3 modules at both dependent doses**, with the same failure. The minimum latent gap exceeds the fixed numerical floor; historical references and invariances reproduce exactly. Every module changes keywords, and IR distance is a proxy rather than a native behavior label. Transformations alter margins without improving these decisions. See [all methods and failures](INDEPENDENT_RETRIEVAL_RESULTS.md).
+
+## Source labels and probes
+
+All 27 imported records explicitly contain `metadata.style`: softcontrol 7, midrange 7, softaggro 5, hyperaggro 4, hardcontrol 4. The JSON is byte-identical to its first local import, `6253b1af1890df67d383141759c739834f7cba38`. The importer/README document SWUSim fixture comment labels, separate from leader/base archetypes. Original fixture text, annotation author and original casing are unavailable locally. These are weak fixture labels, not a claim that the public database exposes a strategic taxonomy. See [fields, provenance and all 27 mappings](SOURCE_STYLE_LABELS.md).
+
+Labels and titles were absent from the saved numeric encoder inputs and composition targets. The inherited family-separated split has 22 training decks and five held decks in four families; held truth covers only three styles. Raw/centered/whitened top1 label agreement is **2/5, 1/5, 2/5**; count and printed baselines are **1/5, 2/5**. The fixed alpha1 linear readouts obtain **2/5, 2/5, 3/5**, versus count/profile **1/5, 1/5**. No hyperparameter or transform was selected from these results. Both control styles lack held support; five-class generalization is unmeasured. This new weak-label question uses previously inspected vectors. See [every probe, tie and limitation](STYLE_PROBE_RESULTS.md).
+
+## Native transition replication
+
+The earlier nine-head aggregate advantage repeats across seeds 17/29/43. Only seeds 29/43 required fitting: four matched 9,020-parameter arms ×600 updates each, **4,800 new updates**. Fresh native collection independently proved all 100 training roots/tensors/scalers equivalent, allowing saved checkpoints to be reused without fresh fitting.
+
+The new two-program/four-state assay has eight genuinely shared legal, settled candidates. Its predeclared three-head contrast MAE is **0.875/0.928/0.916** for correct IR versus **0.958** for the zero-contrast baseline. Cost and Experience often have the wrong predicted sign; the absolute nine-head joint metric gets worse in two seeds. These negative results constrain the modest paired improvement. See [all seeds, heads and support](TRANSITION_REPLICATION_RESULTS.md).
+
+## Accounting, deliverables and next step
+
+The transition ledger records **61.851617085 active seconds, 980 native applies, 4,800 updates and 28 validation batches**, within 240 seconds/2,048 applies/4,800 updates/2 GiB. Retrieval used one 60-row frozen forward; the separate style probe used five closed-form readouts and zero neural calls. The gradient diagnostic used one forward/backward and zero updates. Recorded paid spend is **US$0** against the US$100 cumulative cap; the US$25 reserve is untouched. Tiny saved-array descriptive calculations were not separately timed. No new opponents, competitive games, deployment, engine/card edits or production weight changes occurred.
+
+Sources froze before execution at `f94457da573ad67e8dd92bf50c9d372bd34045a5` (retrieval/collection), `ae64647143916fb2bba1bc014585fed659f3f76a` (replication fit/evaluate) and `32dc59a50bd76633dad4460f109a3fe04b10c87b` (style/gradient). Portable evidence includes plans, failed support gates, unexecuted proposals, raw metrics, predictions, checkpoints/references, receipts and hashes. The dashboard feed contains completed metrics and artifact links; six versioned deck spaces preserve the original exports and carry `semantic_validated=false`.
+
+All **61 focused tests pass**, as do portable file/hash/gzip/reference checks and feed sequence/schema checks. Evidence: [retrieval](independent-controls-evidence/README.md), [transition](transition-replication-evidence/README.md), [style/gradients](supplemental-diagnostics-evidence/README.md), [verification](independent-cycle-verification.json). The unexecuted gradient-plan-v1 source snapshot is unavailable and explicitly unresolved; every executed v2 pin resolves. Repository CI and final publication are recorded in the external research handoff index.
+
+The next small test should inspect the already failed cost/Experience literal and role binding, then predeclare independently measured behavior controls on existing runtime-covered cards. A matched auxiliary transition-contrast loss is a candidate only after that diagnosis; increased angular spread alone is not success. New style supervision would require a separately held reviewed label set. Saved research remains recoverable at `c39e1534664d6c055c844722f7251ee6cdf6c3ac` and the [preserved archive](PROVENANCE.md); repair of the original chat service remains unconfirmed.

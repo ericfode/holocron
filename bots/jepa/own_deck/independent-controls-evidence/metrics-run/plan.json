@@ -1,0 +1,215 @@
+{
+  "schema": "jepa-independent-retrieval-metrics/1",
+  "status": "frozen-before-new-vector-outcomes",
+  "sources": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_metrics.py",
+      "sha256": "4251d1281d6de1d24f0a551540f04a8ea99a337143565c4f0898f8a8ce1e8806"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding_geometry_audit.py",
+      "sha256": "a8151c194f254e7d3d7444db24051ef53a5906665286cd54143069964439d12d"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.manifest.json",
+      "sha256": "2c3dfa86a7ba47fa01c4c907c22882eb461dab79255bd8174e4ed7c0827eca1c"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/plan.json",
+      "sha256": "9a509e7bc86a9fdee255fbf57f1fd3677c671bf7dc5fd84123615e11d31ad44d"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.npz",
+      "sha256": "4271e67f391cfb0e53a56479dda5fd9f6af475152107609f5eafbb533617eb9f"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding-geometry-evidence/train-transform.npz",
+      "sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325"
+    }
+  ],
+  "controls_manifest": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.manifest.json",
+  "embedding_plan": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/plan.json",
+  "comparisons": [
+    {
+      "assay": "v1-authored",
+      "anchor_id": "independent-source-14",
+      "module_id": null,
+      "source_index": 14,
+      "source_card": "ASH_153",
+      "dose": 1,
+      "stratum": "exploratory-power-hp-confounded",
+      "anchor": 3,
+      "near": 4,
+      "far": 5
+    },
+    {
+      "assay": "v1-authored",
+      "anchor_id": "independent-source-14",
+      "module_id": null,
+      "source_index": 14,
+      "source_card": "ASH_153",
+      "dose": 2,
+      "stratum": "exploratory-power-hp-confounded",
+      "anchor": 3,
+      "near": 6,
+      "far": 7
+    },
+    {
+      "assay": "v1-authored",
+      "anchor_id": "independent-source-25",
+      "module_id": null,
+      "source_index": 25,
+      "source_card": "SEC_057",
+      "dose": 1,
+      "stratum": "exploratory-power-hp-confounded",
+      "anchor": 10,
+      "near": 11,
+      "far": 12
+    },
+    {
+      "assay": "v1-authored",
+      "anchor_id": "independent-source-25",
+      "module_id": null,
+      "source_index": 25,
+      "source_card": "SEC_057",
+      "dose": 2,
+      "stratum": "exploratory-power-hp-confounded",
+      "anchor": 10,
+      "near": 13,
+      "far": 14
+    },
+    {
+      "assay": "v2-synthetic",
+      "anchor_id": "module-source-10-anchor",
+      "module_id": "module-222bcf2215d9d1ae",
+      "source_index": 10,
+      "source_card": "ASH_056",
+      "dose": 1,
+      "stratum": "strict-power-hp",
+      "anchor": 17,
+      "near": 18,
+      "far": 19
+    },
+    {
+      "assay": "v2-synthetic",
+      "anchor_id": "module-source-10-anchor",
+      "module_id": "module-222bcf2215d9d1ae",
+      "source_index": 10,
+      "source_card": "ASH_056",
+      "dose": 2,
+      "stratum": "strict-power-hp",
+      "anchor": 17,
+      "near": 20,
+      "far": 21
+    },
+    {
+      "assay": "v2-synthetic",
+      "anchor_id": "module-source-14-anchor",
+      "module_id": "module-67bff4551f96cd81",
+      "source_index": 14,
+      "source_card": "ASH_068",
+      "dose": 1,
+      "stratum": "strict-power-hp",
+      "anchor": 24,
+      "near": 25,
+      "far": 26
+    },
+    {
+      "assay": "v2-synthetic",
+      "anchor_id": "module-source-14-anchor",
+      "module_id": "module-67bff4551f96cd81",
+      "source_index": 14,
+      "source_card": "ASH_068",
+      "dose": 2,
+      "stratum": "strict-power-hp",
+      "anchor": 24,
+      "near": 27,
+      "far": 28
+    },
+    {
+      "assay": "v2-synthetic",
+      "anchor_id": "module-source-25-anchor",
+      "module_id": "module-c9c230e911c5641a",
+      "source_index": 25,
+      "source_card": "ASH_076",
+      "dose": 1,
+      "stratum": "strict-power-hp",
+      "anchor": 31,
+      "near": 32,
+      "far": 33
+    },
+    {
+      "assay": "v2-synthetic",
+      "anchor_id": "module-source-25-anchor",
+      "module_id": "module-c9c230e911c5641a",
+      "source_index": 25,
+      "source_card": "ASH_076",
+      "dose": 2,
+      "stratum": "strict-power-hp",
+      "anchor": 31,
+      "near": 34,
+      "far": 35
+    }
+  ],
+  "representations": [
+    "full_z96",
+    "frozen_train22_centered",
+    "frozen_train22_alpha01_whitened",
+    "original_branch64",
+    "original_branch64_train22_centered",
+    "original_branch64_train22_alpha01_whitened"
+  ],
+  "baselines": [
+    "canonical_count_jaccard",
+    "printed_five_group",
+    "typed_ir_proxy_oracle"
+  ],
+  "tie_epsilon": 1e-10,
+  "primary": "Separate authored-v1 and synthetic-module-v2 assays; explicit anchor_id/module_id, strict-power-hp primary within each. Fallback confounded, never pooled.",
+  "score": "anchor cosine to near minus anchor cosine to far, float64; positive means near preferred; tie abs(gap)<=1e-10; zero norm<=1e-12 unknown",
+  "aggregation": "Report all rows/pairs, doses1/2 separately, equal-slot and equal-family macro. Midranks for ties; half-credit ties. Three source roots, nested dependent doses/slots/views.",
+  "printed_baseline": {
+    "groups": [
+      [
+        8,
+        11
+      ],
+      [
+        11,
+        16
+      ],
+      [
+        16,
+        25
+      ],
+      [
+        25,
+        35
+      ],
+      [
+        35,
+        41
+      ]
+    ],
+    "rule": "negative equal mean of five within-group mean absolute coordinate differences, actual ownDeck original metadata"
+  },
+  "ir_oracle": "negative per-card fixed typed IR distance; proxy defines labels, so success is tautological structural positive control, not semantic validation",
+  "noise": "Per-space identity/invariance cosine deficit; full96 old-anchor parity gap perturbation under same new variants; report gaps/floors, branch old-parity unavailable. Fixed epsilon is minimum floor.",
+  "invariance": "Canonical/permutation/split/reprint views only correctness, excluded from near/far accuracy. Report all unique encoded/composition counts and all declared invariant pairs.",
+  "selection": "No labels from reviewer examples; no method/seed/transform selection or tuning after metrics; all six latent and three baseline methods reported.",
+  "bounds": {
+    "worker_active_seconds": 20,
+    "shared_retrieval_seconds": 60,
+    "stages": "generator20 + oneforward/transforms20 + metrics20; no compute overlap",
+    "sampled_rss_bytes": 536870912,
+    "compute_threads": 1,
+    "neural_forwards": 0,
+    "native_calls": 0,
+    "optimizer_updates": 0,
+    "paid_jobs": 0
+  }
+}

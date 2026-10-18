@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "plan": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/metrics-run/plan.json",
+    "sha256": "ebf53c049a8eacd06a438d35ec897a154d5e69a39febf16bbb632a4d89a4ee6c"
+  },
+  "result": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/metrics-run/result.json",
+    "sha256": "7d9f1bad2dad073ec6038996895825f6426a60588edd503971e04e981a6c157f"
+  },
+  "guard": {
+    "elapsed_seconds": 0.0373709169216454,
+    "cpu_seconds": 0.037041000000000004,
+    "peak_rss_bytes": 41598976,
+    "samples": 0,
+    "worker_pid": 2719,
+    "compute_threads": 1,
+    "limitation": "One owned process; RSS is sampled high-water rusage, not an instantaneous OS memory reservation. NumPy import is inside the guard."
+  },
+  "neural_forwards": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "paid_jobs": 0
+}

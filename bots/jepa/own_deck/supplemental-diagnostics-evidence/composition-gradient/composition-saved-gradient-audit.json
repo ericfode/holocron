@@ -1,0 +1,390 @@
+{
+  "schema": "jepa-saved-composition-gradient-audit/1",
+  "status": "saved-artifacts-only",
+  "counts": {
+    "neural_forwards": 0,
+    "backwards": 0,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "paid_jobs": 0
+  },
+  "sources": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/generated-own-deck/deck-init.safetensors",
+      "sha256": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/result.json",
+      "sha256": "b3754bc932d2fa4dc6813834c7dee44380afaa80f3d7defcf9a7dd5bcb4aa087"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/manifest.json",
+      "sha256": "24884ecdf331aeda8b98b1f005382e5340c1577933dfce91287c1d16403f4cc7"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/final-deck.safetensors",
+      "sha256": "d0dba5d6edc5681408b7b6e72ee9b87098511f054ff84f8b20765ba910d22bba"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/result.json",
+      "sha256": "e1279bafcfa331a0874104eadf945256013a077c1d96c316ca955fa837a78378"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/manifest.json",
+      "sha256": "5ccb7207426b7f4f1a6aff0ad93433f3f673a107df0d1dc36f79c5cf2c39740e"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+      "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/result.json",
+      "sha256": "4a1fb65d86c42a464032924c9496166c0a50ac66e5f1827c535a29b74a343aef"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/manifest.json",
+      "sha256": "666d97d80dce354dc46e74215ef510db4ebc2ec5691ac81387c31493f64a3c01"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/final-deck.safetensors",
+      "sha256": "5ace6b0ff4b4b7d5033bd078a20e6a3218edfb08504237f77b39a3698dd641a0"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck_model.py",
+      "sha256": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/restoration-bef4e82-s17/result.json",
+      "sha256": "f7bd9c87b1f6ae78b9c63498966e9914358d75f4d957e361aacb20fc76509f97"
+    }
+  ],
+  "source_pins": {
+    "original_training_commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+    "original_runner_sha256": "0281cfd412c1e507141d9b9d67a0e763db8ec0e643451871540572499a558783",
+    "own_deck_model_sha256": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16"
+  },
+  "arms": {
+    "neutral": {
+      "result": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/result.json",
+        "sha256": "b3754bc932d2fa4dc6813834c7dee44380afaa80f3d7defcf9a7dd5bcb4aa087"
+      },
+      "manifest": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/manifest.json",
+        "sha256": "24884ecdf331aeda8b98b1f005382e5340c1577933dfce91287c1d16403f4cc7"
+      },
+      "final_supplement": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-neutral-s17/final-deck.safetensors",
+        "sha256": "d0dba5d6edc5681408b7b6e72ee9b87098511f054ff84f8b20765ba910d22bba"
+      },
+      "commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+      "optimizer_parameter_names": [
+        "din.w",
+        "din.b",
+        "drole",
+        "aux.w",
+        "aux.b"
+      ],
+      "base_unchanged": true,
+      "saved_gradient": {
+        "kind": "joint preclip L2 norm across all5 optimizer tensors",
+        "points": 20,
+        "logged_steps": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95,
+          100
+        ],
+        "minimum": 0.07331831008195877,
+        "maximum": 0.881523847579956,
+        "final": 0.07331831008195877,
+        "per_tensor_or_input_or_activation_gradients_saved": false
+      },
+      "final_metrics": {
+        "val_loss": 0.017180158080181227,
+        "train_loss": 0.005853605456650257,
+        "val_count_mae": 0.05474368333816528,
+        "val_curve_mae": 0.09949821625328199,
+        "val_draw_mae": 0.15185074210166932
+      },
+      "supplement_endpoint_changes": {
+        "din.w": {
+          "coordinates": 4224,
+          "changed": 4224,
+          "initial_nonzero": 4224,
+          "final_nonzero": 4224,
+          "l2": 0.11575346181604058,
+          "maximum_absolute": 0.024310819804668427
+        },
+        "din.b": {
+          "coordinates": 64,
+          "changed": 64,
+          "initial_nonzero": 0,
+          "final_nonzero": 64,
+          "l2": 0.07716093113083836,
+          "maximum_absolute": 0.020660292357206345
+        },
+        "drole": {
+          "coordinates": 128,
+          "changed": 128,
+          "initial_nonzero": 128,
+          "final_nonzero": 128,
+          "l2": 0.11575312771836781,
+          "maximum_absolute": 0.024310833774507046
+        },
+        "din.w_metadata_rows0_49": {
+          "coordinates": 3200,
+          "l2": 0.11575346157561128,
+          "pure_decay_float64_reference_residual_l2": 0.11575340487954867,
+          "interpretation": "Endpoint change, not a saved gradient. AdamW weight decay alone can move inactive weights; float64 decay reference is descriptive and not a reconstruction of float32 optimizer history."
+        },
+        "din.w_pooled_identity_rows50_65": {
+          "coordinates": 1024,
+          "l2": 7.460633262086593e-06,
+          "pure_decay_float64_reference_residual_l2": 1.6745905357496135e-06,
+          "interpretation": "Endpoint change, not a saved gradient. AdamW weight decay alone can move inactive weights; float64 decay reference is descriptive and not a reconstruction of float32 optimizer history."
+        }
+      }
+    },
+    "original": {
+      "result": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/result.json",
+        "sha256": "e1279bafcfa331a0874104eadf945256013a077c1d96c316ca955fa837a78378"
+      },
+      "manifest": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/manifest.json",
+        "sha256": "5ccb7207426b7f4f1a6aff0ad93433f3f673a107df0d1dc36f79c5cf2c39740e"
+      },
+      "final_supplement": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+        "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+      },
+      "commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+      "optimizer_parameter_names": [
+        "din.w",
+        "din.b",
+        "drole",
+        "aux.w",
+        "aux.b"
+      ],
+      "base_unchanged": true,
+      "saved_gradient": {
+        "kind": "joint preclip L2 norm across all5 optimizer tensors",
+        "points": 20,
+        "logged_steps": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95,
+          100
+        ],
+        "minimum": 0.054497137665748596,
+        "maximum": 0.7896709442138672,
+        "final": 0.07028604298830032,
+        "per_tensor_or_input_or_activation_gradients_saved": false
+      },
+      "final_metrics": {
+        "val_loss": 0.008274079519096202,
+        "train_loss": 0.002331273164600134,
+        "val_count_mae": 0.0687302827835083,
+        "val_curve_mae": 0.06081738902933218,
+        "val_draw_mae": 0.10748713612556457
+      },
+      "supplement_endpoint_changes": {
+        "din.w": {
+          "coordinates": 4224,
+          "changed": 4224,
+          "initial_nonzero": 4224,
+          "final_nonzero": 4224,
+          "l2": 0.8581734209520646,
+          "maximum_absolute": 0.06418657302856445
+        },
+        "din.b": {
+          "coordinates": 64,
+          "changed": 64,
+          "initial_nonzero": 0,
+          "final_nonzero": 64,
+          "l2": 0.06172518591227364,
+          "maximum_absolute": 0.016875483095645905
+        },
+        "drole": {
+          "coordinates": 128,
+          "changed": 128,
+          "initial_nonzero": 128,
+          "final_nonzero": 128,
+          "l2": 0.08576151782693532,
+          "maximum_absolute": 0.020981292240321636
+        },
+        "din.w_metadata_rows0_49": {
+          "coordinates": 3200,
+          "l2": 0.6237679039259301,
+          "pure_decay_float64_reference_residual_l2": 0.623767700902797,
+          "interpretation": "Endpoint change, not a saved gradient. AdamW weight decay alone can move inactive weights; float64 decay reference is descriptive and not a reconstruction of float32 optimizer history."
+        },
+        "din.w_pooled_identity_rows50_65": {
+          "coordinates": 1024,
+          "l2": 0.589385461697539,
+          "pure_decay_float64_reference_residual_l2": 0.58938559224658,
+          "interpretation": "Endpoint change, not a saved gradient. AdamW weight decay alone can move inactive weights; float64 decay reference is descriptive and not a reconstruction of float32 optimizer history."
+        }
+      }
+    },
+    "wrong-own": {
+      "result": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/result.json",
+        "sha256": "4a1fb65d86c42a464032924c9496166c0a50ac66e5f1827c535a29b74a343aef"
+      },
+      "manifest": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/manifest.json",
+        "sha256": "666d97d80dce354dc46e74215ef510db4ebc2ec5691ac81387c31493f64a3c01"
+      },
+      "final_supplement": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-wrong-own-s17/final-deck.safetensors",
+        "sha256": "5ace6b0ff4b4b7d5033bd078a20e6a3218edfb08504237f77b39a3698dd641a0"
+      },
+      "commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+      "optimizer_parameter_names": [
+        "din.w",
+        "din.b",
+        "drole",
+        "aux.w",
+        "aux.b"
+      ],
+      "base_unchanged": true,
+      "saved_gradient": {
+        "kind": "joint preclip L2 norm across all5 optimizer tensors",
+        "points": 20,
+        "logged_steps": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95,
+          100
+        ],
+        "minimum": 0.06364889442920685,
+        "maximum": 0.799491822719574,
+        "final": 0.08076559007167816,
+        "per_tensor_or_input_or_activation_gradients_saved": false
+      },
+      "final_metrics": {
+        "val_loss": 0.01690541780094522,
+        "train_loss": 0.004890649579465389,
+        "val_count_mae": 0.03150720596313476,
+        "val_curve_mae": 0.09809483023021709,
+        "val_draw_mae": 0.15897703766822815
+      },
+      "supplement_endpoint_changes": {
+        "din.w": {
+          "coordinates": 4224,
+          "changed": 4224,
+          "initial_nonzero": 4224,
+          "final_nonzero": 4224,
+          "l2": 0.7461072790435931,
+          "maximum_absolute": 0.06286177039146423
+        },
+        "din.b": {
+          "coordinates": 64,
+          "changed": 64,
+          "initial_nonzero": 0,
+          "final_nonzero": 64,
+          "l2": 0.0679956260436667,
+          "maximum_absolute": 0.017399683594703674
+        },
+        "drole": {
+          "coordinates": 128,
+          "changed": 128,
+          "initial_nonzero": 128,
+          "final_nonzero": 128,
+          "l2": 0.09515164105237214,
+          "maximum_absolute": 0.019057927187532187
+        },
+        "din.w_metadata_rows0_49": {
+          "coordinates": 3200,
+          "l2": 0.566513250729395,
+          "pure_decay_float64_reference_residual_l2": 0.5665127795608013,
+          "interpretation": "Endpoint change, not a saved gradient. AdamW weight decay alone can move inactive weights; float64 decay reference is descriptive and not a reconstruction of float32 optimizer history."
+        },
+        "din.w_pooled_identity_rows50_65": {
+          "coordinates": 1024,
+          "l2": 0.48552941063322597,
+          "pure_decay_float64_reference_residual_l2": 0.4855296821850403,
+          "interpretation": "Endpoint change, not a saved gradient. AdamW weight decay alone can move inactive weights; float64 decay reference is descriptive and not a reconstruction of float32 optimizer history."
+        }
+      }
+    }
+  },
+  "observations": [
+    "The saved total gradient norms include the auxiliary head and cannot isolate gradient strength in any deck block.",
+    "Zero-initialized din.b became nonzero in all64coordinates, so the known training path changed the deck projection; no claim that the deck path was wholly disconnected is supported.",
+    "Endpoint din.w/drole changes are distinct from measured per-tensor gradients; weight decay, shared constant roles and adaptive updates confound coordinate-level interpretation.",
+    "No saved deck-input, pooled-identity, latent, per-target-loss or per-module gradient diagnostics were found in the3 composition fit result schemas/artifacts.",
+    "The effect-model prior diagnostic and grounded transition gradients concern different models and do not fill this deck evidence gap."
+  ],
+  "restoration": {
+    "result_sha256": "f7bd9c87b1f6ae78b9c63498966e9914358d75f4d957e361aacb20fc76509f97",
+    "updates_completed": 400,
+    "frozen_checkpoints_unchanged": true,
+    "training": "NumPy logistic heads on frozen engineering-init96D features; no encoder backpropagation"
+  },
+  "minimal_future_audit": {
+    "status": "proposal only, not executed",
+    "data": "one fixed16-row training minibatch; existing original100step supplement plus its saved auxiliary head; frozen base",
+    "neural_forwards": 1,
+    "backwards": 1,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "objective": "unchanged saved13target MSE",
+    "record": [
+      "preclip per-tensor L2/RMS/nonzero counts for din.w metadata/pooled-identity row blocks, din.b, each drole row, aux.w and aux.b",
+      "retained z gradient and gradients of original-row metadata/identity inputs, with active input counts/scales; keep disabled remaining-row status separate",
+      "finite-value checks and hashes before/after; no model selection or objective change"
+    ],
+    "interpretation": "Posthoc local loss sensitivity only, not reconstruction of training gradients or proof of strategic/synergy encoding."
+  }
+}
