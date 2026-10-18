@@ -1,0 +1,869 @@
+{
+  "active_frozen_inputs": [
+    {
+      "bytes": 9600,
+      "expected_sha256": "8029b7e5166f18ed7467b38d3c475cb5681d04c5e4ad6a65353173035231b085",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/Cargo.lock",
+      "url": "raw/8029b7e5166f18ed7467b38d3c475cb5681d04c5e4ad6a65353173035231b085.lock.gz"
+    },
+    {
+      "bytes": 387,
+      "expected_sha256": "318e6e1a6bfccb783ed26225e93d24eea3976760fa49cce3cdbdcf04aa62483a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/Cargo.toml",
+      "url": "raw/318e6e1a6bfccb783ed26225e93d24eea3976760fa49cce3cdbdcf04aa62483a.toml.gz"
+    },
+    {
+      "bytes": 12675831,
+      "expected_sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "url": "raw/0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812.json.gz"
+    },
+    {
+      "bytes": 58854,
+      "expected_sha256": "8dff12ddaa8309be2cbe759796c2494c0b56736295b039c8e5a1250d3fc2c672",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/coverage.json",
+      "url": "raw/8dff12ddaa8309be2cbe759796c2494c0b56736295b039c8e5a1250d3fc2c672.json.gz"
+    },
+    {
+      "bytes": 16505,
+      "expected_sha256": "e7fcc4e28aa20138e70516866f0b3e0127bce5de1c49063f34a8634acf07f12b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/diagnostics.json",
+      "url": "raw/e7fcc4e28aa20138e70516866f0b3e0127bce5de1c49063f34a8634acf07f12b.json.gz"
+    },
+    {
+      "bytes": 789236,
+      "expected_sha256": "53d572533bd027d2683e363b821bd1f92ba012b8284a82967bb2c5ac73605c13",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/inputs.json",
+      "url": "raw/53d572533bd027d2683e363b821bd1f92ba012b8284a82967bb2c5ac73605c13.json.gz"
+    },
+    {
+      "bytes": 53273,
+      "expected_sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/manifest.json",
+      "url": "raw/ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c.json.gz"
+    },
+    {
+      "bytes": 725184,
+      "expected_sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "url": "raw/91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957.json.gz"
+    },
+    {
+      "bytes": 1052338,
+      "expected_sha256": "d056565f1c13d2ca5423ef855f9d1f0f40a3dd482eb4085817a79ee8f307e36c",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-pool.json",
+      "url": "raw/d056565f1c13d2ca5423ef855f9d1f0f40a3dd482eb4085817a79ee8f307e36c.json.gz"
+    },
+    {
+      "bytes": 630,
+      "expected_sha256": "09c291d7ca97a67252c14158e2118403a5d2d7d67ccfed8843183432f467d511",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/Cargo.toml",
+      "url": "raw/09c291d7ca97a67252c14158e2118403a5d2d7d67ccfed8843183432f467d511.toml.gz"
+    },
+    {
+      "bytes": 11017,
+      "expected_sha256": "3ea823128ca1732b2a7757fbb2e775b923b7810cffd55efd4af21e8fc5fcad98",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/build.rs",
+      "url": "raw/3ea823128ca1732b2a7757fbb2e775b923b7810cffd55efd4af21e8fc5fcad98.rs.gz"
+    },
+    {
+      "bytes": 8762,
+      "expected_sha256": "62daafa25674675145520dae6739bc2a9892fc9a4f8b5b9a082914c23122103b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/examples/state_search_bench.rs",
+      "url": "raw/62daafa25674675145520dae6739bc2a9892fc9a4f8b5b9a082914c23122103b.rs.gz"
+    },
+    {
+      "bytes": 17569,
+      "expected_sha256": "4a77237063ce409b96b448d860f256ba727efaa1f00795cc14b0cf95c2ce9fb1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/expression_codegen.rs",
+      "url": "raw/4a77237063ce409b96b448d860f256ba727efaa1f00795cc14b0cf95c2ce9fb1.rs.gz"
+    },
+    {
+      "bytes": 341468,
+      "expected_sha256": "21735d5e9030b1d7d20910d6d650b0c6935a5a221e017114f121cce40ec75b84",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/ability_ir.rs",
+      "url": "raw/21735d5e9030b1d7d20910d6d650b0c6935a5a221e017114f121cce40ec75b84.rs.gz"
+    },
+    {
+      "bytes": 5290,
+      "expected_sha256": "73eb0fed25a2cef7b7cd8850276125b7e6f2ecbfd0b9cb8cae28cf85b427c7af",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/activation_contract.rs",
+      "url": "raw/73eb0fed25a2cef7b7cd8850276125b7e6f2ecbfd0b9cb8cae28cf85b427c7af.rs.gz"
+    },
+    {
+      "bytes": 2413,
+      "expected_sha256": "8f10b820c7169a8055879ab611a73aff2f6d98944ef4dc6ffaea0e887c494384",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/activation_contract_tests.rs",
+      "url": "raw/8f10b820c7169a8055879ab611a73aff2f6d98944ef4dc6ffaea0e887c494384.rs.gz"
+    },
+    {
+      "bytes": 2946,
+      "expected_sha256": "7f77b1415f54bfb8c1133f29e092190ca4c9799899681b32e522939a31fb6c8e",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/activation_runtime_tests.rs",
+      "url": "raw/7f77b1415f54bfb8c1133f29e092190ca4c9799899681b32e522939a31fb6c8e.rs.gz"
+    },
+    {
+      "bytes": 2574,
+      "expected_sha256": "ac6ed5de53155f742bb263b7484c4709ac623bee02dd896b89e3b382655cee67",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/admission.rs",
+      "url": "raw/ac6ed5de53155f742bb263b7484c4709ac623bee02dd896b89e3b382655cee67.rs.gz"
+    },
+    {
+      "bytes": 5336,
+      "expected_sha256": "7f38b655bc1f383a427f7cac38c6b505f07a44c401cb573d34887ff96f1414eb",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/admission_tests.rs",
+      "url": "raw/7f38b655bc1f383a427f7cac38c6b505f07a44c401cb573d34887ff96f1414eb.rs.gz"
+    },
+    {
+      "bytes": 3724,
+      "expected_sha256": "bd13504b4556ee41a26c5c67c95d588e14ad0297eb4be13f237cfc3a90061389",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/advantage.rs",
+      "url": "raw/bd13504b4556ee41a26c5c67c95d588e14ad0297eb4be13f237cfc3a90061389.rs.gz"
+    },
+    {
+      "bytes": 35223,
+      "expected_sha256": "deb79eeef6348c573149df9eafd783511329e9cd8b2c8705e4960e07208d3335",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/advantage_tests.rs",
+      "url": "raw/deb79eeef6348c573149df9eafd783511329e9cd8b2c8705e4960e07208d3335.rs.gz"
+    },
+    {
+      "bytes": 3561,
+      "expected_sha256": "57b3160234c911feaa88f88fb69a7542cecc0fe233761b53041440b1b17dd029",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/ahsoka_integrated_tests.rs",
+      "url": "raw/57b3160234c911feaa88f88fb69a7542cecc0fe233761b53041440b1b17dd029.rs.gz"
+    },
+    {
+      "bytes": 16291,
+      "expected_sha256": "73febc62e36805310ad379e7184625caa469f7e6a899c0d17a66ee132014def4",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_constant_tests.rs",
+      "url": "raw/73febc62e36805310ad379e7184625caa469f7e6a899c0d17a66ee132014def4.rs.gz"
+    },
+    {
+      "bytes": 13876,
+      "expected_sha256": "1ad125fa480bee586174442c2ad2fe74a0250ae28578390db36cc1e7c4fcc667",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_constants.rs",
+      "url": "raw/1ad125fa480bee586174442c2ad2fe74a0250ae28578390db36cc1e7c4fcc667.rs.gz"
+    },
+    {
+      "bytes": 10032,
+      "expected_sha256": "cded9a413b6119dfa5bd54743b8ccb70262063849771d905a525d8cfc9b0b887",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_registration.rs",
+      "url": "raw/cded9a413b6119dfa5bd54743b8ccb70262063849771d905a525d8cfc9b0b887.rs.gz"
+    },
+    {
+      "bytes": 15248,
+      "expected_sha256": "7c645eed13becd0cd02a9fe18db784b91b4469358a6a60f775254c5747106f3f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attached_registration_tests.rs",
+      "url": "raw/7c645eed13becd0cd02a9fe18db784b91b4469358a6a60f775254c5747106f3f.rs.gz"
+    },
+    {
+      "bytes": 20933,
+      "expected_sha256": "d5cf5f150ab1dd4f49c8d176d60c82c9479832c658dac22d68eaf92983c03c9e",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attack_end_tests.rs",
+      "url": "raw/d5cf5f150ab1dd4f49c8d176d60c82c9479832c658dac22d68eaf92983c03c9e.rs.gz"
+    },
+    {
+      "bytes": 2999,
+      "expected_sha256": "e7a64e802a13b8423cb01feb9e444384353bdcd88d393fc59ad2969624010cb9",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/attack_history.rs",
+      "url": "raw/e7a64e802a13b8423cb01feb9e444384353bdcd88d393fc59ad2969624010cb9.rs.gz"
+    },
+    {
+      "bytes": 5323,
+      "expected_sha256": "55757681de4eaa765bfb5e2942d2ed4bcb040c46f79ce1e51df3765f4ef8e9c2",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/batch_attack_condition_tests.rs",
+      "url": "raw/55757681de4eaa765bfb5e2942d2ed4bcb040c46f79ce1e51df3765f4ef8e9c2.rs.gz"
+    },
+    {
+      "bytes": 7368,
+      "expected_sha256": "cf69b2e5581cf6252fbf6c364339e15b580a17c0e6ee771ab69e44085415141d",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/batch_damage_default_source_tests.rs",
+      "url": "raw/cf69b2e5581cf6252fbf6c364339e15b580a17c0e6ee771ab69e44085415141d.rs.gz"
+    },
+    {
+      "bytes": 4859,
+      "expected_sha256": "0164e95af37670b16fcf2d9662cc8912c49df1cc37829b353a9487df0899b7ae",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/batch_plain_upgrade_tests.rs",
+      "url": "raw/0164e95af37670b16fcf2d9662cc8912c49df1cc37829b353a9487df0899b7ae.rs.gz"
+    },
+    {
+      "bytes": 15078,
+      "expected_sha256": "1b3ac0b4158cb4a0aa1cc6e346569f49c2d07b0af0ebc811ec6d0fb190a4a5cb",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bin/kessel-pimc.rs",
+      "url": "raw/1b3ac0b4158cb4a0aa1cc6e346569f49c2d07b0af0ebc811ec6d0fb190a4a5cb.rs.gz"
+    },
+    {
+      "bytes": 9363,
+      "expected_sha256": "05e8648f7ec517b4362d4b4413fbe1757dd3f0c290111e589200040dbef609ed",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_family_tests.rs",
+      "url": "raw/05e8648f7ec517b4362d4b4413fbe1757dd3f0c290111e589200040dbef609ed.rs.gz"
+    },
+    {
+      "bytes": 6998,
+      "expected_sha256": "5ab3a48bb069e33351d2130aeb01fdadea9c942f9b52c08e2ac0074eec272be2",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_floor_tests.rs",
+      "url": "raw/5ab3a48bb069e33351d2130aeb01fdadea9c942f9b52c08e2ac0074eec272be2.rs.gz"
+    },
+    {
+      "bytes": 10194,
+      "expected_sha256": "2355fcb085748d6aa9c8adeba740588d87fb5f3a99f1718e3a8a7b1d11376657",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_inventory_tests.rs",
+      "url": "raw/2355fcb085748d6aa9c8adeba740588d87fb5f3a99f1718e3a8a7b1d11376657.rs.gz"
+    },
+    {
+      "bytes": 8474,
+      "expected_sha256": "45803ca759821b58fc5e7b798b586f52ec171fa09b69b6386531b7b29da47808",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/bounded_reductions.rs",
+      "url": "raw/45803ca759821b58fc5e7b798b586f52ec171fa09b69b6386531b7b29da47808.rs.gz"
+    },
+    {
+      "bytes": 20876,
+      "expected_sha256": "3dbc80355a103e56bb21181a25ac88c9d4c94a8751389c45fbee304672244c4e",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/card_restriction_tests.rs",
+      "url": "raw/3dbc80355a103e56bb21181a25ac88c9d4c94a8751389c45fbee304672244c4e.rs.gz"
+    },
+    {
+      "bytes": 5991,
+      "expected_sha256": "c3b3c397c4b79dd081a7cbc9f8255ad0761518c118f3ae0c14df956f7a7dc72c",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/cards.rs",
+      "url": "raw/c3b3c397c4b79dd081a7cbc9f8255ad0761518c118f3ae0c14df956f7a7dc72c.rs.gz"
+    },
+    {
+      "bytes": 4907,
+      "expected_sha256": "915e7cb0a43be44d8b27366576837cfa7af7411edaa76559f9ed9071c7f9d988",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/catalogue_io.rs",
+      "url": "raw/915e7cb0a43be44d8b27366576837cfa7af7411edaa76559f9ed9071c7f9d988.rs.gz"
+    },
+    {
+      "bytes": 13349,
+      "expected_sha256": "d5e73c0cb851ed1156a615318afb6f8999cf3f95480da706dede51157e5de7d8",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/check.rs",
+      "url": "raw/d5e73c0cb851ed1156a615318afb6f8999cf3f95480da706dede51157e5de7d8.rs.gz"
+    },
+    {
+      "bytes": 17278,
+      "expected_sha256": "98b6c81ed0446dab41710e32e1aa27335f6c70ebbd1a67c6a82dfe751727f75a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/cleanup_integration_tests.rs",
+      "url": "raw/98b6c81ed0446dab41710e32e1aa27335f6c70ebbd1a67c6a82dfe751727f75a.rs.gz"
+    },
+    {
+      "bytes": 16289,
+      "expected_sha256": "592c11e6eb6555be69b3d0f0e25cc2bfb240ef20256d7f4446f5b7a6c7260711",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/collection_query_tests.rs",
+      "url": "raw/592c11e6eb6555be69b3d0f0e25cc2bfb240ef20256d7f4446f5b7a6c7260711.rs.gz"
+    },
+    {
+      "bytes": 6701,
+      "expected_sha256": "5c0eb72910218b9fc7ebd8368d2fadfb87faaa26a7196e9b6f5afe130eb07b9d",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/compatibility_tests.rs",
+      "url": "raw/5c0eb72910218b9fc7ebd8368d2fadfb87faaa26a7196e9b6f5afe130eb07b9d.rs.gz"
+    },
+    {
+      "bytes": 25340,
+      "expected_sha256": "92450db3df0ea95ade9d361468aa276f4f9430862841b540181f543f0d54193a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/controlled_title_tests.rs",
+      "url": "raw/92450db3df0ea95ade9d361468aa276f4f9430862841b540181f543f0d54193a.rs.gz"
+    },
+    {
+      "bytes": 29264,
+      "expected_sha256": "18ef9491b43f171a50ec5aa85e2ae8719db5b2890b150cb5cb169ca2980a4a65",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/death_hook_tests.rs",
+      "url": "raw/18ef9491b43f171a50ec5aa85e2ae8719db5b2890b150cb5cb169ca2980a4a65.rs.gz"
+    },
+    {
+      "bytes": 8470,
+      "expected_sha256": "0a0d5132f6ef8f0cfb2f05a0e4657a52549edb10ba338fdd299b11fd0f65f8dc",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/death_hooks.rs",
+      "url": "raw/0a0d5132f6ef8f0cfb2f05a0e4657a52549edb10ba338fdd299b11fd0f65f8dc.rs.gz"
+    },
+    {
+      "bytes": 11950,
+      "expected_sha256": "f4d2a4e92806e130a522c16abfb1d711723d24b907900781f54c4a250e8d8cca",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/deck_search.rs",
+      "url": "raw/f4d2a4e92806e130a522c16abfb1d711723d24b907900781f54c4a250e8d8cca.rs.gz"
+    },
+    {
+      "bytes": 8733,
+      "expected_sha256": "46a86b052263947751fe823cfcbd59f27cb9843dac3ff54bbac7c984b3d1b1d3",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/deck_search_tests.rs",
+      "url": "raw/46a86b052263947751fe823cfcbd59f27cb9843dac3ff54bbac7c984b3d1b1d3.rs.gz"
+    },
+    {
+      "bytes": 16803,
+      "expected_sha256": "5f818e2627f5e6ae09481b054038701ce103497ea70c2c49a3757de490f13da9",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/disclose_runtime_tests.rs",
+      "url": "raw/5f818e2627f5e6ae09481b054038701ce103497ea70c2c49a3757de490f13da9.rs.gz"
+    },
+    {
+      "bytes": 7502,
+      "expected_sha256": "9f83faf950e58a363f1615f7bfada4585d78b6e72adcc8ae75cea140c57e2b6a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/expr_search_tests.rs",
+      "url": "raw/9f83faf950e58a363f1615f7bfada4585d78b6e72adcc8ae75cea140c57e2b6a.rs.gz"
+    },
+    {
+      "bytes": 7854,
+      "expected_sha256": "4fdac64353a0e837f2c633f45f8bca1c2f5c149746c6b73b89dc2657272d004d",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/force_cost_tests.rs",
+      "url": "raw/4fdac64353a0e837f2c633f45f8bca1c2f5c149746c6b73b89dc2657272d004d.rs.gz"
+    },
+    {
+      "bytes": 223073,
+      "expected_sha256": "d450e95cc9ada2664394773f2fe154cd36c5c2a51e32c2ca2bfcca4e7d8acc1d",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/generic_runtime.rs",
+      "url": "raw/d450e95cc9ada2664394773f2fe154cd36c5c2a51e32c2ca2bfcca4e7d8acc1d.rs.gz"
+    },
+    {
+      "bytes": 410686,
+      "expected_sha256": "28166f076c2663493342ecdce1ff9cc6623f94670fe07e0f10eaee1fb5ef9695",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/generic_runtime_tests.rs",
+      "url": "raw/28166f076c2663493342ecdce1ff9cc6623f94670fe07e0f10eaee1fb5ef9695.rs.gz"
+    },
+    {
+      "bytes": 3881,
+      "expected_sha256": "9a4bc1cdfa9f6da6a7fd7a8025467eed90d7d5c1fd08957cedc4afb1d121c5dd",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/json_scan_tests.rs",
+      "url": "raw/9a4bc1cdfa9f6da6a7fd7a8025467eed90d7d5c1fd08957cedc4afb1d121c5dd.rs.gz"
+    },
+    {
+      "bytes": 1831,
+      "expected_sha256": "ace9369bfa8040058b5e205a2a8da1cfb497b79d289361bab90f4783c5622546",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/legacy_leader.rs",
+      "url": "raw/ace9369bfa8040058b5e205a2a8da1cfb497b79d289361bab90f4783c5622546.rs.gz"
+    },
+    {
+      "bytes": 943,
+      "expected_sha256": "5f9c76548ca9ed079fbd539f787d59e36629848d6718ad112405930f4d082c5f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/lib.rs",
+      "url": "raw/5f9c76548ca9ed079fbd539f787d59e36629848d6718ad112405930f4d082c5f.rs.gz"
+    },
+    {
+      "bytes": 4288,
+      "expected_sha256": "c7e5cef0b1b1b1bd3be373a033e89d37f2ee98313554861eee18fb6c4009d18b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/live_power_maximum.rs",
+      "url": "raw/c7e5cef0b1b1b1bd3be373a033e89d37f2ee98313554861eee18fb6c4009d18b.rs.gz"
+    },
+    {
+      "bytes": 16994,
+      "expected_sha256": "34a94e6ced4085d438fc9efb6b1f7ea25fdfa9360a27b654d1b52bdfa091c039",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/main.rs",
+      "url": "raw/34a94e6ced4085d438fc9efb6b1f7ea25fdfa9360a27b654d1b52bdfa091c039.rs.gz"
+    },
+    {
+      "bytes": 9905,
+      "expected_sha256": "edb70d2056095bb182c1c21f8922248cf99e7c98499f50f59a0224c934ef49bc",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/maximum_snapshot_tests.rs",
+      "url": "raw/edb70d2056095bb182c1c21f8922248cf99e7c98499f50f59a0224c934ef49bc.rs.gz"
+    },
+    {
+      "bytes": 44711,
+      "expected_sha256": "133b8c49c0c6801a9b650146f3744ee6d76d64a85d3efd9184e800fffe838aee",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/model.rs",
+      "url": "raw/133b8c49c0c6801a9b650146f3744ee6d76d64a85d3efd9184e800fffe838aee.rs.gz"
+    },
+    {
+      "bytes": 11804,
+      "expected_sha256": "27058e8dc0467078175480b963762b549cdc6e7159f19b6a6ed1cfb58d33c5ee",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_attack.rs",
+      "url": "raw/27058e8dc0467078175480b963762b549cdc6e7159f19b6a6ed1cfb58d33c5ee.rs.gz"
+    },
+    {
+      "bytes": 24018,
+      "expected_sha256": "fff095fd1af8957c231a87c80351a322a0db2d666d378d67feb8a91dcda39d00",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_attack_tests.rs",
+      "url": "raw/fff095fd1af8957c231a87c80351a322a0db2d666d378d67feb8a91dcda39d00.rs.gz"
+    },
+    {
+      "bytes": 4580,
+      "expected_sha256": "0c673a51d8450838f409c1066875faa325d35a15ed2c23645109aa57cb988d08",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_heal_weakness_tests.rs",
+      "url": "raw/0c673a51d8450838f409c1066875faa325d35a15ed2c23645109aa57cb988d08.rs.gz"
+    },
+    {
+      "bytes": 16693,
+      "expected_sha256": "cb11c912c7ec9b170431fcfba6aacd42547308db42e0d969794785367fe6abfc",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/native_predicate_tests.rs",
+      "url": "raw/cb11c912c7ec9b170431fcfba6aacd42547308db42e0d969794785367fe6abfc.rs.gz"
+    },
+    {
+      "bytes": 16397,
+      "expected_sha256": "0182f13e27874283ed42a4a87d1e3acca69409722838225e87f909ec1501a8d5",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/pay_adjusted_resources_tests.rs",
+      "url": "raw/0182f13e27874283ed42a4a87d1e3acca69409722838225e87f909ec1501a8d5.rs.gz"
+    },
+    {
+      "bytes": 11116,
+      "expected_sha256": "11088ae0ddd9d7826322871e8cdd8b609e10710926089a1203fe8d840acca2d1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/phase_history.rs",
+      "url": "raw/11088ae0ddd9d7826322871e8cdd8b609e10710926089a1203fe8d840acca2d1.rs.gz"
+    },
+    {
+      "bytes": 18695,
+      "expected_sha256": "96d0e9041617a45941c5bc896176e755cadc30f3f2fa6333088f34009542e1a4",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/phase_history_tests.rs",
+      "url": "raw/96d0e9041617a45941c5bc896176e755cadc30f3f2fa6333088f34009542e1a4.rs.gz"
+    },
+    {
+      "bytes": 21203,
+      "expected_sha256": "4995934a2586f5d28707a86ec76492c674d009e59ba436749a954b0f416c9698",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/physical_attachment_tests.rs",
+      "url": "raw/4995934a2586f5d28707a86ec76492c674d009e59ba436749a954b0f416c9698.rs.gz"
+    },
+    {
+      "bytes": 50610,
+      "expected_sha256": "e403e89d918ab5c636a28c56caf0bde6113f23b0c64fa25aaaabd709c3f8ead4",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/prepared_runtime.rs",
+      "url": "raw/e403e89d918ab5c636a28c56caf0bde6113f23b0c64fa25aaaabd709c3f8ead4.rs.gz"
+    },
+    {
+      "bytes": 6506,
+      "expected_sha256": "c081d1d43d2b4cd2adde6a30ddabc402000699fe71a2f4ed74fb5f85e34afb01",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/recipe_contract_tests.rs",
+      "url": "raw/c081d1d43d2b4cd2adde6a30ddabc402000699fe71a2f4ed74fb5f85e34afb01.rs.gz"
+    },
+    {
+      "bytes": 5082,
+      "expected_sha256": "832a107f8f12865c8d4b5f592c8fb77efb1a8202bb115919746d4b5b9422821c",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/registration_runtime.rs",
+      "url": "raw/832a107f8f12865c8d4b5f592c8fb77efb1a8202bb115919746d4b5b9422821c.rs.gz"
+    },
+    {
+      "bytes": 6960,
+      "expected_sha256": "57cf48776a2fa2e7fc0da2255cec8087dc0dbb2d9f0b57523660a3979c60bd71",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/replacement_initiative_tests.rs",
+      "url": "raw/57cf48776a2fa2e7fc0da2255cec8087dc0dbb2d9f0b57523660a3979c60bd71.rs.gz"
+    },
+    {
+      "bytes": 21023,
+      "expected_sha256": "8010394c11fb442a2157bf226967f40919988ef18e239e162a2ab0eff5061d8a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/resolved_event_tests.rs",
+      "url": "raw/8010394c11fb442a2157bf226967f40919988ef18e239e162a2ab0eff5061d8a.rs.gz"
+    },
+    {
+      "bytes": 22460,
+      "expected_sha256": "7ef5155a2a4364ea8edf32faab87c19b951f718a28d07db1087e5faa57ee16b3",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/search.rs",
+      "url": "raw/7ef5155a2a4364ea8edf32faab87c19b951f718a28d07db1087e5faa57ee16b3.rs.gz"
+    },
+    {
+      "bytes": 30062,
+      "expected_sha256": "6264924e3988d82fb1d95a5fe3021076c4dc95ab064f1bd0905c6d4238cb5c95",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_contract.rs",
+      "url": "raw/6264924e3988d82fb1d95a5fe3021076c4dc95ab064f1bd0905c6d4238cb5c95.rs.gz"
+    },
+    {
+      "bytes": 12484,
+      "expected_sha256": "40b1bf382c64181d8f8b5bd5c577c493493533ae2e343bef9ebe454067fca4e5",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_contract_tests.rs",
+      "url": "raw/40b1bf382c64181d8f8b5bd5c577c493493533ae2e343bef9ebe454067fca4e5.rs.gz"
+    },
+    {
+      "bytes": 3845,
+      "expected_sha256": "19fe41a48850f0857dd6f048a0a8318ba56837c8fd4d86f87d515bf449d99ab7",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_runtime.rs",
+      "url": "raw/19fe41a48850f0857dd6f048a0a8318ba56837c8fd4d86f87d515bf449d99ab7.rs.gz"
+    },
+    {
+      "bytes": 23618,
+      "expected_sha256": "6b08a74a069246082f1450d1e66077d7ddbe2681db11adbb3553b974d38597ef",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/selector_tests.rs",
+      "url": "raw/6b08a74a069246082f1450d1e66077d7ddbe2681db11adbb3553b974d38597ef.rs.gz"
+    },
+    {
+      "bytes": 80992,
+      "expected_sha256": "2c6e9bb165e53f37b73ef9e9804d4e3375123f04390218bf5e34a2988a0a65a1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/simulator.rs",
+      "url": "raw/2c6e9bb165e53f37b73ef9e9804d4e3375123f04390218bf5e34a2988a0a65a1.rs.gz"
+    },
+    {
+      "bytes": 20861,
+      "expected_sha256": "81ba910a076f3d59d4d2881a3f85ace8c3ca7f6b3a09ffd14515be2427a7fa94",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/simulator_tests.rs",
+      "url": "raw/81ba910a076f3d59d4d2881a3f85ace8c3ca7f6b3a09ffd14515be2427a7fa94.rs.gz"
+    },
+    {
+      "bytes": 4562,
+      "expected_sha256": "488a0efe9c8e3d5e85b852c6a6649a7368d7b435fdb49163e3610b3342ea15c7",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/snapshot_evidence.rs",
+      "url": "raw/488a0efe9c8e3d5e85b852c6a6649a7368d7b435fdb49163e3610b3342ea15c7.rs.gz"
+    },
+    {
+      "bytes": 5608,
+      "expected_sha256": "ad349d96a05559fe15b8cbeaf0aa409eedd86e3d94b2ef16624bdd8dd3a1bdd0",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/source_guard_tests.rs",
+      "url": "raw/ad349d96a05559fe15b8cbeaf0aa409eedd86e3d94b2ef16624bdd8dd3a1bdd0.rs.gz"
+    },
+    {
+      "bytes": 21912,
+      "expected_sha256": "0611bc413dd9590b122652515036098d6bc61eb563c7e96c0a3409c94b9c757c",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/static_ongoing.rs",
+      "url": "raw/0611bc413dd9590b122652515036098d6bc61eb563c7e96c0a3409c94b9c757c.rs.gz"
+    },
+    {
+      "bytes": 30553,
+      "expected_sha256": "a3988814fa5befda65f05cbd70f25fcf87c13984eef2ba0ef47483257e6c56d2",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/static_ongoing_tests.rs",
+      "url": "raw/a3988814fa5befda65f05cbd70f25fcf87c13984eef2ba0ef47483257e6c56d2.rs.gz"
+    },
+    {
+      "bytes": 17890,
+      "expected_sha256": "56c511ae49943858495136982e40ea8bc21c90c5759641e374c8956b8a221f30",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/support_runtime.rs",
+      "url": "raw/56c511ae49943858495136982e40ea8bc21c90c5759641e374c8956b8a221f30.rs.gz"
+    },
+    {
+      "bytes": 31524,
+      "expected_sha256": "c8f7a4de99b386426b0273766984196055dd9724a478ce766a6d91981b6a643b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/support_tests.rs",
+      "url": "raw/c8f7a4de99b386426b0273766984196055dd9724a478ce766a6d91981b6a643b.rs.gz"
+    },
+    {
+      "bytes": 8157,
+      "expected_sha256": "dd5e20f0efd4ad10a47bc56085fcf48e2e9dfa1883f2e72f4d094e4f8f41bf02",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/title_consumer_tests.rs",
+      "url": "raw/dd5e20f0efd4ad10a47bc56085fcf48e2e9dfa1883f2e72f4d094e4f8f41bf02.rs.gz"
+    },
+    {
+      "bytes": 15649,
+      "expected_sha256": "a2c3db71a88b3b2704f1f5ccaea30e42836ef3d0903c09765c3df20768be4456",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/trait_inventory_tests.rs",
+      "url": "raw/a2c3db71a88b3b2704f1f5ccaea30e42836ef3d0903c09765c3df20768be4456.rs.gz"
+    },
+    {
+      "bytes": 36472,
+      "expected_sha256": "432be7f0896bbe30c4def81dbd691a913a2c5201f80f1031ab6f62e8c61bbb18",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/validation.rs",
+      "url": "raw/432be7f0896bbe30c4def81dbd691a913a2c5201f80f1031ab6f62e8c61bbb18.rs.gz"
+    },
+    {
+      "bytes": 22658,
+      "expected_sha256": "a2c97bd7229d8979516e003908fcd2acf4235b9c38e73fcf0e84fdfa0c7fb057",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/zone_statics_tests.rs",
+      "url": "raw/a2c97bd7229d8979516e003908fcd2acf4235b9c38e73fcf0e84fdfa0c7fb057.rs.gz"
+    },
+    {
+      "bytes": 7462,
+      "expected_sha256": "0b523aa67cdc77711330ebcac0dfa41fa71415f34eb097bfb8d3c9204c91e43f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/architecture_boundaries.rs",
+      "url": "raw/0b523aa67cdc77711330ebcac0dfa41fa71415f34eb097bfb8d3c9204c91e43f.rs.gz"
+    },
+    {
+      "bytes": 1130,
+      "expected_sha256": "7c8ad51570dd8f30f41624e117d5b94de3b646617ca99bc5cff372e2c388ff29",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/compiled_conformance.rs",
+      "url": "raw/7c8ad51570dd8f30f41624e117d5b94de3b646617ca99bc5cff372e2c388ff29.rs.gz"
+    },
+    {
+      "bytes": 2892,
+      "expected_sha256": "3af1a5ab08cf73783a6c86d1a5ac89c2c5e56580535f6112003619a85cad0049",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/conformance.rs",
+      "url": "raw/3af1a5ab08cf73783a6c86d1a5ac89c2c5e56580535f6112003619a85cad0049.rs.gz"
+    },
+    {
+      "bytes": 4786,
+      "expected_sha256": "26a7ec83da5bdcb5376c73f3bd8ff731c8da82b9b53b6aeb8835f0dd25d4b511",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/reference_conformance.rs",
+      "url": "raw/26a7ec83da5bdcb5376c73f3bd8ff731c8da82b9b53b6aeb8835f0dd25d4b511.rs.gz"
+    },
+    {
+      "bytes": 2222,
+      "expected_sha256": "6c109082940fcf0ca60a581191f57b1620f2e839ab43fbd4ea2de7205fa89ddb",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/source_only_contracts.rs",
+      "url": "raw/6c109082940fcf0ca60a581191f57b1620f2e839ab43fbd4ea2de7205fa89ddb.rs.gz"
+    },
+    {
+      "bytes": 4046,
+      "expected_sha256": "2cd94f9355907b10335184797dc739dea941f97ec7d05dafd9108c8181aa2ed7",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/state_boundaries.rs",
+      "url": "raw/2cd94f9355907b10335184797dc739dea941f97ec7d05dafd9108c8181aa2ed7.rs.gz"
+    },
+    {
+      "bytes": 4424,
+      "expected_sha256": "d5ff8dcea0407f34e2aeee80ecbbbd3538bcb5678e221cdb0afa63d148d9d597",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/tests/token_attack_admission.rs",
+      "url": "raw/d5ff8dcea0407f34e2aeee80ecbbbd3538bcb5678e221cdb0afa63d148d9d597.rs.gz"
+    },
+    {
+      "bytes": 3858872,
+      "expected_sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "url": "raw/34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69.json.gz"
+    },
+    {
+      "bytes": 4543,
+      "expected_sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "url": "raw/e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa.npz"
+    },
+    {
+      "bytes": 1498747,
+      "expected_sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+      "url": "raw/dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480.json.gz"
+    },
+    {
+      "bytes": 88060,
+      "expected_sha256": "ef4d6076c7767c4b6bd0038e7465f3488143db70554976eefb17c397e4700898",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/effect-cohort-audit-v1/strict12-contract-v3.json",
+      "url": "raw/ef4d6076c7767c4b6bd0038e7465f3488143db70554976eefb17c397e4700898.json.gz"
+    },
+    {
+      "bytes": 10638,
+      "expected_sha256": "a72d3ccc9bb381ba626032481d1bbb980236e302a6d532b0960e11445df8e0f9",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/accounting.py",
+      "url": "raw/a72d3ccc9bb381ba626032481d1bbb980236e302a6d532b0960e11445df8e0f9.py.gz"
+    },
+    {
+      "bytes": 4743,
+      "expected_sha256": "70bb9aab456726cdcb6d1e8224f471363d1767b32bc152a6822a4d26dad7e2da",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/freeze_campaign.py",
+      "url": "raw/70bb9aab456726cdcb6d1e8224f471363d1767b32bc152a6822a4d26dad7e2da.py.gz"
+    },
+    {
+      "bytes": 40629,
+      "expected_sha256": "1377cfa41247cfcc96f6bd9d2f4098d3e217409dd4c275bb0f62acf2a81ec793",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/independent-review-sources/verify_native_effect_v2.py",
+      "url": "raw/1377cfa41247cfcc96f6bd9d2f4098d3e217409dd4c275bb0f62acf2a81ec793.py.gz"
+    },
+    {
+      "bytes": 2518,
+      "expected_sha256": "5a3b8ddcc54b832e079f9047852a19a7e87203a61f883fb12d8938bc553e24b2",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/learner-commands.json",
+      "url": "raw/5a3b8ddcc54b832e079f9047852a19a7e87203a61f883fb12d8938bc553e24b2.json.gz"
+    },
+    {
+      "bytes": 1678,
+      "expected_sha256": "e36ba65473cced1f39b41298804c4fa6921e01b3765809ee3d7789f8313cbcfa",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/learner-preparation-validation.json",
+      "url": "raw/e36ba65473cced1f39b41298804c4fa6921e01b3765809ee3d7789f8313cbcfa.json.gz"
+    },
+    {
+      "bytes": 44415,
+      "expected_sha256": "bb0274e55006d4829f25bf43d46bae240c9e8a015805e6cd281b1668a11a2aaf",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/learner-prepared-v3.json",
+      "url": "raw/bb0274e55006d4829f25bf43d46bae240c9e8a015805e6cd281b1668a11a2aaf.json.gz"
+    },
+    {
+      "bytes": 2349,
+      "expected_sha256": "e035b6e0d99485599e25906ee303ca21b3f1a4fd474de357d632f4a75389717f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/learner-pure-tests.log",
+      "url": "raw/e035b6e0d99485599e25906ee303ca21b3f1a4fd474de357d632f4a75389717f.log.gz"
+    },
+    {
+      "bytes": 6225,
+      "expected_sha256": "c537f15eb91a136ae54d45d43de0ee9ef6ec6dc56a6e0f5b6edff13d748d672f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/test_accounting.py",
+      "url": "raw/c537f15eb91a136ae54d45d43de0ee9ef6ec6dc56a6e0f5b6edff13d748d672f.py.gz"
+    },
+    {
+      "bytes": 3825,
+      "expected_sha256": "8cd8b8e612f0b2d1d0fe213293b1cf5939630eb93483e7bc3bf22970b7e48b0f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/test_freeze_campaign.py",
+      "url": "raw/8cd8b8e612f0b2d1d0fe213293b1cf5939630eb93483e7bc3bf22970b7e48b0f.py.gz"
+    },
+    {
+      "bytes": 130121,
+      "expected_sha256": "73be341d31db061e3aea543e820b45c3355ba9a21b26b74193b945531157562f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/native-effect-v2/native-plan.json",
+      "url": "raw/73be341d31db061e3aea543e820b45c3355ba9a21b26b74193b945531157562f.json.gz"
+    },
+    {
+      "bytes": 2519,
+      "expected_sha256": "f4b2d57764061753ec9828b3412fcee79dc3f184b653e6a2722cfe9171d12719",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/native-effect-v2/native-preflight-v2.json",
+      "url": "raw/f4b2d57764061753ec9828b3412fcee79dc3f184b653e6a2722cfe9171d12719.json.gz"
+    },
+    {
+      "bytes": 34674,
+      "expected_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+      "url": "raw/88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b.json.gz"
+    },
+    {
+      "bytes": 9896,
+      "expected_sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+      "url": "raw/7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141.json.gz"
+    },
+    {
+      "bytes": 48446,
+      "expected_sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+      "url": "raw/3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11.npz"
+    },
+    {
+      "bytes": 9820,
+      "expected_sha256": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step200-predictions.npz",
+      "url": "raw/6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857.npz"
+    },
+    {
+      "bytes": 807838,
+      "expected_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+      "url": "raw/593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff.json.gz"
+    },
+    {
+      "bytes": 23341,
+      "expected_sha256": "ba0c1438d1e274bfc8380f3360d9000a0529ceaa6023a64cde68da525486b67b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/EFFECT_IDENTIFIABILITY_DESIGN_REVIEW.md",
+      "url": "raw/ba0c1438d1e274bfc8380f3360d9000a0529ceaa6023a64cde68da525486b67b.md.gz"
+    },
+    {
+      "bytes": 3778,
+      "expected_sha256": "a1565a40d1e8c83da9326d3274b266ace4da2e3bd39e4521ef3165646f8743a7",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/EFFECT_IDENTIFIABILITY_HYPOTHESIS.md",
+      "url": "raw/a1565a40d1e8c83da9326d3274b266ace4da2e3bd39e4521ef3165646f8743a7.md.gz"
+    },
+    {
+      "bytes": 7946,
+      "expected_sha256": "6460784227c7ba3ca42dbd09482c7deeff66f4014f9d71a16fb17053cc38fe53",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/EFFECT_IDENTIFIABILITY_LEARNER_PROTOCOL.md",
+      "url": "raw/6460784227c7ba3ca42dbd09482c7deeff66f4014f9d71a16fb17053cc38fe53.md.gz"
+    },
+    {
+      "bytes": 9428,
+      "expected_sha256": "6edfcc0a0d48e0b9bfe16ac464eae566dbf2d79fd6653b9f7dd6cee0afd6e57c",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/IDENTIFIABLE_EFFECT_COHORT_AUDIT.md",
+      "url": "raw/6edfcc0a0d48e0b9bfe16ac464eae566dbf2d79fd6653b9f7dd6cee0afd6e57c.md.gz"
+    },
+    {
+      "bytes": 19436,
+      "expected_sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/src/main.rs",
+      "url": "raw/5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13.rs.gz"
+    },
+    {
+      "bytes": 17124,
+      "expected_sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/supervise.py",
+      "url": "raw/326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03.py.gz"
+    },
+    {
+      "bytes": 28935,
+      "expected_sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "url": "raw/2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e.py.gz"
+    },
+    {
+      "bytes": 59333,
+      "expected_sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect_identifiability_fit.py",
+      "url": "raw/90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765.py.gz"
+    },
+    {
+      "bytes": 48843,
+      "expected_sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+      "url": "raw/ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21.py.gz"
+    },
+    {
+      "bytes": 14058,
+      "expected_sha256": "87b2e26917f3dc4c608cc32a61c3624ab1dc2392ccd388976f73da069b39d1b3",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2.py",
+      "url": "raw/87b2e26917f3dc4c608cc32a61c3624ab1dc2392ccd388976f73da069b39d1b3.py.gz"
+    },
+    {
+      "bytes": 9567,
+      "expected_sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/Cargo.lock",
+      "url": "raw/1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a.lock.gz"
+    },
+    {
+      "bytes": 536,
+      "expected_sha256": "33da090364fb652b9b432f634947532af6fcf955d453b53199a71e24aa1bf591",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/Cargo.toml",
+      "url": "raw/33da090364fb652b9b432f634947532af6fcf955d453b53199a71e24aa1bf591.toml.gz"
+    },
+    {
+      "bytes": 4101,
+      "expected_sha256": "0d0e8cdc3f46409a9028910546c15b7c8347a807f4d0781c2d5eee07bae0d0ab",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/README.md",
+      "url": "raw/0d0e8cdc3f46409a9028910546c15b7c8347a807f4d0781c2d5eee07bae0d0ab.md.gz"
+    },
+    {
+      "bytes": 130121,
+      "expected_sha256": "73be341d31db061e3aea543e820b45c3355ba9a21b26b74193b945531157562f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/collection-plan.json",
+      "url": "raw/73be341d31db061e3aea543e820b45c3355ba9a21b26b74193b945531157562f.json.gz"
+    },
+    {
+      "bytes": 31149,
+      "expected_sha256": "2cb14e583fc7dec3cd987c036d64823cde568bf3ccd73984fee8b98264f20e1a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/source-manifest-v1.json",
+      "url": "raw/2cb14e583fc7dec3cd987c036d64823cde568bf3ccd73984fee8b98264f20e1a.json.gz"
+    },
+    {
+      "bytes": 31565,
+      "expected_sha256": "81a25f88b545653c0cfb1feb0676f767202a1d2029fb3a382043e956bc98a767",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/source-manifest.json",
+      "url": "raw/81a25f88b545653c0cfb1feb0676f767202a1d2029fb3a382043e956bc98a767.json.gz"
+    },
+    {
+      "bytes": 20910,
+      "expected_sha256": "5c875ea5e5dfeae6ab0b8c3243c1996b0d9f142691609aafa0803d2062d1b756",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/src/main.rs",
+      "url": "raw/5c875ea5e5dfeae6ab0b8c3243c1996b0d9f142691609aafa0803d2062d1b756.rs.gz"
+    },
+    {
+      "bytes": 17284,
+      "expected_sha256": "fb92460a08677466d5d68cfcd84138c2f89026b1e77878828011dc350117be80",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/supervise.py",
+      "url": "raw/fb92460a08677466d5d68cfcd84138c2f89026b1e77878828011dc350117be80.py.gz"
+    },
+    {
+      "bytes": 6998,
+      "expected_sha256": "c1758ee4cd69e1023213155e122cdd22ccd9968dc25a12d2f4ea601727a86e75",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_collector/test_plan_guard.py",
+      "url": "raw/c1758ee4cd69e1023213155e122cdd22ccd9968dc25a12d2f4ea601727a86e75.py.gz"
+    },
+    {
+      "bytes": 26572,
+      "expected_sha256": "4bd12522d2abc2cd5bfd9862a6934a925f8c49e93fb721ac52d492fbd2ed5985",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2_data.py",
+      "url": "raw/4bd12522d2abc2cd5bfd9862a6934a925f8c49e93fb721ac52d492fbd2ed5985.py.gz"
+    },
+    {
+      "bytes": 11379,
+      "expected_sha256": "f16a166fba700a6444ccb50ada297bc27004d6bd51225d9e6fde814b78d528f6",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_effect_identifiability_fit.py",
+      "url": "raw/f16a166fba700a6444ccb50ada297bc27004d6bd51225d9e6fde814b78d528f6.py.gz"
+    },
+    {
+      "bytes": 5003,
+      "expected_sha256": "e812f6a51fad28756269c43f6c30401be46596c78eb19e59c477abfebb23a7d1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_native_effect_v2.py",
+      "url": "raw/e812f6a51fad28756269c43f6c30401be46596c78eb19e59c477abfebb23a7d1.py.gz"
+    },
+    {
+      "bytes": 18231,
+      "expected_sha256": "6e3f993f712144033b0fc6ca773e091717f1ab9d32185daa0c57693cc9fec53f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_native_effect_v2_data.py",
+      "url": "raw/6e3f993f712144033b0fc6ca773e091717f1ab9d32185daa0c57693cc9fec53f.py.gz"
+    },
+    {
+      "bytes": 40826,
+      "expected_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+      "url": "raw/b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2.py.gz"
+    },
+    {
+      "bytes": 19544,
+      "expected_sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json",
+      "url": "raw/eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03.json.gz"
+    }
+  ],
+  "archived_pin_mappings": [
+    {
+      "archive_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/test_analysis_runner-v1.py",
+      "bytes": 1903,
+      "expected_sha256": "5117d47c502384654daa64268d1b252b4f4932aa2ab5659095e52edc52881e86",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/test_analysis_runner.py",
+      "reason": "Unexecuted stale descriptor rejected before stage; earlier test bytes archived, current test separately retained. No source or pin rewritten.",
+      "url": "raw/5117d47c502384654daa64268d1b252b4f4932aa2ab5659095e52edc52881e86.py.gz"
+    }
+  ],
+  "historical_preparations": "Superseded unexecuted manifests/prepared plans retained byte-exact. Their historical source claims are not substituted for executed final pins.",
+  "raw_json_path_rule": "Absolute original paths inside preserved raw JSON are provenance only. Consumers fetch only explicit relative index/manifest URLs.",
+  "schema": "effect-source-closure/1"
+}
