@@ -145,6 +145,18 @@ class ActualCorpusExportTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "exact coverage artifact"):
                 E.prepare(spec)
 
+    def test_empty_failed_attempt_log_is_preserved_with_exact_pin(self):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name); spec, _, _, _ = fixture(root)
+            log = root / "failed.stdout.log"; log.write_bytes(b"")
+            spec["artifacts"]["native_failed_stdout"] = E.pin(log)
+            receipt = E.package(E.prepare(spec), root / "evidence", root / "vectors")
+            index = E.read(Path(receipt["evidence_index"]["path"]).read_bytes())
+            entry = next(x for x in index["files"] if x["role"] == "native_failed_stdout")
+            self.assertEqual(entry["source_bytes"], 0)
+            self.assertEqual(entry["stored_sha256"], E.digest(b""))
+            self.assertEqual((root / "evidence" / entry["path"]).read_bytes(), b"")
+
 
 if __name__ == "__main__":
     unittest.main()

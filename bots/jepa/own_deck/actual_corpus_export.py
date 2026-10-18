@@ -50,8 +50,8 @@ def pin(path):
 def checked(record):
     if not isinstance(record, dict) or not re.fullmatch(r"[0-9a-f]{64}", str(record.get("sha256"))):
         raise ValueError("frozen SHA256 pin required")
-    if type(record.get("bytes")) is not int or record["bytes"] < 1:
-        raise ValueError("positive exact byte-count pin required")
+    if type(record.get("bytes")) is not int or record["bytes"] < 0:
+        raise ValueError("nonnegative exact byte-count pin required")
     raw = Path(record["path"]).read_bytes()
     if digest(raw) != record["sha256"] or len(raw) != record["bytes"]:
         raise ValueError("frozen artifact changed: " + record["path"])
