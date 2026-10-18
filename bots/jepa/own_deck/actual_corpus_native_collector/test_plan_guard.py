@@ -52,6 +52,24 @@ class GuardTests(unittest.TestCase):
             with self.subTest(stage=stage), self.assertRaisesRegex(ValueError, "collect"):
                 GUARD.run(types.SimpleNamespace(stage=stage))
 
+    def test_sequential_compilers_do_not_accumulate_as_concurrent_memory(self):
+        mib=1024**2;receipt=dict(observed_per_pid_peak_bytes={})
+        first=GUARD.memory_sample(receipt,{1:100*mib,2:600*mib},1,100*mib)
+        second=GUARD.memory_sample(receipt,{1:100*mib,3:600*mib},1,100*mib)
+        self.assertEqual((first,second),(700*mib,700*mib))
+        self.assertGreater(sum(receipt['observed_per_pid_peak_bytes'].values()),GUARD.MAX_BYTES)
+        self.assertLess(second,GUARD.MAX_BYTES)
+        concurrent=GUARD.memory_sample(receipt,{1:100*mib,2:600*mib,3:600*mib},1,100*mib)
+        self.assertEqual(concurrent,1300*mib)
+        self.assertGreater(concurrent,GUARD.MAX_BYTES)
+
+    def test_rusage_supplements_live_peak_without_summing_dead_children(self):
+        mib=1024**2
+        self.assertEqual(GUARD.final_memory_bound(700*mib,120*mib,700*mib),820*mib)
+        self.assertEqual(GUARD.final_memory_bound(900*mib,120*mib,700*mib),900*mib)
+        with self.assertRaises(RuntimeError):
+            GUARD.memory_sample(dict(observed_per_pid_peak_bytes={}),{2:600*mib},1,100*mib)
+
 
 if __name__ == "__main__":
     unittest.main()

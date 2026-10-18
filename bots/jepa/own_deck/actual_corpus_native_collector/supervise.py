@@ -100,6 +100,29 @@ def count_applies(path):
         raise RuntimeError('nonsequential durable apply journal')
     return len(calls)
 
+
+def memory_sample(receipt, readings, supervisor_pid, supervisor_peak):
+    """Peak of concurrent live RSS sums; past PID peaks are metadata only."""
+    if supervisor_pid not in readings or any(type(v) is not int or v < 0 for v in readings.values()):
+        raise RuntimeError('live owned RSS reading unavailable/invalid')
+    for pid, value in readings.items():
+        key = str(pid)
+        receipt['observed_per_pid_peak_bytes'][key] = max(value, receipt['observed_per_pid_peak_bytes'].get(key, 0))
+    key = str(supervisor_pid)
+    receipt['observed_per_pid_peak_bytes'][key] = max(supervisor_peak, receipt['observed_per_pid_peak_bytes'].get(key, 0))
+    live_sum = sum(readings.values())
+    receipt['observed_live_sum_bytes'] = live_sum
+    peak = max(live_sum, receipt.get('observed_peak_live_sum_bytes', 0))
+    receipt['observed_peak_live_sum_bytes'] = peak
+    receipt['observed_conservative_peak_sum_bytes'] = peak
+    return peak
+
+
+def final_memory_bound(peak_live_sum, supervisor_peak, max_single_child_peak):
+    """Rusage supplements sampling; never sum sequential historical child peaks."""
+    return max(peak_live_sum, supervisor_peak + max_single_child_peak)
+
+
 def preflight():
     manifest = json.loads((HERE / 'source-manifest.json').read_text())
     for item in manifest['pinned_execution_inputs']:
@@ -153,6 +176,7 @@ def run(args):
     reserve_applies, reserve_updates = (manifest['collector_max_engine_applies'], 0)
     preview = dict(phase='native', stage=args.stage, commands=commands, source_manifest_sha256=sha(HERE / 'source-manifest.json'), campaign_ledger=str(args.ledger), max_active_seconds=MAX_SECONDS, max_engine_apply_attempts=MAX_APPLIES, max_updates=MAX_UPDATES, reserved_engine_applies=reserve_applies, reserved_updates=reserve_updates, max_sampled_bytes=MAX_BYTES, sample_interval_seconds=INTERVAL, scope='one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals')
     preview['prior_campaign_debits'] = ledger_totals([json.loads(line) for line in args.ledger.read_text().splitlines() if line.strip()]) if args.ledger.exists() else dict(active_seconds=0.0, engine_apply_attempts=0, updates=0)
+    preview['remaining_active_seconds'] = max(0.0, MAX_SECONDS-preview['prior_campaign_debits']['active_seconds'])
     if not args.execute:
         print(json.dumps(preview, indent=2))
         return preview
@@ -179,17 +203,11 @@ def run(args):
                     if exc.errno == 3:
                         continue
                     raise
-            for pid, value in readings.items():
-                key = str(pid)
-                receipt['observed_per_pid_peak_bytes'][key] = max(value, receipt['observed_per_pid_peak_bytes'].get(key, 0))
             parent_peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-            key = str(os.getpid())
-            receipt['observed_per_pid_peak_bytes'][key] = max(parent_peak, receipt['observed_per_pid_peak_bytes'].get(key, 0))
-            conservative = sum(receipt['observed_per_pid_peak_bytes'].values())
-            receipt['observed_conservative_peak_sum_bytes'] = conservative
+            conservative = memory_sample(receipt, readings, os.getpid(), parent_peak)
             receipt['sample_count'] += 1
             if conservative > MAX_BYTES:
-                raise RuntimeError('1GiB sampled owned-process peak sum threshold')
+                raise RuntimeError('1GiB sampled concurrent live owned-process RSS sum threshold')
             if time.monotonic() - ledger.started >= ledger.remaining_seconds:
                 raise RuntimeError('90-second cumulative active wall quota exhausted')
         try:
@@ -234,8 +252,9 @@ def run(args):
             parent_peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
             child_peak = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
             receipt.update(supervisor_maxrss_bytes=parent_peak, children_maxrss_bytes=child_peak)
-            final_bound = max(receipt.get('observed_conservative_peak_sum_bytes', 0), parent_peak + child_peak)
+            final_bound = final_memory_bound(receipt.get('observed_peak_live_sum_bytes', 0), parent_peak, child_peak)
             receipt['observed_conservative_peak_sum_bytes'] = final_bound
+            receipt['memory_accounting'] = 'max(sampled concurrent live owned RSS sum including supervisor, supervisor rusage peak + max single child rusage peak); historical per-PID peaks are metadata only'
             if final_bound > MAX_BYTES:
                 receipt.update(status='failed', error='final owned supervisor/child rusage RSS threshold exceeded')
             try:
@@ -245,7 +264,7 @@ def run(args):
                 receipt['apply_accounting'] = 'malformed interrupted journal; entire reservation charged'
             updates = 0
             ledger.finish(applies, updates, receipt['status'])
-            receipt.update(elapsed_seconds=time.monotonic()-ledger.started, native_applies=applies, optimizer_updates=updates, neural_forwards=0, engine_apply_attempts=applies, completed_or_reserved_updates=updates, prior_campaign_debits=ledger.totals, guard_limitation='Sampled known-owned process-group RSS and rusage peaks; not an instantaneous OS memory reservation. Failed update stages conservatively debit reservation. Unfinished ledger stages forbid resets.')
+            receipt.update(elapsed_seconds=time.monotonic()-ledger.started, native_applies=applies, optimizer_updates=updates, neural_forwards=0, engine_apply_attempts=applies, completed_or_reserved_updates=updates, prior_campaign_debits=ledger.totals, guard_limitation='Live owned-process RSS is sampled; rusage adds supervisor plus maximum single-child peak, not an instantaneous process-tree OS reservation. Historical per-PID peaks are metadata only. Unfinished ledger stages forbid resets.')
             update()
     print(json.dumps({k: receipt[k] for k in ('status', 'attempt_active_seconds', 'engine_apply_attempts', 'completed_or_reserved_updates')}))
     return receipt

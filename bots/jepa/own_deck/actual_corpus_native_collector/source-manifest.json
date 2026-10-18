@@ -1,6 +1,6 @@
 {
   "schema": "actual-corpus-native-collector-source/1",
-  "status": "prepared-not-compiled-not-executed",
+  "status": "prepared-v2-memory-accounting-not-executed",
   "root_go_required": true,
   "source_commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
   "holocron_preparation_commit": "55cc936af17d32dcd32f5e0f1ca0f71e4d508b35",
@@ -52,8 +52,8 @@
     },
     {
       "path": "supervise.py",
-      "sha256": "bfd155d44ac7e9a21ee40e4714bac727697c20b52b9e19012491094afa01b027",
-      "bytes": 14516
+      "sha256": "42c5444bf262b9030908d3095b5616bed72c582b84b311624b2afce4500d560c",
+      "bytes": 15637
     },
     {
       "path": "collection-plan.json",
@@ -62,13 +62,18 @@
     },
     {
       "path": "README.md",
-      "sha256": "a4788b96a3c3902210d23a1a7c0f10aeee9fd0ed876777837ee6b254e1659ffd",
-      "bytes": 5005
+      "sha256": "bcbabf9ee87ceb325bd49de2e932b3d26054d9a05dfdd9563c2ca569b899c4f8",
+      "bytes": 5806
     },
     {
       "path": "test_plan_guard.py",
-      "sha256": "2677778b7580768e92c9bc9e8bfa5d776e2143550f0bffffbce61746305bb433",
-      "bytes": 2997
+      "sha256": "dc67589836aa65721858f49e5b835b2a94534aab64afb7c08054cc030ece3393",
+      "bytes": 4095
+    },
+    {
+      "path": "source-manifest-v1.json",
+      "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
+      "bytes": 28897
     }
   ],
   "pinned_execution_inputs": [
@@ -607,11 +612,31 @@
   "qualification": "8 actual-main-list complete definitions,32 synthetic public play states; source-success and per-head support are checked after actual native collection, no all115/all-state/gameplay claim.",
   "checks": {
     "plan_converter_tests": 5,
-    "guard_tests": 4,
+    "guard_tests": 6,
     "rust_syntax_parsed": true,
     "native_compiles": 0,
     "native_applies": 0,
     "neural_forwards": 0,
     "optimizer_updates": 0
-  }
+  },
+  "guard_version": 2,
+  "memory_accounting": "Maximum sampled concurrent live owned RSS sum plus supervisor; final max with supervisor rusage peak + maximum single-child rusage peak. Historical per-PID peaks are metadata only.",
+  "previous_source_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v1.json",
+    "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
+    "source_commit": "00eae396"
+  },
+  "preserved_failed_attempt": {
+    "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
+    "receipt_sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087",
+    "ledger_prefix_sha256": "54f71f1e2397f2549fdae2e3802b5b932be5bb181d06304d25d2e2aaf6039416",
+    "ledger_prefix_bytes": 1791,
+    "active_seconds": 1.7202060000272468,
+    "native_applies": 0,
+    "remaining_seconds": 88.27979399997275,
+    "remaining_native_applies": 256
+  },
+  "guard_limit_changed": false,
+  "collection_plan_changed": false,
+  "native_rust_changed": false
 }
