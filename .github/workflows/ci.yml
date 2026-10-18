@@ -55,6 +55,7 @@ jobs:
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_compositional_actual_admission*.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_real_ir*.py'
           python3 -m unittest discover -s bots/jepa/own_deck/real_ir_transfer_native_collector -p 'test_*.py'
+          python3 -m unittest discover -s bots/jepa/own_deck/real_ir_hp_projection_native_collector -p 'test_*.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_fixture_guard.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_fixture_evidence.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_next_accounting.py'
