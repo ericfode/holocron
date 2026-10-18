@@ -1,0 +1,313 @@
+{
+  "closed_journal": {
+    "completed_stages": [
+      "audit",
+      "verify"
+    ],
+    "final_chain": "5fc375d20cbe51db653a355f61cfb7df9a693eb7e2cf26cabe02ae200d4504c6",
+    "records": 5
+  },
+  "closure_pin": {
+    "bytes": 2358,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/experiment-closure.json",
+    "sha256": "be0685f8dd898affd5faefc5f6ad3b9c14fff7910be59154d32797c38dbd3118"
+  },
+  "files": [
+    {
+      "bytes": 111252,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/audit-1/admission-report.json"
+      },
+      "raw_bytes": 614946,
+      "raw_sha256": "f0f67e10008762df3900191e246956237ff50d4a21afd16d25ccf2e54c98d219",
+      "sha256": "6bd327448542e63747306cde4b6a9a3167ca554bf7009043b07d2c063c20c6e6",
+      "url": "payload/campaign/audit-1/admission-report.json.gz"
+    },
+    {
+      "bytes": 689,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/audit-1-stage-receipt.json"
+      },
+      "raw_bytes": 1387,
+      "raw_sha256": "bc985bbf461b39b77d8dfff6cad8f964fa3681085c46cec07db5e955abfd0f14",
+      "sha256": "1d30138645ce45aa0a408de7513a112271533ab555c55d421e608a08889899d7",
+      "url": "payload/campaign/audit-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 1237,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/campaign-ledger.jsonl"
+      },
+      "raw_bytes": 5014,
+      "raw_sha256": "23a4ac704a3c95dcf8455594933d103622b898128c26a1882d508d99e58720bb",
+      "sha256": "210cad0080c431691391d13f372840616702cad44afe828dd8e841a2b96f4c6d",
+      "url": "payload/campaign/campaign-ledger.jsonl.gz"
+    },
+    {
+      "bytes": 2169,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/campaign-spec.json"
+      },
+      "raw_bytes": 7030,
+      "raw_sha256": "55a0f1fc58d166116ab5c1bf778f83571f536cabab3a3f244acded68edf131b8",
+      "sha256": "51b9084e48b34e4c87e7bee0f4b3328c1af59741249a9da333a0790a2401f9f3",
+      "url": "payload/campaign/campaign-spec.json.gz"
+    },
+    {
+      "bytes": 1036,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/experiment-closure.json"
+      },
+      "raw_bytes": 2358,
+      "raw_sha256": "be0685f8dd898affd5faefc5f6ad3b9c14fff7910be59154d32797c38dbd3118",
+      "sha256": "fe7e029729dfa216a2a98340dfc78cb5d8f893e8f234d47f1967e2aca18e5064",
+      "url": "payload/campaign/experiment-closure.json.gz"
+    },
+    {
+      "bytes": 42312,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/parent-manifest.json"
+      },
+      "raw_bytes": 176701,
+      "raw_sha256": "c16de13579463bf1c09bc54be470a9846f34ebccd0e655aedb352abe1e46d6ad",
+      "sha256": "1dc4e625d576b957c1424333c951c4a5708a1681e8b2be64ebfac9f40d5dec51",
+      "url": "payload/campaign/parent-manifest.json.gz"
+    },
+    {
+      "bytes": 1507,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/verify-1/verification-result.json"
+      },
+      "raw_bytes": 3461,
+      "raw_sha256": "314b1819969b96d8dc53b02843e8b9d210ca72c051d888570bd6cf92b3a9fe59",
+      "sha256": "88b5a16d2d7dc13563f4677a663c7a694565a9e4a97545bd55b45ea4dcfa4649",
+      "url": "payload/campaign/verify-1/verification-result.json.gz"
+    },
+    {
+      "bytes": 478,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-actual-admission-v1/verify-1-stage-receipt.json"
+      },
+      "raw_bytes": 763,
+      "raw_sha256": "c50097f2beb7f5e1ea1faaaa1096d4af3705399ac4b0ef6b6a86cc3b02e06dd5",
+      "sha256": "296bb0a6933ead178a855ba5cdb010a366b528ea0454bd999f93cb636864f1f3",
+      "url": "payload/campaign/verify-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 1473,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_actual_admission.py"
+      },
+      "raw_bytes": 3831,
+      "raw_sha256": "626926b2730af50eb60b38603290b01836d8b7bde0dfc6cad3eebaa3c857d315",
+      "sha256": "cdabdce2938522c768a359040453b1664f257354e06789f82193c94918ca620f",
+      "url": "payload/sources/compositional_actual_admission.py.gz"
+    },
+    {
+      "bytes": 6373,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_actual_admission_verify.py"
+      },
+      "raw_bytes": 21053,
+      "raw_sha256": "9a18f24d4eea6aaa290fab46339e0211aca374bf54738e1eb451bbc192885a5c",
+      "sha256": "6104a848498b6649b471c9eedaa552b1442148581f1a221e4344adcc7183ef7d",
+      "url": "payload/sources/compositional_actual_admission_verify.py.gz"
+    },
+    {
+      "bytes": 3199,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_actual_admission_campaign.py"
+      },
+      "raw_bytes": 8982,
+      "raw_sha256": "deb9e2d02820e4d8e2e6c06f430cbe402ddca335df590a356f19c96f5b1b3ffd",
+      "sha256": "3e6fef856e781bb246559f6c09c1336acd29ae26e81ff9da83b733cc38f3333f",
+      "url": "payload/sources/compositional_actual_admission_campaign.py.gz"
+    },
+    {
+      "bytes": 1208,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/COMPOSITIONAL_ACTUAL_ADMISSION_PROTOCOL.md"
+      },
+      "raw_bytes": 2281,
+      "raw_sha256": "c07fe33610000ce473f0c6e43bc2c2b7f5ddf5f95a8f85b238f50b5d1d5ae458",
+      "sha256": "cbb4282d50013156abcaa85a482f97a30e9f84b5ec9f5af178e6faacaa854929",
+      "url": "payload/sources/COMPOSITIONAL_ACTUAL_ADMISSION_PROTOCOL.md.gz"
+    },
+    {
+      "bytes": 3640,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_typed_model.py"
+      },
+      "raw_bytes": 10345,
+      "raw_sha256": "15aff57f03efb0720e97d3921a0e060fb7ee901cb3c19f2abc59cebb3c3d8a42",
+      "sha256": "406e1c5f4de8f3b74fd4c9549b2fb9a3fbab8b79ac53963af92ad0a704354797",
+      "url": "payload/sources/compositional_typed_model.py.gz"
+    },
+    {
+      "bytes": 1437958,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json"
+      },
+      "raw_bytes": 12675831,
+      "raw_sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+      "sha256": "a3e854f3726258efc7549520a22621004924325a4742a7e40463477691cc7fe0",
+      "url": "payload/inputs/catalogue/cards.json.gz"
+    },
+    {
+      "bytes": 62138,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json"
+      },
+      "raw_bytes": 725184,
+      "raw_sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+      "sha256": "35d72706dfcaf265ce4fd661dafa621aef95b7b3a408337f40e66382764a2092",
+      "url": "payload/inputs/catalogue/runtime-admission.json.gz"
+    },
+    {
+      "bytes": 15345,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/metadata-1/native-plan.json"
+      },
+      "raw_bytes": 501651,
+      "raw_sha256": "a3fc50997e7cb633597e5ae2913d3c01dee76c5e4bdabda063961c0a1c292d2a",
+      "sha256": "f65d32c23930f1a2187a3c35849fc1b70b7b1319d4f99bfddbee1a549e91e669",
+      "url": "payload/inputs/prior/native-plan.json.gz"
+    },
+    {
+      "bytes": 243087,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/native-1/receipt.json"
+      },
+      "raw_bytes": 16728126,
+      "raw_sha256": "3f71b5ef2eb9f9f443b62c8f1ab2eea5e77348150affc3560e5678b6c34b71ba",
+      "sha256": "cbe9caff7040c00fddf474389f60235091c75f8a69c71078f5bdefb82210d916",
+      "url": "payload/inputs/prior/receipt.json.gz"
+    },
+    {
+      "bytes": 635,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-publication-complete.json"
+      },
+      "raw_bytes": 1167,
+      "raw_sha256": "735485eebf6adc13379fe0bdb08415b6fbf74a8e90aa3d70674fb07f40cfe8f6",
+      "sha256": "640202914caef67ed257ff226f478e1dd763db8e110b4e898ee2aa0dad8ff509",
+      "url": "payload/inputs/compositional-typed-publication-complete.json.gz"
+    },
+    {
+      "bytes": 5034,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_typed_package.py"
+      },
+      "raw_bytes": 15265,
+      "raw_sha256": "bd96392b146b88d048809bce825b0b56ccd540304a1f6cc1f0624c16a67aabfd",
+      "sha256": "e38c4b3bcc19c441750cf766bb0908a4b94bea89fe6c732a9e19066fe1345e24",
+      "url": "payload/sources/compositional_typed_package.py.gz"
+    },
+    {
+      "bytes": 4034,
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_actual_admission_package.py"
+      },
+      "raw_bytes": 11453,
+      "raw_sha256": "e439989624093fffbf1ede4f397b4406131a16aaa73ee5ca085081216f279035",
+      "sha256": "6360cc50b99de5cb315fd21e9a5a0ac474a12a4b5fb5ca64dd4175b854634fb9",
+      "url": "payload/sources/compositional_actual_admission_package.py.gz"
+    },
+    {
+      "bytes": 10515,
+      "encoding": "identity",
+      "raw_bytes": 10515,
+      "raw_sha256": "62a94b2a1be4aa76bc93653434799a4b956d3db92bdd3494613961c2225d6cbf",
+      "sha256": "62a94b2a1be4aa76bc93653434799a4b956d3db92bdd3494613961c2225d6cbf",
+      "url": "index.json"
+    }
+  ],
+  "frozen_copied_inputs": [
+    {
+      "bytes": 3831,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_actual_admission.py",
+      "sha256": "626926b2730af50eb60b38603290b01836d8b7bde0dfc6cad3eebaa3c857d315"
+    },
+    {
+      "bytes": 21053,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_actual_admission_verify.py",
+      "sha256": "9a18f24d4eea6aaa290fab46339e0211aca374bf54738e1eb451bbc192885a5c"
+    },
+    {
+      "bytes": 8982,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_actual_admission_campaign.py",
+      "sha256": "deb9e2d02820e4d8e2e6c06f430cbe402ddca335df590a356f19c96f5b1b3ffd"
+    },
+    {
+      "bytes": 2281,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/COMPOSITIONAL_ACTUAL_ADMISSION_PROTOCOL.md",
+      "sha256": "c07fe33610000ce473f0c6e43bc2c2b7f5ddf5f95a8f85b238f50b5d1d5ae458"
+    },
+    {
+      "bytes": 10345,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_typed_model.py",
+      "sha256": "15aff57f03efb0720e97d3921a0e060fb7ee901cb3c19f2abc59cebb3c3d8a42"
+    },
+    {
+      "bytes": 12675831,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    {
+      "bytes": 725184,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    },
+    {
+      "bytes": 501651,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/metadata-1/native-plan.json",
+      "sha256": "a3fc50997e7cb633597e5ae2913d3c01dee76c5e4bdabda063961c0a1c292d2a"
+    },
+    {
+      "bytes": 16728126,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/native-1/receipt.json",
+      "sha256": "3f71b5ef2eb9f9f443b62c8f1ab2eea5e77348150affc3560e5678b6c34b71ba"
+    },
+    {
+      "bytes": 1167,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-publication-complete.json",
+      "sha256": "735485eebf6adc13379fe0bdb08415b6fbf74a8e90aa3d70674fb07f40cfe8f6"
+    }
+  ],
+  "limits": {
+    "file_bytes": 67108864,
+    "files": 100,
+    "manifest_bytes": 4194304,
+    "total_raw_bytes": 134217728,
+    "total_stored_bytes": 134217728
+  },
+  "prior_packet_manifest": {
+    "bytes": 56892,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional-typed-evidence/manifest.json",
+    "sha256": "70536441fce9f4cd1a3b59dd1781548a0a023adf96996d7f43e260298e9065a6"
+  },
+  "schema": "jepa-compositional-actual-admission-evidence/1",
+  "scope": "Byte-only admission-audit archive; no parser/model/native/evaluation rerun. Historical parent pins remain opaque provenance.",
+  "semantic_validated": false,
+  "source_freeze_commit": "3914582462ecea3368ef6a60f74f08424dfb288b"
+}

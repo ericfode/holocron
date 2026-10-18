@@ -52,6 +52,7 @@ jobs:
       - name: Fixture validation and evidence contracts
         run: |
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_compositional_typed*.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_compositional_actual_admission*.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_fixture_guard.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_fixture_evidence.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_next_accounting.py'
