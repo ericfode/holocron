@@ -55,6 +55,8 @@ jobs:
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_fixture_evidence.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_next_accounting.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_v2.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_repair_accounting.py'
+          python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_repair.py'
           python3 -m unittest discover -s bots/jepa/own_deck -p 'test_binding_transfer_failure_publication.py'
           python3 -m unittest discover -s bots/jepa/own_deck/binding_transfer_native_collector -p 'test_guard.py'
           python3 -m unittest discover -s bots/jepa/own_deck/binding_transfer_native_collector -p 'test_fixture_validation.py'
