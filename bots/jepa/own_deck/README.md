@@ -2,9 +2,11 @@
 
 This isolated increment makes the actor's original deck available to the JEPA
 transformer through two dedicated context tokens. It adds encoding, model and
-export contracts; it does not provide trained deck-aware weights or evidence
-of improved play. The existing competitive bundle and checkpoint bytes remain
-the frozen reference. Recovered research provenance is in [PROVENANCE.md](PROVENANCE.md).
+export contracts. A later authorized small auxiliary fit completed 300 updates;
+its separate supplements improve composition readout on a tiny holdout, with
+no evidence of improved play. The checked-in initialization, existing competitive
+bundle and original checkpoint bytes remain frozen. See [measured results](LOCAL_RESULTS.md),
+the [baseline audit](AUDIT.md), and [recovered provenance](PROVENANCE.md).
 
 ## Information contract
 
@@ -61,7 +63,8 @@ Count and identity totals use the same 60-card normalization. The 157 identity
 bins aggregate through the existing shared 16-dimensional embedding tables;
 concatenating that result with the 50 metadata numbers gives 66 inputs to the
 new width-64 projection. Two learned role embeddings distinguish original and
-remaining. The projection and role parameters are new and untrained.
+remaining. Their checked-in initialization is an untrained engineering fixture;
+separately saved auxiliary-fit weights are described in the results.
 Metadata fractions and means use all accepted copy counts as their denominator;
 unknown metadata contributes zero to those numerators and is separately
 reported by unknown count and coverage. A valid explicit empty original list
@@ -142,7 +145,8 @@ this new field. `own_deck_model.run_torch` is an import-safe differentiable
 forward callable accepting `own_deck` with shape `[B,2,207]`; its returned
 state/action latents and `value_torch` support a separately reviewed objective.
 Passing the packed field into that callable must be explicit. No broader
-trainer or real-data fit was launched here.
+trainer is wired. The separately reviewed [local runner](LIVE_EXPERIMENTS.md)
+explicitly consumes the differentiable forward for declaration readouts only.
 
 ## Matched experiment design
 
@@ -180,8 +184,9 @@ Draw/search uncertainty also requires a declared conditional-future target
 semantics: a belief summary or stochastic/distribution-aware latent objective,
 not a claim that a deterministic predictor knows the future drawn card.
 
-The [compute proposal](COMPUTE_PROPOSAL.md) gives the concrete unlaunched fit and
-paired-game ceilings. No real-data allocation is spent by this increment.
+The [compute proposal](COMPUTE_PROPOSAL.md) gives the concrete unlaunched
+action/decision fit and paired-game ceilings. The later 300-update local
+declaration fit has its own [allocation and receipts](LOCAL_RESULTS.md).
 Before a training or game pilot, pin the exact data/holdout manifests, seeds,
 step/transition budgets, wall and memory limits, one-worker supervision,
 checkpoint selection and stop conditions. Later paired games must share deck,

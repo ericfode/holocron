@@ -1,5 +1,10 @@
 # Bounded implementation verification
 
+These receipts describe the original wiring increment. The subsequently
+authorized 300-update declaration-readout fit is reported separately in
+[LOCAL_RESULTS.md](LOCAL_RESULTS.md), including a preserved memory-accounting
+correction. It supplies no action/transition or playing-strength result.
+
 The original-deck context reaches action prediction and simulated-leaf value
 scoring through the Python actor and the Rust/WASM controller. Both dedicated
 rows have independent capacity alongside all 24 existing live-card slots.
