@@ -139,9 +139,15 @@ def inventory(experiments,reports,dependency,lineage_review,validation_receipt=N
         h,s,parent,pr=history(root,disposition);histories[name]=h;specs.append(s);parents.append(parent);proofs+=pr
         P.require(h['source_freeze_commit']==COMMITS[name],'declared historical freeze commit differs')
         if disposition=='unstarted':P.require(not(root/'campaign-ledger.jsonl').exists(),'unstarted ledger must remain absent')
+        canonical={root/n for n in('campaign-spec.json','parent-manifest.json','campaign-ledger.jsonl',
+            'experiment-closure.json','prelaunch-closure.json')}
+        if name=='real-ir-transfer-v1':canonical.add(root/'metadata-1/native-plan.json')
+        outputs=[Path(o)for stage in s['stages'].values()for o in stage['outputs']]
+        P.require(all(p.is_absolute()and p.is_relative_to(root)and p.resolve()==p for p in outputs),'canonical in-root declared outputs required')
         for path in sorted(root.rglob('*')):
             P.require(not path.is_symlink(),'campaign symlink forbidden')
             if not path.is_file():continue
+            P.require(path in canonical or any(path==p or path.is_relative_to(p)for p in outputs),'unreviewed campaign path outside metadata/declared stage outputs')
             relative=path.relative_to(root).as_posix()
             if relative==BINARY:
                 excluded.append(dict(campaign=name,relative_path=relative,reason='compiled binary excluded; byte pin retained',

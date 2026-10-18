@@ -19,7 +19,8 @@ def write(path,value):path.write_bytes(R.P.encode(value))
 def campaign(root,mode,carry):
     root.mkdir();parent=root/'parent-manifest.json';write(parent,dict(carry=carry))
     stages=['build','native','prep','fit','verify']if root.name==R.NAMES[3]else['coverage','verify']
-    stage={n:dict(argv=['/fixed-python',n],guard={},reservation=dict(seconds=10.,**ZERO),expected=ZERO,external_counters=[])for n in stages}
+    stage={n:dict(argv=['/fixed-python',n],guard={},outputs=[str(root/(n+'-1')),str(root/(n+'-1-stage-receipt.json'))],
+        reservation=dict(seconds=10.,**ZERO),expected=ZERO,external_counters=[])for n in stages}
     spec=dict(schema='jepa-sealed-budget-spec/1',source_freeze_commit=R.COMMITS[root.name],
         ledger_path=str(root/'campaign-ledger.jsonl'),parent_manifest=R.pin(parent),stage_order=stages,
         stages=stage,guard={},caps=dict(seconds=10.*len(stages),**ZERO),pins=[])
@@ -73,9 +74,9 @@ class PackageTest(unittest.TestCase):
         self.assertIsNone(plan['histories'][R.NAMES[3]]['cumulative']['observed_native_applies'])
 
     def test_exact_bytes_opaque_npz_and_offline_originals_absent(self):
-        blob=b'opaque-not-numerically-loaded\x00\x01';(self.exp/R.NAMES[3]/'array.npz').write_bytes(blob)
+        blob=b'opaque-not-numerically-loaded\x00\x01';stage=self.exp/R.NAMES[3]/'fit-1';stage.mkdir();(stage/'array.npz').write_bytes(blob)
         result=R.build(**self.args());self.assertEqual(result['scientific_calls'],0)
-        self.assertEqual((self.out/'payload/campaigns'/R.NAMES[3]/'array.npz').read_bytes(),blob)
+        self.assertEqual((self.out/'payload/campaigns'/R.NAMES[3]/'fit-1/array.npz').read_bytes(),blob)
         shutil.rmtree(self.exp);self.dep.unlink()
         self.assertEqual(R.verify(self.out,result['manifest_sha256']),result)
 
@@ -108,6 +109,12 @@ class PackageTest(unittest.TestCase):
     def test_symlink_payload_fails_closed(self):
         (self.exp/R.NAMES[3]/'alias.json').symlink_to(self.dep)
         with self.assertRaisesRegex(ValueError,'symlink'):R.prepare(**self.args())
+
+    def test_unrelated_json_or_directory_payload_is_not_silently_packaged(self):
+        for relative in('unrelated.json','misc/unrelated.md'):
+            path=self.exp/R.NAMES[3]/relative;path.parent.mkdir(exist_ok=True);path.write_bytes(b'not declared research output')
+            with self.assertRaisesRegex(ValueError,'unreviewed campaign path'):R.prepare(**self.args())
+            path.unlink()
 
 
 if __name__=='__main__':unittest.main()
