@@ -43,3 +43,15 @@ Before each launch, the parent should record the reservation, source/data/checkp
 Read-only account checks confirmed Modal CLI **1.4.3**, active profile/workspace **ericfode**, and a working billing-report API. Configuration existence/stat was inspected without printing credentials. The installed CLI supports `modal billing report --for today --resolution h --json`; it does not expose newer documentation's `billing summary`, `billing rates` or `--show-resources` commands. No CLI upgrade, credentials, Apps, jobs or storage were created. Unrelated workspace billing rows were withheld.
 
 For realized cost, retain the reservation until billing data has arrived. Query complete hourly intervals with `modal billing report`, filter to the recorded App ID (and experiment tags where supported), and reconcile compute/build/egress costs with the Usage & Billing dashboard. Reports show gross amounts before credits, reservations and egress allowances; data usually arrives within minutes but may be delayed. Use live dashboard estimates while waiting, and do not interpret an absent early row as zero spend. Record estimated and reported costs separately. [Billing reports and lag](https://modal.com/docs/guide/billing), [network usage reporting](https://modal.com/docs/guide/network-egress-billing).
+
+Local research update, **2026-10-18 UTC**: the twelve-program grounded contrast
+completed 932 native applies and 2,400 updates under one shared local quota.
+The canonical ledger charges 39.715139750042 active seconds across all attempts;
+the sum of guard-receipt elapsed times is 39.715672084014 seconds. Both timing
+scopes are retained. Campaign conservative peak RSS was 595,574,784 bytes.
+Separate static geometry and saved-head/vector exports also stayed local.
+No Modal App, job, build, storage or paid reservation was created for these
+experiments. New paid allocation and recorded batch spend remain **$0**; the
+parent's $100 cumulative cap and $25 margin remain in force. See
+[the registry](EXPERIMENT_REGISTRY.jsonl) and
+[actual receipts](grounded-contrast-evidence/index.json).

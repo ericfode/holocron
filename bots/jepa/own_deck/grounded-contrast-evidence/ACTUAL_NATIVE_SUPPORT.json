@@ -1,0 +1,401 @@
+{
+  "schema": "grounded-contrast-actual-native-audit/1",
+  "status": "PASS_DATA_INTEGRITY_WITH_SUPPORT_LIMITS",
+  "fit_data_integrity_clearance": true,
+  "source_commit": "fb8853c8a52d0ceed4d7c4221fbef008ccd2e747",
+  "artifacts": {
+    "npz": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.npz",
+      "sha256": "83a0ec4125e3d97b54ebd910925558bed0c18b779b706417991a650da1dfed52"
+    },
+    "manifest": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.manifest.json",
+      "sha256": "c0206e0638a995b8237574cb11a697c35a0711d9a9f5dd9741314431bd4aea20"
+    },
+    "receipt": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/attempt-2/native-receipt.json",
+      "sha256": "7a15d2c629afc47c9bda5688009e0a937aab58d3bade766e52939c4537921028"
+    },
+    "supervisor": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/attempt-2/supervisor-receipt.json",
+      "sha256": "5263cb53998dd56a0b43fc6e80ad9abfc74c11810312d15ec2933463663d4493"
+    },
+    "journal": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/attempt-2/native-transitions.jsonl",
+      "sha256": "792e118c75735d4542e7e4d69c241b61e78706797ee69f54444a5c595829e8fa"
+    }
+  },
+  "checks": {
+    "checks_passed": 18429,
+    "all_passed": true
+  },
+  "native": {
+    "source_true": 146,
+    "actual_prompts": 139,
+    "queries": 1344,
+    "errors": 0,
+    "after": 413,
+    "settled_after": 413
+  },
+  "pending_cases": [],
+  "journal_phases": {
+    "header": 1,
+    "beforeApply": 932,
+    "afterApply": 932,
+    "contextComplete": 168
+  },
+  "native_elapsed_seconds": 23.197107083,
+  "supervised_build_and_collection_active_seconds": 33.478974667028524,
+  "sampled_conservative_peak_bytes": 595574784,
+  "primary_support": {
+    "train": {
+      "roots": 100,
+      "source_true": 86,
+      "source_known": 100,
+      "candidate_allowed_known": 595,
+      "candidate_allowed_true": 243,
+      "heads": {
+        "cost_resource": {
+          "known": 243,
+          "values": [
+            0.0,
+            1.0,
+            2.0
+          ]
+        },
+        "damage_delta": {
+          "known": 237,
+          "values": [
+            -2.0,
+            -1.0,
+            0.0,
+            1.0,
+            2.0,
+            3.0
+          ]
+        },
+        "source_exhausted_after": {
+          "known": 243,
+          "values": [
+            1.0
+          ]
+        },
+        "target_exhausted_delta": {
+          "known": 237,
+          "values": [
+            -1.0,
+            0.0,
+            1.0
+          ]
+        },
+        "shield_delta": {
+          "known": 237,
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        "xp_delta": {
+          "known": 237,
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        "target_defeated": {
+          "known": 243,
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        "followup_source_offered": {
+          "known": 85,
+          "values": [
+            0.0
+          ]
+        },
+        "terminal": {
+          "known": 243,
+          "values": [
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "program-held": {
+      "roots": 20,
+      "source_true": 17,
+      "source_known": 20,
+      "candidate_allowed_known": 91,
+      "candidate_allowed_true": 41,
+      "heads": {
+        "cost_resource": {
+          "known": 41,
+          "values": [
+            0.0,
+            2.0
+          ]
+        },
+        "damage_delta": {
+          "known": 41,
+          "values": [
+            0.0,
+            1.0,
+            2.0
+          ]
+        },
+        "source_exhausted_after": {
+          "known": 41,
+          "values": [
+            1.0
+          ]
+        },
+        "target_exhausted_delta": {
+          "known": 41,
+          "values": [
+            -1.0,
+            0.0
+          ]
+        },
+        "shield_delta": {
+          "known": 41,
+          "values": [
+            0.0
+          ]
+        },
+        "xp_delta": {
+          "known": 41,
+          "values": [
+            0.0
+          ]
+        },
+        "target_defeated": {
+          "known": 41,
+          "values": [
+            0.0
+          ]
+        },
+        "followup_source_offered": {
+          "known": 13,
+          "values": [
+            0.0
+          ]
+        },
+        "terminal": {
+          "known": 41,
+          "values": [
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "state-held": {
+      "roots": 40,
+      "source_true": 36,
+      "source_known": 40,
+      "candidate_allowed_known": 252,
+      "candidate_allowed_true": 103,
+      "heads": {
+        "cost_resource": {
+          "known": 103,
+          "values": [
+            0.0,
+            1.0,
+            2.0
+          ]
+        },
+        "damage_delta": {
+          "known": 98,
+          "values": [
+            -2.0,
+            0.0,
+            1.0,
+            2.0,
+            3.0
+          ]
+        },
+        "source_exhausted_after": {
+          "known": 103,
+          "values": [
+            1.0
+          ]
+        },
+        "target_exhausted_delta": {
+          "known": 98,
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        "shield_delta": {
+          "known": 98,
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        "xp_delta": {
+          "known": 98,
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        "target_defeated": {
+          "known": 103,
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        "followup_source_offered": {
+          "known": 36,
+          "values": [
+            0.0
+          ]
+        },
+        "terminal": {
+          "known": 103,
+          "values": [
+            0.0
+          ]
+        }
+      }
+    },
+    "joint-held": {
+      "roots": 8,
+      "source_true": 7,
+      "source_known": 8,
+      "candidate_allowed_known": 35,
+      "candidate_allowed_true": 16,
+      "heads": {
+        "cost_resource": {
+          "known": 16,
+          "values": [
+            0.0,
+            2.0
+          ]
+        },
+        "damage_delta": {
+          "known": 16,
+          "values": [
+            0.0,
+            2.0
+          ]
+        },
+        "source_exhausted_after": {
+          "known": 16,
+          "values": [
+            1.0
+          ]
+        },
+        "target_exhausted_delta": {
+          "known": 16,
+          "values": [
+            -1.0,
+            0.0
+          ]
+        },
+        "shield_delta": {
+          "known": 16,
+          "values": [
+            0.0
+          ]
+        },
+        "xp_delta": {
+          "known": 16,
+          "values": [
+            0.0
+          ]
+        },
+        "target_defeated": {
+          "known": 16,
+          "values": [
+            0.0
+          ]
+        },
+        "followup_source_offered": {
+          "known": 5,
+          "values": [
+            0.0
+          ]
+        },
+        "terminal": {
+          "known": 16,
+          "values": [
+            0.0,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "matched_primary_native_contrasts": {
+    "all_programs": {
+      "seen_states": {
+        "candidate_allowed": 61,
+        "cost_resource": 53,
+        "damage_delta": 61,
+        "source_exhausted_after": 0,
+        "target_exhausted_delta": 22,
+        "shield_delta": 8,
+        "xp_delta": 27,
+        "target_defeated": 3,
+        "followup_source_offered": 0,
+        "terminal": 1
+      },
+      "held_states": {
+        "candidate_allowed": 26,
+        "cost_resource": 21,
+        "damage_delta": 26,
+        "source_exhausted_after": 0,
+        "target_exhausted_delta": 10,
+        "shield_delta": 3,
+        "xp_delta": 12,
+        "target_defeated": 2,
+        "followup_source_offered": 0,
+        "terminal": 1
+      }
+    },
+    "held_programs_only": {
+      "seen_states": {
+        "candidate_allowed": 35,
+        "cost_resource": 0,
+        "damage_delta": 0,
+        "source_exhausted_after": 0,
+        "target_exhausted_delta": 0,
+        "shield_delta": 0,
+        "xp_delta": 0,
+        "target_defeated": 0,
+        "followup_source_offered": 0,
+        "terminal": 0
+      },
+      "held_states": {
+        "candidate_allowed": 14,
+        "cost_resource": 0,
+        "damage_delta": 0,
+        "source_exhausted_after": 0,
+        "target_exhausted_delta": 0,
+        "shield_delta": 0,
+        "xp_delta": 0,
+        "target_defeated": 0,
+        "followup_source_offered": 0,
+        "terminal": 0
+      }
+    }
+  },
+  "limitations": [
+    "Only8 joint-held roots across2 program identities and4 world-state families; candidate branches are correlated within roots.",
+    "Joint-held Shield/Experience/defeat are constant0, source_exhausted_after constant1; these cannot establish nontrivial held-program semantics.",
+    "Follow-up source-offered observations contain only0; presence remains unknown when it could mean attack.",
+    "Two held programs select disjoint base/unit target domains; native committed-delta overlap between these two alone is absent. Cross-program paired outcome contrasts also include seen programs, while availability has held-program paired contrast.",
+    "No model/native execution occurred in this audit. No strength, actual-deck synergy or semantic-neighbor claim follows from dataset admission."
+  ],
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "native_applies_by_audit": 0,
+  "paid_jobs_by_audit": 0
+}

@@ -1,0 +1,1523 @@
+{
+  "schema": "jepa-grounded-contrast-program-split/1",
+  "status": "program-identities-frozen-statebank-pending",
+  "train_codes": [
+    "SOR_011",
+    "ASH_011",
+    "IBH_053",
+    "IBH_016",
+    "LOF_134",
+    "TWI_056",
+    "SHD_196",
+    "SOR_094",
+    "LOF_004",
+    "SOR_007"
+  ],
+  "heldout_codes": [
+    "TWI_157",
+    "HMW_170"
+  ],
+  "train_program_group_ids": [
+    "1a2182861cecc84e68f37f0464c823990df87e9193104dfe5558b1c65d1c568b",
+    "1fe4bee2c38b989bc84c8468459fdb74981c8dd80e3a70ff5c4007156a7a916c",
+    "2d1885f88ab1aac00a1364ccffdc9f8de5efb43703d3728b1bf5680a7ef618ca",
+    "34d8733d4c5dc09366821c448d52eeb5d2864e56479b8b2c0ed93e448cb44e10",
+    "4133971a4a928c7e34a0afe39da643fc280f1ff8e6092beeb6f276b5ecb8b5a9",
+    "452555893afcab7f999ac42b4df3caf8273cf7ea7624dcf8bc336e4d66bfe269",
+    "c0598dbb771a89f18ccb9887d9f7e122ab574c8c5cdd678c07edea060f83f22d",
+    "d9f181f5603e6dafa319a91a2e07812dd9955cbb8ca7de923465e8603ee3270b",
+    "e0e2113c939ecc6896bd4f38b9ac5207eac49e13288b3d2e7d6a892737f5c5ad",
+    "e2b2bde9fecf5c903127ce060956167e8d9c8dedad41165ded36baea490e3de3"
+  ],
+  "heldout_program_group_ids": [
+    "066dbff7133bd08e5e41b8b2d04fb3a8d3b4650f3079506dbd1edbeba547cad1",
+    "9189da0766ef06741ea6cdbb327505d6557bf735c7b2a6bed6bc0753ebe05e35"
+  ],
+  "identity_overlap": 0,
+  "normalized_program_overlap": 0,
+  "reprint_alias_overlap": 0,
+  "constituent_coverage": {
+    "TWI_157": {
+      "all_global_typed_atoms_seen": true,
+      "unseen_global_typed_atoms": [],
+      "novel_positioned_atoms": [
+        {
+          "path": "/costs/0/amount/value",
+          "value_type": "int",
+          "value": 2
+        },
+        {
+          "path": "/targetResolver/type",
+          "value_type": "str",
+          "value": "base"
+        }
+      ],
+      "interpretation": "Global primitive/value familiarity is distinct from an unseen full program or new path/value composition; no learned generalization is inferred from this table."
+    },
+    "HMW_170": {
+      "all_global_typed_atoms_seen": true,
+      "unseen_global_typed_atoms": [],
+      "novel_positioned_atoms": [
+        {
+          "path": "/effect/kind",
+          "value_type": "str",
+          "value": "ready"
+        }
+      ],
+      "interpretation": "Global primitive/value familiarity is distinct from an unseen full program or new path/value composition; no learned generalization is inferred from this table."
+    }
+  },
+  "programs": [
+    {
+      "code": "ASH_011",
+      "side": "leader",
+      "index": 0,
+      "source_hash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+      "source_path": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+      "program_group_id": "c0598dbb771a89f18ccb9887d9f7e122ab574c8c5cdd678c07edea060f83f22d",
+      "canonical_card_id": "5648009238",
+      "aliases": [
+        "ASH_011"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 1 damage to a unit with 2 or more remaining HP",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "unit",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "&&",
+            "left": {
+              "kind": "query",
+              "name": "isUnit",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": []
+            },
+            "right": {
+              "kind": "binary",
+              "op": ">=",
+              "left": {
+                "kind": "ref",
+                "path": [
+                  "card",
+                  "remainingHp"
+                ]
+              },
+              "right": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          }
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "leader"
+        ],
+        "arena": "ground",
+        "cost": 6,
+        "power": 4,
+        "hp": 7,
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "traits": [
+          "underworld",
+          "bounty hunter"
+        ],
+        "keywords": [
+          "overwhelm"
+        ]
+      },
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      },
+      "dependencies": {
+        "node_kinds": [
+          "binary",
+          "const",
+          "damage",
+          "exhaustSelf",
+          "query",
+          "ref"
+        ],
+        "query_names": [
+          "isUnit"
+        ],
+        "reference_paths": [
+          [
+            "card"
+          ],
+          [
+            "card",
+            "remainingHp"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "damage"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/right/left",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right/right",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "1",
+          "2"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "train"
+    },
+    {
+      "code": "HMW_170",
+      "side": "card",
+      "index": 0,
+      "source_hash": "d5bd6e5b323faf28870573147423e0a55007f3d6efefa140b3ed6880964acfdd",
+      "source_path": "game/cards/09_HMW/units/HanSoloMyTeamsReady.ts",
+      "program_group_id": "9189da0766ef06741ea6cdbb327505d6557bf735c7b2a6bed6bc0753ebe05e35",
+      "canonical_card_id": "2192872798",
+      "aliases": [
+        "HMW_170"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Ready another unit",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "unit",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "!==",
+            "left": {
+              "kind": "ref",
+              "path": [
+                "card"
+              ]
+            },
+            "right": {
+              "kind": "ref",
+              "path": [
+                "source"
+              ]
+            }
+          }
+        },
+        "effect": {
+          "kind": "ready",
+          "target": "chosen"
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "ground",
+        "cost": 5,
+        "power": 4,
+        "hp": 7,
+        "aspects": [
+          "aggression",
+          "heroism"
+        ],
+        "traits": [
+          "rebel",
+          "official"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "binary",
+          "exhaustSelf",
+          "ready",
+          "ref"
+        ],
+        "query_names": [],
+        "reference_paths": [
+          [
+            "card"
+          ],
+          [
+            "source"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "ready"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/left",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right",
+            "kind": "ref"
+          }
+        ],
+        "literal_values": [],
+        "required_native_tokens": []
+      },
+      "partition": "heldout"
+    },
+    {
+      "code": "IBH_016",
+      "side": "card",
+      "index": 0,
+      "source_hash": "33bcd7885f19721a067493066a156ef0784095e22cc54002f7a695256f7f82ff",
+      "source_path": "game/cards/06_IBH/units/IonCannon.ts",
+      "program_group_id": "2d1885f88ab1aac00a1364ccffdc9f8de5efb43703d3728b1bf5680a7ef618ca",
+      "canonical_card_id": "9782761594",
+      "aliases": [
+        "IBH_016",
+        "IBH_027"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 3 damage to a space unit",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "arena",
+          "arena": "space"
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 3
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "ground",
+        "cost": 4,
+        "power": 0,
+        "hp": 5,
+        "aspects": [
+          "cunning"
+        ],
+        "traits": [
+          "weapon"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "const",
+          "damage",
+          "exhaustSelf"
+        ],
+        "query_names": [],
+        "reference_paths": [],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "damage"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "3"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "train"
+    },
+    {
+      "code": "IBH_053",
+      "side": "leader",
+      "index": 0,
+      "source_hash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+      "source_path": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+      "program_group_id": "1a2182861cecc84e68f37f0464c823990df87e9193104dfe5558b1c65d1c568b",
+      "canonical_card_id": "9389694773",
+      "aliases": [
+        "IBH_053"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 1 damage to a base",
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "base"
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "leader"
+        ],
+        "arena": "ground",
+        "cost": 6,
+        "power": 3,
+        "hp": 8,
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "traits": [
+          "force",
+          "imperial",
+          "sith"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      },
+      "dependencies": {
+        "node_kinds": [
+          "const",
+          "damage",
+          "exhaustSelf",
+          "resources"
+        ],
+        "query_names": [],
+        "reference_paths": [],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "resources"
+          },
+          {
+            "path": "/costs/0/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/costs/1",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "damage"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "1"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "train"
+    },
+    {
+      "code": "LOF_004",
+      "side": "leader",
+      "index": 0,
+      "source_hash": "0d6e49be8a7dcd1e65e07a8d605d1840490e8818df83eeb30a0e6ff473c35b40",
+      "source_path": "game/cards/05_LOF/leaders/KananJarrusHelpUsSurvive.ts",
+      "program_group_id": "452555893afcab7f999ac42b4df3caf8273cf7ea7624dcf8bc336e4d66bfe269",
+      "canonical_card_id": "8304104587",
+      "aliases": [
+        "LOF_004"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Give a Shield token to a Creature or Spectre unit.",
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "&&",
+            "left": {
+              "kind": "query",
+              "name": "isUnit",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": []
+            },
+            "right": {
+              "kind": "query",
+              "name": "hasSomeTrait",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": [
+                {
+                  "kind": "array",
+                  "items": [
+                    {
+                      "kind": "const",
+                      "value": "creature"
+                    },
+                    {
+                      "kind": "const",
+                      "value": "spectre"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "effect": {
+          "kind": "giveShield",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "leader"
+        ],
+        "arena": "ground",
+        "cost": 6,
+        "power": 3,
+        "hp": 6,
+        "aspects": [
+          "vigilance",
+          "heroism"
+        ],
+        "traits": [
+          "force",
+          "jedi",
+          "rebel",
+          "spectre"
+        ],
+        "keywords": [
+          "shielded"
+        ]
+      },
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      },
+      "dependencies": {
+        "node_kinds": [
+          "array",
+          "binary",
+          "const",
+          "exhaustSelf",
+          "giveShield",
+          "query",
+          "ref",
+          "resources"
+        ],
+        "query_names": [
+          "hasSomeTrait",
+          "isUnit"
+        ],
+        "reference_paths": [
+          [
+            "card"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "resources"
+          },
+          {
+            "path": "/costs/0/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/costs/1",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "giveShield"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/right/args/0",
+            "kind": "array"
+          },
+          {
+            "path": "/targetResolver/predicate/right/args/0/items/0",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate/right/args/0/items/1",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate/right/receiver",
+            "kind": "ref"
+          }
+        ],
+        "literal_values": [
+          "\"creature\"",
+          "\"spectre\"",
+          "1"
+        ],
+        "required_native_tokens": [
+          "TOKEN_SHIELD"
+        ]
+      },
+      "partition": "train"
+    },
+    {
+      "code": "LOF_134",
+      "side": "card",
+      "index": 0,
+      "source_hash": "ab2b16abfa26887a3cd8ed8eddae001d64933372f51072933444a6c249b5f382",
+      "source_path": "game/cards/05_LOF/units/HeavyMissileGunship.ts",
+      "program_group_id": "4133971a4a928c7e34a0afe39da643fc280f1ff8e6092beeb6f276b5ecb8b5a9",
+      "canonical_card_id": "3433996932",
+      "aliases": [
+        "LOF_134"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 2 damage to a ground unit",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "unit",
+          "zone": "arena",
+          "arena": "ground"
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 2
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "space",
+        "cost": 4,
+        "power": 4,
+        "hp": 3,
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "traits": [
+          "separatist",
+          "droid",
+          "vehicle",
+          "transport"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "const",
+          "damage",
+          "exhaustSelf"
+        ],
+        "query_names": [],
+        "reference_paths": [],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "damage"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "2"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "train"
+    },
+    {
+      "code": "SHD_196",
+      "side": "card",
+      "index": 0,
+      "source_hash": "31fcd7240824adb5184fb0824131bf0f7d7269985f9e1b2a31d3605454a45ba9",
+      "source_path": "game/cards/02_SHD/units/GroguIrresistible.ts",
+      "program_group_id": "e2b2bde9fecf5c903127ce060956167e8d9c8dedad41165ded36baea490e3de3",
+      "canonical_card_id": "6536128825",
+      "aliases": [
+        "SHD_196"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Exhaust an enemy unit",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "opponent",
+          "type": "any",
+          "zone": "arena"
+        },
+        "effect": {
+          "kind": "exhaust",
+          "target": "chosen"
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "ground",
+        "cost": 2,
+        "power": 0,
+        "hp": 5,
+        "aspects": [
+          "cunning",
+          "heroism"
+        ],
+        "traits": [
+          "force"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "exhaust",
+          "exhaustSelf"
+        ],
+        "query_names": [],
+        "reference_paths": [],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "exhaust"
+          }
+        ],
+        "literal_values": [],
+        "required_native_tokens": []
+      },
+      "partition": "train"
+    },
+    {
+      "code": "SOR_007",
+      "side": "leader",
+      "index": 0,
+      "source_hash": "75a56c7d1df79764341d9f2b2b92d6774cbc45b12a66c37fbabf57acfe43c739",
+      "source_path": "game/cards/01_SOR/leaders/GrandMoffTarkinOversectorGovernor.ts",
+      "program_group_id": "d9f181f5603e6dafa319a91a2e07812dd9955cbb8ca7de923465e8603ee3270b",
+      "canonical_card_id": "2912358777",
+      "aliases": [
+        "SOR_007"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Give an experience token to an Imperial unit",
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "query",
+            "name": "hasSomeTrait",
+            "receiver": {
+              "kind": "ref",
+              "path": [
+                "card"
+              ]
+            },
+            "args": [
+              {
+                "kind": "const",
+                "value": "imperial"
+              }
+            ]
+          }
+        },
+        "effect": {
+          "kind": "giveExperience",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "leader"
+        ],
+        "arena": "ground",
+        "cost": 5,
+        "power": 2,
+        "hp": 7,
+        "aspects": [
+          "villainy",
+          "command"
+        ],
+        "traits": [
+          "imperial",
+          "official"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      },
+      "dependencies": {
+        "node_kinds": [
+          "const",
+          "exhaustSelf",
+          "giveExperience",
+          "query",
+          "ref",
+          "resources"
+        ],
+        "query_names": [
+          "hasSomeTrait"
+        ],
+        "reference_paths": [
+          [
+            "card"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "resources"
+          },
+          {
+            "path": "/costs/0/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/costs/1",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "giveExperience"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/args/0",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate/receiver",
+            "kind": "ref"
+          }
+        ],
+        "literal_values": [
+          "\"imperial\"",
+          "1"
+        ],
+        "required_native_tokens": [
+          "TOKEN_EXPERIENCE"
+        ]
+      },
+      "partition": "train"
+    },
+    {
+      "code": "SOR_011",
+      "side": "leader",
+      "index": 0,
+      "source_hash": "e7898752992e8ddcd5f5f83dbeb1e4d32e9b30933162ba380dc0f817bfc61bee",
+      "source_path": "game/cards/01_SOR/leaders/GrandInquisitorHuntingTheJedi.ts",
+      "program_group_id": "34d8733d4c5dc09366821c448d52eeb5d2864e56479b8b2c0ed93e448cb44e10",
+      "canonical_card_id": "7911083239",
+      "aliases": [
+        "SOR_011"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 2 damage to a friendly unit with 3 or less power and ready it",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "self",
+          "type": "unit",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "&&",
+            "left": {
+              "kind": "query",
+              "name": "isUnit",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": []
+            },
+            "right": {
+              "kind": "binary",
+              "op": "<=",
+              "left": {
+                "kind": "query",
+                "name": "getPower",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "args": []
+              },
+              "right": {
+                "kind": "const",
+                "value": 3
+              }
+            }
+          }
+        },
+        "effect": {
+          "kind": "sequence",
+          "effects": [
+            {
+              "kind": "damage",
+              "target": "chosen",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            },
+            {
+              "kind": "ready",
+              "target": "chosen"
+            }
+          ]
+        }
+      },
+      "printed": {
+        "types": [
+          "leader"
+        ],
+        "arena": "ground",
+        "cost": 6,
+        "power": 3,
+        "hp": 6,
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "traits": [
+          "force",
+          "imperial",
+          "inquisitor"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      },
+      "dependencies": {
+        "node_kinds": [
+          "binary",
+          "const",
+          "damage",
+          "exhaustSelf",
+          "query",
+          "ready",
+          "ref",
+          "sequence"
+        ],
+        "query_names": [
+          "getPower",
+          "isUnit"
+        ],
+        "reference_paths": [
+          [
+            "card"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "sequence"
+          },
+          {
+            "path": "/effect/effects/0",
+            "kind": "damage"
+          },
+          {
+            "path": "/effect/effects/0/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/effect/effects/1",
+            "kind": "ready"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/right/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/right/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right/right",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "2",
+          "3"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "train"
+    },
+    {
+      "code": "SOR_094",
+      "side": "card",
+      "index": 0,
+      "source_hash": "317cb1d46a3670f53fbcf2bae5926e01565741a215377d85f64c4781dbdf119f",
+      "source_path": "game/cards/01_SOR/units/BailOrganaRebelCouncilor.ts",
+      "program_group_id": "1fe4bee2c38b989bc84c8468459fdb74981c8dd80e3a70ff5c4007156a7a916c",
+      "canonical_card_id": "2554951775",
+      "aliases": [
+        "SOR_094"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Give an Experience token to another friendly unit",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "self",
+          "type": "any",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "!==",
+            "left": {
+              "kind": "ref",
+              "path": [
+                "card"
+              ]
+            },
+            "right": {
+              "kind": "ref",
+              "path": [
+                "source"
+              ]
+            }
+          }
+        },
+        "effect": {
+          "kind": "giveExperience",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "ground",
+        "cost": 1,
+        "power": 1,
+        "hp": 2,
+        "aspects": [
+          "command",
+          "heroism"
+        ],
+        "traits": [
+          "rebel",
+          "official"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "binary",
+          "const",
+          "exhaustSelf",
+          "giveExperience",
+          "ref"
+        ],
+        "query_names": [],
+        "reference_paths": [
+          [
+            "card"
+          ],
+          [
+            "source"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "giveExperience"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/left",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right",
+            "kind": "ref"
+          }
+        ],
+        "literal_values": [
+          "1"
+        ],
+        "required_native_tokens": [
+          "TOKEN_EXPERIENCE"
+        ]
+      },
+      "partition": "train"
+    },
+    {
+      "code": "TWI_056",
+      "side": "card",
+      "index": 0,
+      "source_hash": "6c79fabbca6b5cee9e3c35fc0d1c7dfd3dfb0810b2a8c530942c98383efdf6e5",
+      "source_path": "game/cards/03_TWI/units/CompassionateSenator.ts",
+      "program_group_id": "e0e2113c939ecc6896bd4f38b9ac5207eac49e13288b3d2e7d6a892737f5c5ad",
+      "canonical_card_id": "5157630261",
+      "aliases": [
+        "TWI_056"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Heal 2 damage from a unit or base",
+        "costs": [
+          {
+            "kind": "exhaustSelf"
+          },
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "anyAttackable"
+        },
+        "effect": {
+          "kind": "heal",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 2
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "ground",
+        "cost": 1,
+        "power": 0,
+        "hp": 4,
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "republic",
+          "official"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "const",
+          "exhaustSelf",
+          "heal",
+          "resources"
+        ],
+        "query_names": [],
+        "reference_paths": [],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/costs/1",
+            "kind": "resources"
+          },
+          {
+            "path": "/costs/1/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/effect",
+            "kind": "heal"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "2"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "train"
+    },
+    {
+      "code": "TWI_157",
+      "side": "card",
+      "index": 0,
+      "source_hash": "a9a96ae86ad7b5b280db15aeaf147208edb6c76a40e91e0257866be9410171df",
+      "source_path": "game/cards/03_TWI/units/DisaffectedSenator.ts",
+      "program_group_id": "066dbff7133bd08e5e41b8b2d04fb3a8d3b4650f3079506dbd1edbeba547cad1",
+      "canonical_card_id": "0595607848",
+      "aliases": [
+        "TWI_157"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Deal 2 damage to a base.",
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "base",
+          "zone": "anyAttackable"
+        },
+        "effect": {
+          "kind": "damage",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 2
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "ground",
+        "cost": 1,
+        "power": 0,
+        "hp": 4,
+        "aspects": [
+          "aggression"
+        ],
+        "traits": [
+          "separatist",
+          "official"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "const",
+          "damage",
+          "exhaustSelf",
+          "resources"
+        ],
+        "query_names": [],
+        "reference_paths": [],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "resources"
+          },
+          {
+            "path": "/costs/0/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/costs/1",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "damage"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "2"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "heldout"
+    }
+  ],
+  "native_runtime_expansion": false,
+  "model_updates": 0,
+  "native_applies": 0
+}

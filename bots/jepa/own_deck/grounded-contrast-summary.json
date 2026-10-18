@@ -1,0 +1,1758 @@
+{
+  "schema": "jepa-grounded-contrast-result-summary/1",
+  "status": "completed",
+  "training_commit": "fb8853c8a52d0ceed4d7c4221fbef008ccd2e747",
+  "source_model_sha256": "473bc2324cf62c0437effd631e8fec3cc5930d2aeee0d00255da3bd08747eaf2",
+  "counters": {
+    "optimizer_updates": 2400,
+    "heldout_validation_batches": 8,
+    "usage_batches": 2,
+    "abi_embedding_batches": 4
+  },
+  "all_parameters_per_arm": 9020,
+  "seed": 17,
+  "artifacts": {
+    "result": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/result.json",
+      "sha256": "733ce9aeecc373d5e17a4363b99970f2076e65ed753a9e5c338d4dad9fc0d68e"
+    },
+    "fit_guard": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-guard-1/supervisor-receipt.json",
+      "sha256": "56a57f126e588a833839c6aa2b9d72b387e978ffbbfa85afd593c4606a6c07b4"
+    },
+    "shared_ledger": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/campaign-ledger.jsonl",
+      "sha256": "18f11b4471fc0a09e0105e58f54c7a76228cdffe63580b056289c92e6bf0ab88"
+    },
+    "dataset": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.npz",
+      "sha256": "83a0ec4125e3d97b54ebd910925558bed0c18b779b706417991a650da1dfed52"
+    },
+    "dataset_manifest": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.manifest.json",
+      "sha256": "c0206e0638a995b8237574cb11a697c35a0711d9a9f5dd9741314431bd4aea20"
+    },
+    "native_support_audit": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/ACTUAL_NATIVE_SUPPORT.json",
+      "sha256": "90fac0a36f362768db5fdf2ed5a80249cdc8e7c2fb226d1de9582ce23b391a6a"
+    },
+    "embedding_receipt": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/receipt.json",
+      "sha256": "acb3bef04201558a72bfd23c780bcb4b8baef8dded82cb67d1f4cd752219dd94"
+    }
+  },
+  "campaign_debits": {
+    "active_seconds": 39.715139750042,
+    "native_apply_attempts": 932,
+    "updates": 2400,
+    "failed_attempts_preserved": 1,
+    "fit_guard_peak_bytes": 413237248
+  },
+  "cells": {
+    "program-held": {
+      "roots": 20,
+      "identities": 2,
+      "world_state_families": 10,
+      "primary_settled_branches": 41
+    },
+    "state-held": {
+      "roots": 40,
+      "identities": 10,
+      "world_state_families": 4,
+      "primary_settled_branches": 103
+    },
+    "joint-held": {
+      "roots": 8,
+      "identities": 2,
+      "world_state_families": 4,
+      "primary_settled_branches": 16
+    }
+  },
+  "metric": "Root-balanced native-coordinate MAE, macro over nine heads varying on training data; train-only std floor1 yields scale1 for this bank. Primary candidate slots0..6; source use once/root. Self-slot7 auxiliary excluded from primary metrics.",
+  "arm_results": {
+    "correct-ir": {
+      "final_macro": {
+        "program-held": 0.24728267924446198,
+        "state-held": 0.061480179636014834,
+        "joint-held": 0.24938200353386086
+      },
+      "final_joint_heads": {
+        "source_use": {
+          "mae": 0.0018892997177317739,
+          "known_coordinates": 8,
+          "observed_roots": 8,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 4,
+          "positive_roots": 7,
+          "negative_roots": 1,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 1.0
+        },
+        "target_allowed": {
+          "mae": 0.20081636309623718,
+          "known_coordinates": 35,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.8285714285714285
+        },
+        "cost_resource": {
+          "mae": 0.626447856426239,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "damage_delta": {
+          "mae": 0.6262617707252502,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "source_exhausted_after": {
+          "mae": 0.08344661444425583,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 0,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 0.9
+        },
+        "target_exhausted_delta": {
+          "mae": 0.2226625382900238,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            -1.0,
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "shield_delta": {
+          "mae": 0.195110484957695,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "xp_delta": {
+          "mae": 0.2732008099555969,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "target_defeated": {
+          "mae": 0.08079475164413452,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.9
+        },
+        "followup_source_offered": {
+          "mae": 0.0014539358671754599,
+          "known_coordinates": 5,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 1.0
+        },
+        "terminal": {
+          "mae": 0.01725415699183941,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 1,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 1.0
+        }
+      },
+      "checkpoint_sha256": "4372f17d411f84fea05ce03b871aec30bf0dabb61aa17061b1eeb89af13dbf06",
+      "contract_sha256": "4637f8ca97789159e5302cf745265218c63ce982f92fe6b7836f72abd8790bfd",
+      "golden_sha256": "7925089ab4642f16db38f52448a27dd57fbb8e3521f0be5fb894686138ee4e36",
+      "gradient_snapshots": [
+        {
+          "arm_step": 1,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 128,
+              "l2": 0.00224899147612969,
+              "rms": 0.00011476836567471823,
+              "nonzero_fraction": 0.3333333333333333
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 416,
+              "nonzero_coordinates": 384,
+              "l2": 0.0004902014497192116,
+              "rms": 2.403410343951666e-05,
+              "nonzero_fraction": 0.9230769230769231
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 128,
+              "nonzero_coordinates": 64,
+              "l2": 0.0016810621926029476,
+              "rms": 0.00014858630949823377,
+              "nonzero_fraction": 0.5
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 688,
+              "nonzero_coordinates": 576,
+              "l2": 0.001088786102003051,
+              "rms": 4.150958098836869e-05,
+              "nonzero_fraction": 0.8372093023255814
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 48,
+              "nonzero_coordinates": 48,
+              "l2": 0.00263351831645478,
+              "rms": 0.00038011562723024435,
+              "nonzero_fraction": 1.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 1584,
+              "nonzero_coordinates": 1584,
+              "l2": 0.048106547252824705,
+              "rms": 0.0012087224787660747,
+              "nonzero_fraction": 1.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 320,
+              "l2": 0.0904551279588941,
+              "rms": 0.0046160189191135625,
+              "nonzero_fraction": 0.8333333333333334
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.035953094031853844,
+              "rms": 0.004019678112833359,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 416,
+              "l2": 0.1421667725637003,
+              "rms": 0.006599926727189087,
+              "nonzero_fraction": 0.896551724137931
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 1601,
+              "l2": 0.06025611163322239,
+              "rms": 0.00150593226050803,
+              "nonzero_fraction": 1.0
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 2922,
+              "l2": 0.5688346260250988,
+              "rms": 0.010464230132812362,
+              "nonzero_fraction": 0.9888324873096447
+            }
+          }
+        },
+        {
+          "arm_step": 600,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 128,
+              "l2": 0.023744383238600543,
+              "rms": 0.0012117004831596844,
+              "nonzero_fraction": 0.3333333333333333
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 416,
+              "nonzero_coordinates": 384,
+              "l2": 0.014795276758483291,
+              "rms": 0.0007253981240433857,
+              "nonzero_fraction": 0.9230769230769231
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 128,
+              "nonzero_coordinates": 64,
+              "l2": 0.0259551566549265,
+              "rms": 0.002294133409682209,
+              "nonzero_fraction": 0.5
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 688,
+              "nonzero_coordinates": 656,
+              "l2": 0.01749620921847125,
+              "rms": 0.0006670367230142511,
+              "nonzero_fraction": 0.9534883720930233
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 48,
+              "nonzero_coordinates": 48,
+              "l2": 0.04103799992955043,
+              "rms": 0.005923325076582446,
+              "nonzero_fraction": 1.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 1584,
+              "nonzero_coordinates": 1584,
+              "l2": 0.1283066599232507,
+              "rms": 0.0032238261293117644,
+              "nonzero_fraction": 1.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 320,
+              "l2": 0.10572448377099868,
+              "rms": 0.00539522996996058,
+              "nonzero_fraction": 0.8333333333333334
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.0063841773235488695,
+              "rms": 0.0007137727237933971,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 432,
+              "l2": 0.05887801803659607,
+              "rms": 0.0027333433676250667,
+              "nonzero_fraction": 0.9310344827586207
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 1601,
+              "l2": 0.0003683198587914145,
+              "rms": 9.205120319014032e-06,
+              "nonzero_fraction": 1.0
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 2922,
+              "l2": 0.05849082854963241,
+              "rms": 0.0010759919713031305,
+              "nonzero_fraction": 0.9888324873096447
+            }
+          }
+        }
+      ]
+    },
+    "id-only": {
+      "final_macro": {
+        "program-held": 0.5324748141898049,
+        "state-held": 0.06592746530400796,
+        "joint-held": 0.5112326078944736
+      },
+      "final_joint_heads": {
+        "source_use": {
+          "mae": 0.1258174031972885,
+          "known_coordinates": 8,
+          "observed_roots": 8,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 4,
+          "positive_roots": 7,
+          "negative_roots": 1,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.875
+        },
+        "target_allowed": {
+          "mae": 0.502022385597229,
+          "known_coordinates": 35,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.48571428571428577
+        },
+        "cost_resource": {
+          "mae": 1.3144506216049194,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "damage_delta": {
+          "mae": 0.8460627794265747,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "source_exhausted_after": {
+          "mae": 0.1101311668753624,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 0,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 0.9
+        },
+        "target_exhausted_delta": {
+          "mae": 0.9830784797668457,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            -1.0,
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "shield_delta": {
+          "mae": 0.2647440433502197,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "xp_delta": {
+          "mae": 0.34408101439476013,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "target_defeated": {
+          "mae": 0.14707502722740173,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.86
+        },
+        "followup_source_offered": {
+          "mae": 0.0977720394730568,
+          "known_coordinates": 5,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 1.0
+        },
+        "terminal": {
+          "mae": 0.0737617164850235,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 1,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.96
+        }
+      },
+      "checkpoint_sha256": "a67d847f415b8bad2d1938546f438269f9a849d5f3fc76ba72a269363c6da9dc",
+      "contract_sha256": "28a1aef251804211eb84e4643ed207120ddbb77d5baa052bb064f8b0fcc81e3b",
+      "golden_sha256": "38dc55e23b451f161c3b409a740c63da38d831f9c76bd2adc214f30e1cdf9eaa",
+      "gradient_snapshots": [
+        {
+          "arm_step": 1,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 272,
+              "nonzero_coordinates": 112,
+              "l2": 0.019536264366206386,
+              "rms": 0.0011845600222332262,
+              "nonzero_fraction": 0.4117647058823529
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.04809047229370391,
+              "rms": 0.005376678255939608,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 416,
+              "l2": 0.11830122488747445,
+              "rms": 0.0054919964905597585,
+              "nonzero_fraction": 0.896551724137931
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 1601,
+              "l2": 0.08400962065001645,
+              "rms": 0.0020995844985813544,
+              "nonzero_fraction": 1.0
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 2922,
+              "l2": 0.5391669657210652,
+              "rms": 0.009918466547545293,
+              "nonzero_fraction": 0.9888324873096447
+            }
+          }
+        },
+        {
+          "arm_step": 600,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 272,
+              "nonzero_coordinates": 160,
+              "l2": 0.001880076811333211,
+              "rms": 0.00011399640113825404,
+              "nonzero_fraction": 0.5882352941176471
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.0015381800706359965,
+              "rms": 0.0001719737599788758,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 432,
+              "l2": 0.030252716598785406,
+              "rms": 0.0014044471098964915,
+              "nonzero_fraction": 0.9310344827586207
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 1601,
+              "l2": 0.00022279399055197288,
+              "rms": 5.568110001219383e-06,
+              "nonzero_fraction": 1.0
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 2922,
+              "l2": 0.015045229831912576,
+              "rms": 0.00027677068195078623,
+              "nonzero_fraction": 0.9888324873096447
+            }
+          }
+        }
+      ]
+    },
+    "wrong-ir": {
+      "final_macro": {
+        "program-held": 0.3084595113371809,
+        "state-held": 0.2852533778382672,
+        "joint-held": 0.33291030923525494
+      },
+      "final_joint_heads": {
+        "source_use": {
+          "mae": 0.1272735893726349,
+          "known_coordinates": 8,
+          "observed_roots": 8,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 4,
+          "positive_roots": 7,
+          "negative_roots": 1,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.875
+        },
+        "target_allowed": {
+          "mae": 0.5343554615974426,
+          "known_coordinates": 35,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.42857142857142855
+        },
+        "cost_resource": {
+          "mae": 0.5864560604095459,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "damage_delta": {
+          "mae": 1.100188970565796,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "source_exhausted_after": {
+          "mae": 0.02648031711578369,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 0,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 1.0
+        },
+        "target_exhausted_delta": {
+          "mae": 0.2633935511112213,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            -1.0,
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "shield_delta": {
+          "mae": 0.12098600715398788,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "xp_delta": {
+          "mae": 0.13864782452583313,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "target_defeated": {
+          "mae": 0.11805466562509537,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.86
+        },
+        "followup_source_offered": {
+          "mae": 0.0057487888261675835,
+          "known_coordinates": 5,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 1.0
+        },
+        "terminal": {
+          "mae": 0.006836652755737305,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 1,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 1.0
+        }
+      },
+      "checkpoint_sha256": "d0852bbe660e7b7b18f045d17d26c6b282b21cfc0c3fa2e31fc2daba71f42609",
+      "contract_sha256": "68ee4931f15b834e233181388c0811ff79745180087e4837cadf85291f867bf7",
+      "golden_sha256": "485eadb4daa947e63ef0c97ca8b00649c3da7f3feb3c845f0fa6c75d3f7c1acd",
+      "gradient_snapshots": [
+        {
+          "arm_step": 1,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 128,
+              "l2": 0.0025935029034690658,
+              "rms": 0.00013234914083178891,
+              "nonzero_fraction": 0.3333333333333333
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 416,
+              "nonzero_coordinates": 384,
+              "l2": 0.0004386819290566194,
+              "rms": 2.150815112038681e-05,
+              "nonzero_fraction": 0.9230769230769231
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 128,
+              "nonzero_coordinates": 64,
+              "l2": 0.0016744108449658346,
+              "rms": 0.0001479984078709548,
+              "nonzero_fraction": 0.5
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 688,
+              "nonzero_coordinates": 624,
+              "l2": 0.0010037238974696123,
+              "rms": 3.826661484319644e-05,
+              "nonzero_fraction": 0.9069767441860465
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 48,
+              "nonzero_coordinates": 48,
+              "l2": 0.0025987405227614734,
+              "rms": 0.0003750958850925814,
+              "nonzero_fraction": 1.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 1584,
+              "nonzero_coordinates": 1584,
+              "l2": 0.047805340444852705,
+              "rms": 0.0012011543729604404,
+              "nonzero_fraction": 1.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 320,
+              "l2": 0.08951373364945944,
+              "rms": 0.004567978591928674,
+              "nonzero_fraction": 0.8333333333333334
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.03549250476541005,
+              "rms": 0.003968182667359605,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 416,
+              "l2": 0.14239259721408723,
+              "rms": 0.006610410373394666,
+              "nonzero_fraction": 0.896551724137931
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 1601,
+              "l2": 0.05914467570774636,
+              "rms": 0.001478155041396216,
+              "nonzero_fraction": 1.0
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 2922,
+              "l2": 0.5680470021530936,
+              "rms": 0.010449741075575548,
+              "nonzero_fraction": 0.9888324873096447
+            }
+          }
+        },
+        {
+          "arm_step": 600,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 128,
+              "l2": 0.0015516311359263573,
+              "rms": 7.918134483405466e-05,
+              "nonzero_fraction": 0.3333333333333333
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 416,
+              "nonzero_coordinates": 384,
+              "l2": 0.0004998164561737368,
+              "rms": 2.4505517915814205e-05,
+              "nonzero_fraction": 0.9230769230769231
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 128,
+              "nonzero_coordinates": 64,
+              "l2": 0.0006394264424853532,
+              "rms": 5.651784669392289e-05,
+              "nonzero_fraction": 0.5
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 688,
+              "nonzero_coordinates": 640,
+              "l2": 0.0003065635600957835,
+              "rms": 1.1687626157670129e-05,
+              "nonzero_fraction": 0.9302325581395349
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 48,
+              "nonzero_coordinates": 48,
+              "l2": 0.000871905041016762,
+              "rms": 0.0001258486525347048,
+              "nonzero_fraction": 1.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 1584,
+              "nonzero_coordinates": 1584,
+              "l2": 0.006411601478324777,
+              "rms": 0.0001610975485522067,
+              "nonzero_fraction": 1.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 384,
+              "nonzero_coordinates": 320,
+              "l2": 0.016341683978636983,
+              "rms": 0.0008339330684474061,
+              "nonzero_fraction": 0.8333333333333334
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.010038702172129403,
+              "rms": 0.0011223610231378069,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 432,
+              "l2": 0.1916116827429223,
+              "rms": 0.008895349056405233,
+              "nonzero_fraction": 0.9310344827586207
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 1601,
+              "l2": 0.0008544567664772477,
+              "rms": 2.1354746845928372e-05,
+              "nonzero_fraction": 1.0
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 2922,
+              "l2": 0.15763881706333166,
+              "rms": 0.0028999093658237086,
+              "nonzero_fraction": 0.9888324873096447
+            }
+          }
+        }
+      ]
+    },
+    "context-only": {
+      "final_macro": {
+        "program-held": 0.30424580816179514,
+        "state-held": 0.28148894798424506,
+        "joint-held": 0.3250787840742204
+      },
+      "final_joint_heads": {
+        "source_use": {
+          "mae": 0.12685401737689972,
+          "known_coordinates": 8,
+          "observed_roots": 8,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 4,
+          "positive_roots": 7,
+          "negative_roots": 1,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.875
+        },
+        "target_allowed": {
+          "mae": 0.5410882830619812,
+          "known_coordinates": 35,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.4
+        },
+        "cost_resource": {
+          "mae": 0.6254194378852844,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "damage_delta": {
+          "mae": 1.0714584589004517,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            2.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "source_exhausted_after": {
+          "mae": 0.07598657160997391,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 5,
+          "negative_roots": 0,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 0.9
+        },
+        "target_exhausted_delta": {
+          "mae": 0.18035927414894104,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            -1.0,
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "shield_delta": {
+          "mae": 0.10711126029491425,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "xp_delta": {
+          "mae": 0.1358824074268341,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": null,
+          "negative_roots": null,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying"
+        },
+        "target_defeated": {
+          "mae": 0.13080094754695892,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 0.86
+        },
+        "followup_source_offered": {
+          "mae": 0.0077673629857599735,
+          "known_coordinates": 5,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 0,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "constant-or-low-support-auxiliary",
+          "accuracy": 1.0
+        },
+        "terminal": {
+          "mae": 0.006734970025718212,
+          "known_coordinates": 16,
+          "observed_roots": 5,
+          "observed_values": [
+            0.0,
+            1.0
+          ],
+          "observed_program_groups": 2,
+          "observed_state_families": 3,
+          "positive_roots": 1,
+          "negative_roots": 5,
+          "diagnostic_only_low_support": true,
+          "evidence_rule": "at least2 evaluated program groups x4states, plus4positive+4negative distinct binary roots or varying continuous labels; diagnostic flag only",
+          "training_role": "primary-varying",
+          "accuracy": 1.0
+        }
+      },
+      "checkpoint_sha256": "4f75e14da23d39aebe142ebbc734174d480f43b76e76da2c3496204532a123ef",
+      "contract_sha256": "ea84968069309565506c0e0ace4b64b1854374c09e35479361194695f90f9f5f",
+      "golden_sha256": "564e3555888fdf8dc0d855ed988b66d1edbe0c308002a64f81852881e85204da",
+      "gradient_snapshots": [
+        {
+          "arm_step": 1,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 16,
+              "nonzero_coordinates": 16,
+              "l2": 0.019350953418722023,
+              "rms": 0.004837738354680506,
+              "nonzero_fraction": 1.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.040371448287656236,
+              "rms": 0.004513665136065841,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 416,
+              "l2": 0.1406395927966947,
+              "rms": 0.006529029186366273,
+              "nonzero_fraction": 0.896551724137931
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 577,
+              "l2": 0.035798907716378746,
+              "rms": 0.0008946931449742064,
+              "nonzero_fraction": 0.3603997501561524
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 1386,
+              "l2": 0.42555509586726625,
+              "rms": 0.007828472905145573,
+              "nonzero_fraction": 0.46903553299492384
+            }
+          }
+        },
+        {
+          "arm_step": 600,
+          "module_preclip_gradients": {
+            "depth_gate": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "unavailable": {
+              "parameters": 16,
+              "gradient_coordinates": 16,
+              "nonzero_coordinates": 16,
+              "l2": 0.00995699852266408,
+              "rms": 0.00248924963066602,
+              "nonzero_fraction": 1.0
+            },
+            "edge_embedding": {
+              "parameters": 416,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "type_embedding": {
+              "parameters": 128,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "value_embedding": {
+              "parameters": 688,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "numeric_projection": {
+              "parameters": 48,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "leaf": {
+              "parameters": 1584,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "program_projection": {
+              "parameters": 384,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "identity_embedding": {
+              "parameters": 272,
+              "gradient_coordinates": 0,
+              "nonzero_coordinates": 0,
+              "l2": 0.0,
+              "rms": 0.0,
+              "nonzero_fraction": 0.0
+            },
+            "context_projection": {
+              "parameters": 80,
+              "gradient_coordinates": 80,
+              "nonzero_coordinates": 80,
+              "l2": 0.008309420061274777,
+              "rms": 0.0009290214055305433,
+              "nonzero_fraction": 1.0
+            },
+            "candidate_projection": {
+              "parameters": 464,
+              "gradient_coordinates": 464,
+              "nonzero_coordinates": 432,
+              "l2": 0.12678270589834933,
+              "rms": 0.005885739361698923,
+              "nonzero_fraction": 0.9310344827586207
+            },
+            "source_head": {
+              "parameters": 1601,
+              "gradient_coordinates": 1601,
+              "nonzero_coordinates": 1601,
+              "l2": 0.0006771846246266,
+              "rms": 1.6924327589418346e-05,
+              "nonzero_fraction": 1.0
+            },
+            "branch_head": {
+              "parameters": 2955,
+              "gradient_coordinates": 2955,
+              "nonzero_coordinates": 2922,
+              "l2": 0.1584294912925648,
+              "rms": 0.0029144545371551293,
+              "nonzero_fraction": 0.9888324873096447
+            }
+          }
+        }
+      ]
+    }
+  },
+  "baselines": {
+    "train_prior": {
+      "program-held": 0.36067390483286643,
+      "state-held": 0.31461325598259765,
+      "joint-held": 0.3662131952328814
+    },
+    "naive_zero_delta_copy_source_exhausted": {
+      "program-held": 0.4282661887506644,
+      "state-held": 0.3453504132727782,
+      "joint-held": 0.43468255384100807
+    }
+  },
+  "correct_ir_usage_interventions": {
+    "zero-program": {
+      "macro": {
+        "program-held": 0.4089917201134894,
+        "state-held": 0.3411945323977206,
+        "joint-held": 0.42078633109728497
+      },
+      "source_probability_delta_rms": 0.26185574961608943,
+      "primary_prediction_delta_rms": 0.43753883241696934
+    },
+    "partition-local-swapped-program": {
+      "macro": {
+        "program-held": 0.5346160266134474,
+        "state-held": 0.4513845721052753,
+        "joint-held": 0.532676688912842
+      },
+      "source_probability_delta_rms": 0.3985957539922168,
+      "primary_prediction_delta_rms": 0.5729196624798991
+    }
+  },
+  "interpretation": [
+    "Correct IR improves this held-program aggregate over the specified controls, particularly source/target availability and damage. This is narrow single-seed native-fixture evidence, not a blanket semantic-success claim.",
+    "Joint-held cost is essentially tied with context-only; ready/exhaust delta and zero Shield/XP/terminal heads do not uniformly improve.",
+    "All joint heads have diagnostic-only low-support flags. The two held programs select disjoint target domains; no jointly committed same-candidate delta pairs exist between those two alone.",
+    "Nonzero typed/numeric gradients and damage/ready/availability predictions show connected/useful paths under this objective, not calibrated semantic distances or strategic preservation."
+  ],
+  "export": {
+    "space_id": "grounded-typed-action-program-z16-v1",
+    "rows": 12,
+    "training_identities": 10,
+    "heldout_identities": 2,
+    "semantic_validated": false,
+    "new_export_forwards": 0,
+    "new_optimizer_updates": 0,
+    "old_artifacts_preserved": true
+  }
+}

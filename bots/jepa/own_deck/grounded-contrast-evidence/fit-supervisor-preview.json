@@ -1,0 +1,44 @@
+{
+  "stage": "fit",
+  "commands": [
+    [
+      "fit",
+      [
+        "/Users/ericfode/src/crown-jepa/.venv/bin/python",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_model.py",
+        "--fit",
+        "--dataset",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.npz",
+        "--manifest",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.manifest.json",
+        "--ledger",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/campaign-ledger.jsonl",
+        "--out",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1",
+        "--progress",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-updates.jsonl",
+        "--events",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl",
+        "--run-id",
+        "grounded-contrast-s17-20261018-v1",
+        "--campaign-id",
+        "campaign-grounded-contrast-20261018"
+      ]
+    ]
+  ],
+  "source_manifest_sha256": "65142d442229c2cf6dab13ac71964800fa292e4e1bc8817e76b05e5b1bb591c6",
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/campaign-ledger.jsonl",
+  "max_active_seconds": 180.0,
+  "max_engine_apply_attempts": 2048,
+  "max_updates": 2400,
+  "reserved_engine_applies": 0,
+  "reserved_updates": 2400,
+  "max_sampled_bytes": 2147483648,
+  "sample_interval_seconds": 0.05,
+  "scope": "one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals",
+  "prior_campaign_debits": {
+    "active_seconds": 33.5951009580167,
+    "engine_apply_attempts": 932,
+    "updates": 0
+  }
+}

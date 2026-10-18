@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Saved grounded typed-action program embeddings v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "space_id",
+    "dimension",
+    "semantic_validated",
+    "rows"
+  ],
+  "properties": {
+    "schema": {
+      "const": "jepa-card-program-embedding-export/2"
+    },
+    "space_id": {
+      "const": "grounded-typed-action-program-z16-v1"
+    },
+    "dimension": {
+      "const": 16
+    },
+    "semantic_validated": {
+      "const": false
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "vector",
+          "unit_vector",
+          "l2_norm",
+          "held_out_identity"
+        ],
+        "properties": {
+          "vector": {
+            "type": "array",
+            "minItems": 16,
+            "maxItems": 16,
+            "items": {
+              "type": "number"
+            }
+          },
+          "unit_vector": {
+            "type": "array",
+            "minItems": 16,
+            "maxItems": 16,
+            "items": {
+              "type": "number"
+            }
+          },
+          "held_out_identity": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

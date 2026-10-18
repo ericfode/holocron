@@ -261,3 +261,25 @@ saved-weight outputs and canonical card counts, with
 checkpoint, split, normalization and metric provenance. The original-deck
 composition space and the two-card program space have separate dimensions;
 neither has validated behavioral nearest-neighbor quality.
+
+## Completed grounded contrast and geometry audit
+
+The subsequent [twelve-program contrast](GROUNDED_CONTRAST_RESULTS.md) collected
+168 public native roots and 932 applies, then fitted four matched 9,020-parameter
+arms for 600 updates each. Correct IR improved held-program macro error to
+0.247283 versus 0.304246 for context-only. The joint holdout has only eight
+roots and five observed target prompts; its two programs have disjoint target
+domains. Several heads are worse. This is a narrow action-semantic diagnostic,
+with no deck-quality or policy-strength result. Exact raw journals, masks,
+checkpoints and contracts are in the [portable index](grounded-contrast-evidence/index.json).
+The previous two-program negative result remains unchanged.
+
+The [geometry audit](EMBEDDING_GEOMETRY_AUDIT.md) finds that the training mean
+accounts for 97.0543% of the earlier 27 deck vectors' energy. Training-only
+centering and fixed regularized whitening change angular geometry but do not
+establish semantic retrieval quality. Independent card/effect reviews and
+[bounded counterfactual scores](DECK_COHERENCE_EXPORT_RESULTS.md) retain their
+uncertainty; reviewer votes and classifier scores are not ground truth.
+
+Read [current decisions and the next controlled question](RESEARCH_STATUS.md)
+and the append-only [experiment registry](EXPERIMENT_REGISTRY.jsonl).

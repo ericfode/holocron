@@ -1,0 +1,26 @@
+{
+  "schema": "jepa-grounded-embedding-export-receipt/1",
+  "status": "completed",
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+    "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86"
+  },
+  "manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.manifest.json",
+    "sha256": "fd02ce304f1d27e9f7e40fef7228a79aa8a269c195b4f4b4757506829abd58a7"
+  },
+  "stable_index": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/index.json",
+    "sha256": "4d2707a63ead3ddb80ea8b76fdf20dcafa5a376176b08ffafe50a9420b1f7223"
+  },
+  "previous_index": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/previous-index.json",
+    "sha256": "07dc35eec0d8a839a483e87ec0efad64930e6a962c1d5c50e69c81ab45b923f7"
+  },
+  "elapsed_seconds": 0.0720967500237748,
+  "model_forward_calls": 0,
+  "optimizer_updates": 0,
+  "native_engine_calls": 0,
+  "paid_jobs": 0,
+  "all_legacy_files_unchanged": true
+}
