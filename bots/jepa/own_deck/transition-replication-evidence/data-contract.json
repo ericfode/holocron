@@ -1,0 +1,393 @@
+{
+  "schema": "jepa-grounded-contrast-numeric/1",
+  "root_cases": 168,
+  "candidates": [
+    "own_base",
+    "opponent_base",
+    "friendly_ground",
+    "enemy_ground",
+    "enemy_space",
+    "friendly_imperial",
+    "friendly_creature",
+    "source"
+  ],
+  "context": {
+    "shape": [
+      "R",
+      2
+    ],
+    "columns": [
+      "ready_resources",
+      "source_exhausted"
+    ],
+    "units": [
+      "ready-resource copies",
+      "boolean"
+    ],
+    "normalization": "None; both values must be directly known in the native before projection."
+  },
+  "candidate": {
+    "shape": [
+      "R",
+      8,
+      26
+    ],
+    "columns": [
+      "owner_self",
+      "owner_opponent",
+      "is_unit",
+      "is_base",
+      "zone_ground",
+      "zone_space",
+      "same_source",
+      "present",
+      "damage",
+      "hp",
+      "remaining_hp",
+      "power",
+      "exhausted",
+      "shield_count",
+      "xp_count",
+      "known_damage",
+      "known_hp",
+      "known_remaining_hp",
+      "known_power",
+      "known_exhausted",
+      "known_shield_count",
+      "known_xp_count",
+      "trait_imperial",
+      "trait_creature",
+      "trait_spectre",
+      "known_traits"
+    ],
+    "units": [
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "native public count",
+      "native public count",
+      "native public count",
+      "native public count",
+      "boolean",
+      "native public count",
+      "native public count",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean"
+    ],
+    "normalization": "Natural public units and explicit known flags. Unknown numerical payload0 is masked by its known flag; no target/offer or source identity feature.",
+    "printed_predicates": "Only imperial/creature/spectre traits required by the frozen programs, resolved against pinned complete catalog. Target HP/power remain necessary public predicate/delta inputs; opaque identity, title, source printed cost and irrelevant metadata are excluded."
+  },
+  "prediction_locality": "Source head: program plus2globals only. Candidate head: program plus2globals plus its own26candidate attributes. No candidate/source-self pooling or broadcasting into other queries.",
+  "primary_candidates": {
+    "shape": [
+      "R",
+      8
+    ],
+    "array": "primary_candidate_mask",
+    "values": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "scope": "Helper/base slots0..6 define matched-context primary contrasts; source-self slot7 is a separate diagnostic with legitimate source-specific target properties."
+  },
+  "source_self_diagnostic": {
+    "shape": [
+      "R",
+      8
+    ],
+    "array": "source_diagnostic_mask",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "auxiliary_loss_weight": 0.1,
+    "primary_metrics": false,
+    "pooling_or_broadcast": false
+  },
+  "source_use": {
+    "shape": [
+      "R"
+    ],
+    "available_mask": "source_use_mask[R]",
+    "loss_owner": "one native source/menu query per root"
+  },
+  "candidate_allowed": {
+    "shape": [
+      "R",
+      8
+    ],
+    "available_mask": "candidate_allowed_mask[R,8]",
+    "loss_owner": "one actual target-prompt offered membership per candidate; unknown if no actual prompt"
+  },
+  "transitions": {
+    "shape": [
+      "R",
+      8,
+      11
+    ],
+    "columns": [
+      "source_use",
+      "target_allowed",
+      "cost_resource",
+      "damage_delta",
+      "source_exhausted_after",
+      "target_exhausted_delta",
+      "shield_delta",
+      "xp_delta",
+      "target_defeated",
+      "followup_source_offered",
+      "terminal"
+    ],
+    "masks": "target_mask[R,8,11]",
+    "normalization": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "units": [
+      "boolean",
+      "boolean",
+      "ready-resource copies paid",
+      "signed damage-counter change",
+      "boolean",
+      "signed exhaustion change",
+      "signed Shield-count change",
+      "signed Experience-count change",
+      "boolean",
+      "boolean",
+      "boolean"
+    ],
+    "standalone_head_columns_masked": [
+      0,
+      1
+    ],
+    "loss_ownership": "source_use and target_allowed branch columns always masked; standalone heads own those coordinates exactly once.",
+    "death": "Target damage/exhaustion/token deltas are unknown when the selected target leaves the observable arena; target_defeated remains a separate native label."
+  },
+  "split": {
+    "train_codes": [
+      "SOR_011",
+      "ASH_011",
+      "IBH_053",
+      "IBH_016",
+      "LOF_134",
+      "TWI_056",
+      "SHD_196",
+      "SOR_094",
+      "LOF_004",
+      "SOR_007"
+    ],
+    "heldout_codes": [
+      "SHD_004",
+      "TWI_206"
+    ],
+    "train_state_families": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "heldout_state_families": [
+      10,
+      11,
+      12,
+      13
+    ],
+    "expected_cell_counts": {
+      "train": 100,
+      "program-held": 20,
+      "state-held": 40,
+      "joint-held": 8
+    },
+    "primary": "joint-held",
+    "rule": "Both axes fixed before collection. All source/menu/cancel/commit/follow-up branches remain inside one card/state root. Familiar states in program-held and familiar IDs in state-held are intentional."
+  },
+  "state_defaults": {
+    "physical_resources": 3,
+    "ready_resources": 2,
+    "source_exhausted": false,
+    "helper_damage": 0,
+    "helper_exhausted": false,
+    "base_damage": 0
+  },
+  "state_families": [
+    {
+      "id": 0,
+      "name": "baseline",
+      "overrides": {}
+    },
+    {
+      "id": 1,
+      "name": "friendly-damaged-exhausted",
+      "overrides": {
+        "friendly_ground": {
+          "damage": 2,
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "space-damaged-exhausted",
+      "overrides": {
+        "enemy_space": {
+          "damage": 1,
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "own-base-damaged",
+      "overrides": {
+        "own_base": {
+          "damage": 2
+        }
+      }
+    },
+    {
+      "id": 4,
+      "name": "imperial-damaged-exhausted",
+      "overrides": {
+        "friendly_imperial": {
+          "damage": 1,
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "enemy-base-near-terminal",
+      "overrides": {
+        "opponent_base": {
+          "damage": 29
+        }
+      }
+    },
+    {
+      "id": 6,
+      "name": "source-exhausted",
+      "overrides": {
+        "source": {
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 7,
+      "name": "no-ready-resources",
+      "overrides": {
+        "ready_resources": 0
+      }
+    },
+    {
+      "id": 8,
+      "name": "both-ground-damaged-exhausted",
+      "overrides": {
+        "friendly_ground": {
+          "damage": 1,
+          "exhausted": true
+        },
+        "enemy_ground": {
+          "damage": 2,
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 9,
+      "name": "creature-damaged-exhausted",
+      "overrides": {
+        "friendly_creature": {
+          "damage": 1,
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 10,
+      "name": "held-friendly-one-hp",
+      "overrides": {
+        "friendly_ground": {
+          "damage": 3,
+          "exhausted": true
+        },
+        "ready_resources": 3
+      }
+    },
+    {
+      "id": 11,
+      "name": "held-enemy-base-two-hp",
+      "overrides": {
+        "opponent_base": {
+          "damage": 28
+        },
+        "ready_resources": 3
+      }
+    },
+    {
+      "id": 12,
+      "name": "held-space-damaged-ready-resources",
+      "overrides": {
+        "enemy_space": {
+          "damage": 2,
+          "exhausted": false
+        },
+        "ready_resources": 2
+      }
+    },
+    {
+      "id": 13,
+      "name": "held-creature-more-damaged",
+      "overrides": {
+        "friendly_creature": {
+          "damage": 2,
+          "exhausted": true
+        },
+        "ready_resources": 2
+      }
+    }
+  ],
+  "native_labels_only": true,
+  "model_or_native_execution": false
+}

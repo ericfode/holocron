@@ -1,0 +1,47 @@
+{
+  "schema": "jepa-independent-retrieval-control-plan/1",
+  "seed": 314159,
+  "source_indices": [
+    10,
+    14,
+    25
+  ],
+  "maximum_modified": 24,
+  "maximum_rows": 36,
+  "minimum_primary_families": 3,
+  "minimum_slots_per_family": 1,
+  "maximum_slots_per_source": 2,
+  "doses": [
+    1,
+    2
+  ],
+  "source_choice": "Fixed held-out source families10/14/25; exclude all selected reviewed examples and their complete families, including02/03.",
+  "candidate_universe": "Main-deck printings in the pinned27-list source bank; exact cost/type/arena/aspect signature, novel canonical name/subtitle absent source, admitted full resulting declaration and complete sourceIr/dataOnly runtime-admitted IR.",
+  "pool_rule": "For each slot use exact-power/HP pool if it has>=2 alternatives with different IR distances; otherwise exact-core pool is a separately labeled confounded exploratory stratum. Choose strict slots first, then source code. No vector results used.",
+  "selection": "At most2 slots/source, source count>=2; independently min/max IR-only distance with printed-code tie break; no printed traits/keywords/stats in that selection distance.",
+  "proxy": {
+    "groups": [
+      "costs",
+      "conditions_targets",
+      "effects",
+      "trigger_structure"
+    ],
+    "weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "path_matching": "exact typed all-side ordered JSON path, containers retained; object keys sorted; root ability display title excluded",
+    "numeric": "abs(x-y)/max(1,abs(x),abs(y)); unmatched path/type is1; categorical mismatch is1; each group mean then equal group mean",
+    "semantics": "Structural proxy only, no execution or strategic meaning; no textual similarity or learned parameters"
+  },
+  "invariance": "Original anchor, reordered entries, expanded/split entries, and one genuine policy-admitted reprint if available; canonical and encoded-feature equality checked.",
+  "prior_controls": "New fixed operators/seeds; exclude any candidate composition identical to a previous reserved counterfactual; no prior scores/ranks read or used.",
+  "preparation_only": true,
+  "model_forward_calls": 0,
+  "neighbor_metrics": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "paid_spend_usd": 0
+}

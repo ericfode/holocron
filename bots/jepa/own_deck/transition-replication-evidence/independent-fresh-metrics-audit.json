@@ -1,0 +1,558 @@
+{
+  "schema": "transition-independent-fresh-paired-metrics-audit/1",
+  "status": "PASS_SAVED_PREDICTION_RECOMPUTATION",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "rows": [
+    {
+      "seed": 17,
+      "arm": "correct-ir",
+      "macro_paired_mae": 0.8749246497948965,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0288528390228748,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": -0.288505494594574,
+          "predicted_contrast_max": 0.2249550223350525
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.8843244407325983,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": 0.03543287515640259,
+          "predicted_contrast_max": 0.21363909542560577
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.7115966696292162,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": -0.30076345801353455,
+          "predicted_contrast_max": -0.06285955011844635
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "arm": "id-only",
+      "macro_paired_mae": 0.9583333333333334,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.875,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "arm": "wrong-ir",
+      "macro_paired_mae": 0.9586160335068902,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0012820921838284,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": 7.334351539611816e-05,
+          "predicted_contrast_max": 0.002795875072479248
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.9996009720489383,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": -0.0016312897205352783,
+          "predicted_contrast_max": 0.0010682344436645508
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.8749650362879038,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": -0.00275518000125885,
+          "predicted_contrast_max": 0.001579776406288147
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "arm": "context-only",
+      "macro_paired_mae": 0.9583333333333334,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.875,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "correct-ir",
+      "macro_paired_mae": 0.9281249060295522,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0237145200371742,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": -0.01607537269592285,
+          "predicted_contrast_max": 0.06625604629516602
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0714373011142015,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": -0.18879127502441406,
+          "predicted_contrast_max": 0.19173943996429443
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.6892228969372809,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": -0.3984650671482086,
+          "predicted_contrast_max": -0.04483144357800484
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "id-only",
+      "macro_paired_mae": 0.9583333333333334,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.875,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "wrong-ir",
+      "macro_paired_mae": 0.9583230015511314,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0002258829772472,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": -0.0009950101375579834,
+          "predicted_contrast_max": 0.0014202594757080078
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.9997573923319578,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": -4.495680332183838e-05,
+          "predicted_contrast_max": 0.0007284879684448242
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.8749857293441892,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": -0.0007699579000473022,
+          "predicted_contrast_max": 0.0019352138042449951
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "context-only",
+      "macro_paired_mae": 0.9583333333333334,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.875,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "correct-ir",
+      "macro_paired_mae": 0.9161456335956851,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.8605005256831646,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": -0.24682098627090454,
+          "predicted_contrast_max": -0.003202199935913086
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0106730815023184,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": -0.1200728714466095,
+          "predicted_contrast_max": 0.18314403295516968
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.8772632936015725,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": -0.1523725390434265,
+          "predicted_contrast_max": 0.13868866115808487
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "id-only",
+      "macro_paired_mae": 0.9583333333333334,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.875,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "wrong-ir",
+      "macro_paired_mae": 0.9580595657850305,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.9993365667760372,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": -0.0011736750602722168,
+          "predicted_contrast_max": 0.00025391578674316406
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0001634694635868,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": -0.0006247162818908691,
+          "predicted_contrast_max": 0.00044767558574676514
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.8746786611154675,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": -0.0012571513652801514,
+          "predicted_contrast_max": -0.00010052323341369629
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "context-only",
+      "macro_paired_mae": 0.9583333333333334,
+      "heads": {
+        "cost_resource": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            -1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "xp_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 1.0,
+          "native_deltas": [
+            1.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        },
+        "target_exhausted_delta": {
+          "pairs": 8,
+          "states": 4,
+          "mae": 0.875,
+          "native_deltas": [
+            -1.0,
+            0.0
+          ],
+          "predicted_contrast_min": 0.0,
+          "predicted_contrast_max": 0.0
+        }
+      }
+    }
+  ],
+  "correct_vs_context": [
+    {
+      "seed": 17,
+      "correct_ir": 0.8749246497948965,
+      "context_only": 0.9583333333333334,
+      "correct_minus_context": -0.08340868353843689,
+      "heads_correct_minus_context": {
+        "cost_resource": 0.028852839022874832,
+        "xp_delta": -0.1156755592674017,
+        "target_exhausted_delta": -0.1634033303707838
+      }
+    },
+    {
+      "seed": 29,
+      "correct_ir": 0.9281249060295522,
+      "context_only": 0.9583333333333334,
+      "correct_minus_context": -0.03020842730378115,
+      "heads_correct_minus_context": {
+        "cost_resource": 0.023714520037174225,
+        "xp_delta": 0.07143730111420155,
+        "target_exhausted_delta": -0.1857771030627191
+      }
+    },
+    {
+      "seed": 43,
+      "correct_ir": 0.9161456335956851,
+      "context_only": 0.9583333333333334,
+      "correct_minus_context": -0.04218769973764824,
+      "heads_correct_minus_context": {
+        "cost_resource": -0.1394994743168354,
+        "xp_delta": 0.010673081502318382,
+        "target_exhausted_delta": 0.0022632936015725136
+      }
+    }
+  ],
+  "max_reported_per_head_roundoff": 1.862645149230957e-09,
+  "all_three_head_scales": 1,
+  "artifacts": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s17/correct-ir-predictions.npz",
+      "sha256": "9d93e5950dbf1705fbd1db4c5009789d99e099e6df98ae05f21e871826d420a4"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s17/id-only-predictions.npz",
+      "sha256": "88bb1860ce7ffb8ea8647292b860c3bffd42dbabc134c387ffce1a457f7abd7e"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s17/wrong-ir-predictions.npz",
+      "sha256": "053eb19795fab6ff13f081d034b4de84fbbc21498ee9af556a1720b2e611593a"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s17/context-only-predictions.npz",
+      "sha256": "d045521a2e546f851f6cb74e90fcb89e42bd85c866b7697e4db68e5c60b68fad"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s29/correct-ir-predictions.npz",
+      "sha256": "1e02bac331230271e1b1fd38191f154154bfd03d8c8b3994c992188e22cc4116"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s29/id-only-predictions.npz",
+      "sha256": "12500e90a6f04ddf0e62581329725b732374b5c5936685a1d786653ead8b568e"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s29/wrong-ir-predictions.npz",
+      "sha256": "4516479fc3e96e45961cb3f3c5405731ec7fbcecb0bc48cfeb2c2053d6c0fc2f"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s29/context-only-predictions.npz",
+      "sha256": "f27ea00fb863df0eed4eafed3c96be8fd7520cb06ac630f36613716e60f57d62"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43/correct-ir-predictions.npz",
+      "sha256": "327b6b8efccf0dc10cd2d04eb77fd226ce8aa36038ff7f4d97a4f6091eaddeb9"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43/id-only-predictions.npz",
+      "sha256": "b05e376cd666207f4f402a5ac06da8e103ee5aad43d61d1d61634edbd9b562b5"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43/wrong-ir-predictions.npz",
+      "sha256": "f80c7fd8d60ae4fe3dc4645ae2eeba5434eb0b6d5ca634bb666faa2941044f65"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/transition-replication/eval-fresh-s43/context-only-predictions.npz",
+      "sha256": "1aba41cd657d520d31f67b6bbe48608d5087c11c72149059ecbe43372dfb60d6"
+    }
+  ],
+  "support": "Each of3heads has8same-candidate pairs nested in4fixed held-state families/2programs; shared native labels acrossseeds, no population confidence claim.",
+  "audit_neural_forwards": 0,
+  "audit_optimizer_updates": 0,
+  "audit_native_calls": 0
+}

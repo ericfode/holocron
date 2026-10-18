@@ -1,0 +1,19 @@
+{
+  "status": "prepared",
+  "elapsed_seconds": 0.03403704194352031,
+  "control_preparation_seconds": 1.2257142500020564,
+  "total_preparation_seconds": 1.2597514169756323,
+  "plan_sha256": "9a509e7bc86a9fdee255fbf57f1fd3677c671bf7dc5fd84123615e11d31ad44d",
+  "guard": {
+    "elapsed_seconds": 0.033638458931818604,
+    "cpu_seconds": 0.033323,
+    "peak_rss_bytes": 40189952,
+    "samples": 0,
+    "worker_pid": 1707,
+    "compute_threads": 1,
+    "limitation": "One owned process; RSS is sampled high-water rusage, not an instantaneous OS memory reservation. NumPy import is inside the guard."
+  },
+  "neural_forward_attempts": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0
+}

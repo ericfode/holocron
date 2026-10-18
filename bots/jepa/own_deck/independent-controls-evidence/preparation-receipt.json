@@ -1,0 +1,41 @@
+{
+  "status": "prepared",
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_controls.py",
+    "sha256": "069e8b2714aeff7fa071022f496a3526d45f14139f841a91705e3129c5b3b8f3"
+  },
+  "commit": "8f825c33cb9c3680cc42a92726e705246a801695",
+  "manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.manifest.json",
+    "sha256": "f1f6cc9a599471c7507df5b8bcc227042471eead96278d4cf51560ad14fcb3b9"
+  },
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.npz",
+    "sha256": "4143cb1c792ee1e52d72a8fee9372d912fff002f78d174200891615dcde5c650"
+  },
+  "support": {
+    "10": {
+      "slots": 0,
+      "strict_slots": 0,
+      "modified_rows": 0
+    },
+    "14": {
+      "slots": 1,
+      "strict_slots": 0,
+      "modified_rows": 4
+    },
+    "25": {
+      "slots": 1,
+      "strict_slots": 0,
+      "modified_rows": 4
+    }
+  },
+  "minimum_family_support_satisfied": false,
+  "minimum_strict_primary_support_satisfied": false,
+  "elapsed_seconds": 0.47623525001108646,
+  "model_forward_calls": 0,
+  "neighbor_metrics": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "paid_spend_usd": 0
+}

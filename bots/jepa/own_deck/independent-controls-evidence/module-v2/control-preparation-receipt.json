@@ -1,0 +1,61 @@
+{
+  "status": "prepared",
+  "phase": "fixed-module-generation",
+  "prior_preparation_seconds": 0.7261375840753317,
+  "command": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/generation-command.py",
+    "sha256": "50b9891893479f11a32d251dbdd7f019e01e37eb993d08f840de485a47bdcb72"
+  },
+  "neural_forwards": 0,
+  "model_forward_calls": 0,
+  "neighbor_metrics": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "paid_spend_usd": 0,
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.npz",
+    "sha256": "4271e67f391cfb0e53a56479dda5fd9f6af475152107609f5eafbb533617eb9f"
+  },
+  "manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.manifest.json",
+    "sha256": "2c3dfa86a7ba47fa01c4c907c22882eb461dab79255bd8174e4ed7c0827eca1c"
+  },
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_module_controls.py",
+    "sha256": "285a62319d2c2b4b1b083f1b0d3a05c8e14acf083c8f70018a080663e1704f9b"
+  },
+  "counts": {
+    "rows": 38,
+    "unique_source_compositions": 26,
+    "unique_feature_rows": 26
+  },
+  "v1": {
+    "manifest": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.manifest.json",
+      "sha256": "f1f6cc9a599471c7507df5b8bcc227042471eead96278d4cf51560ad14fcb3b9"
+    },
+    "rows": 17,
+    "minimum_family_support_satisfied": false,
+    "strict_primary_satisfied": false
+  },
+  "v2": {
+    "assay": "synthetic conditional mechanics proxy",
+    "modules": 3,
+    "background_families": 3,
+    "rows": 21,
+    "modified_rows": 12,
+    "strict_power_hp": true,
+    "keyword_exact_modules": 0
+  },
+  "guard": {
+    "elapsed_seconds": 0.4995766659267247,
+    "cpu_seconds": 0.49515300000000007,
+    "peak_rss_bytes": 120012800,
+    "samples": 7,
+    "worker_pid": 228,
+    "compute_threads": 1,
+    "limitation": "One owned process; RSS is sampled high-water rusage, not an instantaneous OS memory reservation. NumPy import is inside the guard."
+  },
+  "elapsed_seconds": 0.4995766659267247,
+  "aggregate_preparation_attempt_seconds": 1.2257142500020564
+}

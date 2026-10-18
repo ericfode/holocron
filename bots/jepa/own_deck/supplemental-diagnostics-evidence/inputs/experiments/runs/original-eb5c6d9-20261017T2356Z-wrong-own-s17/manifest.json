@@ -1,0 +1,458 @@
+{
+  "commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+  "config": {
+    "seed": 17,
+    "steps": 100,
+    "batch": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_arm_seconds": 120.0,
+    "max_campaign_seconds": 300.0,
+    "max_rss_mib": 2048.0,
+    "arms": [
+      "neutral",
+      "original",
+      "wrong-own"
+    ],
+    "optimizer": "AdamW",
+    "auxiliary_head": "linear96xK + bias",
+    "trainable": "din.w,din.b,drole,aux.w,aux.b only",
+    "loss": "mean normalized-target squared error",
+    "gradient_clip_norm": 1.0,
+    "cpu_threads": 1,
+    "heartbeat_seconds": 1.0,
+    "metric_every_updates": 5,
+    "context": "constant zero state73 and24 masked empty live-card slots plus2 deck rows",
+    "checkpoint_selection": "fixed final step only; no early best-validation selection",
+    "memory_guard": "known parent/worker/resource-tracker PIDs sampled with macOS libproc every<=0.1s; conservative per-PID peak sum plus reported rusage peaks; fail closed on unreadable PIDs"
+  },
+  "dataset": {
+    "status": "ready",
+    "npz_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz",
+    "npz_sha256": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091",
+    "manifest_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+    "manifest_sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+    "train_examples": 22,
+    "val_examples": 5,
+    "split_rule": {
+      "rule": "Connected components: same canonical leader OR base OR main-multiset fingerprint OR shared copies / smaller main count >= 0.8; deterministic whole-group knapsack, no target values",
+      "seed": "own-deck-real-declarations-v1",
+      "target_validation_rows": 5,
+      "train_idx": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        26
+      ],
+      "val_idx": [
+        2,
+        3,
+        10,
+        14,
+        25
+      ],
+      "family_count": 11,
+      "train_family_count": 7,
+      "val_family_count": 4,
+      "edges": [
+        {
+          "a": 1,
+          "b": 0,
+          "reasons": [
+            "leader"
+          ],
+          "copy_overlap": 0.48
+        },
+        {
+          "a": 3,
+          "b": 2,
+          "reasons": [
+            "leader"
+          ],
+          "copy_overlap": 0.18
+        },
+        {
+          "a": 5,
+          "b": 4,
+          "reasons": [
+            "leader"
+          ],
+          "copy_overlap": 0.39215686274509803
+        },
+        {
+          "a": 7,
+          "b": 6,
+          "reasons": [
+            "leader"
+          ],
+          "copy_overlap": 0.56
+        },
+        {
+          "a": 11,
+          "b": 5,
+          "reasons": [
+            "nearclone-copy-overlap"
+          ],
+          "copy_overlap": 0.8235294117647058
+        },
+        {
+          "a": 13,
+          "b": 6,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.1
+        },
+        {
+          "a": 13,
+          "b": 12,
+          "reasons": [
+            "leader",
+            "nearclone-copy-overlap"
+          ],
+          "copy_overlap": 0.84
+        },
+        {
+          "a": 15,
+          "b": 4,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.5
+        },
+        {
+          "a": 16,
+          "b": 15,
+          "reasons": [
+            "leader"
+          ],
+          "copy_overlap": 0.35294117647058826
+        },
+        {
+          "a": 17,
+          "b": 4,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.0
+        },
+        {
+          "a": 17,
+          "b": 15,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.0
+        },
+        {
+          "a": 18,
+          "b": 17,
+          "reasons": [
+            "leader"
+          ],
+          "copy_overlap": 0.5
+        },
+        {
+          "a": 19,
+          "b": 6,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.08
+        },
+        {
+          "a": 19,
+          "b": 13,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.14
+        },
+        {
+          "a": 20,
+          "b": 4,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.22580645161290322
+        },
+        {
+          "a": 20,
+          "b": 15,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.16666666666666666
+        },
+        {
+          "a": 20,
+          "b": 17,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.15
+        },
+        {
+          "a": 21,
+          "b": 4,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.0
+        },
+        {
+          "a": 21,
+          "b": 15,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.0
+        },
+        {
+          "a": 21,
+          "b": 17,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.23333333333333334
+        },
+        {
+          "a": 21,
+          "b": 20,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.08333333333333333
+        },
+        {
+          "a": 23,
+          "b": 22,
+          "reasons": [
+            "leader"
+          ],
+          "copy_overlap": 0.48
+        },
+        {
+          "a": 26,
+          "b": 11,
+          "reasons": [
+            "base"
+          ],
+          "copy_overlap": 0.41509433962264153
+        }
+      ]
+    },
+    "train_fingerprints": [
+      "5365271916408d33c494efd9bbca9e77eaa92dce75ece170b03eba32e994e2e2",
+      "be5b99f27a61c6713d3289c426550dc7cae3fc1fefaa1bfe8dd33e8f2e11fa1d",
+      "74a5c293ebbd6ef86df1aff1ce61d38fe95aa80f5da43b008646a6be50009d67",
+      "659567b76a28ccc0d9ab89eb13343a5453425b769d92cb532952dcda6a2bcbbd",
+      "1d7670496c42caa82027f4153d12343041efd0645763072d60039c94c7b3a853",
+      "ec4e033d599daaf7e8f57e468eb1177ab6c1aa4e9bc4f39bf8ec1e553d0e037b",
+      "a8279d327908b3d4b7458d3e5624604e2d6cc93de3f79e93d59551d42db791f6",
+      "177bce20000904be797eb775e0a24aad65e458ee40f3eb8fd7a9f255fb006294",
+      "14ba1475d28872c410840b0ebbedbd060b04d48bc3f614754ae54ee79554ed33",
+      "55c71b1182ec8f2420458acaac1c3c093cf761e76c6923a002bc788f42789fdd",
+      "5dece4a4ccf69f69ea04653fc838116b669c3fdebbdd37f349e377f560c00347",
+      "da8d09a67d9087acad73a82dcd124f084067f2f36b01557cf4c96999997b68fb",
+      "b664912529f523c93d82de640fb53c7add894f4fc8be89be6dc1f14b2819e0f1",
+      "9761bafeb5a0ebf0edd0488b4e1b1947f02482d5390173b505a0a805c7814192",
+      "86b34276a87e78054e42074d29f9899393f1e8c5c856b3b1ae2cf3f5548a56d6",
+      "02ed291860dd6006416a72d77c1e3298d51ccde288f8d64a5097c41d77c12125",
+      "2e7a9e6133c599b6f780388e5827da17c88bd6c32d57df1fe81696689ec259fd",
+      "069351e8e34cf44d383981c38a3e137e74784598307d6803eb15f92fca69ef12",
+      "f1271bc427dcd76eac089716a20567f1ffe85e2e5cad75d268c57b9ca956f424",
+      "037161274430e5b24099ab62be12b13a6e431af07050feaf3a90938801f8eadd",
+      "e342c334db5b0c031b0fd4ef36788b9a87c97129dca72304d3c629907d5301b0",
+      "0f3504970cbf2059661b80568e09109dce6c62e667b14425762104fa568b422b"
+    ],
+    "val_fingerprints": [
+      "47538763c9f69aba3e02de493c04fa5c87d71745e5004b13d7c25eba1371ef79",
+      "1d38ebbb9e9e702927c270cadaf094b2e474ba70c4c0ff9aec408bfcaaf7a5eb",
+      "b0f2810eaa3ea9a7119d837b78a1766921dcd5f0f342a1d6ed74361653473db9",
+      "6004683f1c60cfa30ff99b125e5db0fe0aac11d89d6b89516dff0f2318bf8233",
+      "aae40838d2332aa6084d76ad8efa355fc8bdac067df6545ffdd4dfb73bed6da6"
+    ],
+    "train_family_ids": [
+      "family-d39d23810c835d165d9fda7709ab2a2a379675a33b32ae6f5af9e315e2d2ba6c",
+      "family-d39d23810c835d165d9fda7709ab2a2a379675a33b32ae6f5af9e315e2d2ba6c",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-910adb0c4fc425184f94f1217ce99529eb1fb9a2bb8dae23c5e99b689b382425",
+      "family-79f2f8f622f1e979d55699bdc2d7ca21f3d911fcc304b1fbb234dae39a07d792",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-e4bd3db8e1f2aa7c5b5a31e6718246e3b184685d50df32818caf64280ceebe7b",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247",
+      "family-ee8b387dd13d5289313eef2cbe4c3265926d2a2bb5545eaac0e5026c4b36a087",
+      "family-ee8b387dd13d5289313eef2cbe4c3265926d2a2bb5545eaac0e5026c4b36a087",
+      "family-aed567b86372d62069dd6459790f1ce6db1b6c6c6bc5999b7d77122294f6ad47",
+      "family-095df501aeed046dfc5575f88df134f078932209f8e76e697c52eefb7e3c7247"
+    ],
+    "val_family_ids": [
+      "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+      "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d",
+      "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+      "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+      "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a"
+    ],
+    "wrong_idx": [
+      16,
+      15,
+      25,
+      14,
+      13,
+      1,
+      17,
+      22,
+      4,
+      26,
+      3,
+      8,
+      5,
+      18,
+      2,
+      19,
+      12,
+      0,
+      6,
+      20,
+      9,
+      7,
+      11,
+      24,
+      21,
+      10,
+      23
+    ],
+    "batch_schedule_sha256": "6fe32d812eedd16e5b224625ed00089026ccf1939314f23c26fc93c6a8675f0d",
+    "wrong_control_total_count_mismatches": 17,
+    "wrong_control_total_count_note": "Tiny pilot permits different total counts; this differs from the future same-count matched comparison proposal.",
+    "target_names": [
+      "total_count_per_60",
+      "mean_cost_per_10",
+      "low_cost_le_2_fraction",
+      "cost_0_fraction",
+      "cost_1_fraction",
+      "cost_2_fraction",
+      "cost_3_fraction",
+      "cost_4_fraction",
+      "cost_5_fraction",
+      "cost_6_fraction",
+      "cost_7_fraction",
+      "cost_8_plus_fraction",
+      "initial_draw_unit_probability"
+    ],
+    "target_groups": {
+      "count": [
+        0
+      ],
+      "curve": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "draw": [
+        12
+      ]
+    },
+    "base_checkpoint_sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "supplemental_initialization_sha256": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123",
+    "source_sha256": {
+      "own_deck/run_local_experiments.py": "0281cfd412c1e507141d9b9d67a0e763db8ec0e643451871540572499a558783",
+      "own_deck/run_events.py": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+      "own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+      "own_deck_model.py": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16",
+      "tx_model.py": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877"
+    }
+  },
+  "limitations": [
+    "Auxiliary original-deck representation fit on existing local declared lists, not a policy or playing-strength experiment.",
+    "No action-conditioned transition loss, environment rollouts, opponent execution, remaining-deck ledger, or effect-program semantics.",
+    "Draw label is initial unit fraction n_unit/N at declaration, never the actual next hidden card or live remaining-pile probability.",
+    "Empty constant board/hand is a synthetic declaration context, not a reconstructed game state.",
+    "One seed and a small family-disjoint holdout are diagnostic; no selection of a new competitive checkpoint is authorized."
+  ],
+  "protected": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/wasm/generated-own-deck/deck-init.safetensors": "4ac1306752d6ee8b7bccbc4eac109ea805f776adfa433356011a752041704123"
+  },
+  "target_train_standard_deviation": [
+    0.08575008064508438,
+    0.07121427357196808,
+    0.12788502871990204,
+    0.005047377198934555,
+    0.0691373273730278,
+    0.10395105928182602,
+    0.07053705304861069,
+    0.06420741230249405,
+    0.0641636997461319,
+    0.04727872461080551,
+    0.04331311210989952,
+    0.07116392254829407,
+    0.1305197924375534
+  ],
+  "runtime": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "device": "cpu",
+    "torch": "imported only inside owned worker"
+  },
+  "run_id": "original-eb5c6d9-20261017T2356Z-wrong-own-s17",
+  "arm": "wrong-own",
+  "prior_metrics": {
+    "val_loss": 0.0150234234344644,
+    "val_count_mae": 0.06212127208709717,
+    "val_curve_mae": 0.09155911325096068,
+    "val_draw_mae": 0.16078895926475525,
+    "val_count_mae_copies": 3.72727632522583,
+    "val_total_count_per_60_mae": 0.06212127208709717,
+    "val_mean_cost_per_10_mae": 0.12174014449119568,
+    "val_low_cost_le_2_fraction_mae": 0.19816672801971436,
+    "val_cost_0_fraction_mae": 0.0015907707856968045,
+    "val_cost_1_fraction_mae": 0.14817421436309813,
+    "val_cost_2_fraction_mae": 0.09328027069568634,
+    "val_cost_3_fraction_mae": 0.12418474853038788,
+    "val_cost_4_fraction_mae": 0.05063439607620239,
+    "val_cost_5_fraction_mae": 0.055187685787677764,
+    "val_cost_6_fraction_mae": 0.05888533815741539,
+    "val_cost_7_fraction_mae": 0.06513753980398178,
+    "val_cost_8_plus_fraction_mae": 0.09016840904951096,
+    "val_initial_draw_unit_probability_mae": 0.16078895926475525
+  }
+}

@@ -1,0 +1,846 @@
+{
+  "schema": "jepa-grounded-contrast/1",
+  "purpose": "standalone existing-runtime action-semantic contrast; no production tensor ABI",
+  "config": {
+    "seed": 29,
+    "arms": [
+      "correct-ir",
+      "id-only",
+      "wrong-ir",
+      "context-only"
+    ],
+    "max_updates_per_arm": 600,
+    "max_updates": 2400,
+    "max_native_applies": 2048,
+    "max_collection_roots": 168,
+    "max_collection_fit_seconds": 240,
+    "max_parameters": 32768,
+    "cpu_workers": 1,
+    "sampled_rss_stop_bytes": 2147483648,
+    "final_validation_batches": 8,
+    "postfit_usage_batches": 0,
+    "abi_embedding_batches": 0,
+    "constant_head_auxiliary_weight": 0.1,
+    "paid_jobs": 0,
+    "paid_spend_usd": 0,
+    "batch_size": 16,
+    "learning_rate": 0.003,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "gradient_clip_l2": 1.0,
+    "batch_seed": 30,
+    "wrong_train_seed": 31,
+    "wrong_eval_seed": 32,
+    "self_query_auxiliary_weight": 0.1,
+    "binary_class_weight_bounds": [
+      0.25,
+      5.0
+    ],
+    "continuous_scale_floor": 1.0,
+    "primary_min_observed_roots": 2,
+    "auxiliary_min_observed_roots": 1,
+    "primary_rule": "at least two distinct training labels and two observed training roots",
+    "source_self_policy": "slot7 auxiliary0.1; primary candidate slots0..6; no candidate pooling",
+    "wrong_eval_rule": "heldout identities swap each other; seen identities draw from training programs excluding equivalent group",
+    "train_input_scaling": "training roots and primary candidates only; known numeric columns centered/std floor1; booleans unchanged",
+    "heldout_cells": [
+      "program-held",
+      "state-held",
+      "joint-held"
+    ],
+    "primary_cell": "joint-held",
+    "cohort": "original",
+    "parameters_per_arm": 9020,
+    "updates_per_arm": 600,
+    "final_checkpoint_only": true,
+    "expected_counts": {
+      "optimizer_updates": 2400,
+      "training_forward_batches": 2400,
+      "backward_batches": 2400,
+      "heldout_validation_batches": 8,
+      "usage_batches": 0,
+      "abi_embedding_batches": 0,
+      "native_calls": 0,
+      "paid_jobs": 0
+    },
+    "cumulative_campaign_updates": 4800,
+    "cumulative_campaign_seconds": 240,
+    "sampled_rss_bytes": 2147483648,
+    "heldout_labels_used_in_training": false,
+    "search": false,
+    "execution_mode": "fit",
+    "update_offset": 0,
+    "new_primary": {
+      "cell": "joint-held",
+      "orientation": "SHD_004 minus TWI_206",
+      "candidate_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "heads": [
+        "cost_resource",
+        "xp_delta",
+        "target_exhausted_delta"
+      ],
+      "admission": "same state and candidate, both actual native legal/settled/known",
+      "aggregation": "natural-unit per-head MAE plus equal train-scale head macro"
+    }
+  },
+  "bank": {
+    "path_ids": {
+      "shape": [
+        16,
+        256,
+        24
+      ],
+      "dtype": "int64"
+    },
+    "path_lengths": {
+      "shape": [
+        16,
+        256
+      ],
+      "dtype": "int64"
+    },
+    "type_ids": {
+      "shape": [
+        16,
+        256
+      ],
+      "dtype": "int64"
+    },
+    "value_ids": {
+      "shape": [
+        16,
+        256
+      ],
+      "dtype": "int64"
+    },
+    "numeric": {
+      "shape": [
+        16,
+        256,
+        2
+      ],
+      "dtype": "float32"
+    },
+    "token_mask": {
+      "shape": [
+        16,
+        256
+      ],
+      "dtype": "float32"
+    },
+    "slot_mask": {
+      "shape": [
+        16
+      ],
+      "dtype": "float32"
+    },
+    "status": {
+      "shape": [
+        16,
+        5
+      ],
+      "dtype": "float32"
+    },
+    "identity_indices": {
+      "shape": [
+        16
+      ],
+      "dtype": "int64"
+    }
+  },
+  "tensors": {
+    "context": {
+      "shape": [
+        "B",
+        2
+      ],
+      "dtype": "float32",
+      "columns": [
+        "ready_resources",
+        "source_exhausted"
+      ],
+      "units": [
+        "ready-resource copies",
+        "boolean"
+      ]
+    },
+    "candidates": {
+      "shape": [
+        "B",
+        8,
+        26
+      ],
+      "dtype": "float32",
+      "columns": [
+        "owner_self",
+        "owner_opponent",
+        "is_unit",
+        "is_base",
+        "zone_ground",
+        "zone_space",
+        "same_source",
+        "present",
+        "damage",
+        "hp",
+        "remaining_hp",
+        "power",
+        "exhausted",
+        "shield_count",
+        "xp_count",
+        "known_damage",
+        "known_hp",
+        "known_remaining_hp",
+        "known_power",
+        "known_exhausted",
+        "known_shield_count",
+        "known_xp_count",
+        "trait_imperial",
+        "trait_creature",
+        "trait_spectre",
+        "known_traits"
+      ],
+      "units": [
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "native public count",
+        "native public count",
+        "native public count",
+        "native public count",
+        "boolean",
+        "native public count",
+        "native public count",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean",
+        "boolean"
+      ]
+    },
+    "query": {
+      "shape": [
+        "B"
+      ],
+      "dtype": "int64",
+      "inclusive_bounds": [
+        0,
+        15
+      ]
+    },
+    "source_logits": {
+      "shape": [
+        "B"
+      ],
+      "dtype": "float32"
+    },
+    "branch_logits": {
+      "shape": [
+        "B",
+        8,
+        11
+      ],
+      "dtype": "float32",
+      "columns": [
+        "source_use",
+        "target_allowed",
+        "cost_resource",
+        "damage_delta",
+        "source_exhausted_after",
+        "target_exhausted_delta",
+        "shield_delta",
+        "xp_delta",
+        "target_defeated",
+        "followup_source_offered",
+        "terminal"
+      ],
+      "units": [
+        "boolean",
+        "boolean",
+        "ready-resource copies paid",
+        "signed damage-counter change",
+        "boolean",
+        "signed exhaustion change",
+        "signed Shield-count change",
+        "signed Experience-count change",
+        "boolean",
+        "boolean",
+        "boolean"
+      ],
+      "unused_columns": [
+        0
+      ]
+    }
+  },
+  "vocabularies": {
+    "path": [
+      "PAD",
+      "UNKNOWN",
+      "index:0",
+      "index:1",
+      "key:amount",
+      "key:arena",
+      "key:args",
+      "key:costs",
+      "key:effect",
+      "key:effects",
+      "key:items",
+      "key:kind",
+      "key:left",
+      "key:name",
+      "key:op",
+      "key:owner",
+      "key:path",
+      "key:predicate",
+      "key:receiver",
+      "key:right",
+      "key:target",
+      "key:targetResolver",
+      "key:trigger",
+      "key:type",
+      "key:value",
+      "key:zone"
+    ],
+    "type": [
+      "PAD",
+      "UNKNOWN",
+      "node",
+      "length",
+      "boolean",
+      "number",
+      "enum",
+      "null"
+    ],
+    "value": [
+      "PAD",
+      "UNKNOWN",
+      "NUMBER",
+      "enum:!==",
+      "enum:&&",
+      "enum:<=",
+      "enum:>=",
+      "enum:action",
+      "enum:any",
+      "enum:anyAttackable",
+      "enum:arena",
+      "enum:array",
+      "enum:base",
+      "enum:binary",
+      "enum:card",
+      "enum:chosen",
+      "enum:const",
+      "enum:creature",
+      "enum:damage",
+      "enum:exhaust",
+      "enum:exhaustSelf",
+      "enum:getPower",
+      "enum:giveExperience",
+      "enum:giveShield",
+      "enum:ground",
+      "enum:hasSomeTrait",
+      "enum:heal",
+      "enum:imperial",
+      "enum:isUnit",
+      "enum:opponent",
+      "enum:query",
+      "enum:ready",
+      "enum:ref",
+      "enum:remainingHp",
+      "enum:resources",
+      "enum:self",
+      "enum:sequence",
+      "enum:source",
+      "enum:space",
+      "enum:spectre",
+      "enum:unit",
+      "node:object",
+      "node:ordered-list"
+    ]
+  },
+  "vocabulary_sha256": "e54f57ab828b1c5542d622284c3f31e7cd7504dadafc2adf0eaf62ab6a90704c",
+  "status_columns": [
+    "known",
+    "unknown",
+    "neutral",
+    "unsupported",
+    "ambiguous"
+  ],
+  "padding": "PAD0, UNKNOWN1 reserved. Padded slots allzero. Known unseen symbol rejects; overflow rejects without truncation. Unknown statuses have no semantic tokens.",
+  "caps": {
+    "programs": 16,
+    "typed_tokens": 256,
+    "path_depth": 24,
+    "candidates": 8,
+    "training_batch": 16,
+    "max_reference_batch": 16,
+    "max_evaluation_batch": 68,
+    "parameters": 32768
+  },
+  "input_scaling": {
+    "context_center": [
+      1.7999999523162842,
+      0.0
+    ],
+    "context_scale": [
+      1.0,
+      1.0
+    ],
+    "candidate_center": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5571428537368774,
+      11.285714149475098,
+      10.728571891784668,
+      2.5999999046325684,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "candidate_scale": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      3.4543378353118896,
+      11.840780258178711,
+      11.715582847595215,
+      1.496662974357605,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "numeric_known_columns": {
+      "8": 15,
+      "9": 16,
+      "10": 17,
+      "11": 18,
+      "13": 20,
+      "14": 21
+    },
+    "fit_rows": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      24,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      36,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      48,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      60,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      72,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      84,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      96,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      108,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118
+    ],
+    "fit_candidates": "primary slots0..6 only"
+  },
+  "head_scaling": {
+    "primary": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      10
+    ],
+    "auxiliary": [
+      4,
+      9
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      0.0,
+      0.0,
+      0.5349794238683128,
+      0.7974683544303798,
+      0.0,
+      0.05907172995780591,
+      0.03375527426160337,
+      0.14767932489451477,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "class_weights": [
+      [
+        3.5714285714285716,
+        0.5813953488372093
+      ],
+      [
+        0.8451704545454546,
+        1.2242798353909465
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.5083682008368201,
+        5.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.5020661157024794,
+        5.0
+      ]
+    ],
+    "support": [
+      100,
+      595,
+      243,
+      237,
+      243,
+      237,
+      237,
+      237,
+      243,
+      85,
+      243
+    ],
+    "observed_roots": [
+      100,
+      85,
+      85,
+      84,
+      85,
+      84,
+      84,
+      84,
+      85,
+      85,
+      85
+    ],
+    "variation": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      [
+        1.0
+      ],
+      [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "literal_scaling": {
+    "first": "physical_value/train_numeric_std_floor1",
+    "second": "signed log1p(abs(value))",
+    "scale": 1.0,
+    "absolute_bound": 65535
+  },
+  "pooling": "active-token mean then status projection+LayerNorm; depth*key product then nonlinear path/value joint leaf before pooling; no deck/bag branch",
+  "identity": "ID control only, training IDs1..10; all heldout IDs fixedzero UNK0. No IDs/titles/source paths in semantic tokens.",
+  "locality": "source head IR+2globals only; each candidate head IR+2globals+own26 only. No source-self broadcasting or candidate-bank pooling.",
+  "outputs": "Binary heads are logits; continuous heads predict train-centered/std-floor1 native labels, inverse-scaled for reports. Unknown labels masked. Standalone source once/root, candidates meanwithinroot, macroheads.",
+  "orientation": "Linear.weight[out,in], embedding[vocab,16], depth_gate[24,16]; reference make_contrast_model.encode_program_bank/forward; named state_dict saved as NPZ",
+  "invariance": "object keys sorted; effect/list/operand order and literal-position binding retained. Action pilot has no deck aggregation; production ownDeck remains2x207.",
+  "source_pins": {
+    "model_sha256": "473bc2324cf62c0437effd631e8fec3cc5930d2aeee0d00255da3bd08747eaf2",
+    "dataset_sha256": "83a0ec4125e3d97b54ebd910925558bed0c18b779b706417991a650da1dfed52",
+    "manifest_sha256": "c0206e0638a995b8237574cb11a697c35a0711d9a9f5dd9741314431bd4aea20",
+    "source_revision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+    "programs": {
+      "ASH_011": {
+        "source_hash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+        "source_path": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+        "program_group_id": "c0598dbb771a89f18ccb9887d9f7e122ab574c8c5cdd678c07edea060f83f22d",
+        "side": "leader",
+        "index": 0
+      },
+      "HMW_170": {
+        "source_hash": "d5bd6e5b323faf28870573147423e0a55007f3d6efefa140b3ed6880964acfdd",
+        "source_path": "game/cards/09_HMW/units/HanSoloMyTeamsReady.ts",
+        "program_group_id": "9189da0766ef06741ea6cdbb327505d6557bf735c7b2a6bed6bc0753ebe05e35",
+        "side": "card",
+        "index": 0
+      },
+      "IBH_016": {
+        "source_hash": "33bcd7885f19721a067493066a156ef0784095e22cc54002f7a695256f7f82ff",
+        "source_path": "game/cards/06_IBH/units/IonCannon.ts",
+        "program_group_id": "2d1885f88ab1aac00a1364ccffdc9f8de5efb43703d3728b1bf5680a7ef618ca",
+        "side": "card",
+        "index": 0
+      },
+      "IBH_053": {
+        "source_hash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+        "source_path": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+        "program_group_id": "1a2182861cecc84e68f37f0464c823990df87e9193104dfe5558b1c65d1c568b",
+        "side": "leader",
+        "index": 0
+      },
+      "LOF_004": {
+        "source_hash": "0d6e49be8a7dcd1e65e07a8d605d1840490e8818df83eeb30a0e6ff473c35b40",
+        "source_path": "game/cards/05_LOF/leaders/KananJarrusHelpUsSurvive.ts",
+        "program_group_id": "452555893afcab7f999ac42b4df3caf8273cf7ea7624dcf8bc336e4d66bfe269",
+        "side": "leader",
+        "index": 0
+      },
+      "LOF_134": {
+        "source_hash": "ab2b16abfa26887a3cd8ed8eddae001d64933372f51072933444a6c249b5f382",
+        "source_path": "game/cards/05_LOF/units/HeavyMissileGunship.ts",
+        "program_group_id": "4133971a4a928c7e34a0afe39da643fc280f1ff8e6092beeb6f276b5ecb8b5a9",
+        "side": "card",
+        "index": 0
+      },
+      "SHD_196": {
+        "source_hash": "31fcd7240824adb5184fb0824131bf0f7d7269985f9e1b2a31d3605454a45ba9",
+        "source_path": "game/cards/02_SHD/units/GroguIrresistible.ts",
+        "program_group_id": "e2b2bde9fecf5c903127ce060956167e8d9c8dedad41165ded36baea490e3de3",
+        "side": "card",
+        "index": 0
+      },
+      "SOR_007": {
+        "source_hash": "75a56c7d1df79764341d9f2b2b92d6774cbc45b12a66c37fbabf57acfe43c739",
+        "source_path": "game/cards/01_SOR/leaders/GrandMoffTarkinOversectorGovernor.ts",
+        "program_group_id": "d9f181f5603e6dafa319a91a2e07812dd9955cbb8ca7de923465e8603ee3270b",
+        "side": "leader",
+        "index": 0
+      },
+      "SOR_011": {
+        "source_hash": "e7898752992e8ddcd5f5f83dbeb1e4d32e9b30933162ba380dc0f817bfc61bee",
+        "source_path": "game/cards/01_SOR/leaders/GrandInquisitorHuntingTheJedi.ts",
+        "program_group_id": "34d8733d4c5dc09366821c448d52eeb5d2864e56479b8b2c0ed93e448cb44e10",
+        "side": "leader",
+        "index": 0
+      },
+      "SOR_094": {
+        "source_hash": "317cb1d46a3670f53fbcf2bae5926e01565741a215377d85f64c4781dbdf119f",
+        "source_path": "game/cards/01_SOR/units/BailOrganaRebelCouncilor.ts",
+        "program_group_id": "1fe4bee2c38b989bc84c8468459fdb74981c8dd80e3a70ff5c4007156a7a916c",
+        "side": "card",
+        "index": 0
+      },
+      "TWI_056": {
+        "source_hash": "6c79fabbca6b5cee9e3c35fc0d1c7dfd3dfb0810b2a8c530942c98383efdf6e5",
+        "source_path": "game/cards/03_TWI/units/CompassionateSenator.ts",
+        "program_group_id": "e0e2113c939ecc6896bd4f38b9ac5207eac49e13288b3d2e7d6a892737f5c5ad",
+        "side": "card",
+        "index": 0
+      },
+      "TWI_157": {
+        "source_hash": "a9a96ae86ad7b5b280db15aeaf147208edb6c76a40e91e0257866be9410171df",
+        "source_path": "game/cards/03_TWI/units/DisaffectedSenator.ts",
+        "program_group_id": "066dbff7133bd08e5e41b8b2d04fb3a8d3b4650f3079506dbd1edbeba547cad1",
+        "side": "card",
+        "index": 0
+      }
+    }
+  },
+  "replication_runner_sha256": "f4277ab29be9fdd26d6920e04d35eee4acbe6bd781c36968475b37a306af9a6e",
+  "frozen_model_source_sha256": "473bc2324cf62c0437effd631e8fec3cc5930d2aeee0d00255da3bd08747eaf2",
+  "replication_allocation": "8initial/final validation batches;0usage/ABI extras; final checkpoint only"
+}

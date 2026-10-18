@@ -1,0 +1,96 @@
+{
+  "schema": "jepa-independent-cycle-verification/1",
+  "checked_at_utc": "2026-10-18T01:50:06.582072+00:00",
+  "status": "passed",
+  "focused_tests": {
+    "count": 61,
+    "status": "passed",
+    "seconds": 5.805
+  },
+  "packages": {
+    "independent-controls-evidence": {
+      "index_sha256": "aaccce49daaa77f66fb5313bc392e0ee27c38e72f19bcef8311ca6a0aefe4845",
+      "files_including_index": 55,
+      "stored_bytes_including_index": 7060399,
+      "payloads": 54,
+      "uncompressed_bytes": 7025472,
+      "stored_bytes": 7025472,
+      "gzip_files": 0
+    },
+    "transition-replication-evidence": {
+      "index_sha256": "466209370a69fb259be77d187f073bc720fed81726e255721d21ddcf99cdd581",
+      "files_including_index": 162,
+      "stored_bytes_including_index": 8615988,
+      "payloads": 161,
+      "uncompressed_bytes": 104144669,
+      "stored_bytes": 8502027,
+      "gzip_files": 24
+    },
+    "supplemental-diagnostics-evidence": {
+      "index_sha256": "2d985c00fdb1c44886a8a747069146111287d656fd16c83cd5a55cd81c5ad57a",
+      "files_including_index": 43,
+      "stored_bytes_including_index": 1268749,
+      "payloads": 42,
+      "uncompressed_bytes": 1237507,
+      "stored_bytes": 1237507,
+      "gzip_files": 0
+    }
+  },
+  "protected_files": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+      "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a",
+      "matches": true
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+      "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+      "matches": true
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+      "matches": true
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+      "matches": true
+    }
+  ],
+  "feed": {
+    "schema": "jepa-run-event/v1",
+    "events": 711,
+    "runs": 22,
+    "new_completed_runs": 9,
+    "duplicate_event_ids": 0,
+    "nonmonotonic_sequences": 0,
+    "identity_changes": 0,
+    "invalid_metrics": 0
+  },
+  "new_cycle_counts": {
+    "training_forward_batches": 4800,
+    "validation_batches": 28,
+    "retrieval_forward_batches": 1,
+    "gradient_forward_batches": 1,
+    "gradient_backwards": 1,
+    "optimizer_updates": 4800,
+    "native_applies": 980,
+    "closed_form_style_readouts": 5,
+    "paid_jobs": 0,
+    "paid_spend_usd": 0
+  },
+  "modal_cap_usd": 100,
+  "reserve_usd": 25,
+  "production_changed": false,
+  "limitations": [
+    "Historical unexecuted gradient-plan-v1 source pin is explicitly unresolved; executed v2 pins all resolve.",
+    "Original upstream fixture comments/author/casing unavailable; labels remain weak.",
+    "Broken chat service repair remains unconfirmed; saved research is recovered."
+  ],
+  "diff_check": {
+    "authored_and_generated_files": "passed",
+    "byte_preserved_upstream_license_exception": "transition-replication-evidence/licenses/LICENSE.forceteki",
+    "reason": "Upstream license trailing whitespace retained so source bytes and license hash remain exact."
+  }
+}

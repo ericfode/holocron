@@ -1,0 +1,260 @@
+{
+  "schema": "jepa-independent-module-coverage/2",
+  "combined_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.manifest.json",
+    "sha256": "2c3dfa86a7ba47fa01c4c907c22882eb461dab79255bd8174e4ed7c0827eca1c"
+  },
+  "modules": [
+    {
+      "source_index": 10,
+      "codes": {
+        "a": "ASH_056",
+        "near": "LAW_104",
+        "far": "LOF_045"
+      },
+      "strict_signature": [
+        2,
+        [
+          "unit"
+        ],
+        "ground",
+        [
+          "heroism",
+          "vigilance"
+        ],
+        2,
+        4
+      ],
+      "keywords": {
+        "a": [],
+        "near": [
+          "sentinel"
+        ],
+        "far": [
+          "restore"
+        ]
+      },
+      "near_far_ir_gap": 0.07359307359307354,
+      "complete_ir_known_copies": 27,
+      "unchanged_background_unknown_copies": 23,
+      "unknown_scope": "Shared unchanged background cards; all A/B/C module identities have complete runtime-admitted IR. No unknown background behavior imputed."
+    },
+    {
+      "source_index": 14,
+      "codes": {
+        "a": "ASH_068",
+        "near": "SEC_055",
+        "far": "LAW_113"
+      },
+      "strict_signature": [
+        1,
+        [
+          "unit"
+        ],
+        "ground",
+        [
+          "vigilance"
+        ],
+        1,
+        3
+      ],
+      "keywords": {
+        "a": [
+          "ambush",
+          "support"
+        ],
+        "near": [],
+        "far": []
+      },
+      "near_far_ir_gap": 0.01121690094802219,
+      "complete_ir_known_copies": 28,
+      "unchanged_background_unknown_copies": 22,
+      "unknown_scope": "Shared unchanged background cards; all A/B/C module identities have complete runtime-admitted IR. No unknown background behavior imputed."
+    },
+    {
+      "source_index": 25,
+      "codes": {
+        "a": "ASH_076",
+        "near": "JTL_065",
+        "far": "LOF_064"
+      },
+      "strict_signature": [
+        3,
+        [
+          "unit"
+        ],
+        "ground",
+        [
+          "vigilance"
+        ],
+        3,
+        3
+      ],
+      "keywords": {
+        "a": [
+          "restore"
+        ],
+        "near": [
+          "shielded"
+        ],
+        "far": []
+      },
+      "near_far_ir_gap": 0.8928571428571428,
+      "complete_ir_known_copies": 18,
+      "unchanged_background_unknown_copies": 32,
+      "unknown_scope": "Shared unchanged background cards; all A/B/C module identities have complete runtime-admitted IR. No unknown background behavior imputed."
+    }
+  ],
+  "rows": {
+    "module-source-10-anchor": {
+      "known_copies": 27,
+      "unknown_copies": 23,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-10-n1-ir-near": {
+      "known_copies": 27,
+      "unknown_copies": 23,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-10-n1-ir-far": {
+      "known_copies": 27,
+      "unknown_copies": 23,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-10-n2-ir-near": {
+      "known_copies": 27,
+      "unknown_copies": 23,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-10-n2-ir-far": {
+      "known_copies": 27,
+      "unknown_copies": 23,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-10-permutation": {
+      "known_copies": 27,
+      "unknown_copies": 23,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-10-split-entries": {
+      "known_copies": 27,
+      "unknown_copies": 23,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-source-14-anchor": {
+      "known_copies": 28,
+      "unknown_copies": 22,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-14-n1-ir-near": {
+      "known_copies": 28,
+      "unknown_copies": 22,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-14-n1-ir-far": {
+      "known_copies": 28,
+      "unknown_copies": 22,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-14-n2-ir-near": {
+      "known_copies": 28,
+      "unknown_copies": 22,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-14-n2-ir-far": {
+      "known_copies": 28,
+      "unknown_copies": 22,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-14-permutation": {
+      "known_copies": 28,
+      "unknown_copies": 22,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-14-split-entries": {
+      "known_copies": 28,
+      "unknown_copies": 22,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-source-25-anchor": {
+      "known_copies": 18,
+      "unknown_copies": 32,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-25-n1-ir-near": {
+      "known_copies": 18,
+      "unknown_copies": 32,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-25-n1-ir-far": {
+      "known_copies": 18,
+      "unknown_copies": 32,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-25-n2-ir-near": {
+      "known_copies": 18,
+      "unknown_copies": 32,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-25-n2-ir-far": {
+      "known_copies": 18,
+      "unknown_copies": 32,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-25-permutation": {
+      "known_copies": 18,
+      "unknown_copies": 32,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    },
+    "module-25-split-entries": {
+      "known_copies": 18,
+      "unknown_copies": 32,
+      "total_copies": 50,
+      "whole_deck_semantics_known": false,
+      "derivation": "v1 full knownness minus three explicitly removed background copies plus three known module copies; all module variants/invariance views preserve this knownness."
+    }
+  },
+  "neural_forwards": 0,
+  "native_calls": 0,
+  "frozen_rows_changed": false
+}

@@ -1,0 +1,9 @@
+{
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_embeddings.py",
+    "sha256": "e7061a0cc591f1db297aec8397afb45b88630eea9aa32103dfbe0ab0b5db0a59"
+  },
+  "controls": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.npz",
+  "manifest": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.manifest.json",
+  "controls_preparation_receipt": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/control-preparation-receipt.json"
+}

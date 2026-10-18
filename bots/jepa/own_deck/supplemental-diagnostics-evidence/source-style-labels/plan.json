@@ -1,0 +1,109 @@
+{
+  "schema": "jepa-source-style-evaluation/1",
+  "status": "prepared-awaiting-root-execution-GO",
+  "proposal": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/source-style-labels.plan.json",
+    "sha256": "4dd73f0dbcad4c18200078b127d14463d7d4d4088dc4ab044c86ae16f121a59c"
+  },
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/source_style_probe.py",
+    "sha256": "ed324ce1f61b93825a9afb9ba6194c67f0263dd954c81ccd2d0f20cc674e1807"
+  },
+  "guard_source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding_geometry_audit.py",
+    "sha256": "a8151c194f254e7d3d7444db24051ef53a5906665286cd54143069964439d12d"
+  },
+  "inputs": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/source-style-labels.audit.json",
+      "sha256": "5fe066d1827bfca2b616946ed4404647236e185a690ba0012207d3eacc9e7b50",
+      "bytes": 38479
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json",
+      "sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+      "bytes": 19544
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.human.json",
+      "sha256": "7495da627d8ba43cc09fd97eefbd0bff12738cef590ff229ca85040394fdaeb2",
+      "bytes": 103481
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+      "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+      "bytes": 20662
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz",
+      "sha256": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091",
+      "bytes": 10057
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+      "bytes": 295074
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json",
+      "sha256": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090",
+      "bytes": 4651
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/train-transform.npz",
+      "sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325",
+      "bytes": 150064
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/receipt.json",
+      "sha256": "5cf027d5fcb6928cfe13574e196b7c57f0f0efc0b83d5fe311529a56f713183f",
+      "bytes": 778
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding_geometry_audit.py",
+      "sha256": "a8151c194f254e7d3d7444db24051ef53a5906665286cd54143069964439d12d",
+      "bytes": 24275
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+      "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/audit_source_style_labels.py",
+      "sha256": "d1e9ceed4806db908bed2941ae1623869bdd71b63603714e1e275b366f2ba812",
+      "bytes": 23282
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/source-style-labels.plan.json",
+      "sha256": "4dd73f0dbcad4c18200078b127d14463d7d4d4088dc4ab044c86ae16f121a59c"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding_geometry_audit.py",
+      "sha256": "a8151c194f254e7d3d7444db24051ef53a5906665286cd54143069964439d12d"
+    }
+  ],
+  "source_git_head": "ae64647143916fb2bba1bc014585fed659f3f76a",
+  "source_is_working_file_pinned_by_sha256": true,
+  "no_git_stage_or_commit": true,
+  "scope": "Primary five validation queries against TRAIN22, k1/k3, five distances+majority and fixed alpha1 ridge; ALL optional27 LOO/LOFO analyses disabled",
+  "no_tuning": true,
+  "neural_forwards": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "preparations_attempted": 1,
+  "preparation_elapsed_seconds": 0.011512833996675909,
+  "limits": {
+    "total_preparation_plus_execution_wall_seconds": 20,
+    "cpu_seconds": 20,
+    "sampled_rss_bytes": 536870912,
+    "compute_threads": 1,
+    "neural_forwards": 0,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "paid_jobs": 0
+  }
+}

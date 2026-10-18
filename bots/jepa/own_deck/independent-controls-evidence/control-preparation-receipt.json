@@ -1,0 +1,88 @@
+{
+  "status": "prepared",
+  "production_attempts": 1,
+  "neural_forwards": 0,
+  "model_forward_calls": 0,
+  "neighbor_metrics": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "paid_spend_usd": 0,
+  "command": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/prepare-command.py",
+    "sha256": "ecf13c08e94bd4184364c697d073bcbb14e4b484b0258d43d7328c65abe4c125"
+  },
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_controls.py",
+    "sha256": "069e8b2714aeff7fa071022f496a3526d45f14139f841a91705e3129c5b3b8f3"
+  },
+  "guard_source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding_geometry_audit.py",
+    "sha256": "a8151c194f254e7d3d7444db24051ef53a5906665286cd54143069964439d12d"
+  },
+  "manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.manifest.json",
+    "sha256": "f1f6cc9a599471c7507df5b8bcc227042471eead96278d4cf51560ad14fcb3b9"
+  },
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.npz",
+    "sha256": "4143cb1c792ee1e52d72a8fee9372d912fff002f78d174200891615dcde5c650"
+  },
+  "support": {
+    "10": {
+      "slots": 0,
+      "strict_slots": 0,
+      "modified_rows": 0
+    },
+    "14": {
+      "slots": 1,
+      "strict_slots": 0,
+      "modified_rows": 4
+    },
+    "25": {
+      "slots": 1,
+      "strict_slots": 0,
+      "modified_rows": 4
+    }
+  },
+  "minimum_family_support_satisfied": false,
+  "minimum_strict_primary_support_satisfied": false,
+  "protected_before": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_controls.py": "069e8b2714aeff7fa071022f496a3526d45f14139f841a91705e3129c5b3b8f3",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_deck_data.py": "40419ceaf7a6e68d9e28a4d66e5e7263905cb58c9fce7d670a7513941a60676b",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/restoration_data.py": "9a10f036d6b3582d549c0a5b5412ef5740c996d9f5c730b25cfe170c63ec5a31",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/admission-policy.json": "0e9826aa46c2932d4856c9f5087c41beb06ca60805205cb852e061b2cca18e07",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/reviews-v2/joined-annotations.json": "4ebb903b8777fc3a8f6950ae22fef88aa28c451df6126895a405af729cdb8123",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/counterfactuals.json": "2e35574a5ac4f19bb43c450ac0fea02f0b54676eeb6691bbe654297402793cfe",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091"
+  },
+  "protected_after": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_controls.py": "069e8b2714aeff7fa071022f496a3526d45f14139f841a91705e3129c5b3b8f3",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_deck_data.py": "40419ceaf7a6e68d9e28a4d66e5e7263905cb58c9fce7d670a7513941a60676b",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/restoration_data.py": "9a10f036d6b3582d549c0a5b5412ef5740c996d9f5c730b25cfe170c63ec5a31",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck.py": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration/admission-policy.json": "0e9826aa46c2932d4856c9f5087c41beb06ca60805205cb852e061b2cca18e07",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/reviews-v2/joined-annotations.json": "4ebb903b8777fc3a8f6950ae22fef88aa28c451df6126895a405af729cdb8123",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/deckiness-export/adversarial-v1/counterfactuals.json": "2e35574a5ac4f19bb43c450ac0fea02f0b54676eeb6691bbe654297402793cfe",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091"
+  },
+  "guard": {
+    "elapsed_seconds": 0.5258009589742869,
+    "cpu_seconds": 0.48386199999999996,
+    "peak_rss_bytes": 124157952,
+    "samples": 8,
+    "worker_pid": 96496,
+    "compute_threads": 1,
+    "limitation": "One owned process; RSS is sampled high-water rusage, not an instantaneous OS memory reservation. NumPy import is inside the guard."
+  },
+  "elapsed_seconds": 0.5258009589742869,
+  "aggregate_preparation_attempt_seconds": 0.5258009589742869
+}

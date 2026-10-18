@@ -1,0 +1,621 @@
+{
+  "schema": "jepa-independent-retrieval-embedding/1",
+  "status": "prepared-no-model-call",
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_embeddings.py",
+    "sha256": "e7061a0cc591f1db297aec8397afb45b88630eea9aa32103dfbe0ab0b5db0a59"
+  },
+  "controls": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.npz",
+    "sha256": "4271e67f391cfb0e53a56479dda5fd9f6af475152107609f5eafbb533617eb9f"
+  },
+  "controls_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.manifest.json",
+    "sha256": "2c3dfa86a7ba47fa01c4c907c22882eb461dab79255bd8174e4ed7c0827eca1c"
+  },
+  "controls_preparation_receipt": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/control-preparation-receipt.json",
+    "sha256": "847d25ff552178f4f91d3fc87c909105c945f5b0b9982cf3a5112c4a55b8475d"
+  },
+  "controls_preparation_elapsed_seconds": 1.2257142500020564,
+  "protected": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json",
+      "sha256": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz",
+      "sha256": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+      "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding-geometry-evidence/train-transform.npz",
+      "sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding-geometry-evidence/result.json",
+      "sha256": "088ea3b95e8c98b8104ac4291dc3533daec928e51157d66b55c628f903ed980e"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding-geometry-evidence/receipt.json",
+      "sha256": "5cf027d5fcb6928cfe13574e196b7c57f0f0efc0b83d5fe311529a56f713183f"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding-geometry-evidence/plan.json",
+      "sha256": "af15cbc057b76faf4cd185c9495de7b77431abac63763036fbd45b0d35077518"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding_geometry_audit.py",
+      "sha256": "a8151c194f254e7d3d7444db24051ef53a5906665286cd54143069964439d12d"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+      "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck_model.py",
+      "sha256": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck.py",
+      "sha256": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/tx_model.py",
+      "sha256": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/export_embeddings.py",
+      "sha256": "53d563bb3c181c1661dcd620b3ac998d641e17f13805a0d0ff5cab0526e4a520"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.manifest.json",
+      "sha256": "f1f6cc9a599471c7507df5b8bcc227042471eead96278d4cf51560ad14fcb3b9"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.npz",
+      "sha256": "4143cb1c792ee1e52d72a8fee9372d912fff002f78d174200891615dcde5c650"
+    }
+  ],
+  "rows": 60,
+  "control_rows": 38,
+  "training_reference_rows": 22,
+  "row_ids": [
+    "train-reference-00",
+    "train-reference-01",
+    "train-reference-04",
+    "train-reference-05",
+    "train-reference-06",
+    "train-reference-07",
+    "train-reference-08",
+    "train-reference-09",
+    "train-reference-11",
+    "train-reference-12",
+    "train-reference-13",
+    "train-reference-15",
+    "train-reference-16",
+    "train-reference-17",
+    "train-reference-18",
+    "train-reference-19",
+    "train-reference-20",
+    "train-reference-21",
+    "train-reference-22",
+    "train-reference-23",
+    "train-reference-24",
+    "train-reference-26",
+    "independent-source-10",
+    "independent-10-permutation",
+    "independent-10-split",
+    "independent-source-14",
+    "independent-14-ash_153-n1-ir-near",
+    "independent-14-ash_153-n1-ir-far",
+    "independent-14-ash_153-n2-ir-near",
+    "independent-14-ash_153-n2-ir-far",
+    "independent-14-permutation",
+    "independent-14-split",
+    "independent-source-25",
+    "independent-25-sec_057-n1-ir-near",
+    "independent-25-sec_057-n1-ir-far",
+    "independent-25-sec_057-n2-ir-near",
+    "independent-25-sec_057-n2-ir-far",
+    "independent-25-permutation",
+    "independent-25-split",
+    "module-source-10-anchor",
+    "module-10-n1-ir-near",
+    "module-10-n1-ir-far",
+    "module-10-n2-ir-near",
+    "module-10-n2-ir-far",
+    "module-10-permutation",
+    "module-10-split-entries",
+    "module-source-14-anchor",
+    "module-14-n1-ir-near",
+    "module-14-n1-ir-far",
+    "module-14-n2-ir-near",
+    "module-14-n2-ir-far",
+    "module-14-permutation",
+    "module-14-split-entries",
+    "module-source-25-anchor",
+    "module-25-n1-ir-near",
+    "module-25-n1-ir-far",
+    "module-25-n2-ir-near",
+    "module-25-n2-ir-far",
+    "module-25-permutation",
+    "module-25-split-entries"
+  ],
+  "source_indices": [
+    0,
+    1,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    26,
+    10,
+    10,
+    10,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25
+  ],
+  "reference_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    25,
+    32
+  ],
+  "train_reference_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "control_indices": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59
+  ],
+  "row_input_sha256": [
+    "bee06dd81928c2f62388a57a803f2d9ba113148e0e0aaae42a5e0d5518a006a0",
+    "3845d3627db483e0ae5324ce896f6c0e8507c4b400d50ff8359eaedef6fac85c",
+    "51c6a7c2f4cf3fd5f36a3a114305960345b28d2e29208743e37ba3407635cde9",
+    "5a764b3aed5f4d4b66e581bc5e21e672b6f45dec51d75511765ca742fb39eb09",
+    "1a591a99b4d07b52402776efb4871c0e5d2f8f9e7cc787c05540bd703f00636e",
+    "d714d885f989776b0f6fae7184649e043298e79095dcb8494772a59a8d00c8e6",
+    "417a553b107e392881ccf804291340c03505dc638dd70012dcb294ce8194499f",
+    "0219ec5773d3c2ef11871079d8558a48b5beb2ac48c2a700ebb6b2803f52c212",
+    "3819ea523522a708b6af65a845dd0463e0665503338be766af61a8ebb2ab4a5a",
+    "bccfbc7c84cdcd6178a914ff40632556cc48301014c16946579e791c0102936a",
+    "4955fb685789377c3df8a6906bf1676dedfc49d792d4a0d1d7654a2c9b689abb",
+    "550105dbc9ebbebce3d390651fbb01f7bb00c1f0655101cd91caf5bee2c55867",
+    "c7340228b9f9379bfd4e5c16ee66230eb312b88b5a5b5d804246b9c66d29b91e",
+    "50955bab19b59b010fe3ec68e2a2b6f0194950189a4cfb2b7c7a34b5bef46019",
+    "0072d44212c0336211af1fd6db713468e9d5d343f2a65a2132acc023a975788a",
+    "ec8159ce9d8b335296af1a13e6671fc91b6669b53e9f7d3f2277b753e65f3929",
+    "c4627dead9ad417d16a8ddb8f2ef885572f53065d41de4594a52bd24b98dbede",
+    "19750fe08d299a5821584ceec8cf72898b67980775dbffd99aafccdc9a8195be",
+    "fa5908a99ce59cdd64640739a6bff572a6b312fe286d145ee8dce4ed517ff18a",
+    "4c05cafdc275890007c076a09800289da23ff5a5cc7ffc7ee8026d00ccdf838d",
+    "e2133e482dcd0d8df4d7dd63df7e4b197272739f07b6ae35bf33afea6284d259",
+    "f0b300d10d9745284eb28dc977517d1915e958a67e8d34e3568fa3655e580dff",
+    "19ad7ddc8029becf5e02454e8e76ff578014b5e57369d4244e0111d14c19f955",
+    "19ad7ddc8029becf5e02454e8e76ff578014b5e57369d4244e0111d14c19f955",
+    "19ad7ddc8029becf5e02454e8e76ff578014b5e57369d4244e0111d14c19f955",
+    "3166282f4e42045ef5b08f7e5ddbb30fa11bd4b363476a94d6ed6d09bc389f40",
+    "d14f214df405b73319c911f8899ea69317ce0ef947cb8f14592b56dabb4c2249",
+    "bdc433964c1090bc8152d9e931740fb0973d0d9e516838c33c13844e041d2188",
+    "26849623f3c9a66e0d5ef8c1ad419cdce0e8c53e3aca3fcdfeeb52365b97f1bb",
+    "a794a55645a51694b2f0b8f2ae29e0dabfded3d6ef9dc4072a7592fc30aaea41",
+    "3166282f4e42045ef5b08f7e5ddbb30fa11bd4b363476a94d6ed6d09bc389f40",
+    "3166282f4e42045ef5b08f7e5ddbb30fa11bd4b363476a94d6ed6d09bc389f40",
+    "6cf2756ec2c85aa5ed83a5aed0d21df9be2aac75fcba2d0ee559952c922ea2ff",
+    "f2c834220a7f47bd69524f609af1afd209955aa53f7e6a900cc3ccf3edc057a2",
+    "ce320f76441ebf8f01e1d327a7b072e5655b61da02d5e833dbc7ce90900493dd",
+    "e9d41034d7a3ddb7a99331cdb53ac701f1fe6e0dd5761471c12ae623f5fc0df9",
+    "37d19dfa43863a0e49e0d5feb4fce25f68d5886a223dbf38d027fb410683aa4f",
+    "6cf2756ec2c85aa5ed83a5aed0d21df9be2aac75fcba2d0ee559952c922ea2ff",
+    "6cf2756ec2c85aa5ed83a5aed0d21df9be2aac75fcba2d0ee559952c922ea2ff",
+    "c67cc6153028e34028ad6324c61f4f4e7f0b34ee582948f912f972e006a97a11",
+    "5fcca10832d12df0e7b4783cbf797a274d2dc6d27a0b50655a08a4ded758eedf",
+    "d7e018f2f4675eba7551fc6e604326effeb86ca3ff836a031bf5264c31928125",
+    "71db15571ced798f5e84c9393cb5373226baf6954eb35fb1243a710334aebc79",
+    "d62333d4165bfa0452b4693b7adc2d0c05c1945dc4c49cddbfd7538ee8fe24f3",
+    "c67cc6153028e34028ad6324c61f4f4e7f0b34ee582948f912f972e006a97a11",
+    "c67cc6153028e34028ad6324c61f4f4e7f0b34ee582948f912f972e006a97a11",
+    "f0d404a2768cfe661f130e1ba98c315205cd2cab0e8567700f4e8dc9f278d364",
+    "6d6fce26a479a096d8c4b7ba2dfc71b421887f539e4033e798bbe277adeb1e41",
+    "47a26d22d9f8b47f912c2b690f6f2fede57066bdcae0b17d56535d4a2390eebf",
+    "ae92407f0e7727260d9e15e4fccb5a4de47998704e9c6ee6c9ede2c3a1de9aa5",
+    "412dfd1be5ec8550d01333058186085e50a9256c8179d86f9dd48ad7459830c7",
+    "f0d404a2768cfe661f130e1ba98c315205cd2cab0e8567700f4e8dc9f278d364",
+    "f0d404a2768cfe661f130e1ba98c315205cd2cab0e8567700f4e8dc9f278d364",
+    "10e59906f83a0d38b52cf84f493df4f4567162af6bd384d2cb077770f53224f1",
+    "daea82483175ed03060c03a754c06cf1c55494bf82b4a2ca4444cda9187b3764",
+    "2f615562b0c7ea13de9e892aa0213a17cf612ea7533f4b725be635d01166fa02",
+    "2629fc678e5e928d6c7869f69b6bd461f7081b027e9c4c75b3d57d1a7609a04f",
+    "87bf40435dc6993ae91ea3296d5df199cfaeee6a7cd8c414ba468d1a0cfacb8c",
+    "10e59906f83a0d38b52cf84f493df4f4567162af6bd384d2cb077770f53224f1",
+    "10e59906f83a0d38b52cf84f493df4f4567162af6bd384d2cb077770f53224f1"
+  ],
+  "exact_unique_control_inputs": 26,
+  "control_anchor_scope": "Only kind=anchor denotes the3old original declarations; synthetic module anchors are new inputs and never old-vector parity references.",
+  "control_assays": {
+    "v1": {
+      "manifest": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/deck-controls.manifest.json",
+        "sha256": "f1f6cc9a599471c7507df5b8bcc227042471eead96278d4cf51560ad14fcb3b9"
+      },
+      "rows": 17,
+      "minimum_family_support_satisfied": false,
+      "strict_primary_satisfied": false
+    },
+    "v2": {
+      "assay": "synthetic conditional mechanics proxy",
+      "modules": 3,
+      "background_families": 3,
+      "rows": 21,
+      "modified_rows": 12,
+      "strict_power_hp": true,
+      "keyword_exact_modules": 0
+    }
+  },
+  "reference_old_input_sha256": [
+    {
+      "row_index": 0,
+      "source_index": 0,
+      "sha256": "bee06dd81928c2f62388a57a803f2d9ba113148e0e0aaae42a5e0d5518a006a0"
+    },
+    {
+      "row_index": 1,
+      "source_index": 1,
+      "sha256": "3845d3627db483e0ae5324ce896f6c0e8507c4b400d50ff8359eaedef6fac85c"
+    },
+    {
+      "row_index": 2,
+      "source_index": 4,
+      "sha256": "51c6a7c2f4cf3fd5f36a3a114305960345b28d2e29208743e37ba3407635cde9"
+    },
+    {
+      "row_index": 3,
+      "source_index": 5,
+      "sha256": "5a764b3aed5f4d4b66e581bc5e21e672b6f45dec51d75511765ca742fb39eb09"
+    },
+    {
+      "row_index": 4,
+      "source_index": 6,
+      "sha256": "1a591a99b4d07b52402776efb4871c0e5d2f8f9e7cc787c05540bd703f00636e"
+    },
+    {
+      "row_index": 5,
+      "source_index": 7,
+      "sha256": "d714d885f989776b0f6fae7184649e043298e79095dcb8494772a59a8d00c8e6"
+    },
+    {
+      "row_index": 6,
+      "source_index": 8,
+      "sha256": "417a553b107e392881ccf804291340c03505dc638dd70012dcb294ce8194499f"
+    },
+    {
+      "row_index": 7,
+      "source_index": 9,
+      "sha256": "0219ec5773d3c2ef11871079d8558a48b5beb2ac48c2a700ebb6b2803f52c212"
+    },
+    {
+      "row_index": 8,
+      "source_index": 11,
+      "sha256": "3819ea523522a708b6af65a845dd0463e0665503338be766af61a8ebb2ab4a5a"
+    },
+    {
+      "row_index": 9,
+      "source_index": 12,
+      "sha256": "bccfbc7c84cdcd6178a914ff40632556cc48301014c16946579e791c0102936a"
+    },
+    {
+      "row_index": 10,
+      "source_index": 13,
+      "sha256": "4955fb685789377c3df8a6906bf1676dedfc49d792d4a0d1d7654a2c9b689abb"
+    },
+    {
+      "row_index": 11,
+      "source_index": 15,
+      "sha256": "550105dbc9ebbebce3d390651fbb01f7bb00c1f0655101cd91caf5bee2c55867"
+    },
+    {
+      "row_index": 12,
+      "source_index": 16,
+      "sha256": "c7340228b9f9379bfd4e5c16ee66230eb312b88b5a5b5d804246b9c66d29b91e"
+    },
+    {
+      "row_index": 13,
+      "source_index": 17,
+      "sha256": "50955bab19b59b010fe3ec68e2a2b6f0194950189a4cfb2b7c7a34b5bef46019"
+    },
+    {
+      "row_index": 14,
+      "source_index": 18,
+      "sha256": "0072d44212c0336211af1fd6db713468e9d5d343f2a65a2132acc023a975788a"
+    },
+    {
+      "row_index": 15,
+      "source_index": 19,
+      "sha256": "ec8159ce9d8b335296af1a13e6671fc91b6669b53e9f7d3f2277b753e65f3929"
+    },
+    {
+      "row_index": 16,
+      "source_index": 20,
+      "sha256": "c4627dead9ad417d16a8ddb8f2ef885572f53065d41de4594a52bd24b98dbede"
+    },
+    {
+      "row_index": 17,
+      "source_index": 21,
+      "sha256": "19750fe08d299a5821584ceec8cf72898b67980775dbffd99aafccdc9a8195be"
+    },
+    {
+      "row_index": 18,
+      "source_index": 22,
+      "sha256": "fa5908a99ce59cdd64640739a6bff572a6b312fe286d145ee8dce4ed517ff18a"
+    },
+    {
+      "row_index": 19,
+      "source_index": 23,
+      "sha256": "4c05cafdc275890007c076a09800289da23ff5a5cc7ffc7ee8026d00ccdf838d"
+    },
+    {
+      "row_index": 20,
+      "source_index": 24,
+      "sha256": "e2133e482dcd0d8df4d7dd63df7e4b197272739f07b6ae35bf33afea6284d259"
+    },
+    {
+      "row_index": 21,
+      "source_index": 26,
+      "sha256": "f0b300d10d9745284eb28dc977517d1915e958a67e8d34e3568fa3655e580dff"
+    },
+    {
+      "row_index": 22,
+      "source_index": 10,
+      "sha256": "19ad7ddc8029becf5e02454e8e76ff578014b5e57369d4244e0111d14c19f955"
+    },
+    {
+      "row_index": 25,
+      "source_index": 14,
+      "sha256": "3166282f4e42045ef5b08f7e5ddbb30fa11bd4b363476a94d6ed6d09bc389f40"
+    },
+    {
+      "row_index": 32,
+      "source_index": 25,
+      "sha256": "6cf2756ec2c85aa5ed83a5aed0d21df9be2aac75fcba2d0ee559952c922ea2ff"
+    }
+  ],
+  "input_contract": {
+    "state": [
+      "N",
+      73
+    ],
+    "ids": [
+      "N",
+      24
+    ],
+    "features": [
+      "N",
+      24,
+      21
+    ],
+    "mask": [
+      "N",
+      24
+    ],
+    "own_deck": [
+      "N",
+      2,
+      207
+    ],
+    "context": "exactfloat32zero73, int64zero24 IDs, float32zero24x21livefeatures/24mask; declaration originalknown+remainingunknown",
+    "anchor_tolerance_max_abs": 1e-06,
+    "failure": "stop and preserve outputs/receipt; no context tuning or second call"
+  },
+  "representations": {
+    "full_z96": "actual saved-model readout",
+    "initial_deck_tokens64": "actual din projection+role before transformer;2roles",
+    "final_deck_tokens64": "actual final lnf context tokens after two transformer layers;2roles; unknown remaining role may carry original context, never depletion information"
+  },
+  "transformations": {
+    "full_z96": [
+      "raw",
+      "raw_l2_unit",
+      "frozen_train22_centered",
+      "frozen_train22_centered_l2_unit",
+      "frozen_train22_alpha.1_whitened",
+      "frozen_train22_alpha.1_whitened_l2_unit"
+    ],
+    "original_final_deck_token64": [
+      "raw",
+      "l2_unit",
+      "train22_centered",
+      "train22_centered_l2_unit",
+      "train22_alpha.1_whitened",
+      "train22_alpha.1_whitened_l2_unit"
+    ],
+    "original_branch_fit": "mean/covariance from22training references captured in this sameforward only; unbiased denominator21, Creg=.9C+.1trace(C)/64I",
+    "other_role_and_initial_tokens": [
+      "raw",
+      "l2_unit; diagnostic export only, not retrieval candidates"
+    ],
+    "frozen_transform": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding-geometry-evidence/train-transform.npz",
+      "sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325"
+    },
+    "train_indices": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      26
+    ],
+    "control_labels_used_for_fitting": false
+  },
+  "hooks": "observe initial context and final lnf returned values without altering operations; encode/forward exactly once",
+  "bounds": {
+    "neural_forward_attempts": 1,
+    "max_batch_rows": 64,
+    "embedding_slice_wall_seconds": 20,
+    "embedding_slice_cpu_seconds": 20,
+    "preparation_slice_seconds": 20,
+    "metrics_slice_seconds": 20,
+    "parent_shared_active_seconds": 60,
+    "parent_scope": "prep20+singleforward/transforms20+matrixmetrics20, allattempts; parent coordinates aggregate, never a fresh60second quota",
+    "compute_threads": 1,
+    "sampled_rss_stop_bytes": 536870912,
+    "optimizer_updates": 0,
+    "native_calls": 0,
+    "paid_jobs": 0
+  },
+  "scope": "Vector export and fixed coordinate transforms only. No retrieval ranking, relevance labels, model tuning, semantic success or adaptive query selection."
+}

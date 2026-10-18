@@ -1,0 +1,44 @@
+{
+  "phase": "strict-module-feasibility",
+  "status": "feasible",
+  "prior_preparation_seconds": 0.5258009589742869,
+  "command": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/feasibility-command.py",
+    "sha256": "d1d87d3347490b57e588ade98e908abd60fd5d890b962293f80c2769b1dcaaf9"
+  },
+  "neural_forwards": 0,
+  "neighbor_metrics": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "counts": {
+    "unique_eligible_main_identities": 629,
+    "strict_groups": 530,
+    "groups_with_at_least3": 24,
+    "groups_with_ir_contrast": 23,
+    "feasible_ordered_triples_by_source": {
+      "10": 182,
+      "14": 182,
+      "25": 182
+    },
+    "disjoint_modules": 3
+  },
+  "feasibility": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/feasibility.json",
+    "sha256": "0b7d4cb2ab1809d18e26a21832662a2496fd4a62afafe28e4433da6ea1ae5474"
+  },
+  "source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/independent_retrieval_module_controls.py",
+    "sha256": "285a62319d2c2b4b1b083f1b0d3a05c8e14acf083c8f70018a080663e1704f9b"
+  },
+  "guard": {
+    "elapsed_seconds": 0.20033662510104477,
+    "cpu_seconds": 0.198956,
+    "peak_rss_bytes": 120864768,
+    "samples": 2,
+    "worker_pid": 99769,
+    "compute_threads": 1,
+    "limitation": "One owned process; RSS is sampled high-water rusage, not an instantaneous OS memory reservation. NumPy import is inside the guard."
+  },
+  "elapsed_seconds": 0.20033662510104477,
+  "aggregate_preparation_attempt_seconds": 0.7261375840753317
+}

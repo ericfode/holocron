@@ -1,0 +1,8 @@
+{
+  "plan_sha256": "9a509e7bc86a9fdee255fbf57f1fd3677c671bf7dc5fd84123615e11d31ad44d",
+  "counters": {
+    "neural_forward_attempts": 0,
+    "initial_context_calls": 0,
+    "final_context_capture_calls": 0
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "jepa-deck-embedding-manifest/1",
+  "created_at_utc": "2026-10-18T00:42:31.594240+00:00",
+  "semantic_validated": false,
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+    "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301"
+  },
+  "base": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+    "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+  },
+  "supplement": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+    "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+  },
+  "training_commit": "eb5c6d953ee45de56947ec6877880264885447eb",
+  "training_run_id": "original-eb5c6d9-20261017T2356Z-original-s17",
+  "supplement_optimizer_updates_before_export": 100,
+  "optimizer_updates_during_export": 0,
+  "native_calls": 0,
+  "paid_jobs": 0,
+  "encoder_schema": "swu-jepa-tx-own-deck/1; own-deck-input/v1 2x207; z96",
+  "encoder_sources": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck_model.py",
+      "sha256": "c9bb484f1923942b3c78b770dec361a08745f9a000aef82d5c809d0e9c2dbd16"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck.py",
+      "sha256": "b42b10c529b4dd06ecdd7a50fe9bc39e6ebccdf1732b131fd8bebd6e5e5eac09"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/tx_model.py",
+      "sha256": "e5d337d5eec57bd9e736622e372b75dee8076612c7ada70cb46b7dfe642f5877"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/export_embeddings.py",
+      "sha256": "53d563bb3c181c1661dcd620b3ac998d641e17f13805a0d0ff5cab0526e4a520"
+    }
+  ],
+  "input_dataset": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.npz",
+    "sha256": "3a255abaf8d4fc3e5ca28aba8a3b910d341532614ce7ba5c52d7e5b250126091"
+  },
+  "input_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+    "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622"
+  },
+  "source_decks": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/decks/ash-meta-2026-09.json",
+    "sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03",
+    "bytes": 19544
+  },
+  "canonical_identity": {
+    "source": "real_deck_data.printed_catalog/catalog_index + own_deck alias contract, identical to source dataset",
+    "catalog": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+      "bytes": 12675831
+    },
+    "source_sha256": "40419ceaf7a6e68d9e28a4d66e5e7263905cb58c9fce7d670a7513941a60676b",
+    "fingerprint_checked_for_every_row": true,
+    "preserved_raw_printings": true
+  },
+  "split": {
+    "train_rows": 22,
+    "validation_rows": 5,
+    "train_families": 7,
+    "validation_families": 4,
+    "rule": "Connected components: same canonical leader OR base OR main-multiset fingerprint OR shared copies / smaller main count >= 0.8; deterministic whole-group knapsack, no target values",
+    "no_resplit": true
+  },
+  "model_forward_calls": 1,
+  "model_forward_rows": 27,
+  "elapsed_seconds": 0.09324341698084027,
+  "process_peak_rss_mib": 107.03125,
+  "rss_scope": "Own single export process rusage peak; no child processes or tree-RSS trace.",
+  "normalization": {
+    "raw": "unaltered encoder output",
+    "unit": "raw / L2norm when norm>1e-12; zero-norm cosine unavailable",
+    "fitted": false
+  },
+  "limitations": [
+    "Composition-readout training does not establish behavioral or strategic similarity, synergy, deck quality or playing strength.",
+    "The base is frozen; only the original-deck supplement and a separate readout head were trained on declaration statistics. The readout head is not used here.",
+    "This is a fixed synthetic declaration foil; distances can change under a different public observation.",
+    "Five held-out decks share card identities with training decks; no unseen-card or current-format legality claim.",
+    "Current remaining composition and hidden draw order are not represented by this export."
+  ]
+}

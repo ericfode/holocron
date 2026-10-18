@@ -1,0 +1,8 @@
+{
+  "status": "prepared",
+  "elapsed_seconds": 0.0022350839999999983,
+  "plan_sha256": "ebf53c049a8eacd06a438d35ec897a154d5e69a39febf16bbb632a4d89a4ee6c",
+  "neural_forwards": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0
+}

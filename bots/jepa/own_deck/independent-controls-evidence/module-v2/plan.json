@@ -1,0 +1,49 @@
+{
+  "schema": "jepa-independent-module-plan/2",
+  "seed": 314160,
+  "source_indices": [
+    10,
+    14,
+    25
+  ],
+  "module_pool": "All uniquely resolved allowed-set main-card printings from the pinned catalogue; sourceIr/dataOnly complete runtime admission; no flagged construction text; canonical and name/subtitle aliases grouped.",
+  "strict_match": [
+    "cost",
+    "types",
+    "arena",
+    "aspects",
+    "power",
+    "hp"
+  ],
+  "keywords": "Recorded as exact/changed separately; never assumed equal or used for lexicographic selection.",
+  "module_selection": "For source10,14,25 in order, lexicographic A/near/far code tuple with IR(A,near)<IR(A,far)-1e-12; all module names absent background; all9 module identities disjoint. Lexicographically first feasible joint assignment, no vectors/review judgments used.",
+  "anchor": "Synthetic: remove first3 expanded copies in sorted raw-code order; add3A. Background leader/base/size retained. New profile may differ from authored original.",
+  "variants": "Replace1 or2 A copies by near/far card, exact full-deck cost/type/arena/aspects/power/HP profile versus synthetic anchor and equal count overlap;3anchors+12variants+6permutation/split invariances=21rows.",
+  "minimum_modules": 3,
+  "maximum_new_rows": 21,
+  "maximum_combined_rows": 40,
+  "first_phase": "Publish all strict groups, eligibility reasons, distances and disjoint-module feasibility before deck generation.",
+  "interpretation": "New conditional IR-structural proxy assay, not a relaxed v1 primary test, behavioral truth, coherence or strength. V1 failures remain unchanged.",
+  "ir_proxy": {
+    "groups": [
+      "costs",
+      "conditions_targets",
+      "effects",
+      "trigger_structure"
+    ],
+    "weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "path_matching": "exact typed all-side ordered JSON path, containers retained; object keys sorted; root ability display title excluded",
+    "numeric": "abs(x-y)/max(1,abs(x),abs(y)); unmatched path/type is1; categorical mismatch is1; each group mean then equal group mean",
+    "semantics": "Structural proxy only, no execution or strategic meaning; no textual similarity or learned parameters"
+  },
+  "model_forward_calls": 0,
+  "neighbor_metrics": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "paid_spend_usd": 0
+}

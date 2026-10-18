@@ -1,0 +1,176 @@
+{
+  "schema": "jepa-independent-retrieval-browser-export/1",
+  "version": "independent-controls-v1",
+  "semantic_validated": false,
+  "artifacts": [
+    {
+      "id": "independent-controls-v1-full-raw-z96",
+      "vector_key": "full_z96",
+      "unit_vector_key": "raw_l2_unit",
+      "dimension": 96,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/full-raw-z96.json",
+        "sha256": "28ebbb50664b16d5d0f6088d98bbc9a29f2728521e2f810b674ef3a8d9fac7f4"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float32",
+      "raw_tensor_bytes_sha256": "b035c874318b29c397b9cebadfe3785906656d28e7dad0c7697315d1857ea5f0"
+    },
+    {
+      "id": "independent-controls-v1-full-centered-z96",
+      "vector_key": "frozen_train22_centered",
+      "unit_vector_key": "frozen_train22_centered_l2_unit",
+      "dimension": 96,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/full-centered-z96.json",
+        "sha256": "06f14c54be72fbdc3c29bbbfda0c714db9e6a60ad6b84e61bec97bbca99b6be7"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "3aff84bc558e6a7c394482cebfb0c0d1004bb3c0400bced32af39e445d61aea3"
+    },
+    {
+      "id": "independent-controls-v1-full-whitened-z96",
+      "vector_key": "frozen_train22_alpha01_whitened",
+      "unit_vector_key": "frozen_train22_alpha01_whitened_l2_unit",
+      "dimension": 96,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/full-whitened-z96.json",
+        "sha256": "67e498b04165bc66d01937c810d42daed28bc29a43d824fd84577305d59c29f6"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "ad4a3a3ffd6d8e833cf68503f435b01264db94663d23a2e7adb76f68b7c0ae74"
+    },
+    {
+      "id": "independent-controls-v1-original-token-raw-z64",
+      "vector_key": "original_branch64",
+      "unit_vector_key": "original_branch64_l2_unit",
+      "dimension": 64,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/original-token-raw-z64.json",
+        "sha256": "3abc56f2846e7333395250875da1bfe3835fe4214103a3a235607606b240f097"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "8d8961877f6841a01afeaa7aa915edff30500e82b7df063a7d068d8735a9da2d"
+    },
+    {
+      "id": "independent-controls-v1-original-token-centered-z64",
+      "vector_key": "original_branch64_train22_centered",
+      "unit_vector_key": "original_branch64_train22_centered_l2_unit",
+      "dimension": 64,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/original-token-centered-z64.json",
+        "sha256": "198b68e405c0448947b9962f2185a18a3e4e14da5890f04ae4f07637b126de27"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "b01495e2eaa658b3967567385132f75d6cf77d150915ef94f496d22683ce0239"
+    },
+    {
+      "id": "independent-controls-v1-original-token-whitened-z64",
+      "vector_key": "original_branch64_train22_alpha01_whitened",
+      "unit_vector_key": "original_branch64_train22_alpha01_whitened_l2_unit",
+      "dimension": 64,
+      "artifact": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/original-token-whitened-z64.json",
+        "sha256": "6dad209e2e07fef2c0e1453138746cece29582358057d31cb813ef4dbfe23020"
+      },
+      "rows": 60,
+      "raw_tensor_dtype": "float64",
+      "raw_tensor_bytes_sha256": "d1d6462c400a48e0740c214e32ab961ea483b83fd1438465f0aa5f03455eff10"
+    }
+  ],
+  "rows": {
+    "total": 60,
+    "training_references": 22,
+    "controls": 38,
+    "v1_authored_cohort": 17,
+    "v2_synthetic_cohort": 21,
+    "old_historical_references": 25,
+    "new_synthetic_module_anchors": 3
+  },
+  "sources": {
+    "saved_vectors": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/vectors.npz",
+      "sha256": "a1651cb48443b5a8bfe39ebaa5d773d3f06b9d07776092762315fdc2b70b0463"
+    },
+    "embedding_result": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/result.json",
+      "sha256": "b6bfaec6365ffcc305a5aff8dd1a9fbbc032164858f812c3ac1f81d49c0362dc"
+    },
+    "embedding_receipt": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/receipt.json",
+      "sha256": "2d858e38ee2e1cec7e6b40c342487e47e433da240650da309ea26ed26cbbba7f"
+    },
+    "embedding_plan": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/plan.json",
+      "sha256": "9a509e7bc86a9fdee255fbf57f1fd3677c671bf7dc5fd84123615e11d31ad44d"
+    },
+    "metrics_result": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/metrics-run/result.json",
+      "sha256": "7d9f1bad2dad073ec6038996895825f6426a60588edd503971e04e981a6c157f"
+    },
+    "metrics_plan": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/metrics-run/plan.json",
+      "sha256": "ebf53c049a8eacd06a438d35ec897a154d5e69a39febf16bbb632a4d89a4ee6c"
+    },
+    "controls": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/module-v2/combined-controls.manifest.json",
+      "sha256": "2c3dfa86a7ba47fa01c4c907c22882eb461dab79255bd8174e4ed7c0827eca1c"
+    },
+    "frozen_full_transform": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/embedding-geometry-evidence/train-transform.npz",
+      "sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325"
+    },
+    "original_branch_transform": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/independent-controls/embedding-run/branch-train-transform.npz",
+      "sha256": "5e0ca2507d732fab66b623d88bf4fc93c66b2f62396035d05dd32f56f7418fe2"
+    },
+    "original27export": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301"
+    },
+    "original27manifest": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json",
+      "sha256": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090"
+    },
+    "base": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    "supplement": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+      "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+    },
+    "export_source": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/export_independent_retrieval.py",
+      "sha256": "9f3314d7a7cb94567a3200f86abb9a755d1c16ef7d42d6e1db1dbc40a8248d01"
+    }
+  },
+  "normalization": "Raw/transformed vectors and their corresponding already-saved L2-unit vectors are copied separately. No normalization/whitening refit during export.",
+  "previous_index": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/independent-controls-v1/previous-index.json",
+    "sha256": "4d2707a63ead3ddb80ea8b76fdf20dcafa5a376176b08ffafe50a9420b1f7223"
+  },
+  "protected_before": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.manifest.json": "fd02ce304f1d27e9f7e40fef7228a79aa8a269c195b4f4b4757506829abd58a7",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+  },
+  "model_forward_calls": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "paid_jobs": 0,
+  "limitations": [
+    "Every representation/transform is a distinct coordinate space; cross-space distances are undefined.",
+    "Training references are calibration/provenance rows, not extra independent control roots.",
+    "V1 failed its primary coverage gate. V2 uses planted synthetic anchors and a fixed structural IR proxy; neither establishes deck quality.",
+    "Exactly3newmodule-anchor rows are newsynthetic declarations, not oldvector parity references.",
+    "The unknown remaining-role token was excluded from retrieval and is not exported as a remaining-composition representation."
+  ]
+}
