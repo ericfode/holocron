@@ -1,0 +1,2012 @@
+{
+  "dependency": {
+    "pin": {
+      "bytes": 61598,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real-ir-hp-projection-evidence/manifest.json",
+      "sha256": "dc4d89a220722120b3aae51801fdf9521fa971e175f5c1985a81f10544b6b3c0"
+    },
+    "relative_manifest": "../real-ir-hp-projection-evidence/manifest.json",
+    "scope": "Explicit prior publication dependency; opaque, never recursively fetched or copied."
+  },
+  "excluded": [
+    {
+      "bytes": 17202096,
+      "campaign": "real-ir-intent-v1",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/build-1/real-ir-intent-native-collector"
+      },
+      "raw_bytes": 17202096,
+      "raw_sha256": "6c2f91d1fc70744496e2199484423106fb5439bbd926b061fa16e969c29c7738",
+      "reason": "compiled binary excluded; byte pin retained",
+      "relative_path": "build-1/real-ir-intent-native-collector",
+      "sha256": "6c2f91d1fc70744496e2199484423106fb5439bbd926b061fa16e969c29c7738"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 930,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/campaign-ledger.jsonl"
+      },
+      "raw_bytes": 2468,
+      "raw_sha256": "cb32b4b4927a04041fb0e074f28e5e4334e0fec8873078c656e656d0f840d275",
+      "sha256": "393a6e56685eff7a433dd045c104b13fbe756d9f97b16e93f167cb79336eba08",
+      "url": "payload/campaigns/real-ir-intent-diagnostic-v1/campaign-ledger.jsonl.gz"
+    },
+    {
+      "bytes": 1715,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/campaign-spec.json"
+      },
+      "raw_bytes": 4691,
+      "raw_sha256": "873684976f198b9f0fe7f33f59a89ce935323c6a2bfc2a2b13d5eee176d93e4b",
+      "sha256": "37d54aade3df65905917a296a229c7149b5c6cc8d040563ca613453b5dc2fe35",
+      "url": "payload/campaigns/real-ir-intent-diagnostic-v1/campaign-spec.json.gz"
+    },
+    {
+      "bytes": 25031,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/diagnose-1/diagnostic.json"
+      },
+      "raw_bytes": 343458,
+      "raw_sha256": "766d3e528bf835be9362a0c73e300db4bf8262df85403e04b35df5023d621a57",
+      "sha256": "d6536cc590e9cae3fe9dd6ceb129710f0db68f519b6d0680dbb99dd6c4cd0c50",
+      "url": "payload/campaigns/real-ir-intent-diagnostic-v1/diagnose-1/diagnostic.json.gz"
+    },
+    {
+      "bytes": 354,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/diagnose-1-stage-receipt.json"
+      },
+      "raw_bytes": 486,
+      "raw_sha256": "4310ed88cc6a06336aa099865fe1911208901e744c83132198aa79a5a66627c3",
+      "sha256": "155ea1edbee91e04f9f96fa102d823ea874d8dc22ba20f9bec3948c5a4629e4b",
+      "url": "payload/campaigns/real-ir-intent-diagnostic-v1/diagnose-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 650,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/experiment-closure.json"
+      },
+      "raw_bytes": 1195,
+      "raw_sha256": "d531e1fe35fb556f81562e10b8802da79f586f1f282379654867b8880cb60624",
+      "sha256": "50f0839821603c2019c73044a084d43d5765408066b3bae05b73b995c74d4d84",
+      "url": "payload/campaigns/real-ir-intent-diagnostic-v1/experiment-closure.json.gz"
+    },
+    {
+      "bytes": 66098,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/parent-manifest.json"
+      },
+      "raw_bytes": 298237,
+      "raw_sha256": "88c3a983c78de05a620554d127d8690151ec1096180c0c45a09952d6446ca8bf",
+      "sha256": "262bf3c88b2a64036ebfb2eeaf2e402476d47702016f9467d7d2bc4b007d5d61",
+      "url": "payload/campaigns/real-ir-intent-diagnostic-v1/parent-manifest.json.gz"
+    },
+    {
+      "bytes": 652,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/build-1/stderr.log"
+      },
+      "raw_bytes": 1839,
+      "raw_sha256": "15d40ac317c2df81152c999a38dc96ae04a93cd2273ddf41bf6db361c85cf023",
+      "sha256": "0ac35f401aa9d893c76e1b5353484371f310bb41711c3aedac0410589f66fc39",
+      "url": "payload/campaigns/real-ir-intent-v1/build-1/stderr.log.gz"
+    },
+    {
+      "bytes": 20,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/build-1/stdout.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "url": "payload/campaigns/real-ir-intent-v1/build-1/stdout.log.gz"
+    },
+    {
+      "bytes": 794,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/build-1-stage-receipt.json"
+      },
+      "raw_bytes": 1527,
+      "raw_sha256": "913927edfbb53a45fcad52c779d78659b348f095348699bd16e55134a3e3eef9",
+      "sha256": "8bbab19bddcd9a118412a79379c79b3ad297ad9773dd624d12968aa66d7356f2",
+      "url": "payload/campaigns/real-ir-intent-v1/build-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 857740,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/campaign-ledger.jsonl"
+      },
+      "raw_bytes": 4933816,
+      "raw_sha256": "ffdb96846758a853a62caba1e544339463ff683a238efe220f7cc484e5029672",
+      "sha256": "ef0b88cd5ef5240689ed7ab2557b7a4bd81c54a95c99023ecd24302bcd3f9f87",
+      "url": "payload/campaigns/real-ir-intent-v1/campaign-ledger.jsonl.gz"
+    },
+    {
+      "bytes": 3477,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/campaign-spec.json"
+      },
+      "raw_bytes": 17622,
+      "raw_sha256": "c6b817a580c027d8daaccc4dc36de45f2e4fd17175700ba8bc5e13e1b61cb35c",
+      "sha256": "de9d0980a4aff6605cca71c389b5d2f507fb843cba18961b4b1ad7dfddb37716",
+      "url": "payload/campaigns/real-ir-intent-v1/campaign-spec.json.gz"
+    },
+    {
+      "bytes": 144,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/dev-native-1/native-verification.json"
+      },
+      "raw_bytes": 165,
+      "raw_sha256": "dcf005feaf3d337ecdfe692fb8c2c0684d9f267e04949f792dd5cf33bac1d4e6",
+      "sha256": "fd283864ebc931bd1770d2ff78c8ce43b3bf39459a62f8c2b6f30d465d03ef0a",
+      "url": "payload/campaigns/real-ir-intent-v1/dev-native-1/native-verification.json.gz"
+    },
+    {
+      "bytes": 72585,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/dev-native-1/receipt.json"
+      },
+      "raw_bytes": 4177881,
+      "raw_sha256": "0c4e0b1ae06311306cab232700a82ebd2945f7afee7fbb1ff3aec285a46feedb",
+      "sha256": "53412aaee4dda1bc29e336778abd8f84fc8fc08b9e26236bcb5e16977b40d36a",
+      "url": "payload/campaigns/real-ir-intent-v1/dev-native-1/receipt.json.gz"
+    },
+    {
+      "bytes": 20,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/dev-native-1/stderr.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "url": "payload/campaigns/real-ir-intent-v1/dev-native-1/stderr.log.gz"
+    },
+    {
+      "bytes": 73,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/dev-native-1/stdout.log"
+      },
+      "raw_bytes": 56,
+      "raw_sha256": "c735fdaaf58b1d2766bf8045a04477a4f7f5c6e9a32ea9574038a74503a14ccc",
+      "sha256": "3b3714cc5dd442d5b7ce5cf15989a006245ec2284d48d2b79f206362c632fe29",
+      "url": "payload/campaigns/real-ir-intent-v1/dev-native-1/stdout.log.gz"
+    },
+    {
+      "bytes": 82981,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/dev-native-1/transitions.jsonl"
+      },
+      "raw_bytes": 5916128,
+      "raw_sha256": "6bba2546130f8eaca5aeba46f788b419dcf697ec01da2514612293647e2eed4f",
+      "sha256": "90e888822a933f19677d3e99991bfd5fb74487a43ccf03df93003c3e3fcd2504",
+      "url": "payload/campaigns/real-ir-intent-v1/dev-native-1/transitions.jsonl.gz"
+    },
+    {
+      "bytes": 765,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/dev-native-1-stage-receipt.json"
+      },
+      "raw_bytes": 1580,
+      "raw_sha256": "f3f18c32c7cc449622b3e66c55d45b03b57f2e5a526f4a7bfb81fa4ec85684c0",
+      "sha256": "9922e512f015154f32704164e444041ef936096e684ab0a8635edc49eabb8879",
+      "url": "payload/campaigns/real-ir-intent-v1/dev-native-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 1919,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/experiment-closure.json"
+      },
+      "raw_bytes": 6164,
+      "raw_sha256": "aa4b496d28284ca2e9d19d381487323d87914359addf54d204337d7b0f4e5629",
+      "sha256": "0f89af5ded092ed2f7bce8e1208c1b609df1043d934ff3034cd8c3f0c11860d8",
+      "url": "payload/campaigns/real-ir-intent-v1/experiment-closure.json.gz"
+    },
+    {
+      "bytes": 1908,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/consumed-train-inputs.npz"
+      },
+      "raw_bytes": 1908,
+      "raw_sha256": "8162b3c629975efff3abb12c007a6efe5bdee6deb7a65cd14caeb80be60afd12",
+      "sha256": "8162b3c629975efff3abb12c007a6efe5bdee6deb7a65cd14caeb80be60afd12",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/consumed-train-inputs.npz"
+    },
+    {
+      "bytes": 2382,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/contract.json"
+      },
+      "raw_bytes": 10781,
+      "raw_sha256": "669167a0abba7014d83dd9b2b2ccf9516165f3ff4ab616891547f7925ee25e78",
+      "sha256": "a37fa7f5a1504d3b431ff724a08a6ca132646948825849dacaf38f983e3f2e7e",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/contract.json.gz"
+    },
+    {
+      "bytes": 158998,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/fit-progress.jsonl"
+      },
+      "raw_bytes": 717670,
+      "raw_sha256": "508d8efb226e1d0b4f9fd3b4ac55f41e5ffe311ef85f66bb887e6c4caa577560",
+      "sha256": "f985cbfb5023216d601080f4c991f3030d608dc4b2e724e95df7c8d39c5792d8",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/fit-progress.jsonl.gz"
+    },
+    {
+      "bytes": 891,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/input-pins.json"
+      },
+      "raw_bytes": 3100,
+      "raw_sha256": "3240d88f3053e72fc6028a154f807f109f0820a2ef2ca464d2bc59cfffeb02fc",
+      "sha256": "b25cd317e766936f5df333f9609af7391be8e69e96490be8d675d1fd95f1fb60",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/input-pins.json.gz"
+    },
+    {
+      "bytes": 361,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/loss-weights.json"
+      },
+      "raw_bytes": 744,
+      "raw_sha256": "8ce2338d7beb29a9d236775d9d24bb863a84dba67e97ab3c6b256a701eb37def",
+      "sha256": "1764be07ef7ac02647ad1b397a35c33ab443b53d28d9aa7d031f861177c32d70",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/loss-weights.json.gz"
+    },
+    {
+      "bytes": 27607,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/result.json"
+      },
+      "raw_bytes": 81826,
+      "raw_sha256": "c17d57cd4f83626f664303a6794778dd124438d11ed78d5cfb532c5ce98593a6",
+      "sha256": "38ae8075a57282199cc1873aa99a280ba9498f64ce9dffe2a8b8aeb2aefcf0b9",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/result.json.gz"
+    },
+    {
+      "bytes": 10176,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s17-current-checkpoint.npz"
+      },
+      "raw_bytes": 10176,
+      "raw_sha256": "e2629d36e0ac81c06e1af8f2306803b63f61531f980d66a4f3cfe44e8c8ac9b5",
+      "sha256": "e2629d36e0ac81c06e1af8f2306803b63f61531f980d66a4f3cfe44e8c8ac9b5",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s17-current-checkpoint.npz"
+    },
+    {
+      "bytes": 10201,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s17-current-initial-checkpoint.npz"
+      },
+      "raw_bytes": 10201,
+      "raw_sha256": "1a91f46b104f71b3ee297cba21d82e735c226bd46421d26d40e8c8a2420de4c4",
+      "sha256": "1a91f46b104f71b3ee297cba21d82e735c226bd46421d26d40e8c8a2420de4c4",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s17-current-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 11706,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s17-factorized-intent-checkpoint.npz"
+      },
+      "raw_bytes": 11706,
+      "raw_sha256": "1506c6c1515ed1560c62988b9ee8ee0160c279cdf4d5747a5c12e21cb1c5cc38",
+      "sha256": "1506c6c1515ed1560c62988b9ee8ee0160c279cdf4d5747a5c12e21cb1c5cc38",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s17-factorized-intent-checkpoint.npz"
+    },
+    {
+      "bytes": 11726,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s17-factorized-intent-initial-checkpoint.npz"
+      },
+      "raw_bytes": 11726,
+      "raw_sha256": "691bd9f4ffbddad544a5a794310d80b956ca73db6ec990164582f4f3124fddb0",
+      "sha256": "691bd9f4ffbddad544a5a794310d80b956ca73db6ec990164582f4f3124fddb0",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s17-factorized-intent-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 11711,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s17-matched-aux-latent-checkpoint.npz"
+      },
+      "raw_bytes": 11711,
+      "raw_sha256": "f85987da6968cfeb61f396703e386ad997f01d323812695181848b3d93f80615",
+      "sha256": "f85987da6968cfeb61f396703e386ad997f01d323812695181848b3d93f80615",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s17-matched-aux-latent-checkpoint.npz"
+    },
+    {
+      "bytes": 11726,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s17-matched-aux-latent-initial-checkpoint.npz"
+      },
+      "raw_bytes": 11726,
+      "raw_sha256": "691bd9f4ffbddad544a5a794310d80b956ca73db6ec990164582f4f3124fddb0",
+      "sha256": "691bd9f4ffbddad544a5a794310d80b956ca73db6ec990164582f4f3124fddb0",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s17-matched-aux-latent-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 10177,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s29-current-checkpoint.npz"
+      },
+      "raw_bytes": 10177,
+      "raw_sha256": "223fcbd32f1e9d93a98c891aa2b9a50e2a74c30251d4a184250a29088237ce73",
+      "sha256": "223fcbd32f1e9d93a98c891aa2b9a50e2a74c30251d4a184250a29088237ce73",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s29-current-checkpoint.npz"
+    },
+    {
+      "bytes": 10172,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s29-current-initial-checkpoint.npz"
+      },
+      "raw_bytes": 10172,
+      "raw_sha256": "1a7422d6278953ade07c3d1c209939d2b73d7d8f3eb9aad7092054703131a61a",
+      "sha256": "1a7422d6278953ade07c3d1c209939d2b73d7d8f3eb9aad7092054703131a61a",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s29-current-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 11720,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s29-factorized-intent-checkpoint.npz"
+      },
+      "raw_bytes": 11720,
+      "raw_sha256": "a12f26215fab1b8571d3ab2ee7b487af9d2654a6c5a2b44a75a79ffcd182b7d3",
+      "sha256": "a12f26215fab1b8571d3ab2ee7b487af9d2654a6c5a2b44a75a79ffcd182b7d3",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s29-factorized-intent-checkpoint.npz"
+    },
+    {
+      "bytes": 11697,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s29-factorized-intent-initial-checkpoint.npz"
+      },
+      "raw_bytes": 11697,
+      "raw_sha256": "31628677e6157a0abae3ffaf993a1e6a1885f244c4e2d291c523a47ec5641698",
+      "sha256": "31628677e6157a0abae3ffaf993a1e6a1885f244c4e2d291c523a47ec5641698",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s29-factorized-intent-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 11696,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s29-matched-aux-latent-checkpoint.npz"
+      },
+      "raw_bytes": 11696,
+      "raw_sha256": "513f1a025548caff262a802ea30bcd1e1e01193abbd1c5c02595d010ed0bdfdc",
+      "sha256": "513f1a025548caff262a802ea30bcd1e1e01193abbd1c5c02595d010ed0bdfdc",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s29-matched-aux-latent-checkpoint.npz"
+    },
+    {
+      "bytes": 11697,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s29-matched-aux-latent-initial-checkpoint.npz"
+      },
+      "raw_bytes": 11697,
+      "raw_sha256": "31628677e6157a0abae3ffaf993a1e6a1885f244c4e2d291c523a47ec5641698",
+      "sha256": "31628677e6157a0abae3ffaf993a1e6a1885f244c4e2d291c523a47ec5641698",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s29-matched-aux-latent-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 10181,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s43-current-checkpoint.npz"
+      },
+      "raw_bytes": 10181,
+      "raw_sha256": "6dfbbf0dc7a0789f00419159d0d0e0132ceb38162ee3ac617c953c2a2f2569bf",
+      "sha256": "6dfbbf0dc7a0789f00419159d0d0e0132ceb38162ee3ac617c953c2a2f2569bf",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s43-current-checkpoint.npz"
+    },
+    {
+      "bytes": 10186,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s43-current-initial-checkpoint.npz"
+      },
+      "raw_bytes": 10186,
+      "raw_sha256": "9ca74881d5cf00a83bbf70ab53b3543c507cc05cdf78142bc6b2b11b727a6428",
+      "sha256": "9ca74881d5cf00a83bbf70ab53b3543c507cc05cdf78142bc6b2b11b727a6428",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s43-current-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 11723,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s43-factorized-intent-checkpoint.npz"
+      },
+      "raw_bytes": 11723,
+      "raw_sha256": "f74bad6945243560de0a4fc5b95ba57809f09ad4bfbe0023350e02db202470b2",
+      "sha256": "f74bad6945243560de0a4fc5b95ba57809f09ad4bfbe0023350e02db202470b2",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s43-factorized-intent-checkpoint.npz"
+    },
+    {
+      "bytes": 11713,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s43-factorized-intent-initial-checkpoint.npz"
+      },
+      "raw_bytes": 11713,
+      "raw_sha256": "4bcd725b75c1a2d8e351b93d4c60a39a7b812caa0829a360518224fdf992b33b",
+      "sha256": "4bcd725b75c1a2d8e351b93d4c60a39a7b812caa0829a360518224fdf992b33b",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s43-factorized-intent-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 11694,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s43-matched-aux-latent-checkpoint.npz"
+      },
+      "raw_bytes": 11694,
+      "raw_sha256": "fe5cc6817bfbcc3e7a7c3042075cf8e513f94ea6d88a79df3004ef4da756ce19",
+      "sha256": "fe5cc6817bfbcc3e7a7c3042075cf8e513f94ea6d88a79df3004ef4da756ce19",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s43-matched-aux-latent-checkpoint.npz"
+    },
+    {
+      "bytes": 11713,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/s43-matched-aux-latent-initial-checkpoint.npz"
+      },
+      "raw_bytes": 11713,
+      "raw_sha256": "4bcd725b75c1a2d8e351b93d4c60a39a7b812caa0829a360518224fdf992b33b",
+      "sha256": "4bcd725b75c1a2d8e351b93d4c60a39a7b812caa0829a360518224fdf992b33b",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/s43-matched-aux-latent-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 1458,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1/training-schedule.npz"
+      },
+      "raw_bytes": 1458,
+      "raw_sha256": "05e4de151e1058738d8860ca2271a5ab78ae10da54d596fcfaec380b28d3472b",
+      "sha256": "05e4de151e1058738d8860ca2271a5ab78ae10da54d596fcfaec380b28d3472b",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1/training-schedule.npz"
+    },
+    {
+      "bytes": 456,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/fit-1-stage-receipt.json"
+      },
+      "raw_bytes": 717,
+      "raw_sha256": "3eb7fd96874d77fa1a70d08e57da9a9f084a843bec8b7c22748d02b9d816b522",
+      "sha256": "077d83d106c3fbbdd1e4e61aae9857295f3e1f1b65020daa5838bc84a31107b3",
+      "url": "payload/campaigns/real-ir-intent-v1/fit-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 7112,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/metadata-1/development-plan.json"
+      },
+      "raw_bytes": 69934,
+      "raw_sha256": "bcdbf6ea6945f03468cd0701931ac15532ef3847eea0fa65d49d988f12dcf9d5",
+      "sha256": "07769cdecc5d9d74b56e4dff86ba3be7dcc83878f6fcfc036a143d589eda0c3e",
+      "url": "payload/campaigns/real-ir-intent-v1/metadata-1/development-plan.json.gz"
+    },
+    {
+      "bytes": 648,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/metadata-1/preregistration.json"
+      },
+      "raw_bytes": 1089,
+      "raw_sha256": "92b8cf6decdd1be9a8147f3c6a8cb6ff0cef6ebadb210a8e6e861790160d924c",
+      "sha256": "3bc10726c5cdcf4cf01d0599d73a8da0b93965ae9e1c67519d52a01a55f70e04",
+      "url": "payload/campaigns/real-ir-intent-v1/metadata-1/preregistration.json.gz"
+    },
+    {
+      "bytes": 4202,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/metadata-1/terminal-plan.json"
+      },
+      "raw_bytes": 17418,
+      "raw_sha256": "2b54e99a7d4262fc948aba5e8508afe572b4fd55b5ebdadb71626e8c84ddcb5a",
+      "sha256": "aef2b01c4bb09b09b7e1d9f45733970be3ff20db633ab995c1eae147137a1990",
+      "url": "payload/campaigns/real-ir-intent-v1/metadata-1/terminal-plan.json.gz"
+    },
+    {
+      "bytes": 66726,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/parent-manifest.json"
+      },
+      "raw_bytes": 300949,
+      "raw_sha256": "da756eae608eb0952c2e28823b07abe02622fa73e0a26c115550b0fe30de5cdf",
+      "sha256": "98a268d86c018af58409efca1ec097d9509aaaf9a6209092a89a9ddbd1d1ec1b",
+      "url": "payload/campaigns/real-ir-intent-v1/parent-manifest.json.gz"
+    },
+    {
+      "bytes": 6761,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/prep-1/dataset.npz"
+      },
+      "raw_bytes": 6761,
+      "raw_sha256": "94179f3b4f84e7531f8a1d2adede1257a6f2424602f3fe295e5325f79d251da8",
+      "sha256": "94179f3b4f84e7531f8a1d2adede1257a6f2424602f3fe295e5325f79d251da8",
+      "url": "payload/campaigns/real-ir-intent-v1/prep-1/dataset.npz"
+    },
+    {
+      "bytes": 10287,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/prep-1/manifest.json"
+      },
+      "raw_bytes": 278184,
+      "raw_sha256": "26a720f4efec3b45f6cfec20ea9ad3848a6cc6164a4c3aab2d85d87cc2a45b73",
+      "sha256": "b9f261c7ad205e0caa9a846829af296d77ee76870acce06106c38bdb472fb0be",
+      "url": "payload/campaigns/real-ir-intent-v1/prep-1/manifest.json.gz"
+    },
+    {
+      "bytes": 489,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/prep-1-stage-receipt.json"
+      },
+      "raw_bytes": 751,
+      "raw_sha256": "01f1047b8cd7df3a4989802b348a9076e3ee3ce8358fe5a80991637d343f2578",
+      "sha256": "8e5b9f35e3ca317ddaae58f9f4e1fdc1de952f7bea4227c82efe6617ecf6acb7",
+      "url": "payload/campaigns/real-ir-intent-v1/prep-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 503,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/all-ones-eligibility-zero-effect-predictions.npz"
+      },
+      "raw_bytes": 503,
+      "raw_sha256": "5972851a344c4b066cd5ab307ff0f57baf8d9eb46d9166dc841bc68410228ee1",
+      "sha256": "5972851a344c4b066cd5ab307ff0f57baf8d9eb46d9166dc841bc68410228ee1",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/all-ones-eligibility-zero-effect-predictions.npz"
+    },
+    {
+      "bytes": 3677,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/consumed-inputs.npz"
+      },
+      "raw_bytes": 3677,
+      "raw_sha256": "cf5bda8a0c4a7b5082040fe167d22105b6569393d27c19cd2d07381efdb7c722",
+      "sha256": "cf5bda8a0c4a7b5082040fe167d22105b6569393d27c19cd2d07381efdb7c722",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/consumed-inputs.npz"
+    },
+    {
+      "bytes": 726,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/deterministic-reference-predictions.npz"
+      },
+      "raw_bytes": 726,
+      "raw_sha256": "4ea52d644d09b176459f5c5a9527a1093382fdddf2c1dbc65b8639668e471eab",
+      "sha256": "4ea52d644d09b176459f5c5a9527a1093382fdddf2c1dbc65b8639668e471eab",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/deterministic-reference-predictions.npz"
+    },
+    {
+      "bytes": 1857,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/input-pins.json"
+      },
+      "raw_bytes": 8363,
+      "raw_sha256": "afc7c5713d339a8e976c19af5e349b1bf41bd62e55213971dbf8d877136a832f",
+      "sha256": "d41df729855f75a3d1f08e799bd6aef4a6ada27faedc27cf5637365d6a26d90a",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/input-pins.json.gz"
+    },
+    {
+      "bytes": 684608,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/result.json"
+      },
+      "raw_bytes": 9413565,
+      "raw_sha256": "385a5234f9a29519edb98846f727efe5e266c09546312b33716e21c8e0936182",
+      "sha256": "43086025aa4f4de005b605a1682d23f127b45b991ec369bcb2c414764c0bfdc7",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/result.json.gz"
+    },
+    {
+      "bytes": 1753,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-current-step0-predictions.npz"
+      },
+      "raw_bytes": 1753,
+      "raw_sha256": "52ed7b5fc442cae0d10eebc0d1318cfb278379cc76e6fa8bc5adfa779ed9c4e2",
+      "sha256": "52ed7b5fc442cae0d10eebc0d1318cfb278379cc76e6fa8bc5adfa779ed9c4e2",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-current-step0-predictions.npz"
+    },
+    {
+      "bytes": 1856,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-current-step300-predictions.npz"
+      },
+      "raw_bytes": 1856,
+      "raw_sha256": "59e09c597e4009b19e8bc30dc7fe39ef59cf75080535697ddab4cb8e1e0a2d69",
+      "sha256": "59e09c597e4009b19e8bc30dc7fe39ef59cf75080535697ddab4cb8e1e0a2d69",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-current-step300-predictions.npz"
+    },
+    {
+      "bytes": 3238,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-factorized-intent-step0-predictions.npz"
+      },
+      "raw_bytes": 3238,
+      "raw_sha256": "759eae96918570b812c6f2b95579f8a50b4f7c48a5cace8ca3a6feb067f250ab",
+      "sha256": "759eae96918570b812c6f2b95579f8a50b4f7c48a5cace8ca3a6feb067f250ab",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-factorized-intent-step0-predictions.npz"
+    },
+    {
+      "bytes": 3347,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-factorized-intent-step300-predictions.npz"
+      },
+      "raw_bytes": 3347,
+      "raw_sha256": "030995c24caf94f955625edf2fe313d88e848fb6b7c4ca3d9200d7127854b2c7",
+      "sha256": "030995c24caf94f955625edf2fe313d88e848fb6b7c4ca3d9200d7127854b2c7",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-factorized-intent-step300-predictions.npz"
+    },
+    {
+      "bytes": 1853,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-frozen-hp-projected-step300-predictions.npz"
+      },
+      "raw_bytes": 1853,
+      "raw_sha256": "8b6573f6239c2557787a5ffeeb37d099ea6d1284fcbfc9953e6627db8cd16582",
+      "sha256": "8b6573f6239c2557787a5ffeeb37d099ea6d1284fcbfc9953e6627db8cd16582",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-frozen-hp-projected-step300-predictions.npz"
+    },
+    {
+      "bytes": 1394,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-frozen-printed-step300-predictions.npz"
+      },
+      "raw_bytes": 1394,
+      "raw_sha256": "64eac02912d84c4eeea197ece6e3a3f228b2ee63fad408abf0352ffdbdefefc4",
+      "sha256": "64eac02912d84c4eeea197ece6e3a3f228b2ee63fad408abf0352ffdbdefefc4",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-frozen-printed-step300-predictions.npz"
+    },
+    {
+      "bytes": 3244,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-matched-aux-latent-step0-predictions.npz"
+      },
+      "raw_bytes": 3244,
+      "raw_sha256": "b5b8e1599f5db7cb880f1eec543e4236256d86867d60420bf23bb42e17317f8d",
+      "sha256": "b5b8e1599f5db7cb880f1eec543e4236256d86867d60420bf23bb42e17317f8d",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-matched-aux-latent-step0-predictions.npz"
+    },
+    {
+      "bytes": 3341,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s17-matched-aux-latent-step300-predictions.npz"
+      },
+      "raw_bytes": 3341,
+      "raw_sha256": "6e1c2975b8665c2b0734c33688367dcf8b5c08a2a89f7ebe422d075313fd35ef",
+      "sha256": "6e1c2975b8665c2b0734c33688367dcf8b5c08a2a89f7ebe422d075313fd35ef",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s17-matched-aux-latent-step300-predictions.npz"
+    },
+    {
+      "bytes": 1765,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-current-step0-predictions.npz"
+      },
+      "raw_bytes": 1765,
+      "raw_sha256": "fc8dc08b0d119be00bc9e2646cb1d72d9bd83d2bd866fdc7e3bbe245ee58c845",
+      "sha256": "fc8dc08b0d119be00bc9e2646cb1d72d9bd83d2bd866fdc7e3bbe245ee58c845",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-current-step0-predictions.npz"
+    },
+    {
+      "bytes": 1858,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-current-step300-predictions.npz"
+      },
+      "raw_bytes": 1858,
+      "raw_sha256": "747d1050d934c9365db884896c58613bc78afcb6c2c7645c9e02b21b62619328",
+      "sha256": "747d1050d934c9365db884896c58613bc78afcb6c2c7645c9e02b21b62619328",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-current-step300-predictions.npz"
+    },
+    {
+      "bytes": 3247,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-factorized-intent-step0-predictions.npz"
+      },
+      "raw_bytes": 3247,
+      "raw_sha256": "0d2293e154ec02e2371189e5e9912f99d22c3c4939b5c73d20695f3e5743dd7d",
+      "sha256": "0d2293e154ec02e2371189e5e9912f99d22c3c4939b5c73d20695f3e5743dd7d",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-factorized-intent-step0-predictions.npz"
+    },
+    {
+      "bytes": 3384,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-factorized-intent-step300-predictions.npz"
+      },
+      "raw_bytes": 3384,
+      "raw_sha256": "b1d5621cdfc598f68e2373fe0a23af24ef972d5547aa711143b4afe52479c069",
+      "sha256": "b1d5621cdfc598f68e2373fe0a23af24ef972d5547aa711143b4afe52479c069",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-factorized-intent-step300-predictions.npz"
+    },
+    {
+      "bytes": 1848,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-frozen-hp-projected-step300-predictions.npz"
+      },
+      "raw_bytes": 1848,
+      "raw_sha256": "e9788b77359736aeffc403d0c39c420afc814ada90bfcaed0be93709270a3785",
+      "sha256": "e9788b77359736aeffc403d0c39c420afc814ada90bfcaed0be93709270a3785",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-frozen-hp-projected-step300-predictions.npz"
+    },
+    {
+      "bytes": 1405,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-frozen-printed-step300-predictions.npz"
+      },
+      "raw_bytes": 1405,
+      "raw_sha256": "eeeb95a98a20bd7c47bc07a276730f57949792059160cb3eae325f260c3e6fe3",
+      "sha256": "eeeb95a98a20bd7c47bc07a276730f57949792059160cb3eae325f260c3e6fe3",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-frozen-printed-step300-predictions.npz"
+    },
+    {
+      "bytes": 3265,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-matched-aux-latent-step0-predictions.npz"
+      },
+      "raw_bytes": 3265,
+      "raw_sha256": "ce575e47ee12c46f47d285550e59d4dd41066607f518206bd061b8ad7d27f6fc",
+      "sha256": "ce575e47ee12c46f47d285550e59d4dd41066607f518206bd061b8ad7d27f6fc",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-matched-aux-latent-step0-predictions.npz"
+    },
+    {
+      "bytes": 3325,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s29-matched-aux-latent-step300-predictions.npz"
+      },
+      "raw_bytes": 3325,
+      "raw_sha256": "e2a4da32a18a23f0e8c9325f36bf3e1acba877bb4d318022f1c3cb4b93bf382d",
+      "sha256": "e2a4da32a18a23f0e8c9325f36bf3e1acba877bb4d318022f1c3cb4b93bf382d",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s29-matched-aux-latent-step300-predictions.npz"
+    },
+    {
+      "bytes": 1744,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-current-step0-predictions.npz"
+      },
+      "raw_bytes": 1744,
+      "raw_sha256": "c3c84c60f2afcc21eebe9d21299770d9efa0bb9d4d60736a65ca0ec8bad86474",
+      "sha256": "c3c84c60f2afcc21eebe9d21299770d9efa0bb9d4d60736a65ca0ec8bad86474",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-current-step0-predictions.npz"
+    },
+    {
+      "bytes": 1856,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-current-step300-predictions.npz"
+      },
+      "raw_bytes": 1856,
+      "raw_sha256": "9f7202072f18417792c6f81d44bd40bd0dd69b58195b7b8d64bd6ca9f927fdf4",
+      "sha256": "9f7202072f18417792c6f81d44bd40bd0dd69b58195b7b8d64bd6ca9f927fdf4",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-current-step300-predictions.npz"
+    },
+    {
+      "bytes": 3222,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-factorized-intent-step0-predictions.npz"
+      },
+      "raw_bytes": 3222,
+      "raw_sha256": "14b8c79b4ae3d4b6c1c25b18f5b304f1b19680d95e1f2eb6dc600723fb785cf3",
+      "sha256": "14b8c79b4ae3d4b6c1c25b18f5b304f1b19680d95e1f2eb6dc600723fb785cf3",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-factorized-intent-step0-predictions.npz"
+    },
+    {
+      "bytes": 3368,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-factorized-intent-step300-predictions.npz"
+      },
+      "raw_bytes": 3368,
+      "raw_sha256": "c76208f3fbdcb13e5d978e9149bdb51887913a65b010e41b16c41d8e0ad226bc",
+      "sha256": "c76208f3fbdcb13e5d978e9149bdb51887913a65b010e41b16c41d8e0ad226bc",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-factorized-intent-step300-predictions.npz"
+    },
+    {
+      "bytes": 1851,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-frozen-hp-projected-step300-predictions.npz"
+      },
+      "raw_bytes": 1851,
+      "raw_sha256": "4231919c133e53221f07426dcfbcb51f49ca0b5010916e8acdecf39c2f9071ba",
+      "sha256": "4231919c133e53221f07426dcfbcb51f49ca0b5010916e8acdecf39c2f9071ba",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-frozen-hp-projected-step300-predictions.npz"
+    },
+    {
+      "bytes": 1407,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-frozen-printed-step300-predictions.npz"
+      },
+      "raw_bytes": 1407,
+      "raw_sha256": "85adb6cd1a9beb50e4b12a29edc0cc725b0c27100dc3c2332fb80d07901f7b42",
+      "sha256": "85adb6cd1a9beb50e4b12a29edc0cc725b0c27100dc3c2332fb80d07901f7b42",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-frozen-printed-step300-predictions.npz"
+    },
+    {
+      "bytes": 3235,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-matched-aux-latent-step0-predictions.npz"
+      },
+      "raw_bytes": 3235,
+      "raw_sha256": "38e4ba6547cde2ec580d92a56f7a7af42d226b8917e61a600e7554657751cec8",
+      "sha256": "38e4ba6547cde2ec580d92a56f7a7af42d226b8917e61a600e7554657751cec8",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-matched-aux-latent-step0-predictions.npz"
+    },
+    {
+      "bytes": 3340,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1/s43-matched-aux-latent-step300-predictions.npz"
+      },
+      "raw_bytes": 3340,
+      "raw_sha256": "4dd54365df6b76be1eb53e48174e12dd5fa88275279b794629ae55a3b0fd8baa",
+      "sha256": "4dd54365df6b76be1eb53e48174e12dd5fa88275279b794629ae55a3b0fd8baa",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1/s43-matched-aux-latent-step300-predictions.npz"
+    },
+    {
+      "bytes": 455,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/score-1-stage-receipt.json"
+      },
+      "raw_bytes": 714,
+      "raw_sha256": "acaad68e8576eba1e47097aa1381812c7d067d40ba801f89c687da485103e5d0",
+      "sha256": "0f3c34502b4780bc7fe67f8744b61b748ae229be27c89f7814f2044c74d7abf8",
+      "url": "payload/campaigns/real-ir-intent-v1/score-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 141,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-native-1/native-verification.json"
+      },
+      "raw_bytes": 163,
+      "raw_sha256": "8126020cac8888acba29b69ee0525c1c724f7249b4e304471bcaf5882321cbc4",
+      "sha256": "4e69a6bab0b3b246230392b44473c398f207a3cfdfe5d5273e1665af305fab57",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-native-1/native-verification.json.gz"
+    },
+    {
+      "bytes": 17090,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-native-1/receipt.json"
+      },
+      "raw_bytes": 610198,
+      "raw_sha256": "3d9fa83bba67e40654d6ca7fb4799c47ae5c760a6bcb7ab788bffb834b695071",
+      "sha256": "7ac3211038b4fbd2a7d52b0b4cc1888bac0ca6f1f01b5a10e3cad01f80d62b21",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-native-1/receipt.json.gz"
+    },
+    {
+      "bytes": 20,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-native-1/stderr.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-native-1/stderr.log.gz"
+    },
+    {
+      "bytes": 71,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-native-1/stdout.log"
+      },
+      "raw_bytes": 54,
+      "raw_sha256": "1b0600bdca14a142f9d695a57dd46671ab22ecf1fa2a9224154274f7314f5a6e",
+      "sha256": "564d1772182f5313a6d1824520b44ceab7c421c949a8b4089ebcf3ba6eafe728",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-native-1/stdout.log.gz"
+    },
+    {
+      "bytes": 15498,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-native-1/transitions.jsonl"
+      },
+      "raw_bytes": 852696,
+      "raw_sha256": "1a06619cadb918101b7d796c9320338f297336c00e543128b03386afcdc50aff",
+      "sha256": "8afc1022b35a3f0e42f95dadcfe6e3810eeafbd5968476567430fcceccfb6f3b",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-native-1/transitions.jsonl.gz"
+    },
+    {
+      "bytes": 765,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-native-1-stage-receipt.json"
+      },
+      "raw_bytes": 1591,
+      "raw_sha256": "90d242d3c0c77c1f7c3809c6fb280201b30b8ad07b927f5e75028243d7ababd2",
+      "sha256": "5864924bbe9850ba5aea683bb2855efc05ead84d36624d1c1da9b679eef17c0c",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-native-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 6968,
+      "category": "campaign",
+      "encoding": "identity",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-prep-1/dataset.npz"
+      },
+      "raw_bytes": 6968,
+      "raw_sha256": "f93f7d6a3e6cc489a1fc9fd1ab732169566e12290c0ffff13807c27498008364",
+      "sha256": "f93f7d6a3e6cc489a1fc9fd1ab732169566e12290c0ffff13807c27498008364",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-prep-1/dataset.npz"
+    },
+    {
+      "bytes": 11154,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-prep-1/manifest.json"
+      },
+      "raw_bytes": 297870,
+      "raw_sha256": "67ed8a853c66368d23ae843b8943f1fd92f704dba0709d956f44c1ff00056c4d",
+      "sha256": "819cd08b52204ce07cf9a83b70e783ab698661ecf0f37f2b05c09f98b176d6c7",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-prep-1/manifest.json.gz"
+    },
+    {
+      "bytes": 520,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/terminal-prep-1-stage-receipt.json"
+      },
+      "raw_bytes": 934,
+      "raw_sha256": "a0023b9238cb7e9c860f8798e99588b8c2c84eab4f6b86e286fd2d3af245860b",
+      "sha256": "1a20e3a06d13fa5c9593bc615f429e1a5511d77318b6ef17ab976e57c16e30f8",
+      "url": "payload/campaigns/real-ir-intent-v1/terminal-prep-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 401,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/verify-1-stage-receipt.json"
+      },
+      "raw_bytes": 547,
+      "raw_sha256": "e3014aae6cbf9312f06c31a738a01149447bd297ae0cbb3a497f0b7d503f0636",
+      "sha256": "fb6cacc31b9e9d66b9f3421140b1f711ee9def22d4110660f45a684143ff8fc4",
+      "url": "payload/campaigns/real-ir-intent-v1/verify-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 933,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/campaign-ledger.jsonl"
+      },
+      "raw_bytes": 2454,
+      "raw_sha256": "c48c6b8bfef1fa5573d784d5d932bd6ebde0af518991c588032a8933ac716baf",
+      "sha256": "b0c7b65efb65712f886089ff8b3b08021ce6e81226894a73d7bb6fba60785d08",
+      "url": "payload/campaigns/real-ir-intent-saved-v1/campaign-ledger.jsonl.gz"
+    },
+    {
+      "bytes": 2002,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/campaign-spec.json"
+      },
+      "raw_bytes": 5957,
+      "raw_sha256": "24369038151744b1b2539ce07683efdba752db08c5ebdd66c41e3d1a0c788092",
+      "sha256": "e5b9673b495829fb55dac174276df5068304d047a4a99efa6c136886bc022f81",
+      "url": "payload/campaigns/real-ir-intent-saved-v1/campaign-spec.json.gz"
+    },
+    {
+      "bytes": 794,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/experiment-closure.json"
+      },
+      "raw_bytes": 1708,
+      "raw_sha256": "f9858c69d4116c46ecb2ae7d46205c054f2c573d1e3be760053b27eea619f909",
+      "sha256": "6a0d1fbc1285bb032d8b1695ec269c199067332cc4319c74519a6e301359ffcb",
+      "url": "payload/campaigns/real-ir-intent-saved-v1/experiment-closure.json.gz"
+    },
+    {
+      "bytes": 71445,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/parent-manifest.json"
+      },
+      "raw_bytes": 324470,
+      "raw_sha256": "8d47d933b05f2661efec53d199740ea17d0eef3a2d326e87d752706f6bcb6f96",
+      "sha256": "dfe45073e4cb2bb16839dfc2b73bdd4a47b5c5c9b9ac31e94d8ddc36937ee699",
+      "url": "payload/campaigns/real-ir-intent-saved-v1/parent-manifest.json.gz"
+    },
+    {
+      "bytes": 483844,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/verify-1/verification-result.json"
+      },
+      "raw_bytes": 4483705,
+      "raw_sha256": "1b42568172e013cb78f55a23f29e56f99e1fa71b9e1888a64a6315fae693a740",
+      "sha256": "6d8b303c925de5e2232fd607f7179cbb55443e30df170a4e37189d5f74014deb",
+      "url": "payload/campaigns/real-ir-intent-saved-v1/verify-1/verification-result.json.gz"
+    },
+    {
+      "bytes": 483993,
+      "category": "campaign",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/verify-1-stage-receipt.json"
+      },
+      "raw_bytes": 4483995,
+      "raw_sha256": "d1e28b6feb526b5f9ce2510f4d74896dcf08e41268f0e7d0cd59e6b945445d63",
+      "sha256": "03b99c6ed219432579a779b0d9d5d545c6770d00d854a513a14d7355d0cf47f9",
+      "url": "payload/campaigns/real-ir-intent-saved-v1/verify-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 2610,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_diagnostic_campaign.py"
+      },
+      "raw_bytes": 6655,
+      "raw_sha256": "1e09a3eb7b7121e33d1e997e0d1a47f6a935be5b8049c12421c7979d25c602ad",
+      "sha256": "ada4ab5baa9f5b0d7de648b34ed21ed810a0862754f9f80017db15c5429df155",
+      "url": "payload/sources/real_ir_intent_diagnostic_campaign.py.gz"
+    },
+    {
+      "bytes": 4602,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_diagnostic.py"
+      },
+      "raw_bytes": 12735,
+      "raw_sha256": "3fd8193db24f0a3354beadf9475c2312a00af60ed194d3f96dee058ca3f34033",
+      "sha256": "f1537bfeb85fd789ff27b71e9dbe9329b50dbfd2cc5c240f1b9dca8616c057aa",
+      "url": "payload/sources/real_ir_intent_diagnostic.py.gz"
+    },
+    {
+      "bytes": 2026,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_diagnostic.py"
+      },
+      "raw_bytes": 5728,
+      "raw_sha256": "5e4a1172e374987d65906a66f4a2e1d416a16acef23fe47ca30d695af9fcf847",
+      "sha256": "c54e744963fc21dabfce6a61f3a6a0af6144a26a65bc9b9b14908427f1488221",
+      "url": "payload/sources/test_real_ir_intent_diagnostic.py.gz"
+    },
+    {
+      "bytes": 824,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/REAL_IR_INTENT_DIAGNOSTIC_PROTOCOL.md"
+      },
+      "raw_bytes": 1407,
+      "raw_sha256": "13f5cc18b677362abb708c763ac56c1a79497189f79562c2347127215c8b8831",
+      "sha256": "2b6249f0f16d26b2f6adcd4a1086f6db65f6376b2408d4edc60ada640279fda9",
+      "url": "payload/sources/REAL_IR_INTENT_DIAGNOSTIC_PROTOCOL.md.gz"
+    },
+    {
+      "bytes": 3569,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/REAL_IR_INTENT_PROTOCOL.md"
+      },
+      "raw_bytes": 7504,
+      "raw_sha256": "7920de336db6bdab85edb566aa4ed3fe5a6a578a95a244fad58bdabbcd9f3938",
+      "sha256": "a8b7f475560c2bc1d1ada36df0a9477bcb3748e5c1af7f76fb1053dd59e2a93a",
+      "url": "payload/sources/REAL_IR_INTENT_PROTOCOL.md.gz"
+    },
+    {
+      "bytes": 5644,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_campaign.py"
+      },
+      "raw_bytes": 17097,
+      "raw_sha256": "7ef61337fa0d60e7a5ed05cf9176179954fea716921ea3c8473a841d7123e31a",
+      "sha256": "ed5783c1baf2cc1f5e90c9aa5c72b7a283fe952b33c814b04315a09ea786d57e",
+      "url": "payload/sources/real_ir_intent_campaign.py.gz"
+    },
+    {
+      "bytes": 7676,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_data.py"
+      },
+      "raw_bytes": 26565,
+      "raw_sha256": "83352eb480e0f220a54aaf115603e0393088afdc4de07c0f61a8201342d20a14",
+      "sha256": "cf52cdff16b72d427437afeca91a62800322932cbab163599ca834e17d318d61",
+      "url": "payload/sources/real_ir_intent_data.py.gz"
+    },
+    {
+      "bytes": 7017,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_fit.py"
+      },
+      "raw_bytes": 23660,
+      "raw_sha256": "b1f2832c49250ef9a28d6eddf886cbed7daf86e2bc458cebc2c9b27d93cfcabf",
+      "sha256": "c4e8612195ca127455627117cadbabf46f6b02dec05029d5afad515256e8c927",
+      "url": "payload/sources/real_ir_intent_fit.py.gz"
+    },
+    {
+      "bytes": 2907,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_model.py"
+      },
+      "raw_bytes": 7499,
+      "raw_sha256": "8e16dbb14fd460ce4fa2cbfa6e47f17324042620da3db8d8c6cc4d196b98d41b",
+      "sha256": "24e18688d4191ac12838ae05f6ab011d23b63873915fae0d0afd9335361e4245",
+      "url": "payload/sources/real_ir_intent_model.py.gz"
+    },
+    {
+      "bytes": 2675,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/Cargo.lock"
+      },
+      "raw_bytes": 9567,
+      "raw_sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "sha256": "b1c30d6746376c245a9b1fa65d95e399dd84301b06b320be836c42806a017d69",
+      "url": "payload/sources/real_ir_intent_native_collector/Cargo.lock.gz"
+    },
+    {
+      "bytes": 274,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/Cargo.toml"
+      },
+      "raw_bytes": 384,
+      "raw_sha256": "65815ba8a1a63299536d0cc7d296a854ebf8f4d352f0e35d518ebcde2e617ae8",
+      "sha256": "cb9b1acab105aeef8a11df35f49ab4703aa40d115262e10381c742161e71fcd6",
+      "url": "payload/sources/real_ir_intent_native_collector/Cargo.toml.gz"
+    },
+    {
+      "bytes": 1532,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/README.md"
+      },
+      "raw_bytes": 2807,
+      "raw_sha256": "311b571b41584113aed68139e7c7ee6a7c0467705047335b80979a717fd8acdb",
+      "sha256": "541294d383a10027a77a3d28ed6b6bf76ebcc3c6ec9e745f81af70b91c15ed2e",
+      "url": "payload/sources/real_ir_intent_native_collector/README.md.gz"
+    },
+    {
+      "bytes": 8592,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/src/main.rs"
+      },
+      "raw_bytes": 26979,
+      "raw_sha256": "e1635dc66cc825afc560aa559c9498dc9d6a4aca0ea8765a147171c8cd014b9a",
+      "sha256": "20d527d16a6e288d17997e6025522b527b8587ceddcc314d3a1e0bc58aacc0fc",
+      "url": "payload/sources/real_ir_intent_native_collector/src/main.rs.gz"
+    },
+    {
+      "bytes": 4106,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/supervise.py"
+      },
+      "raw_bytes": 11799,
+      "raw_sha256": "8c146e676108dcf0105e54ffab7d43273449260e07de2bb727362058a26358f3",
+      "sha256": "16d50a5314ac561424f32225579a07a45f7d8f4e00c224e64c3a4c2ac32cf92d",
+      "url": "payload/sources/real_ir_intent_native_collector/supervise.py.gz"
+    },
+    {
+      "bytes": 1748,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/test_supervise.py"
+      },
+      "raw_bytes": 5255,
+      "raw_sha256": "5fb2a1619d91e6e1f0be871bcba30f28033742771fa17bdfa5b85ce5f523c74c",
+      "sha256": "f53bd4ffe30967e4bcee7479dfa6da93b42acc167a3c4203a5ac5f1c5f85349f",
+      "url": "payload/sources/real_ir_intent_native_collector/test_supervise.py.gz"
+    },
+    {
+      "bytes": 3588,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_plan.py"
+      },
+      "raw_bytes": 9019,
+      "raw_sha256": "98511ad026b23d23b859779053db6916f69a107a8773b477f8836d45032fcbde",
+      "sha256": "784a321dec50b03d99b2e2940cda229dafbfac51c9dba0700612fa7bb576b805",
+      "url": "payload/sources/real_ir_intent_plan.py.gz"
+    },
+    {
+      "bytes": 11794,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_verify.py"
+      },
+      "raw_bytes": 41512,
+      "raw_sha256": "e2ec1662a70effc42ea694f6e14390233630e2556019222c336e22bc0e49ec02",
+      "sha256": "c860db72a01dd2c6b8445558b2c8cfca359ca5ddfdd6993a4fe6337ea4858f40",
+      "url": "payload/sources/real_ir_intent_verify.py.gz"
+    },
+    {
+      "bytes": 3081,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_campaign.py"
+      },
+      "raw_bytes": 9141,
+      "raw_sha256": "e28a23ebaafbe2557dc5831b39f71f27958770dfe30b42a6580b1356bbd388c6",
+      "sha256": "978e12c3813a2575a43a9f02f2f4bcf874e1a6b38528f9ce75e8dfe671aa4f1e",
+      "url": "payload/sources/test_real_ir_intent_campaign.py.gz"
+    },
+    {
+      "bytes": 4805,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_data.py"
+      },
+      "raw_bytes": 15746,
+      "raw_sha256": "69baf794c1e9e8f8d32bfbc1252072ca44811bac56fa4af7a62cb6efd163028f",
+      "sha256": "b5315987a7dc5cd25f4e77158079f559f73439ff992ec7b9f87ddcd4ca5fec11",
+      "url": "payload/sources/test_real_ir_intent_data.py.gz"
+    },
+    {
+      "bytes": 2258,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_fit.py"
+      },
+      "raw_bytes": 6975,
+      "raw_sha256": "3be91f506dabca421146777932fc900b06705efcaad746bcaa55cb6752988a26",
+      "sha256": "6ea576fd459c0b471910a666afb4459242cd81b7aadc8ab18f01df586d04adc5",
+      "url": "payload/sources/test_real_ir_intent_fit.py.gz"
+    },
+    {
+      "bytes": 1543,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_model.py"
+      },
+      "raw_bytes": 4643,
+      "raw_sha256": "5812c645bcfc985cef83d676dd4f7a793b6f6746e2e27df8a3aaa49a13681614",
+      "sha256": "e55b2661024a0f92d6a8cb121e8065b104bbf543575ead7d4fbb47613c7064c5",
+      "url": "payload/sources/test_real_ir_intent_model.py.gz"
+    },
+    {
+      "bytes": 1876,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_plan.py"
+      },
+      "raw_bytes": 5287,
+      "raw_sha256": "946027052a1849fe7a692a569d448e94c1203d4d884202e4eb464eeca06c0dfd",
+      "sha256": "a005f66864b99793d08a3c115b16f92e3535cd8f919e1600d8cbf552bd9a024a",
+      "url": "payload/sources/test_real_ir_intent_plan.py.gz"
+    },
+    {
+      "bytes": 2816,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_verify.py"
+      },
+      "raw_bytes": 9110,
+      "raw_sha256": "edced46ba03b1fdb9724b047fa2dd3c65644312480763b0bd41181e295e2017f",
+      "sha256": "a06dd144b990d188f1523ee08c67703afafa4fa25097e3132cc7b808f8edba43",
+      "url": "payload/sources/test_real_ir_intent_verify.py.gz"
+    },
+    {
+      "bytes": 3631,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_recovery_campaign.py"
+      },
+      "raw_bytes": 11289,
+      "raw_sha256": "072eb30d608763a5f159450c57e8d11457a243f0a7a031f2979329f7b2785701",
+      "sha256": "ba31b6ce10f5e0e7fb2db65ad28097f44a3e676534434c0bc20ffa5b2d9a9493",
+      "url": "payload/sources/real_ir_intent_recovery_campaign.py.gz"
+    },
+    {
+      "bytes": 2259,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_recovery_campaign.py"
+      },
+      "raw_bytes": 6107,
+      "raw_sha256": "c6352360b54cb00664b6a8c63e1b6f3572c9ab4f73241dbb7d8e82446bac7247",
+      "sha256": "59a0ba697cb77da6349866420596598c7a08cb84985a1d5405f20bf0882caba6",
+      "url": "payload/sources/test_real_ir_intent_recovery_campaign.py.gz"
+    },
+    {
+      "bytes": 13188,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_verify_v2.py"
+      },
+      "raw_bytes": 47424,
+      "raw_sha256": "0849fc82d30dbe08bbe9c34e15cbbe7300af80ee8155a84cfc6e3c029383e9af",
+      "sha256": "45b87a494c9347e3e217f277b5df7203275f130bfdd9f5038ddfe909b28b8764",
+      "url": "payload/sources/real_ir_intent_verify_v2.py.gz"
+    },
+    {
+      "bytes": 3722,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_verify_v2.py"
+      },
+      "raw_bytes": 12411,
+      "raw_sha256": "49b049a3fd1d8ff50883dead46ae5421833d1f53ac8164624f888482be48d4b4",
+      "sha256": "36d682bc6457fd589d5f8109381351b401b9308cb26c50f0aea78ea256bc28bb",
+      "url": "payload/sources/test_real_ir_intent_verify_v2.py.gz"
+    },
+    {
+      "bytes": 1187,
+      "category": "frozen-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/REAL_IR_INTENT_SAVED_PROTOCOL.md"
+      },
+      "raw_bytes": 2281,
+      "raw_sha256": "ec7d6b06af707b2e83e099292cf1557a9b73a36dbc2809a89951fff3af333049",
+      "sha256": "f6d27373e0cda7b81e4cf6cd8f5f6144a8f4b32393cb72af8b1376698299fd72",
+      "url": "payload/sources/REAL_IR_INTENT_SAVED_PROTOCOL.md.gz"
+    },
+    {
+      "bytes": 8691,
+      "category": "packaging-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_saved_package.py"
+      },
+      "raw_bytes": 30488,
+      "raw_sha256": "c4e567b674fbd711cbe3d3c95bab453b115a3f760d7facff809047b5599a70d2",
+      "sha256": "26a4c42dba66af127f8a46a57e9f4ca7c968404ddb13f72cdee68dd842fffbc4",
+      "url": "payload/sources/real_ir_intent_saved_package.py.gz"
+    },
+    {
+      "bytes": 5035,
+      "category": "packaging-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_saved_package.py"
+      },
+      "raw_bytes": 17129,
+      "raw_sha256": "1fd0d1e24cae75ec08e7b6bc4e3a64e79006520d999c979bf395dab9835c77bd",
+      "sha256": "577da03c89b3904888261145b077e997e386e48e3a8c370a1094e8309565ad71",
+      "url": "payload/sources/test_real_ir_intent_saved_package.py.gz"
+    },
+    {
+      "bytes": 5034,
+      "category": "packaging-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/compositional_typed_package.py"
+      },
+      "raw_bytes": 15265,
+      "raw_sha256": "bd96392b146b88d048809bce825b0b56ccd540304a1f6cc1f0624c16a67aabfd",
+      "sha256": "e38c4b3bcc19c441750cf766bb0908a4b94bea89fe6c732a9e19066fe1345e24",
+      "url": "payload/sources/compositional_typed_package.py.gz"
+    },
+    {
+      "bytes": 7280,
+      "category": "historical-packaging-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_package.py"
+      },
+      "raw_bytes": 24321,
+      "raw_sha256": "a44505a4825de66e1577262ded70f069a41236a403a621a1a11a9ef58d7dc084",
+      "sha256": "b592579e783db2a5c61c9b4c7a01640151c32017d2f87a94ed893c1505047406",
+      "url": "payload/sources/real_ir_intent_package.py.gz"
+    },
+    {
+      "bytes": 4173,
+      "category": "historical-packaging-source",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_package.py"
+      },
+      "raw_bytes": 13389,
+      "raw_sha256": "9709cb454759e48d37dc3dff84bc654f094c28c3d73a3012ce15da591ee5e1d2",
+      "sha256": "16ef3e55fe59ded1d358459660fe9cb7f9e96a23ee5d423e3c46c81343e87430",
+      "url": "payload/sources/test_real_ir_intent_package.py.gz"
+    },
+    {
+      "bytes": 3278,
+      "category": "final-report",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/REAL_IR_INTENT_RESULTS.md"
+      },
+      "raw_bytes": 6813,
+      "raw_sha256": "6ccf5aa1954383d727075e5b0c36dbf9a6d142119ccc4509d293054a74062ad1",
+      "sha256": "27ecceb1d32c7b403ef8ec14cb515637538089f9edc7e3b7f091ed49450ca974",
+      "url": "payload/reports/REAL_IR_INTENT_RESULTS.md.gz"
+    },
+    {
+      "bytes": 7558,
+      "category": "prelabel-reservation",
+      "encoding": "gzip",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-hp-fresh-reservation.json"
+      },
+      "raw_bytes": 39954,
+      "raw_sha256": "64d114c84a454546e16c906815980f167d35c4f6d9a0884402a0105e76cc1bb8",
+      "sha256": "b906eaf7506ecf5f827974fa56c5ac62f36e23a8e25dafdf2eac9da313efb1a4",
+      "url": "payload/reservation/real-ir-hp-fresh-reservation.json.gz"
+    },
+    {
+      "bytes": 6110,
+      "category": "index",
+      "encoding": "identity",
+      "raw_bytes": 6110,
+      "raw_sha256": "592265a4d92f7890f5b479bda0b00f31ad8f075e51cd212963a7f07e49b925e4",
+      "sha256": "592265a4d92f7890f5b479bda0b00f31ad8f075e51cd212963a7f07e49b925e4",
+      "url": "index.json"
+    }
+  ],
+  "frozen_source_pins": [
+    {
+      "bytes": 6655,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_diagnostic_campaign.py",
+      "sha256": "1e09a3eb7b7121e33d1e997e0d1a47f6a935be5b8049c12421c7979d25c602ad"
+    },
+    {
+      "bytes": 12735,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_diagnostic.py",
+      "sha256": "3fd8193db24f0a3354beadf9475c2312a00af60ed194d3f96dee058ca3f34033"
+    },
+    {
+      "bytes": 5728,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_diagnostic.py",
+      "sha256": "5e4a1172e374987d65906a66f4a2e1d416a16acef23fe47ca30d695af9fcf847"
+    },
+    {
+      "bytes": 1407,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/REAL_IR_INTENT_DIAGNOSTIC_PROTOCOL.md",
+      "sha256": "13f5cc18b677362abb708c763ac56c1a79497189f79562c2347127215c8b8831"
+    },
+    {
+      "bytes": 7504,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/REAL_IR_INTENT_PROTOCOL.md",
+      "sha256": "7920de336db6bdab85edb566aa4ed3fe5a6a578a95a244fad58bdabbcd9f3938"
+    },
+    {
+      "bytes": 17097,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_campaign.py",
+      "sha256": "7ef61337fa0d60e7a5ed05cf9176179954fea716921ea3c8473a841d7123e31a"
+    },
+    {
+      "bytes": 26565,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_data.py",
+      "sha256": "83352eb480e0f220a54aaf115603e0393088afdc4de07c0f61a8201342d20a14"
+    },
+    {
+      "bytes": 23660,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_fit.py",
+      "sha256": "b1f2832c49250ef9a28d6eddf886cbed7daf86e2bc458cebc2c9b27d93cfcabf"
+    },
+    {
+      "bytes": 7499,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_model.py",
+      "sha256": "8e16dbb14fd460ce4fa2cbfa6e47f17324042620da3db8d8c6cc4d196b98d41b"
+    },
+    {
+      "bytes": 9567,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/Cargo.lock",
+      "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+    },
+    {
+      "bytes": 384,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/Cargo.toml",
+      "sha256": "65815ba8a1a63299536d0cc7d296a854ebf8f4d352f0e35d518ebcde2e617ae8"
+    },
+    {
+      "bytes": 2807,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/README.md",
+      "sha256": "311b571b41584113aed68139e7c7ee6a7c0467705047335b80979a717fd8acdb"
+    },
+    {
+      "bytes": 26979,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/src/main.rs",
+      "sha256": "e1635dc66cc825afc560aa559c9498dc9d6a4aca0ea8765a147171c8cd014b9a"
+    },
+    {
+      "bytes": 11799,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/supervise.py",
+      "sha256": "8c146e676108dcf0105e54ffab7d43273449260e07de2bb727362058a26358f3"
+    },
+    {
+      "bytes": 5255,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_native_collector/test_supervise.py",
+      "sha256": "5fb2a1619d91e6e1f0be871bcba30f28033742771fa17bdfa5b85ce5f523c74c"
+    },
+    {
+      "bytes": 9019,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_plan.py",
+      "sha256": "98511ad026b23d23b859779053db6916f69a107a8773b477f8836d45032fcbde"
+    },
+    {
+      "bytes": 41512,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_verify.py",
+      "sha256": "e2ec1662a70effc42ea694f6e14390233630e2556019222c336e22bc0e49ec02"
+    },
+    {
+      "bytes": 9141,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_campaign.py",
+      "sha256": "e28a23ebaafbe2557dc5831b39f71f27958770dfe30b42a6580b1356bbd388c6"
+    },
+    {
+      "bytes": 15746,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_data.py",
+      "sha256": "69baf794c1e9e8f8d32bfbc1252072ca44811bac56fa4af7a62cb6efd163028f"
+    },
+    {
+      "bytes": 6975,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_fit.py",
+      "sha256": "3be91f506dabca421146777932fc900b06705efcaad746bcaa55cb6752988a26"
+    },
+    {
+      "bytes": 4643,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_model.py",
+      "sha256": "5812c645bcfc985cef83d676dd4f7a793b6f6746e2e27df8a3aaa49a13681614"
+    },
+    {
+      "bytes": 5287,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_plan.py",
+      "sha256": "946027052a1849fe7a692a569d448e94c1203d4d884202e4eb464eeca06c0dfd"
+    },
+    {
+      "bytes": 9110,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_verify.py",
+      "sha256": "edced46ba03b1fdb9724b047fa2dd3c65644312480763b0bd41181e295e2017f"
+    },
+    {
+      "bytes": 11289,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_recovery_campaign.py",
+      "sha256": "072eb30d608763a5f159450c57e8d11457a243f0a7a031f2979329f7b2785701"
+    },
+    {
+      "bytes": 6107,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_recovery_campaign.py",
+      "sha256": "c6352360b54cb00664b6a8c63e1b6f3572c9ab4f73241dbb7d8e82446bac7247"
+    },
+    {
+      "bytes": 47424,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real_ir_intent_verify_v2.py",
+      "sha256": "0849fc82d30dbe08bbe9c34e15cbbe7300af80ee8155a84cfc6e3c029383e9af"
+    },
+    {
+      "bytes": 12411,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_real_ir_intent_verify_v2.py",
+      "sha256": "49b049a3fd1d8ff50883dead46ae5421833d1f53ac8164624f888482be48d4b4"
+    },
+    {
+      "bytes": 2281,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/REAL_IR_INTENT_SAVED_PROTOCOL.md",
+      "sha256": "ec7d6b06af707b2e83e099292cf1557a9b73a36dbc2809a89951fff3af333049"
+    }
+  ],
+  "histories": {
+    "real-ir-intent-diagnostic-v1": {
+      "carry": {
+        "charged_native_applies": 1031,
+        "charged_seconds": 312.50895287597086,
+        "observed_native_applies": null
+      },
+      "charged": {
+        "backwards": 0,
+        "native_applies": 0,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0,
+        "seconds": 0.9873239169828594
+      },
+      "closure": {
+        "bytes": 1195,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/experiment-closure.json",
+        "sha256": "d531e1fe35fb556f81562e10b8802da79f586f1f282379654867b8880cb60624"
+      },
+      "closure_status": "closed-saved-diagnostic",
+      "cumulative": {
+        "charged_native_applies": 1031,
+        "charged_seconds": 313.4962767929537,
+        "observed_native_applies": null
+      },
+      "disposition": "completed",
+      "final_chain": "6710133601cd9fce8fec6b2bae14e9b8d100d2fa7c6edd6cf63db9cb01df1cbd",
+      "ledger": {
+        "bytes": 2468,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-diagnostic-v1/campaign-ledger.jsonl",
+        "sha256": "cb32b4b4927a04041fb0e074f28e5e4334e0fec8873078c656e656d0f840d275"
+      },
+      "observed": {
+        "backwards": 0,
+        "native_applies": 0,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0
+      },
+      "records": 3,
+      "source_freeze_commit": "6d5c296e6eecbbdd6d7806d76756fbccb60ddd1b",
+      "stages": [
+        "diagnose"
+      ],
+      "statuses": [
+        "completed"
+      ]
+    },
+    "real-ir-intent-saved-v1": {
+      "carry": {
+        "charged_native_applies": 1159,
+        "charged_seconds": 347.0119017927209,
+        "observed_native_applies": null
+      },
+      "charged": {
+        "backwards": 0,
+        "native_applies": 0,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0,
+        "seconds": 1.9094321669545025
+      },
+      "closure": {
+        "bytes": 1708,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/experiment-closure.json",
+        "sha256": "f9858c69d4116c46ecb2ae7d46205c054f2c573d1e3be760053b27eea619f909"
+      },
+      "closure_status": "closed-verified-saved-intent",
+      "cumulative": {
+        "charged_native_applies": 1159,
+        "charged_seconds": 348.9213339596754,
+        "observed_native_applies": null
+      },
+      "disposition": "completed",
+      "final_chain": "6331ee8fd5e2265f3217ac6d8f815407bd71b7972d545b90faa72ed62d8e2185",
+      "ledger": {
+        "bytes": 2454,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/campaign-ledger.jsonl",
+        "sha256": "c48c6b8bfef1fa5573d784d5d932bd6ebde0af518991c588032a8933ac716baf"
+      },
+      "observed": {
+        "backwards": 0,
+        "native_applies": 0,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0
+      },
+      "records": 3,
+      "source_freeze_commit": "e739fb85259eda543f947d7fee8af937d00b581c",
+      "stages": [
+        "verify"
+      ],
+      "statuses": [
+        "completed"
+      ]
+    },
+    "real-ir-intent-v1": {
+      "carry": {
+        "charged_native_applies": 1031,
+        "charged_seconds": 313.4962767929537,
+        "observed_native_applies": null
+      },
+      "charged": {
+        "backwards": 2700,
+        "native_applies": 128,
+        "neural_forwards": 2724,
+        "numerical_fits": 0,
+        "optimizer_updates": 2700,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0.0,
+        "seconds": 33.51562499976717
+      },
+      "closure": {
+        "bytes": 6164,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/experiment-closure.json",
+        "sha256": "aa4b496d28284ca2e9d19d381487323d87914359addf54d204337d7b0f4e5629"
+      },
+      "closure_status": "closed-failed-saved-verification",
+      "cumulative": {
+        "charged_native_applies": 1159,
+        "charged_seconds": 347.0119017927209,
+        "observed_native_applies": null
+      },
+      "disposition": "failed",
+      "final_chain": "14b291423540bcbbad49fb20780710ff3bb9613d9b80125e9bb1b89c910b15a5",
+      "ledger": {
+        "bytes": 4933816,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/campaign-ledger.jsonl",
+        "sha256": "ffdb96846758a853a62caba1e544339463ff683a238efe220f7cc484e5029672"
+      },
+      "observed": {
+        "backwards": 2700,
+        "native_applies": 128,
+        "neural_forwards": 2724,
+        "numerical_fits": 0,
+        "optimizer_updates": 2700,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0
+      },
+      "records": 16269,
+      "source_freeze_commit": "6ef78f992cbb6cc1bd218c5bbb67a8f6fa7a945f",
+      "stages": [
+        "build",
+        "dev-native",
+        "prep",
+        "fit",
+        "terminal-native",
+        "terminal-prep",
+        "score",
+        "verify"
+      ],
+      "statuses": [
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "failed"
+      ]
+    }
+  },
+  "limits": {
+    "file_bytes": 67108864,
+    "files": 1000,
+    "manifest_bytes": 4194304,
+    "total_raw_bytes": 268435456,
+    "total_stored_bytes": 268435456
+  },
+  "recovery": {
+    "failed_charge_credited": false,
+    "original_disposition": "failed",
+    "original_failed_closure": {
+      "bytes": 6164,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/experiment-closure.json",
+      "sha256": "aa4b496d28284ca2e9d19d381487323d87914359addf54d204337d7b0f4e5629"
+    },
+    "preserved_failed_charge_seconds": 10.0,
+    "preserved_failed_stage": "verify",
+    "saved_disposition": "completed",
+    "saved_verification": {
+      "bytes": 4483705,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-saved-v1/verify-1/verification-result.json",
+      "sha256": "1b42568172e013cb78f55a23f29e56f99e1fa71b9e1888a64a6315fae693a740"
+    },
+    "scope": "Byte/provenance and closed-accounting replay only; saved semantic calculations are not rerun."
+  },
+  "release": {
+    "amendment": {
+      "bytes": 1089,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-intent-v1/metadata-1/preregistration.json",
+      "sha256": "92b8cf6decdd1be9a8147f3c6a8cb6ff0cef6ebadb210a8e6e861790160d924c"
+    },
+    "order": [
+      "build",
+      "dev-native",
+      "prep",
+      "fit",
+      "terminal-native",
+      "terminal-prep",
+      "score",
+      "verify"
+    ],
+    "released_terminal_source": "SOR_132",
+    "remaining_conservative_groups": [
+      [
+        "ASH_259",
+        "LOF_259"
+      ],
+      [
+        "HMW_158"
+      ]
+    ],
+    "remaining_reserved_codes": [
+      "ASH_259",
+      "HMW_158",
+      "LOF_259"
+    ],
+    "scope": "Frozen metadata plus completed stage ordering; scientific checkpoint and prediction correctness are separately verified."
+  },
+  "reservation": {
+    "bytes": 39954,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-hp-fresh-reservation.json",
+    "sha256": "64d114c84a454546e16c906815980f167d35c4f6d9a0884402a0105e76cc1bb8"
+  },
+  "root_order": [
+    "real-ir-intent-diagnostic-v1",
+    "real-ir-intent-v1",
+    "real-ir-intent-saved-v1"
+  ],
+  "schema": "jepa-real-ir-intent-saved-evidence/1",
+  "scientific_calls": 0,
+  "scope": "Exact byte preservation of closed diagnosis, failed original verification and separate successful zero-call saved sidecar; no model/native/array execution or publication mutation.",
+  "semantic_validated": false,
+  "source_freeze_commits": {
+    "real-ir-intent-diagnostic-v1": "6d5c296e6eecbbdd6d7806d76756fbccb60ddd1b",
+    "real-ir-intent-saved-v1": "e739fb85259eda543f947d7fee8af937d00b581c",
+    "real-ir-intent-v1": "6ef78f992cbb6cc1bd218c5bbb67a8f6fa7a945f"
+  }
+}
