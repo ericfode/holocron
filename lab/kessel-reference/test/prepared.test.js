@@ -89,3 +89,42 @@ finally {
 test('incremental cache reuses one target, excludes concurrent builders, and full checkpoints leave cache intact',()=>{const root=fs.mkdtempSync(path.join(os.tmpdir(),'swu-cache-test-')),cache=path.join(root,'cache'),out=path.join(root,'prepared');try{fs.mkdirSync(out);const acquire=require('../pipeline/prepared').acquireBuildCache;const first=acquire({out,cache});assert.equal(first.mode,'incremental');assert.equal(first.target,path.join(cache,'target'));fs.mkdirSync(first.target);fs.writeFileSync(path.join(first.target,'sentinel'),'cached artifact');assert.throws(()=>acquire({out,cache}),/locked/);first.release();const second=acquire({out,cache});assert.equal(second.target,first.target);assert.equal(second.catalogue,first.catalogue);second.release();const full=acquire({out,cache,full:true});assert.equal(full.mode,'full-checkpoint');assert.equal(full.target,path.join(out,'build-target'));assert.equal(fs.readFileSync(path.join(first.target,'sentinel'),'utf8'),'cached artifact');full.release();}finally{fs.rmSync(root,{recursive:true,force:true});}});
 
 test('asynchronous full checkpoint lease does not contend with the warm cache lease',()=>{const root=fs.mkdtempSync(path.join(os.tmpdir(),'swu-full-cache-test-')),cache=path.join(root,'cache'),out=path.join(root,'full');try{fs.mkdirSync(out);const acquire=require('../pipeline/prepared').acquireBuildCache;const warm=acquire({out,cache});const full=acquire({out,cache,full:true});assert.notEqual(full.target,warm.target);assert.throws(()=>acquire({out,cache}),/locked/);full.release();assert.throws(()=>acquire({out,cache}),/locked/);warm.release();}finally{fs.rmSync(root,{recursive:true,force:true});}});
+
+const {selectPool} = require('../pipeline/prepared');
+const admittedExample=()=>({schema:'omni-rs-pool-v1',provenance:{source:'native-test-only'},cards:[{setCode:'ASH_216',internalName:'mandalorian-scout',cost:2,aspects:['cunning'],metadata:{identity:'exact'}},{setCode:'TWI_185',internalName:'ziro-the-hutt#colorful-schemer',cost:5,aspects:['cunning'],metadata:{identity:'other'}}]});
+test('pool selection projects exact admitted rows and preserves canonical ordering and metadata',()=>{
+    const pool=admittedExample(), selected=selectPool(pool,['TWI_185','ASH_216']);
+    assert.deepEqual(selected,pool);assert.equal(selected.cards[0],pool.cards[0]);assert.equal(selected.provenance,pool.provenance);
+    assert.deepEqual(selectPool(pool,['TWI_185']),{...pool,cards:[pool.cards[1]]});
+    for(const ids of [[],['ASH_216','ASH_216'],['MISSING_001'],['REJECTED_001'],[null]])assert.throws(()=>selectPool(pool,ids));
+    assert.throws(()=>selectPool({...pool,cards:[pool.cards[0],pool.cards[0]]},['ASH_216']),/Duplicate admitted/);
+});
+test('CLI parses explicit pool scope independently and preserves duplicates for validation',()=>{
+    const {options}=require('../pipeline/cli');
+    assert.deepEqual(options(['--cards','ASH_216','--pool-cards','ASH_216,TWI_185','--pool-cards','ASH_216']),{cards:['ASH_216'],poolCards:['ASH_216','TWI_185','ASH_216']});
+    assert.equal(options([]).poolCards,undefined);
+});
+test('prepared selected pool binds unfiltered admission hash and exact metadata projection',()=>{
+    const {root,manifest}=fixture(), full=admittedExample();
+    const update=(key,value)=>{const bytes=Buffer.from(JSON.stringify(value));fs.writeFileSync(path.join(root,manifest.artifacts[key].path),bytes);manifest.artifacts[key].sha256=sha256(bytes);};
+    const save=()=>fs.writeFileSync(path.join(root,'manifest.json'),JSON.stringify(manifest));
+    try {
+        const admittedBytes=Buffer.from(JSON.stringify(full));fs.writeFileSync(path.join(root,'admitted-pool.json'),admittedBytes);
+        manifest.poolSelection={cardIds:['ASH_216'],admittedPool:{path:'admitted-pool.json',sha256:sha256(admittedBytes)}};
+        update('pool',selectPool(full,['ASH_216']));save();
+        assert.deepEqual(loadPrepared(root).pool,selectPool(full,['ASH_216']));
+        const tampered=selectPool(full,['ASH_216']);tampered.cards=[{...tampered.cards[0],metadata:{identity:'invented'}}];
+        update('pool',tampered);save();assert.throws(()=>loadPrepared(root),/selected pool differs/);
+        update('pool',selectPool(full,['ASH_216']));manifest.poolSelection.cardIds=['REJECTED_001'];save();assert.throws(()=>loadPrepared(root),/Unknown or unadmitted/);
+        manifest.poolSelection.cardIds=['ASH_216','ASH_216'];save();assert.throws(()=>loadPrepared(root),/Duplicate poolCards/);
+        manifest.poolSelection.cardIds=[];save();assert.throws(()=>loadPrepared(root),/nonempty/);
+        manifest.poolSelection.cardIds=['ASH_216'];save();fs.appendFileSync(path.join(root,'admitted-pool.json'),' ');assert.throws(()=>loadPrepared(root),/admitted pool changed/);
+    } finally {fs.rmSync(root,{recursive:true,force:true});}
+});
+
+test('prepare rejects empty and duplicate scopes before any build or output creation',async()=>{
+    const {prepare}=require('../pipeline/prepared');
+    await assert.rejects(prepare({full:true,poolCards:['ASH_216']}),/Full checkpoint preparation requires the entire admitted pool/);
+    await assert.rejects(prepare({poolCards:[]}),/nonempty/);
+    await assert.rejects(prepare({poolCards:['ASH_216','ASH_216']}),/Duplicate poolCards/);
+});

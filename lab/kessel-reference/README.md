@@ -37,6 +37,15 @@ npm run kessel:pipeline -- run --cards TWI_124,TWI_170 --out /tmp/new-card-run  
 Then, in the Kessel checkout: `npm run cards:reference -- check --corpus /tmp/new-ref` and
 `npm run cards:reference -- import --corpus /tmp/new-ref`.
 
+For focused experiments, `kessel:pipeline prepare --pool-cards ID,ID,...` selects
+an exact subset of the freshly built binary's admitted pool. Include the focus,
+setup, filler, leader, base and required native token definitions. The prepared
+manifest binds both this selection and the hashed unfiltered pool; loading rejects
+changed definitions. Subsequent fanout and comparisons use that selected pool.
+This establishes finite evidence for the selected paths. It does not resolve an
+exporter failure for the whole admitted pool. Full checkpoint preparation rejects
+a restricted pool.
+
 `generate` binds every recording to the engine source and build. When `forceteki/build/.swu-reference-build.json` is
 missing or stale it rebuilds `forceteki/build/server` first, and it refuses a `forceteki/build` that belongs to another
 checkout (a symlink).

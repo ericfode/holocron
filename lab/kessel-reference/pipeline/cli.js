@@ -10,7 +10,7 @@ const USAGE = 'Usage: npm run kessel:pipeline -- plan|prepare|run|review|fanout|
     'see lab/kessel-reference/README.md and Kessel\'s cards/PIPELINE.md';
 function options(args) {
     const o = { cards: [] };
-    const lists = { '--card': 'cards', '--cards': 'cards', '--paths': 'paths', '--evidence': 'evidencePaths' };
+    const lists = { '--card': 'cards', '--cards': 'cards', '--pool-cards': 'poolCards', '--paths': 'paths', '--evidence': 'evidencePaths' };
     const values = { '--out': 'out', '--run': 'run', '--file': 'file', '--prepared': 'prepared',
         '--jobs': 'jobs', '--timeout-ms': 'timeoutMs', '--limit': 'limit', '--worker': 'workerId',
         '--job': 'jobId', '--token': 'token', '--reason': 'reason', '--result': 'resultPath', '--patch': 'patchPath',
