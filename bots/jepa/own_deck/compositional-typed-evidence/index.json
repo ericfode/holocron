@@ -1,0 +1,1137 @@
+{
+  "artifacts": [
+    {
+      "bytes": 655,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/build-1/stderr.log",
+        "relative_path": "build-1/stderr.log"
+      },
+      "raw_bytes": 1844,
+      "raw_sha256": "24a39c6e6915cbf1511238cfac5daf456f84807f33e5048d025c8cc6b0f32b30",
+      "sha256": "18f5beba3e181c2e00b1e878b7e44f28c71f97fa123f3421172ad0d0a17a9b8c",
+      "url": "payload/compositional-typed-v1/build-1/stderr.log.gz"
+    },
+    {
+      "bytes": 20,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/build-1/stdout.log",
+        "relative_path": "build-1/stdout.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "url": "payload/compositional-typed-v1/build-1/stdout.log.gz"
+    },
+    {
+      "bytes": 596,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/build-1-stage-receipt.json",
+        "relative_path": "build-1-stage-receipt.json"
+      },
+      "raw_bytes": 1100,
+      "raw_sha256": "eb4fe1ec5356013195a67fea00cf6e651ea4986ca5ac1d3616a70db20ff17589",
+      "sha256": "60028bb23e3921401fd85dbdc3fcf66cd72453de723641862ffcc78b75dbf215",
+      "url": "payload/compositional-typed-v1/build-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 1781,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/campaign-ledger.jsonl",
+        "relative_path": "campaign-ledger.jsonl"
+      },
+      "raw_bytes": 9484,
+      "raw_sha256": "da8d99939d127f0c7d5ec5b16b0cc525c507c950a669185f335fc2443b1d7d25",
+      "sha256": "e576856f557c450f978c0ad2ec3ee7ab38b7c8e41ff42bf62ed912ae991654a0",
+      "url": "payload/compositional-typed-v1/campaign-ledger.jsonl.gz"
+    },
+    {
+      "bytes": 10507,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/campaign-spec.json",
+        "relative_path": "campaign-spec.json"
+      },
+      "raw_bytes": 42265,
+      "raw_sha256": "18c7601adbb92c0bad4d07852aee42084e04c213c7158180306de3f3ee9251fa",
+      "sha256": "449bbb75006489ae994c9f4c07f5424aedc729806b1fcb7e18262d8d14710b0a",
+      "url": "payload/compositional-typed-v1/campaign-spec.json.gz"
+    },
+    {
+      "bytes": 998,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/experiment-closure.json",
+        "relative_path": "experiment-closure.json"
+      },
+      "raw_bytes": 2133,
+      "raw_sha256": "0a11a3359f4cc39b0c13a5ddd47c41941b6697f49669090117bcdcdf3b3f1c6c",
+      "sha256": "48cd35368ebd81a1ee9649aae16aafa025a85abef900e26c6e20575d92b37953",
+      "url": "payload/compositional-typed-v1/experiment-closure.json.gz"
+    },
+    {
+      "bytes": 15345,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/metadata-1/native-plan.json",
+        "relative_path": "metadata-1/native-plan.json"
+      },
+      "raw_bytes": 501651,
+      "raw_sha256": "a3fc50997e7cb633597e5ae2913d3c01dee76c5e4bdabda063961c0a1c292d2a",
+      "sha256": "f65d32c23930f1a2187a3c35849fc1b70b7b1319d4f99bfddbee1a549e91e669",
+      "url": "payload/compositional-typed-v1/metadata-1/native-plan.json.gz"
+    },
+    {
+      "bytes": 377,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/metadata-1-stage-receipt.json",
+        "relative_path": "metadata-1-stage-receipt.json"
+      },
+      "raw_bytes": 510,
+      "raw_sha256": "0f04c13284abc7ff6c00b6b1e4577006d4dbf29cdf4e65861ac4f7d41ff85732",
+      "sha256": "4b2e309d8cd4a16b08e62c7764a42c8b99a4f1f546e2fdcebe610cc68a8b4704",
+      "url": "payload/compositional-typed-v1/metadata-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 826136,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/native-1/receipt.json",
+        "relative_path": "native-1/receipt.json"
+      },
+      "raw_bytes": 22688621,
+      "raw_sha256": "83bd6c520c33b34d8362035976f74ae6de9c4dfbe153f5d13b0308a8645e1d22",
+      "sha256": "ff801700ca89ea62ac83e6336f547674fed0b13ed6fda777fe5de3c1ed33e57b",
+      "url": "payload/compositional-typed-v1/native-1/receipt.json.gz"
+    },
+    {
+      "bytes": 20,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/native-1/stderr.log",
+        "relative_path": "native-1/stderr.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "url": "payload/compositional-typed-v1/native-1/stderr.log.gz"
+    },
+    {
+      "bytes": 20,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/native-1/stdout.log",
+        "relative_path": "native-1/stdout.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "url": "payload/compositional-typed-v1/native-1/stdout.log.gz"
+    },
+    {
+      "bytes": 311036,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/native-1/transitions.jsonl",
+        "relative_path": "native-1/transitions.jsonl"
+      },
+      "raw_bytes": 24223241,
+      "raw_sha256": "0271d4a12a9171c672aa0dccf99ebf4a3fdcbee10a866daa989b76144dacd288",
+      "sha256": "9b0c2692d17047caa7cb83c2a4ae7a231862be7c74725c182798a19c8730e62e",
+      "url": "payload/compositional-typed-v1/native-1/transitions.jsonl.gz"
+    },
+    {
+      "bytes": 520,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/native-1-stage-receipt.json",
+        "relative_path": "native-1-stage-receipt.json"
+      },
+      "raw_bytes": 1163,
+      "raw_sha256": "fd30449ab59de199d460456ede5c9898f037fcc1709704fdb993a7222a2c6ef9",
+      "sha256": "fbf90d2516adb68011a2bccb011a329a7693eb0fcbbaea9b3b3c3e660c4a77c3",
+      "url": "payload/compositional-typed-v1/native-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 37891,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/parent-manifest.json",
+        "relative_path": "parent-manifest.json"
+      },
+      "raw_bytes": 152261,
+      "raw_sha256": "ddf2964f470b5f9398394c965ab0ae6f8f12df72bf06318599b0e967fd6b123d",
+      "sha256": "a40afe6cb78cef45192ba4d8689116712379c608753211197de2d2fae225c7ec",
+      "url": "payload/compositional-typed-v1/parent-manifest.json.gz"
+    },
+    {
+      "bytes": 1134528,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/campaign-ledger.jsonl",
+        "relative_path": "campaign-ledger.jsonl"
+      },
+      "raw_bytes": 6506840,
+      "raw_sha256": "1f0e3f3d5277de60a1cf429c5d8a511da2f3fcb8e8c40b7193b7e8b01eef1482",
+      "sha256": "ed8b0bc7348cc7648414b98dcbad7151b623a3a5fd2a21b2801370e10c2c4412",
+      "url": "payload/compositional-typed-saved-v1/campaign-ledger.jsonl.gz"
+    },
+    {
+      "bytes": 10719,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/campaign-spec.json",
+        "relative_path": "campaign-spec.json"
+      },
+      "raw_bytes": 41631,
+      "raw_sha256": "d238405c20adc3e78609836cb82bba5e0da61380accf3773c9a93539b347beb4",
+      "sha256": "1096231325ab075b465719bb45c6195031e5587b86c92a9c7410ee5e186b3637",
+      "url": "payload/compositional-typed-saved-v1/campaign-spec.json.gz"
+    },
+    {
+      "bytes": 1015,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/experiment-closure.json",
+        "relative_path": "experiment-closure.json"
+      },
+      "raw_bytes": 2283,
+      "raw_sha256": "fc71c60d567d95bd2ea0a1bdba42092bb8b26471fd9d0aeaa72a85d271bd1cd4",
+      "sha256": "e9e368e02013f73cb0df419e5a261aea48cd98ae3f5770a19442dc22f1ba4723",
+      "url": "payload/compositional-typed-saved-v1/experiment-closure.json.gz"
+    },
+    {
+      "bytes": 30982,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/consumed-inputs.npz",
+        "relative_path": "fit-1/consumed-inputs.npz"
+      },
+      "raw_bytes": 30982,
+      "raw_sha256": "8233cbc436a8c0ed6b66d42b2df10c5a0c9ff1466b96febaff3b4e8ba71d2b2f",
+      "sha256": "8233cbc436a8c0ed6b66d42b2df10c5a0c9ff1466b96febaff3b4e8ba71d2b2f",
+      "url": "payload/compositional-typed-saved-v1/fit-1/consumed-inputs.npz"
+    },
+    {
+      "bytes": 5283,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/contract.json",
+        "relative_path": "fit-1/contract.json"
+      },
+      "raw_bytes": 60703,
+      "raw_sha256": "6baca3445f4e7ac209ff804603efb3d84ab24334a36d7f1a05707391ae9ccfca",
+      "sha256": "2351e3cd38f3b9b3872eb1333a376161d1812d0cf24789f828cbbeaf8521e91e",
+      "url": "payload/compositional-typed-saved-v1/fit-1/contract.json.gz"
+    },
+    {
+      "bytes": 273819,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/fit-progress.jsonl",
+        "relative_path": "fit-1/fit-progress.jsonl"
+      },
+      "raw_bytes": 2637133,
+      "raw_sha256": "c6a358dbc1f4def2e5ee50be92fd3f035a682d096acb1f684c001b8276f68466",
+      "sha256": "567d4312ef2534d449a506c7bc6d6d02412c9c00b96a40e2a9cda4dae9c63f6f",
+      "url": "payload/compositional-typed-saved-v1/fit-1/fit-progress.jsonl.gz"
+    },
+    {
+      "bytes": 905,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/loss-weights.json",
+        "relative_path": "fit-1/loss-weights.json"
+      },
+      "raw_bytes": 9841,
+      "raw_sha256": "923e28805e27e28061d6b316e27c6584c7e6a63bbfbe372842e1c1b064773941",
+      "sha256": "788aa611d18a7ff4af0d3a3bb8c44ade860d57eabfee3a8b14ebcd492be54aaa",
+      "url": "payload/compositional-typed-saved-v1/fit-1/loss-weights.json.gz"
+    },
+    {
+      "bytes": 19780,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/result.json",
+        "relative_path": "fit-1/result.json"
+      },
+      "raw_bytes": 397852,
+      "raw_sha256": "4061e9482b9280911c255e805134c2854b9a1c22a99a672e6471bb51f14fe8ef",
+      "sha256": "81bbde50937955e9d8675107a81255a7dab199e85f27873342ca145848bd5421",
+      "url": "payload/compositional-typed-saved-v1/fit-1/result.json.gz"
+    },
+    {
+      "bytes": 8795,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-new-initial-checkpoint.npz",
+        "relative_path": "fit-1/s17-new-initial-checkpoint.npz"
+      },
+      "raw_bytes": 8795,
+      "raw_sha256": "86e34ce396833516f5d72bae0ef1f0859a2d8d57aa4752ccdca7c6f0530a622f",
+      "sha256": "86e34ce396833516f5d72bae0ef1f0859a2d8d57aa4752ccdca7c6f0530a622f",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-new-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 8805,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-new-no-id-checkpoint.npz",
+        "relative_path": "fit-1/s17-new-no-id-checkpoint.npz"
+      },
+      "raw_bytes": 8805,
+      "raw_sha256": "8ca1af88b75b26c79e0e50d2eb69f92e09a8631140f2405f5361ef1f0ce85d89",
+      "sha256": "8ca1af88b75b26c79e0e50d2eb69f92e09a8631140f2405f5361ef1f0ce85d89",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-new-no-id-checkpoint.npz"
+    },
+    {
+      "bytes": 2158,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-new-no-id-step0-predictions.npz",
+        "relative_path": "fit-1/s17-new-no-id-step0-predictions.npz"
+      },
+      "raw_bytes": 2158,
+      "raw_sha256": "d6dfdca96c752b91b74186b052e4db668571b3ac61ae134b348f048f5539b478",
+      "sha256": "d6dfdca96c752b91b74186b052e4db668571b3ac61ae134b348f048f5539b478",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-new-no-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 2213,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-new-no-id-step300-predictions.npz",
+        "relative_path": "fit-1/s17-new-no-id-step300-predictions.npz"
+      },
+      "raw_bytes": 2213,
+      "raw_sha256": "f8ddf4ba304e8bf0acd6562cc6464eb0c49a97ccaabbcce2dc890403a15e1296",
+      "sha256": "f8ddf4ba304e8bf0acd6562cc6464eb0c49a97ccaabbcce2dc890403a15e1296",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-new-no-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 8812,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-new-with-id-checkpoint.npz",
+        "relative_path": "fit-1/s17-new-with-id-checkpoint.npz"
+      },
+      "raw_bytes": 8812,
+      "raw_sha256": "b1f6db92c9bcbdf93ce330e5b97f3c06a5ae2393fd406f38ce1c11820259ead8",
+      "sha256": "b1f6db92c9bcbdf93ce330e5b97f3c06a5ae2393fd406f38ce1c11820259ead8",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-new-with-id-checkpoint.npz"
+    },
+    {
+      "bytes": 2913,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-new-with-id-step0-predictions.npz",
+        "relative_path": "fit-1/s17-new-with-id-step0-predictions.npz"
+      },
+      "raw_bytes": 2913,
+      "raw_sha256": "e52ddcdc7e6f99a23d4a95f2de09da5dad43031659bfc8ec8fc03f8df6e7a247",
+      "sha256": "e52ddcdc7e6f99a23d4a95f2de09da5dad43031659bfc8ec8fc03f8df6e7a247",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-new-with-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 3063,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-new-with-id-step300-predictions.npz",
+        "relative_path": "fit-1/s17-new-with-id-step300-predictions.npz"
+      },
+      "raw_bytes": 3063,
+      "raw_sha256": "d49b91809878e9aeeb329d0840eb39cb7c556678f4e24d9c28ed90b88b736856",
+      "sha256": "d49b91809878e9aeeb329d0840eb39cb7c556678f4e24d9c28ed90b88b736856",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-new-with-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 43821,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-old-initial-checkpoint.npz",
+        "relative_path": "fit-1/s17-old-initial-checkpoint.npz"
+      },
+      "raw_bytes": 43821,
+      "raw_sha256": "ae5e7451a3871318f96c256b78bc315ee3e5f5afed64909d4b728bd3ac10a0ca",
+      "sha256": "ae5e7451a3871318f96c256b78bc315ee3e5f5afed64909d4b728bd3ac10a0ca",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-old-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 44353,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-old-no-id-checkpoint.npz",
+        "relative_path": "fit-1/s17-old-no-id-checkpoint.npz"
+      },
+      "raw_bytes": 44353,
+      "raw_sha256": "e288ee3ea1ae093ceab040de6a4b2c049952bf93aa48754dcd96ef1d0b467e73",
+      "sha256": "e288ee3ea1ae093ceab040de6a4b2c049952bf93aa48754dcd96ef1d0b467e73",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-old-no-id-checkpoint.npz"
+    },
+    {
+      "bytes": 5544,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-old-no-id-step0-predictions.npz",
+        "relative_path": "fit-1/s17-old-no-id-step0-predictions.npz"
+      },
+      "raw_bytes": 5544,
+      "raw_sha256": "cf02278ed972f9335e84f56e9c17cd9323827e57db2befa8f1e4265584314e59",
+      "sha256": "cf02278ed972f9335e84f56e9c17cd9323827e57db2befa8f1e4265584314e59",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-old-no-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 5906,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-old-no-id-step300-predictions.npz",
+        "relative_path": "fit-1/s17-old-no-id-step300-predictions.npz"
+      },
+      "raw_bytes": 5906,
+      "raw_sha256": "95febb757adac81fe6151c470d1ea2263827131ac049b5963f8277a61c0dbb23",
+      "sha256": "95febb757adac81fe6151c470d1ea2263827131ac049b5963f8277a61c0dbb23",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-old-no-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 44399,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-old-with-id-checkpoint.npz",
+        "relative_path": "fit-1/s17-old-with-id-checkpoint.npz"
+      },
+      "raw_bytes": 44399,
+      "raw_sha256": "d057eeceeb8045c5cc5d49500936ac58695eaa12b1cbe0bc3aaf2662a8dc008d",
+      "sha256": "d057eeceeb8045c5cc5d49500936ac58695eaa12b1cbe0bc3aaf2662a8dc008d",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-old-with-id-checkpoint.npz"
+    },
+    {
+      "bytes": 5704,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-old-with-id-step0-predictions.npz",
+        "relative_path": "fit-1/s17-old-with-id-step0-predictions.npz"
+      },
+      "raw_bytes": 5704,
+      "raw_sha256": "e259f4e8de005214c9e6c44e7bfefca82fc392f11acbd5b9570e03f5c6ff382c",
+      "sha256": "e259f4e8de005214c9e6c44e7bfefca82fc392f11acbd5b9570e03f5c6ff382c",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-old-with-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 5922,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s17-old-with-id-step300-predictions.npz",
+        "relative_path": "fit-1/s17-old-with-id-step300-predictions.npz"
+      },
+      "raw_bytes": 5922,
+      "raw_sha256": "53ad059d134d8b892c5ad0b5ef0ef6654c91930c553f4cbb01271f054dc76275",
+      "sha256": "53ad059d134d8b892c5ad0b5ef0ef6654c91930c553f4cbb01271f054dc76275",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s17-old-with-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 8784,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-new-initial-checkpoint.npz",
+        "relative_path": "fit-1/s29-new-initial-checkpoint.npz"
+      },
+      "raw_bytes": 8784,
+      "raw_sha256": "ef91b83a5400e3008a56d06cece54da2ed688c4ba052043c3b02c2d159cef689",
+      "sha256": "ef91b83a5400e3008a56d06cece54da2ed688c4ba052043c3b02c2d159cef689",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-new-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 8798,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-new-no-id-checkpoint.npz",
+        "relative_path": "fit-1/s29-new-no-id-checkpoint.npz"
+      },
+      "raw_bytes": 8798,
+      "raw_sha256": "3b8018c8fb0b8dfa4307b4ff440769fd3db86e4a395f98e00500f823a55dbbc3",
+      "sha256": "3b8018c8fb0b8dfa4307b4ff440769fd3db86e4a395f98e00500f823a55dbbc3",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-new-no-id-checkpoint.npz"
+    },
+    {
+      "bytes": 2151,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-new-no-id-step0-predictions.npz",
+        "relative_path": "fit-1/s29-new-no-id-step0-predictions.npz"
+      },
+      "raw_bytes": 2151,
+      "raw_sha256": "32b16b2edbc7b82ebb6eb26163f2b96dca9b2832556b9eb1f9aa529416933fcf",
+      "sha256": "32b16b2edbc7b82ebb6eb26163f2b96dca9b2832556b9eb1f9aa529416933fcf",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-new-no-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 2215,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-new-no-id-step300-predictions.npz",
+        "relative_path": "fit-1/s29-new-no-id-step300-predictions.npz"
+      },
+      "raw_bytes": 2215,
+      "raw_sha256": "eff79caf6cf5928e4e74cfc6bd0cc401bf6cd24649d2b787ca61e683c753dda1",
+      "sha256": "eff79caf6cf5928e4e74cfc6bd0cc401bf6cd24649d2b787ca61e683c753dda1",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-new-no-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 8797,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-new-with-id-checkpoint.npz",
+        "relative_path": "fit-1/s29-new-with-id-checkpoint.npz"
+      },
+      "raw_bytes": 8797,
+      "raw_sha256": "4cca9c1748097e23c07de2c87ea22a3c1c28b24620bf0caa3c1552e11483353a",
+      "sha256": "4cca9c1748097e23c07de2c87ea22a3c1c28b24620bf0caa3c1552e11483353a",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-new-with-id-checkpoint.npz"
+    },
+    {
+      "bytes": 2930,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-new-with-id-step0-predictions.npz",
+        "relative_path": "fit-1/s29-new-with-id-step0-predictions.npz"
+      },
+      "raw_bytes": 2930,
+      "raw_sha256": "c7a11a75ab5cf2fdad346b9083d0469e6ee4d6aa6547f22714378f08c578a861",
+      "sha256": "c7a11a75ab5cf2fdad346b9083d0469e6ee4d6aa6547f22714378f08c578a861",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-new-with-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 3063,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-new-with-id-step300-predictions.npz",
+        "relative_path": "fit-1/s29-new-with-id-step300-predictions.npz"
+      },
+      "raw_bytes": 3063,
+      "raw_sha256": "c8b2632da322f174af7f3996352f8e2826d86d67a0ccf5914d97250121ea2868",
+      "sha256": "c8b2632da322f174af7f3996352f8e2826d86d67a0ccf5914d97250121ea2868",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-new-with-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 43825,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-old-initial-checkpoint.npz",
+        "relative_path": "fit-1/s29-old-initial-checkpoint.npz"
+      },
+      "raw_bytes": 43825,
+      "raw_sha256": "0f0bc25057dc59c4947f60afd79250b70a6f95f76e485d47b5c15454419f708e",
+      "sha256": "0f0bc25057dc59c4947f60afd79250b70a6f95f76e485d47b5c15454419f708e",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-old-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 44357,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-old-no-id-checkpoint.npz",
+        "relative_path": "fit-1/s29-old-no-id-checkpoint.npz"
+      },
+      "raw_bytes": 44357,
+      "raw_sha256": "402746c70676d73d880e33ffe4df182ecb63051cda43f0b6aacb99962bc1a486",
+      "sha256": "402746c70676d73d880e33ffe4df182ecb63051cda43f0b6aacb99962bc1a486",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-old-no-id-checkpoint.npz"
+    },
+    {
+      "bytes": 5528,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-old-no-id-step0-predictions.npz",
+        "relative_path": "fit-1/s29-old-no-id-step0-predictions.npz"
+      },
+      "raw_bytes": 5528,
+      "raw_sha256": "a7a52a0fd534652bf14e521f5ee4b8975641e1d352f7866c49ea5b3a852a7bc7",
+      "sha256": "a7a52a0fd534652bf14e521f5ee4b8975641e1d352f7866c49ea5b3a852a7bc7",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-old-no-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 5892,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-old-no-id-step300-predictions.npz",
+        "relative_path": "fit-1/s29-old-no-id-step300-predictions.npz"
+      },
+      "raw_bytes": 5892,
+      "raw_sha256": "2b15ad412eda15249d50516711ef6cfc75c79052ccd69bbd02dfdd17bc37d069",
+      "sha256": "2b15ad412eda15249d50516711ef6cfc75c79052ccd69bbd02dfdd17bc37d069",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-old-no-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 44395,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-old-with-id-checkpoint.npz",
+        "relative_path": "fit-1/s29-old-with-id-checkpoint.npz"
+      },
+      "raw_bytes": 44395,
+      "raw_sha256": "863ea536fb3b9abae812a9edf5aeb05a6eaecf7ffd69871a0b9b3583c863faf6",
+      "sha256": "863ea536fb3b9abae812a9edf5aeb05a6eaecf7ffd69871a0b9b3583c863faf6",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-old-with-id-checkpoint.npz"
+    },
+    {
+      "bytes": 5677,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-old-with-id-step0-predictions.npz",
+        "relative_path": "fit-1/s29-old-with-id-step0-predictions.npz"
+      },
+      "raw_bytes": 5677,
+      "raw_sha256": "e919ad0e631b4110824c3657a7917ead6e45a8096710c5c674a0285bf5e243a6",
+      "sha256": "e919ad0e631b4110824c3657a7917ead6e45a8096710c5c674a0285bf5e243a6",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-old-with-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 5900,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s29-old-with-id-step300-predictions.npz",
+        "relative_path": "fit-1/s29-old-with-id-step300-predictions.npz"
+      },
+      "raw_bytes": 5900,
+      "raw_sha256": "7ed1bb3f943275dd140a68d2ad94b6cdf76f0798edb085feea24d3a0dd326b51",
+      "sha256": "7ed1bb3f943275dd140a68d2ad94b6cdf76f0798edb085feea24d3a0dd326b51",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s29-old-with-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 8783,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-new-initial-checkpoint.npz",
+        "relative_path": "fit-1/s43-new-initial-checkpoint.npz"
+      },
+      "raw_bytes": 8783,
+      "raw_sha256": "e764f8d798c01ba3fde25a7ce2ce21721744f5b0e81b43df3240ed2948c21bac",
+      "sha256": "e764f8d798c01ba3fde25a7ce2ce21721744f5b0e81b43df3240ed2948c21bac",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-new-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 8799,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-new-no-id-checkpoint.npz",
+        "relative_path": "fit-1/s43-new-no-id-checkpoint.npz"
+      },
+      "raw_bytes": 8799,
+      "raw_sha256": "89f2f1bdc0a2e449c0f6b30ee873fe4f0addb8a1baf960f2dc48146e37e88299",
+      "sha256": "89f2f1bdc0a2e449c0f6b30ee873fe4f0addb8a1baf960f2dc48146e37e88299",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-new-no-id-checkpoint.npz"
+    },
+    {
+      "bytes": 2160,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-new-no-id-step0-predictions.npz",
+        "relative_path": "fit-1/s43-new-no-id-step0-predictions.npz"
+      },
+      "raw_bytes": 2160,
+      "raw_sha256": "b30483358c2a86c50cdab6a8c79ee0d71fc2a5fb69e5a935f628542a9a3cb7a6",
+      "sha256": "b30483358c2a86c50cdab6a8c79ee0d71fc2a5fb69e5a935f628542a9a3cb7a6",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-new-no-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 2211,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-new-no-id-step300-predictions.npz",
+        "relative_path": "fit-1/s43-new-no-id-step300-predictions.npz"
+      },
+      "raw_bytes": 2211,
+      "raw_sha256": "edf9a6389b9caabe65f99292101074ac30a304e1909fa6a988cd9155036904e3",
+      "sha256": "edf9a6389b9caabe65f99292101074ac30a304e1909fa6a988cd9155036904e3",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-new-no-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 8803,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-new-with-id-checkpoint.npz",
+        "relative_path": "fit-1/s43-new-with-id-checkpoint.npz"
+      },
+      "raw_bytes": 8803,
+      "raw_sha256": "5ef0320de3951a4f007bce060888d827d81b985ed6fd6bce524ad3214938f513",
+      "sha256": "5ef0320de3951a4f007bce060888d827d81b985ed6fd6bce524ad3214938f513",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-new-with-id-checkpoint.npz"
+    },
+    {
+      "bytes": 2925,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-new-with-id-step0-predictions.npz",
+        "relative_path": "fit-1/s43-new-with-id-step0-predictions.npz"
+      },
+      "raw_bytes": 2925,
+      "raw_sha256": "58829abcac942d0ef63f9ca8da9f1e7082e3b52494ee914e2b7036a5a7213cbe",
+      "sha256": "58829abcac942d0ef63f9ca8da9f1e7082e3b52494ee914e2b7036a5a7213cbe",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-new-with-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 3073,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-new-with-id-step300-predictions.npz",
+        "relative_path": "fit-1/s43-new-with-id-step300-predictions.npz"
+      },
+      "raw_bytes": 3073,
+      "raw_sha256": "1f589cd8b63ba00a39d8748eafef49fea265e08a6e3490bfc1763759d72b0ff7",
+      "sha256": "1f589cd8b63ba00a39d8748eafef49fea265e08a6e3490bfc1763759d72b0ff7",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-new-with-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 43830,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-old-initial-checkpoint.npz",
+        "relative_path": "fit-1/s43-old-initial-checkpoint.npz"
+      },
+      "raw_bytes": 43830,
+      "raw_sha256": "fab5629ef9a3952ec10c143d1aa24606235970056f573c084910664b65383b3c",
+      "sha256": "fab5629ef9a3952ec10c143d1aa24606235970056f573c084910664b65383b3c",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-old-initial-checkpoint.npz"
+    },
+    {
+      "bytes": 44353,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-old-no-id-checkpoint.npz",
+        "relative_path": "fit-1/s43-old-no-id-checkpoint.npz"
+      },
+      "raw_bytes": 44353,
+      "raw_sha256": "e40bc743af8a1e5489fdf78faec6942e8bb41bcc045fc51bfd2a095fc2742e7b",
+      "sha256": "e40bc743af8a1e5489fdf78faec6942e8bb41bcc045fc51bfd2a095fc2742e7b",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-old-no-id-checkpoint.npz"
+    },
+    {
+      "bytes": 5475,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-old-no-id-step0-predictions.npz",
+        "relative_path": "fit-1/s43-old-no-id-step0-predictions.npz"
+      },
+      "raw_bytes": 5475,
+      "raw_sha256": "382f674f4d6af9c9d5d2c4ee59693629d0f05ed4ab6e9c309ac711ae7593711b",
+      "sha256": "382f674f4d6af9c9d5d2c4ee59693629d0f05ed4ab6e9c309ac711ae7593711b",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-old-no-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 5896,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-old-no-id-step300-predictions.npz",
+        "relative_path": "fit-1/s43-old-no-id-step300-predictions.npz"
+      },
+      "raw_bytes": 5896,
+      "raw_sha256": "34971552073ccd8d016dd71c3e08a39eb8c566c54b2e20e10950b16122ed176c",
+      "sha256": "34971552073ccd8d016dd71c3e08a39eb8c566c54b2e20e10950b16122ed176c",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-old-no-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 44406,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-old-with-id-checkpoint.npz",
+        "relative_path": "fit-1/s43-old-with-id-checkpoint.npz"
+      },
+      "raw_bytes": 44406,
+      "raw_sha256": "ed39464b6dca70ef35f0477d5354b389ef0b6c4c6519a92ce6960221a30bbb18",
+      "sha256": "ed39464b6dca70ef35f0477d5354b389ef0b6c4c6519a92ce6960221a30bbb18",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-old-with-id-checkpoint.npz"
+    },
+    {
+      "bytes": 5669,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-old-with-id-step0-predictions.npz",
+        "relative_path": "fit-1/s43-old-with-id-step0-predictions.npz"
+      },
+      "raw_bytes": 5669,
+      "raw_sha256": "afca89d1594269cf91ddc672872311fb4e61b182fa8b554ec9ec18a398e45f73",
+      "sha256": "afca89d1594269cf91ddc672872311fb4e61b182fa8b554ec9ec18a398e45f73",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-old-with-id-step0-predictions.npz"
+    },
+    {
+      "bytes": 5950,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/s43-old-with-id-step300-predictions.npz",
+        "relative_path": "fit-1/s43-old-with-id-step300-predictions.npz"
+      },
+      "raw_bytes": 5950,
+      "raw_sha256": "5b0d056609b4607a9d937082a9cc75dd8583e36380c184864dd34cec07339064",
+      "sha256": "5b0d056609b4607a9d937082a9cc75dd8583e36380c184864dd34cec07339064",
+      "url": "payload/compositional-typed-saved-v1/fit-1/s43-old-with-id-step300-predictions.npz"
+    },
+    {
+      "bytes": 1654,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1/training-schedule.npz",
+        "relative_path": "fit-1/training-schedule.npz"
+      },
+      "raw_bytes": 1654,
+      "raw_sha256": "6eccd0e5c76883122cbbf59af500859882860f42982b21f573c7e625399bebfa",
+      "sha256": "6eccd0e5c76883122cbbf59af500859882860f42982b21f573c7e625399bebfa",
+      "url": "payload/compositional-typed-saved-v1/fit-1/training-schedule.npz"
+    },
+    {
+      "bytes": 652,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/fit-1-stage-receipt.json",
+        "relative_path": "fit-1-stage-receipt.json"
+      },
+      "raw_bytes": 1187,
+      "raw_sha256": "d6393ff5af8baaced43e845493348632c0af6b0c4c72018e3fcd730cdcb7825f",
+      "sha256": "8b8fc2f1c13abae1645cfa4cd2d87dec2591090aa079100dafb0dcfbda8dfd03",
+      "url": "payload/compositional-typed-saved-v1/fit-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 15345,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/metadata-1/native-plan.json",
+        "relative_path": "metadata-1/native-plan.json"
+      },
+      "raw_bytes": 501651,
+      "raw_sha256": "a3fc50997e7cb633597e5ae2913d3c01dee76c5e4bdabda063961c0a1c292d2a",
+      "sha256": "f65d32c23930f1a2187a3c35849fc1b70b7b1319d4f99bfddbee1a549e91e669",
+      "url": "payload/compositional-typed-saved-v1/metadata-1/native-plan.json.gz"
+    },
+    {
+      "bytes": 243087,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/native-1/receipt.json",
+        "relative_path": "native-1/receipt.json"
+      },
+      "raw_bytes": 16728126,
+      "raw_sha256": "3f71b5ef2eb9f9f443b62c8f1ab2eea5e77348150affc3560e5678b6c34b71ba",
+      "sha256": "cbe9caff7040c00fddf474389f60235091c75f8a69c71078f5bdefb82210d916",
+      "url": "payload/compositional-typed-saved-v1/native-1/receipt.json.gz"
+    },
+    {
+      "bytes": 1032,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/native-1/recovery-provenance.json",
+        "relative_path": "native-1/recovery-provenance.json"
+      },
+      "raw_bytes": 2685,
+      "raw_sha256": "831dcfd9ebfd8cd17265df16506b7e08d6c98182cd8790a631d32d095ca3da5b",
+      "sha256": "b4fbb2b189533ae65f3276cf6ef3f1fba84924ca58338ca90f862570779853de",
+      "url": "payload/compositional-typed-saved-v1/native-1/recovery-provenance.json.gz"
+    },
+    {
+      "bytes": 311036,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/native-1/transitions.jsonl",
+        "relative_path": "native-1/transitions.jsonl"
+      },
+      "raw_bytes": 24223241,
+      "raw_sha256": "0271d4a12a9171c672aa0dccf99ebf4a3fdcbee10a866daa989b76144dacd288",
+      "sha256": "9b0c2692d17047caa7cb83c2a4ae7a231862be7c74725c182798a19c8730e62e",
+      "url": "payload/compositional-typed-saved-v1/native-1/transitions.jsonl.gz"
+    },
+    {
+      "bytes": 38869,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/parent-manifest.json",
+        "relative_path": "parent-manifest.json"
+      },
+      "raw_bytes": 160500,
+      "raw_sha256": "534137aecc34cd729cd686f40aab216c3efeb11ef4735e6457e29301bc282272",
+      "sha256": "2046013a105fb069735ac84e83b8d31a0af646a73d9da2e319f80d695c8cfa3a",
+      "url": "payload/compositional-typed-saved-v1/parent-manifest.json.gz"
+    },
+    {
+      "bytes": 6154,
+      "encoding": "identity",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/prep-1/dataset.npz",
+        "relative_path": "prep-1/dataset.npz"
+      },
+      "raw_bytes": 6154,
+      "raw_sha256": "5c5cb78ecf29334ee918583612916b597acad5d27b339ed8935792c1d934da22",
+      "sha256": "5c5cb78ecf29334ee918583612916b597acad5d27b339ed8935792c1d934da22",
+      "url": "payload/compositional-typed-saved-v1/prep-1/dataset.npz"
+    },
+    {
+      "bytes": 29072,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/prep-1/manifest.json",
+        "relative_path": "prep-1/manifest.json"
+      },
+      "raw_bytes": 1129439,
+      "raw_sha256": "11e5c8d865e5c2e2b3175e3e2fff439903f71fd5b8f9dfa9d83d32b795c57f4c",
+      "sha256": "3a7b89c7612b82fe6bc666394c37d5ecc5e2be08cdcbabf401b40ab82b09a0d3",
+      "url": "payload/compositional-typed-saved-v1/prep-1/manifest.json.gz"
+    },
+    {
+      "bytes": 378,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/prep-1-stage-receipt.json",
+        "relative_path": "prep-1-stage-receipt.json"
+      },
+      "raw_bytes": 511,
+      "raw_sha256": "3981d1712618077b9c7f5e03b61557017156a1df311d302fb1d36f99f94227fa",
+      "sha256": "1a77d626e2aa8f00ec0dd85ff3bef9ce2b96b1c05966d140ccb35397c878f0cc",
+      "url": "payload/compositional-typed-saved-v1/prep-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 1032,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/recover-1/recovery-provenance.json",
+        "relative_path": "recover-1/recovery-provenance.json"
+      },
+      "raw_bytes": 2685,
+      "raw_sha256": "831dcfd9ebfd8cd17265df16506b7e08d6c98182cd8790a631d32d095ca3da5b",
+      "sha256": "b4fbb2b189533ae65f3276cf6ef3f1fba84924ca58338ca90f862570779853de",
+      "url": "payload/compositional-typed-saved-v1/recover-1/recovery-provenance.json.gz"
+    },
+    {
+      "bytes": 635,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/recover-1-stage-receipt.json",
+        "relative_path": "recover-1-stage-receipt.json"
+      },
+      "raw_bytes": 1179,
+      "raw_sha256": "4285cfe1ab20e7451e6cd5288274ca655a0f6e8a1af160146470d53382cac891",
+      "sha256": "055db6cf72b8760e80e46907e58bada1b78dd8f3c93dd6619bf1e0af3cb20247",
+      "url": "payload/compositional-typed-saved-v1/recover-1-stage-receipt.json.gz"
+    },
+    {
+      "bytes": 19110,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/verify-1/verification-result.json",
+        "relative_path": "verify-1/verification-result.json"
+      },
+      "raw_bytes": 386467,
+      "raw_sha256": "3612d22d80cfe431ff4ff20e640b9ef9a187cb9033f0ee83b0c29c028460a335",
+      "sha256": "50532c3c65b3920e17d6326ceaa3423a60601d40cfdf35ba41594a908bf3ee69",
+      "url": "payload/compositional-typed-saved-v1/verify-1/verification-result.json.gz"
+    },
+    {
+      "bytes": 576,
+      "encoding": "gzip",
+      "provenance": {
+        "campaign": "compositional-typed-saved-v1",
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/verify-1-stage-receipt.json",
+        "relative_path": "verify-1-stage-receipt.json"
+      },
+      "raw_bytes": 951,
+      "raw_sha256": "499ea33c56e9912974e652a428c26c7319bbceb8f5952b40765987b5378fe23c",
+      "sha256": "24ccbc2638a0ea070c70a996dbda77bd35ed1baca6b916a3e662bd9f3eb7e802",
+      "url": "payload/compositional-typed-saved-v1/verify-1-stage-receipt.json.gz"
+    }
+  ],
+  "histories": {
+    "compositional-typed-saved-v1": {
+      "charged": {
+        "backwards": 3600,
+        "native_applies": 0,
+        "neural_forwards": 3624,
+        "numerical_fits": 2,
+        "optimizer_updates": 3600,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0,
+        "seconds": 12.402661999920383
+      },
+      "closure_pin": {
+        "bytes": 2283,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/experiment-closure.json",
+        "sha256": "fc71c60d567d95bd2ea0a1bdba42092bb8b26471fd9d0aeaa72a85d271bd1cd4"
+      },
+      "cumulative": {
+        "charged_native_applies": 807,
+        "charged_seconds": 266.6158477078425,
+        "observed_native_applies": null
+      },
+      "final_chain": "f633df4469954dbbb1f68ed52895c68615367639325a10595511f2aded3afe51",
+      "ledger_pin": {
+        "bytes": 6506840,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/campaign-ledger.jsonl",
+        "sha256": "1f0e3f3d5277de60a1cf429c5d8a511da2f3fcb8e8c40b7193b7e8b01eef1482"
+      },
+      "observed": {
+        "backwards": 3600,
+        "native_applies": 0,
+        "neural_forwards": 3624,
+        "numerical_fits": 2,
+        "optimizer_updates": 3600,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0
+      },
+      "records": 21661,
+      "source_freeze_commit": "90ea15b77aa03f80c05e7fe2c257e8e021a1005f",
+      "spec_pin": {
+        "bytes": 41631,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-saved-v1/campaign-spec.json",
+        "sha256": "d238405c20adc3e78609836cb82bba5e0da61380accf3773c9a93539b347beb4"
+      },
+      "stages": [
+        "recover",
+        "prep",
+        "fit",
+        "verify"
+      ],
+      "statuses": [
+        "completed",
+        "completed",
+        "completed",
+        "completed"
+      ]
+    },
+    "compositional-typed-v1": {
+      "charged": {
+        "backwards": 0,
+        "native_applies": 512,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0.0,
+        "seconds": 31.28667466691695
+      },
+      "closure_pin": {
+        "bytes": 2133,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/experiment-closure.json",
+        "sha256": "0a11a3359f4cc39b0c13a5ddd47c41941b6697f49669090117bcdcdf3b3f1c6c"
+      },
+      "cumulative": {
+        "charged_native_applies": 807,
+        "charged_seconds": 254.2131857079221,
+        "observed_native_applies": null
+      },
+      "final_chain": "ee43daa67909bc3678685630a8f6d10087f923a0b6efe5e64a0c7d7ac8268fbd",
+      "ledger_pin": {
+        "bytes": 9484,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/campaign-ledger.jsonl",
+        "sha256": "da8d99939d127f0c7d5ec5b16b0cc525c507c950a669185f335fc2443b1d7d25"
+      },
+      "observed": {
+        "backwards": 0,
+        "native_applies": null,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0
+      },
+      "records": 8,
+      "source_freeze_commit": "2d037a41d01b948e32f9f9bbd27c00e9439c564c",
+      "spec_pin": {
+        "bytes": 42265,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/compositional-typed-v1/campaign-spec.json",
+        "sha256": "18c7601adbb92c0bad4d07852aee42084e04c213c7158180306de3f3ee9251fa"
+      },
+      "stages": [
+        "metadata",
+        "build",
+        "native"
+      ],
+      "statuses": [
+        "completed",
+        "completed",
+        "failed"
+      ]
+    }
+  },
+  "manifest": "manifest.json",
+  "schema": "jepa-compositional-typed-saved-evidence/1",
+  "semantic_validated": false,
+  "source_freeze_commits": {
+    "compositional-typed-saved-v1": "90ea15b77aa03f80c05e7fe2c257e8e021a1005f",
+    "compositional-typed-v1": "2d037a41d01b948e32f9f9bbd27c00e9439c564c"
+  }
+}
