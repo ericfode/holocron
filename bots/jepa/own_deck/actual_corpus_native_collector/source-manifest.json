@@ -1,6 +1,6 @@
 {
   "schema": "actual-corpus-native-collector-source/1",
-  "status": "prepared-v4-public-printed-trait-lookup-not-executed",
+  "status": "prepared-v5-ordinary-attachment-registration-not-executed",
   "root_go_required": true,
   "source_commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
   "holocron_preparation_commit": "1a97323a7b6dc50dd297022424a8e4c09001306c",
@@ -47,8 +47,8 @@
     },
     {
       "path": "src/main.rs",
-      "sha256": "051f7429edac48b9dcff2bbac62accdc0971e0c78eb78307298a70283d31b62d",
-      "bytes": 19392
+      "sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13",
+      "bytes": 19436
     },
     {
       "path": "supervise.py",
@@ -62,8 +62,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "2d5d5e966b28d1d43e824bad55d04eec1547b09fe866ffe621ed9917d8d8b84f",
-      "bytes": 7476
+      "sha256": "b13c4f001adcf7ca6e2f75ce83d3b082e02910c81187ff673c244cd3f9653ee4",
+      "bytes": 8032
     },
     {
       "path": "test_plan_guard.py",
@@ -87,8 +87,13 @@
     },
     {
       "path": "test_public_trait_input.py",
-      "sha256": "c5febf6572d798a67ba174c1835ce6b357ecb6a151b45ed02af575b581413b23",
-      "bytes": 2377
+      "sha256": "9128a0c6c44a13fe7f47c40f1173c1d58284e2ec189901b919910276873d8988",
+      "bytes": 2882
+    },
+    {
+      "path": "source-manifest-v4.json",
+      "sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873",
+      "bytes": 34218
     }
   ],
   "pinned_execution_inputs": [
@@ -633,16 +638,16 @@
     "native_applies": 0,
     "neural_forwards": 0,
     "optimizer_updates": 0,
-    "prior_guarded_native_build_attempts": 3,
-    "prior_native_builds_completed": 0,
-    "public_trait_source_tests": 2
+    "prior_guarded_native_build_attempts": 4,
+    "prior_native_builds_completed": 1,
+    "public_trait_source_tests": 3
   },
   "guard_version": 3,
   "memory_accounting": "Maximum sampled concurrent live owned RSS sum plus supervisor; final max with supervisor rusage peak + maximum single-child rusage peak. Historical per-PID peaks are metadata only.",
   "previous_source_manifest": {
-    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v3.json",
-    "sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf",
-    "bytes": 32836
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v4.json",
+    "sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873",
+    "bytes": 34218
   },
   "preserved_failed_attempt": {
     "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
@@ -692,15 +697,25 @@
       },
       "ledger_active_seconds": 0.17764929099939764,
       "native_applies": 0
+    },
+    {
+      "attempt": 4,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/supervisor-receipt.json",
+        "sha256": "3f5c56f606d1a23c1f4e3c772311df36f52c9f03c53fb72bb899010e4b871102",
+        "bytes": 3778
+      },
+      "ledger_active_seconds": 1.213118041981943,
+      "native_applies": 0
     }
   ],
   "prior_native_phase_debits": {
-    "active_seconds": 7.911994166090153,
+    "active_seconds": 9.125112208072096,
     "native_applies": 0,
-    "remaining_seconds": 82.08800583390985,
+    "remaining_seconds": 80.8748877919279,
     "remaining_native_applies": 256,
-    "ledger_prefix_sha256": "c67503252011624d7e1dc39f9b4d58e13bed21d3a54afc45a4b47c7ec06b5fc7",
-    "ledger_prefix_bytes": 5812
+    "ledger_prefix_sha256": "2f1d4828e0d0a012faee1c2918524021f391edbb5d14777891d25890a5887964",
+    "ledger_prefix_bytes": 7948
   },
   "provenance": {
     "build_cache": {
@@ -723,8 +738,8 @@
     }
   },
   "semantic_compiler_flags_changed": false,
-  "source_version": 4,
-  "native_rust_previous_sha256": "f4ea690c28de3cf774435da9fc1be04a7bf75b19e4851806797fb2197135cfe6",
-  "native_rust_change": "Collector-only CardInfo.traits unavailable API replaced by complete pinned public row lookup keyed by actual definition.code; plan passed through every capture; source excluded from OTHER counts. No engine/card/condition label changes.",
+  "source_version": 5,
+  "native_rust_previous_sha256": "051f7429edac48b9dcff2bbac62accdc0971e0c78eb78307298a70283d31b62d",
+  "native_rust_change": "Collector fixture adds actual ordinary attachment id to registration_order exactly once after parent/upgrade linking; no token duplicate registration, source program/engine/model/plan/caps changes.",
   "public_trait_count_scope": "All selected complete definitions have static printed traits and no gainTrait/loseTrait effects; pure contract checked. Native condition and transition labels remain independently engine measured."
 }

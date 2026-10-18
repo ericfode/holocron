@@ -8,6 +8,15 @@ HERE=Path(__file__).resolve().parent
 
 
 class PublicTraitInputTests(unittest.TestCase):
+    def test_ordinary_attachment_constructor_registers_one_physical_instance(self):
+        source=(HERE/"src/main.rs").read_text()
+        attach=source.split("fn attach_fixture",1)[1].split("fn fixture",1)[0]
+        self.assertEqual(attach.count("registration_order.push(id)"),1)
+        self.assertIn("let id=add(e,s,owner,code)",attach)
+        self.assertIn("s.card_mut(id).parent=host",attach)
+        self.assertIn("s.card_mut(host).upgrades=id",attach)
+        self.assertNotIn("TOKEN_",attach)
+
     def test_source_reads_actual_definition_code_from_public_pinned_rows(self):
         source=(HERE/"src/main.rs").read_text()
         lookup=source.split("fn public_printed_has_trait",1)[1].split("fn other_fighter_count",1)[0]

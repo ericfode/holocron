@@ -92,7 +92,8 @@ fn capture(e:&Engine,s:&State,refs:&[CardId;8],plan:&Value)->Result<Value,String
 
 fn attach_fixture(e:&Engine,s:&mut State,owner:Seat,code:&str,host:CardId)->CardId{
     let id=add(e,s,owner,code);let old=s.card(host).upgrades;
-    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=old;s.card_mut(host).upgrades=id;id
+    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=old;s.card_mut(host).upgrades=id;
+    s.registration_order.push(id).unwrap();id
 }
 fn fixture(e:&Engine,card:&Value,context:&Value,plan:&Value)->Result<(State,[CardId;8]),String>{
     let h=&plan["helpers"];let get=|name:&str|h[name].as_str().unwrap();
