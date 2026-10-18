@@ -1,9 +1,9 @@
 {
   "schema": "actual-corpus-native-collector-source/1",
-  "status": "prepared-v2-memory-accounting-not-executed",
+  "status": "prepared-v3-prior-cache-profile-not-executed",
   "root_go_required": true,
   "source_commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
-  "holocron_preparation_commit": "55cc936af17d32dcd32f5e0f1ca0f71e4d508b35",
+  "holocron_preparation_commit": "1a97323a7b6dc50dd297022424a8e4c09001306c",
   "phase": "native",
   "expected_cases": 32,
   "candidates_per_case": 8,
@@ -16,7 +16,7 @@
   "neural_forwards": 0,
   "sampled_rss_stop_bytes": 1073741824,
   "compile_workers": 1,
-  "codegen_units": 1,
+  "codegen_units": "prior cached default (unset override;16 codegen objects observed)",
   "paid_jobs": 0,
   "cargo_target_dir": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target",
   "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl",
@@ -52,8 +52,8 @@
     },
     {
       "path": "supervise.py",
-      "sha256": "42c5444bf262b9030908d3095b5616bed72c582b84b311624b2afce4500d560c",
-      "bytes": 15637
+      "sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03",
+      "bytes": 17124
     },
     {
       "path": "collection-plan.json",
@@ -62,18 +62,23 @@
     },
     {
       "path": "README.md",
-      "sha256": "bcbabf9ee87ceb325bd49de2e932b3d26054d9a05dfdd9563c2ca569b899c4f8",
-      "bytes": 5806
+      "sha256": "9ddd70ef32e7d093d22d08369aa8dbddef1d308f69b30455e2eb56a7b9209f84",
+      "bytes": 6610
     },
     {
       "path": "test_plan_guard.py",
-      "sha256": "dc67589836aa65721858f49e5b835b2a94534aab64afb7c08054cc030ece3393",
-      "bytes": 4095
+      "sha256": "2268d3a630d80ebb66203453254f9f530f073b0efe5b61d5ef4984d208802d89",
+      "bytes": 5025
     },
     {
       "path": "source-manifest-v1.json",
       "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
       "bytes": 28897
+    },
+    {
+      "path": "source-manifest-v2.json",
+      "sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48",
+      "bytes": 30248
     }
   ],
   "pinned_execution_inputs": [
@@ -612,19 +617,20 @@
   "qualification": "8 actual-main-list complete definitions,32 synthetic public play states; source-success and per-head support are checked after actual native collection, no all115/all-state/gameplay claim.",
   "checks": {
     "plan_converter_tests": 5,
-    "guard_tests": 6,
+    "guard_tests": 7,
     "rust_syntax_parsed": true,
     "native_compiles": 0,
     "native_applies": 0,
     "neural_forwards": 0,
-    "optimizer_updates": 0
+    "optimizer_updates": 0,
+    "prior_guarded_native_build_attempts": 2,
+    "prior_native_builds_completed": 0
   },
-  "guard_version": 2,
+  "guard_version": 3,
   "memory_accounting": "Maximum sampled concurrent live owned RSS sum plus supervisor; final max with supervisor rusage peak + maximum single-child rusage peak. Historical per-PID peaks are metadata only.",
   "previous_source_manifest": {
-    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v1.json",
-    "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
-    "source_commit": "00eae396"
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v2.json",
+    "sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48"
   },
   "preserved_failed_attempt": {
     "receipt_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
@@ -638,5 +644,61 @@
   },
   "guard_limit_changed": false,
   "collection_plan_changed": false,
-  "native_rust_changed": false
+  "native_rust_changed": false,
+  "dev_debug": 0,
+  "dev_incremental": false,
+  "dev_opt_level": 0,
+  "rustflags": [],
+  "os_single_core_affinity_claim": false,
+  "preserved_failed_attempts": [
+    {
+      "attempt": 1,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
+        "sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087",
+        "bytes": 2841
+      },
+      "ledger_active_seconds": 1.7202060000272468,
+      "native_applies": 0
+    },
+    {
+      "attempt": 2,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/supervisor-receipt.json",
+        "sha256": "385462b2ba7ee939682d7b30c67fbf33d411ebff05d9641f52c6458fe2bb62f2",
+        "bytes": 3260
+      },
+      "ledger_active_seconds": 6.014138875063509,
+      "native_applies": 0
+    }
+  ],
+  "prior_native_phase_debits": {
+    "active_seconds": 7.7343448750907555,
+    "native_applies": 0,
+    "remaining_seconds": 82.26565512490924,
+    "remaining_native_applies": 256,
+    "ledger_prefix_sha256": "0b46d3063c5ba8daff792a81fe066a88f7d4e08982971661e0373564ecad4b6a",
+    "ledger_prefix_bytes": 3670
+  },
+  "provenance": {
+    "build_cache": {
+      "non_fetch_provenance_only": true,
+      "mutable_cargo_output_not_execution_input": true,
+      "rlib": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/deps/libkessel-727c9bb789d5b905.rlib",
+        "sha256": "12fc0a7f7e402cfb458d89fed0b4368a346198157acf319cc9fe5e2566a36983",
+        "bytes": 35875328
+      },
+      "fingerprint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/.fingerprint/kessel-727c9bb789d5b905/lib-kessel.json",
+        "sha256": "474e2824ea1621584caa13bdb863afeb10de62bf82b3b88d2aa9afe513164e18",
+        "bytes": 646
+      },
+      "profile": 8378823585564974145,
+      "rustflags": [],
+      "observed_codegen_objects": 16,
+      "evidence": "Read-only ar -t saved rlib showed cgu.00..15; Cargo override is absent, not an explicit new16/256 flag. Reuse remains subject to Cargo source/dependency checks."
+    }
+  },
+  "semantic_compiler_flags_changed": false
 }

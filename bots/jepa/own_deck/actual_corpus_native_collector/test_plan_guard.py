@@ -5,6 +5,7 @@ from pathlib import Path
 import tempfile
 import types
 import unittest
+from unittest.mock import patch
 
 SPEC = importlib.util.spec_from_file_location("actual_corpus_collect_guard", Path(__file__).with_name("supervise.py"))
 GUARD = importlib.util.module_from_spec(SPEC)
@@ -69,6 +70,18 @@ class GuardTests(unittest.TestCase):
         self.assertEqual(GUARD.final_memory_bound(900*mib,120*mib,700*mib),900*mib)
         with self.assertRaises(RuntimeError):
             GUARD.memory_sample(dict(observed_per_pid_peak_bytes={}),{2:600*mib},1,100*mib)
+
+    def test_build_restores_cached_partitioning_without_semantic_flag_changes(self):
+        with patch.dict(GUARD.os.environ,{},clear=True):
+            env=GUARD.build_environment(Path('/tmp/guard-test-cache'))
+        self.assertEqual(env['CARGO_BUILD_JOBS'],'1')
+        self.assertEqual(env['CARGO_PROFILE_DEV_DEBUG'],'0')
+        self.assertEqual(env['CARGO_PROFILE_DEV_INCREMENTAL'],'false')
+        self.assertNotIn('CARGO_PROFILE_DEV_CODEGEN_UNITS',env)
+        self.assertNotIn('RUSTFLAGS',env);self.assertNotIn('CARGO_ENCODED_RUSTFLAGS',env)
+        for key,value in [('RUSTFLAGS','-C panic=abort'),('CARGO_PROFILE_DEV_CODEGEN_UNITS','1'),('CARGO_PROFILE_DEV_OPT_LEVEL','2')]:
+            with self.subTest(key=key),patch.dict(GUARD.os.environ,{key:value},clear=True),self.assertRaisesRegex(ValueError,'unfrozen'):
+                GUARD.build_environment(Path('/tmp/guard-test-cache'))
 
 
 if __name__ == "__main__":

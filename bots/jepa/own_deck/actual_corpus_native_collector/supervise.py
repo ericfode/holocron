@@ -157,6 +157,36 @@ def process_readers():
         return sorted((pid for pid in buf[:count // 4] if pid > 0))
     return (rss, members)
 
+
+def build_environment(target_dir):
+    """Restore the prior cached dev profile; one Cargo/jobserver build worker."""
+    env=os.environ.copy()
+    allowed={
+        'RUSTFLAGS': ('',), 'CARGO_ENCODED_RUSTFLAGS': ('',),
+        'CARGO_PROFILE_DEV_CODEGEN_UNITS': ('',),
+        'CARGO_PROFILE_DEV_DEBUG': ('', '0'),
+        'CARGO_PROFILE_DEV_INCREMENTAL': ('', 'false', '0'),
+        'CARGO_INCREMENTAL': ('', '0', 'false'),
+        'CARGO_PROFILE_DEV_OPT_LEVEL': ('', '0'),
+        'CARGO_PROFILE_DEV_DEBUG_ASSERTIONS': ('', 'true'),
+        'CARGO_PROFILE_DEV_OVERFLOW_CHECKS': ('', 'true'),
+        'CARGO_PROFILE_DEV_PANIC': ('', 'unwind'),
+    }
+    for key,values in allowed.items():
+        if key in env and env[key] not in values:
+            raise ValueError('unfrozen compiler profile override: '+key)
+    # Absence restores the saved nonincremental default and rustflags[] fingerprint.
+    # The cached rlib contains16 codegen objects;256 would be an inaccurate claim.
+    # No unrelated nonempty flag is removed: the whitelist above rejects it.
+    for key in ('CARGO_PROFILE_DEV_CODEGEN_UNITS','RUSTFLAGS','CARGO_ENCODED_RUSTFLAGS'):
+        env.pop(key,None)
+    for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS'):
+        env[key]='1'
+    env.update(CARGO_BUILD_JOBS='1', CARGO_PROFILE_DEV_DEBUG='0', CARGO_PROFILE_DEV_INCREMENTAL='false',
+               CARGO_TARGET_DIR=str(target_dir),CARGO_NET_OFFLINE='true')
+    return env
+
+
 def run(args):
     if args.stage != 'collect':
         raise ValueError('this guard authorizes collection only')
@@ -166,15 +196,13 @@ def run(args):
     if args.target_dir.resolve() != Path(manifest['cargo_target_dir']).resolve():
         raise ValueError('use the pinned writable task7 Cargo target cache')
     commands = []
-    env = os.environ.copy()
-    for key in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'VECLIB_MAXIMUM_THREADS'):
-        env[key] = '1'
-    env.update(CARGO_BUILD_JOBS='1', CARGO_PROFILE_DEV_CODEGEN_UNITS='1', CARGO_TARGET_DIR=str(args.target_dir), CARGO_NET_OFFLINE='true')
+    env = build_environment(args.target_dir)
     commands = [('build', ['cargo', 'build', '--offline', '--locked', '--manifest-path', str(HERE / 'Cargo.toml'), '--bin', 'actual-corpus-native-collector', '-j', '1']), ('collect', [str(args.target_dir / 'debug/actual-corpus-native-collector'), str(args.out / 'native-receipt.json')])]
     env['ACTUAL_CORPUS_NATIVE_TRACE'] = str(args.out / 'native-transitions.jsonl')
     env['ACTUAL_CORPUS_COLLECTION_PLAN'] = str(HERE / 'collection-plan.json')
     reserve_applies, reserve_updates = (manifest['collector_max_engine_applies'], 0)
     preview = dict(phase='native', stage=args.stage, commands=commands, source_manifest_sha256=sha(HERE / 'source-manifest.json'), campaign_ledger=str(args.ledger), max_active_seconds=MAX_SECONDS, max_engine_apply_attempts=MAX_APPLIES, max_updates=MAX_UPDATES, reserved_engine_applies=reserve_applies, reserved_updates=reserve_updates, max_sampled_bytes=MAX_BYTES, sample_interval_seconds=INTERVAL, scope='one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals')
+    preview['build_profile']=dict(opt_level=0,debug=0,incremental=False,codegen_units='prior cached default (unset;16 archived codegen objects)',rustflags=[],cargo_build_workers=1,os_single_core_affinity=False,semantic_features_changed=False)
     preview['prior_campaign_debits'] = ledger_totals([json.loads(line) for line in args.ledger.read_text().splitlines() if line.strip()]) if args.ledger.exists() else dict(active_seconds=0.0, engine_apply_attempts=0, updates=0)
     preview['remaining_active_seconds'] = max(0.0, MAX_SECONDS-preview['prior_campaign_debits']['active_seconds'])
     if not args.execute:
