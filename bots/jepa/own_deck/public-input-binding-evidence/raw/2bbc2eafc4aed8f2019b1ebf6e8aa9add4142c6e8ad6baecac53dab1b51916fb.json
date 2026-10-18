@@ -1,0 +1,312 @@
+{
+  "schema": "whole-card-frozen-vectors/1",
+  "arm": "id-only",
+  "dimensions": 16,
+  "cards": [
+    {
+      "code": "ASH_048",
+      "vector": [
+        -1.0584787130355835,
+        0.039905283600091934,
+        -0.9010646939277649,
+        0.4553099274635315,
+        -1.0493957996368408,
+        1.4187651872634888,
+        0.8851217031478882,
+        1.0151667594909668,
+        -0.03570805862545967,
+        -0.5781452655792236,
+        0.05970623344182968,
+        -0.9805153608322144,
+        2.250276803970337,
+        -1.1271698474884033,
+        -0.9773558378219604,
+        0.5835819244384766
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 0,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_095",
+      "vector": [
+        -1.0760594606399536,
+        0.9688878655433655,
+        -1.8396278619766235,
+        0.6335381865501404,
+        1.9079560041427612,
+        -0.6148275136947632,
+        1.5792922973632812,
+        -0.10866902023553848,
+        -0.08764850348234177,
+        -0.15369057655334473,
+        -1.0104851722717285,
+        1.0776928663253784,
+        -0.0165857020765543,
+        -0.881340503692627,
+        -0.7043852806091309,
+        0.3259527087211609
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 0,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "SEC_163",
+      "vector": [
+        0.7650302052497864,
+        0.7950584888458252,
+        -0.5615956783294678,
+        -0.6520687341690063,
+        -0.08465752750635147,
+        -1.3178867101669312,
+        1.1215755939483643,
+        0.37375321984291077,
+        0.7222094535827637,
+        -1.5951018333435059,
+        -1.014163851737976,
+        -1.430413842201233,
+        1.322055697441101,
+        1.3347724676132202,
+        -0.6656789779663086,
+        0.8871123194694519
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 27,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "LOF_077",
+      "vector": [
+        1.2001760005950928,
+        0.9003726243972778,
+        0.5843064785003662,
+        1.5328829288482666,
+        1.3690941333770752,
+        -0.6355141997337341,
+        -0.4852362871170044,
+        -1.664548635482788,
+        -0.9368607997894287,
+        -1.3411232233047485,
+        -0.6289594173431396,
+        -0.034121520817279816,
+        0.3196291923522949,
+        -1.1736927032470703,
+        -0.10589500516653061,
+        1.0994901657104492
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 2,
+        "settled_paid_roots": 2,
+        "known_source_coordinates": 19,
+        "known_target_coordinates": 26,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_078",
+      "vector": [
+        -1.559066653251648,
+        -0.04550650715827942,
+        -0.11570081114768982,
+        1.9640573263168335,
+        1.4527748823165894,
+        -0.09170281141996384,
+        0.31495481729507446,
+        0.7648890614509583,
+        -0.773337185382843,
+        0.9558346271514893,
+        -0.07155974209308624,
+        -0.924952507019043,
+        0.17210620641708374,
+        0.5247105956077576,
+        -1.961844563484192,
+        -0.6056567430496216
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 19,
+        "known_target_coordinates": 27,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_158",
+      "vector": [
+        0.040364526212215424,
+        0.8420997262001038,
+        -1.3615671396255493,
+        -0.7840971350669861,
+        -0.9707859754562378,
+        -0.6659675240516663,
+        0.37147215008735657,
+        -1.1306058168411255,
+        0.46208199858665466,
+        0.1933184564113617,
+        0.09367084503173828,
+        0.7559282779693604,
+        2.3185245990753174,
+        1.4887794256210327,
+        -1.1646114587783813,
+        -0.4886050224304199
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 0,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "LOF_155",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 26,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": false,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_217",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 28,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": false,
+      "semantic_validated": false
+    }
+  ],
+  "limitations": "Eight-card frontend and sampled native behavior; not all115admitted/whole-card semantic conformance."
+}

@@ -1,0 +1,479 @@
+{
+  "schema": "jepa-public-input-binding-config/1",
+  "created_at_utc": "2026-10-18T04:35:39.019101+00:00",
+  "source_commit": "30e49a50d9495b17a428a2793046381d1ab02d81",
+  "source_tree": "4da4fb4eb48499ea2968180f97698ceb6bdfba3a",
+  "limits": {
+    "native_seconds": 90.0,
+    "native_build_seconds": 30.0,
+    "native_collect_seconds": 60.0,
+    "analysis_seconds": 30.0,
+    "total_seconds": 120.0,
+    "native_roots": 16,
+    "max_applies_per_root": 5,
+    "native_applies": 80,
+    "rss_bytes": 1073741824,
+    "cpu_workers": 1,
+    "neural_forwards": 0,
+    "optimizer_updates": 0,
+    "numerical_fits": 0,
+    "paid_jobs": 0,
+    "paid_spend_usd": 0.0,
+    "modal_cumulative_cap_usd": 100,
+    "modal_minimum_reserve_usd": 25
+  },
+  "parent_pins": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/campaign-ledger.jsonl",
+      "sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19",
+      "bytes": 10069
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/analysis-ledger.jsonl",
+      "sha256": "8821c9ef54ad2e3749ff5f7d598e633a9453669fb14cdc973359e613af36dd62",
+      "bytes": 31405
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning-sanity-evidence/index.json",
+      "sha256": "75627c2a2527af05859dada8767188fdb9e97622665922f93dbf412d889d7686",
+      "bytes": 63832
+    }
+  ],
+  "parent_final_chains": [
+    "f8acbc596c98df8e70e1fe333deb73375d65a6a1c36827c0e5d757b914f38fbc",
+    "c185302f16f9135ab42a559ca4e4be2e7b58c19d4ebc5f8c0812d3a3200a7eea"
+  ],
+  "prior_exposure": {
+    "scope": "Linked PR36+PR37 only; not all historical research",
+    "optimizer_updates": 1900,
+    "neural_forwards": 1917,
+    "native_applies": 87,
+    "closed_form_head_fits": 32,
+    "paid_spend_usd": 0.0
+  },
+  "prior_charged_seconds": {
+    "pr36": 20.18292141519487,
+    "pr37": 4.347445291932672,
+    "linked_two_cycle_total": 24.53036670712754
+  },
+  "analysis_stages": {
+    "analysis-controls": 15.0,
+    "analysis-verification": 15.0
+  },
+  "analysis_commands": {
+    "analysis-controls": {
+      "argv": [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding.py",
+        "--receipt",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/native-receipt.json",
+        "--catalog",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/fixtures/whole-rows.json",
+        "--out",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/predictions.json"
+      ],
+      "outputs": [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/predictions.json"
+      ]
+    },
+    "analysis-verification": {
+      "argv": [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_verify.py",
+        "--plan",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-plan.json",
+        "--receipt",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/native-receipt.json",
+        "--journal",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/native-transitions.jsonl",
+        "--predictions",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/predictions.json",
+        "--predictor-source",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding.py",
+        "--out",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/independent-verification.json"
+      ],
+      "outputs": [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/independent-verification.json"
+      ]
+    }
+  },
+  "pins": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10-e.safetensors",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+      "bytes": 953824
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+      "bytes": 953760
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+      "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a",
+      "bytes": 3976
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+      "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+      "bytes": 2534886
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10-e.safetensors",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+      "bytes": 953824
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+      "bytes": 953760
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+      "bytes": 12675831
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/diagnostics.json",
+      "sha256": "e7fcc4e28aa20138e70516866f0b3e0127bce5de1c49063f34a8634acf07f12b",
+      "bytes": 16505
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/inputs.json",
+      "sha256": "53d572533bd027d2683e363b821bd1f92ba012b8284a82967bb2c5ac73605c13",
+      "bytes": 789236
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/manifest.json",
+      "sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c",
+      "bytes": 53273
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+      "bytes": 725184
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+      "bytes": 3858872
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+      "bytes": 4543
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+      "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480",
+      "bytes": 1498747
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+      "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89",
+      "bytes": 268246
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+      "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8",
+      "bytes": 86319
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+      "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+      "bytes": 20662
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+      "bytes": 295074
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+      "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86",
+      "bytes": 23069
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/analysis-ledger.jsonl",
+      "sha256": "8821c9ef54ad2e3749ff5f7d598e633a9453669fb14cdc973359e613af36dd62",
+      "bytes": 31405
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/campaign-ledger.jsonl",
+      "sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19",
+      "bytes": 10069
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/coverage-contract.json",
+      "sha256": "9502838f4c1ee3b88f5e11f528518014b91bd15a450e7fd7d01ca3877cd9740a",
+      "bytes": 258187
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/freeze_source.py",
+      "sha256": "52d5300b0685f7f9ae11d9a3229d14c7c30bacf71c370ebecf7b1af30879dd41",
+      "bytes": 3858
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-plan.json",
+      "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128",
+      "bytes": 56737
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/protected-before.json",
+      "sha256": "b8bab2ffaef59fd8f3b9b308a5de7cc5509997090bb34415d5fd78c880a3c3b2",
+      "bytes": 11075
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+      "sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+      "bytes": 34674
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+      "sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50",
+      "bytes": 3061
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+      "sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141",
+      "bytes": 9896
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+      "sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+      "bytes": 48446
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+      "sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc",
+      "bytes": 8457
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+      "sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c",
+      "bytes": 48285
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+      "sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb",
+      "bytes": 7959
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+      "sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+      "bytes": 807838
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+      "sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4",
+      "bytes": 48324
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+      "sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7",
+      "bytes": 8458
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+      "bytes": 953824
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+      "bytes": 953760
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "bytes": 6305
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_PROTOCOL.md",
+      "sha256": "cdb40e3281d4c09f24fd7202029965578ea69007500ecc4d7cce894d3e655d38",
+      "bytes": 5872
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+      "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "bytes": 14977
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+      "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+      "bytes": 33271
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+      "bytes": 28935
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect-identifiability-evidence/index.json",
+      "sha256": "2b5667edd8d01be5a3c0a69e72dca42bbaddced6955d37b98470b730a1c64297",
+      "bytes": 238160
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect_identifiability_fit.py",
+      "sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765",
+      "bytes": 59333
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+      "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21",
+      "bytes": 48843
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning-sanity-evidence/index.json",
+      "sha256": "75627c2a2527af05859dada8767188fdb9e97622665922f93dbf412d889d7686",
+      "bytes": 63832
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding.py",
+      "sha256": "f40a77bd9fb0e08f692624fe4841d4a4352bd87436d84a1ac51725ef5a5afde5",
+      "bytes": 20340
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_accounting.py",
+      "sha256": "d32f5ffb27c7d1fd761b74a51320957ba6b9b6f69657665c1f9f6ca66b4cd3ca",
+      "bytes": 15360
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_analysis.py",
+      "sha256": "9774479520df217028c8ef04ba186d78492afd01bf2f8d527581e1bd8eee6bc3",
+      "bytes": 6108
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.lock",
+      "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "bytes": 9567
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/Cargo.toml",
+      "sha256": "9015c36e6d8d93e721d770da3edfb024b2c48b4bedceb00422944e75ea45048e",
+      "bytes": 540
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/README.md",
+      "sha256": "eee7e687115fd8da50ab712bfac3649aa32b37cbce4c488e7434adce5afa8394",
+      "bytes": 4382
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/collection-plan.json",
+      "sha256": "0888fd95b7c3499f533dd2cff5e4e6585519293557dcf48d2e43e57941c67128",
+      "bytes": 56737
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/fixtures/whole-rows.json",
+      "sha256": "b9c856c60ccd3be49531831079e00beb1cca139e7112066a2442d1f40a3833e4",
+      "bytes": 30038
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/source-manifest.json",
+      "sha256": "b931d23b06c445512485848ff64569f8eab6901d473b1fd9575f379af217a5c3",
+      "bytes": 31550
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/src/main.rs",
+      "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c",
+      "bytes": 21787
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/supervise.py",
+      "sha256": "292124d28a618c13d81a450087b6264fca3033557d78d046baf4a826eedc30e0",
+      "bytes": 17266
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/test_guard.py",
+      "sha256": "16bc94a00883142bc5c5be9db8ad80bf7227bd66a8d04f3b375a3694faf00eff",
+      "bytes": 5366
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_export.py",
+      "sha256": "55c28333628d7549b57da03c2abc77fa7527f0fc249cc241c9d033af4b73b32a",
+      "bytes": 18264
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_native_plan.py",
+      "sha256": "787c425fe8a9094bdf8e64cef68d82233c71d64ae8cf93b94316dc09daf7ffe2",
+      "bytes": 8962
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_verify.py",
+      "sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4",
+      "bytes": 41102
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+      "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+      "bytes": 5521
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+      "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+      "bytes": 30315
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+      "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+      "bytes": 5458
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+      "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "bytes": 7954
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding.py",
+      "sha256": "95a92527033bfd0d56944ede6f3e96c97cd739dd0490eef5a6a5bf9e3a5455a0",
+      "bytes": 8871
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_accounting.py",
+      "sha256": "d8c8929d1034f0add53c7be291f9bdbc6baf820e4a3b246fbe5e1c258e3d787e",
+      "bytes": 7028
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_analysis.py",
+      "sha256": "e41c5795cad78ef17a3f03a8360979530ee0257a2abc1a91210ff50ae816e269",
+      "bytes": 3264
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_export.py",
+      "sha256": "ba97a59a4e22fe0dc41bb4392420e4fd1b8f40b6455e328075deeab591376d98",
+      "bytes": 6763
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_native_plan.py",
+      "sha256": "b804feba323d8cb78846926f0dc0556907df5b4a237ec88881bb85b8992144ec",
+      "bytes": 4545
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_public_input_binding_verify.py",
+      "sha256": "38a080a328540152a0279578b4b36b2361f802c894659938e352274a8312f67f",
+      "bytes": 10903
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+      "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+      "bytes": 40826
+    }
+  ],
+  "controls_frozen_before_native": true,
+  "train_codes": [],
+  "fresh_source_codes": [
+    "LAW_045",
+    "LOF_215"
+  ],
+  "scope": "Preinspected intact programs; fresh native public-state sufficiency and actual-endpoint binding only; no training or semantic qualification",
+  "zero_authorized": {
+    "neural_forwards": 0,
+    "optimizer_updates": 0,
+    "numerical_fits": 0,
+    "paid_jobs": 0
+  },
+  "native_stage_outputs": {
+    "native-build": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-build-1",
+    "native-collect": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1"
+  },
+  "config_sha256": "b298c64541fbc6daa8eb82cd4ecf1851b092f039b4a788fe09b4f203ac5a86f5"
+}

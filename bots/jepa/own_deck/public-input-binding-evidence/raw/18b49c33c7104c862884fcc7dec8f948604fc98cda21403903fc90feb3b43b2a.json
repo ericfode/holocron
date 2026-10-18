@@ -1,0 +1,59 @@
+{
+  "schema": "public-input-binding-recovery-token-fixture/1",
+  "source_catalog_pin": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+    "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+    "bytes": 12675831
+  },
+  "cards": [
+    {
+      "setCode": "TOKEN_SHIELD",
+      "sourcePath": "game/cards/01_SOR/tokens/Shield.ts",
+      "sourceHash": "39f1c6699c36ba309a8fe8e053f9b94ddbb8877991767b6664fcd88d447be91f",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "className": "Shield",
+      "baseClass": "TokenUpgradeCard",
+      "id": "8752877738",
+      "internalName": "shield",
+      "status": "unsupported",
+      "card": {
+        "title": "Shield",
+        "subtitle": null,
+        "cost": 0,
+        "hp": 0,
+        "power": 0,
+        "text": "If damage would be dealt to attached unit, prevent that damage. If you do, defeat a Shield token on it.",
+        "deployBox": null,
+        "epicAction": null,
+        "unique": false,
+        "rules": null,
+        "upgradePower": 0,
+        "upgradeHp": 0,
+        "id": "8752877738",
+        "aspects": [],
+        "traits": [
+          "armor"
+        ],
+        "keywords": [],
+        "types": [
+          "token",
+          "upgrade"
+        ],
+        "setId": {
+          "set": "SOR"
+        },
+        "internalName": "shield"
+      },
+      "dataHash": "3fe37b5b4c214e1a6971c2ea5e7729a7cad9bf983a384c20b56c404cbf41208b",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:token",
+        "cardType:upgrade"
+      ]
+    }
+  ]
+}

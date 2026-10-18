@@ -1,0 +1,29 @@
+{
+  "schema": "public-input-binding-focused-checks/1",
+  "status": "PASS",
+  "checks": [
+    {
+      "command": "cached Python -m unittest [12 new module names] -q",
+      "tests": 91,
+      "seconds": 0.322
+    },
+    {
+      "command": "cached Python -m unittest discover -s public_input_binding_collector -p test_guard.py -q",
+      "tests": 9
+    },
+    {
+      "command": "cached Python -m unittest discover -s public_input_binding_recovery_collector -p test_guard.py -q",
+      "tests": 11
+    }
+  ],
+  "total_tests": 111,
+  "scope": "Pure synthetic tests, no actual native/model execution or fits; original native/predictor runs have separate ledgers.",
+  "neural_forwards": 0,
+  "native_applies": 0,
+  "numerical_fits": 0,
+  "report": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+    "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3",
+    "bytes": 7538
+  }
+}

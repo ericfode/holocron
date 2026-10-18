@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "error": null,
+  "stage": "analysis-controls",
+  "active_seconds": 0.1543761659413576,
+  "outputs": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+      "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2",
+      "bytes": 1030944
+    }
+  ],
+  "guard": {
+    "active_seconds": 0.14837716706097126,
+    "peak_live_rss_bytes": 94355456,
+    "rss_sampler": "proc_pidinfo live resident/10ms",
+    "cpu_threads": 1,
+    "wall_limit": 14.994002167019062,
+    "rss_limit": 1073741824,
+    "paid_jobs": 0
+  },
+  "descriptor": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-controls-descriptor.json",
+    "sha256": "f7a513d067e82e7b5cabad9963d4687bee98d58d67637cfbe85f53591dafb176",
+    "bytes": 3089
+  },
+  "neural_forwards": 0,
+  "native_applies": 0,
+  "optimizer_updates": 0,
+  "numerical_fits": 0,
+  "paid_jobs": 0,
+  "paid_spend_usd": 0.0
+}

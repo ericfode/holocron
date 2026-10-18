@@ -1,0 +1,30 @@
+{
+  "status": "failed",
+  "error": {
+    "type": "KeyError",
+    "message": "'damage'"
+  },
+  "stage": "analysis-verification",
+  "active_seconds": 0.1625191249186173,
+  "outputs": [],
+  "guard": {
+    "active_seconds": 0.15606562502216548,
+    "peak_live_rss_bytes": 202391552,
+    "rss_sampler": "proc_pidinfo live resident/10ms",
+    "cpu_threads": 1,
+    "wall_limit": 14.99354779208079,
+    "rss_limit": 1073741824,
+    "paid_jobs": 0
+  },
+  "descriptor": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-descriptor.json",
+    "sha256": "b5db25d4259381ef9230bac66b4399cad215087348d2297228137ef5a9d55ec3",
+    "bytes": 3725
+  },
+  "neural_forwards": 0,
+  "native_applies": 0,
+  "optimizer_updates": 0,
+  "numerical_fits": 0,
+  "paid_jobs": 0,
+  "paid_spend_usd": 0.0
+}

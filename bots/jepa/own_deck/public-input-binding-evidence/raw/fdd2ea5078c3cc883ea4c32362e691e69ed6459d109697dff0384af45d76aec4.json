@@ -1,0 +1,477 @@
+{
+  "focused_checks": {
+    "checks": [
+      {
+        "command": "cached Python -m unittest [12 new module names] -q",
+        "seconds": 0.322,
+        "tests": 91
+      },
+      {
+        "command": "cached Python -m unittest discover -s public_input_binding_collector -p test_guard.py -q",
+        "tests": 9
+      },
+      {
+        "command": "cached Python -m unittest discover -s public_input_binding_recovery_collector -p test_guard.py -q",
+        "tests": 11
+      }
+    ],
+    "native_applies": 0,
+    "neural_forwards": 0,
+    "numerical_fits": 0,
+    "report": {
+      "bytes": 7538,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+      "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3"
+    },
+    "schema": "public-input-binding-focused-checks/1",
+    "scope": "Pure synthetic tests, no actual native/model execution or fits; original native/predictor runs have separate ledgers.",
+    "status": "PASS",
+    "total_tests": 111
+  },
+  "kind": "verification",
+  "limitations": [
+    "No source is used as TRAIN; fresh native outcomes follow prior inspection of both source programs, not blind universal interpretation.",
+    "Legacy collision is same-card original18/34 architecture/input-contract sufficiency, not old checkpoint inference or a new embedding-row lookup.",
+    "Attachment branch is an expanded actual-action transition observing selected and unselected hosts; old chosen-only masks are not retroactively wrong.",
+    "Source-head intended-only input/label records are separate from branch/observation-anchor records.",
+    "Balanced-pair absolute-error floors are |observed label difference|/2 for identical input; no fitted estimator or generalization of fixed-fallback errors.",
+    "Only numeric surviving endpoints qualified; keyword grant/attack/defeat/hidden/draw behavior is not validated.",
+    "Native order control swaps host creation/registration order and IDs with logical roles preserved; the distinct pure synthetic alpha test renames every fixture reference."
+  ],
+  "native_applies": 0,
+  "neural_forwards": 0,
+  "numerical_fits": 0,
+  "optimizer_updates": 0,
+  "original_checker": {
+    "receipt": {
+      "active_seconds": 0.1625191249186173,
+      "descriptor": {
+        "bytes": 3725,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-descriptor.json",
+        "sha256": "b5db25d4259381ef9230bac66b4399cad215087348d2297228137ef5a9d55ec3"
+      },
+      "error": {
+        "message": "'damage'",
+        "type": "KeyError"
+      },
+      "guard": {
+        "active_seconds": 0.15606562502216548,
+        "cpu_threads": 1,
+        "paid_jobs": 0,
+        "peak_live_rss_bytes": 202391552,
+        "rss_limit": 1073741824,
+        "rss_sampler": "proc_pidinfo live resident/10ms",
+        "wall_limit": 14.99354779208079
+      },
+      "native_applies": 0,
+      "neural_forwards": 0,
+      "numerical_fits": 0,
+      "optimizer_updates": 0,
+      "outputs": [],
+      "paid_jobs": 0,
+      "paid_spend_usd": 0.0,
+      "stage": "analysis-verification",
+      "status": "failed"
+    },
+    "source": {
+      "bytes": 41102,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_verify.py",
+      "sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4"
+    },
+    "status": "FAIL"
+  },
+  "protected_after": {
+    "before_snapshot": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/protected-before.json",
+      "sha256": "b8bab2ffaef59fd8f3b9b308a5de7cc5509997090bb34415d5fd78c880a3c3b2"
+    },
+    "checked_at_utc": "2026-10-18T04:55:41.981559+00:00",
+    "protected_files": [
+      {
+        "after_sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a",
+        "bytes": 3976,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+        "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+        "bytes": 2534886,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+        "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+        "bytes": 12675831,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+        "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+        "bytes": 725184,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+        "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+        "bytes": 3858872,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+        "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+        "bytes": 4543,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+        "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480",
+        "bytes": 1498747,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+        "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89",
+        "bytes": 268246,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+        "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8",
+        "bytes": 86319,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+        "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+        "bytes": 20662,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+        "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+        "bytes": 295074,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+        "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86",
+        "bytes": 23069,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+        "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+        "bytes": 34674,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+        "sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50",
+        "bytes": 3061,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+        "sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141",
+        "bytes": 9896,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+        "sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+        "bytes": 48446,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+        "sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc",
+        "bytes": 8457,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+        "sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c",
+        "bytes": 48285,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+        "sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb",
+        "bytes": 7959,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+        "sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+        "bytes": 807838,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+        "sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4",
+        "bytes": 48324,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+        "sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7",
+        "bytes": 8458,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+        "sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+        "bytes": 953824,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors",
+        "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+        "bytes": 953760,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+        "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+        "bytes": 6305,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+        "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+        "bytes": 14977,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+        "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+        "bytes": 33271,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+        "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+        "bytes": 28935,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+        "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21",
+        "bytes": 48843,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+        "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+        "bytes": 5521,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+        "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+        "bytes": 30315,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+        "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+        "bytes": 5458,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+        "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+        "bytes": 7954,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+        "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+        "bytes": 40826,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+        "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+        "bytes": 953760,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10.safetensors",
+        "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+        "bytes": 953760,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10.safetensors",
+        "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+        "bytes": 953824,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10-e.safetensors",
+        "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+        "bytes": 953824,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10-e.safetensors",
+        "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19",
+        "bytes": 10069,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/campaign-ledger.jsonl",
+        "sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "8821c9ef54ad2e3749ff5f7d598e633a9453669fb14cdc973359e613af36dd62",
+        "bytes": 31405,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/analysis-ledger.jsonl",
+        "sha256": "8821c9ef54ad2e3749ff5f7d598e633a9453669fb14cdc973359e613af36dd62",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "75627c2a2527af05859dada8767188fdb9e97622665922f93dbf412d889d7686",
+        "bytes": 63832,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning-sanity-evidence/index.json",
+        "sha256": "75627c2a2527af05859dada8767188fdb9e97622665922f93dbf412d889d7686",
+        "unchanged": true
+      },
+      {
+        "after_sha256": "2b5667edd8d01be5a3c0a69e72dca42bbaddced6955d37b98470b730a1c64297",
+        "bytes": 238160,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect-identifiability-evidence/index.json",
+        "sha256": "2b5667edd8d01be5a3c0a69e72dca42bbaddced6955d37b98470b730a1c64297",
+        "unchanged": true
+      }
+    ],
+    "schema": "public-input-binding-protected-after/1",
+    "status": "PASS",
+    "workspaces": [
+      {
+        "head": "f9cbbd427689081d5f12829b1fe7edd76ca51fab",
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm",
+        "status_porcelain": "",
+        "unchanged": true
+      },
+      {
+        "head": "0c6b5cc5a88cd6d8ea47ec885cb495dcb690dee5",
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron",
+        "status_porcelain": "?? bots/jepa/research/opponent-eval-environment.json\n?? bots/jepa/research/opponent-eval-environment.md\n?? bots/jepa/research/rated-loss-inventory.json\n?? bots/jepa/research/rated-loss-inventory.md\n",
+        "unchanged": true
+      },
+      {
+        "head": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source",
+        "status_porcelain": "",
+        "unchanged": true
+      }
+    ]
+  },
+  "provenance": {
+    "builder": {
+      "bytes": 17840,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/build_public_input_binding_deliverables.py",
+      "sha256": "570db50a3a252c5ab2c117d3bb8c03c43c832e78fa22acbe4d2044426024332f"
+    },
+    "inputs": [
+      {
+        "bytes": 213413,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json",
+        "sha256": "dc42bb849c8531c0df47ded7503536f0da66b5f9a039d750738b0471dc82b39c"
+      },
+      {
+        "bytes": 1030944,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+        "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2"
+      },
+      {
+        "bytes": 59018,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+        "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47"
+      },
+      {
+        "bytes": 32605,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-config.json",
+        "sha256": "29208bc06f3c68243812321aa09ce173f43d5a559cde0788b31d29b8c80280dc"
+      },
+      {
+        "bytes": 42610,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+        "sha256": "7e23b61f5defc3f07199b87693dcfc36a4a80e3ca8f795a473e8c0d8bf7ede05"
+      },
+      {
+        "bytes": 8883,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-ledger.jsonl",
+        "sha256": "a5701e1b3ac3342de0f72299481cdedf9c22c9334d19d606fb58148330a424f1"
+      }
+    ]
+  },
+  "schema": "public-input-binding-dashboard-view/1",
+  "scientific_numbers_recomputed": false,
+  "semantic_validated": false,
+  "supplemental": {
+    "catalogue_unmodified": true,
+    "checker_repair": {
+      "frozen_checker_sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4",
+      "frozen_checker_status": "failed-KeyError-damage",
+      "hand_counter_limit": "Bare-hand known counters are admitted only for the frozen fresh own-hand source with explicit native projection damage0/exhaustedFalse, justified by the pinned CardDefault/add/hand.push constructor. These counters and source HP/power are not independently counter-crosschecked against identity-only wire; no absent field is filled with zero. Other omitted known-counter objects reject.",
+      "kind": "postcollection-checker-repair",
+      "scope": "Zone-aware physical snapshot crosscheck only; scientific gates, masks, native labels, predictions and controls unchanged.",
+      "wire_semantics": "Pinned simulator.rs1585-1654 emits full damage/exhausted/HP/power on arena cards, damage/HP on bases, and identity-only hand/deck/discard references."
+    },
+    "native_journal": {
+      "apply_calls": 32,
+      "apply_errors": 0,
+      "completed_roots": 16
+    },
+    "result": {
+      "bytes": 213413,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json",
+      "sha256": "dc42bb849c8531c0df47ded7503536f0da66b5f9a039d750738b0471dc82b39c"
+    },
+    "source": {
+      "bytes": 42826,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_supplemental_verify.py",
+      "sha256": "a9a723c02abb20aa790b40e8e36f7c12cfbc7b32a456bb8ce54dd85487e3c016"
+    },
+    "status": "PASS"
+  }
+}

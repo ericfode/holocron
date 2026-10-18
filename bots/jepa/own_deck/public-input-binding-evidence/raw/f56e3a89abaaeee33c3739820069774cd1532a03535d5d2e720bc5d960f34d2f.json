@@ -1,0 +1,262 @@
+{
+  "kind": "failures",
+  "limitations": [
+    "No source is used as TRAIN; fresh native outcomes follow prior inspection of both source programs, not blind universal interpretation.",
+    "Legacy collision is same-card original18/34 architecture/input-contract sufficiency, not old checkpoint inference or a new embedding-row lookup.",
+    "Attachment branch is an expanded actual-action transition observing selected and unselected hosts; old chosen-only masks are not retroactively wrong.",
+    "Source-head intended-only input/label records are separate from branch/observation-anchor records.",
+    "Balanced-pair absolute-error floors are |observed label difference|/2 for identical input; no fitted estimator or generalization of fixed-fallback errors.",
+    "Only numeric surviving endpoints qualified; keyword grant/attack/defeat/hidden/draw behavior is not validated.",
+    "Native order control swaps host creation/registration order and IDs with logical roles preserved; the distinct pure synthetic alpha test renames every fixture reference."
+  ],
+  "native_applies": 0,
+  "neural_forwards": 0,
+  "numerical_fits": 0,
+  "optimizer_updates": 0,
+  "original_v2_checker": {
+    "active_seconds": 0.1625191249186173,
+    "descriptor": {
+      "bytes": 3725,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-descriptor.json",
+      "sha256": "b5db25d4259381ef9230bac66b4399cad215087348d2297228137ef5a9d55ec3"
+    },
+    "error": {
+      "message": "'damage'",
+      "type": "KeyError"
+    },
+    "guard": {
+      "active_seconds": 0.15606562502216548,
+      "cpu_threads": 1,
+      "paid_jobs": 0,
+      "peak_live_rss_bytes": 202391552,
+      "rss_limit": 1073741824,
+      "rss_sampler": "proc_pidinfo live resident/10ms",
+      "wall_limit": 14.99354779208079
+    },
+    "native_applies": 0,
+    "neural_forwards": 0,
+    "numerical_fits": 0,
+    "optimizer_updates": 0,
+    "outputs": [],
+    "paid_jobs": 0,
+    "paid_spend_usd": 0.0,
+    "stage": "analysis-verification",
+    "status": "failed"
+  },
+  "preservation": "Original failure records and conservative charges remain unchanged; supplemental success does not replace them.",
+  "provenance": {
+    "builder": {
+      "bytes": 17840,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/build_public_input_binding_deliverables.py",
+      "sha256": "570db50a3a252c5ab2c117d3bb8c03c43c832e78fa22acbe4d2044426024332f"
+    },
+    "inputs": [
+      {
+        "bytes": 213413,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json",
+        "sha256": "dc42bb849c8531c0df47ded7503536f0da66b5f9a039d750738b0471dc82b39c"
+      },
+      {
+        "bytes": 1030944,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+        "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2"
+      },
+      {
+        "bytes": 59018,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+        "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47"
+      },
+      {
+        "bytes": 32605,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-config.json",
+        "sha256": "29208bc06f3c68243812321aa09ce173f43d5a559cde0788b31d29b8c80280dc"
+      },
+      {
+        "bytes": 42610,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+        "sha256": "7e23b61f5defc3f07199b87693dcfc36a4a80e3ca8f795a473e8c0d8bf7ede05"
+      },
+      {
+        "bytes": 8883,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-ledger.jsonl",
+        "sha256": "a5701e1b3ac3342de0f72299481cdedf9c22c9334d19d606fb58148330a424f1"
+      }
+    ]
+  },
+  "schema": "public-input-binding-dashboard-view/1",
+  "scientific_numbers_recomputed": false,
+  "semantic_validated": false,
+  "supplemental_repair": {
+    "frozen_checker_sha256": "6d0f1bef8ffa8ee250b1a6b3ced4ce1ddd4f5b47ed58b7e44c72f3367c0123d4",
+    "frozen_checker_status": "failed-KeyError-damage",
+    "hand_counter_limit": "Bare-hand known counters are admitted only for the frozen fresh own-hand source with explicit native projection damage0/exhaustedFalse, justified by the pinned CardDefault/add/hand.push constructor. These counters and source HP/power are not independently counter-crosschecked against identity-only wire; no absent field is filled with zero. Other omitted known-counter objects reject.",
+    "kind": "postcollection-checker-repair",
+    "scope": "Zone-aware physical snapshot crosscheck only; scientific gates, masks, native labels, predictions and controls unchanged.",
+    "wire_semantics": "Pinned simulator.rs1585-1654 emits full damage/exhausted/HP/power on arena cards, damage/HP on bases, and identity-only hand/deck/discard references."
+  },
+  "v1_native_receipt": {
+    "accounting": {
+      "bytes": 15360,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_accounting.py",
+      "sha256": "d32f5ffb27c7d1fd761b74a51320957ba6b9b6f69657665c1f9f6ca66b4cd3ca"
+    },
+    "active_seconds": 0.7099752080393955,
+    "binary": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-collector",
+    "build_profile": {
+      "cargo_build_workers": 1,
+      "codegen_override": null,
+      "debug": 0,
+      "incremental": false,
+      "opt_level": 0,
+      "os_single_core_affinity": false,
+      "rustflags": []
+    },
+    "built_binary": {
+      "bytes": 17132960,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-collector",
+      "sha256": "bf4b1ce81d9356d7d7949193406bc57656a3234a9711c042bb2e3f42fd3e4148"
+    },
+    "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-ledger.jsonl",
+    "charged_native_applies": 80,
+    "charged_seconds": 60.4496478328947,
+    "cleanup_verified": true,
+    "command": [
+      "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-collector",
+      "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/native-receipt.json"
+    ],
+    "error": "RuntimeError: owned stage exited 1",
+    "exit_code": 1,
+    "exited_owned_pid_skips": [
+      {
+        "elapsed_seconds": 0.709060333087109,
+        "errno": 3,
+        "error": "[Errno 3] owned PID 84826 RSS unavailable (0)",
+        "pid": 84826
+      }
+    ],
+    "known_native_apply_lower_bound": 0,
+    "ledger_initialized": true,
+    "ledger_last_record_sha256": "4be4736ee8c9bb8f0105bec597ca863d01626071b3de97991e8fd9feb3fcc953",
+    "max_active_seconds": 60.0,
+    "max_sampled_bytes": 1073741824,
+    "max_single_child_rusage_peak_bytes": 199753728,
+    "memory_limitation": "50ms live owned-RSS samples; max with parent rusage peak plus maximum single child peak, not an OS process-tree reservation",
+    "native_journal_error": "collector launched without readable journal",
+    "native_journal_verified": false,
+    "neural_forwards": 0,
+    "no_retries": true,
+    "numerical_fits": 0,
+    "observed_conservative_peak_sum_bytes": 263798784,
+    "observed_live_sum_bytes": 64045056,
+    "observed_native_applies": null,
+    "observed_peak_live_sum_bytes": 251609088,
+    "observed_per_pid_peak_bytes": {
+      "84818": 64045056,
+      "84826": 187564032
+    },
+    "optimizer_updates": 0,
+    "owned_pgid": 84826,
+    "paid_jobs": 0,
+    "phase": "native",
+    "phases": [],
+    "proofs": [],
+    "reserved_native_applies": 80,
+    "sample_count": 13,
+    "sample_interval_seconds": 0.05,
+    "source_manifest": {
+      "bytes": 31550,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/source-manifest.json",
+      "sha256": "b931d23b06c445512485848ff64569f8eab6901d473b1fd9575f379af217a5c3"
+    },
+    "stage": "native-collect",
+    "status": "failed",
+    "supervisor_maxrss_bytes": 64045056
+  },
+  "v1_startup": {
+    "created_at_utc": "2026-10-18T04:38:38.143384+00:00",
+    "evidence": [
+      {
+        "bytes": 25221,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-ledger.jsonl",
+        "sha256": "1b0c327d468d2553454b09e95eeb58287b42c75790510e2ec957968ba9929b3b"
+      },
+      {
+        "bytes": 22912,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-config.json",
+        "sha256": "1d8f12230684db02f09ee252b3f592dc594b4dcea3b62c33792fbfc37d090f76"
+      },
+      {
+        "bytes": 3154,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/supervisor-receipt.json",
+        "sha256": "a08cf905552eccb2ffaea0d655f38db837c2ceaafcc07388b640e1b003dcfe74"
+      },
+      {
+        "bytes": 54,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/stderr.log",
+        "sha256": "f54525f3d50a218f10d00d9986ad6faf1079e69d8b8fc590a01912ca7ad43b25"
+      },
+      {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/native-attempt-1/stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 21787,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public_input_binding_collector/src/main.rs",
+        "sha256": "f80e5fa4cce45de0eedbe0b8b66587578fa96494f3d56d899acc16ad846b518c"
+      },
+      {
+        "bytes": 223073,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/generic_runtime.rs",
+        "sha256": "d450e95cc9ada2664394773f2fe154cd36c5c2a51e32c2ca2bfcca4e7d8acc1d"
+      },
+      {
+        "bytes": 17132960,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/public-input-binding-collector",
+        "sha256": "bf4b1ce81d9356d7d7949193406bc57656a3234a9711c042bb2e3f42fd3e4148"
+      }
+    ],
+    "filesystem": {
+      "native_journal_exists": false,
+      "native_receipt_exists": false
+    },
+    "parent_ledger_final_record": "4be4736ee8c9bb8f0105bec597ca863d01626071b3de97991e8fd9feb3fcc953",
+    "recorded_accounting": {
+      "charged_native_applies": 80,
+      "charged_native_build_seconds": 0.4496478328946978,
+      "charged_native_collect_seconds": 60.0,
+      "known_native_apply_lower_bound": 0,
+      "observed_native_applies": null
+    },
+    "recovery_constraints": {
+      "additional_native_apply_ceiling": 80,
+      "combined_seconds_ceiling": 210,
+      "combined_v1_v2_charged_native_apply_ceiling": 160,
+      "combined_v1_v2_native_seconds_ceiling": 180,
+      "neural_forwards": 0,
+      "numerical_fits": 0,
+      "old_binary_must_remain_pinned": true,
+      "one_explicit_recovery": true,
+      "only_catalogue_change": "add full reviewed native TOKEN_SHIELD support definition; no physical Shield fixtures; no engine or source-card edits",
+      "optimizer_updates": 0,
+      "paid_spend_usd": 0,
+      "same_worlds_and_predictors": true,
+      "shared_analysis_seconds_ceiling": 30
+    },
+    "restrictions": "v1 ledger/config/source remain immutable; do not retry v1 or erase failure. v1 observed count stays unknown despite supplemental proof0. No additional recovery if the once-only v2 fails without a separately authorized review.",
+    "schema": "public-input-binding-startup-failure-audit/1",
+    "source_commit": "30e49a50d9495b17a428a2793046381d1ab02d81",
+    "source_control_flow": {
+      "collector_fallible_engine_construction_line": 210,
+      "collector_journal_creation_line": 213,
+      "explanation": "Engine construction returns Err through Rust ? before journal/Budget/fixture loop; main prints the unique error and exits1. No fixture, Engine.apply or labels are reached.",
+      "sole_engine_apply_line": 145,
+      "unique_engine_error_line": 657
+    },
+    "status": "static-pre-apply-failure-proven",
+    "supplemental_forensic_conclusion": {
+      "engine_apply_calls": 0,
+      "kind": "source-control-flow proof; not journal-observed and no ledger credit"
+    }
+  }
+}

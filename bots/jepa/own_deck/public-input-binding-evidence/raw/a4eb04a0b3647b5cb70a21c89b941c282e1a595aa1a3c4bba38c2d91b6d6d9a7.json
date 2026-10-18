@@ -1,0 +1,312 @@
+{
+  "schema": "whole-card-frozen-vectors/1",
+  "arm": "untrained-typed",
+  "dimensions": 16,
+  "cards": [
+    {
+      "code": "ASH_048",
+      "vector": [
+        0.6618446111679077,
+        -2.358222007751465,
+        -0.4405294358730316,
+        0.34021174907684326,
+        -1.9472702741622925,
+        -0.585567831993103,
+        -0.6917561888694763,
+        0.9174677133560181,
+        -0.37274014949798584,
+        0.13746508955955505,
+        0.8176933526992798,
+        0.7795341610908508,
+        1.0695607662200928,
+        1.2209910154342651,
+        0.3932366371154785,
+        0.0580810122191906
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 0,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_095",
+      "vector": [
+        1.0487840175628662,
+        -2.334947109222412,
+        -0.4710499048233032,
+        0.21718041598796844,
+        -1.916627049446106,
+        -0.6776355504989624,
+        -0.412733256816864,
+        0.6686437726020813,
+        -0.5331434607505798,
+        0.07276473939418793,
+        0.7588011026382446,
+        1.0819748640060425,
+        0.873062014579773,
+        1.1629635095596313,
+        0.5162149667739868,
+        -0.05425328016281128
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 0,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "SEC_163",
+      "vector": [
+        1.128144383430481,
+        -2.202937126159668,
+        -0.5878294110298157,
+        0.15803512930870056,
+        -1.9532148838043213,
+        -0.8109649419784546,
+        -0.3358501195907593,
+        0.5958545207977295,
+        -0.4108746647834778,
+        0.03592129796743393,
+        0.7916885018348694,
+        1.0850858688354492,
+        1.048846960067749,
+        1.1119502782821655,
+        0.47642531991004944,
+        -0.13028135895729065
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 27,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "LOF_077",
+      "vector": [
+        1.1440589427947998,
+        -2.202545642852783,
+        -0.4490254819393158,
+        0.13808171451091766,
+        -1.9991167783737183,
+        -0.7217100262641907,
+        -0.2569514811038971,
+        0.37704673409461975,
+        -0.5012072920799255,
+        0.06007889285683632,
+        0.8199238777160645,
+        1.2521165609359741,
+        0.7192896604537964,
+        1.1029772758483887,
+        0.7698801755905151,
+        -0.2528970539569855
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 2,
+        "settled_paid_roots": 2,
+        "known_source_coordinates": 19,
+        "known_target_coordinates": 26,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_078",
+      "vector": [
+        1.327008843421936,
+        -2.2158970832824707,
+        -0.550639271736145,
+        0.008075813762843609,
+        -1.9448274374008179,
+        -0.6560871005058289,
+        -0.12516744434833527,
+        0.42837777733802795,
+        -0.49542245268821716,
+        -0.00036764470860362053,
+        0.6340237855911255,
+        1.4010041952133179,
+        0.6749182343482971,
+        0.9242384433746338,
+        0.8011611104011536,
+        -0.21040068566799164
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 19,
+        "known_target_coordinates": 27,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_158",
+      "vector": [
+        1.3402701616287231,
+        -2.1116044521331787,
+        -0.8424162864685059,
+        0.320468008518219,
+        -1.8171318769454956,
+        -0.8824182152748108,
+        -0.0978890135884285,
+        0.46384721994400024,
+        -0.32816818356513977,
+        -0.029322728514671326,
+        0.6658934950828552,
+        1.4492082595825195,
+        0.8796012997627258,
+        1.051977276802063,
+        0.17661041021347046,
+        -0.23892541229724884
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 0,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": true,
+      "semantic_validated": false
+    },
+    {
+      "code": "LOF_155",
+      "vector": [
+        1.05940580368042,
+        -2.2047665119171143,
+        -0.501472532749176,
+        0.18584127724170685,
+        -1.8754005432128906,
+        -0.8528797626495361,
+        -0.3762561082839966,
+        0.5343500971794128,
+        -0.45780712366104126,
+        0.05433707684278488,
+        0.9252200722694397,
+        1.072011947631836,
+        1.0356242656707764,
+        1.2269052267074585,
+        0.43357688188552856,
+        -0.2586899697780609
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 26,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": false,
+      "semantic_validated": false
+    },
+    {
+      "code": "JTL_217",
+      "vector": [
+        1.0734699964523315,
+        -1.8918920755386353,
+        -0.6705800294876099,
+        0.26969075202941895,
+        -2.0904903411865234,
+        -1.232051134109497,
+        -0.19603659212589264,
+        0.7464897632598877,
+        -0.24716690182685852,
+        0.14659178256988525,
+        0.6098636984825134,
+        1.0352433919906616,
+        1.1464406251907349,
+        1.0179224014282227,
+        0.5508809089660645,
+        -0.2683766186237335
+      ],
+      "runtime_admitted": true,
+      "native_fixture_observed": true,
+      "observed_counts": {
+        "declared_roots": 4,
+        "availability_roots": 4,
+        "committed_roots": 3,
+        "settled_paid_roots": 3,
+        "known_source_coordinates": 28,
+        "known_target_coordinates": 28,
+        "completions": {
+          "settled": 3,
+          "play-unavailable": 1
+        },
+        "native_fixture_observed": true
+      },
+      "training_card": false,
+      "semantic_validated": false
+    }
+  ],
+  "limitations": "Eight-card frontend and sampled native behavior; not all115admitted/whole-card semantic conformance."
+}

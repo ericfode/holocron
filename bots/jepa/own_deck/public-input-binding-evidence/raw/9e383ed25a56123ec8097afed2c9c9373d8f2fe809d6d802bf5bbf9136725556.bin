@@ -1,0 +1,56 @@
+"""Freeze fixed source/command pins; does not initialize or execute any stage."""
+import datetime
+import json
+from pathlib import Path
+import subprocess
+import sys
+
+CAMPAIGN=Path(__file__).resolve().parent
+TASK=CAMPAIGN.parents[1]
+REPO=TASK/'holocron-deck-context'
+HERE=REPO/'bots/jepa/own_deck'
+sys.path.insert(0,str(HERE))
+import public_input_binding_recovery_accounting as A
+
+def main():
+    destination=CAMPAIGN/'campaign-config.json'
+    if destination.exists():raise FileExistsError('preserve frozen config')
+    git=lambda *args:subprocess.check_output(['git','-C',str(REPO),*args],text=True).strip()
+    plan=json.loads((CAMPAIGN/'native-plan.json').read_text())
+    native=CAMPAIGN/'native-attempt-1/native-receipt.json'
+    journal=CAMPAIGN/'native-attempt-1/native-transitions.jsonl'
+    prediction=CAMPAIGN/'predictions.json'
+    verification=CAMPAIGN/'independent-verification.json'
+    commands={
+      'analysis-controls':dict(argv=[str(HERE/'public_input_binding.py'),'--receipt',str(native),'--catalog',str(HERE/'public_input_binding_collector/fixtures/whole-rows.json'),'--out',str(prediction)],outputs=[str(prediction)]),
+      'analysis-verification':dict(argv=[str(HERE/'public_input_binding_verify.py'),'--plan',str(CAMPAIGN/'native-plan.json'),'--receipt',str(native),'--journal',str(journal),'--predictions',str(prediction),'--predictor-source',str(HERE/'public_input_binding.py'),'--out',str(verification)],outputs=[str(verification)])
+    }
+    paths=[Path(__file__),CAMPAIGN/'native-plan.json',TASK/'experiments/public-input-binding-v1/coverage-contract.json',TASK/'experiments/public-input-binding-v1/protected-before.json',HERE/'PUBLIC_INPUT_BINDING_PROTOCOL.md',HERE/'PUBLIC_INPUT_BINDING_RECOVERY.md']
+    modules=['public_input_binding','public_input_binding_accounting','public_input_binding_analysis','public_input_binding_native_plan','public_input_binding_verify','public_input_binding_export','public_input_binding_recovery_accounting','public_input_binding_recovery_analysis','public_input_binding_recovery_plan']
+    paths.extend(HERE/(name+'.py')for name in modules)
+    paths.extend(HERE/('test_'+name+'.py')for name in modules)
+    paths.extend(p for folder in ['public_input_binding_collector','public_input_binding_recovery_collector'] for p in (HERE/folder).rglob('*')if p.is_file()and '__pycache__'not in p.parts)
+    paths.extend(HERE/name for name in ['effect_identifiability_fit.py','actual_corpus_native_plan.py','grounded_contrast_data.py','whole_card_encoder.py'])
+    paths.extend(Path(pin['path'])for pin in plan['source_pins'])
+    paths.extend(Path(pin['path'])for pin in A.PARENT_PINS)
+    prior_config=json.loads((TASK/'experiments/public-input-binding-v1/campaign-config.json').read_text())
+    paths.extend(Path(pin['path'])for pin in prior_config['pins'])
+    failure=json.loads((TASK/'experiments/public-input-binding-v1/startup-failure-audit.json').read_text())
+    paths.extend(Path(pin['path'])for pin in failure['evidence'])
+    protected=json.loads((TASK/'experiments/public-input-binding-v1/protected-before.json').read_text())
+    paths.extend(Path(pin['path'])for pin in protected['protected_files'])
+    value=dict(schema='jepa-public-input-binding-recovery-config/1',created_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+      source_commit=git('rev-parse','HEAD'),source_tree=git('rev-parse','HEAD^{tree}'),
+      limits=A.CAPS,parent_pins=A.PARENT_PINS,parent_final_chains=A.PARENT_CHAINS,prior_exposure=A.PRIOR_EXPOSURE,
+      prior_charged_seconds=A.verify_parents(),recovery_parent=A.recovery_parent(),recovery_cumulative_limits=A.CUMULATIVE_CAPS,analysis_stages=A.ANALYSIS_STAGES,analysis_commands=commands,
+      pins=[A.pin(p)for p in sorted(set(p.resolve()for p in paths))],
+      controls_frozen_before_native=True,train_codes=[],fresh_source_codes=['LAW_045','LOF_215'],
+      scope='Explicit Shield-support-only constructor recovery of unchanged preinspected programs/worlds; v1 failure retained without credit; no training or semantic qualification',
+      zero_authorized=dict(neural_forwards=0,optimizer_updates=0,numerical_fits=0,paid_jobs=0),
+      native_stage_outputs={'native-build':str(CAMPAIGN/'native-build-1'),'native-collect':str(CAMPAIGN/'native-attempt-1')})
+    value['config_sha256']=A.digest(value)
+    A.validate_config(value);A.verify_pins(value['pins'])
+    with destination.open('x')as f:json.dump(value,f,indent=2,allow_nan=False);f.write('\n')
+    print(json.dumps(dict(config=A.pin(destination),source_commit=value['source_commit'],pins=len(value['pins']),native_applies=0,neural_forwards=0)))
+
+if __name__=='__main__':main()

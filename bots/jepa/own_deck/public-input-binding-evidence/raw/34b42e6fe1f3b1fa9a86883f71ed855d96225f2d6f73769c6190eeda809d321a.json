@@ -1,0 +1,62 @@
+{
+  "schema": "swu-arena-bot/1",
+  "name": "jepa_tx_gate_wasm",
+  "lang": "rust",
+  "protocol": 2,
+  "kind": "wasm",
+  "platform": "wasm32-wasip1",
+  "runtime": "wasi-p1",
+  "run": {
+    "cmd": "./bot.wasm",
+    "args": [],
+    "env": {}
+  },
+  "entry_sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+  "resources": {
+    "memory_mb": 256
+  },
+  "network": "none",
+  "deterministic": false,
+  "build": {
+    "source": "https://github.com/ericfode/holocron",
+    "commit": "6485d31df4bb15242e02f281b8ddd4176aedd931",
+    "path": "bots/jepa/wasm",
+    "recipe": "python3 bots/jepa/wasm/build.py",
+    "builder": "self",
+    "toolchain": "rustc 1.98.0 (88d9e12ae 2026-08-18)",
+    "rustflags": "-C strip=symbols --remap-path-prefix=<repo>=. --remap-path-prefix=<cargo>=/cargo",
+    "kernel_toolchain": "Apple Clang IR, Rust LLVM llc; explicit WASI p1 imports",
+    "source_sha256": "570ec9d86e6a4e86bae273ff458902a0294575e37c3a9815df95746c4fe89cd5",
+    "source_files": {
+      "bots/jepa/wasm/controller/.gitignore": "306fd52e74fca6746e12acc750f232de15e71da917756a1270d74c91f5eb7368",
+      "bots/jepa/wasm/controller/Cargo.lock": "1ce0635bb16ff7e141d20a924bb721b28fa75613344a4b2d36b9638ec76de7d7",
+      "bots/jepa/wasm/controller/Cargo.toml": "335153cd89fcdf9cc42b43d6821382b4989e804099a5df0a6091cd53dbeb08de",
+      "bots/jepa/wasm/controller/README.md": "87fc20b1a18d68ddca94148ca07e2bd7ba9e0f72eb7b903adc9a56914139e9d2",
+      "bots/jepa/wasm/controller/src/clock.rs": "580d553a673dbf79a8a813a49f749b372b54db1b32ca91f6fdada9a6f40d0a75",
+      "bots/jepa/wasm/controller/src/controller.rs": "645ccd3634631738ac466a83b3af588923ef5d0f15c2dd7ce8ee6c0f60991207",
+      "bots/jepa/wasm/controller/src/features.rs": "54a8233afef7945435e21040ce451189f4c8ae11a36faebe9d6afce6f652214e",
+      "bots/jepa/wasm/controller/src/lib.rs": "19ec717a11b6ff00314ea90b5b53098772ba8f94d4149c12278b89461d5dc939",
+      "bots/jepa/wasm/controller/src/resource.rs": "fe59760883f91dd47df770a00c8258ac8fd81af5236c95b6424a7fca9c0a564c",
+      "bots/jepa/wasm/controller/src/rng.rs": "5d0ab65575afd208414a8210d9cdf8ee1badc338c689f3a35950d469e3cf1260",
+      "bots/jepa/wasm/generated/jepa_cached.h": "c537d6208f7a843e5e1c488275eae3350f562687a86904908b2ebf727949ede9",
+      "bots/jepa/wasm/generated/jepa_context.c": "332e3a66e689b3fa7b0782929f561789db0947c951e523aa2ff82f2cd0b7937f",
+      "bots/jepa/wasm/generated/jepa_context.json": "71492c8a4ebf664ce8024036f64551efff94bae58b36a48d019041886fe86244",
+      "bots/jepa/wasm/generated/jepa_predict4.c": "fa9b2773373ebeeb6410cb7f107c2c3ab592ad7d4a421348b058196285b58642",
+      "bots/jepa/wasm/generated/jepa_predict4.json": "d89b884e8d7de85f9cacb780bafb99fa592526a4a40bde0c6b3f2b24a7e183f3",
+      "bots/jepa/wasm/runtime/Cargo.lock": "a654b253eb5542580e14dfe15f5681ace5ef13c398cb83d890509a78e4a813bb",
+      "bots/jepa/wasm/runtime/Cargo.toml": "a5a2447b800715478a37ea0fade7b8447153c45a3a866dd1d464454ec26dcb82",
+      "bots/jepa/wasm/runtime/build.rs": "bf8a1d508ef8c1db558cc6297ceb894915d3d31572c2120a0b5f04255fc0d358",
+      "bots/jepa/wasm/runtime/src/backend.rs": "611f524d68bc74c0e675237abae50715804848a0e3a0129de5bf06f9071316c7",
+      "bots/jepa/wasm/runtime/src/main.rs": "2592497825581567cf69ce43231b9d6dafe3a69351db087197a65cc618e4a6e8",
+      "bots/jepa/wasm/runtime/src/transport.rs": "56d11ccea64bc2d1174801f412130c8719be2b588a0faf085d484b6276b81d08",
+      "bots/jepa/wasm/build.py": "0f7c18dbb91fef61a52193066e30ce85becb381e8ec1409636e8317cb0a20433",
+      "bots/jepa/wasm/build_kernels.py": "017555e1d25854435a261d87f5c96be6d68600f78daaab21aaa73fd6247e933e"
+    },
+    "checkpoint_sha256": {
+      "tx-t10.safetensors": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34",
+      "tx-t10-e.safetensors": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+    },
+    "arena_compatibility_revision": "3afa1f8bbf3bc45a08359f15b96291d55c641fa6",
+    "diagnostics": false
+  }
+}
