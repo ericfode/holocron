@@ -1,0 +1,535 @@
+{
+  "schema": "jepa-typed-transition-numeric/1",
+  "purpose": "two-card context-holdout transition pilot; not production ABI",
+  "tensors": {
+    "path_ids": {
+      "shape": [
+        8,
+        96,
+        16
+      ],
+      "dtype": "int64"
+    },
+    "path_lengths": {
+      "shape": [
+        8,
+        96
+      ],
+      "dtype": "int64"
+    },
+    "type_ids": {
+      "shape": [
+        8,
+        96
+      ],
+      "dtype": "int64"
+    },
+    "value_ids": {
+      "shape": [
+        8,
+        96
+      ],
+      "dtype": "int64"
+    },
+    "scalars": {
+      "shape": [
+        8,
+        96,
+        2
+      ],
+      "dtype": "float32"
+    },
+    "token_mask": {
+      "shape": [
+        8,
+        96
+      ],
+      "dtype": "float32"
+    },
+    "status": {
+      "shape": [
+        8,
+        5
+      ],
+      "dtype": "float32"
+    },
+    "slot_mask": {
+      "shape": [
+        8
+      ],
+      "dtype": "float32"
+    }
+  },
+  "query": {
+    "shape": [
+      "B"
+    ],
+    "dtype": "int64",
+    "bounds": [
+      0,
+      7
+    ]
+  },
+  "context": {
+    "shape": [
+      "B",
+      19
+    ],
+    "dtype": "float32",
+    "columns": [
+      "ready_resources",
+      "physical_resources",
+      "source_exhausted",
+      "source_deployed",
+      "chosen_own",
+      "chosen_unit",
+      "chosen_base",
+      "chosen_ground",
+      "chosen_space",
+      "chosen_hp_per30",
+      "chosen_damage_per30",
+      "chosen_remaining_hp_per30",
+      "chosen_shields",
+      "own_base_damage_per30",
+      "opponent_base_damage_per30",
+      "own_ground_count",
+      "opponent_ground_count",
+      "own_space_count",
+      "opponent_space_count"
+    ],
+    "units": [
+      "count",
+      "count",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "boolean",
+      "HP/30",
+      "damage/30",
+      "remaining HP/30",
+      "count",
+      "damage/30",
+      "damage/30",
+      "count",
+      "count",
+      "count",
+      "count"
+    ]
+  },
+  "counts": {
+    "shape": [
+      "B",
+      8
+    ],
+    "dtype": "float32",
+    "unit": "synthetic source-capability copies0..60; sum weighted by1/60"
+  },
+  "outputs": {
+    "shape": [
+      "B",
+      7
+    ],
+    "dtype": "float32",
+    "columns": [
+      "source_use",
+      "target_allowed",
+      "cost_resource",
+      "damage_delta",
+      "source_exhausted_after",
+      "followup_source_offered",
+      "terminal"
+    ],
+    "units": [
+      "boolean",
+      "boolean",
+      "copies of ready resources paid",
+      "damage counters after minus before",
+      "boolean",
+      "boolean",
+      "boolean"
+    ],
+    "normalization": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "binary_logit_columns": [
+      0,
+      1,
+      4,
+      5,
+      6
+    ],
+    "continuous_columns": [
+      2,
+      3
+    ],
+    "availability": "target_mask float32[B,7]; unknown labels masked, never filled as observed zero"
+  },
+  "vocabularies": {
+    "path": [
+      "PAD",
+      "UNKNOWN",
+      "key:amount",
+      "key:arena",
+      "key:args",
+      "key:bindings",
+      "key:chooser",
+      "key:chosen",
+      "key:condition",
+      "key:controller",
+      "key:costs",
+      "key:effect",
+      "key:effects",
+      "key:form",
+      "key:kind",
+      "key:left",
+      "key:name",
+      "key:op",
+      "key:optional",
+      "key:owner",
+      "key:path",
+      "key:payer",
+      "key:predicate",
+      "key:receiver",
+      "key:recipient",
+      "key:requiresConfirmation",
+      "key:right",
+      "key:role",
+      "key:source",
+      "key:source_equals_chosen",
+      "key:target",
+      "key:targetResolver",
+      "key:trigger",
+      "key:type",
+      "key:value",
+      "key:zone",
+      "index:0",
+      "index:1",
+      "index:2",
+      "index:3",
+      "index:4",
+      "index:5",
+      "index:6",
+      "index:7",
+      "index:8",
+      "index:9",
+      "index:10",
+      "index:11",
+      "index:12",
+      "index:13",
+      "index:14",
+      "index:15",
+      "index:16",
+      "index:17",
+      "index:18",
+      "index:19",
+      "index:20",
+      "index:21",
+      "index:22",
+      "index:23",
+      "index:24",
+      "index:25",
+      "index:26",
+      "index:27",
+      "index:28",
+      "index:29",
+      "index:30",
+      "index:31"
+    ],
+    "type": [
+      "PAD",
+      "UNKNOWN",
+      "node",
+      "length",
+      "boolean",
+      "integer",
+      "enum",
+      "form",
+      "role",
+      "owner",
+      "type",
+      "zone",
+      "source_equals_chosen",
+      "opaque"
+    ],
+    "value": [
+      "PAD",
+      "UNKNOWN",
+      "boolean:false",
+      "boolean:true",
+      "enum:!==",
+      "enum:&&",
+      "enum:<=",
+      "enum:===",
+      "enum:>=",
+      "enum:action",
+      "enum:any",
+      "enum:anyAttackable",
+      "enum:arena",
+      "enum:base",
+      "enum:binary",
+      "enum:card",
+      "enum:chosen",
+      "enum:const",
+      "enum:damage",
+      "enum:exhaustSelf",
+      "enum:exhausted",
+      "enum:giveShield",
+      "enum:ground",
+      "enum:heal",
+      "enum:isUnit",
+      "enum:leader",
+      "enum:opponent",
+      "enum:ownPlayer",
+      "enum:query",
+      "enum:ref",
+      "enum:remainingHp",
+      "enum:resources",
+      "enum:self",
+      "enum:sequence",
+      "enum:source",
+      "enum:space",
+      "enum:unit",
+      "node:object",
+      "node:ordered-list",
+      "number",
+      "opaque:0",
+      "opaque:1",
+      "opaque:2",
+      "opaque:3",
+      "opaque:4",
+      "opaque:5",
+      "opaque:6",
+      "opaque:7"
+    ],
+    "status": [
+      "known",
+      "unknown",
+      "neutral",
+      "unsupported",
+      "ambiguous"
+    ]
+  },
+  "vocab_sha256": "72bb6e274c117b8abadc38ef31430ea3ee27168376a48a6f31bb92e4947057d5",
+  "padding": "PAD0, UNKNOWN1 reserved. Padded IDs/scalars/masks/status zero; known unreviewed symbols reject. No truncation.",
+  "caps": {
+    "programs": 8,
+    "semantic_tokens": 64,
+    "role_tokens": 32,
+    "path_components": 16,
+    "batch": 16,
+    "parameters": 32768
+  },
+  "scales": {
+    "integer_features": [
+      "v/10",
+      "log1p(v)/10"
+    ],
+    "integer_bounds": [
+      0,
+      65535
+    ],
+    "token_sum_divisor": 64,
+    "bag_count_divisor": 60
+  },
+  "orientation": "nn.Linear.weight is[out,in]; embeddings[vocab,16]; PyTorch GRU r,z,n gates and documented state_dict names; exact reference is make_model.encode_program_bank/forward_transition",
+  "invariance": "object keys sorted; list/operand/sequence indices retained; nonlinear joint path/value before sum; canonical count-weighted program bag order invariant",
+  "binding": "Only exact source/card/leader[0]/target-stage witnesses from upstream native collector. Supplied labels/method strings are never universal binding or semantic features.",
+  "coverage": "Selected-program known status separate from whole-card runtime admission and printed metadata; only two whole-card admitted/bound leaders in this pilot.",
+  "ownership": "Standalone experiment, no baseline tensors loaded/changed; no evaluator/actor sharing or production export yet. No dynamic remaining deck or branch ledger.",
+  "provenance": {
+    "source_revision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+    "dataset_manifest_sha256": "821a96109d6dadc44dcda510c1293a5e8eab41ba55709f5516849ecf3280893e",
+    "dataset_sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+    "adapter_source_sha256": "25a05e39e8e432e2003127747d2c311fe32d225528ac60db9afa05aee5b856c9",
+    "model_source_sha256": "0b0826951cd880e8920e496c54c9a27c7a69032e726ec52f5354cead3e56bece",
+    "program_sources": {
+      "ASH_011": {
+        "sourceHash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+        "sourcePath": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ]
+      },
+      "IBH_053": {
+        "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+        "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+        "ability_path": [
+          "abilities",
+          "leader",
+          0
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Two supported identities; shared context-family holdout only, no held-out-card/effect-composition generalization claim.",
+    "ID-only and fixed wrong-IR are memorization/invertible-code engineering controls on this two-ID bank.",
+    "Native labels and masks are independent of typed features. Unexecuted transitions stay masked, never synthetic zeros.",
+    "Program bag is a synthetic source-capability multiset, not an original/remaining deck or a dynamic ledger.",
+    "Ordered compositional capacity is tested structurally; these native abilities do not train multieffect sequence semantics.",
+    "Small standalone CPU model only; no actor, production graph, export, WASM, deployment or paid compute."
+  ],
+  "checkpoint": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only.npz",
+    "sha256": "76c15c482531c06504dd9a8c99d39a57f9a4edcc30a433f71e491957fef99ef6"
+  },
+  "weight_shapes": {
+    "path_embedding.weight": {
+      "shape": [
+        68,
+        16
+      ],
+      "dtype": "float32"
+    },
+    "path_gru.weight_ih_l0": {
+      "shape": [
+        48,
+        16
+      ],
+      "dtype": "float32"
+    },
+    "path_gru.weight_hh_l0": {
+      "shape": [
+        48,
+        16
+      ],
+      "dtype": "float32"
+    },
+    "path_gru.bias_ih_l0": {
+      "shape": [
+        48
+      ],
+      "dtype": "float32"
+    },
+    "path_gru.bias_hh_l0": {
+      "shape": [
+        48
+      ],
+      "dtype": "float32"
+    },
+    "type_embedding.weight": {
+      "shape": [
+        14,
+        16
+      ],
+      "dtype": "float32"
+    },
+    "value_embedding.weight": {
+      "shape": [
+        48,
+        16
+      ],
+      "dtype": "float32"
+    },
+    "scalar.weight": {
+      "shape": [
+        16,
+        2
+      ],
+      "dtype": "float32"
+    },
+    "scalar.bias": {
+      "shape": [
+        16
+      ],
+      "dtype": "float32"
+    },
+    "leaf.0.weight": {
+      "shape": [
+        16,
+        32
+      ],
+      "dtype": "float32"
+    },
+    "leaf.0.bias": {
+      "shape": [
+        16
+      ],
+      "dtype": "float32"
+    },
+    "leaf.2.weight": {
+      "shape": [
+        16,
+        16
+      ],
+      "dtype": "float32"
+    },
+    "leaf.2.bias": {
+      "shape": [
+        16
+      ],
+      "dtype": "float32"
+    },
+    "status_projection.weight": {
+      "shape": [
+        16,
+        5
+      ],
+      "dtype": "float32"
+    },
+    "context_projection.0.weight": {
+      "shape": [
+        16,
+        19
+      ],
+      "dtype": "float32"
+    },
+    "context_projection.0.bias": {
+      "shape": [
+        16
+      ],
+      "dtype": "float32"
+    },
+    "head.0.weight": {
+      "shape": [
+        32,
+        48
+      ],
+      "dtype": "float32"
+    },
+    "head.0.bias": {
+      "shape": [
+        32
+      ],
+      "dtype": "float32"
+    },
+    "head.2.weight": {
+      "shape": [
+        7,
+        32
+      ],
+      "dtype": "float32"
+    },
+    "head.2.bias": {
+      "shape": [
+        7
+      ],
+      "dtype": "float32"
+    }
+  },
+  "golden": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/id-only-golden.npz",
+    "sha256": "8fee217e44c41cfc9dfe6a85c9d75dd62bab44548286516e4b303416e61f6f09",
+    "cases": [
+      "known",
+      "unknown",
+      "neutral",
+      "unsupported",
+      "ambiguous"
+    ],
+    "targets": null,
+    "reference_forward": "make_model(torch,F).forward_transition(context,query,counts,bank)",
+    "interpretation": "Finite ABI fixtures only; zero synthetic contexts, no native labels or semantic-quality metric."
+  }
+}

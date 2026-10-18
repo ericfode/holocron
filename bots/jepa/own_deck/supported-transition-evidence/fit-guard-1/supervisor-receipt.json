@@ -1,0 +1,103 @@
+{
+  "stage": "fit",
+  "commands": [
+    [
+      "fit",
+      [
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=/Users/ericfode/.cache/uv/archive-v0/rehTsShR29rpWi8Dqz5BL:/Users/ericfode/.cache/uv/archive-v0/ntYsJgeLWxSB0rhe6n9sh:/Users/ericfode/.cache/uv/archive-v0/5i8dYw1S9c5zrvrF0rCIy:/Users/ericfode/.cache/uv/archive-v0/C7W22kpzl1cAe-Hdx0N-2:/Users/ericfode/.cache/uv/archive-v0/F1isPlsf9ooQ4EGhGPl5V:/Users/ericfode/.cache/uv/archive-v0/PVyRmcnszTpMFeVdyuyJs:/Users/ericfode/.cache/uv/archive-v0/fDmWyEr9slZLLcHdlujql:/Users/ericfode/.cache/uv/archive-v0/khxszcG0X4WuYCMH_DEdE:/Users/ericfode/.cache/uv/archive-v0/7h7hIgcQT6GjZZGqqRrhM",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "/Users/ericfode/src/crown-jepa/.venv/bin/python",
+        "bots/jepa/own_deck/train_structured_transition.py",
+        "--dataset",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.npz",
+        "--manifest",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.manifest.json",
+        "--out",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-1",
+        "--events",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl",
+        "--run-id",
+        "supported-transition-s17-20261018",
+        "--campaign-id",
+        "supported-transition-20261018",
+        "--ledger",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/campaign-ledger.jsonl",
+        "--progress",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-progress-1.jsonl",
+        "--spent-seconds",
+        "2.002589540905319"
+      ]
+    ]
+  ],
+  "source_manifest_sha256": "ada4704708f233866b8ce1a79fe919a33a798cd0fd21c0b9e552d76d4f210871",
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/campaign-ledger.jsonl",
+  "max_active_seconds": 120.0,
+  "max_engine_apply_attempts": 96,
+  "max_updates": 600,
+  "reserved_engine_applies": 0,
+  "reserved_updates": 600,
+  "max_sampled_bytes": 2147483648,
+  "sample_interval_seconds": 0.05,
+  "scope": "one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals",
+  "prior_campaign_debits": {
+    "active_seconds": 2.002589540905319,
+    "engine_apply_attempts": 32,
+    "updates": 0
+  },
+  "status": "failed",
+  "phases": [
+    {
+      "name": "fit",
+      "command": [
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=/Users/ericfode/.cache/uv/archive-v0/rehTsShR29rpWi8Dqz5BL:/Users/ericfode/.cache/uv/archive-v0/ntYsJgeLWxSB0rhe6n9sh:/Users/ericfode/.cache/uv/archive-v0/5i8dYw1S9c5zrvrF0rCIy:/Users/ericfode/.cache/uv/archive-v0/C7W22kpzl1cAe-Hdx0N-2:/Users/ericfode/.cache/uv/archive-v0/F1isPlsf9ooQ4EGhGPl5V:/Users/ericfode/.cache/uv/archive-v0/PVyRmcnszTpMFeVdyuyJs:/Users/ericfode/.cache/uv/archive-v0/fDmWyEr9slZLLcHdlujql:/Users/ericfode/.cache/uv/archive-v0/khxszcG0X4WuYCMH_DEdE:/Users/ericfode/.cache/uv/archive-v0/7h7hIgcQT6GjZZGqqRrhM",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "/Users/ericfode/src/crown-jepa/.venv/bin/python",
+        "bots/jepa/own_deck/train_structured_transition.py",
+        "--dataset",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.npz",
+        "--manifest",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/supported-transitions.manifest.json",
+        "--out",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-1",
+        "--events",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/run-events.jsonl",
+        "--run-id",
+        "supported-transition-s17-20261018",
+        "--campaign-id",
+        "supported-transition-20261018",
+        "--ledger",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/campaign-ledger.jsonl",
+        "--progress",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-progress-1.jsonl",
+        "--spent-seconds",
+        "2.002589540905319"
+      ],
+      "owned_pgid": 54779,
+      "exit_code": 2
+    }
+  ],
+  "observed_per_pid_peak_bytes": {
+    "54771": 40321024,
+    "54779": 131072
+  },
+  "sample_count": 2,
+  "attempt_active_seconds": 0.05704633402638137,
+  "observed_conservative_peak_sum_bytes": 55967744,
+  "error": "RuntimeError: fit exited 2",
+  "supervisor_maxrss_bytes": 40321024,
+  "children_maxrss_bytes": 15646720,
+  "update_accounting": "interrupted, missing, or incomplete step journal; entire reservation charged",
+  "engine_apply_attempts": 0,
+  "completed_or_reserved_updates": 600,
+  "guard_limitation": "Sampled known-owned process-group RSS and rusage peaks; not an instantaneous OS memory reservation. Failed update stages conservatively debit reservation. Unfinished ledger stages forbid resets."
+}

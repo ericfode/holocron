@@ -227,3 +227,37 @@ Every speculative simulation branch needs its own ledger clone. Restoring a
 root restores its ledger; simulated draws never update the live-game ledger.
 The policy may consume only the actor-visible observation at that branch,
 never hidden draw order or opponent private information.
+
+## Completed supported-runtime pilot
+
+The immediate typed-program pilot uses the two existing verified leader
+bindings, with 16 public context cases, 32 actual native applies, and a grouped
+10/6 context split. Each of three matched 6,759-parameter models completed 200
+updates. Correct IR did not outperform the controls: held-out masked MAE was
+0.226566 versus 0.205742 for ID-only and 0.209615 for swapped IR. The training
+prior scored 0.349206. These are 18 known validation labels across six cases;
+both card IDs occur in both partitions. There is no held-out-card, behavioral
+distance, synergy, or playing-strength result.
+
+See [measured results](SUPPORTED_TRANSITION_RESULTS.md), the
+[independent audit](supported-transition-run-audit.json), and the
+[portable evidence index](supported-transition-evidence/index.json). The latter
+includes exact dataset/split records, native journals, failed-start evidence,
+the append-only quota ledger, checkpoints, numerical contracts, and finite
+five-status golden fixtures. It preserves the raw files and their hashes.
+
+The experiment completed 600 actual optimizer updates and six held-out
+evaluation calls, plus three label-free ABI fixture forwards. All guarded
+attempts consumed less than six active seconds; paid spend remains zero.
+A CPython missing-main launch ran no trainer code. Its original conservative
+reservation and elapsed time remain recorded, followed by one independently
+reviewed, evidence-bound update credit. No interrupted optimizer work was
+refunded, and the allocation was not reset. The original policy tensors and
+admitted bot artifact remain unchanged.
+
+Dashboard embedding exports use `export_embeddings.py` and a separate versioned
+[index](supported-transition-evidence/embeddings/index.json). They expose actual
+saved-weight outputs and canonical card counts, with
+checkpoint, split, normalization and metric provenance. The original-deck
+composition space and the two-card program space have separate dimensions;
+neither has validated behavioral nearest-neighbor quality.

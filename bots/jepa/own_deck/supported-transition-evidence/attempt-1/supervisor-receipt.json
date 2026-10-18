@@ -1,0 +1,76 @@
+{
+  "stage": "collect",
+  "commands": [
+    [
+      "build",
+      [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/supported_native_collector/Cargo.toml",
+        "--bin",
+        "supported-native-collector",
+        "-j",
+        "1"
+      ]
+    ],
+    [
+      "collect",
+      [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/supported-native-collector",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/attempt-1/native-receipt.json"
+      ]
+    ]
+  ],
+  "source_manifest_sha256": "34436a31d3d279bb010c3d925b268f4b4596b6e8d58add71687f82d65a4b245d",
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/campaign-ledger.jsonl",
+  "max_active_seconds": 120.0,
+  "max_engine_apply_attempts": 96,
+  "max_updates": 600,
+  "reserved_engine_applies": 64,
+  "reserved_updates": 0,
+  "max_sampled_bytes": 2147483648,
+  "sample_interval_seconds": 0.05,
+  "scope": "one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals",
+  "prior_campaign_debits": {
+    "active_seconds": 0.0,
+    "engine_apply_attempts": 0,
+    "updates": 0
+  },
+  "status": "failed",
+  "phases": [
+    {
+      "name": "build",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/supported_native_collector/Cargo.toml",
+        "--bin",
+        "supported-native-collector",
+        "-j",
+        "1"
+      ],
+      "owned_pgid": 52096,
+      "exit_code": 101
+    }
+  ],
+  "observed_per_pid_peak_bytes": {
+    "52088": 39813120,
+    "52096": 40173568,
+    "52097": 129368064
+  },
+  "sample_count": 4,
+  "attempt_active_seconds": 0.16542070801369846,
+  "observed_conservative_peak_sum_bytes": 209354752,
+  "error": "RuntimeError: build exited 101",
+  "supervisor_maxrss_bytes": 39813120,
+  "children_maxrss_bytes": 141164544,
+  "engine_apply_attempts": 0,
+  "completed_or_reserved_updates": 0,
+  "guard_limitation": "Sampled known-owned process-group RSS and rusage peaks; not an instantaneous OS memory reservation. Failed update stages conservatively debit reservation. Unfinished ledger stages forbid resets."
+}

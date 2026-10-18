@@ -1,0 +1,149 @@
+{
+  "schema": "jepa-card-program-embedding-export/1",
+  "space_id": "supported-typed-card-program-z16",
+  "entity_type": "card",
+  "dimension": 16,
+  "semantic_validated": false,
+  "vector_origin": "Actual encode_program_bank output from saved correct-IR native-transition-trained weights",
+  "context_conditioning": "Program encoder output before context_projection/head; context-family supervision occurred during training, but no current context is encoded into these vectors.",
+  "rows": [
+    {
+      "id": "ASH_011",
+      "name": "Cad Bane",
+      "subtitle": "Still Faster than You",
+      "canonical_card_id": "5648009238",
+      "declared_program_copies": 1,
+      "count_scope": "One selected source capability, not a deck count",
+      "ability_path": [
+        "abilities",
+        "leader",
+        0
+      ],
+      "split": "both-train-and-validation-contexts",
+      "seen_in_training": true,
+      "seen_in_validation": true,
+      "held_out_identity": false,
+      "training_context_families": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "validation_context_families": [
+        5,
+        6,
+        7
+      ],
+      "sourceHash": "c8deebf53ed30519ed4b4abe6b274f1c460997a55b209174e28125f3cec7752f",
+      "sourcePath": "game/cards/08_ASH/leaders/CadBaneStillFasterThanYou.ts",
+      "vector": [
+        -0.9820640087127686,
+        0.9530030488967896,
+        0.7763795852661133,
+        -1.1187717914581299,
+        0.2764672040939331,
+        0.37131765484809875,
+        -0.5896825790405273,
+        0.817713737487793,
+        0.8080458641052246,
+        -0.9761039018630981,
+        -1.0716960430145264,
+        0.6788389086723328,
+        0.4709813892841339,
+        0.6768316030502319,
+        1.101198434829712,
+        -0.8481007218360901
+      ],
+      "unit_vector": [
+        -0.29904472827911377,
+        0.2901954650878906,
+        0.23641251027584076,
+        -0.3406731188297272,
+        0.08418601751327515,
+        0.1130685806274414,
+        -0.17956209182739258,
+        0.24899901449680328,
+        0.24605509638786316,
+        -0.2972298264503479,
+        -0.3263382315635681,
+        0.20671075582504272,
+        0.14341682195663452,
+        0.2060995101928711,
+        0.33532190322875977,
+        -0.2582520544528961
+      ],
+      "l2_norm": 3.284003845901792,
+      "cosine_available": true
+    },
+    {
+      "id": "IBH_053",
+      "name": "Darth Vader",
+      "subtitle": "Don't Fail Me Again",
+      "canonical_card_id": "9389694773",
+      "declared_program_copies": 1,
+      "count_scope": "One selected source capability, not a deck count",
+      "ability_path": [
+        "abilities",
+        "leader",
+        0
+      ],
+      "split": "both-train-and-validation-contexts",
+      "seen_in_training": true,
+      "seen_in_validation": true,
+      "held_out_identity": false,
+      "training_context_families": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "validation_context_families": [
+        5,
+        6,
+        7
+      ],
+      "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+      "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+      "vector": [
+        -0.5871594548225403,
+        0.583864688873291,
+        0.5003940463066101,
+        -0.7188905477523804,
+        -0.15809617936611176,
+        -0.03475302830338478,
+        -0.1924125999212265,
+        0.46440252661705017,
+        0.3861640393733978,
+        -0.5968389511108398,
+        -0.6636886596679688,
+        0.35261213779449463,
+        0.03511025756597519,
+        0.30765479803085327,
+        0.6866837739944458,
+        -0.4487456679344177
+      ],
+      "unit_vector": [
+        -0.31072747707366943,
+        0.30898386240005493,
+        0.26481083035469055,
+        -0.3804401755332947,
+        -0.08366522192955017,
+        -0.018391462042927742,
+        -0.10182563215494156,
+        0.24576394259929657,
+        0.20435978472232819,
+        -0.3158499002456665,
+        -0.3512270748615265,
+        0.18660396337509155,
+        0.01858050934970379,
+        0.16281233727931976,
+        0.36339619755744934,
+        -0.23747827112674713
+      ],
+      "l2_norm": 1.889628363521685,
+      "cosine_available": true
+    }
+  ]
+}
