@@ -36,7 +36,8 @@ pub const ASPECTS: [&str; 6] = [
 pub enum OwnDeckVariant {
     Neutral,
     Original,
-    /// Reserved depletion arm: no remaining ledger is implemented, so row 1 is unknown.
+    /// The legacy constructor leaves row 1 unknown; opt-in RemainingLedger can
+    /// provide provenance-gated counts without changing the original row.
     OriginalPlusRemaining,
 }
 
