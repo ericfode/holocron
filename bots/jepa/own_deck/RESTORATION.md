@@ -83,7 +83,9 @@ The single execution at `bef4e82fe7ceb7100eac8b2572275fc0dd64b0b9`
 completed **400 head updates**, four fixed provenance-validation measurements,
 and 54 final curve points (27 per arm). All points and eight aggregate records
 were appended to the feed. The worker exited cleanly; the conservative tree
-RSS bound was 105.94 MiB and total measured run wall time was 0.113 seconds.
+RSS bound was 105.94 MiB. Recorded fit/result-return elapsed time was 0.113
+seconds; the parent completion event recorded approximately 0.175 seconds
+through result persistence and emission.
 The frozen model/checkpoint files stayed unchanged. No retry, extra fit,
 deployment or paid job followed these measurements.
 

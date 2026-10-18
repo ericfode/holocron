@@ -103,3 +103,20 @@ this PR; they are not covered by the commit IDs above:
 No old training result establishes the benefit of own-deck context. The legacy
 deck-edit research in chat `01a12ebd-eaf3-7570-a0d2-fde1efdfc203` is a different
 task and was not substituted for this recovered continuation research.
+
+## Owner checkpoint and restart handoff
+
+After the Mac restart on 2026-10-18, the parent relayed the old research owner's
+checkpoint: HEAD remains `c39e1534664d6c055c844722f7251ee6cdf6c3ac`, tracked
+files are clean, the same four untracked reports are preserved, and its work
+has stopped with no surviving task-owned experiment processes. It confirms
+64 continuation updates, 12 Kessel integration games, 175 historical tests,
+worse held-out fit loss than the frozen baseline, and the historical supervisor
+failure. These are owner-reported historical counts, not reruns here.
+
+The independent task7 audit checked the saved commit/report/archive pins and
+the newer seven-loss export; the old owner had not inspected that export.
+There is no remaining overlap blocker. Current task7 fit receipts and the
+append-only feed show all 300 composition and 400 frozen-probe head updates
+completed before the restart. They were checked from saved artifacts and were
+not restarted. No paid job or deployment had been launched by this batch.
