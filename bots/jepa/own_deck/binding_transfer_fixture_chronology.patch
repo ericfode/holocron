@@ -1,0 +1,25 @@
+--- a/bots/jepa/own_deck/binding_transfer_native_collector/src/main.rs
++++ b/bots/jepa/own_deck/binding_transfer_native_collector/src/main.rs
+@@ -111,4 +111,15 @@
+-fn attach_fixture(e:&Engine,s:&mut State,owner:Seat,code:&str,host:CardId)->CardId{
+-    let id=add(e,s,owner,code);let old=s.card(host).upgrades;
+-    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=old;s.card_mut(host).upgrades=id;
+-    s.registration_order.push(id).unwrap();id
++fn attach_fixture(e:&Engine,s:&mut State,owner:Seat,code:&str,host:CardId)->Result<CardId,String>{
++    if host==0||host>=s.next_id||!s.card(host).present{return Err("invalid fixture attachment host".into());}
++    // Match native Engine::attach chronology: ordinary upgrades append at tail.
++    // Validate the existing chain before allocating or changing any links.
++    let mut tail=0;let mut current=s.card(host).upgrades;let mut seen=vec![];
++    while current!=0{
++        if current>=s.next_id||seen.contains(&current){return Err("invalid/cyclic fixture attachment chain".into());}
++        let card=s.card(current);
++        if !card.present||card.parent!=host{return Err("fixture attachment parent mismatch".into());}
++        seen.push(current);tail=current;current=card.next_upgrade;
++    }
++    let id=add(e,s,owner,code);
++    if tail==0{s.card_mut(host).upgrades=id;}else{s.card_mut(tail).next_upgrade=id;}
++    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=0;
++    s.registration_order.push(id)?;Ok(id)
+@@ -128 +139 @@
+-                attachments.push(attach_fixture(e,&mut s,Seat::P2,code.as_str().ok_or("victim upgrade code missing")?,refs[3]));
++                attachments.push(attach_fixture(e,&mut s,Seat::P2,code.as_str().ok_or("victim upgrade code missing")?,refs[3])?);

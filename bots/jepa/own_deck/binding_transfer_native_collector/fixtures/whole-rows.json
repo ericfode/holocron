@@ -1,0 +1,1866 @@
+{
+  "schema": "binding-transfer-whole-row-fixture/1",
+  "source_catalog_pin": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+    "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+    "bytes": 12675831
+  },
+  "cards": [
+    {
+      "setCode": "ASH_019",
+      "id": "7349221421",
+      "internalName": "fortress-of-the-great-mothers",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Fortress of the Great Mothers",
+        "subtitle": "",
+        "cost": null,
+        "hp": 30,
+        "power": null,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "7349221421",
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "peridea"
+        ],
+        "keywords": [],
+        "types": [
+          "base"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 19
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 19
+          }
+        ],
+        "internalName": "fortress-of-the-great-mothers"
+      },
+      "dataHash": "b1e5d2035bc16d2f0b286e465e728b144797b666fbf180cc510e67ffaefdefc0",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:base"
+      ]
+    },
+    {
+      "setCode": "ASH_056",
+      "sourcePath": "game/cards/08_ASH/units/HuyangYourAptitudeFallsShort.ts",
+      "sourceHash": "01779b9b6b7608edae996df06e71bf81c89c95545b9749c6ed61b9e651be08b9",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "onAttack",
+            "title": "Give an upgraded unit -4/-0 for this phase",
+            "costs": [],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "unit",
+              "zone": "anyAttackable",
+              "predicate": {
+                "kind": "binary",
+                "op": "&&",
+                "left": {
+                  "kind": "query",
+                  "name": "isUnit",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  },
+                  "args": []
+                },
+                "right": {
+                  "kind": "query",
+                  "name": "isUpgraded",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  },
+                  "args": []
+                }
+              }
+            },
+            "effect": {
+              "kind": "modifyStats",
+              "target": "chosen",
+              "duration": "phase",
+              "power": {
+                "kind": "unary",
+                "op": "-",
+                "value": {
+                  "kind": "const",
+                  "value": 4
+                }
+              },
+              "hp": {
+                "kind": "const",
+                "value": 0
+              }
+            }
+          }
+        ]
+      },
+      "className": "HuyangYourAptitudeFallsShort",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "5606840637",
+      "internalName": "huyang#your-aptitude-falls-short",
+      "status": "supported",
+      "card": {
+        "title": "Huyang",
+        "subtitle": "Your Aptitude Falls Short",
+        "cost": 2,
+        "hp": 4,
+        "power": 2,
+        "text": "On Attack: You may give an upgraded unit \u20134/\u20130 for this phase.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": true,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "5606840637",
+        "aspects": [
+          "vigilance",
+          "heroism"
+        ],
+        "traits": [
+          "jedi",
+          "droid"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 56
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 56
+          }
+        ],
+        "internalName": "huyang#your-aptitude-falls-short"
+      },
+      "dataHash": "258674277aed448114b06a0d6dc86b16d8a11729f61984dca6ca5aca8817a1e3",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:&&",
+        "cardType:unit",
+        "ir:binary",
+        "ir:const",
+        "ir:modifyStats",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "query:isUnit",
+        "query:isUpgraded",
+        "ref:card",
+        "targetType:unit",
+        "targetZone:anyAttackable",
+        "trigger:onAttack",
+        "unary:-"
+      ]
+    },
+    {
+      "setCode": "ASH_066",
+      "sourcePath": "game/cards/08_ASH/upgrades/LukesJediLightsaberConstructedByHand.ts",
+      "sourceHash": "0987a3df4d7de4148b8a5619066c818aefe6716c2693d9fbf4faa5fcc4aebf48",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "constant",
+            "title": "Give Sentinel to the attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "gainKeyword",
+              "target": "parent",
+              "duration": "persistent",
+              "keyword": "sentinel",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            "condition": {
+              "kind": "binary",
+              "op": "===",
+              "left": {
+                "kind": "ref",
+                "path": [
+                  "source",
+                  "parentCard",
+                  "title"
+                ]
+              },
+              "right": {
+                "kind": "const",
+                "value": "Luke Skywalker"
+              }
+            }
+          }
+        ]
+      },
+      "className": "LukesJediLightsaberConstructedByHand",
+      "baseClass": "UpgradeCard",
+      "id": "4924242543",
+      "internalName": "lukes-jedi-lightsaber#constructed-by-hand",
+      "attachCondition": {
+        "kind": "unary",
+        "op": "!",
+        "value": {
+          "kind": "query",
+          "name": "hasSomeTrait",
+          "receiver": {
+            "kind": "ref",
+            "path": [
+              "card"
+            ]
+          },
+          "args": [
+            {
+              "kind": "const",
+              "value": "vehicle"
+            }
+          ]
+        }
+      },
+      "status": "supported",
+      "card": {
+        "title": "Luke's Jedi Lightsaber",
+        "subtitle": "Constructed by Hand",
+        "cost": 3,
+        "hp": 3,
+        "power": 3,
+        "text": "Attach to a non-Vehicle unit.\nIf attached unit is Luke Skywalker, he gains Sentinel. (Enemy units in this arena must attack a Sentinel when they attack you.)",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": true,
+        "rules": null,
+        "upgradePower": 3,
+        "upgradeHp": 3,
+        "id": "4924242543",
+        "aspects": [
+          "vigilance",
+          "heroism"
+        ],
+        "traits": [
+          "item",
+          "weapon",
+          "lightsaber"
+        ],
+        "keywords": [
+          "sentinel"
+        ],
+        "types": [
+          "upgrade"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 66
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 66
+          }
+        ],
+        "internalName": "lukes-jedi-lightsaber#constructed-by-hand"
+      },
+      "dataHash": "790256fff18d0f9ad3ed56a8909a057014ee00d2073a26dff0e72e9785e8b1d5",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:===",
+        "cardType:upgrade",
+        "ir:binary",
+        "ir:const",
+        "ir:gainKeyword",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "keyword:sentinel",
+        "query:hasSomeTrait",
+        "ref:card",
+        "ref:source.parentCard.title",
+        "trigger:constant",
+        "unary:!"
+      ]
+    },
+    {
+      "setCode": "ASH_071",
+      "sourcePath": "game/cards/08_ASH/units/BatteredHaulcraft.ts",
+      "sourceHash": "456128a27da7476608caa9aa5344abee3395e1d6262939f9fe721577793e61a9",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "title": "Deal 1 damage to this unit and an enemy space unit",
+            "costs": [],
+            "effect": {
+              "kind": "simultaneous",
+              "effects": [
+                {
+                  "kind": "damage",
+                  "target": "self",
+                  "amount": {
+                    "kind": "const",
+                    "value": 1
+                  }
+                },
+                {
+                  "kind": "select",
+                  "targetResolver": {
+                    "owner": "opponent",
+                    "type": "unit",
+                    "zone": "arena",
+                    "arena": "space"
+                  },
+                  "effect": {
+                    "kind": "damage",
+                    "target": "chosen",
+                    "amount": {
+                      "kind": "const",
+                      "value": 1
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "className": "BatteredHaulcraft",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "3515403989",
+      "internalName": "battered-haulcraft",
+      "status": "supported",
+      "card": {
+        "title": "Battered Haulcraft",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 3,
+        "power": 2,
+        "text": "When Played: Deal 1 damage to this unit and 1 damage to an enemy space unit.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "3515403989",
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "vehicle",
+          "transport"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 71
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 71
+          }
+        ],
+        "internalName": "battered-haulcraft"
+      },
+      "dataHash": "91e668a5fb9f12e71e760b3d48da74ff8e5c23aed003410e2e0dd500dffb2a93",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit",
+        "ir:const",
+        "ir:damage",
+        "ir:select",
+        "ir:simultaneous",
+        "targetType:unit",
+        "targetZone:arena",
+        "trigger:whenPlayed"
+      ]
+    },
+    {
+      "setCode": "ASH_228",
+      "sourcePath": "game/cards/08_ASH/upgrades/Preparation.ts",
+      "sourceHash": "065d3f0436e5876160b0b9fe9360f68a061a1301931ae8f670a5ddf077348f9d",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "title": "Exhaust attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "exhaust",
+              "target": {
+                "kind": "ref",
+                "path": [
+                  "source",
+                  "parentCard"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "className": "Preparation",
+      "baseClass": "UpgradeCard",
+      "id": "8752784897",
+      "internalName": "preparation",
+      "status": "supported",
+      "card": {
+        "title": "Preparation",
+        "subtitle": "",
+        "cost": 1,
+        "hp": 1,
+        "power": 2,
+        "text": "When Played: Exhaust attached unit.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": 2,
+        "upgradeHp": 1,
+        "id": "8752784897",
+        "aspects": [
+          "cunning"
+        ],
+        "traits": [
+          "plan"
+        ],
+        "keywords": [],
+        "types": [
+          "upgrade"
+        ],
+        "setId": {
+          "set": "ASH",
+          "number": 228
+        },
+        "setCodes": [
+          {
+            "set": "ASH",
+            "number": 228
+          }
+        ],
+        "internalName": "preparation"
+      },
+      "dataHash": "e2d38ad2bd2d71debe8e884d1ae4262ef7e29adc169d8756516910d4ad09e44c",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:upgrade",
+        "ir:exhaust",
+        "ir:ref",
+        "ref:source.parentCard",
+        "trigger:whenPlayed"
+      ]
+    },
+    {
+      "setCode": "IBH_053",
+      "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+      "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+      "abilities": {
+        "leader": [
+          {
+            "trigger": "action",
+            "title": "Deal 1 damage to a base",
+            "costs": [
+              {
+                "kind": "resources",
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                }
+              },
+              {
+                "kind": "exhaustSelf"
+              }
+            ],
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "effect": {
+              "kind": "damage",
+              "target": "chosen",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            }
+          }
+        ],
+        "unit": [
+          {
+            "trigger": "onAttack",
+            "title": "Deal 2 damage to a base",
+            "costs": [],
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "effect": {
+              "kind": "damage",
+              "target": "chosen",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          }
+        ],
+        "card": []
+      },
+      "className": "DarthVaderDontFailMeAgain",
+      "baseClass": "LeaderUnitCard",
+      "id": "9389694773",
+      "internalName": "darth-vader#dont-fail-me-again",
+      "status": "supported",
+      "card": {
+        "title": "Darth Vader",
+        "subtitle": "Don't Fail Me Again",
+        "cost": 6,
+        "hp": 8,
+        "power": 3,
+        "text": "Action [1 resource, Exhaust]: Deal 1 damage to a base.",
+        "deployBox": "On Attack: Deal 2 damage to a base.",
+        "epicAction": "Epic Action: If you control 6 or more resources, deploy this leader. (Flip him, ready him, and move him to the ground arena.)",
+        "unique": true,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9389694773",
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "traits": [
+          "force",
+          "imperial",
+          "sith"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "leader"
+        ],
+        "setId": {
+          "set": "IBH",
+          "number": 53
+        },
+        "setCodes": [
+          {
+            "set": "IBH",
+            "number": 53
+          }
+        ],
+        "internalName": "darth-vader#dont-fail-me-again"
+      },
+      "dataHash": "8e008bd17ac55ad59d2cc5ce2a879d3eb070e1d19f990b1c73e3e545ccd8bc8a",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:leader",
+        "ir:const",
+        "ir:damage",
+        "ir:exhaustSelf",
+        "ir:resources",
+        "targetType:any",
+        "targetZone:base",
+        "trigger:action",
+        "trigger:onAttack"
+      ]
+    },
+    {
+      "setCode": "JTL_085",
+      "sourcePath": "game/cards/04_JTL/units/VictorLeaderLeadingFromTheFront.ts",
+      "sourceHash": "143c730115cdb25d9f7d47590d4fbf9fbc09fba40d2c68ea8732c7333781773f",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "constant",
+            "title": "Each other friendly space unit gets +1/+1",
+            "costs": [],
+            "effect": {
+              "kind": "modifyStats",
+              "target": "chosen",
+              "duration": "persistent",
+              "power": {
+                "kind": "const",
+                "value": 1
+              },
+              "hp": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            "targetResolver": {
+              "owner": "self",
+              "type": "unit",
+              "zone": "arena",
+              "arena": "space",
+              "predicate": {
+                "kind": "binary",
+                "op": "!==",
+                "left": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "right": {
+                  "kind": "ref",
+                  "path": [
+                    "source"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "className": "VictorLeaderLeadingFromTheFront",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "9811031405",
+      "internalName": "victor-leader#leading-from-the-front",
+      "status": "supported",
+      "card": {
+        "title": "Victor Leader",
+        "subtitle": "Leading from the Front",
+        "cost": 3,
+        "hp": 4,
+        "power": 2,
+        "text": "Each other friendly space unit gets +1/+1.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": true,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9811031405",
+        "aspects": [
+          "command",
+          "villainy"
+        ],
+        "traits": [
+          "imperial",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "JTL",
+          "number": 85
+        },
+        "setCodes": [
+          {
+            "set": "JTL",
+            "number": 85
+          }
+        ],
+        "internalName": "victor-leader#leading-from-the-front"
+      },
+      "dataHash": "ea67a7dd04d9a399069d37ce5b53dc07fa36b1e7e7a4cdf89b6a0f25d22937f1",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:!==",
+        "cardType:unit",
+        "ir:binary",
+        "ir:const",
+        "ir:modifyStats",
+        "ir:ref",
+        "ref:card",
+        "ref:source",
+        "targetType:unit",
+        "targetZone:arena",
+        "trigger:constant"
+      ]
+    },
+    {
+      "setCode": "JTL_095",
+      "id": "7653629848",
+      "internalName": "phoenix-squadron-awing",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Phoenix Squadron A-Wing",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 2,
+        "power": 3,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "7653629848",
+        "aspects": [
+          "command",
+          "heroism"
+        ],
+        "traits": [
+          "rebel",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "JTL",
+          "number": 95
+        },
+        "setCodes": [
+          {
+            "set": "JTL",
+            "number": 95
+          }
+        ],
+        "internalName": "phoenix-squadron-awing"
+      },
+      "dataHash": "bcb346e69a8db2504a3894fce1c13ba53d1bc4da6aa4eba3efbd6cd584d425ff",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    {
+      "setCode": "LAW_045",
+      "sourcePath": "game/cards/07_LAW/units/ZebOrreliosSpectreFour.ts",
+      "sourceHash": "7ee0f3c468a25a0d69c1bbeea8c2eeef792052cd337fcf5e5cbef41c523ebc1d",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "title": "Deal 3 damage to a ground unit. If you control a Command or Cunning unit, deal 5 damage to a ground unit instead",
+            "costs": [],
+            "contextTitle": [
+              {
+                "kind": "const",
+                "value": "Deal "
+              },
+              {
+                "kind": "conditional",
+                "condition": {
+                  "kind": "binary",
+                  "op": "||",
+                  "left": {
+                    "kind": "query",
+                    "name": "hasSomeArenaUnit",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "player"
+                      ]
+                    },
+                    "args": [
+                      {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "const",
+                          "value": true
+                        },
+                        "right": {
+                          "kind": "query",
+                          "name": "hasSomeAspect",
+                          "receiver": {
+                            "kind": "ref",
+                            "path": [
+                              "card"
+                            ]
+                          },
+                          "args": [
+                            {
+                              "kind": "const",
+                              "value": "command"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "kind": "query",
+                    "name": "hasSomeArenaUnit",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "player"
+                      ]
+                    },
+                    "args": [
+                      {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "const",
+                          "value": true
+                        },
+                        "right": {
+                          "kind": "query",
+                          "name": "hasSomeAspect",
+                          "receiver": {
+                            "kind": "ref",
+                            "path": [
+                              "card"
+                            ]
+                          },
+                          "args": [
+                            {
+                              "kind": "const",
+                              "value": "cunning"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "then": {
+                  "kind": "const",
+                  "value": 5
+                },
+                "else": {
+                  "kind": "const",
+                  "value": 3
+                }
+              },
+              {
+                "kind": "const",
+                "value": " damage to a ground unit"
+              }
+            ],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "arena",
+              "arena": "ground"
+            },
+            "effect": {
+              "kind": "damage",
+              "target": "chosen",
+              "amount": {
+                "kind": "conditional",
+                "condition": {
+                  "kind": "binary",
+                  "op": "||",
+                  "left": {
+                    "kind": "query",
+                    "name": "hasSomeArenaUnit",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "player"
+                      ]
+                    },
+                    "args": [
+                      {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "const",
+                          "value": true
+                        },
+                        "right": {
+                          "kind": "query",
+                          "name": "hasSomeAspect",
+                          "receiver": {
+                            "kind": "ref",
+                            "path": [
+                              "card"
+                            ]
+                          },
+                          "args": [
+                            {
+                              "kind": "const",
+                              "value": "command"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "kind": "query",
+                    "name": "hasSomeArenaUnit",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "player"
+                      ]
+                    },
+                    "args": [
+                      {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "const",
+                          "value": true
+                        },
+                        "right": {
+                          "kind": "query",
+                          "name": "hasSomeAspect",
+                          "receiver": {
+                            "kind": "ref",
+                            "path": [
+                              "card"
+                            ]
+                          },
+                          "args": [
+                            {
+                              "kind": "const",
+                              "value": "cunning"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "then": {
+                  "kind": "const",
+                  "value": 5
+                },
+                "else": {
+                  "kind": "const",
+                  "value": 3
+                }
+              }
+            }
+          }
+        ]
+      },
+      "className": "ZebOrreliosSpectreFour",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "6658095148",
+      "internalName": "zeb-orrelios#spectre-four",
+      "status": "supported",
+      "card": {
+        "title": "Zeb Orrelios",
+        "subtitle": "Spectre Four",
+        "cost": 5,
+        "hp": 4,
+        "power": 4,
+        "text": "Sentinel\nWhen Played: You may deal 3 damage to a ground unit. If you control a Command or Cunning unit, you may deal 5 damage to a ground unit instead.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": true,
+        "rules": "(ERRATA) Name: \"Zeb Orrelios\"\n",
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "6658095148",
+        "aspects": [
+          "vigilance",
+          "aggression",
+          "heroism"
+        ],
+        "traits": [
+          "rebel",
+          "spectre"
+        ],
+        "arena": "ground",
+        "keywords": [
+          "sentinel"
+        ],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "LAW",
+          "number": 45
+        },
+        "setCodes": [
+          {
+            "set": "LAW",
+            "number": 45
+          }
+        ],
+        "internalName": "zeb-orrelios#spectre-four"
+      },
+      "dataHash": "af3546c223544e9e2a494e10b236b4b9f5e568fd3849b2fc0d3215379a527c54",
+      "keywordValues": {
+        "sentinel": 1
+      },
+      "requiredCapabilities": [
+        "ability:then",
+        "binary:&&",
+        "binary:||",
+        "cardType:unit",
+        "ir:binary",
+        "ir:conditional",
+        "ir:const",
+        "ir:damage",
+        "ir:query",
+        "ir:ref",
+        "keyword:sentinel",
+        "query:hasSomeArenaUnit",
+        "query:hasSomeAspect",
+        "ref:card",
+        "ref:player",
+        "targetType:any",
+        "targetZone:arena",
+        "trigger:whenPlayed"
+      ]
+    },
+    {
+      "setCode": "LAW_175",
+      "id": "8746311599",
+      "internalName": "prototype-tie-advanced",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Prototype TIE Advanced",
+        "subtitle": "",
+        "cost": 3,
+        "hp": 3,
+        "power": 4,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "8746311599",
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "traits": [
+          "imperial",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "LAW",
+          "number": 175
+        },
+        "setCodes": [
+          {
+            "set": "JTL",
+            "number": 136
+          },
+          {
+            "set": "LAW",
+            "number": 175
+          }
+        ],
+        "internalName": "prototype-tie-advanced"
+      },
+      "dataHash": "2bd7cf3f3f2561acce1aefb85995128747e4091380831dd792837738cfb9c7b1",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    {
+      "setCode": "LOF_053",
+      "sourcePath": "game/cards/05_LOF/upgrades/HeirloomLightsaber.ts",
+      "sourceHash": "b92811568be08c29a2030644aee22b2e0644b86c1461caffdea4b1c3c9faf5a7",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "constant",
+            "title": "Give Restore 1 to the attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "gainKeyword",
+              "target": "parent",
+              "duration": "persistent",
+              "keyword": "restore",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            "condition": {
+              "kind": "query",
+              "name": "hasSomeTrait",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "source",
+                  "parentCard"
+                ]
+              },
+              "args": [
+                {
+                  "kind": "const",
+                  "value": "force"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "className": "HeirloomLightsaber",
+      "baseClass": "UpgradeCard",
+      "id": "9852723156",
+      "internalName": "heirloom-lightsaber",
+      "attachCondition": {
+        "kind": "unary",
+        "op": "!",
+        "value": {
+          "kind": "query",
+          "name": "hasSomeTrait",
+          "receiver": {
+            "kind": "ref",
+            "path": [
+              "card"
+            ]
+          },
+          "args": [
+            {
+              "kind": "const",
+              "value": "vehicle"
+            }
+          ]
+        }
+      },
+      "status": "supported",
+      "card": {
+        "title": "Heirloom Lightsaber",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 2,
+        "power": 2,
+        "text": "Attach to a non-Vehicle unit.\nIf attached unit is a Force unit, it gains Restore 1. (When this unit attacks, heal 1 damage from your base.)",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": 2,
+        "upgradeHp": 2,
+        "id": "9852723156",
+        "aspects": [
+          "vigilance",
+          "heroism"
+        ],
+        "traits": [
+          "item",
+          "weapon",
+          "lightsaber"
+        ],
+        "keywords": [
+          "restore"
+        ],
+        "types": [
+          "upgrade"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 53
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 53
+          }
+        ],
+        "internalName": "heirloom-lightsaber"
+      },
+      "dataHash": "237ebda5e974ee05b96957977e074f6494f3d80d9335604553812c86d47fe675",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:upgrade",
+        "ir:const",
+        "ir:gainKeyword",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "keyword:restore",
+        "query:hasSomeTrait",
+        "ref:card",
+        "ref:source.parentCard",
+        "trigger:constant",
+        "unary:!"
+      ]
+    },
+    {
+      "setCode": "LOF_215",
+      "sourcePath": "game/cards/05_LOF/upgrades/AscensionCable.ts",
+      "sourceHash": "3859aeeddf4c0fd363daabb10df0899417da214c7e86b9ec13d3f8cc1dbd7425",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "constant",
+            "title": "Give Saboteur to the attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "gainKeyword",
+              "target": "parent",
+              "duration": "persistent",
+              "keyword": "saboteur",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            }
+          }
+        ]
+      },
+      "className": "AscensionCable",
+      "baseClass": "UpgradeCard",
+      "id": "6128668392",
+      "internalName": "ascension-cable",
+      "attachCondition": {
+        "kind": "unary",
+        "op": "!",
+        "value": {
+          "kind": "query",
+          "name": "hasSomeTrait",
+          "receiver": {
+            "kind": "ref",
+            "path": [
+              "card"
+            ]
+          },
+          "args": [
+            {
+              "kind": "const",
+              "value": "vehicle"
+            }
+          ]
+        }
+      },
+      "status": "supported",
+      "card": {
+        "title": "Ascension Cable",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 3,
+        "power": 1,
+        "text": "Attach to a non-Vehicle unit.\nAttached unit gains Saboteur. (When this unit attacks, ignore Sentinel and defeat the defender's Shields.)",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": 1,
+        "upgradeHp": 3,
+        "id": "6128668392",
+        "aspects": [
+          "cunning"
+        ],
+        "traits": [
+          "item"
+        ],
+        "keywords": [
+          "saboteur"
+        ],
+        "types": [
+          "upgrade"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 215
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 215
+          }
+        ],
+        "internalName": "ascension-cable"
+      },
+      "dataHash": "fdbc1509bda34397d0845fb8bcae476c54a5a76be62995d332a788c9590e9019",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:upgrade",
+        "ir:const",
+        "ir:gainKeyword",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "keyword:saboteur",
+        "query:hasSomeTrait",
+        "ref:card",
+        "trigger:constant",
+        "unary:!"
+      ]
+    },
+    {
+      "setCode": "LOF_256",
+      "id": "9014610567",
+      "internalName": "gifted-urchin",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Gifted Urchin",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 4,
+        "power": 1,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9014610567",
+        "aspects": [],
+        "traits": [
+          "force",
+          "fringe"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 256
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 256
+          }
+        ],
+        "internalName": "gifted-urchin"
+      },
+      "dataHash": "7fb71dd198239ad52b1a405648566d88a668882480d29f82397d13b0ceb646b9",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    {
+      "setCode": "LOF_261",
+      "sourcePath": "game/cards/05_LOF/upgrades/ConstructedLightsaber.ts",
+      "sourceHash": "095c60437d2cfe400aace0882ff0ec34d0d9652165c340c54868c39ef072ba56",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "constant",
+            "title": "Give Restore 2 to the attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "gainKeyword",
+              "target": "parent",
+              "duration": "persistent",
+              "keyword": "restore",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            },
+            "condition": {
+              "kind": "query",
+              "name": "hasSomeAspect",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "source",
+                  "parentCard"
+                ]
+              },
+              "args": [
+                {
+                  "kind": "const",
+                  "value": "heroism"
+                }
+              ]
+            }
+          },
+          {
+            "trigger": "constant",
+            "title": "Give Raid 2 to the attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "gainKeyword",
+              "target": "parent",
+              "duration": "persistent",
+              "keyword": "raid",
+              "amount": {
+                "kind": "const",
+                "value": 2
+              }
+            },
+            "condition": {
+              "kind": "query",
+              "name": "hasSomeAspect",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "source",
+                  "parentCard"
+                ]
+              },
+              "args": [
+                {
+                  "kind": "const",
+                  "value": "villainy"
+                }
+              ]
+            }
+          },
+          {
+            "trigger": "constant",
+            "title": "Give Sentinel to the attached unit",
+            "costs": [],
+            "effect": {
+              "kind": "gainKeyword",
+              "target": "parent",
+              "duration": "persistent",
+              "keyword": "sentinel",
+              "amount": {
+                "kind": "const",
+                "value": 1
+              }
+            },
+            "condition": {
+              "kind": "unary",
+              "op": "!",
+              "value": {
+                "kind": "query",
+                "name": "hasSomeAspect",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "source",
+                    "parentCard"
+                  ]
+                },
+                "args": [
+                  {
+                    "kind": "array",
+                    "items": [
+                      {
+                        "kind": "const",
+                        "value": "heroism"
+                      },
+                      {
+                        "kind": "const",
+                        "value": "villainy"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "className": "ConstructedLightsaber",
+      "baseClass": "UpgradeCard",
+      "id": "3688574857",
+      "internalName": "constructed-lightsaber",
+      "attachCondition": {
+        "kind": "query",
+        "name": "hasSomeTrait",
+        "receiver": {
+          "kind": "ref",
+          "path": [
+            "card"
+          ]
+        },
+        "args": [
+          {
+            "kind": "const",
+            "value": "force"
+          }
+        ]
+      },
+      "status": "supported",
+      "card": {
+        "title": "Constructed Lightsaber",
+        "subtitle": "",
+        "cost": 3,
+        "hp": 3,
+        "power": 2,
+        "text": "Attach to a Force unit.\nIf attached unit is a Heroism unit, it gains Restore 2.\nIf attached unit is a Villainy unit, it gains Raid 2.\nIf attached unit is a non-Heroism, non-Villainy unit, it gains Sentinel.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": 2,
+        "upgradeHp": 3,
+        "id": "3688574857",
+        "aspects": [],
+        "traits": [
+          "item",
+          "weapon",
+          "lightsaber"
+        ],
+        "keywords": [
+          "restore",
+          "raid",
+          "sentinel"
+        ],
+        "types": [
+          "upgrade"
+        ],
+        "setId": {
+          "set": "LOF",
+          "number": 261
+        },
+        "setCodes": [
+          {
+            "set": "LOF",
+            "number": 261
+          }
+        ],
+        "internalName": "constructed-lightsaber"
+      },
+      "dataHash": "6613d29cc5d090240379882f4afc82fae6987150ed46caefe28711ed28211580",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:upgrade",
+        "ir:array",
+        "ir:const",
+        "ir:gainKeyword",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "keyword:raid",
+        "keyword:restore",
+        "keyword:sentinel",
+        "query:hasSomeAspect",
+        "query:hasSomeTrait",
+        "ref:card",
+        "ref:source.parentCard",
+        "trigger:constant",
+        "unary:!"
+      ]
+    },
+    {
+      "setCode": "SEC_028",
+      "id": "9592786976",
+      "internalName": "trayus-acolyte",
+      "sourcePath": null,
+      "sourceHash": null,
+      "status": "supported",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "card": {
+        "title": "Trayus Acolyte",
+        "subtitle": "",
+        "cost": 2,
+        "hp": 4,
+        "power": 2,
+        "text": "",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": false,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9592786976",
+        "aspects": [
+          "vigilance",
+          "villainy"
+        ],
+        "traits": [
+          "force",
+          "sith"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "SEC",
+          "number": 28
+        },
+        "setCodes": [
+          {
+            "set": "SEC",
+            "number": 28
+          }
+        ],
+        "internalName": "trayus-acolyte"
+      },
+      "dataHash": "1f62dacd3848d9209be98be80b0aa9ffc76d5f9c7a87a4e7bf744b2755e47194",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ]
+    },
+    {
+      "setCode": "SEC_094",
+      "sourcePath": "game/cards/06_SEC/units/MinaBonteriStopThisWar.ts",
+      "sourceHash": "a56b0a898efe245a87a1a2247a51740245e769b23c9a7e80ad194f616b732192",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenDefeated",
+            "title": "Disclose Command, Command, Heroism to draw a card",
+            "costs": [],
+            "effect": {
+              "kind": "disclose",
+              "target": "ownPlayer",
+              "aspects": [
+                "command",
+                "command",
+                "heroism"
+              ],
+              "mode": "all",
+              "aspectMultiplicity": true,
+              "selectedCardsEventField": "disclosedCards",
+              "triggeredNoMatchPolicy": "maskWithPauseWithoutEvent",
+              "selectionContext": "targetPlayer"
+            },
+            "ifYouDo": {
+              "title": "Draw a card",
+              "costs": [],
+              "effect": {
+                "kind": "draw",
+                "target": "ownPlayer",
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "className": "MinaBonteriStopThisWar",
+      "baseClass": "NonLeaderUnitCard",
+      "id": "9378249305",
+      "internalName": "mina-bonteri#stop-this-war",
+      "status": "supported",
+      "card": {
+        "title": "Mina Bonteri",
+        "subtitle": "Stop This War",
+        "cost": 2,
+        "hp": 4,
+        "power": 2,
+        "text": "Restore 1 (When this unit attacks, heal 1 damage from your base.)\nWhen Defeated: You may disclose CommandCommandHeroism (reveal cards from your hand with these aspect icons among them). If you do, draw a card.",
+        "deployBox": null,
+        "epicAction": "",
+        "unique": true,
+        "rules": null,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "id": "9378249305",
+        "aspects": [
+          "command",
+          "heroism"
+        ],
+        "traits": [
+          "separatist",
+          "official"
+        ],
+        "arena": "ground",
+        "keywords": [
+          "restore"
+        ],
+        "types": [
+          "unit"
+        ],
+        "setId": {
+          "set": "SEC",
+          "number": 94
+        },
+        "setCodes": [
+          {
+            "set": "SEC",
+            "number": 94
+          }
+        ],
+        "internalName": "mina-bonteri#stop-this-war"
+      },
+      "dataHash": "aad57fcf738abe57def5884256f41789248902c9189bf489d73c1ad01e5fa8b4",
+      "keywordValues": {
+        "restore": 1
+      },
+      "requiredCapabilities": [
+        "ability:ifYouDo",
+        "cardType:unit",
+        "ir:const",
+        "ir:disclose",
+        "ir:draw",
+        "keyword:restore",
+        "trigger:whenDefeated"
+      ]
+    },
+    {
+      "setCode": "TOKEN_SHIELD",
+      "sourcePath": "game/cards/01_SOR/tokens/Shield.ts",
+      "sourceHash": "39f1c6699c36ba309a8fe8e053f9b94ddbb8877991767b6664fcd88d447be91f",
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      },
+      "className": "Shield",
+      "baseClass": "TokenUpgradeCard",
+      "id": "8752877738",
+      "internalName": "shield",
+      "status": "unsupported",
+      "card": {
+        "title": "Shield",
+        "subtitle": null,
+        "cost": 0,
+        "hp": 0,
+        "power": 0,
+        "text": "If damage would be dealt to attached unit, prevent that damage. If you do, defeat a Shield token on it.",
+        "deployBox": null,
+        "epicAction": null,
+        "unique": false,
+        "rules": null,
+        "upgradePower": 0,
+        "upgradeHp": 0,
+        "id": "8752877738",
+        "aspects": [],
+        "traits": [
+          "armor"
+        ],
+        "keywords": [],
+        "types": [
+          "token",
+          "upgrade"
+        ],
+        "setId": {
+          "set": "SOR"
+        },
+        "internalName": "shield"
+      },
+      "dataHash": "3fe37b5b4c214e1a6971c2ea5e7729a7cad9bf983a384c20b56c404cbf41208b",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:token",
+        "cardType:upgrade"
+      ]
+    }
+  ],
+  "runtimeAdmittedCards": [
+    {
+      "setCode": "ASH_019"
+    },
+    {
+      "setCode": "ASH_056"
+    },
+    {
+      "setCode": "ASH_066"
+    },
+    {
+      "setCode": "ASH_071"
+    },
+    {
+      "setCode": "ASH_228"
+    },
+    {
+      "setCode": "IBH_053"
+    },
+    {
+      "setCode": "JTL_085"
+    },
+    {
+      "setCode": "JTL_095"
+    },
+    {
+      "setCode": "LAW_045"
+    },
+    {
+      "setCode": "LAW_175"
+    },
+    {
+      "setCode": "LOF_053"
+    },
+    {
+      "setCode": "LOF_215"
+    },
+    {
+      "setCode": "LOF_256"
+    },
+    {
+      "setCode": "LOF_261"
+    },
+    {
+      "setCode": "SEC_028"
+    },
+    {
+      "setCode": "SEC_094"
+    }
+  ]
+}

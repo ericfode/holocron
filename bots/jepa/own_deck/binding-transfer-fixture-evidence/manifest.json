@@ -1,0 +1,179 @@
+{
+  "accounting": {
+    "cumulative_charged_native_applies": 160,
+    "cumulative_charged_seconds": 111.76578145672102,
+    "debug_charged_seconds": 1.6639899580040947,
+    "historical_observed_native_applies": null,
+    "new_engine_applications": 0,
+    "new_neural_forwards": 0,
+    "new_numerical_fits": 0,
+    "new_optimizer_updates": 0,
+    "new_paid_spend_usd": 0,
+    "prior_charged_native_applies": 160,
+    "prior_charged_seconds": 110.10179149871692,
+    "prior_failed_native_reservation_retained": 48
+  },
+  "authored_files": [
+    {
+      "bytes": 2942,
+      "path": "README.md",
+      "sha256": "421a0b11020a7621021d89331b5902265d41ffa6d27a3b742887876be36fd212"
+    }
+  ],
+  "external_evidence": {
+    "excluded": [
+      "binaries",
+      "whole-prior-failure-archive",
+      "external-source-files"
+    ],
+    "failed_archive_index": {
+      "bytes": 205624,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/binding-transfer-v1-failed-archive/evidence-index.json",
+      "sha256": "ac672676f76305294afd44940707ea5b08ad69b921b8e51f06e0e1f061ff749a"
+    },
+    "failed_archive_manifest": {
+      "bytes": 150503,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/binding-transfer-v1-failed-archive/manifest.json",
+      "sha256": "5cd1e0bac1f7f04965e464e945e368777711a1704638d9e650f24af5105426ae"
+    },
+    "full_source_closure": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1"
+  },
+  "files": [
+    {
+      "bytes": 45330,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/config.json",
+      "path": "debug/config.json",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "5886e15ab9fe09082357351b297e333093e4eeee0224892f2a06dcab7b494192"
+    },
+    {
+      "bytes": 79866,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/campaign-ledger.jsonl",
+      "path": "debug/campaign-ledger.jsonl",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "f68f7220a09812d80fc2dd64dba34737e3926f4caab8c3b3b909388cbad511d3"
+    },
+    {
+      "bytes": 41724,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validation-source-manifest.json",
+      "path": "debug/validation-source-manifest.json",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "5fd4783d9d8e595bdd974343dfedb960a9f5e871bffc789271b7d6881f75391d"
+    },
+    {
+      "bytes": 44093,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1-stage-receipt.json",
+      "path": "debug/build-1-stage-receipt.json",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "d27f2019683599c92c569e530889a7828b6a198791dd9811d377cb67abfd32c8"
+    },
+    {
+      "bytes": 45447,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1-stage-receipt.json",
+      "path": "debug/validate-1-stage-receipt.json",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "163278787fbb94264105617114784b2f8a119eb40e9f38a9ff6cf6c9189f4d39"
+    },
+    {
+      "bytes": 828113,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/validation.json",
+      "path": "debug/validate-1/validation.json",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "8942b37d64ec098ebccd0981884ea2938b775649dc933c3095af57921442d1bf"
+    },
+    {
+      "bytes": 9165,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/prechange/preservation.json",
+      "path": "debug/prechange/preservation.json",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "9dfead1853581dd70ff31ee2d15fa50fccfaca2a64495b8792e925c307ce0095"
+    },
+    {
+      "bytes": 63082,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/closure-audit.json",
+      "path": "debug/closure-audit.json",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "6f9974fee431558068faaf65ebb756d0050a0e07d6d62b5e5fcb500181559b67"
+    },
+    {
+      "bytes": 0,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1/stdout.log",
+      "path": "debug/build-1/stdout.log",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 2130,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1/stderr.log",
+      "path": "debug/build-1/stderr.log",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "3dde8f8267686b187a60b5f1180588f1c85df1f8564c0d5f5ad12987b5f0b6bc"
+    },
+    {
+      "bytes": 232,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/stdout.log",
+      "path": "debug/validate-1/stdout.log",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "2e2b8215d007f6bba2ab6ba57a8bb2e753d22c6e5bcda189a55f74a156917983"
+    },
+    {
+      "bytes": 0,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/stderr.log",
+      "path": "debug/validate-1/stderr.log",
+      "role": "zero-apply-fixture-validation",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 107878,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/collection-plan.json",
+      "path": "collection-plan.json",
+      "role": "unchanged-frozen-public-worlds",
+      "sha256": "0187415c122ba3353938c909f14b800198d65a41a56dcbb1d52197f4fe0bc52f"
+    },
+    {
+      "bytes": 217862,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/campaign-ledger.jsonl",
+      "path": "prior-failure/campaign-ledger.jsonl",
+      "role": "preserved-charged-failure",
+      "sha256": "ffb01088cc7c456b84e1c23a38720e5cfe060869e878236ec065d409fb37a4f2"
+    },
+    {
+      "bytes": 75,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/native-attempt-1/stderr.log",
+      "path": "prior-failure/native-attempt-1/stderr.log",
+      "role": "preserved-charged-failure",
+      "sha256": "adc3916fa5c31e0c91d7eeac9fcb9daf54838299de6a46adcc5e5f11eac6533a"
+    },
+    {
+      "bytes": 408,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/native-attempt-1/native-transitions.jsonl",
+      "path": "prior-failure/native-attempt-1/native-transitions.jsonl",
+      "role": "preserved-charged-failure",
+      "sha256": "f2351c7a0f9220e71168b5782c24c9935a0079b89dbd6ef5abc3eab5f2674a16"
+    },
+    {
+      "bytes": 5150,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_FIXTURE_VALIDATION.md",
+      "path": "reports/BINDING_TRANSFER_FIXTURE_VALIDATION.md",
+      "role": "report-snapshot-not-execution-authorization",
+      "sha256": "e9db4359a8b9e275081e34c8a11f02fbe8ae31dcf818ea73333cfc4b1958ed68"
+    },
+    {
+      "bytes": 6177,
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/BINDING_TRANSFER_NEXT_ALLOCATION.md",
+      "path": "reports/BINDING_TRANSFER_NEXT_ALLOCATION.md",
+      "role": "report-snapshot-not-execution-authorization",
+      "sha256": "97d8cd1e6cf2b1ace6f7e929b4de0a81e45c60ed63cc04d507baffd7aadfd575"
+    }
+  ],
+  "guard_source": {
+    "bytes": 20199,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_fixture_guard.py",
+    "sha256": "ab7f7d0473550d39371145dd025c5c53a4f5cfa12731e45be359bf13dfb5d3a7"
+  },
+  "schema": "jepa-binding-transfer-fixture-evidence/1",
+  "scope": "Byte copies and pure validation only; no action consequences, scientific rerun, remote publication or pointer promotion.",
+  "semantic_validated": false,
+  "source_freeze_commit": "cf3f4e024bcc08941da706b8d3515bbe2e65106b",
+  "status": "fixture-construction-validated-only"
+}

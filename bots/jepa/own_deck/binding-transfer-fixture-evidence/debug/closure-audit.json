@@ -1,0 +1,1351 @@
+{
+  "accounting": {
+    "carried_binding_charge_native_applies": 160,
+    "carried_binding_charge_seconds": 110.10179149871692,
+    "cumulative_charged_native_applies": 160,
+    "cumulative_charged_seconds": 111.76578145672102,
+    "cumulative_observed_native_applies": null,
+    "debug_charge_seconds_D": 1.6639899580040947,
+    "debug_native_applies": 0,
+    "no_credits_resets_or_retries": true,
+    "remaining_proposal_not_authorization": true
+  },
+  "created_at_utc": "2026-10-18T06:12:41.326110+00:00",
+  "limitations": [
+    "Counts and roundtrip flags are read from the saved validation JSON and checked for completeness; Engine was not rerun.",
+    "Preliminary supervisor receipt durations differ from final ledger durations; the ledger includes through receipt/proof writes and controls D.",
+    "This audit does not establish native post-action labels, dataset support, model quality, semantic transfer or playing strength."
+  ],
+  "new_debugging": {
+    "charged_seconds_D": 1.6639899580040947,
+    "config": {
+      "bytes": 45330,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/config.json",
+      "sha256": "5886e15ab9fe09082357351b297e333093e4eeee0224892f2a06dcab7b494192"
+    },
+    "final_record_sha256": "6321739736b349771bace38bdd607545c05c59fe4dd18f4d0978b62c1f365f30",
+    "fixtures_complete": 26,
+    "hash_chain_valid": true,
+    "interpretation": "Successful fixture construction and roundtrip validation only; no post-apply outcome, learner support or general rules-conformance claim.",
+    "ledger": {
+      "bytes": 79866,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/campaign-ledger.jsonl",
+      "sha256": "f68f7220a09812d80fc2dd64dba34737e3926f4caab8c3b3b909388cbad511d3"
+    },
+    "neural_forwards": 0,
+    "numerical_fits": 0,
+    "observed_engine_apply_invocations": 0,
+    "observed_native_applies": 0,
+    "optimizer_updates": 0,
+    "paid_jobs": 0,
+    "paid_spend_usd": 0,
+    "pending": null,
+    "record_count": 5,
+    "roundtrip_legal_actions_exact_roots": 26,
+    "roundtrip_snapshot_exact_roots": 26,
+    "stage_results": [
+      {
+        "active_seconds": 0.5096349170198664,
+        "charged_seconds": 0.5096349170198664,
+        "cleanup_verified": true,
+        "elapsed_scope": "From pre-reservation start through receipt and proof writes; measured immediately before terminal append/fsync.",
+        "observed_calls": {
+          "engine_apply_invocations": 0,
+          "native_applies": 0,
+          "neural_forwards": 0,
+          "numerical_fits": 0,
+          "optimizer_updates": 0,
+          "paid_jobs": 0,
+          "paid_spend_usd": 0.0
+        },
+        "observed_verified": true,
+        "preliminary_receipt_status": "completed",
+        "proofs": [
+          {
+            "bytes": 17204960,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/binding-transfer-fixture-validator",
+            "sha256": "b87a950a132f0e88b1edf7a9f7d83257306f68cc2d15184f11271df3691060ad"
+          },
+          {
+            "bytes": 2130,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1/stderr.log",
+            "sha256": "3dde8f8267686b187a60b5f1180588f1c85df1f8564c0d5f5ad12987b5f0b6bc"
+          },
+          {
+            "bytes": 0,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1/stdout.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "bytes": 44093,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1-stage-receipt.json",
+            "sha256": "d27f2019683599c92c569e530889a7828b6a198791dd9811d377cb67abfd32c8"
+          }
+        ],
+        "stage": "build",
+        "status": "completed"
+      },
+      {
+        "active_seconds": 1.1543550409842283,
+        "charged_seconds": 1.1543550409842283,
+        "cleanup_verified": true,
+        "elapsed_scope": "From pre-reservation start through receipt and proof writes; measured immediately before terminal append/fsync.",
+        "observed_calls": {
+          "engine_apply_invocations": 0,
+          "native_applies": 0,
+          "neural_forwards": 0,
+          "numerical_fits": 0,
+          "optimizer_updates": 0,
+          "paid_jobs": 0,
+          "paid_spend_usd": 0.0
+        },
+        "observed_verified": true,
+        "preliminary_receipt_status": "completed",
+        "proofs": [
+          {
+            "bytes": 828113,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/validation.json",
+            "sha256": "8942b37d64ec098ebccd0981884ea2938b775649dc933c3095af57921442d1bf"
+          },
+          {
+            "bytes": 0,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "bytes": 232,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/stdout.log",
+            "sha256": "2e2b8215d007f6bba2ab6ba57a8bb2e753d22c6e5bcda189a55f74a156917983"
+          },
+          {
+            "bytes": 828113,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/validation.json",
+            "sha256": "8942b37d64ec098ebccd0981884ea2938b775649dc933c3095af57921442d1bf"
+          },
+          {
+            "bytes": 45447,
+            "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1-stage-receipt.json",
+            "sha256": "163278787fbb94264105617114784b2f8a119eb40e9f38a9ff6cf6c9189f4d39"
+          }
+        ],
+        "stage": "validate",
+        "status": "completed"
+      }
+    ],
+    "validation_receipt": {
+      "bytes": 828113,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/validation.json",
+      "sha256": "8942b37d64ec098ebccd0981884ea2938b775649dc933c3095af57921442d1bf"
+    }
+  },
+  "offline_failed_archive": {
+    "all_declared_original_pins_resolved_to_archived_bytes": true,
+    "all_stored_and_decoded_hashes_match": true,
+    "exact_file_closure": true,
+    "index": {
+      "bytes": 205624,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/binding-transfer-v1-failed-archive/evidence-index.json",
+      "sha256": "ac672676f76305294afd44940707ea5b08ad69b921b8e51f06e0e1f061ff749a"
+    },
+    "logical_artifacts": 330,
+    "manifest": {
+      "bytes": 150503,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/binding-transfer-v1-failed-archive/manifest.json",
+      "sha256": "5cd1e0bac1f7f04965e464e945e368777711a1704638d9e650f24af5105426ae"
+    },
+    "original_pin_declarations": 330,
+    "original_source_paths_rechecked": false,
+    "physical_files": 327,
+    "scope": "Offline archived stored/decoded bytes only. Legitimately changed current Rust/Cargo source is not compared with historical original-path pins.",
+    "stored_payload_bytes": 212001710,
+    "verified_stored_files": 326
+  },
+  "old_closed_failure": {
+    "aggregate_observed_native_applies": null,
+    "charged_native_applies": 160,
+    "charged_seconds": 110.10179149871692,
+    "final_record_sha256": "87c79ce95df5fe332f8c9f634427e4e3b7dcb083c52acbee5258616cbeb05d0f",
+    "ledger": {
+      "bytes": 217862,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-v1/campaign-ledger.jsonl",
+      "sha256": "ffb01088cc7c456b84e1c23a38720e5cfe060869e878236ec065d409fb37a4f2"
+    },
+    "normal_binary": {
+      "bytes": 17135056,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/binding-transfer-native-collector",
+      "sha256": "f7bdbbef31a08aaeb4c3fb28be04bcece3a82782849fbc829b98ba59922dbaeb"
+    },
+    "unchanged": true
+  },
+  "preservation": {
+    "all_bytepins_unchanged": true,
+    "all_original_heads_and_statuses_unchanged": true,
+    "files": [
+      {
+        "expected": {
+          "bytes": 3976,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+          "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 3976,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+          "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 2534886,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+          "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 2534886,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+          "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 12675831,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+          "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 12675831,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+          "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 725184,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+          "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 725184,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+          "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 3858872,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+          "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 3858872,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+          "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 4543,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+          "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 4543,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+          "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1498747,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+          "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1498747,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+          "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 268246,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+          "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 268246,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+          "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 86319,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+          "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 86319,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+          "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 20662,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+          "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 20662,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+          "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 295074,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+          "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 295074,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+          "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 23069,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+          "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 23069,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+          "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 34674,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+          "sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 34674,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+          "sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 3061,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+          "sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 3061,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+          "sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 9896,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+          "sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 9896,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+          "sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 48446,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+          "sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 48446,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+          "sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 8457,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+          "sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 8457,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+          "sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 48285,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+          "sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 48285,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+          "sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 7959,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+          "sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 7959,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+          "sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 807838,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+          "sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 807838,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+          "sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 48324,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+          "sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 48324,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+          "sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 8458,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+          "sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 8458,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+          "sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 953824,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors",
+          "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 953824,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors",
+          "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 953760,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+          "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 953760,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+          "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 6305,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+          "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 6305,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+          "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 14977,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+          "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 14977,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+          "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 33271,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+          "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 33271,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+          "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 28935,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+          "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 28935,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+          "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 48843,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+          "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 48843,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+          "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 5521,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+          "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 5521,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+          "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 30315,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+          "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 30315,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+          "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 5458,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+          "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 5458,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+          "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 7954,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+          "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 7954,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+          "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 40826,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+          "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 40826,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+          "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 953760,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10.safetensors",
+          "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 953760,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10.safetensors",
+          "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 953760,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10.safetensors",
+          "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 953760,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10.safetensors",
+          "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 953824,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10-e.safetensors",
+          "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 953824,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/bots/jepa/models/tx-t10-e.safetensors",
+          "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 953824,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10-e.safetensors",
+          "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 953824,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron/bots/jepa/models/tx-t10-e.safetensors",
+          "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 10069,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/campaign-ledger.jsonl",
+          "sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 10069,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/campaign-ledger.jsonl",
+          "sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 31405,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/analysis-ledger.jsonl",
+          "sha256": "8821c9ef54ad2e3749ff5f7d598e633a9453669fb14cdc973359e613af36dd62"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 31405,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/analysis-ledger.jsonl",
+          "sha256": "8821c9ef54ad2e3749ff5f7d598e633a9453669fb14cdc973359e613af36dd62"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 63832,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning-sanity-evidence/index.json",
+          "sha256": "75627c2a2527af05859dada8767188fdb9e97622665922f93dbf412d889d7686"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 63832,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning-sanity-evidence/index.json",
+          "sha256": "75627c2a2527af05859dada8767188fdb9e97622665922f93dbf412d889d7686"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 238160,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect-identifiability-evidence/index.json",
+          "sha256": "2b5667edd8d01be5a3c0a69e72dca42bbaddced6955d37b98470b730a1c64297"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 238160,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect-identifiability-evidence/index.json",
+          "sha256": "2b5667edd8d01be5a3c0a69e72dca42bbaddced6955d37b98470b730a1c64297"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 22912,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-config.json",
+          "sha256": "1d8f12230684db02f09ee252b3f592dc594b4dcea3b62c33792fbfc37d090f76"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 22912,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-config.json",
+          "sha256": "1d8f12230684db02f09ee252b3f592dc594b4dcea3b62c33792fbfc37d090f76"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 25221,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-ledger.jsonl",
+          "sha256": "1b0c327d468d2553454b09e95eeb58287b42c75790510e2ec957968ba9929b3b"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 25221,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/campaign-ledger.jsonl",
+          "sha256": "1b0c327d468d2553454b09e95eeb58287b42c75790510e2ec957968ba9929b3b"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 4133,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/startup-failure-audit.json",
+          "sha256": "16c5165af286b453e202d327224a722368588f6aae5a3f752e6fed7f623e1451"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 4133,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v1/startup-failure-audit.json",
+          "sha256": "16c5165af286b453e202d327224a722368588f6aae5a3f752e6fed7f623e1451"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1033,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-controls-receipt.json",
+          "sha256": "675e0770169442983e9da053d5498aef751d80d544b322b25d2da1ee97ff2af5"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1033,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-controls-receipt.json",
+          "sha256": "675e0770169442983e9da053d5498aef751d80d544b322b25d2da1ee97ff2af5"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 847,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-receipt.json",
+          "sha256": "3bed323441e3e40d16808cf0e0f19c8728dc121e0783ce48174f4ba4fad5638f"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 847,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/analysis-verification-receipt.json",
+          "sha256": "3bed323441e3e40d16808cf0e0f19c8728dc121e0783ce48174f4ba4fad5638f"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 32605,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-config.json",
+          "sha256": "29208bc06f3c68243812321aa09ce173f43d5a559cde0788b31d29b8c80280dc"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 32605,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-config.json",
+          "sha256": "29208bc06f3c68243812321aa09ce173f43d5a559cde0788b31d29b8c80280dc"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 42610,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+          "sha256": "7e23b61f5defc3f07199b87693dcfc36a4a80e3ca8f795a473e8c0d8bf7ede05"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 42610,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/campaign-ledger.jsonl",
+          "sha256": "7e23b61f5defc3f07199b87693dcfc36a4a80e3ca8f795a473e8c0d8bf7ede05"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 18376,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/final-publication-byte-check.json",
+          "sha256": "ff0f2b6eba0692441ec3b3e478b91dfc6fafcf71175874f3e34faa2751ca5690"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 18376,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/final-publication-byte-check.json",
+          "sha256": "ff0f2b6eba0692441ec3b3e478b91dfc6fafcf71175874f3e34faa2751ca5690"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 17560,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/finalize_public_input_binding_publication.py",
+          "sha256": "2548ecfd66e1ec8267c4fa57272897c2f4b7955b6ebbdbf6d67ca9e912490b56"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 17560,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/finalize_public_input_binding_publication.py",
+          "sha256": "2548ecfd66e1ec8267c4fa57272897c2f4b7955b6ebbdbf6d67ca9e912490b56"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 17471,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/finalize_public_input_binding_publication.v1-2c2bee7d.py",
+          "sha256": "2c2bee7da50fc47539293e7d83585e099b29fac583daa85c9bcf6ed586cb59d9"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 17471,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/finalize_public_input_binding_publication.v1-2c2bee7d.py",
+          "sha256": "2c2bee7da50fc47539293e7d83585e099b29fac583daa85c9bcf6ed586cb59d9"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 989,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/focused-checks.json",
+          "sha256": "7529b5f78054bb0e4806363e2bf1f229021ef9500d496bcf3fd84ffd61b78a90"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 989,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/focused-checks.json",
+          "sha256": "7529b5f78054bb0e4806363e2bf1f229021ef9500d496bcf3fd84ffd61b78a90"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 213413,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json",
+          "sha256": "dc42bb849c8531c0df47ded7503536f0da66b5f9a039d750738b0471dc82b39c"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 213413,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/independent-verification-supplemental.json",
+          "sha256": "dc42bb849c8531c0df47ded7503536f0da66b5f9a039d750738b0471dc82b39c"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 2498166,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-receipt.json",
+          "sha256": "4e8a4d5435c15960bceef5f103fa884c2ef5ebfda0aa33af0727e039774a3986"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 2498166,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-receipt.json",
+          "sha256": "4e8a4d5435c15960bceef5f103fa884c2ef5ebfda0aa33af0727e039774a3986"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1588636,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-transitions.jsonl",
+          "sha256": "04fb639864e5415a6ebed3b886c173afc6a430de0f3217b5c94e19c813f03b47"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1588636,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-attempt-1/native-transitions.jsonl",
+          "sha256": "04fb639864e5415a6ebed3b886c173afc6a430de0f3217b5c94e19c813f03b47"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 59018,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+          "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 59018,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/native-plan.json",
+          "sha256": "cabeec2ea8a5f1a3fb97ce96faa6b90ce736cc75e354cd97501b55949f91bd47"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 3704,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/portable-build-receipt.json",
+          "sha256": "451845b7a5217f5123c32ad6a4eb5698693927f5c709803da9a8c24274993101"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 3704,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/portable-build-receipt.json",
+          "sha256": "451845b7a5217f5123c32ad6a4eb5698693927f5c709803da9a8c24274993101"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1030944,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+          "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1030944,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/predictions.json",
+          "sha256": "5c574a82f5d1e74fe581258f3700821b17244af99942a776a5fa4ad20f1b02b2"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 16231,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/protected-after.json",
+          "sha256": "533fd975130b33dbbfb3de4fc00713f6dd74b3f0abfb8b0834cbf5ced6d829f7"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 16231,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/protected-after.json",
+          "sha256": "533fd975130b33dbbfb3de4fc00713f6dd74b3f0abfb8b0834cbf5ced6d829f7"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1370,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/publication-finalizer-v1-failure.json",
+          "sha256": "c3ae9d0c7346a7f23a8a4c3caae06067609d589ff465663974310b2f916a6257"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1370,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/publication-finalizer-v1-failure.json",
+          "sha256": "c3ae9d0c7346a7f23a8a4c3caae06067609d589ff465663974310b2f916a6257"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1735,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/publication-release-verification.json",
+          "sha256": "14befe321290dc31550eb6220bd68dfc832595b7caa77680d4d340cc2096b15e"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1735,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/publication-release-verification.json",
+          "sha256": "14befe321290dc31550eb6220bd68dfc832595b7caa77680d4d340cc2096b15e"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 33610,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/release-handoff.json",
+          "sha256": "48a54db8ba8dd8e39a95236125ce133f1b87489a70f02f89beb24ac9ca9fbc47"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 33610,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/release-handoff.json",
+          "sha256": "48a54db8ba8dd8e39a95236125ce133f1b87489a70f02f89beb24ac9ca9fbc47"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 4335,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-descriptor.json",
+          "sha256": "842b50095cbc43cc95c8cd07877866b890cbaf228b4f78fb8eaff08ee402a4e4"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 4335,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-descriptor.json",
+          "sha256": "842b50095cbc43cc95c8cd07877866b890cbaf228b4f78fb8eaff08ee402a4e4"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 8883,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-ledger.jsonl",
+          "sha256": "a5701e1b3ac3342de0f72299481cdedf9c22c9334d19d606fb58148330a424f1"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 8883,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/public-input-binding-v2/supplemental-verification-ledger.jsonl",
+          "sha256": "a5701e1b3ac3342de0f72299481cdedf9c22c9334d19d606fb58148330a424f1"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 34963,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/handoff.json",
+          "sha256": "ea7836d5aef1731d4c357b0db42e77bbe162e3fd368393a91647ba051792af71"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 34963,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/handoff.json",
+          "sha256": "ea7836d5aef1731d4c357b0db42e77bbe162e3fd368393a91647ba051792af71"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 2709,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/manifest.json",
+          "sha256": "58e90b94c25f723e6db889a9b387b5f938f0153470629ee8d7f379333e32decf"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 2709,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/manifest.json",
+          "sha256": "58e90b94c25f723e6db889a9b387b5f938f0153470629ee8d7f379333e32decf"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 34082,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/original-handoff.json",
+          "sha256": "d8d2ca941e120cbb8158abdbaaf8ec351ed4da490bd4a45407ca6bf1aa13429f"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 34082,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/original-handoff.json",
+          "sha256": "d8d2ca941e120cbb8158abdbaaf8ec351ed4da490bd4a45407ca6bf1aa13429f"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 74820,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/research-index.json",
+          "sha256": "d14d38ee4655fbbc0231a0b5cb04f853d2c98a8f6e72020a666687fd0c7b07d8"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 74820,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-checkpoints/92ba93b7b53b-d14d38ee4655-d8d2ca941e12/research-index.json",
+          "sha256": "d14d38ee4655fbbc0231a0b5cb04f853d2c98a8f6e72020a666687fd0c7b07d8"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1842,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-current.json",
+          "sha256": "396e18b2ccbbade41d112212bb6eee1ec7fddd0fb926d2e3c407cc126c022ee8"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1842,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-current.json",
+          "sha256": "396e18b2ccbbade41d112212bb6eee1ec7fddd0fb926d2e3c407cc126c022ee8"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 1832,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/public-input-binding-v2-study-adapter/historical-reference-map-v2.json",
+          "sha256": "28009f5c44004c5f35093a1abc8128e7863084c07b33b08f09b2b55017d7f2ee"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 1832,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/public-input-binding-v2-study-adapter/historical-reference-map-v2.json",
+          "sha256": "28009f5c44004c5f35093a1abc8128e7863084c07b33b08f09b2b55017d7f2ee"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 115831724,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/92ba93b7b53b-d14d38ee4655-d8d2ca941e12-v1.zip",
+          "sha256": "fb6cf65f4f176e343f5c7a762840db9d33142d9261cd11ba48d91cc97c4ad7ce"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 115831724,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/92ba93b7b53b-d14d38ee4655-d8d2ca941e12-v1.zip",
+          "sha256": "fb6cf65f4f176e343f5c7a762840db9d33142d9261cd11ba48d91cc97c4ad7ce"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 581319,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/92ba93b7b53b-d14d38ee4655-d8d2ca941e12-v1/checksums.json",
+          "sha256": "02ef182d30d4dc595526a329d53d372ab73392ea1cf996fdffce7dfa2e63046d"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 581319,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/92ba93b7b53b-d14d38ee4655-d8d2ca941e12-v1/checksums.json",
+          "sha256": "02ef182d30d4dc595526a329d53d372ab73392ea1cf996fdffce7dfa2e63046d"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 12123,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/92ba93b7b53b-d14d38ee4655-d8d2ca941e12-v1/manifest.json",
+          "sha256": "3590a714f282153c442f06ca315e99f2b20b5125ac39502953955ac0ab9fedc5"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 12123,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/92ba93b7b53b-d14d38ee4655-d8d2ca941e12-v1/manifest.json",
+          "sha256": "3590a714f282153c442f06ca315e99f2b20b5125ac39502953955ac0ab9fedc5"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 4668,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/AUDIT.md",
+          "sha256": "b84be373304db19715a9b261c92faca61c14d2d70384b2f8018401594710254d"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 4668,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/AUDIT.md",
+          "sha256": "b84be373304db19715a9b261c92faca61c14d2d70384b2f8018401594710254d"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 7815,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PROVENANCE.md",
+          "sha256": "44f514bdbfa78bd00d8ca43ade1b0b3d22548eee0f8c78660f08c0eb3a6468de"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 7815,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PROVENANCE.md",
+          "sha256": "44f514bdbfa78bd00d8ca43ade1b0b3d22548eee0f8c78660f08c0eb3a6468de"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 7538,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+          "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 7538,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/PUBLIC_INPUT_BINDING_RESULTS.md",
+          "sha256": "a217069922f956f3f264fd7779ad354e65d851da73fa4763932c58111a1a8ea3"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 274551,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public-input-binding-evidence/index.json",
+          "sha256": "a55b8eec5d79667f855defc3bf43eb5cc45796b951b77b66bf13d7f498b494b8"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 274551,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public-input-binding-evidence/index.json",
+          "sha256": "a55b8eec5d79667f855defc3bf43eb5cc45796b951b77b66bf13d7f498b494b8"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 476114,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public-input-binding-evidence/manifest.json",
+          "sha256": "15c4a98a237ad01dcaac18a2c22f64acce0ba325f70a40323d22a3128eb8555d"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 476114,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/public-input-binding-evidence/manifest.json",
+          "sha256": "15c4a98a237ad01dcaac18a2c22f64acce0ba325f70a40323d22a3128eb8555d"
+        }
+      },
+      {
+        "expected": {
+          "bytes": 51899,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/recovered-research-c39e153/MANIFEST.json",
+          "sha256": "c36ebc44fc6858871c96a7db67d9153906228bc8861f59b3a0e736af599fd47e"
+        },
+        "matches": true,
+        "observed": {
+          "bytes": 51899,
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/recovered-research-c39e153/MANIFEST.json",
+          "sha256": "c36ebc44fc6858871c96a7db67d9153906228bc8861f59b3a0e736af599fd47e"
+        }
+      }
+    ],
+    "snapshot": {
+      "bytes": 27822,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/next-cycle-preservation-v1/protected-before.json",
+      "sha256": "9c9106f7184a8135db34a02125f6f702a2cb0303f71de99156697928787444bf"
+    },
+    "unique_files": 80,
+    "workspace_count": 3,
+    "workspaces": [
+      {
+        "expected_head": "f9cbbd427689081d5f12829b1fe7edd76ca51fab",
+        "expected_status_porcelain": "",
+        "git_optional_locks": false,
+        "observed_head": "f9cbbd427689081d5f12829b1fe7edd76ca51fab",
+        "observed_status_porcelain": "",
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm",
+        "unchanged": true
+      },
+      {
+        "expected_head": "0c6b5cc5a88cd6d8ea47ec885cb495dcb690dee5",
+        "expected_status_porcelain": "?? bots/jepa/research/opponent-eval-environment.json\n?? bots/jepa/research/opponent-eval-environment.md\n?? bots/jepa/research/rated-loss-inventory.json\n?? bots/jepa/research/rated-loss-inventory.md\n",
+        "git_optional_locks": false,
+        "observed_head": "0c6b5cc5a88cd6d8ea47ec885cb495dcb690dee5",
+        "observed_status_porcelain": "?? bots/jepa/research/opponent-eval-environment.json\n?? bots/jepa/research/opponent-eval-environment.md\n?? bots/jepa/research/rated-loss-inventory.json\n?? bots/jepa/research/rated-loss-inventory.md\n",
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/holocron",
+        "unchanged": true
+      },
+      {
+        "expected_head": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+        "expected_status_porcelain": "",
+        "git_optional_locks": false,
+        "observed_head": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+        "observed_status_porcelain": "",
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source",
+        "unchanged": true
+      }
+    ]
+  },
+  "raw_byte_pins": [
+    {
+      "bytes": 828113,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1/validation.json",
+      "sha256": "8942b37d64ec098ebccd0981884ea2938b775649dc933c3095af57921442d1bf"
+    },
+    {
+      "bytes": 44093,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1-stage-receipt.json",
+      "sha256": "d27f2019683599c92c569e530889a7828b6a198791dd9811d377cb67abfd32c8"
+    },
+    {
+      "bytes": 45447,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1-stage-receipt.json",
+      "sha256": "163278787fbb94264105617114784b2f8a119eb40e9f38a9ff6cf6c9189f4d39"
+    },
+    {
+      "bytes": 41724,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validation-source-manifest.json",
+      "sha256": "5fd4783d9d8e595bdd974343dfedb960a9f5e871bffc789271b7d6881f75391d"
+    },
+    {
+      "bytes": 17135056,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/binding-transfer-native-collector",
+      "sha256": "f7bdbbef31a08aaeb4c3fb28be04bcece3a82782849fbc829b98ba59922dbaeb"
+    },
+    {
+      "bytes": 150503,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/binding-transfer-v1-failed-archive/manifest.json",
+      "sha256": "5cd1e0bac1f7f04965e464e945e368777711a1704638d9e650f24af5105426ae"
+    },
+    {
+      "bytes": 205624,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-sources/binding-transfer-v1-failed-archive/evidence-index.json",
+      "sha256": "ac672676f76305294afd44940707ea5b08ad69b921b8e51f06e0e1f061ff749a"
+    },
+    {
+      "bytes": 27822,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/next-cycle-preservation-v1/protected-before.json",
+      "sha256": "9c9106f7184a8135db34a02125f6f702a2cb0303f71de99156697928787444bf"
+    }
+  ],
+  "schema": "jepa-binding-transfer-fixture-validation-closure-audit/1",
+  "scope": "Read-only saved-ledger/receipt, offline archive and preservation audit; no engine/model/fixture rerun or allocated scientific verification stage execution.",
+  "source_pins": [
+    {
+      "bytes": 20199,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_fixture_guard.py",
+      "sha256": "ab7f7d0473550d39371145dd025c5c53a4f5cfa12731e45be359bf13dfb5d3a7"
+    },
+    {
+      "bytes": 23446,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/binding_transfer_native_collector/supervise.py",
+      "sha256": "3efe92e2e6e5f191fd95444655cf424b28420dc2db0b57c12e524359d035d958"
+    }
+  ],
+  "status": "PASS",
+  "supervisor_receipts": [
+    {
+      "cleanup_verified": true,
+      "exit_code": 0,
+      "pin": {
+        "bytes": 44093,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/build-1-stage-receipt.json",
+        "sha256": "d27f2019683599c92c569e530889a7828b6a198791dd9811d377cb67abfd32c8"
+      },
+      "preliminary": true,
+      "receipt_active_seconds": 0.5085613330593333,
+      "receipt_charged_seconds": 0.5085613330593333,
+      "sampled_conservative_peak_bytes": 383827968,
+      "stage": "build",
+      "status_authority": "Append-only campaign ledger terminal row; elapsed includes receipt/proof writes and may downgrade this preliminary status."
+    },
+    {
+      "cleanup_verified": true,
+      "exit_code": 0,
+      "pin": {
+        "bytes": 45447,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/binding-transfer-fixture-validation-v1/validate-1-stage-receipt.json",
+        "sha256": "163278787fbb94264105617114784b2f8a119eb40e9f38a9ff6cf6c9189f4d39"
+      },
+      "preliminary": true,
+      "receipt_active_seconds": 1.1528745830291882,
+      "receipt_charged_seconds": 1.1528745830291882,
+      "sampled_conservative_peak_bytes": 280821760,
+      "stage": "validate",
+      "status_authority": "Append-only campaign ledger terminal row; elapsed includes receipt/proof writes and may downgrade this preliminary status."
+    }
+  ]
+}
