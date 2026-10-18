@@ -163,6 +163,7 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'weakness-continuation') return require('./weakness-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-damage') return require('./arena-damage-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'exhaust-resources') return require('./exhaust-resources-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'resource-self') return require('./resource-self-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'force-triggers') return require('./force-trigger-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'force-presence') return require('./force-presence-probe-fixture').fixture(env, pool, scenario, seed);
@@ -435,6 +436,8 @@ module.exports = {
         'kessel:cards/pipeline/arena-damage-probes.js',
         'lab/kessel-reference/pipeline/arena-damage-probe-fixture.js',
         'kessel:cards/pipeline/probes.js',
+        'kessel:cards/pipeline/exhaust-resources-probes.js',
+        'lab/kessel-reference/pipeline/exhaust-resources-probe-fixture.js',
         'kessel:cards/pipeline/resource-self-probes.js',
         'lab/kessel-reference/pipeline/resource-self-probe-fixture.js',
         'kessel:cards/pipeline/force-trigger-probes.js',
