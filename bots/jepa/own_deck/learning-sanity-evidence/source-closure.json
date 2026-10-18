@@ -1,0 +1,391 @@
+{
+  "archive_relocations": [],
+  "raw_path_rule": "Absolute paths within unmodified raw JSON are provenance, never fetch URLs; use explicit bundle-relative URLs only.",
+  "schema": "learning-sanity-source-closure/1",
+  "sources": [
+    {
+      "bytes": 12675831,
+      "expected_sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "url": "raw/0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812.json.gz"
+    },
+    {
+      "bytes": 16505,
+      "expected_sha256": "e7fcc4e28aa20138e70516866f0b3e0127bce5de1c49063f34a8634acf07f12b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/diagnostics.json",
+      "url": "raw/e7fcc4e28aa20138e70516866f0b3e0127bce5de1c49063f34a8634acf07f12b.json.gz"
+    },
+    {
+      "bytes": 789236,
+      "expected_sha256": "53d572533bd027d2683e363b821bd1f92ba012b8284a82967bb2c5ac73605c13",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/inputs.json",
+      "url": "raw/53d572533bd027d2683e363b821bd1f92ba012b8284a82967bb2c5ac73605c13.json.gz"
+    },
+    {
+      "bytes": 53273,
+      "expected_sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/manifest.json",
+      "url": "raw/ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c.json.gz"
+    },
+    {
+      "bytes": 725184,
+      "expected_sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "url": "raw/91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957.json.gz"
+    },
+    {
+      "bytes": 3858872,
+      "expected_sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "url": "raw/34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69.json.gz"
+    },
+    {
+      "bytes": 4543,
+      "expected_sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "url": "raw/e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa.npz"
+    },
+    {
+      "bytes": 1498747,
+      "expected_sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+      "url": "raw/dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480.json.gz"
+    },
+    {
+      "bytes": 88060,
+      "expected_sha256": "ef4d6076c7767c4b6bd0038e7465f3488143db70554976eefb17c397e4700898",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/effect-cohort-audit-v1/strict12-contract-v3.json",
+      "url": "raw/ef4d6076c7767c4b6bd0038e7465f3488143db70554976eefb17c397e4700898.json.gz"
+    },
+    {
+      "bytes": 10638,
+      "expected_sha256": "a72d3ccc9bb381ba626032481d1bbb980236e302a6d532b0960e11445df8e0f9",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/accounting.py",
+      "url": "raw/a72d3ccc9bb381ba626032481d1bbb980236e302a6d532b0960e11445df8e0f9.py.gz"
+    },
+    {
+      "bytes": 245814,
+      "expected_sha256": "e69410d8caa5c5219f46107a6238e4c811125c65cead3db15d970b9a25133259",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/campaign-ledger.jsonl",
+      "url": "raw/e69410d8caa5c5219f46107a6238e4c811125c65cead3db15d970b9a25133259.jsonl.gz"
+    },
+    {
+      "bytes": 50323,
+      "expected_sha256": "b2f0f1a486c91a0f1d23ac26c2d47e27c08d855859a1207f9ab2642dcd096981",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/fit-1/initial-checkpoint.npz",
+      "url": "raw/b2f0f1a486c91a0f1d23ac26c2d47e27c08d855859a1207f9ab2642dcd096981.npz"
+    },
+    {
+      "bytes": 8211884,
+      "expected_sha256": "90cac45d13e621751164815d65ebc99eb6b2c501b39128d244352970a092569e",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/fit-1/result.json",
+      "url": "raw/90cac45d13e621751164815d65ebc99eb6b2c501b39128d244352970a092569e.json.gz"
+    },
+    {
+      "bytes": 4743,
+      "expected_sha256": "70bb9aab456726cdcb6d1e8224f471363d1767b32bc152a6822a4d26dad7e2da",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/freeze_campaign.py",
+      "url": "raw/70bb9aab456726cdcb6d1e8224f471363d1767b32bc152a6822a4d26dad7e2da.py.gz"
+    },
+    {
+      "bytes": 613574,
+      "expected_sha256": "6eadc7c3231c93b8aeebf85e1d6d44bb16b98ff80143283cc84c95071a3dd3b2",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/learner-plan.json",
+      "url": "raw/6eadc7c3231c93b8aeebf85e1d6d44bb16b98ff80143283cc84c95071a3dd3b2.json.gz"
+    },
+    {
+      "bytes": 7815302,
+      "expected_sha256": "ca05cfb716e7f7996109b87d32b607407848b843a23935a74c23823618b8e9a0",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/native-effect-v2/native-effect-v2.manifest.json",
+      "url": "raw/ca05cfb716e7f7996109b87d32b607407848b843a23935a74c23823618b8e9a0.json.gz"
+    },
+    {
+      "bytes": 6916,
+      "expected_sha256": "2254eef79afaa2da7cca145522ec8d05a6b2e374c71387d4cfe09b7b0c47a122",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/native-effect-v2/native-effect-v2.npz",
+      "url": "raw/2254eef79afaa2da7cca145522ec8d05a6b2e374c71387d4cfe09b7b0c47a122.npz"
+    },
+    {
+      "bytes": 130121,
+      "expected_sha256": "73be341d31db061e3aea543e820b45c3355ba9a21b26b74193b945531157562f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/native-effect-v2/native-plan.json",
+      "url": "raw/73be341d31db061e3aea543e820b45c3355ba9a21b26b74193b945531157562f.json.gz"
+    },
+    {
+      "bytes": 34674,
+      "expected_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+      "url": "raw/88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b.json.gz"
+    },
+    {
+      "bytes": 9896,
+      "expected_sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+      "url": "raw/7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141.json.gz"
+    },
+    {
+      "bytes": 48446,
+      "expected_sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+      "url": "raw/3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11.npz"
+    },
+    {
+      "bytes": 9820,
+      "expected_sha256": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step200-predictions.npz",
+      "url": "raw/6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857.npz"
+    },
+    {
+      "bytes": 807838,
+      "expected_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+      "url": "raw/593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff.json.gz"
+    },
+    {
+      "bytes": 3778,
+      "expected_sha256": "a1565a40d1e8c83da9326d3274b266ace4da2e3bd39e4521ef3165646f8743a7",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/EFFECT_IDENTIFIABILITY_HYPOTHESIS.md",
+      "url": "raw/a1565a40d1e8c83da9326d3274b266ace4da2e3bd39e4521ef3165646f8743a7.md.gz"
+    },
+    {
+      "bytes": 7946,
+      "expected_sha256": "6460784227c7ba3ca42dbd09482c7deeff66f4014f9d71a16fb17053cc38fe53",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/EFFECT_IDENTIFIABILITY_LEARNER_PROTOCOL.md",
+      "url": "raw/6460784227c7ba3ca42dbd09482c7deeff66f4014f9d71a16fb17053cc38fe53.md.gz"
+    },
+    {
+      "bytes": 5458,
+      "expected_sha256": "19fd24dcc09f713a20cefe6fbe98841d561584b1bf48e0d3a36abd1e528d2112",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/LEARNING_SANITY_PROTOCOL.md",
+      "url": "raw/19fd24dcc09f713a20cefe6fbe98841d561584b1bf48e0d3a36abd1e528d2112.md.gz"
+    },
+    {
+      "bytes": 28935,
+      "expected_sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "url": "raw/2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e.py.gz"
+    },
+    {
+      "bytes": 59333,
+      "expected_sha256": "90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/effect_identifiability_fit.py",
+      "url": "raw/90ef1c0c6e2a2626f0d54c1f031fea77a25ea80b9e6e351882cb7ddd38cbd765.py.gz"
+    },
+    {
+      "bytes": 48843,
+      "expected_sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+      "url": "raw/ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21.py.gz"
+    },
+    {
+      "bytes": 23247,
+      "expected_sha256": "f96830caf577b7e41a1243e8701c2af7a59f4dbd5c09da13d957f0b88f008fc8",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning_sanity.py",
+      "url": "raw/f96830caf577b7e41a1243e8701c2af7a59f4dbd5c09da13d957f0b88f008fc8.py.gz"
+    },
+    {
+      "bytes": 14058,
+      "expected_sha256": "87b2e26917f3dc4c608cc32a61c3624ab1dc2392ccd388976f73da069b39d1b3",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/native_effect_v2.py",
+      "url": "raw/87b2e26917f3dc4c608cc32a61c3624ab1dc2392ccd388976f73da069b39d1b3.py.gz"
+    },
+    {
+      "bytes": 11379,
+      "expected_sha256": "f16a166fba700a6444ccb50ada297bc27004d6bd51225d9e6fde814b78d528f6",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_effect_identifiability_fit.py",
+      "url": "raw/f16a166fba700a6444ccb50ada297bc27004d6bd51225d9e6fde814b78d528f6.py.gz"
+    },
+    {
+      "bytes": 7415,
+      "expected_sha256": "28340e66e644fa6f6694e423326574350b17c4ee63c8fb5ea4279f126a815777",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_learning_sanity.py",
+      "url": "raw/28340e66e644fa6f6694e423326574350b17c4ee63c8fb5ea4279f126a815777.py.gz"
+    },
+    {
+      "bytes": 40826,
+      "expected_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+      "url": "raw/b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2.py.gz"
+    },
+    {
+      "bytes": 91373,
+      "expected_sha256": "5410975ad9fb59a3065655b25ee2405366af1b06ac28cdecfb6c464347ee246a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/effect-identifiability-v2/independent-data-verification.json",
+      "url": "raw/5410975ad9fb59a3065655b25ee2405366af1b06ac28cdecfb6c464347ee246a.json.gz"
+    },
+    {
+      "bytes": 11816,
+      "expected_sha256": "33a21e28c8e7ec9334eee3dfb450648bf18c8d9871ff62a835d723d465704576",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/contract.json",
+      "url": "raw/33a21e28c8e7ec9334eee3dfb450648bf18c8d9871ff62a835d723d465704576.json.gz"
+    },
+    {
+      "bytes": 50993,
+      "expected_sha256": "86b87e488708198bf6e7dbb4f42389af03caf528965d15a0e62df07fd4236357",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/correct-checkpoint.npz",
+      "url": "raw/86b87e488708198bf6e7dbb4f42389af03caf528965d15a0e62df07fd4236357.npz"
+    },
+    {
+      "bytes": 13551,
+      "expected_sha256": "d0e7f7f2c16b8c7f7be549094d9012e848a67fbdef2da5b9b972bc284b0d0f47",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/correct-step0-predictions.npz",
+      "url": "raw/d0e7f7f2c16b8c7f7be549094d9012e848a67fbdef2da5b9b972bc284b0d0f47.npz"
+    },
+    {
+      "bytes": 13954,
+      "expected_sha256": "9a9868bd31fdd9f3ab261eec924ee264841bfef3c6589f3727893de370d39bf0",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/correct-step300-predictions.npz",
+      "url": "raw/9a9868bd31fdd9f3ab261eec924ee264841bfef3c6589f3727893de370d39bf0.npz"
+    },
+    {
+      "bytes": 50987,
+      "expected_sha256": "9488ab0af7f536605bb23afd8e79011c3bf892b9bd45ae58b6ba5ee1b0ca03ec",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/fixed-shuffle-checkpoint.npz",
+      "url": "raw/9488ab0af7f536605bb23afd8e79011c3bf892b9bd45ae58b6ba5ee1b0ca03ec.npz"
+    },
+    {
+      "bytes": 13551,
+      "expected_sha256": "d0e7f7f2c16b8c7f7be549094d9012e848a67fbdef2da5b9b972bc284b0d0f47",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/fixed-shuffle-step0-predictions.npz",
+      "url": "raw/d0e7f7f2c16b8c7f7be549094d9012e848a67fbdef2da5b9b972bc284b0d0f47.npz"
+    },
+    {
+      "bytes": 13876,
+      "expected_sha256": "c3a5d15cc91bacb08c5421da50da1c01c40e5112dd054d1ca5205610a297b1b0",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/fixed-shuffle-step300-predictions.npz",
+      "url": "raw/c3a5d15cc91bacb08c5421da50da1c01c40e5112dd054d1ca5205610a297b1b0.npz"
+    },
+    {
+      "bytes": 50986,
+      "expected_sha256": "93d05c50bf7872d495951552001fea66d00c5f8857395edf2518b75ab171a893",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/fresh-shuffle-checkpoint.npz",
+      "url": "raw/93d05c50bf7872d495951552001fea66d00c5f8857395edf2518b75ab171a893.npz"
+    },
+    {
+      "bytes": 13551,
+      "expected_sha256": "d0e7f7f2c16b8c7f7be549094d9012e848a67fbdef2da5b9b972bc284b0d0f47",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/fresh-shuffle-step0-predictions.npz",
+      "url": "raw/d0e7f7f2c16b8c7f7be549094d9012e848a67fbdef2da5b9b972bc284b0d0f47.npz"
+    },
+    {
+      "bytes": 13805,
+      "expected_sha256": "bb93f944ffa051b39c2d5e91dec45afc25230fe079c87ca556a7a636d2caf3ad",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/fresh-shuffle-step300-predictions.npz",
+      "url": "raw/bb93f944ffa051b39c2d5e91dec45afc25230fe079c87ca556a7a636d2caf3ad.npz"
+    },
+    {
+      "bytes": 50323,
+      "expected_sha256": "b2f0f1a486c91a0f1d23ac26c2d47e27c08d855859a1207f9ab2642dcd096981",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/initial-checkpoint.npz",
+      "url": "raw/b2f0f1a486c91a0f1d23ac26c2d47e27c08d855859a1207f9ab2642dcd096981.npz"
+    },
+    {
+      "bytes": 1821,
+      "expected_sha256": "e5b7b3fb9388c6fea1f5bc083f55498e7ca8b6cb4f010dd168756ff495ec2a75",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/receipt.json",
+      "url": "raw/e5b7b3fb9388c6fea1f5bc083f55498e7ca8b6cb4f010dd168756ff495ec2a75.json.gz"
+    },
+    {
+      "bytes": 4717553,
+      "expected_sha256": "8db92af3f13df3847103b5cc77d5ee2bf3530545dffeb67bb8d899516e75c171",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/result.json",
+      "url": "raw/8db92af3f13df3847103b5cc77d5ee2bf3530545dffeb67bb8d899516e75c171.json.gz"
+    },
+    {
+      "bytes": 4601,
+      "expected_sha256": "c45d24d969a2f758f8508d349c058e54a041c145d3dfb8cfb4813c5920ad9bd3",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/fit-1/shuffle-schedules.npz",
+      "url": "raw/c45d24d969a2f758f8508d349c058e54a041c145d3dfb8cfb4813c5920ad9bd3.npz"
+    },
+    {
+      "bytes": 371172,
+      "expected_sha256": "6196ba40697e7991265bc91bc72405b480308364951a3fa11f7c9605b2e7292f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/sanity-plan.json",
+      "url": "raw/6196ba40697e7991265bc91bc72405b480308364951a3fa11f7c9605b2e7292f.json.gz"
+    },
+    {
+      "bytes": 4447,
+      "expected_sha256": "6dbb74dcc50ec41170a3f57169dd20dbb428bdbacc8e266e36fa745343626fef",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/LEARNING_SANITY_DATA_PROTOCOL.md",
+      "url": "raw/6dbb74dcc50ec41170a3f57169dd20dbb428bdbacc8e266e36fa745343626fef.md.gz"
+    },
+    {
+      "bytes": 30862,
+      "expected_sha256": "477bbf31a63f2e321e3b0f85b24606d66659974c3342d7a991d6a234af75cbb4",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/learning_sanity_data.py",
+      "url": "raw/477bbf31a63f2e321e3b0f85b24606d66659974c3342d7a991d6a234af75cbb4.py.gz"
+    },
+    {
+      "bytes": 6025,
+      "expected_sha256": "4308467c358c0462e618749181387ab779f89b26145cb46a6decd269d7044607",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_learning_sanity_data.py",
+      "url": "raw/4308467c358c0462e618749181387ab779f89b26145cb46a6decd269d7044607.py.gz"
+    },
+    {
+      "bytes": 7041,
+      "expected_sha256": "33c3a7b051334604ca7c66656fe9123eb82a60bf0b16f73fe2079c5782c50a3f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/analysis_once.py",
+      "url": "raw/33c3a7b051334604ca7c66656fe9123eb82a60bf0b16f73fe2079c5782c50a3f.py.gz"
+    },
+    {
+      "bytes": 3072,
+      "expected_sha256": "bf3b64839d540c3b191a50b79484e6ff8804c989db64b0759a394065b11f731e",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/test_analysis_once.py",
+      "url": "raw/bf3b64839d540c3b191a50b79484e6ff8804c989db64b0759a394065b11f731e.py.gz"
+    },
+    {
+      "bytes": 19476,
+      "expected_sha256": "36f3fd93196c5a51947d6f2c38d7f3a7a1c46c7f1ebade12194df6c5ebe422b1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/data-plan.json",
+      "url": "raw/36f3fd93196c5a51947d6f2c38d7f3a7a1c46c7f1ebade12194df6c5ebe422b1.json.gz"
+    },
+    {
+      "bytes": 10069,
+      "expected_sha256": "86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/campaign-ledger.jsonl",
+      "url": "raw/86a3970efc4cba8f34bc01dad6fcbd45761cd1d9f619a6bbfc0ac3c2c182aa19.jsonl.gz"
+    },
+    {
+      "bytes": 35021,
+      "expected_sha256": "0da679b15893bb26237ccb2a432dd0c9d6c25ca2426751f1141fe4f4cfef6b5f",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/data-analysis-1/correct-predictions.npz",
+      "url": "raw/0da679b15893bb26237ccb2a432dd0c9d6c25ca2426751f1141fe4f4cfef6b5f.npz"
+    },
+    {
+      "bytes": 17492,
+      "expected_sha256": "0aca17513503b6065d6e9a103fea7fb997ad762a5c54430d97ac5e052551c39b",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/data-analysis-1/design.npz",
+      "url": "raw/0aca17513503b6065d6e9a103fea7fb997ad762a5c54430d97ac5e052551c39b.npz"
+    },
+    {
+      "bytes": 35053,
+      "expected_sha256": "0527774c64be257424944c3ab32f47f94daca9a1c259e623f19a5eb558d8e183",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/data-analysis-1/fixed-shuffle-predictions.npz",
+      "url": "raw/0527774c64be257424944c3ab32f47f94daca9a1c259e623f19a5eb558d8e183.npz"
+    },
+    {
+      "bytes": 2248238,
+      "expected_sha256": "e46ce6b29e5d6301ef586023056fa58936cd58b9b7948922e0525bf3f272778a",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/data-analysis-1/result.json",
+      "url": "raw/e46ce6b29e5d6301ef586023056fa58936cd58b9b7948922e0525bf3f272778a.json.gz"
+    },
+    {
+      "bytes": 1780,
+      "expected_sha256": "b79111e0bf6b81cfbcebebd698d23db168ace7641f5f3b5a3455b1fa72d83365",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/data-analysis-receipt.json",
+      "url": "raw/b79111e0bf6b81cfbcebebd698d23db168ace7641f5f3b5a3455b1fa72d83365.json.gz"
+    },
+    {
+      "bytes": 25220,
+      "expected_sha256": "ab6c9fd9dc70bbc3b816348c179b51a12ad2932ca25a032012368f39311cfc26",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/verification_sources/learning_sanity_verify.py",
+      "url": "raw/ab6c9fd9dc70bbc3b816348c179b51a12ad2932ca25a032012368f39311cfc26.py.gz"
+    },
+    {
+      "bytes": 5508,
+      "expected_sha256": "123d60741947cabf82a0c2000bc40b9584ddcde3fa3749743a58b1aaa58ae82d",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/learning-sanity-v1/verification_sources/test_learning_sanity_verify.py",
+      "url": "raw/123d60741947cabf82a0c2000bc40b9584ddcde3fa3749743a58b1aaa58ae82d.py.gz"
+    }
+  ]
+}
