@@ -1,0 +1,1916 @@
+{
+  "campaign_roots": [
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-verification-v1"
+  ],
+  "excluded": [],
+  "files": 126,
+  "packager": {
+    "bytes": 9145,
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/semantic_discrimination_package.py",
+    "sha256": "82cf74ca0538ea6e96837f974e04aa1ea54e1bb270052c2430b577e839b52857"
+  },
+  "raw_bytes": 39278156,
+  "records": [
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/assemble_campaign_spec.py",
+      "raw": {
+        "bytes": 4743,
+        "sha256": "e1086d7c6c8c3081e371963cacb4d52a27b5988c25606d2b01e400efb5211899"
+      },
+      "relative_path": "assemble_campaign_spec.py",
+      "stored": {
+        "bytes": 1873,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/assemble_campaign_spec.py.gz",
+        "sha256": "1af6122eb91a3253a82c774585748771e58aaeac7c81e453d51c3c94d3ffadc0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/baseline-progress.jsonl",
+      "raw": {
+        "bytes": 1625,
+        "sha256": "2ca34b5aa684fc6322ce6adda47b677c4b80bc66314459a1f2cc9f86492cc7d8"
+      },
+      "relative_path": "baseline-progress.jsonl",
+      "stored": {
+        "bytes": 262,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/baseline-progress.jsonl.gz",
+        "sha256": "c9fc29eed75eaa9dd63ecf10020f2d6311d437273abe8fe9ebef991733ee30ff"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/baselines-1-stage-receipt.json",
+      "raw": {
+        "bytes": 2430,
+        "sha256": "dcd944d66ce3c816f0640fdb54085fc6e5a10977aca77d4d2036d0525cea8d7b"
+      },
+      "relative_path": "baselines-1-stage-receipt.json",
+      "stored": {
+        "bytes": 940,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/baselines-1-stage-receipt.json.gz",
+        "sha256": "36a903bf6a72a1539e8a7abf6c2cec9b4dbd0b8e08404c570beca1d7e9f1f4c0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/baselines-1/public_ridge-predictions.npz",
+      "raw": {
+        "bytes": 11521,
+        "sha256": "4243396b89488a1e043fdff4ae15c4ddf1aeb28ad72193cec73f3b15fcf45401"
+      },
+      "relative_path": "baselines-1/public_ridge-predictions.npz",
+      "stored": {
+        "bytes": 11521,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/baselines-1/public_ridge-predictions.npz",
+        "sha256": "4243396b89488a1e043fdff4ae15c4ddf1aeb28ad72193cec73f3b15fcf45401"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/baselines-1/result.json",
+      "raw": {
+        "bytes": 1387072,
+        "sha256": "f2be52af8db1f3f54a4892ee93e53342ba5a4057d69ad1a788d7e1707ad05a0e"
+      },
+      "relative_path": "baselines-1/result.json",
+      "stored": {
+        "bytes": 57518,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/baselines-1/result.json.gz",
+        "sha256": "1c7c3f41202006fb26ec678392b750116e4345db70535d8ce38f1863641c2ec0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/baselines-1/train_mean-predictions.npz",
+      "raw": {
+        "bytes": 510,
+        "sha256": "54e1daf019d81eb58497d11d15968c0b215ea1eff4dbf4e905aff8069e3a3740"
+      },
+      "relative_path": "baselines-1/train_mean-predictions.npz",
+      "stored": {
+        "bytes": 510,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/baselines-1/train_mean-predictions.npz",
+        "sha256": "54e1daf019d81eb58497d11d15968c0b215ea1eff4dbf4e905aff8069e3a3740"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/baselines-1/zero-predictions.npz",
+      "raw": {
+        "bytes": 444,
+        "sha256": "4055ec2d9e601d7b0a57ec4b330a5e36ce2ba8e685019eb090fc31b5b9a626f2"
+      },
+      "relative_path": "baselines-1/zero-predictions.npz",
+      "stored": {
+        "bytes": 444,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/baselines-1/zero-predictions.npz",
+        "sha256": "4055ec2d9e601d7b0a57ec4b330a5e36ce2ba8e685019eb090fc31b5b9a626f2"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/campaign-ledger.jsonl",
+      "raw": {
+        "bytes": 220276,
+        "sha256": "38aec9744526ed6483aa870df59ddf4fac0c04bc71d419f0810f44e1c671f83c"
+      },
+      "relative_path": "campaign-ledger.jsonl",
+      "stored": {
+        "bytes": 50086,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/campaign-ledger.jsonl.gz",
+        "sha256": "94d7b6dc640d390be6a122f67b2a09cfeedec2bc9eb71cc6f6016c1c05e30756"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/campaign-spec.json",
+      "raw": {
+        "bytes": 72277,
+        "sha256": "0b1c1f027eed58dd0b453c81dbdf1450d83d346ea3c5197cb974d4be3ba67e9a"
+      },
+      "relative_path": "campaign-spec.json",
+      "stored": {
+        "bytes": 17655,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/campaign-spec.json.gz",
+        "sha256": "a44df7ab85c769208a4a0b7041f4da301d3c61eff38881280933c14e1768dd12"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1-stage-receipt.json",
+      "raw": {
+        "bytes": 20234,
+        "sha256": "c86c25d31bfbd4573e10dd2da4b71e2cc586fd4004d2e452a34c17a7f546aa31"
+      },
+      "relative_path": "fit-1-stage-receipt.json",
+      "stored": {
+        "bytes": 3762,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1-stage-receipt.json.gz",
+        "sha256": "3fa6331834e4537b5651226cd42d7f31f5279749127ce2e9045e0080dde57f64"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/consumed-inputs.npz",
+      "raw": {
+        "bytes": 1537,
+        "sha256": "237fedb88f79acc1ea4f388b0b2fb36a8fd6ca6278b6b2b6e300ba001ae750e8"
+      },
+      "relative_path": "fit-1/consumed-inputs.npz",
+      "stored": {
+        "bytes": 1537,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/consumed-inputs.npz",
+        "sha256": "237fedb88f79acc1ea4f388b0b2fb36a8fd6ca6278b6b2b6e300ba001ae750e8"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/contract.json",
+      "raw": {
+        "bytes": 16090,
+        "sha256": "944e09cbe59e261814ef8c600641f623222899441a64bc3f4efa2cc52591e51c"
+      },
+      "relative_path": "fit-1/contract.json",
+      "stored": {
+        "bytes": 3106,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/contract.json.gz",
+        "sha256": "aa47d72d8fa0e3462b5357c82f31dd7db7e86aeef45e89a262d9b7d446aaca46"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/program-inputs.npz",
+      "raw": {
+        "bytes": 42812,
+        "sha256": "74149286208fc770908cc296e400283bde210a41e40adde94f717d1b3ab011ca"
+      },
+      "relative_path": "fit-1/program-inputs.npz",
+      "stored": {
+        "bytes": 42812,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/program-inputs.npz",
+        "sha256": "74149286208fc770908cc296e400283bde210a41e40adde94f717d1b3ab011ca"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/result.json",
+      "raw": {
+        "bytes": 21900403,
+        "sha256": "a0c2cae5b15d0c43847e3aff3ad346a04a9029b90183f4c940b08cf42d20f281"
+      },
+      "relative_path": "fit-1/result.json",
+      "stored": {
+        "bytes": 991326,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/result.json.gz",
+        "sha256": "b2b4ab0ea2ad93eef8236075c52bcba21a9a044e042b2d02d870d8dbab2062e0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-ID-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49410,
+        "sha256": "03c88e09b048db8bd4d3fcc596c57dd53920fb880a3eca934912d86d859eed87"
+      },
+      "relative_path": "fit-1/s17-ID-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49410,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-ID-only-checkpoint.npz",
+        "sha256": "03c88e09b048db8bd4d3fcc596c57dd53920fb880a3eca934912d86d859eed87"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-ID-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 7142,
+        "sha256": "e89d9f4d6aa368759bb08a3ac63f7a5068d8db5606ea9598714de0b15ca269c5"
+      },
+      "relative_path": "fit-1/s17-ID-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 7142,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-ID-only-step0-predictions.npz",
+        "sha256": "e89d9f4d6aa368759bb08a3ac63f7a5068d8db5606ea9598714de0b15ca269c5"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-ID-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7267,
+        "sha256": "c754a434cb4f769f9867d9ded941d18418fdcecf9d09c0d9b52b050acfd22ec4"
+      },
+      "relative_path": "fit-1/s17-ID-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7267,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-ID-only-step200-ability-swapped-predictions.npz",
+        "sha256": "c754a434cb4f769f9867d9ded941d18418fdcecf9d09c0d9b52b050acfd22ec4"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-ID-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 7267,
+        "sha256": "c754a434cb4f769f9867d9ded941d18418fdcecf9d09c0d9b52b050acfd22ec4"
+      },
+      "relative_path": "fit-1/s17-ID-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 7267,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-ID-only-step200-predictions.npz",
+        "sha256": "c754a434cb4f769f9867d9ded941d18418fdcecf9d09c0d9b52b050acfd22ec4"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-checkpoint.npz",
+      "raw": {
+        "bytes": 49463,
+        "sha256": "527b0b6a0cb8d24560dfe60b1d2f6df894177b39343070ae275a2c359ac3ef64"
+      },
+      "relative_path": "fit-1/s17-frozen-full-checkpoint.npz",
+      "stored": {
+        "bytes": 49463,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-checkpoint.npz",
+        "sha256": "527b0b6a0cb8d24560dfe60b1d2f6df894177b39343070ae275a2c359ac3ef64"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-step0-predictions.npz",
+      "raw": {
+        "bytes": 7247,
+        "sha256": "def4776d7e2710b63e97dd44ee7855b7715d3b1e28b6601c41c8ed4295fe2515"
+      },
+      "relative_path": "fit-1/s17-frozen-full-step0-predictions.npz",
+      "stored": {
+        "bytes": 7247,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-step0-predictions.npz",
+        "sha256": "def4776d7e2710b63e97dd44ee7855b7715d3b1e28b6601c41c8ed4295fe2515"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7393,
+        "sha256": "ff6f94df1eebddff4a77463cee692a6b332dccd26c83ab3efdf4a1fdf3b53568"
+      },
+      "relative_path": "fit-1/s17-frozen-full-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7393,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-step200-ability-swapped-predictions.npz",
+        "sha256": "ff6f94df1eebddff4a77463cee692a6b332dccd26c83ab3efdf4a1fdf3b53568"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-step200-predictions.npz",
+      "raw": {
+        "bytes": 7386,
+        "sha256": "b7c27d9a8c58b43c22467e579d17cecabbe272894d8b04e0b1f8265daa8f2dcd"
+      },
+      "relative_path": "fit-1/s17-frozen-full-step200-predictions.npz",
+      "stored": {
+        "bytes": 7386,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-frozen-full-step200-predictions.npz",
+        "sha256": "b7c27d9a8c58b43c22467e579d17cecabbe272894d8b04e0b1f8265daa8f2dcd"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-initial-checkpoint.npz",
+      "raw": {
+        "bytes": 48821,
+        "sha256": "fced4152fcbea9228e390118c24b6685e89c9a082e0d1c0a6bee9a5c721fbfa8"
+      },
+      "relative_path": "fit-1/s17-initial-checkpoint.npz",
+      "stored": {
+        "bytes": 48821,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-initial-checkpoint.npz",
+        "sha256": "fced4152fcbea9228e390118c24b6685e89c9a082e0d1c0a6bee9a5c721fbfa8"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-learned-full-checkpoint.npz",
+      "raw": {
+        "bytes": 49530,
+        "sha256": "98437e33fe6092c8b77ed49fc9ab00498dcb7eddfc0fe6cd7efcb25d2c943181"
+      },
+      "relative_path": "fit-1/s17-learned-full-checkpoint.npz",
+      "stored": {
+        "bytes": 49530,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-learned-full-checkpoint.npz",
+        "sha256": "98437e33fe6092c8b77ed49fc9ab00498dcb7eddfc0fe6cd7efcb25d2c943181"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-learned-full-step0-predictions.npz",
+      "raw": {
+        "bytes": 7247,
+        "sha256": "def4776d7e2710b63e97dd44ee7855b7715d3b1e28b6601c41c8ed4295fe2515"
+      },
+      "relative_path": "fit-1/s17-learned-full-step0-predictions.npz",
+      "stored": {
+        "bytes": 7247,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-learned-full-step0-predictions.npz",
+        "sha256": "def4776d7e2710b63e97dd44ee7855b7715d3b1e28b6601c41c8ed4295fe2515"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-learned-full-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7385,
+        "sha256": "d2a7149e5abc5e92afd18d8aa2949b6f7bda8e423e39bb5e50224e2cc0c264bb"
+      },
+      "relative_path": "fit-1/s17-learned-full-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7385,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-learned-full-step200-ability-swapped-predictions.npz",
+        "sha256": "d2a7149e5abc5e92afd18d8aa2949b6f7bda8e423e39bb5e50224e2cc0c264bb"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-learned-full-step200-predictions.npz",
+      "raw": {
+        "bytes": 7397,
+        "sha256": "8f141843075c98e1ebf5109938430b9f6423f97a905d09b13867238b55a9ecbc"
+      },
+      "relative_path": "fit-1/s17-learned-full-step200-predictions.npz",
+      "stored": {
+        "bytes": 7397,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-learned-full-step200-predictions.npz",
+        "sha256": "8f141843075c98e1ebf5109938430b9f6423f97a905d09b13867238b55a9ecbc"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-printed-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49531,
+        "sha256": "a73cc17b9ae89269bbae93da684297d0adae79a47be8c3de6c398a4f5120979b"
+      },
+      "relative_path": "fit-1/s17-printed-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49531,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-printed-only-checkpoint.npz",
+        "sha256": "a73cc17b9ae89269bbae93da684297d0adae79a47be8c3de6c398a4f5120979b"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-printed-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 7250,
+        "sha256": "e85b18ab07e02010ca64e246402be3e1c054198ba0f4eb980148b6ceca4f98f0"
+      },
+      "relative_path": "fit-1/s17-printed-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 7250,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-printed-only-step0-predictions.npz",
+        "sha256": "e85b18ab07e02010ca64e246402be3e1c054198ba0f4eb980148b6ceca4f98f0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-printed-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7398,
+        "sha256": "6174573a4652b6497bb47251cf6e2ef26a8dce7231f4dd37c89c04694b591229"
+      },
+      "relative_path": "fit-1/s17-printed-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7398,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-printed-only-step200-ability-swapped-predictions.npz",
+        "sha256": "6174573a4652b6497bb47251cf6e2ef26a8dce7231f4dd37c89c04694b591229"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-printed-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 7398,
+        "sha256": "6174573a4652b6497bb47251cf6e2ef26a8dce7231f4dd37c89c04694b591229"
+      },
+      "relative_path": "fit-1/s17-printed-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 7398,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-printed-only-step200-predictions.npz",
+        "sha256": "6174573a4652b6497bb47251cf6e2ef26a8dce7231f4dd37c89c04694b591229"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-public-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49301,
+        "sha256": "8ec969fb0340765296168dffa01db219a42f2edf4cff9f556608f99ee17be15a"
+      },
+      "relative_path": "fit-1/s17-public-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49301,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-public-only-checkpoint.npz",
+        "sha256": "8ec969fb0340765296168dffa01db219a42f2edf4cff9f556608f99ee17be15a"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-public-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 4983,
+        "sha256": "7816563abc02cfd60eb8e903af8a1c14affca324cce2ee13b9e91b9733818c17"
+      },
+      "relative_path": "fit-1/s17-public-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 4983,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-public-only-step0-predictions.npz",
+        "sha256": "7816563abc02cfd60eb8e903af8a1c14affca324cce2ee13b9e91b9733818c17"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-public-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 5059,
+        "sha256": "b949d66747d0eeab61d32d778c278258a92ac8a4173b3ccff5496ea171eb4d65"
+      },
+      "relative_path": "fit-1/s17-public-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 5059,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-public-only-step200-ability-swapped-predictions.npz",
+        "sha256": "b949d66747d0eeab61d32d778c278258a92ac8a4173b3ccff5496ea171eb4d65"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s17-public-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 5062,
+        "sha256": "c1e55f2bfbdc4d75240c826fd9a11ef09838f0a419476037c4122e49a90613ff"
+      },
+      "relative_path": "fit-1/s17-public-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 5062,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s17-public-only-step200-predictions.npz",
+        "sha256": "c1e55f2bfbdc4d75240c826fd9a11ef09838f0a419476037c4122e49a90613ff"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-ID-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49384,
+        "sha256": "73ab4f12877fd8dae2e67a9beeae366e834a0228f87661842d6049c9b40f556a"
+      },
+      "relative_path": "fit-1/s29-ID-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49384,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-ID-only-checkpoint.npz",
+        "sha256": "73ab4f12877fd8dae2e67a9beeae366e834a0228f87661842d6049c9b40f556a"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-ID-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 7162,
+        "sha256": "45d6bfc6fa02de4573b18f7ec9451adf89235c20ad6cd3c3aaeaa92dd778bdee"
+      },
+      "relative_path": "fit-1/s29-ID-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 7162,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-ID-only-step0-predictions.npz",
+        "sha256": "45d6bfc6fa02de4573b18f7ec9451adf89235c20ad6cd3c3aaeaa92dd778bdee"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-ID-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7274,
+        "sha256": "7f868eefab3cc423dc2c9087a44e7c2c4935e0c755b7dd607fb7e2e9de40b914"
+      },
+      "relative_path": "fit-1/s29-ID-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7274,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-ID-only-step200-ability-swapped-predictions.npz",
+        "sha256": "7f868eefab3cc423dc2c9087a44e7c2c4935e0c755b7dd607fb7e2e9de40b914"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-ID-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 7274,
+        "sha256": "7f868eefab3cc423dc2c9087a44e7c2c4935e0c755b7dd607fb7e2e9de40b914"
+      },
+      "relative_path": "fit-1/s29-ID-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 7274,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-ID-only-step200-predictions.npz",
+        "sha256": "7f868eefab3cc423dc2c9087a44e7c2c4935e0c755b7dd607fb7e2e9de40b914"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-checkpoint.npz",
+      "raw": {
+        "bytes": 49406,
+        "sha256": "c2b25896909603a21e5d320d628ebc4dcf5f6bd88e084ede5f0a30e9fc930f0e"
+      },
+      "relative_path": "fit-1/s29-frozen-full-checkpoint.npz",
+      "stored": {
+        "bytes": 49406,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-checkpoint.npz",
+        "sha256": "c2b25896909603a21e5d320d628ebc4dcf5f6bd88e084ede5f0a30e9fc930f0e"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-step0-predictions.npz",
+      "raw": {
+        "bytes": 7283,
+        "sha256": "a606000cbf9ce717a2bb7797569dbea4365afac4963386e8e79d535a6b1f4d27"
+      },
+      "relative_path": "fit-1/s29-frozen-full-step0-predictions.npz",
+      "stored": {
+        "bytes": 7283,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-step0-predictions.npz",
+        "sha256": "a606000cbf9ce717a2bb7797569dbea4365afac4963386e8e79d535a6b1f4d27"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7396,
+        "sha256": "9d93e179de8c6b1cb0951787ba8c02cdb421a1272e6042ab72a0479d22c5e34c"
+      },
+      "relative_path": "fit-1/s29-frozen-full-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7396,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-step200-ability-swapped-predictions.npz",
+        "sha256": "9d93e179de8c6b1cb0951787ba8c02cdb421a1272e6042ab72a0479d22c5e34c"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-step200-predictions.npz",
+      "raw": {
+        "bytes": 7403,
+        "sha256": "d906524c0e19a0fb496ba87cb4ee8e637a0f74aad2672480a489aaaa9e29b9e3"
+      },
+      "relative_path": "fit-1/s29-frozen-full-step200-predictions.npz",
+      "stored": {
+        "bytes": 7403,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-frozen-full-step200-predictions.npz",
+        "sha256": "d906524c0e19a0fb496ba87cb4ee8e637a0f74aad2672480a489aaaa9e29b9e3"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-initial-checkpoint.npz",
+      "raw": {
+        "bytes": 48798,
+        "sha256": "e6b051455cda96e8b245b6d18aa8ce4a5ad8f218a628fdaf5ff4cb7f5caa6619"
+      },
+      "relative_path": "fit-1/s29-initial-checkpoint.npz",
+      "stored": {
+        "bytes": 48798,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-initial-checkpoint.npz",
+        "sha256": "e6b051455cda96e8b245b6d18aa8ce4a5ad8f218a628fdaf5ff4cb7f5caa6619"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-learned-full-checkpoint.npz",
+      "raw": {
+        "bytes": 49529,
+        "sha256": "e654010e7600a3f6d6b96326c911251806255f1912b523a79924422a67f774ec"
+      },
+      "relative_path": "fit-1/s29-learned-full-checkpoint.npz",
+      "stored": {
+        "bytes": 49529,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-learned-full-checkpoint.npz",
+        "sha256": "e654010e7600a3f6d6b96326c911251806255f1912b523a79924422a67f774ec"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-learned-full-step0-predictions.npz",
+      "raw": {
+        "bytes": 7283,
+        "sha256": "a606000cbf9ce717a2bb7797569dbea4365afac4963386e8e79d535a6b1f4d27"
+      },
+      "relative_path": "fit-1/s29-learned-full-step0-predictions.npz",
+      "stored": {
+        "bytes": 7283,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-learned-full-step0-predictions.npz",
+        "sha256": "a606000cbf9ce717a2bb7797569dbea4365afac4963386e8e79d535a6b1f4d27"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-learned-full-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7380,
+        "sha256": "39c5309bfd9540959fa281ad731a501d1990a8460fea71b8258ac9d06ef74a83"
+      },
+      "relative_path": "fit-1/s29-learned-full-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7380,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-learned-full-step200-ability-swapped-predictions.npz",
+        "sha256": "39c5309bfd9540959fa281ad731a501d1990a8460fea71b8258ac9d06ef74a83"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-learned-full-step200-predictions.npz",
+      "raw": {
+        "bytes": 7382,
+        "sha256": "8b806f9a4dfd7e148a3edc880e3b4154187e9b46d2f8f803a35acbaed8b0589c"
+      },
+      "relative_path": "fit-1/s29-learned-full-step200-predictions.npz",
+      "stored": {
+        "bytes": 7382,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-learned-full-step200-predictions.npz",
+        "sha256": "8b806f9a4dfd7e148a3edc880e3b4154187e9b46d2f8f803a35acbaed8b0589c"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-printed-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49528,
+        "sha256": "cbdfdc63129f80f578f5c1bdd580e20cdadbe1027638e908bb7c6534b2e1371f"
+      },
+      "relative_path": "fit-1/s29-printed-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49528,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-printed-only-checkpoint.npz",
+        "sha256": "cbdfdc63129f80f578f5c1bdd580e20cdadbe1027638e908bb7c6534b2e1371f"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-printed-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 7272,
+        "sha256": "7ceac3c5169400446aa63d93cb3d502f212645b933b668bd8dca4d6145294378"
+      },
+      "relative_path": "fit-1/s29-printed-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 7272,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-printed-only-step0-predictions.npz",
+        "sha256": "7ceac3c5169400446aa63d93cb3d502f212645b933b668bd8dca4d6145294378"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-printed-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7396,
+        "sha256": "df147327503c46a489bc2fa2fb6454c3e208489a5df15e49465201a9bc985325"
+      },
+      "relative_path": "fit-1/s29-printed-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7396,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-printed-only-step200-ability-swapped-predictions.npz",
+        "sha256": "df147327503c46a489bc2fa2fb6454c3e208489a5df15e49465201a9bc985325"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-printed-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 7396,
+        "sha256": "df147327503c46a489bc2fa2fb6454c3e208489a5df15e49465201a9bc985325"
+      },
+      "relative_path": "fit-1/s29-printed-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 7396,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-printed-only-step200-predictions.npz",
+        "sha256": "df147327503c46a489bc2fa2fb6454c3e208489a5df15e49465201a9bc985325"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-public-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49288,
+        "sha256": "2c8b5d726c8be8f9db44edf0dffa1d8b8414459a7cc1c581b42e2b7031e25e7a"
+      },
+      "relative_path": "fit-1/s29-public-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49288,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-public-only-checkpoint.npz",
+        "sha256": "2c8b5d726c8be8f9db44edf0dffa1d8b8414459a7cc1c581b42e2b7031e25e7a"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-public-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 4974,
+        "sha256": "d0ce9f433ecb58f60740b2023e5d3df68946276f62db168354bef9e1fc8f22aa"
+      },
+      "relative_path": "fit-1/s29-public-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 4974,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-public-only-step0-predictions.npz",
+        "sha256": "d0ce9f433ecb58f60740b2023e5d3df68946276f62db168354bef9e1fc8f22aa"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-public-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 5069,
+        "sha256": "9e40afffdcff0d923f64a5f757639ef99866c1209a54948bc144c371937797bf"
+      },
+      "relative_path": "fit-1/s29-public-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 5069,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-public-only-step200-ability-swapped-predictions.npz",
+        "sha256": "9e40afffdcff0d923f64a5f757639ef99866c1209a54948bc144c371937797bf"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s29-public-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 5071,
+        "sha256": "600173202e28eac249709e02976bd5311007689bd6a9ca30cfe1bbc9fd6f3d50"
+      },
+      "relative_path": "fit-1/s29-public-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 5071,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s29-public-only-step200-predictions.npz",
+        "sha256": "600173202e28eac249709e02976bd5311007689bd6a9ca30cfe1bbc9fd6f3d50"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-ID-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49359,
+        "sha256": "f4c1246f0f0c0995ba2aff80baf264e9c79ef424441fe7dd6aafd712d3168d34"
+      },
+      "relative_path": "fit-1/s43-ID-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49359,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-ID-only-checkpoint.npz",
+        "sha256": "f4c1246f0f0c0995ba2aff80baf264e9c79ef424441fe7dd6aafd712d3168d34"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-ID-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 7165,
+        "sha256": "6746736ee5445277777db3d785de2aed130e07fa433402dd07edb80b52b95e52"
+      },
+      "relative_path": "fit-1/s43-ID-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 7165,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-ID-only-step0-predictions.npz",
+        "sha256": "6746736ee5445277777db3d785de2aed130e07fa433402dd07edb80b52b95e52"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-ID-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7258,
+        "sha256": "0d258e7b923b2746e01861aa97b5e58e9642801a3042a2df012931566439d95e"
+      },
+      "relative_path": "fit-1/s43-ID-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7258,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-ID-only-step200-ability-swapped-predictions.npz",
+        "sha256": "0d258e7b923b2746e01861aa97b5e58e9642801a3042a2df012931566439d95e"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-ID-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 7258,
+        "sha256": "0d258e7b923b2746e01861aa97b5e58e9642801a3042a2df012931566439d95e"
+      },
+      "relative_path": "fit-1/s43-ID-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 7258,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-ID-only-step200-predictions.npz",
+        "sha256": "0d258e7b923b2746e01861aa97b5e58e9642801a3042a2df012931566439d95e"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-checkpoint.npz",
+      "raw": {
+        "bytes": 49394,
+        "sha256": "d5ee1d573a6aa94a29f4b93a45f548e2cda59a31e0ed2811feed8827c3348986"
+      },
+      "relative_path": "fit-1/s43-frozen-full-checkpoint.npz",
+      "stored": {
+        "bytes": 49394,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-checkpoint.npz",
+        "sha256": "d5ee1d573a6aa94a29f4b93a45f548e2cda59a31e0ed2811feed8827c3348986"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-step0-predictions.npz",
+      "raw": {
+        "bytes": 7258,
+        "sha256": "67d37760f5277fe2e0b4e42fea7132760994720bb8d66ef69415d29aaff11cf5"
+      },
+      "relative_path": "fit-1/s43-frozen-full-step0-predictions.npz",
+      "stored": {
+        "bytes": 7258,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-step0-predictions.npz",
+        "sha256": "67d37760f5277fe2e0b4e42fea7132760994720bb8d66ef69415d29aaff11cf5"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7397,
+        "sha256": "42e48ddbdeab84a3e88475cf526a0fa2e762d597c245d6eebd4a06f3cb21b319"
+      },
+      "relative_path": "fit-1/s43-frozen-full-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7397,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-step200-ability-swapped-predictions.npz",
+        "sha256": "42e48ddbdeab84a3e88475cf526a0fa2e762d597c245d6eebd4a06f3cb21b319"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-step200-predictions.npz",
+      "raw": {
+        "bytes": 7392,
+        "sha256": "d17293b5e1437c935cf049fad5c06ae9eb1bcf6f96d077704aea2ad9aa30fff3"
+      },
+      "relative_path": "fit-1/s43-frozen-full-step200-predictions.npz",
+      "stored": {
+        "bytes": 7392,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-frozen-full-step200-predictions.npz",
+        "sha256": "d17293b5e1437c935cf049fad5c06ae9eb1bcf6f96d077704aea2ad9aa30fff3"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-initial-checkpoint.npz",
+      "raw": {
+        "bytes": 48808,
+        "sha256": "784363db3874f34eb41cd95c7bac7d9caf652c55e01830a0db45c255f2ba3f77"
+      },
+      "relative_path": "fit-1/s43-initial-checkpoint.npz",
+      "stored": {
+        "bytes": 48808,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-initial-checkpoint.npz",
+        "sha256": "784363db3874f34eb41cd95c7bac7d9caf652c55e01830a0db45c255f2ba3f77"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-learned-full-checkpoint.npz",
+      "raw": {
+        "bytes": 49489,
+        "sha256": "704761100c097f490b953ebe5a1904601f17b63c9172460a59def1e69585a63e"
+      },
+      "relative_path": "fit-1/s43-learned-full-checkpoint.npz",
+      "stored": {
+        "bytes": 49489,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-learned-full-checkpoint.npz",
+        "sha256": "704761100c097f490b953ebe5a1904601f17b63c9172460a59def1e69585a63e"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-learned-full-step0-predictions.npz",
+      "raw": {
+        "bytes": 7258,
+        "sha256": "67d37760f5277fe2e0b4e42fea7132760994720bb8d66ef69415d29aaff11cf5"
+      },
+      "relative_path": "fit-1/s43-learned-full-step0-predictions.npz",
+      "stored": {
+        "bytes": 7258,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-learned-full-step0-predictions.npz",
+        "sha256": "67d37760f5277fe2e0b4e42fea7132760994720bb8d66ef69415d29aaff11cf5"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-learned-full-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7380,
+        "sha256": "affadc4dd3655fd0ac2c104facbcf5c9dc620a93a684b88cb0cbf9b7b9c7bcc3"
+      },
+      "relative_path": "fit-1/s43-learned-full-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7380,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-learned-full-step200-ability-swapped-predictions.npz",
+        "sha256": "affadc4dd3655fd0ac2c104facbcf5c9dc620a93a684b88cb0cbf9b7b9c7bcc3"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-learned-full-step200-predictions.npz",
+      "raw": {
+        "bytes": 7388,
+        "sha256": "21bca106d359c88a7d02dfdb36c54538a0e09542fd7048dbe8684601f6cd618f"
+      },
+      "relative_path": "fit-1/s43-learned-full-step200-predictions.npz",
+      "stored": {
+        "bytes": 7388,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-learned-full-step200-predictions.npz",
+        "sha256": "21bca106d359c88a7d02dfdb36c54538a0e09542fd7048dbe8684601f6cd618f"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-printed-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49511,
+        "sha256": "43c256d78b3ebc7acd04da8b46c1aae5573eac371b555858fb02e6b745115e07"
+      },
+      "relative_path": "fit-1/s43-printed-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49511,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-printed-only-checkpoint.npz",
+        "sha256": "43c256d78b3ebc7acd04da8b46c1aae5573eac371b555858fb02e6b745115e07"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-printed-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 7256,
+        "sha256": "02f95840cc428178720a7a8bd78dcbde3e1bc378826b5b4b41c1c6239f87bf5e"
+      },
+      "relative_path": "fit-1/s43-printed-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 7256,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-printed-only-step0-predictions.npz",
+        "sha256": "02f95840cc428178720a7a8bd78dcbde3e1bc378826b5b4b41c1c6239f87bf5e"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-printed-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 7401,
+        "sha256": "b11500c9f82e70f82e658db6bb3633903f6ce9124be7044f00bb88ab4479c764"
+      },
+      "relative_path": "fit-1/s43-printed-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 7401,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-printed-only-step200-ability-swapped-predictions.npz",
+        "sha256": "b11500c9f82e70f82e658db6bb3633903f6ce9124be7044f00bb88ab4479c764"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-printed-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 7401,
+        "sha256": "b11500c9f82e70f82e658db6bb3633903f6ce9124be7044f00bb88ab4479c764"
+      },
+      "relative_path": "fit-1/s43-printed-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 7401,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-printed-only-step200-predictions.npz",
+        "sha256": "b11500c9f82e70f82e658db6bb3633903f6ce9124be7044f00bb88ab4479c764"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-public-only-checkpoint.npz",
+      "raw": {
+        "bytes": 49282,
+        "sha256": "7fddf1e1cb2f333d1c1ca09ce25ff29334c9d2349845cf81ec3f35e7f775622d"
+      },
+      "relative_path": "fit-1/s43-public-only-checkpoint.npz",
+      "stored": {
+        "bytes": 49282,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-public-only-checkpoint.npz",
+        "sha256": "7fddf1e1cb2f333d1c1ca09ce25ff29334c9d2349845cf81ec3f35e7f775622d"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-public-only-step0-predictions.npz",
+      "raw": {
+        "bytes": 4988,
+        "sha256": "d1a2a2784d313b74bed763242fc859368db07104ed90026206797f56a2b6b65a"
+      },
+      "relative_path": "fit-1/s43-public-only-step0-predictions.npz",
+      "stored": {
+        "bytes": 4988,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-public-only-step0-predictions.npz",
+        "sha256": "d1a2a2784d313b74bed763242fc859368db07104ed90026206797f56a2b6b65a"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-public-only-step200-ability-swapped-predictions.npz",
+      "raw": {
+        "bytes": 5062,
+        "sha256": "3994512ccd7deade74bfaf1b48e188375451cbe9d599478d6f725fe25035183d"
+      },
+      "relative_path": "fit-1/s43-public-only-step200-ability-swapped-predictions.npz",
+      "stored": {
+        "bytes": 5062,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-public-only-step200-ability-swapped-predictions.npz",
+        "sha256": "3994512ccd7deade74bfaf1b48e188375451cbe9d599478d6f725fe25035183d"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/s43-public-only-step200-predictions.npz",
+      "raw": {
+        "bytes": 5062,
+        "sha256": "3994512ccd7deade74bfaf1b48e188375451cbe9d599478d6f725fe25035183d"
+      },
+      "relative_path": "fit-1/s43-public-only-step200-predictions.npz",
+      "stored": {
+        "bytes": 5062,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/s43-public-only-step200-predictions.npz",
+        "sha256": "3994512ccd7deade74bfaf1b48e188375451cbe9d599478d6f725fe25035183d"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-1/training-schedule.npz",
+      "raw": {
+        "bytes": 1451,
+        "sha256": "32a2b6fddd2073db97861e7fa67c08fadee7375d20f23d8730d1cf9f885f14eb"
+      },
+      "relative_path": "fit-1/training-schedule.npz",
+      "stored": {
+        "bytes": 1451,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/fit-1/training-schedule.npz",
+        "sha256": "32a2b6fddd2073db97861e7fa67c08fadee7375d20f23d8730d1cf9f885f14eb"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/fit-progress.jsonl",
+      "raw": {
+        "bytes": 1270453,
+        "sha256": "9651a856523f7427385cd0cb6ba81e2b8712c1ec4a9846848adf0735f985dfb0"
+      },
+      "relative_path": "fit-progress.jsonl",
+      "stored": {
+        "bytes": 115990,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/fit-progress.jsonl.gz",
+        "sha256": "5ca0e35bbc12eb332e8564eccb51325db5855b1cc49fe499953ab6c5cdd3b239"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/metadata-1-stage-receipt.json",
+      "raw": {
+        "bytes": 5033,
+        "sha256": "a2baa1b950e9222f428bd236723d86fdcf14514724250cff4191cd5a56b16bd8"
+      },
+      "relative_path": "metadata-1-stage-receipt.json",
+      "stored": {
+        "bytes": 1226,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/metadata-1-stage-receipt.json.gz",
+        "sha256": "ac5658df31a508999462d86933124ab2d013a5744def22382bbfca648c9cb5ce"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/metadata-1/learner-prepared.json",
+      "raw": {
+        "bytes": 50281,
+        "sha256": "310be97ea6540af4ffa4aa6c5add374ad5f983745b3309cd57bbc1e87fcc6ddd"
+      },
+      "relative_path": "metadata-1/learner-prepared.json",
+      "stored": {
+        "bytes": 6489,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/metadata-1/learner-prepared.json.gz",
+        "sha256": "c0793f6a74d622a2887199a397fa4e5f77c6eefd68c053cd898aa37b1ca0d53b"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/metadata-1/native-source-manifest.json",
+      "raw": {
+        "bytes": 40443,
+        "sha256": "78f454d4d55e0d7cb1fb50786cc0d072717f356542b828691bbbf7719cbe7e37"
+      },
+      "relative_path": "metadata-1/native-source-manifest.json",
+      "stored": {
+        "bytes": 9721,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/metadata-1/native-source-manifest.json.gz",
+        "sha256": "c14b1c17b37b85d3dd73e08dd38ca5220dd6ed9a6e749ec19b327e4e323b08fd"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/metadata-1/program-inputs.npz",
+      "raw": {
+        "bytes": 42812,
+        "sha256": "74149286208fc770908cc296e400283bde210a41e40adde94f717d1b3ab011ca"
+      },
+      "relative_path": "metadata-1/program-inputs.npz",
+      "stored": {
+        "bytes": 42812,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/metadata-1/program-inputs.npz",
+        "sha256": "74149286208fc770908cc296e400283bde210a41e40adde94f717d1b3ab011ca"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-attempt-1/native-receipt.json",
+      "raw": {
+        "bytes": 7068842,
+        "sha256": "74be72b9c6644ae8e35f4bc78537f586cc863bdb03fde5d1a4858995ad324709"
+      },
+      "relative_path": "native-attempt-1/native-receipt.json",
+      "stored": {
+        "bytes": 200071,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-attempt-1/native-receipt.json.gz",
+        "sha256": "544e8f31d9a7681ca6bc5326a2966e76eed4bb91cd82a6ea9f8c906f89fe6b29"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-attempt-1/native-transitions.jsonl",
+      "raw": {
+        "bytes": 4142198,
+        "sha256": "c11b2b868ef4247ba0b09cda3aefb2a0c578cf43ddb5eb618fc960bd4f8ace70"
+      },
+      "relative_path": "native-attempt-1/native-transitions.jsonl",
+      "stored": {
+        "bytes": 64186,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-attempt-1/native-transitions.jsonl.gz",
+        "sha256": "ed5ef17679e68a9de063176585f7047215fdab4a2c549cc4de4bb147bdab09e9"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-attempt-1/stderr.log",
+      "raw": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "relative_path": "native-attempt-1/stderr.log",
+      "stored": {
+        "bytes": 20,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-attempt-1/stderr.log.gz",
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-attempt-1/stdout.log",
+      "raw": {
+        "bytes": 233,
+        "sha256": "697a8bdc1646f865b838ad9caf1b688e1888e737c5f6f88f4e4f3c26a5a71490"
+      },
+      "relative_path": "native-attempt-1/stdout.log",
+      "stored": {
+        "bytes": 179,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-attempt-1/stdout.log.gz",
+        "sha256": "6aafa297a9efdd843b0dcf625334cb2055ca26076a2c9a861dfe65587d58a8ab"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-attempt-1/supervisor-receipt.json",
+      "raw": {
+        "bytes": 5963,
+        "sha256": "368ac7a074f3a90838dbdab9bf27022d51f75702dd32ffb85794fc9e66e82f64"
+      },
+      "relative_path": "native-attempt-1/supervisor-receipt.json",
+      "stored": {
+        "bytes": 2215,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-attempt-1/supervisor-receipt.json.gz",
+        "sha256": "70d93954803447268c44b817b04a60a4c31fb4fe07fa83fbb2028093d71adfab"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-build-1/stderr.log",
+      "raw": {
+        "bytes": 2237,
+        "sha256": "fa67d4c7e752cf397edb6502a5fa50c615c157244aad9af5add535e7deae71e3"
+      },
+      "relative_path": "native-build-1/stderr.log",
+      "stored": {
+        "bytes": 774,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-build-1/stderr.log.gz",
+        "sha256": "442227c7a910b69aebdfcd637f8cf707027b3c69a94750ef9dcddf12e09c6ace"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-build-1/stdout.log",
+      "raw": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "relative_path": "native-build-1/stdout.log",
+      "stored": {
+        "bytes": 20,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-build-1/stdout.log.gz",
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-build-1/supervisor-receipt.json",
+      "raw": {
+        "bytes": 4743,
+        "sha256": "e586b95291a78562e4be563069447909a173fc58361db24404c1d4e6fb2a7916"
+      },
+      "relative_path": "native-build-1/supervisor-receipt.json",
+      "stored": {
+        "bytes": 1714,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-build-1/supervisor-receipt.json.gz",
+        "sha256": "2dbc21e5c87bd3f4e09e8e90f6b64eaa9c19dbd625d5427dab1befdb4e2bc2ad"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/native-plan.json",
+      "raw": {
+        "bytes": 166997,
+        "sha256": "6ccb1db9e711b540d7e049469621f34ecc91edab956e96c52f2ceefbf0dd4de3"
+      },
+      "relative_path": "native-plan.json",
+      "stored": {
+        "bytes": 18635,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/native-plan.json.gz",
+        "sha256": "07135003dce65772e1e1c239cd6bbd393630c442f30fd3568d6d6313b9316bba"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/prep-1-stage-receipt.json",
+      "raw": {
+        "bytes": 2648,
+        "sha256": "3c05667006e7195a76c91864833c082f3e1c499fff4ffc0cf79050ec159fc620"
+      },
+      "relative_path": "prep-1-stage-receipt.json",
+      "stored": {
+        "bytes": 878,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/prep-1-stage-receipt.json.gz",
+        "sha256": "da432ca92fa9257de1453729a15e04f469d7b18a3f89a9165679bcc71c81d3b3"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/prep-1/dataset.manifest.json",
+      "raw": {
+        "bytes": 587818,
+        "sha256": "01b52828b766b7570331c034af7304ff06d345228602c01ab3237b1524f1eca7"
+      },
+      "relative_path": "prep-1/dataset.manifest.json",
+      "stored": {
+        "bytes": 63377,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/prep-1/dataset.manifest.json.gz",
+        "sha256": "aa62d5db211b46112efaf26d1349df56e5a95d41e32a1c07193bf58311aeec36"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/prep-1/dataset.npz",
+      "raw": {
+        "bytes": 7251,
+        "sha256": "c75bcfaca27918c788386386e01e1113c8ca4c060b5b5f4ff998a46631266013"
+      },
+      "relative_path": "prep-1/dataset.npz",
+      "stored": {
+        "bytes": 7251,
+        "codec": "identity",
+        "path": "raw/semantic-discrimination-repair-v1/prep-1/dataset.npz",
+        "sha256": "c75bcfaca27918c788386386e01e1113c8ca4c060b5b5f4ff998a46631266013"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/prep-1/sealed-fit-plan.json",
+      "raw": {
+        "bytes": 209331,
+        "sha256": "478cf7d627eae7a483f57a64232b4f9839ddefc77969af18d2baa64f42ee541a"
+      },
+      "relative_path": "prep-1/sealed-fit-plan.json",
+      "stored": {
+        "bytes": 35085,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/prep-1/sealed-fit-plan.json.gz",
+        "sha256": "b74d523a74fc26617e373e190778546b00e59b04662d7ab9fe155cf76c43bd45"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/prepare_repair_prior_manifest.py",
+      "raw": {
+        "bytes": 4907,
+        "sha256": "2bd0b2f502aef7b3efce09f688a2960d7c5c195b53880fbbb27b928bc805763e"
+      },
+      "relative_path": "prepare_repair_prior_manifest.py",
+      "stored": {
+        "bytes": 2020,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/prepare_repair_prior_manifest.py.gz",
+        "sha256": "13d4e622692db975eaaf9b3ccab554e48658f2981ddfe508aff6706f06096401"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/prepare_stage_descriptions.py",
+      "raw": {
+        "bytes": 10690,
+        "sha256": "faa6241d401b85e4804551095226ea9d017b2e2ce676c9399995e80e9feed003"
+      },
+      "relative_path": "prepare_stage_descriptions.py",
+      "stored": {
+        "bytes": 3906,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/prepare_stage_descriptions.py.gz",
+        "sha256": "22e2666295aaf29078e32c631dc77073ff233657df1718a2a8307e9d5cf05138"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/prior-manifest.json",
+      "raw": {
+        "bytes": 96280,
+        "sha256": "08e5dc45f2b8efbf2659067b6e46573c8a1b68e82243d7ea7db80bf43eff5b5e"
+      },
+      "relative_path": "prior-manifest.json",
+      "stored": {
+        "bytes": 22368,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/prior-manifest.json.gz",
+        "sha256": "21101bcb34ecff19a5317db71140ca3b0f0876f8d3d77d5acec5a3065c9dae26"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/root-runner-commands.json",
+      "raw": {
+        "bytes": 7467,
+        "sha256": "5cd2cba3c4a557341ef1c344005518a918144d788be5efa13005504c42e83e83"
+      },
+      "relative_path": "root-runner-commands.json",
+      "stored": {
+        "bytes": 1247,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/root-runner-commands.json.gz",
+        "sha256": "f735fff1994ae6e6a27792fedeb50b1c4799362a925edee43ca197037cfdf37f"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/spec-assembly-receipt.json",
+      "raw": {
+        "bytes": 1559,
+        "sha256": "1b315303845a030f557ea05c5c958c2128ed78af899012b97aca90e7761d23e2"
+      },
+      "relative_path": "spec-assembly-receipt.json",
+      "stored": {
+        "bytes": 679,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/spec-assembly-receipt.json.gz",
+        "sha256": "b17c41fc59d384d9c701d0ec1d5695dba390692fcf3e54cf4ad53fe9236198ea"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/spec-inspection.json",
+      "raw": {
+        "bytes": 1780,
+        "sha256": "12a3ff0966650bac6cafe583f32fa93f0569c71293ce07dfb1af75440dac0503"
+      },
+      "relative_path": "spec-inspection.json",
+      "stored": {
+        "bytes": 840,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/spec-inspection.json.gz",
+        "sha256": "32d89c1ca387cf74b9d585228bd42db0592563f9ba9693dfbec8df127b0f1a08"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/stage-descriptions.json",
+      "raw": {
+        "bytes": 68441,
+        "sha256": "f72f4beb3ebbe9092cf2f526f9d8c00516dcbc6fda651c77421eb2fc82e2449e"
+      },
+      "relative_path": "stage-descriptions.json",
+      "stored": {
+        "bytes": 16867,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/stage-descriptions.json.gz",
+        "sha256": "c4fd9944b6e744bca61b1b96c816bc53d03d959a6dca09854caa3ebf4f708e25"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/test_assemble_campaign_spec.py",
+      "raw": {
+        "bytes": 2937,
+        "sha256": "95d23e2346aa715f4a75cdb77153f1deff4447089c82a35a39c1a17b5892a5ab"
+      },
+      "relative_path": "test_assemble_campaign_spec.py",
+      "stored": {
+        "bytes": 1142,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/test_assemble_campaign_spec.py.gz",
+        "sha256": "7cca36e2dc7b7e7e23d1d026134b8b058ad137818c0ad611325987cce5691b25"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/test_prepare_stage_descriptions.py",
+      "raw": {
+        "bytes": 1857,
+        "sha256": "b1ce0436cfade17f92521ff6414f434c469ab7870b25ef50a107a82565958539"
+      },
+      "relative_path": "test_prepare_stage_descriptions.py",
+      "stored": {
+        "bytes": 832,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/test_prepare_stage_descriptions.py.gz",
+        "sha256": "cb98e75195f4d70211b1ebce1b69c1bec3e57c006f331c16d7ecfe0bae404808"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-repair-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-repair-v1/verification-receipt.json",
+      "raw": {
+        "bytes": 1790,
+        "sha256": "af3b3889397205396d3163536f8f2bcd1ca2c56049d3aec3f994ff9a62500941"
+      },
+      "relative_path": "verification-receipt.json",
+      "stored": {
+        "bytes": 800,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-repair-v1/verification-receipt.json.gz",
+        "sha256": "bf54763d66aab55d98df090d9be74f437393b68ba40c0cb9cfcaec6b37e82a30"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/assemble_campaign_spec.py",
+      "raw": {
+        "bytes": 4713,
+        "sha256": "23b3d851cd84591e64909f347bb2fd6df9102bcb5348c90531124b018f1d55e8"
+      },
+      "relative_path": "assemble_campaign_spec.py",
+      "stored": {
+        "bytes": 1863,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/assemble_campaign_spec.py.gz",
+        "sha256": "864e0c8869854b56b6f9c2890898cf03b13eabdc45460a274a672ba8c16e43f0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/campaign-ledger.jsonl",
+      "raw": {
+        "bytes": 72201,
+        "sha256": "8657e782e0523b8a694ea50b95c61ed3a0f4d9bf9e4ac24f1414cc50ed98a864"
+      },
+      "relative_path": "campaign-ledger.jsonl",
+      "stored": {
+        "bytes": 17736,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/campaign-ledger.jsonl.gz",
+        "sha256": "beff0b69c1f89d8e35f14d8b7d5ec3d1510f91ca06a6a79312c9c4b07d3f6555"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/campaign-spec.json",
+      "raw": {
+        "bytes": 69093,
+        "sha256": "f030bd8da000a706cfaadf6270f6acff626efcd9405432300a149c458ab91a64"
+      },
+      "relative_path": "campaign-spec.json",
+      "stored": {
+        "bytes": 17074,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/campaign-spec.json.gz",
+        "sha256": "3c71c1209d13894217bdd6832b76a3d58c2465d8dcb0bdb7af0cc7a4b11d904f"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/metadata-1-stage-receipt.json",
+      "raw": {
+        "bytes": 1136,
+        "sha256": "7427614d5be0647c9fb9185b80fdd503c13a2b68dde1cff72e2534a37d785375"
+      },
+      "relative_path": "metadata-1-stage-receipt.json",
+      "stored": {
+        "bytes": 667,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/metadata-1-stage-receipt.json.gz",
+        "sha256": "65e1fdecc22c3275c25c1b04c66a1c7d3ef41778431c82ec46780289670601ca"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/prepare_prior_manifest.py",
+      "raw": {
+        "bytes": 5880,
+        "sha256": "3c9d188422e934488e51bbb83301a00762a5653958d2351dfd75d6ea06d59704"
+      },
+      "relative_path": "prepare_prior_manifest.py",
+      "stored": {
+        "bytes": 2412,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/prepare_prior_manifest.py.gz",
+        "sha256": "b5a048c9aed04f21d279b58ff30dfda20f1fb951f5a298c2950e6e8cebc830c5"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/prepare_stage_descriptions.py",
+      "raw": {
+        "bytes": 10670,
+        "sha256": "ceca69a1f39b11f49f363e6f770db38a058a9f3217bc00988fd42bc16c510cd5"
+      },
+      "relative_path": "prepare_stage_descriptions.py",
+      "stored": {
+        "bytes": 3893,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/prepare_stage_descriptions.py.gz",
+        "sha256": "15c4159f6c1a156ca88a774ef568633fb07ffcf6f834a252a8947de1fe36e427"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/prior-manifest.json",
+      "raw": {
+        "bytes": 53191,
+        "sha256": "4fe71d31cad5b306d2bf1264ed65f454349ad0bb6501b8f552d83676570db26b"
+      },
+      "relative_path": "prior-manifest.json",
+      "stored": {
+        "bytes": 7768,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/prior-manifest.json.gz",
+        "sha256": "24c5899367a88e8119f6f39cb854d309f753f494c1796ed2c8fd67439ab5b0bc"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/root-runner-commands-v2.json",
+      "raw": {
+        "bytes": 7743,
+        "sha256": "3b18972a777cb163697f5be2036e44c9226e177781e69c837af1ba22108c173f"
+      },
+      "relative_path": "root-runner-commands-v2.json",
+      "stored": {
+        "bytes": 1464,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/root-runner-commands-v2.json.gz",
+        "sha256": "e69ed24f2c7ecb77411a01792777199db5ec0526064ee2c436960d8b2a2debd0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/root-runner-commands.json",
+      "raw": {
+        "bytes": 7189,
+        "sha256": "51154982e83bfe8c6238acd6e9a91c3cb07542c8df85af0d91001eefc5cac89b"
+      },
+      "relative_path": "root-runner-commands.json",
+      "stored": {
+        "bytes": 1224,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/root-runner-commands.json.gz",
+        "sha256": "76c604c018018f23c727a010aee06f2f0155549df1e130989a1a7d6ef29ee07b"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/spec-assembly-receipt.json",
+      "raw": {
+        "bytes": 1531,
+        "sha256": "de2864cb461e3dd56100d6222be38c15b13017ccd0e1ed8bec3e1d92659ad936"
+      },
+      "relative_path": "spec-assembly-receipt.json",
+      "stored": {
+        "bytes": 669,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/spec-assembly-receipt.json.gz",
+        "sha256": "4fefa6df8b44ee5087a0ed480b0c41533fcab5d49210a8ccc2a324b98caf1a21"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/spec-inspection.json",
+      "raw": {
+        "bytes": 1509,
+        "sha256": "af2440e42a2b2c256391d11da0f9cc5250b5499a116318864e8a4f8b4db6e482"
+      },
+      "relative_path": "spec-inspection.json",
+      "stored": {
+        "bytes": 760,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/spec-inspection.json.gz",
+        "sha256": "971f70015a49fea56556f91697c4b37ab5c04c245889726df391a16c5105efb6"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/stage-descriptions.json",
+      "raw": {
+        "bytes": 65943,
+        "sha256": "4ed85b38c282f07134d9f00370553850681ac4fcf150d6a529582ec3a37a6b74"
+      },
+      "relative_path": "stage-descriptions.json",
+      "stored": {
+        "bytes": 16400,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/stage-descriptions.json.gz",
+        "sha256": "2bec333dcb93a107ce2d7e5484a43eab76231c972562f50d50991f4b6334693c"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/test_assemble_campaign_spec.py",
+      "raw": {
+        "bytes": 2710,
+        "sha256": "0b1ad9886f92302b912c7d6d411815b536f202b9c18a88680d2b00b0ef962141"
+      },
+      "relative_path": "test_assemble_campaign_spec.py",
+      "stored": {
+        "bytes": 1024,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/test_assemble_campaign_spec.py.gz",
+        "sha256": "197c447a095de16f7c44a34f05acebc3a89605d23969943636d9380f30aa0a87"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-v1/test_prepare_stage_descriptions.py",
+      "raw": {
+        "bytes": 1857,
+        "sha256": "b1ce0436cfade17f92521ff6414f434c469ab7870b25ef50a107a82565958539"
+      },
+      "relative_path": "test_prepare_stage_descriptions.py",
+      "stored": {
+        "bytes": 832,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-v1/test_prepare_stage_descriptions.py.gz",
+        "sha256": "cb98e75195f4d70211b1ebce1b69c1bec3e57c006f331c16d7ecfe0bae404808"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-verification-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-verification-v1/campaign-ledger.jsonl",
+      "raw": {
+        "bytes": 2417,
+        "sha256": "169f3b839b794e75bd4ecc390d4d98252a9aaba8a4b9cc6bd4382d6bae3cb879"
+      },
+      "relative_path": "campaign-ledger.jsonl",
+      "stored": {
+        "bytes": 942,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-verification-v1/campaign-ledger.jsonl.gz",
+        "sha256": "5c9eb3fd3bd579b9e28b2b76fc9f83a7e68fbf4bd7cdd25b7d7cab3d5009c9f9"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-verification-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-verification-v1/campaign-spec.json",
+      "raw": {
+        "bytes": 98833,
+        "sha256": "b5cb0d12110ae8893a62aec6e96221d23e81dae68d529d89d0b8666cafff2f26"
+      },
+      "relative_path": "campaign-spec.json",
+      "stored": {
+        "bytes": 24735,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-verification-v1/campaign-spec.json.gz",
+        "sha256": "76da298386859ac242b6ad97d66d821d01470f3c0b9efc324a743b10de5b848c"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-verification-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-verification-v1/decision-summary.json",
+      "raw": {
+        "bytes": 2092,
+        "sha256": "ee371dd15e646e3adfb675504cb10aeab81b86c9ce802173835d08ba0b3b3e61"
+      },
+      "relative_path": "decision-summary.json",
+      "stored": {
+        "bytes": 985,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-verification-v1/decision-summary.json.gz",
+        "sha256": "beee6b2f59138d8656c23827b407f6c0731907bd6c8cd532c30f79fb512ae51c"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-verification-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-verification-v1/experiment-closure.json",
+      "raw": {
+        "bytes": 2189,
+        "sha256": "902f80aa9bf51e573edb19d10dabd8ec421a059e23c7aa726570cda0d137db00"
+      },
+      "relative_path": "experiment-closure.json",
+      "stored": {
+        "bytes": 937,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-verification-v1/experiment-closure.json.gz",
+        "sha256": "e84fb2bbf59a5af97a3c6510981572fc3d1782f5db54618f9e268eb74ba5e8d0"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-verification-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-verification-v1/verification-receipt.json",
+      "raw": {
+        "bytes": 1458,
+        "sha256": "7d6f1cc0733738a6ebb7a5b7f0af90442f9d3adb199177bd01de980df0b63129"
+      },
+      "relative_path": "verification-receipt.json",
+      "stored": {
+        "bytes": 733,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-verification-v1/verification-receipt.json.gz",
+        "sha256": "8004f1e480c133935b4f92f363b8b6a7275fba91615770a6d7f851448b7464c8"
+      }
+    },
+    {
+      "campaign": "semantic-discrimination-verification-v1",
+      "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/semantic-discrimination-verification-v1/verify-result.json",
+      "raw": {
+        "bytes": 180733,
+        "sha256": "73544bc3d312497747e11bc10936a54d5b6f11e9f4fffdbff758400df37c3d0a"
+      },
+      "relative_path": "verify-result.json",
+      "stored": {
+        "bytes": 39248,
+        "codec": "gzip",
+        "path": "raw/semantic-discrimination-verification-v1/verify-result.json.gz",
+        "sha256": "62078a92e466f87bb3ebb946ab99d49da01860d8f53f219e0662964418fc3e56"
+      }
+    }
+  ],
+  "schema": "jepa-semantic-discrimination-evidence-manifest/1",
+  "scope": "Byte copies only. Failed attempts and journals retained. Historical absolute references remain origin provenance and are not reinterpreted or dereferenced by portable verification. No model/native/fitting/rescoring performed.",
+  "semantic_validated": false,
+  "source_freeze_commits": [
+    "b94dd4cfb9b63a3199805526398b925d3fdedc65",
+    "fea073737d9b7564278f752cb4dcb9a65023ef14",
+    "c546f0e3b54f363d74d503ebc2bbc425a8c28250"
+  ],
+  "stored_bytes": 3144165
+}
