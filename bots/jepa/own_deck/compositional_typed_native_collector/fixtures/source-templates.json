@@ -1,0 +1,406 @@
+{
+  "cards": [
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "aspects": [
+          "vigilance"
+        ],
+        "cost": null,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 30,
+        "id": "7349221421",
+        "internalName": "fortress-of-the-great-mothers",
+        "keywords": [],
+        "power": null,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 19,
+            "set": "ASH"
+          }
+        ],
+        "setId": {
+          "number": 19,
+          "set": "ASH"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Fortress of the Great Mothers",
+        "traits": [
+          "peridea"
+        ],
+        "types": [
+          "base"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "b1e5d2035bc16d2f0b286e465e728b144797b666fbf180cc510e67ffaefdefc0",
+      "id": "7349221421",
+      "internalName": "fortress-of-the-great-mothers",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:base"
+      ],
+      "setCode": "ASH_019",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [
+          {
+            "costs": [
+              {
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                },
+                "kind": "resources"
+              },
+              {
+                "kind": "exhaustSelf"
+              }
+            ],
+            "effect": {
+              "amount": {
+                "kind": "const",
+                "value": 1
+              },
+              "kind": "damage",
+              "target": "chosen"
+            },
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "title": "Deal 1 damage to a base",
+            "trigger": "action"
+          }
+        ],
+        "unit": [
+          {
+            "costs": [],
+            "effect": {
+              "amount": {
+                "kind": "const",
+                "value": 2
+              },
+              "kind": "damage",
+              "target": "chosen"
+            },
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "title": "Deal 2 damage to a base",
+            "trigger": "onAttack"
+          }
+        ]
+      },
+      "baseClass": "LeaderUnitCard",
+      "card": {
+        "arena": "ground",
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "cost": 6,
+        "deployBox": "On Attack: Deal 2 damage to a base.",
+        "epicAction": "Epic Action: If you control 6 or more resources, deploy this leader. (Flip him, ready him, and move him to the ground arena.)",
+        "hp": 8,
+        "id": "9389694773",
+        "internalName": "darth-vader#dont-fail-me-again",
+        "keywords": [],
+        "power": 3,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 53,
+            "set": "IBH"
+          }
+        ],
+        "setId": {
+          "number": 53,
+          "set": "IBH"
+        },
+        "subtitle": "Don't Fail Me Again",
+        "text": "Action [1 resource, Exhaust]: Deal 1 damage to a base.",
+        "title": "Darth Vader",
+        "traits": [
+          "force",
+          "imperial",
+          "sith"
+        ],
+        "types": [
+          "leader"
+        ],
+        "unique": true,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "className": "DarthVaderDontFailMeAgain",
+      "dataHash": "8e008bd17ac55ad59d2cc5ce2a879d3eb070e1d19f990b1c73e3e545ccd8bc8a",
+      "id": "9389694773",
+      "internalName": "darth-vader#dont-fail-me-again",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:leader",
+        "ir:const",
+        "ir:damage",
+        "ir:exhaustSelf",
+        "ir:resources",
+        "targetType:any",
+        "targetZone:base",
+        "trigger:action",
+        "trigger:onAttack"
+      ],
+      "setCode": "IBH_053",
+      "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+      "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [
+          {
+            "costs": [],
+            "effect": {
+              "effects": [
+                {
+                  "kind": "defeat",
+                  "target": {
+                    "args": [
+                      {
+                        "args": [],
+                        "kind": "query",
+                        "name": "isShield",
+                        "receiver": {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        }
+                      }
+                    ],
+                    "kind": "collection",
+                    "limit": 256,
+                    "name": "filter",
+                    "receiver": {
+                      "kind": "ref",
+                      "path": [
+                        "target",
+                        "upgrades"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "amount": {
+                    "kind": "const",
+                    "value": 3
+                  },
+                  "kind": "damage",
+                  "target": "chosen"
+                }
+              ],
+              "kind": "sequence"
+            },
+            "targetResolver": {
+              "owner": "any",
+              "type": "unit",
+              "zone": "anyAttackable"
+            },
+            "title": "Defeat all Shield tokens on a unit. Deal 3 damage to that unit",
+            "trigger": "event"
+          }
+        ],
+        "leader": [],
+        "unit": []
+      },
+      "baseClass": "EventCard",
+      "card": {
+        "aspects": [
+          "aggression"
+        ],
+        "cost": 3,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": null,
+        "id": "6938023363",
+        "internalName": "piercing-shot",
+        "keywords": [],
+        "power": null,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 180,
+            "set": "JTL"
+          }
+        ],
+        "setId": {
+          "number": 180,
+          "set": "JTL"
+        },
+        "subtitle": "",
+        "text": "Defeat all Shield tokens on a unit. Deal 3 damage to that unit.",
+        "title": "Piercing Shot",
+        "traits": [
+          "tactic"
+        ],
+        "types": [
+          "event"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "className": "PiercingShot",
+      "dataHash": "45a747983fb757da202fc84bbc660aba95cfc518aef6bb618ba64d45d2286958",
+      "id": "6938023363",
+      "internalName": "piercing-shot",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:event",
+        "collection:filter",
+        "ir:collection",
+        "ir:const",
+        "ir:damage",
+        "ir:defeat",
+        "ir:query",
+        "ir:ref",
+        "ir:sequence",
+        "query:isShield",
+        "ref:card",
+        "ref:target.upgrades",
+        "targetType:unit",
+        "targetZone:anyAttackable",
+        "trigger:event"
+      ],
+      "setCode": "JTL_180",
+      "sourceHash": "5be8e86fd58e0bdf1adf2cd6c744f58db76a25c0ec7d2fdece99ec621d2df272",
+      "sourcePath": "game/cards/04_JTL/events/PiercingShot.ts",
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "arena": "ground",
+        "aspects": [],
+        "cost": 2,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 4,
+        "id": "9014610567",
+        "internalName": "gifted-urchin",
+        "keywords": [],
+        "power": 1,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 256,
+            "set": "LOF"
+          }
+        ],
+        "setId": {
+          "number": 256,
+          "set": "LOF"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Gifted Urchin",
+        "traits": [
+          "force",
+          "fringe"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "7fb71dd198239ad52b1a405648566d88a668882480d29f82397d13b0ceb646b9",
+      "id": "9014610567",
+      "internalName": "gifted-urchin",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ],
+      "setCode": "LOF_256",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "baseClass": "TokenUpgradeCard",
+      "card": {
+        "aspects": [],
+        "cost": 0,
+        "deployBox": null,
+        "epicAction": null,
+        "hp": 0,
+        "id": "8752877738",
+        "internalName": "shield",
+        "keywords": [],
+        "power": 0,
+        "rules": null,
+        "setId": {
+          "set": "SOR"
+        },
+        "subtitle": null,
+        "text": "If damage would be dealt to attached unit, prevent that damage. If you do, defeat a Shield token on it.",
+        "title": "Shield",
+        "traits": [
+          "armor"
+        ],
+        "types": [
+          "token",
+          "upgrade"
+        ],
+        "unique": false,
+        "upgradeHp": 0,
+        "upgradePower": 0
+      },
+      "className": "Shield",
+      "dataHash": "3fe37b5b4c214e1a6971c2ea5e7729a7cad9bf983a384c20b56c404cbf41208b",
+      "id": "8752877738",
+      "internalName": "shield",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:token",
+        "cardType:upgrade"
+      ],
+      "setCode": "TOKEN_SHIELD",
+      "sourceHash": "39f1c6699c36ba309a8fe8e053f9b94ddbb8877991767b6664fcd88d447be91f",
+      "sourcePath": "game/cards/01_SOR/tokens/Shield.ts",
+      "status": "unsupported"
+    }
+  ],
+  "irSchema": "swu-card-ir/v1",
+  "original_catalog_pin": {
+    "bytes": 12675831,
+    "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+  },
+  "schema": "swu-card-ir-cards/v1"
+}
