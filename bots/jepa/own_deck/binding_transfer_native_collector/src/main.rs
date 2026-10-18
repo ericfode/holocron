@@ -108,10 +108,21 @@ fn capture(e:&Engine,s:&State,refs:&[CardId;8],plan:&Value,world:&Value)->Result
             "after_attack_programs":s.after_attack_programs,"event_group_active":s.event_group.active,"support_pending":s.support.pending}}))
 }
 
-fn attach_fixture(e:&Engine,s:&mut State,owner:Seat,code:&str,host:CardId)->CardId{
-    let id=add(e,s,owner,code);let old=s.card(host).upgrades;
-    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=old;s.card_mut(host).upgrades=id;
-    s.registration_order.push(id).unwrap();id
+fn attach_fixture(e:&Engine,s:&mut State,owner:Seat,code:&str,host:CardId)->Result<CardId,String>{
+    if host==0||host>=s.next_id||!s.card(host).present{return Err("invalid fixture attachment host".into());}
+    // Match native Engine::attach chronology: ordinary upgrades append at tail.
+    // Validate the existing chain before allocating or changing any links.
+    let mut tail=0;let mut current=s.card(host).upgrades;let mut seen=vec![];
+    while current!=0{
+        if current>=s.next_id||seen.contains(&current){return Err("invalid/cyclic fixture attachment chain".into());}
+        let card=s.card(current);
+        if !card.present||card.parent!=host{return Err("fixture attachment parent mismatch".into());}
+        seen.push(current);tail=current;current=card.next_upgrade;
+    }
+    let id=add(e,s,owner,code);
+    if tail==0{s.card_mut(host).upgrades=id;}else{s.card_mut(tail).next_upgrade=id;}
+    s.card_mut(id).parent=host;s.card_mut(id).next_upgrade=0;
+    s.registration_order.push(id)?;Ok(id)
 }
 fn fixture(e:&Engine,world:&Value,plan:&Value)->Result<(State,[CardId;8],Vec<CardId>),String>{
     let h=&plan["helpers"];let get=|name:&str|h[name].as_str().unwrap();let mut s=State{hidden_history_exact:true,..State::default()};
@@ -125,7 +136,7 @@ fn fixture(e:&Engine,world:&Value,plan:&Value)->Result<(State,[CardId;8],Vec<Car
             refs[3]=unit(e,&mut s,Seat::P2,get("victim"));s.card_mut(refs[3]).damage=world["victim_damage"].as_u64().ok_or("victim damage missing")? as u16;
             refs[4]=unit(e,&mut s,Seat::P2,get("unused_anchor"));
             for code in h["victim_upgrades"].as_array().ok_or("victim upgrades missing")?{
-                attachments.push(attach_fixture(e,&mut s,Seat::P2,code.as_str().ok_or("victim upgrade code missing")?,refs[3]));
+                attachments.push(attach_fixture(e,&mut s,Seat::P2,code.as_str().ok_or("victim upgrade code missing")?,refs[3])?);
             }
         },
         Some("simultaneous-damage")=>{
@@ -143,6 +154,53 @@ fn fixture(e:&Engine,world:&Value,plan:&Value)->Result<(State,[CardId;8],Vec<Car
     refs[6]=s.player(Seat::P1).base;refs[7]=s.player(Seat::P2).base;
     for n in 0..12{let id=add(e,&mut s,Seat::P1,get("resource"));s.card_mut(id).exhausted=n>=world["ready_resources"].as_u64().unwrap();s.player_mut(Seat::P1).resources.push(id)?;}
     Ok((s,refs,attachments))
+}
+fn fixture_chronology(s:&State,host:CardId)->Result<Value,String>{
+    let mut chain=vec![];let mut current=s.card(host).upgrades;
+    while current!=0{
+        if current>=s.next_id||chain.contains(&current){return Err("invalid/cyclic fixture attachment chain".into());}
+        let card=s.card(current);
+        if !card.present||card.parent!=host{return Err("fixture attachment parent mismatch".into());}
+        chain.push(current);current=card.next_upgrade;
+    }
+    let registration:Vec<_>=s.registration_order.as_slice().iter().map(|id|*id as CardId).filter(|id|chain.contains(id)).collect();
+    let host_index=s.registration_order.as_slice().iter().position(|id|*id as CardId==host).ok_or("fixture host registration missing")?;
+    if registration!=chain||chain.iter().any(|id|s.registration_order.as_slice().iter().position(|v|*v as CardId==*id).map_or(true,|i|i<=host_index)){
+        return Err("fixture attachment chronology differs from registration".into());
+    }
+    Ok(json!({"host":cid(host),"linkedUpgradeOrder":chain.into_iter().map(cid).collect::<Vec<_>>(),
+        "registrationUpgradeOrder":registration.into_iter().map(cid).collect::<Vec<_>>(),"exact":true}))
+}
+fn validate_fixtures(e:&Engine,plan:&Value)->Result<Vec<Value>,String>{
+    let worlds=plan["worlds"].as_array().ok_or("worlds missing")?;
+    if worlds.len()!=26{return Err("fixture-only validation requires the unchanged26-root plan".into());}
+    let mut results=vec![];let mut ids=vec![];
+    for world in worlds{
+        let id=world["id"].as_u64().ok_or("world id missing")?;
+        if id>=26||ids.contains(&id){return Err("duplicate/out-of-range fixture world id".into());}ids.push(id);
+        let (s,refs,attachments)=fixture(e,world,plan)?;
+        let snapshot=e.snapshot(&s);let imported=e.load_state(&snapshot)?;
+        if snapshot!=e.snapshot(&imported)||e.legal_actions(&s)!=e.legal_actions(&imported){return Err("public fixture snapshot/load mismatch".into());}
+        for seat in [Seat::P1,Seat::P2]{
+            if s.player(seat).deck.len!=0||(seat==Seat::P2&&s.player(seat).hand.len!=0){return Err("hidden fixture piles must be empty".into());}
+        }
+        if s.player(Seat::P1).hand.as_slice()!=[refs[0]]{return Err("fixture own hand must contain only the declared source".into());}
+        if (1..s.next_id).any(|id|s.card(id).present&&e.definitions[s.card(id).def as usize].code=="TOKEN_SHIELD"){
+            return Err("constructor support token became a physical fixture card".into());
+        }
+        let mut chronology=vec![];let mut attachment_witnesses=vec![];
+        for uid in attachments{
+            let host=s.card(uid).parent;let mut query=s;query.source=uid;query.decision=Decision::UpgradeTarget;
+            if offered(e,&query,host).is_none(){return Err("native public upgrade-target query rejects fixture host".into());}
+            chronology.push(fixture_chronology(&s,host)?);
+            attachment_witnesses.push(json!({"upgrade":cid(uid),"host":cid(host),"code":e.definitions[s.card(uid).def as usize].code,
+                "offeredHost":offered(e,&query,host),"publicTargetQuery":capture(e,&query,&refs,plan,world)?}));
+        }
+        results.push(json!({"world_id":id,"card":world["source_code"],"publicSnapshotRoundtripExact":true,
+            "legalActionsRoundtripExact":true,"attachmentChronology":chronology,"fixtureAttachmentWitnesses":attachment_witnesses,
+            "before":capture(e,&s,&refs,plan,world)?,"applyCalls":0,"actionsApplied":0}));
+    }
+    Ok(results)
 }
 fn offered(e:&Engine,s:&State,id:CardId)->Option<Action>{e.legal_actions(s).into_iter().find(|a|a.id()==Some(id))}
 struct Budget{started:Instant,calls:usize,path:PathBuf,context:String}
@@ -204,7 +262,7 @@ fn run_case(e:&Engine,b:&mut Budget,world:&Value,plan:&Value)->Result<Value,Stri
     row["final_source_parent"]=if s.card(refs[0]).parent==0{Value::Null}else{json!(cid(s.card(refs[0]).parent))};
     b.trace(&json!({"phase":"contextComplete","context":b.context,"applyCalls":b.calls,"case":row}))?;Ok(row)
 }
-fn run()->Result<Value,String>{
+fn run(validate_only:bool)->Result<Value,String>{
     source_preflight()?;let started=Instant::now();
     let plan_path=PathBuf::from(env::var("BINDING_TRANSFER_COLLECTION_PLAN").map_err(|_|"BINDING_TRANSFER_COLLECTION_PLAN required")?);
     let bytes=fs::read(&plan_path).map_err(|e|e.to_string())?;let plan:Value=serde_json::from_slice(&bytes).map_err(|e|e.to_string())?;
@@ -220,6 +278,18 @@ fn run()->Result<Value,String>{
     catalog["cards"].as_array_mut().unwrap().retain(|r|r["setCode"].as_str().is_some_and(|c|selected.iter().any(|x|x==c)));
     let hash=format!("{:x}",Sha256::digest(serde_json::to_vec(&catalog).unwrap()));let engine=Engine::from_catalogue_value(&catalog)?;
     for code in &selected{if !engine.definitions.iter().any(|d|d.code==*code){return Err(format!("complete selected card not admitted: {code}"));}}
+    // This branch returns before reading a native-trace path, creating an apply
+    // journal, constructing Budget, or entering the action-producing run_case.
+    if validate_only{
+        let cases=validate_fixtures(&engine,&plan)?;source_preflight()?;
+        return Ok(json!({"schema":"jepa-binding-transfer-fixture-validation/1","sourceRevision":REVISION,
+            "collectionPlan":plan,"collectionPlanSha256":format!("{:x}",Sha256::digest(&bytes)),
+            "selectedWholeCards":selected,"selectedCatalogueSha256":hash,"candidateOrder":SLOTS,
+            "validationComplete":cases.len()==26,"cases":cases,"applyCalls":0,"engineApplyInvocations":0,
+            "actionsApplied":0,"nativeJournalCreated":false,"neuralForwards":0,"optimizerUpdates":0,
+            "elapsedSeconds":started.elapsed().as_secs_f64(),"noHiddenCardsOrDrawOrder":true,
+            "scope":"Fixture construction, physical attachment legality/chronology and public snapshot/load validation only; no action outcomes or learned results."}));
+    }
     let path=PathBuf::from(env::var("BINDING_TRANSFER_NATIVE_TRACE").map_err(|_|"BINDING_TRANSFER_NATIVE_TRACE required")?);
     let mut trace=fs::OpenOptions::new().write(true).create_new(true).open(&path).map_err(|e|e.to_string())?;
     serde_json::to_writer(&mut trace,&json!({"schema":"jepa-binding-transfer-apply-journal/1","sourceRevision":REVISION,"selectedWholeCards":selected,"maxApplyCalls":MAX_APPLY,"planSha256":format!("{:x}",Sha256::digest(&bytes))})).map_err(|e|e.to_string())?;
@@ -236,9 +306,40 @@ fn run()->Result<Value,String>{
         "elapsedSeconds":started.elapsed().as_secs_f64(),"maxSeconds":MAX_SECONDS,"noHiddenCardsOrDrawOrder":true,"forcetekiOracleRun":false,
         "scope":"26 actual-endpoint fixtures from seven complete actual-corpus sources; four TRAIN templates/two held parent-stat program variants, no broad semantic or competitive claim"}))
 }
-fn main(){let args:Vec<_>=env::args().collect();if args.len()!=2{eprintln!("usage: binding-transfer-native-collector NEW_RECEIPT.json");std::process::exit(2);}
-    match std::thread::Builder::new().stack_size(64*1024*1024).spawn(run).expect("collector worker").join(){
-        Ok(Ok(receipt))=>{let mut file=fs::OpenOptions::new().write(true).create_new(true).open(&args[1]).expect("new receipt");serde_json::to_writer_pretty(&mut file,&receipt).unwrap();file.write_all(b"\n").and_then(|_|file.flush()).and_then(|_|file.sync_all()).unwrap();println!("{}",json!({"ok":true,"receipt":args[1],"applyCalls":receipt["applyCalls"],"cases":receipt["cases"].as_array().unwrap().len()}));}
+pub(crate) fn entry(require_validation:bool){let args:Vec<_>=env::args().collect();
+    let validate_only=args.len()==3&&args[1]=="--validate-fixtures-only";
+    if (!validate_only&&args.len()!=2)||(require_validation&&!validate_only){eprintln!("usage: binding-transfer-fixture-validator --validate-fixtures-only NEW_RECEIPT.json");std::process::exit(2);}
+    let output=if validate_only{args[2].clone()}else{args[1].clone()};
+    match std::thread::Builder::new().stack_size(64*1024*1024).spawn(move||run(validate_only)).expect("collector worker").join(){
+        Ok(Ok(receipt))=>{let mut file=fs::OpenOptions::new().write(true).create_new(true).open(&output).expect("new receipt");serde_json::to_writer_pretty(&mut file,&receipt).unwrap();file.write_all(b"\n").and_then(|_|file.flush()).and_then(|_|file.sync_all()).unwrap();println!("{}",json!({"ok":true,"receipt":output,"schema":receipt["schema"],"applyCalls":receipt["applyCalls"],"cases":receipt["cases"].as_array().unwrap().len()}));}
         Ok(Err(error))=>{eprintln!("collector: {error}");std::process::exit(1);},Err(_)=>{eprintln!("collector assertion failed");std::process::exit(1);}
+    }
+}
+fn main(){entry(false);}
+
+#[cfg(test)]
+mod fixture_tests{
+    use super::*;
+    fn state_with_two_upgrades(reversed:bool)->State{
+        let mut s=State::default();s.next_id=4;
+        for id in 1..4{*s.card_mut(id)=Card{present:true,..Card::default()};s.registration_order.push(id).unwrap();}
+        s.card_mut(2).parent=1;s.card_mut(3).parent=1;
+        s.card_mut(1).upgrades=if reversed{3}else{2};
+        if reversed{s.card_mut(3).next_upgrade=2;}else{s.card_mut(2).next_upgrade=3;}
+        s
+    }
+    #[test]
+    fn tail_order_has_exact_registration_projection_without_engine_apply(){
+        let s=state_with_two_upgrades(false);let proof=fixture_chronology(&s,1).unwrap();
+        assert_eq!(proof["linkedUpgradeOrder"],json!(["c1","c2"]));
+        assert_eq!(proof["linkedUpgradeOrder"],proof["registrationUpgradeOrder"]);
+    }
+    #[test]
+    fn old_prepend_order_and_cycles_are_rejected_without_engine_apply(){
+        assert!(fixture_chronology(&state_with_two_upgrades(true),1).is_err());
+        let mut cyclic=state_with_two_upgrades(false);cyclic.card_mut(3).next_upgrade=2;
+        assert!(fixture_chronology(&cyclic,1).is_err());
+        let mut wrong_parent=state_with_two_upgrades(false);wrong_parent.card_mut(3).parent=2;
+        assert!(fixture_chronology(&wrong_parent,1).is_err());
     }
 }

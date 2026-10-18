@@ -12,6 +12,10 @@ publish = false
 name = "binding-transfer-native-collector"
 path = "src/main.rs"
 
+[[bin]]
+name = "binding-transfer-fixture-validator"
+path = "src/fixture_validator.rs"
+
 [dependencies]
 kessel = { path = "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel" }
 serde_json = "1"

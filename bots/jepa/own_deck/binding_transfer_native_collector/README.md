@@ -1,5 +1,17 @@
 # Matched public-input and intent-binding assay
 
+The original collection failed before its first application; see
+[`BINDING_TRANSFER_RESULTS.md`](../BINDING_TRANSFER_RESULTS.md). Its ledger,
+`source-manifest.json` and archived source describe that closed attempt and are
+not refreshed to authorize another collection.
+
+The chronology correction adds a separate `binding-transfer-fixture-validator`
+executable. It requires `--validate-fixtures-only NEW_RECEIPT.json` and returns
+before the action journal, application budget and collection loop. The separate
+fixture guard records construction checks with a zero-application allocation.
+A later action collection needs a new linked configuration and explicit budget;
+see [`BINDING_TRANSFER_NEXT_ALLOCATION.md`](../BINDING_TRANSFER_NEXT_ALLOCATION.md).
+
 This is preparation for a separately frozen, linked experiment. It edits no
 prior collector, evidence, engine, compiler or card definition. Root must seal
 the plan, accounting, converter and all learned arms before any build or native
