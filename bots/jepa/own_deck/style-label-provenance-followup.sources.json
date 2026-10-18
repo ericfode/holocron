@@ -1,0 +1,163 @@
+{
+  "schema": "jepa-style-label-provenance-sources/1",
+  "checked_at_utc": "2026-10-18T02:01:28.990Z",
+  "upstream_commit": "a2df9722314b1233d16747f7e56186071106799c",
+  "observed_style_headers": {
+    "verified": 27,
+    "matches_imported": 27,
+    "exact_casing": "All27 observed style values are already lowercase",
+    "evidence": "style-label-provenance-followup.fixtures.json"
+  },
+  "assignment_conclusion": {
+    "documented_origin": "Upstream describes owner-labelled decks and prioritizes hand labels. Current27 explicit fixture Style comments are the imported labels.",
+    "independent_observation": "Every original exact-commit Style comment equals the corresponding imported metadata.style string.",
+    "manual_versus_heuristic": "The code describes fitting composition-based shape weights/cuts to labelled decks. Runtime can copy a sufficiently overlapping registry label or infer from composition when no such label applies. That is distinct from the27 explicit fixture annotations.",
+    "still_unknown": [
+      "Identity and qualifications of the original annotator(s)",
+      "Exact per-row edit commit/blame history",
+      "Whether every Style token was typed manually versus a fixed mapping from an owner-provided archetype term",
+      "Original annotation protocol, confidence or blinded inter-rater agreement"
+    ],
+    "semantic_ground_truth": false,
+    "performance_ground_truth": false,
+    "structured_public_database_strategic_style_claim": false
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/README.md",
+      "line_ranges_one_based": [
+        [
+          1,
+          15
+        ],
+        [
+          22,
+          27
+        ],
+        [
+          34,
+          48
+        ]
+      ],
+      "evidence_type": "Pinned upstream documentation",
+      "finding": "Owner-labelled fixture set; Style selects a heuristic/RL profile; explicit Style lines take precedence over filename-derived guesses. Documentation tables/prose contain discrepancies relative to current headers."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Custom/BotArchetypes.php",
+      "line_ranges_one_based": [
+        [
+          5,
+          16
+        ],
+        [
+          180,
+          202
+        ]
+      ],
+      "evidence_type": "Pinned public source comments and executable fallback",
+      "finding": "Hand labels are primary. A separate composition fallback derives a style for an unlabelled deck; no claim that it generated the27 fixture comments."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Custom/BotDeckStyle.php",
+      "line_ranges_one_based": [
+        [
+          186,
+          211
+        ],
+        [
+          322,
+          369
+        ]
+      ],
+      "evidence_type": "Pinned public source comments and executable inference",
+      "finding": "Shape weights/cuts were fitted to owner-labelled data; comments record Boba Lake Country and Ezra Yellow owner relabels. Runtime registry matching at overlap>=0.75 precedes shape inference.",
+      "chronology_status": "Dates/relabels are claims in code comments, not independently resolved blame history."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/DevTools/rl/sweep_fixtures.sh",
+      "line_ranges_one_based": [
+        [
+          85,
+          86
+        ],
+        [
+          98,
+          98
+        ]
+      ],
+      "evidence_type": "Pinned executable consumer",
+      "finding": "Reads each fixture Style comment and passes that value to the heuristic chooser."
+    },
+    {
+      "url": "https://github.com/TCG-Engine/TCGEngine/commit/a2df9722314b1233d16747f7e56186071106799c",
+      "evidence_type": "Official GitHub commit page",
+      "status": "Accessible"
+    }
+  ],
+  "documentation_discrepancies": [
+    {
+      "deck_stem": "ahsoka-tano_ash_yellow",
+      "readme_table_style": "softaggro",
+      "actual_style_comment": "hyperaggro",
+      "imported_style": "hyperaggro"
+    },
+    {
+      "deck_stem": "boba-fett_jtl_lake-country",
+      "readme_table_style": "softaggro",
+      "actual_style_comment": "hyperaggro",
+      "imported_style": "hyperaggro"
+    },
+    {
+      "deck_stem": "darth-maul_lof_blue-force",
+      "readme_table_style": "midrange",
+      "actual_style_comment": "softcontrol",
+      "imported_style": "softcontrol"
+    },
+    {
+      "deck_stem": "lando-calrissian_law_blue",
+      "readme_table_style": "softcontrol",
+      "actual_style_comment": "hardcontrol",
+      "imported_style": "hardcontrol"
+    },
+    {
+      "deck_stem": "ezra-bridger_ash_yellow",
+      "readme_intro_style_phrase": "hyper aggro",
+      "actual_style_comment": "softaggro",
+      "imported_style": "softaggro"
+    }
+  ],
+  "unsuccessful_narrow_retrievals": [
+    {
+      "kind": "GitHub exact-commit tree page",
+      "result": "Web tool reported restricted URL"
+    },
+    {
+      "kind": "GitHub API exact commit and path-filtered history",
+      "result": "Not accessible via web tool; direct read-only urllib request failed DNS in the restricted shell"
+    },
+    {
+      "kind": "GitHub exact-commit blame for BotDeckStyle.php",
+      "result": "Web tool reported restricted URL"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/docs/superpowers/specs/2026-09-13-swusim-rl-bots-design.md",
+      "kind": "Specification path linked by upstream README",
+      "result": "404 Not Found at the pinned raw URL"
+    }
+  ],
+  "privacy": {
+    "saved_fixture_content": "Only exact Style comment, deck stem, line number and public code URL",
+    "player_names_saved": false,
+    "event_placements_saved": false,
+    "decklist_links_saved": false,
+    "full_fixture_or_research_files_saved": false
+  },
+  "immutable_existing_work": "Earlier audit/proposal/probe source and results were not edited or rerun. Their local-only provenance uncertainty is superseded by this separate follow-up evidence.",
+  "execution": {
+    "neural_forwards": 0,
+    "native_calls": 0,
+    "training_runs": 0,
+    "optimizer_updates": 0,
+    "metric_recomputations": 0
+  }
+}

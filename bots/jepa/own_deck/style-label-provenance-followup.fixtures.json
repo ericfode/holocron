@@ -1,0 +1,306 @@
+{
+  "schema": "jepa-style-label-provenance-fixture-evidence/1",
+  "checked_at_utc": "2026-10-18T02:00:48.868Z",
+  "upstream_repository": "https://github.com/TCG-Engine/TCGEngine",
+  "upstream_commit": "a2df9722314b1233d16747f7e56186071106799c",
+  "source_folder": "SWUSim/Tests/BotFixtures/ash-meta-2026-09",
+  "imported_source": {
+    "path": "decks/ash-meta-2026-09.json",
+    "sha256": "eeada07803a6545182331247bc410628b0d0630d895a8bad8a9160d58f888b03"
+  },
+  "retrieval": {
+    "method": "Public exact-commit raw.githubusercontent.com files via web tool; retain only Style lines and deck stems",
+    "complete_fixture_files_saved": false,
+    "player_names_saved": false,
+    "event_placements_saved": false,
+    "decklist_links_saved": false,
+    "raw_blob_bytes_or_blob_sha_verified": false,
+    "note": "Evidence records rendered Style text/line locations, not a full-file byte archive."
+  },
+  "coverage": {
+    "requested": 27,
+    "verified": 27,
+    "matches_imported": 27,
+    "style_comments_per_file": 1,
+    "imported_and_upstream_counts": {
+      "hardcontrol": 4,
+      "hyperaggro": 4,
+      "midrange": 7,
+      "softaggro": 5,
+      "softcontrol": 7
+    },
+    "all_style_tokens_already_lowercase": true
+  },
+  "rows": [
+    {
+      "source_index": 0,
+      "deck_stem": "admiral-piett_jtl_blue",
+      "imported_style": "softcontrol",
+      "upstream_style": "softcontrol",
+      "exact_style_comment": "# Style: softcontrol",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/admiral-piett_jtl_blue.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 1,
+      "deck_stem": "admiral-piett_jtl_red-splash",
+      "imported_style": "midrange",
+      "upstream_style": "midrange",
+      "exact_style_comment": "# Style: midrange",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/admiral-piett_jtl_red-splash.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 2,
+      "deck_stem": "ahsoka-tano_ash_blue",
+      "imported_style": "softaggro",
+      "upstream_style": "softaggro",
+      "exact_style_comment": "# Style: softaggro",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ahsoka-tano_ash_blue.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 3,
+      "deck_stem": "ahsoka-tano_ash_yellow",
+      "imported_style": "hyperaggro",
+      "upstream_style": "hyperaggro",
+      "exact_style_comment": "# Style: hyperaggro",
+      "source_line_one_based": 9,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ahsoka-tano_ash_yellow.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 4,
+      "deck_stem": "aurra-sing_law_data-vault",
+      "imported_style": "softcontrol",
+      "upstream_style": "softcontrol",
+      "exact_style_comment": "# Style: softcontrol",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/aurra-sing_law_data-vault.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 5,
+      "deck_stem": "aurra-sing_law_red",
+      "imported_style": "hardcontrol",
+      "upstream_style": "hardcontrol",
+      "exact_style_comment": "# Style: hardcontrol",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/aurra-sing_law_red.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 6,
+      "deck_stem": "boba-fett_jtl_blue",
+      "imported_style": "midrange",
+      "upstream_style": "midrange",
+      "exact_style_comment": "# Style: midrange",
+      "source_line_one_based": 9,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/boba-fett_jtl_blue.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 7,
+      "deck_stem": "boba-fett_jtl_lake-country",
+      "imported_style": "hyperaggro",
+      "upstream_style": "hyperaggro",
+      "exact_style_comment": "# Style: hyperaggro",
+      "source_line_one_based": 8,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/boba-fett_jtl_lake-country.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 8,
+      "deck_stem": "chewbacca_law_alliance-outpost",
+      "imported_style": "hyperaggro",
+      "upstream_style": "hyperaggro",
+      "exact_style_comment": "# Style: hyperaggro",
+      "source_line_one_based": 7,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/chewbacca_law_alliance-outpost.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 9,
+      "deck_stem": "darth-maul_lof_blue-force",
+      "imported_style": "softcontrol",
+      "upstream_style": "softcontrol",
+      "exact_style_comment": "# Style: softcontrol",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/darth-maul_lof_blue-force.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 10,
+      "deck_stem": "darth-vader_jtl_yellow",
+      "imported_style": "hyperaggro",
+      "upstream_style": "hyperaggro",
+      "exact_style_comment": "# Style: hyperaggro",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/darth-vader_jtl_yellow.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 11,
+      "deck_stem": "dedra-meero_sec_colossus",
+      "imported_style": "hardcontrol",
+      "upstream_style": "hardcontrol",
+      "exact_style_comment": "# Style: hardcontrol",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/dedra-meero_sec_colossus.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 12,
+      "deck_stem": "director-krennic_law_blue-splash",
+      "imported_style": "softcontrol",
+      "upstream_style": "softcontrol",
+      "exact_style_comment": "# Style: softcontrol",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/director-krennic_law_blue-splash.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 13,
+      "deck_stem": "director-krennic_law_blue",
+      "imported_style": "softcontrol",
+      "upstream_style": "softcontrol",
+      "exact_style_comment": "# Style: softcontrol",
+      "source_line_one_based": 8,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/director-krennic_law_blue.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 14,
+      "deck_stem": "ezra-bridger_ash_yellow",
+      "imported_style": "softaggro",
+      "upstream_style": "softaggro",
+      "exact_style_comment": "# Style: softaggro",
+      "source_line_one_based": 9,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/ezra-bridger_ash_yellow.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 15,
+      "deck_stem": "grand-admiral-thrawn_jtl_data-vault",
+      "imported_style": "softcontrol",
+      "upstream_style": "softcontrol",
+      "exact_style_comment": "# Style: softcontrol",
+      "source_line_one_based": 7,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/grand-admiral-thrawn_jtl_data-vault.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 16,
+      "deck_stem": "grand-admiral-thrawn_jtl_yellow",
+      "imported_style": "softcontrol",
+      "upstream_style": "softcontrol",
+      "exact_style_comment": "# Style: softcontrol",
+      "source_line_one_based": 7,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/grand-admiral-thrawn_jtl_yellow.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 17,
+      "deck_stem": "greef-karga_ash_data-vault",
+      "imported_style": "softaggro",
+      "upstream_style": "softaggro",
+      "exact_style_comment": "# Style: softaggro",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/greef-karga_ash_data-vault.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 18,
+      "deck_stem": "greef-karga_ash_red",
+      "imported_style": "softaggro",
+      "upstream_style": "softaggro",
+      "exact_style_comment": "# Style: softaggro",
+      "source_line_one_based": 7,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/greef-karga_ash_red.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 19,
+      "deck_stem": "lando-calrissian_law_blue",
+      "imported_style": "hardcontrol",
+      "upstream_style": "hardcontrol",
+      "exact_style_comment": "# Style: hardcontrol",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/lando-calrissian_law_blue.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 20,
+      "deck_stem": "luke-skywalker_ash_data-vault",
+      "imported_style": "midrange",
+      "upstream_style": "midrange",
+      "exact_style_comment": "# Style: midrange",
+      "source_line_one_based": 9,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/luke-skywalker_ash_data-vault.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 21,
+      "deck_stem": "luke-skywalker_jtl_data-vault",
+      "imported_style": "softaggro",
+      "upstream_style": "softaggro",
+      "exact_style_comment": "# Style: softaggro",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/luke-skywalker_jtl_data-vault.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 22,
+      "deck_stem": "mother-talzin_lof_red-force",
+      "imported_style": "midrange",
+      "upstream_style": "midrange",
+      "exact_style_comment": "# Style: midrange",
+      "source_line_one_based": 9,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/mother-talzin_lof_red-force.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 23,
+      "deck_stem": "mother-talzin_lof_yellow-force",
+      "imported_style": "midrange",
+      "upstream_style": "midrange",
+      "exact_style_comment": "# Style: midrange",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/mother-talzin_lof_yellow-force.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 24,
+      "deck_stem": "obi--wan-kenobi_lof_vergence-temple",
+      "imported_style": "midrange",
+      "upstream_style": "midrange",
+      "exact_style_comment": "# Style: midrange",
+      "source_line_one_based": 10,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/obi--wan-kenobi_lof_vergence-temple.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 25,
+      "deck_stem": "the-armorer_ash_nabat-village",
+      "imported_style": "midrange",
+      "upstream_style": "midrange",
+      "exact_style_comment": "# Style: midrange",
+      "source_line_one_based": 6,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-armorer_ash_nabat-village.txt",
+      "matches_imported": true
+    },
+    {
+      "source_index": 26,
+      "deck_stem": "the-mandalorian_ash_colossus",
+      "imported_style": "hardcontrol",
+      "upstream_style": "hardcontrol",
+      "exact_style_comment": "# Style: hardcontrol",
+      "source_line_one_based": 9,
+      "source_url": "https://raw.githubusercontent.com/TCG-Engine/TCGEngine/a2df9722314b1233d16747f7e56186071106799c/SWUSim/Tests/BotFixtures/ash-meta-2026-09/the-mandalorian_ash_colossus.txt",
+      "matches_imported": true
+    }
+  ]
+}

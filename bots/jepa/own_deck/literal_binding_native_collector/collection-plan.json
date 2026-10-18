@@ -1,0 +1,1180 @@
+{
+  "schema": "literal-binding-native-collection-plan/1",
+  "plan_version": 2,
+  "status": "frozen-preparation-no-execution",
+  "source_revision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+  "programs": [
+    {
+      "code": "SHD_004",
+      "side": "leader",
+      "index": 0,
+      "source_hash": "d219575edb09cdefea07f3375fc329716385ba8ad03f018e8b421330c64b0774",
+      "source_path": "game/cards/02_SHD/leaders/ReyMoreThanAScavenger.ts",
+      "program_group_id": "59c783e37e0730686938c8ceeb95bd3ed15c52e07d5ca6e8cae5a23d73f810a2",
+      "canonical_card_id": "4352150438",
+      "aliases": [
+        "SHD_004"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Give an Experience token to a unit with 2 or less power",
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 1
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "&&",
+            "left": {
+              "kind": "query",
+              "name": "isUnit",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": []
+            },
+            "right": {
+              "kind": "binary",
+              "op": "<=",
+              "left": {
+                "kind": "query",
+                "name": "getPower",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "args": []
+              },
+              "right": {
+                "kind": "const",
+                "value": 2
+              }
+            }
+          }
+        },
+        "effect": {
+          "kind": "giveExperience",
+          "target": "chosen",
+          "amount": {
+            "kind": "const",
+            "value": 1
+          }
+        }
+      },
+      "printed": {
+        "types": [
+          "leader"
+        ],
+        "arena": "ground",
+        "cost": 6,
+        "power": 2,
+        "hp": 6,
+        "aspects": [
+          "heroism",
+          "vigilance"
+        ],
+        "traits": [
+          "force",
+          "fringe"
+        ],
+        "keywords": [
+          "restore"
+        ]
+      },
+      "all_side_ability_counts": {
+        "leader": 1,
+        "unit": 1,
+        "card": 0
+      },
+      "dependencies": {
+        "node_kinds": [
+          "binary",
+          "const",
+          "exhaustSelf",
+          "giveExperience",
+          "query",
+          "ref",
+          "resources"
+        ],
+        "query_names": [
+          "getPower",
+          "isUnit"
+        ],
+        "reference_paths": [
+          [
+            "card"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "resources"
+          },
+          {
+            "path": "/costs/0/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/costs/1",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "giveExperience"
+          },
+          {
+            "path": "/effect/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/right/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/right/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right/right",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "1",
+          "2"
+        ],
+        "required_native_tokens": [
+          "TOKEN_EXPERIENCE"
+        ]
+      },
+      "partition": "heldout"
+    },
+    {
+      "code": "TWI_206",
+      "side": "card",
+      "index": 0,
+      "source_hash": "82a06a4ec8c9126aae993c416a3c3930ec01337a9a9e949727b771f288bf161a",
+      "source_path": "game/cards/03_TWI/units/IndependentSenator.ts",
+      "program_group_id": "72c1b31fea82169994dc955b05ae10147da4c3b74f27e2737089b47625411350",
+      "canonical_card_id": "9262288850",
+      "aliases": [
+        "TWI_206"
+      ],
+      "raw_ability": {
+        "trigger": "action",
+        "title": "Exhaust a unit with 4 or less power.",
+        "costs": [
+          {
+            "kind": "resources",
+            "amount": {
+              "kind": "const",
+              "value": 2
+            }
+          },
+          {
+            "kind": "exhaustSelf"
+          }
+        ],
+        "targetResolver": {
+          "owner": "any",
+          "type": "any",
+          "zone": "anyAttackable",
+          "predicate": {
+            "kind": "binary",
+            "op": "&&",
+            "left": {
+              "kind": "query",
+              "name": "isUnit",
+              "receiver": {
+                "kind": "ref",
+                "path": [
+                  "card"
+                ]
+              },
+              "args": []
+            },
+            "right": {
+              "kind": "binary",
+              "op": "<=",
+              "left": {
+                "kind": "query",
+                "name": "getPower",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "args": []
+              },
+              "right": {
+                "kind": "const",
+                "value": 4
+              }
+            }
+          }
+        },
+        "effect": {
+          "kind": "exhaust",
+          "target": "chosen"
+        }
+      },
+      "printed": {
+        "types": [
+          "unit"
+        ],
+        "arena": "ground",
+        "cost": 1,
+        "power": 0,
+        "hp": 4,
+        "aspects": [
+          "cunning"
+        ],
+        "traits": [
+          "separatist",
+          "official"
+        ],
+        "keywords": []
+      },
+      "all_side_ability_counts": {
+        "leader": 0,
+        "unit": 0,
+        "card": 1
+      },
+      "dependencies": {
+        "node_kinds": [
+          "binary",
+          "const",
+          "exhaust",
+          "exhaustSelf",
+          "query",
+          "ref",
+          "resources"
+        ],
+        "query_names": [
+          "getPower",
+          "isUnit"
+        ],
+        "reference_paths": [
+          [
+            "card"
+          ]
+        ],
+        "typed_node_paths": [
+          {
+            "path": "/costs/0",
+            "kind": "resources"
+          },
+          {
+            "path": "/costs/0/amount",
+            "kind": "const"
+          },
+          {
+            "path": "/costs/1",
+            "kind": "exhaustSelf"
+          },
+          {
+            "path": "/effect",
+            "kind": "exhaust"
+          },
+          {
+            "path": "/targetResolver/predicate",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right",
+            "kind": "binary"
+          },
+          {
+            "path": "/targetResolver/predicate/right/left",
+            "kind": "query"
+          },
+          {
+            "path": "/targetResolver/predicate/right/left/receiver",
+            "kind": "ref"
+          },
+          {
+            "path": "/targetResolver/predicate/right/right",
+            "kind": "const"
+          }
+        ],
+        "literal_values": [
+          "2",
+          "4"
+        ],
+        "required_native_tokens": []
+      },
+      "partition": "heldout"
+    }
+  ],
+  "candidate_order": [
+    "own_base",
+    "opponent_base",
+    "friendly_ground",
+    "enemy_ground",
+    "enemy_space",
+    "friendly_imperial",
+    "friendly_creature",
+    "source"
+  ],
+  "target_names": [
+    "source_use",
+    "target_allowed",
+    "cost_resource",
+    "damage_delta",
+    "source_exhausted_after",
+    "target_exhausted_delta",
+    "shield_delta",
+    "xp_delta",
+    "target_defeated",
+    "followup_source_offered",
+    "terminal"
+  ],
+  "chosen_ref": "friendly_ground",
+  "helpers": {
+    "base": "ASH_019",
+    "ground": "LOF_256",
+    "space": "IBH_022",
+    "imperial": "IBH_055",
+    "creature": "TOKEN_BEAST"
+  },
+  "contexts": [
+    {
+      "id": 0,
+      "name": "xp0-exhausted0",
+      "partition": "frozen-native-eval",
+      "chosen_code": "LOF_256",
+      "chosen_xp": 0,
+      "ready_resources": 2,
+      "source_exhausted": false,
+      "overrides": {
+        "friendly_ground": {
+          "exhausted": false
+        }
+      }
+    },
+    {
+      "id": 1,
+      "name": "xp0-exhausted1",
+      "partition": "frozen-native-eval",
+      "chosen_code": "LOF_256",
+      "chosen_xp": 0,
+      "ready_resources": 2,
+      "source_exhausted": false,
+      "overrides": {
+        "friendly_ground": {
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "xp1-exhausted0",
+      "partition": "frozen-native-eval",
+      "chosen_code": "LOF_256",
+      "chosen_xp": 1,
+      "ready_resources": 2,
+      "source_exhausted": false,
+      "overrides": {
+        "friendly_ground": {
+          "exhausted": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "xp1-exhausted1",
+      "partition": "frozen-native-eval",
+      "chosen_code": "LOF_256",
+      "chosen_xp": 1,
+      "ready_resources": 2,
+      "source_exhausted": false,
+      "overrides": {
+        "friendly_ground": {
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "id": 4,
+      "name": "printed-power-4",
+      "partition": "frozen-native-eval",
+      "chosen_code": "LOF_084",
+      "chosen_xp": 0,
+      "ready_resources": 2,
+      "source_exhausted": false,
+      "overrides": {}
+    },
+    {
+      "id": 5,
+      "name": "printed-power-5",
+      "partition": "frozen-native-eval",
+      "chosen_code": "SEC_167",
+      "chosen_xp": 0,
+      "ready_resources": 2,
+      "source_exhausted": false,
+      "overrides": {}
+    },
+    {
+      "id": 6,
+      "name": "resources-0",
+      "partition": "frozen-native-eval",
+      "chosen_code": "LOF_256",
+      "chosen_xp": 0,
+      "ready_resources": 0,
+      "source_exhausted": false,
+      "overrides": {}
+    },
+    {
+      "id": 7,
+      "name": "resources-1",
+      "partition": "frozen-native-eval",
+      "chosen_code": "LOF_256",
+      "chosen_xp": 0,
+      "ready_resources": 1,
+      "source_exhausted": false,
+      "overrides": {}
+    }
+  ],
+  "expected_cases": 16,
+  "commits_per_root": 1,
+  "selected_whole_cards": [
+    "ASH_019",
+    "IBH_022",
+    "IBH_053",
+    "IBH_055",
+    "LOF_084",
+    "LOF_256",
+    "SEC_167",
+    "SHD_004",
+    "TOKEN_BEAST",
+    "TOKEN_EXPERIENCE",
+    "TOKEN_SHIELD",
+    "TWI_206"
+  ],
+  "required_native_tokens": [
+    "TOKEN_SHIELD",
+    "TOKEN_EXPERIENCE"
+  ],
+  "helper_printed": {
+    "ASH_019": {
+      "title": "Fortress of the Great Mothers",
+      "subtitle": "",
+      "cost": null,
+      "hp": 30,
+      "power": null,
+      "text": "",
+      "deployBox": null,
+      "epicAction": "",
+      "unique": false,
+      "rules": null,
+      "upgradePower": null,
+      "upgradeHp": null,
+      "id": "7349221421",
+      "aspects": [
+        "vigilance"
+      ],
+      "traits": [
+        "peridea"
+      ],
+      "keywords": [],
+      "types": [
+        "base"
+      ],
+      "setId": {
+        "set": "ASH",
+        "number": 19
+      },
+      "setCodes": [
+        {
+          "set": "ASH",
+          "number": 19
+        }
+      ],
+      "internalName": "fortress-of-the-great-mothers"
+    },
+    "IBH_022": {
+      "title": "GR-75 Medium Transport",
+      "subtitle": "",
+      "cost": 5,
+      "hp": 4,
+      "power": 5,
+      "text": "",
+      "deployBox": null,
+      "epicAction": "",
+      "unique": false,
+      "rules": null,
+      "upgradePower": null,
+      "upgradeHp": null,
+      "id": "0446985285",
+      "aspects": [
+        "command",
+        "heroism"
+      ],
+      "traits": [
+        "rebel",
+        "vehicle",
+        "transport"
+      ],
+      "arena": "space",
+      "keywords": [],
+      "types": [
+        "unit"
+      ],
+      "setId": {
+        "set": "IBH",
+        "number": 22
+      },
+      "setCodes": [
+        {
+          "set": "IBH",
+          "number": 22
+        },
+        {
+          "set": "IBH",
+          "number": 33
+        },
+        {
+          "set": "IBH",
+          "number": 40
+        }
+      ],
+      "internalName": "gr75-medium-transport"
+    },
+    "IBH_055": {
+      "title": "First Legion Trooper",
+      "subtitle": "",
+      "cost": 3,
+      "hp": 4,
+      "power": 3,
+      "text": "",
+      "deployBox": null,
+      "epicAction": "",
+      "unique": false,
+      "rules": null,
+      "upgradePower": null,
+      "upgradeHp": null,
+      "id": "0875657287",
+      "aspects": [
+        "vigilance",
+        "villainy"
+      ],
+      "traits": [
+        "imperial",
+        "trooper"
+      ],
+      "arena": "ground",
+      "keywords": [],
+      "types": [
+        "unit"
+      ],
+      "setId": {
+        "set": "IBH",
+        "number": 55
+      },
+      "setCodes": [
+        {
+          "set": "IBH",
+          "number": 55
+        },
+        {
+          "set": "IBH",
+          "number": 73
+        },
+        {
+          "set": "IBH",
+          "number": 101
+        }
+      ],
+      "internalName": "first-legion-trooper"
+    },
+    "LOF_084": {
+      "title": "Knight of Ren",
+      "subtitle": "",
+      "cost": 3,
+      "hp": 4,
+      "power": 4,
+      "text": "",
+      "deployBox": null,
+      "epicAction": "",
+      "unique": false,
+      "rules": null,
+      "upgradePower": null,
+      "upgradeHp": null,
+      "id": "8660257242",
+      "aspects": [
+        "command",
+        "villainy"
+      ],
+      "traits": [
+        "first order"
+      ],
+      "arena": "ground",
+      "keywords": [],
+      "types": [
+        "unit"
+      ],
+      "setId": {
+        "set": "LOF",
+        "number": 84
+      },
+      "setCodes": [
+        {
+          "set": "LOF",
+          "number": 84
+        }
+      ],
+      "internalName": "knight-of-ren"
+    },
+    "LOF_256": {
+      "title": "Gifted Urchin",
+      "subtitle": "",
+      "cost": 2,
+      "hp": 4,
+      "power": 1,
+      "text": "",
+      "deployBox": null,
+      "epicAction": "",
+      "unique": false,
+      "rules": null,
+      "upgradePower": null,
+      "upgradeHp": null,
+      "id": "9014610567",
+      "aspects": [],
+      "traits": [
+        "force",
+        "fringe"
+      ],
+      "arena": "ground",
+      "keywords": [],
+      "types": [
+        "unit"
+      ],
+      "setId": {
+        "set": "LOF",
+        "number": 256
+      },
+      "setCodes": [
+        {
+          "set": "LOF",
+          "number": 256
+        }
+      ],
+      "internalName": "gifted-urchin"
+    },
+    "SEC_167": {
+      "title": "Coruscant Undercity Police",
+      "subtitle": "",
+      "cost": 4,
+      "hp": 4,
+      "power": 5,
+      "text": "",
+      "deployBox": null,
+      "epicAction": "",
+      "unique": false,
+      "rules": null,
+      "upgradePower": null,
+      "upgradeHp": null,
+      "id": "2463972264",
+      "aspects": [
+        "aggression"
+      ],
+      "traits": [
+        "republic",
+        "trooper"
+      ],
+      "arena": "ground",
+      "keywords": [],
+      "types": [
+        "unit"
+      ],
+      "setId": {
+        "set": "SEC",
+        "number": 167
+      },
+      "setCodes": [
+        {
+          "set": "SEC",
+          "number": 167
+        }
+      ],
+      "internalName": "coruscant-undercity-police"
+    },
+    "TOKEN_BEAST": {
+      "title": "Beast",
+      "subtitle": "",
+      "cost": 0,
+      "hp": 3,
+      "power": 3,
+      "text": "",
+      "deployBox": null,
+      "epicAction": "",
+      "unique": false,
+      "rules": null,
+      "upgradePower": null,
+      "upgradeHp": null,
+      "id": "6445363199",
+      "aspects": [],
+      "traits": [
+        "creature"
+      ],
+      "arena": "ground",
+      "keywords": [],
+      "types": [
+        "token",
+        "unit"
+      ],
+      "setId": {
+        "set": "HMW"
+      },
+      "internalName": "beast"
+    }
+  },
+  "helper_row_sha256": {
+    "ASH_019": "d6112952fba53ad3ec3dc2d89dbec08e4bbc6e98881fdca2dcdf9614b521677d",
+    "IBH_022": "0306479fec366435425af4f6daab8431c11fc22269804e084a06819e408da9a1",
+    "IBH_055": "ed1d941ce5c2389de56eef386d36c11de488ee5572e5e067fdb49b9100c6b1b9",
+    "LOF_084": "75cf32073b27fa848471cfeb56fb444440fe18e1005ea67ae1a1caeeae41e66a",
+    "LOF_256": "756983fc88c77692e9909bd317f4f7a5a96f284fa73d90e472b6322d88bcf351",
+    "SEC_167": "ad17db3fa3cc3c8cacaa16c7b95eb80a4ae6106945b9293c906b639e47e2dc52",
+    "TOKEN_BEAST": "cc0e0102012bb0c94d65636c94eb2a8fecdf7e7d3174c97310f30a46f6dccf50"
+  },
+  "collector_max_engine_applies": 80,
+  "campaign_max_engine_applies": 80,
+  "campaign_max_seconds": 60,
+  "coordinator_outer_apply_ceiling": 256,
+  "campaign_all_phase_active_seconds": 100,
+  "future_phase_caps": {
+    "frozen_neural_eval_seconds": 20,
+    "staged_deck_updates": 400,
+    "staged_deck_seconds": 20,
+    "execution": "Separate root authorization/source freeze required; this collector permits only native collection and0updates."
+  },
+  "max_rss_bytes": 1073741824,
+  "cpu_threads": 1,
+  "optimizer_updates": 0,
+  "paid_jobs": 0,
+  "target_labels": "Actual native target prompt membership and independently committed settled snapshots only; no oracle labels from IR or expected thresholds.",
+  "commit_scope": "Only friendly_ground may be committed; every other candidate has observed membership but unobserved transition masks0, even when offered. Every commit starts at untouched prompt.",
+  "native_setup": "Whole admitted definitions only. Existing Experience token fixture sets both token/upgrade links, preserving owner and parent; public snapshot-load roundtrip must be exact. XP changes actual power/HP; no printed-stat override.",
+  "metrics": {
+    "resource_boundaries": "source availability at ready-resource0/1/2, cost copies on actual commits",
+    "effect_routing": "same-target XP0/1 x ready/exhausted; cost_resource/xp_delta/target_exhausted_delta",
+    "threshold": "native TWI206 target membership at current power4 and5; power4 distinguishes<=4 from<=3",
+    "availability_and_outcomes_separate": true
+  },
+  "numeric_contract": {
+    "context_feature_names": [
+      "ready_resources",
+      "source_exhausted"
+    ],
+    "candidate_feature_names": [
+      "owner_self",
+      "owner_opponent",
+      "is_unit",
+      "is_base",
+      "zone_ground",
+      "zone_space",
+      "same_source",
+      "present",
+      "damage",
+      "hp",
+      "remaining_hp",
+      "power",
+      "exhausted",
+      "shield_count",
+      "xp_count",
+      "known_damage",
+      "known_hp",
+      "known_remaining_hp",
+      "known_power",
+      "known_exhausted",
+      "known_shield_count",
+      "known_xp_count",
+      "trait_imperial",
+      "trait_creature",
+      "trait_spectre",
+      "known_traits"
+    ],
+    "target_names": [
+      "source_use",
+      "target_allowed",
+      "cost_resource",
+      "damage_delta",
+      "source_exhausted_after",
+      "target_exhausted_delta",
+      "shield_delta",
+      "xp_delta",
+      "target_defeated",
+      "followup_source_offered",
+      "terminal"
+    ],
+    "primary_candidate_slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "source_candidate_diagnostic_only": true,
+    "fixed_scaling": "Saved original checkpoint vocabulary/input/head/literal scalers only; never fit controls or change weights.",
+    "replay": "Reserve at least2 saved fresh-root replay rows per seed before scoring new controls; correct-ir plus context-only batches at seeds17/29/43:6forwards of18rows total, separate20-second/1-GiB guard, no training."
+  },
+  "published12_vector_scope": {
+    "rows": [
+      {
+        "code": "ASH_011",
+        "canonical_card_id": "5648009238",
+        "aliases": [
+          "ASH_011"
+        ],
+        "actual_card_role": "leader",
+        "selected_ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 1,
+          "unit": 1,
+          "card": 0
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 1,
+        "scope": "Undeployed leader activated action only; deployed side excluded"
+      },
+      {
+        "code": "HMW_170",
+        "canonical_card_id": "2192872798",
+        "aliases": [
+          "HMW_170"
+        ],
+        "actual_card_role": "main-unit",
+        "selected_ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 0,
+          "unit": 0,
+          "card": 1
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 0,
+        "scope": "Selected ordinary-unit activated action only"
+      },
+      {
+        "code": "IBH_016",
+        "canonical_card_id": "9782761594",
+        "aliases": [
+          "IBH_016",
+          "IBH_027"
+        ],
+        "actual_card_role": "main-unit",
+        "selected_ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 0,
+          "unit": 0,
+          "card": 1
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 0,
+        "scope": "Selected ordinary-unit activated action only"
+      },
+      {
+        "code": "IBH_053",
+        "canonical_card_id": "9389694773",
+        "aliases": [
+          "IBH_053"
+        ],
+        "actual_card_role": "leader",
+        "selected_ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 1,
+          "unit": 1,
+          "card": 0
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 1,
+        "scope": "Undeployed leader activated action only; deployed side excluded"
+      },
+      {
+        "code": "LOF_004",
+        "canonical_card_id": "8304104587",
+        "aliases": [
+          "LOF_004"
+        ],
+        "actual_card_role": "leader",
+        "selected_ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 1,
+          "unit": 1,
+          "card": 0
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 1,
+        "scope": "Undeployed leader activated action only; deployed side excluded"
+      },
+      {
+        "code": "LOF_134",
+        "canonical_card_id": "3433996932",
+        "aliases": [
+          "LOF_134"
+        ],
+        "actual_card_role": "main-unit",
+        "selected_ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 0,
+          "unit": 0,
+          "card": 1
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 0,
+        "scope": "Selected ordinary-unit activated action only"
+      },
+      {
+        "code": "SHD_196",
+        "canonical_card_id": "6536128825",
+        "aliases": [
+          "SHD_196"
+        ],
+        "actual_card_role": "main-unit",
+        "selected_ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 0,
+          "unit": 0,
+          "card": 1
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 0,
+        "scope": "Selected ordinary-unit activated action only"
+      },
+      {
+        "code": "SOR_007",
+        "canonical_card_id": "2912358777",
+        "aliases": [
+          "SOR_007"
+        ],
+        "actual_card_role": "leader",
+        "selected_ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 1,
+          "unit": 1,
+          "card": 0
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 1,
+        "scope": "Undeployed leader activated action only; deployed side excluded"
+      },
+      {
+        "code": "SOR_011",
+        "canonical_card_id": "7911083239",
+        "aliases": [
+          "SOR_011"
+        ],
+        "actual_card_role": "leader",
+        "selected_ability_path": [
+          "abilities",
+          "leader",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 1,
+          "unit": 1,
+          "card": 0
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 1,
+        "scope": "Undeployed leader activated action only; deployed side excluded"
+      },
+      {
+        "code": "SOR_094",
+        "canonical_card_id": "2554951775",
+        "aliases": [
+          "SOR_094"
+        ],
+        "actual_card_role": "main-unit",
+        "selected_ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 0,
+          "unit": 0,
+          "card": 1
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 0,
+        "scope": "Selected ordinary-unit activated action only"
+      },
+      {
+        "code": "TWI_056",
+        "canonical_card_id": "5157630261",
+        "aliases": [
+          "TWI_056"
+        ],
+        "actual_card_role": "main-unit",
+        "selected_ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 0,
+          "unit": 0,
+          "card": 1
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 0,
+        "scope": "Selected ordinary-unit activated action only"
+      },
+      {
+        "code": "TWI_157",
+        "canonical_card_id": "0595607848",
+        "aliases": [
+          "TWI_157"
+        ],
+        "actual_card_role": "main-unit",
+        "selected_ability_path": [
+          "abilities",
+          "card",
+          0
+        ],
+        "all_side_ability_counts": {
+          "leader": 0,
+          "unit": 0,
+          "card": 1
+        },
+        "encoded_abilities": 1,
+        "additional_unencoded_abilities": 0,
+        "scope": "Selected ordinary-unit activated action only"
+      }
+    ],
+    "vectors": 12,
+    "leader_vectors": 5,
+    "main_unit_vectors": 7,
+    "selected_programs": 12,
+    "total_declared_abilities": 17,
+    "whole_card_semantics": false,
+    "whole_deck_card_coverage": false,
+    "aggregation_rule": "Leader programs require a separate leader role, never main-list copy counts. Missing event/upgrade/trigger/continuous/deployed-side capabilities remain unknown; no whole-card semantic label."
+  },
+  "independent_new_card_gate": {
+    "status": "UNSUPPORTED_NO_TWO_ADMITTED_PROGRAM_INPUT_PAIRS",
+    "inventory_actions": 41,
+    "fixed_parser_vocab_compatible": 16,
+    "previously_reviewed_identities": 14,
+    "unused_compatible": [
+      {
+        "code": "ASH_123",
+        "reason": "Single action requires getPower(source), absent from model globals/other-candidate input; general behavior unsupported"
+      },
+      {
+        "code": "SHD_087",
+        "reason": "Two card abilities plus missing getPower(source) input"
+      }
+    ],
+    "action": "No coverage/ABI expansion, no replacement cards;16 SHD004/TWI206 roots are conditional literal/effect diagnostics, not two independently new identities."
+  },
+  "input_freshness_rule": "Before scoring, compare normalizedIR+2globals source inputs and normalizedIR+2globals+own26candidate inputs against both prior168 banks. Exact repeats are replay/calibration; report new-only separately. Other helper changes do not create candidate-local independence.",
+  "qualification_scope": "Selected activated-program behavior, not whole-card or whole-deck semantics. SHD004 is an undeployed leader action; TWI206 is an ordinary main-unit action.",
+  "limitations": [
+    "XP grant amount is always1 in these existing programs: routing/attachment behavior, not XP-quantity extrapolation.",
+    "Native XP fixtures legitimately change power and HP together; do not describe independent XP-coordinate intervention.",
+    "Power4/5 vanilla helpers differ in opaque printed identity/aspects/traits outside relevant numeric features; these fields never enter neural inputs. Program pairs use the identical context/candidate.",
+    "No exact SHD threshold2vs3 test, no ordered multi-effect or whole-card semantics claim.",
+    "Unsupported/error/unsettled outcomes remain unknown. No replacement scenario selected after outcomes; preserve all16 roots and failures.",
+    "No engine, card conversion, runtime coverage or existing collector/data/model source is modified."
+  ],
+  "source_pins": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/literal_binding_native_plan.py",
+      "sha256": "6a0fbc6d8a7aad0186f69e53a9bbd77a142982c40eb9a4789aaff714de0de114"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+      "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/manifest.json",
+      "sha256": "ae9f8e4ee760932302587b3dc939122a1ffaee792ddbf8f710490a7bf908068c"
+    }
+  ]
+}
