@@ -76,3 +76,35 @@ checkpoint hashes accompany completion. A heartbeat reports liveness only.
 Dataset and fixture lineage live outside the repository under
 `/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/restoration`.
 The independent dashboard worker consumes that feed and the linked artifacts.
+
+## Measured pilot
+
+The single execution at `bef4e82fe7ceb7100eac8b2572275fc0dd64b0b9`
+completed **400 head updates**, four fixed provenance-validation measurements,
+and 54 final curve points (27 per arm). All points and eight aggregate records
+were appended to the feed. The worker exited cleanly; the conservative tree
+RSS bound was 105.94 MiB and total measured run wall time was 0.113 seconds.
+The frozen model/checkpoint files stayed unchanged. No retry, extra fit,
+deployment or paid job followed these measurements.
+
+| Held-out diagnostic | Full frozen latent | Identity-masked printed latent |
+| --- | ---: | ---: |
+| Final family-macro provenance log loss | 0.69679 | 0.69940 |
+| Final family-macro provenance accuracy | 0.4167 | 0.5000 |
+| Full-restoration minus matched-anchor score, family macro | -0.00236 | -0.00117 |
+| IR-package endpoint change | +0.00408 | -0.00219 |
+| IR-package adjacent changes | -0.00134, +0.00541 | -0.00121, -0.00098 |
+
+There is **no aggregate restoration gain** in this pilot. All three individual
+card endpoints decreased in each arm, and the package has a nonmonotonic full
+latent curve. The classifier is weak on three held-out families; these results
+do not establish lack of synergy, intrinsic deck quality or an encoder defect.
+They can reflect weak labels, construction artifacts, limited representation,
+insufficient training signal or a small holdout. No test or loss enforces a
+positive slope. Scaling this particular probe onto a GPU is not justified.
+The next useful evidence is action-conditioned transition grounding with typed
+cost/target/effect controls, rather than a larger provenance classifier.
+
+[The compact result](restoration-results.json) pins the raw result and
+checkpoint hashes. [The raw result](/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/restoration-bef4e82-s17/result.json)
+contains every curve point, admission/source lineage and guard receipt.
