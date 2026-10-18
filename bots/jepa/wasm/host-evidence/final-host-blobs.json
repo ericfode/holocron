@@ -1,0 +1,19 @@
+{
+  "arena_revision": "3afa1f8bbf3bc45a08359f15b96291d55c641fa6",
+  "source": "GitHub fetch_file at exact revision, compared with local git hash-object",
+  "files": {
+    "bot/compiled/run.py": "ba056825450d874e0f20b758c298fae4bf6a9d81",
+    "bot/compiled/bundle.py": "b065fc53391b37a6c6d4cf0fadff603dc4fa9ed1",
+    "bot/compiled/toolchain.json": "d3673d31ca03b944fa5e4349857fae9decfffd8f",
+    "bot/arena/registry.js": "f9a346152253c6de19e5b76814ac42cef7bf2b6f",
+    "bot/arena/api.js": "cf08611d9811d382c6c5ab2e38675d6f2b5a8df0",
+    "bot/protocol.js": "6f84bd53e39af895e90c240f48efe975481fc140",
+    "bot/stdio.js": "b0c850efa32ee130beaf8871e0769b8bd1d5f8b3",
+    "bot/ladder-worker.js": "42926a059ae60ed9f1c0a80d1a93e05deb27a3ad",
+    "bot/game-pool.js": "10cbffe59fb83bc835b195178207420f50c68154",
+    "bot/players/guard.js": "bdc3e397f982ad14d524f071da7e7efac19c7843",
+    "bot/arena/intake.js": "3e29f097ace2b39f68933b008ac2d285255b253d",
+    "bot/arena/home.js": "7c1508e003c644c2d8fc0d44aa6877b56b150a36",
+    "server/src/games/Types.ts": "f1e238d9c3f6a188c10df10f90dc9af26d0f8d11"
+  }
+}

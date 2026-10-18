@@ -1,0 +1,746 @@
+{
+  "bundle_sha256": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+  "arena_revision": "3afa1f8bbf3bc45a08359f15b96291d55c641fa6",
+  "host_wasmtime": "49.0.0",
+  "source": "first occurrence of each message type in final-host-normal/transcript.jsonl",
+  "full_transcript_sha256": "bb2df431beb3c2766b62f12a79f91d617ca1ee7569fe3fd3360a58a9019c7cf9",
+  "messages": [
+    {
+      "direction": "referee_to_bot",
+      "message": {
+        "t": "hello",
+        "protocol": "swu-bot-stdio",
+        "v": 1,
+        "versions": [
+          2
+        ],
+        "you": "p1",
+        "seed": 2,
+        "ms": 30000,
+        "cards": [
+          {
+            "title": "Test Leader Alpha",
+            "subtitle": null,
+            "cost": 0,
+            "power": 0,
+            "hp": 0,
+            "types": [
+              "leader"
+            ],
+            "aspects": [
+              "command",
+              "heroism"
+            ],
+            "keywords": [],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 1
+              }
+            ]
+          },
+          {
+            "title": "Test Leader Beta",
+            "subtitle": null,
+            "cost": 0,
+            "power": 0,
+            "hp": 0,
+            "types": [
+              "leader"
+            ],
+            "aspects": [
+              "aggression",
+              "villainy"
+            ],
+            "keywords": [],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 2
+              }
+            ]
+          },
+          {
+            "title": "Test Base Alpha",
+            "subtitle": null,
+            "cost": 0,
+            "power": 0,
+            "hp": 30,
+            "types": [
+              "base"
+            ],
+            "aspects": [
+              "vigilance"
+            ],
+            "keywords": [],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 3
+              }
+            ]
+          },
+          {
+            "title": "Test Base Beta",
+            "subtitle": null,
+            "cost": 0,
+            "power": 0,
+            "hp": 30,
+            "types": [
+              "base"
+            ],
+            "aspects": [
+              "cunning"
+            ],
+            "keywords": [],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 4
+              }
+            ]
+          },
+          {
+            "title": "Test Runner",
+            "subtitle": null,
+            "cost": 2,
+            "power": 3,
+            "hp": 2,
+            "types": [
+              "unit"
+            ],
+            "aspects": [
+              "command"
+            ],
+            "keywords": [
+              "raid",
+              "ambush"
+            ],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 5
+              }
+            ]
+          },
+          {
+            "title": "Test Sentinel",
+            "subtitle": null,
+            "cost": 4,
+            "power": 2,
+            "hp": 6,
+            "types": [
+              "unit"
+            ],
+            "aspects": [
+              "vigilance"
+            ],
+            "keywords": [
+              "sentinel",
+              "restore",
+              "grit",
+              "bounty"
+            ],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 6
+              }
+            ]
+          },
+          {
+            "title": "Test Frigate",
+            "subtitle": null,
+            "cost": 8,
+            "power": 7,
+            "hp": 9,
+            "types": [
+              "unit"
+            ],
+            "aspects": [
+              "aggression",
+              "aggression"
+            ],
+            "keywords": [
+              "overwhelm",
+              "saboteur",
+              "shielded",
+              "smuggle"
+            ],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 7
+              }
+            ],
+            "arena": "space"
+          },
+          {
+            "title": "Test Event",
+            "subtitle": null,
+            "cost": 3,
+            "power": 0,
+            "hp": 0,
+            "types": [
+              "event"
+            ],
+            "aspects": [
+              "cunning"
+            ],
+            "keywords": [],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 8
+              }
+            ]
+          },
+          {
+            "title": "Test Upgrade",
+            "subtitle": null,
+            "cost": 1,
+            "power": 0,
+            "hp": 0,
+            "types": [
+              "upgrade"
+            ],
+            "aspects": [
+              "heroism"
+            ],
+            "keywords": [],
+            "setCodes": [
+              {
+                "set": "TST",
+                "number": 9
+              }
+            ],
+            "upgradePower": 2,
+            "upgradeHp": 1
+          }
+        ],
+        "bot": "host_probe"
+      }
+    },
+    {
+      "direction": "bot_to_referee",
+      "message": {
+        "name": "jepa-tx-gate",
+        "sim": true,
+        "t": "ready",
+        "v": 2
+      }
+    },
+    {
+      "direction": "referee_to_bot",
+      "message": {
+        "t": "decide",
+        "seq": 1,
+        "you": "p1",
+        "ms": 10000,
+        "sim": true,
+        "prompt": {
+          "type": "actionWindow",
+          "actionWindow": true,
+          "title": "Choose an action",
+          "selected": [],
+          "selectCardMode": null
+        },
+        "state": {
+          "round": 4,
+          "phase": "action",
+          "initiative": "p2",
+          "players": {
+            "p1": {
+              "name": "p1",
+              "base": {
+                "id": "p1-b",
+                "s": "TST_003",
+                "n": "Test Base Alpha",
+                "hp": 30,
+                "d": 7
+              },
+              "leader": {
+                "id": "p1-l",
+                "s": "TST_001",
+                "n": "Test Leader Alpha",
+                "dep": 0,
+                "x": 0
+              },
+              "res": {
+                "ready": 4,
+                "total": 5
+              },
+              "handCount": 3,
+              "hand": [
+                {
+                  "id": "p1-h1",
+                  "s": "TST_005",
+                  "n": "Test Runner"
+                },
+                {
+                  "id": "p1-h2",
+                  "s": "TST_007",
+                  "n": "Test Frigate"
+                },
+                {
+                  "id": "p1-h3",
+                  "s": "TST_008",
+                  "n": "Test Event"
+                }
+              ],
+              "deck": 31,
+              "discard": [
+                {
+                  "id": "p1-d1",
+                  "s": "TST_008",
+                  "n": "Test Event"
+                }
+              ],
+              "ground": [
+                {
+                  "id": "p1-g1",
+                  "s": "TST_006",
+                  "n": "Test Sentinel",
+                  "p": 4,
+                  "h": 7,
+                  "d": 2,
+                  "x": 0,
+                  "sn": 1,
+                  "u": [
+                    {
+                      "id": "p1-shield",
+                      "n": "Shield",
+                      "s": null,
+                      "t": 1
+                    },
+                    {
+                      "id": "p1-up",
+                      "s": "TST_009",
+                      "n": "Test Upgrade",
+                      "t": 0
+                    }
+                  ]
+                }
+              ],
+              "space": [
+                {
+                  "id": "p1-s1",
+                  "s": "TST_007",
+                  "n": "Test Frigate",
+                  "p": 7,
+                  "h": 9,
+                  "d": 1,
+                  "x": 0
+                }
+              ]
+            },
+            "p2": {
+              "name": "p2",
+              "base": {
+                "id": "p2-b",
+                "s": "TST_004",
+                "n": "Test Base Beta",
+                "hp": 30,
+                "d": 12
+              },
+              "leader": {
+                "id": "p2-l",
+                "s": "TST_002",
+                "n": "Test Leader Beta",
+                "dep": 1,
+                "x": 0
+              },
+              "res": {
+                "ready": 2,
+                "total": 5
+              },
+              "handCount": 3,
+              "deck": 31,
+              "discard": [
+                {
+                  "id": "p2-d1",
+                  "s": "TST_008",
+                  "n": "Test Event"
+                }
+              ],
+              "ground": [
+                {
+                  "id": "p2-g1",
+                  "s": "TST_006",
+                  "n": "Test Sentinel",
+                  "p": 4,
+                  "h": 7,
+                  "d": 2,
+                  "x": 1,
+                  "sn": 1,
+                  "u": [
+                    {
+                      "id": "p2-shield",
+                      "n": "Shield",
+                      "s": null,
+                      "t": 1
+                    },
+                    {
+                      "id": "p2-up",
+                      "s": "TST_009",
+                      "n": "Test Upgrade",
+                      "t": 0
+                    }
+                  ]
+                }
+              ],
+              "space": [
+                {
+                  "id": "p2-s1",
+                  "s": "TST_007",
+                  "n": "Test Frigate",
+                  "p": 7,
+                  "h": 9,
+                  "d": 1,
+                  "x": 0
+                }
+              ]
+            }
+          }
+        },
+        "revealed": [],
+        "actions": [
+          {
+            "i": 0,
+            "kind": "button",
+            "label": "Pass",
+            "arg": "pass"
+          },
+          {
+            "i": 1,
+            "kind": "card",
+            "label": "Test Runner",
+            "card": {
+              "id": "p1-h1",
+              "s": "TST_005",
+              "n": "Test Runner",
+              "zone": "hand",
+              "ctl": "p1"
+            }
+          },
+          {
+            "i": 2,
+            "kind": "card",
+            "label": "Test Sentinel",
+            "card": {
+              "id": "p1-g1",
+              "s": "TST_006",
+              "n": "Test Sentinel",
+              "p": 4,
+              "h": 7,
+              "d": 2,
+              "x": 0,
+              "sn": 1,
+              "u": [
+                {
+                  "id": "p1-shield",
+                  "n": "Shield",
+                  "s": null,
+                  "t": 1
+                },
+                {
+                  "id": "p1-up",
+                  "s": "TST_009",
+                  "n": "Test Upgrade",
+                  "t": 0
+                }
+              ],
+              "zone": "groundArena",
+              "ctl": "p1"
+            }
+          },
+          {
+            "i": 3,
+            "kind": "card",
+            "label": "Test Leader Alpha",
+            "card": {
+              "id": "p1-l",
+              "s": "TST_001",
+              "n": "Test Leader Alpha",
+              "dep": 0,
+              "x": 0,
+              "zone": "leader",
+              "ctl": "p1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "direction": "bot_to_referee",
+      "message": {
+        "deal": 0,
+        "op": "begin",
+        "t": "sim"
+      }
+    },
+    {
+      "direction": "referee_to_bot",
+      "message": {
+        "t": "simulated",
+        "op": "begin",
+        "ms": 9999,
+        "actor": "p1",
+        "state": {
+          "round": 4,
+          "phase": "action",
+          "initiative": "p2",
+          "players": {
+            "p1": {
+              "name": "p1",
+              "base": {
+                "id": "p1-b",
+                "s": "TST_003",
+                "n": "Test Base Alpha",
+                "hp": 30,
+                "d": 7
+              },
+              "leader": {
+                "id": "p1-l",
+                "s": "TST_001",
+                "n": "Test Leader Alpha",
+                "dep": 0,
+                "x": 0
+              },
+              "res": {
+                "ready": 4,
+                "total": 5
+              },
+              "handCount": 3,
+              "hand": [
+                {
+                  "id": "p1-h1",
+                  "s": "TST_005",
+                  "n": "Test Runner"
+                },
+                {
+                  "id": "p1-h2",
+                  "s": "TST_007",
+                  "n": "Test Frigate"
+                },
+                {
+                  "id": "p1-h3",
+                  "s": "TST_008",
+                  "n": "Test Event"
+                }
+              ],
+              "deck": 31,
+              "discard": [
+                {
+                  "id": "p1-d1",
+                  "s": "TST_008",
+                  "n": "Test Event"
+                }
+              ],
+              "ground": [
+                {
+                  "id": "p1-g1",
+                  "s": "TST_006",
+                  "n": "Test Sentinel",
+                  "p": 4,
+                  "h": 7,
+                  "d": 2,
+                  "x": 0,
+                  "sn": 1,
+                  "u": [
+                    {
+                      "id": "p1-shield",
+                      "n": "Shield",
+                      "s": null,
+                      "t": 1
+                    },
+                    {
+                      "id": "p1-up",
+                      "s": "TST_009",
+                      "n": "Test Upgrade",
+                      "t": 0
+                    }
+                  ]
+                }
+              ],
+              "space": [
+                {
+                  "id": "p1-s1",
+                  "s": "TST_007",
+                  "n": "Test Frigate",
+                  "p": 7,
+                  "h": 9,
+                  "d": 1,
+                  "x": 0
+                }
+              ]
+            },
+            "p2": {
+              "name": "p2",
+              "base": {
+                "id": "p2-b",
+                "s": "TST_004",
+                "n": "Test Base Beta",
+                "hp": 30,
+                "d": 12
+              },
+              "leader": {
+                "id": "p2-l",
+                "s": "TST_002",
+                "n": "Test Leader Beta",
+                "dep": 1,
+                "x": 0
+              },
+              "res": {
+                "ready": 2,
+                "total": 5
+              },
+              "handCount": 3,
+              "deck": 31,
+              "discard": [
+                {
+                  "id": "p2-d1",
+                  "s": "TST_008",
+                  "n": "Test Event"
+                }
+              ],
+              "ground": [
+                {
+                  "id": "p2-g1",
+                  "s": "TST_006",
+                  "n": "Test Sentinel",
+                  "p": 4,
+                  "h": 7,
+                  "d": 2,
+                  "x": 1,
+                  "sn": 1,
+                  "u": [
+                    {
+                      "id": "p2-shield",
+                      "n": "Shield",
+                      "s": null,
+                      "t": 1
+                    },
+                    {
+                      "id": "p2-up",
+                      "s": "TST_009",
+                      "n": "Test Upgrade",
+                      "t": 0
+                    }
+                  ]
+                }
+              ],
+              "space": [
+                {
+                  "id": "p2-s1",
+                  "s": "TST_007",
+                  "n": "Test Frigate",
+                  "p": 7,
+                  "h": 9,
+                  "d": 1,
+                  "x": 0
+                }
+              ]
+            }
+          }
+        },
+        "prompt": {
+          "type": "actionWindow",
+          "actionWindow": true,
+          "title": "Choose an action",
+          "selected": [],
+          "selectCardMode": null
+        },
+        "actions": [
+          {
+            "i": 0,
+            "kind": "button",
+            "label": "Pass",
+            "arg": "pass"
+          },
+          {
+            "i": 1,
+            "kind": "card",
+            "label": "Test Runner",
+            "card": {
+              "id": "p1-h1",
+              "s": "TST_005",
+              "n": "Test Runner",
+              "zone": "hand",
+              "ctl": "p1"
+            }
+          },
+          {
+            "i": 2,
+            "kind": "card",
+            "label": "Test Sentinel",
+            "card": {
+              "id": "p1-g1",
+              "s": "TST_006",
+              "n": "Test Sentinel",
+              "p": 4,
+              "h": 7,
+              "d": 2,
+              "x": 0,
+              "sn": 1,
+              "u": [
+                {
+                  "id": "p1-shield",
+                  "n": "Shield",
+                  "s": null,
+                  "t": 1
+                },
+                {
+                  "id": "p1-up",
+                  "s": "TST_009",
+                  "n": "Test Upgrade",
+                  "t": 0
+                }
+              ],
+              "zone": "groundArena",
+              "ctl": "p1"
+            }
+          },
+          {
+            "i": 3,
+            "kind": "card",
+            "label": "Test Leader Alpha",
+            "card": {
+              "id": "p1-l",
+              "s": "TST_001",
+              "n": "Test Leader Alpha",
+              "dep": 0,
+              "x": 0,
+              "zone": "leader",
+              "ctl": "p1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "direction": "bot_to_referee",
+      "message": {
+        "i": 0,
+        "t": "act"
+      }
+    },
+    {
+      "direction": "referee_to_bot",
+      "message": {
+        "t": "over",
+        "you": "p1",
+        "winner": "p1",
+        "outcome": "won",
+        "round": 4
+      }
+    },
+    {
+      "direction": "bot_to_referee",
+      "message": {
+        "t": "ok"
+      }
+    }
+  ],
+  "scope": "Synthetic isolated host exchange; no live admission or game"
+}

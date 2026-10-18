@@ -1,0 +1,165 @@
+{
+  "schema": "jepa-wasm-host-validation/1",
+  "passed": true,
+  "arena_revision": "3afa1f8bbf3bc45a08359f15b96291d55c641fa6",
+  "source_commit": "6485d31df4bb15242e02f281b8ddd4176aedd931",
+  "source_sha256": "570ec9d86e6a4e86bae273ff458902a0294575e37c3a9815df95746c4fe89cd5",
+  "wasmtime_version": "49.0.0",
+  "bundle_sha256": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+  "entry_sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3",
+  "entry_bytes": 2534886,
+  "canonical_tar_bytes": 2549760,
+  "canonical_gzip_bytes": 1963050,
+  "manifest_sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a",
+  "diagnostics": false,
+  "deterministic": false,
+  "runs": [
+    {
+      "name": "final-host-normal",
+      "passed": true,
+      "bundle_sha256_before": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+      "bundle_sha256_after": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+      "synthetic_sessions": 2,
+      "simulation_requests": 50,
+      "simulation_operations": {
+        "begin": 16,
+        "act": 32,
+        "end": 2
+      },
+      "final_replies": 6,
+      "host_exit": 0,
+      "stderr_empty": true,
+      "linear_memory_mib": 16.0,
+      "external_timings_ms": [
+        {
+          "game": 0,
+          "phase": "hello",
+          "ms": 95.56450007949024
+        },
+        {
+          "game": 0,
+          "phase": "decide",
+          "ms": 8.017083979211748
+        },
+        {
+          "game": 1,
+          "phase": "hello",
+          "ms": 0.13149995356798172
+        },
+        {
+          "game": 1,
+          "phase": "decide",
+          "ms": 6.933624972589314
+        }
+      ],
+      "cold_compile_ms": 32.5,
+      "cached": false,
+      "diagnostic_fuel": null,
+      "raw_report": "final-host-normal/report.json"
+    },
+    {
+      "name": "final-host-error",
+      "passed": true,
+      "bundle_sha256_before": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+      "bundle_sha256_after": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+      "synthetic_sessions": 2,
+      "simulation_requests": 46,
+      "simulation_operations": {
+        "begin": 15,
+        "act": 29,
+        "end": 2
+      },
+      "final_replies": 6,
+      "host_exit": 0,
+      "stderr_empty": true,
+      "linear_memory_mib": 16.0,
+      "external_timings_ms": [
+        {
+          "game": 0,
+          "phase": "hello",
+          "ms": 97.63754205778241
+        },
+        {
+          "game": 0,
+          "phase": "decide",
+          "ms": 7.176292012445629
+        },
+        {
+          "game": 1,
+          "phase": "hello",
+          "ms": 0.11150003410875797
+        },
+        {
+          "game": 1,
+          "phase": "decide",
+          "ms": 7.216749945655465
+        }
+      ],
+      "cold_compile_ms": 32.9,
+      "cached": false,
+      "diagnostic_fuel": null,
+      "raw_report": "final-host-error/report.json"
+    },
+    {
+      "name": "final-host-fuel",
+      "passed": true,
+      "bundle_sha256_before": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+      "bundle_sha256_after": "80ed5c894dec3763971bdbeefbbf10a69064736ae6e65b9b85e287037671691c",
+      "synthetic_sessions": 2,
+      "simulation_requests": 50,
+      "simulation_operations": {
+        "begin": 16,
+        "act": 32,
+        "end": 2
+      },
+      "final_replies": 6,
+      "host_exit": 0,
+      "stderr_empty": true,
+      "linear_memory_mib": 16.0,
+      "external_timings_ms": [
+        {
+          "game": 0,
+          "phase": "hello",
+          "ms": 115.6754579860717
+        },
+        {
+          "game": 0,
+          "phase": "decide",
+          "ms": 9.474291931837797
+        },
+        {
+          "game": 1,
+          "phase": "hello",
+          "ms": 0.13274990487843752
+        },
+        {
+          "game": 1,
+          "phase": "decide",
+          "ms": 8.139332989230752
+        }
+      ],
+      "cold_compile_ms": 50.0,
+      "cached": false,
+      "diagnostic_fuel": {
+        "n": 6,
+        "total": 390194848,
+        "p50": 24019893,
+        "p95": 197039573,
+        "max": 197039573
+      },
+      "raw_report": "final-host-fuel/report.json"
+    }
+  ],
+  "limits": {
+    "production_fuel_enabled": false,
+    "admission_hello_ms": 30000,
+    "bundle_requested_memory_mib": 256,
+    "actual_live_game_time_bank": "unknown; per-round configuration"
+  },
+  "limitations": [
+    "Synthetic positions and canned simulation replies; no rules engine or full games.",
+    "Hosted admission and live submission were not invoked.",
+    "Linear memory is not process RSS; synthetic timing does not establish full-game time-bank fitness.",
+    "CPython WASI overhead remains unmeasured because the official asset download was blocked."
+  ]
+}

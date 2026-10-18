@@ -1,0 +1,24 @@
+{
+  "tinygrad_commit": "87378331e816d8c9ed71328569efa08f6bcb50fc",
+  "python": "3.14.3",
+  "device": "CPU:CLANGJIT",
+  "cpu_count": 1,
+  "capture": "synthetic runtime buffers: 11 visible tokens, 4 actions, horizon index 0",
+  "generated_files_modified": false,
+  "context_metadata_identical": true,
+  "predict_metadata_identical": true,
+  "c_kernel_definitions_and_call_order_identical": true,
+  "source_variation": "Only global scratch declaration order differs because the pinned exporter iterates a Python set.",
+  "files": {
+    "jepa_context.c": {
+      "baseline_sha256": "332e3a66e689b3fa7b0782929f561789db0947c951e523aa2ff82f2cd0b7937f",
+      "temporary_reexport_sha256": "232964253defc7f119040f227abb861b54212f066da7e1cc655fd11dd80cb20a",
+      "equal_after_sorting_only_global_scratch_declarations": true
+    },
+    "jepa_predict4.c": {
+      "baseline_sha256": "fa9b2773373ebeeb6410cb7f107c2c3ab592ad7d4a421348b058196285b58642",
+      "temporary_reexport_sha256": "f22829dbd47c8b703ba1576a2898725e789f920d010368d5cedc892c966845a3",
+      "equal_after_sorting_only_global_scratch_declarations": true
+    }
+  }
+}
