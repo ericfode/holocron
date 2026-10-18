@@ -1,0 +1,23 @@
+{
+  "run_id": "grounded-native-contrast-20261018",
+  "commit": "79f3aa68ab33faa8fd24d930559447650139df21",
+  "config": {
+    "expected_roots": 168,
+    "candidates": 8,
+    "max_native_applies": 2048,
+    "max_active_seconds": 180,
+    "max_optimizer_updates": 2400,
+    "cpu_workers": 1,
+    "cpu_threads": 1,
+    "max_sampled_rss_bytes": 2147483648,
+    "paid_spend_usd": 0
+  },
+  "dataset": {
+    "plan_sha256": "ad5073b4614db2f15d6de2ed7dcdd61165ae5d1d65db63cbef4aebda0ce5e2f4",
+    "source_manifest_sha256": "12a47d4d7b26d414bac49f139a542b686e6eb00d64ef7bb6eb679e9809094936"
+  },
+  "limitations": [
+    "Supported synthetic public states, no games or playing-strength evidence.",
+    "Only actual native offers/settled outcomes are labels; unknown outcomes stay masked."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "grounded-research-final-verification/1",
+  "checked_at_utc": "2026-10-18T01:17:38.671637+00:00",
+  "status": "passed",
+  "packages": [
+    {
+      "package": "grounded-contrast-evidence",
+      "payloads": 65,
+      "index_sha256": "9bd116cc0c679ee93bd4c649de3ea106eb97b7d357f3fcb73b831c5648b8bd8d",
+      "exact_file_set": true,
+      "all_stored_and_source_hashes_match": true
+    },
+    {
+      "package": "embedding-geometry-evidence",
+      "payloads": 4,
+      "index_sha256": "489b28a6b32be14c99bae07094583ae02fef87f58d7196b8ae12dbe2dfc042a9",
+      "exact_file_set": true,
+      "all_stored_and_source_hashes_match": true
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/arena.json",
+      "sha256": "34b42e6fe1f3b1fa9a86883f71ed855d96225f2d6f73769c6190eeda809d321a"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-4/holocron-wasm/build/arena/jepa_tx_gate_wasm/bot.wasm",
+      "sha256": "6356747ac4ca162c61d4c6c8cfd3b2620edb033c498274e9e5162e5dd3a0f2e3"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+      "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10-e.safetensors",
+      "sha256": "bee3f60123317a850e49f4037fd380b5d2007aebb43f0f9ced761eed89dbf9f1"
+    }
+  ],
+  "model_source_unchanged": true,
+  "campaign": {
+    "ledger_sha256": "18f11b4471fc0a09e0105e58f54c7a76228cdffe63580b056289c92e6bf0ab88",
+    "ledger_active_seconds": 39.715139750042,
+    "sum_receipt_active_seconds": 39.71567208401393,
+    "engine_applies": 932,
+    "optimizer_updates": 2400,
+    "max_sampled_rss_bytes": 595574784,
+    "caps_passed": true
+  },
+  "paid_jobs": 0,
+  "paid_spend_usd": 0
+}

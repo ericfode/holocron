@@ -1,0 +1,579 @@
+{
+  "schema": "jepa-prior-pilot-diagnostic/1",
+  "status": "completed",
+  "counters": {
+    "batches": 9,
+    "forwards": 9,
+    "backwards": 3,
+    "optimizer_updates": 0
+  },
+  "batches": [
+    {
+      "batch": 1,
+      "name": "training-objective",
+      "backward": true,
+      "loss": 0.09288335591554642,
+      "observed_coordinates": 41,
+      "module_gradients_preclip": {
+        "path_embedding": {
+          "parameters": 1088,
+          "gradient_coordinates": 1088,
+          "nonzero_coordinates": 432,
+          "l2": 0.0011890732743788052,
+          "rms": 3.604907872693282e-05,
+          "nonzero_fraction": 0.39705882352941174
+        },
+        "path_gru": {
+          "parameters": 1632,
+          "gradient_coordinates": 1632,
+          "nonzero_coordinates": 1632,
+          "l2": 0.004143004461713759,
+          "rms": 0.00010255464220768194,
+          "nonzero_fraction": 1.0
+        },
+        "type_embedding": {
+          "parameters": 224,
+          "gradient_coordinates": 224,
+          "nonzero_coordinates": 112,
+          "l2": 0.0011467440351351072,
+          "rms": 7.662005874646839e-05,
+          "nonzero_fraction": 0.5
+        },
+        "value_embedding": {
+          "parameters": 768,
+          "gradient_coordinates": 768,
+          "nonzero_coordinates": 384,
+          "l2": 0.0009657317085235114,
+          "rms": 3.484784136756291e-05,
+          "nonzero_fraction": 0.5
+        },
+        "scalar": {
+          "parameters": 48,
+          "gradient_coordinates": 48,
+          "nonzero_coordinates": 48,
+          "l2": 0.0020438178320582832,
+          "rms": 0.0002949996938783518,
+          "nonzero_fraction": 1.0
+        },
+        "leaf": {
+          "parameters": 800,
+          "gradient_coordinates": 800,
+          "nonzero_coordinates": 800,
+          "l2": 0.010436216474257874,
+          "rms": 0.00036897597194392526,
+          "nonzero_fraction": 1.0
+        },
+        "status_projection": {
+          "parameters": 80,
+          "gradient_coordinates": 80,
+          "nonzero_coordinates": 16,
+          "l2": 0.012489930497585046,
+          "rms": 0.0013964166813423967,
+          "nonzero_fraction": 0.2
+        },
+        "context_projection": {
+          "parameters": 320,
+          "gradient_coordinates": 320,
+          "nonzero_coordinates": 224,
+          "l2": 0.1256923616798802,
+          "rms": 0.007026416624217545,
+          "nonzero_fraction": 0.7
+        },
+        "head": {
+          "parameters": 1799,
+          "gradient_coordinates": 1799,
+          "nonzero_coordinates": 1799,
+          "l2": 0.12713242423986637,
+          "rms": 0.002997372695487854,
+          "nonzero_fraction": 1.0
+        }
+      },
+      "fusion_activation_rms": {
+        "query": 0.6697802021027915,
+        "bag": 0.011163003780014912,
+        "context": 0.4893011737416486
+      },
+      "fusion_gradient_rms": {
+        "query": 0.0016165146082560526,
+        "bag": 0.0016004345971153517,
+        "context": 0.004357965879279001
+      },
+      "input_gradient_rms_physical_units": {
+        "ready_resources": 0.008849525848489425,
+        "physical_resources": 0.0008762032500753896,
+        "source_exhausted": 0.026626980103435078,
+        "source_deployed": 0.0016524035794661497,
+        "chosen_own": 0.002932564512579159,
+        "chosen_unit": 0.004672328051142942,
+        "chosen_base": 0.00418455815462389,
+        "chosen_ground": 0.007019678138007707,
+        "chosen_space": 0.0010670425200055324,
+        "chosen_hp_per30": 0.00012293781720963283,
+        "chosen_damage_per30": 0.0002594240781004695,
+        "chosen_remaining_hp_per30": 0.000137899554616022,
+        "chosen_shields": 0.0008598943987610756,
+        "own_base_damage_per30": 0.00021161119069739817,
+        "opponent_base_damage_per30": 7.781394024362866e-05,
+        "own_ground_count": 0.005220542041123437,
+        "opponent_ground_count": 0.0020636557731163983,
+        "own_space_count": 0.0015934687303857105,
+        "opponent_space_count": 0.0019127986755782802
+      }
+    },
+    {
+      "batch": 2,
+      "name": "source-use-head",
+      "backward": true,
+      "loss": 0.10868184268474579,
+      "observed_coordinates": 10,
+      "module_gradients_preclip": {
+        "path_embedding": {
+          "parameters": 1088,
+          "gradient_coordinates": 1088,
+          "nonzero_coordinates": 432,
+          "l2": 0.001898690294134857,
+          "rms": 5.756250465480206e-05,
+          "nonzero_fraction": 0.39705882352941174
+        },
+        "path_gru": {
+          "parameters": 1632,
+          "gradient_coordinates": 1632,
+          "nonzero_coordinates": 1632,
+          "l2": 0.006684826212467161,
+          "rms": 0.00016547410623751069,
+          "nonzero_fraction": 1.0
+        },
+        "type_embedding": {
+          "parameters": 224,
+          "gradient_coordinates": 224,
+          "nonzero_coordinates": 112,
+          "l2": 0.0016276791979126155,
+          "rms": 0.00010875389096728611,
+          "nonzero_fraction": 0.5
+        },
+        "value_embedding": {
+          "parameters": 768,
+          "gradient_coordinates": 768,
+          "nonzero_coordinates": 384,
+          "l2": 0.0013030429016311295,
+          "rms": 4.701951062639773e-05,
+          "nonzero_fraction": 0.5
+        },
+        "scalar": {
+          "parameters": 48,
+          "gradient_coordinates": 48,
+          "nonzero_coordinates": 48,
+          "l2": 0.0029069753099253246,
+          "rms": 0.0004195857444282455,
+          "nonzero_fraction": 1.0
+        },
+        "leaf": {
+          "parameters": 800,
+          "gradient_coordinates": 800,
+          "nonzero_coordinates": 800,
+          "l2": 0.018542940846447694,
+          "rms": 0.0006555919607832091,
+          "nonzero_fraction": 1.0
+        },
+        "status_projection": {
+          "parameters": 80,
+          "gradient_coordinates": 80,
+          "nonzero_coordinates": 16,
+          "l2": 0.024323043515884567,
+          "rms": 0.0027193989360601687,
+          "nonzero_fraction": 0.2
+        },
+        "context_projection": {
+          "parameters": 320,
+          "gradient_coordinates": 320,
+          "nonzero_coordinates": 224,
+          "l2": 0.4056980906529407,
+          "rms": 0.022679212726046186,
+          "nonzero_fraction": 0.7
+        },
+        "head": {
+          "parameters": 1799,
+          "gradient_coordinates": 1799,
+          "nonzero_coordinates": 1601,
+          "l2": 0.205102391427992,
+          "rms": 0.004835653150809228,
+          "nonzero_fraction": 0.8899388549193996
+        }
+      },
+      "fusion_activation_rms": {
+        "query": 0.6697802021027915,
+        "bag": 0.011163003780014912,
+        "context": 0.4893011737416486
+      },
+      "fusion_gradient_rms": {
+        "query": 0.0020570845312265127,
+        "bag": 0.0019739478208944546,
+        "context": 0.01385803474097447
+      },
+      "input_gradient_rms_physical_units": {
+        "ready_resources": 0.03055297040503752,
+        "physical_resources": 0.0015370613506114428,
+        "source_exhausted": 0.098450423201986,
+        "source_deployed": 0.006371545839425434,
+        "chosen_own": 0.0026759470953914735,
+        "chosen_unit": 0.01256431020009268,
+        "chosen_base": 0.008918654882074281,
+        "chosen_ground": 0.020249698353975325,
+        "chosen_space": 0.0037990460300022237,
+        "chosen_hp_per30": 9.497673454487148e-05,
+        "chosen_damage_per30": 0.0010936640506980153,
+        "chosen_remaining_hp_per30": 0.00047001526267656627,
+        "chosen_shields": 0.003227139320359692,
+        "own_base_damage_per30": 0.0008566384818585626,
+        "opponent_base_damage_per30": 0.00028151367701938836,
+        "own_ground_count": 0.021234828479916555,
+        "opponent_ground_count": 0.008437234127997186,
+        "own_space_count": 0.005789345480216731,
+        "opponent_space_count": 0.00689021967718017
+      }
+    },
+    {
+      "batch": 3,
+      "name": "damage-head",
+      "backward": true,
+      "loss": 0.0006426834152080119,
+      "observed_coordinates": 5,
+      "module_gradients_preclip": {
+        "path_embedding": {
+          "parameters": 1088,
+          "gradient_coordinates": 1088,
+          "nonzero_coordinates": 432,
+          "l2": 0.00024652063187017887,
+          "rms": 7.4737544418731975e-06,
+          "nonzero_fraction": 0.39705882352941174
+        },
+        "path_gru": {
+          "parameters": 1632,
+          "gradient_coordinates": 1632,
+          "nonzero_coordinates": 1632,
+          "l2": 0.0008619953830212567,
+          "rms": 2.1337565263893367e-05,
+          "nonzero_fraction": 1.0
+        },
+        "type_embedding": {
+          "parameters": 224,
+          "gradient_coordinates": 224,
+          "nonzero_coordinates": 112,
+          "l2": 0.0002561231644472792,
+          "rms": 1.7112948753179987e-05,
+          "nonzero_fraction": 0.5
+        },
+        "value_embedding": {
+          "parameters": 768,
+          "gradient_coordinates": 768,
+          "nonzero_coordinates": 384,
+          "l2": 0.0002133341432545439,
+          "rms": 7.698032814709319e-06,
+          "nonzero_fraction": 0.5
+        },
+        "scalar": {
+          "parameters": 48,
+          "gradient_coordinates": 48,
+          "nonzero_coordinates": 48,
+          "l2": 0.00045634962959353696,
+          "rms": 6.586839537260365e-05,
+          "nonzero_fraction": 1.0
+        },
+        "leaf": {
+          "parameters": 800,
+          "gradient_coordinates": 800,
+          "nonzero_coordinates": 800,
+          "l2": 0.0027345613298188137,
+          "rms": 9.668134299426932e-05,
+          "nonzero_fraction": 1.0
+        },
+        "status_projection": {
+          "parameters": 80,
+          "gradient_coordinates": 80,
+          "nonzero_coordinates": 16,
+          "l2": 0.003011160717091386,
+          "rms": 0.00033665800272966755,
+          "nonzero_fraction": 0.2
+        },
+        "context_projection": {
+          "parameters": 320,
+          "gradient_coordinates": 320,
+          "nonzero_coordinates": 208,
+          "l2": 0.005091356670070843,
+          "rms": 0.0002846154902993843,
+          "nonzero_fraction": 0.65
+        },
+        "head": {
+          "parameters": 1799,
+          "gradient_coordinates": 1799,
+          "nonzero_coordinates": 1601,
+          "l2": 0.08554538438305721,
+          "rms": 0.0020168843700408483,
+          "nonzero_fraction": 0.8899388549193996
+        }
+      },
+      "fusion_activation_rms": {
+        "query": 0.6697802021027915,
+        "bag": 0.011163003780014912,
+        "context": 0.4893011737416486
+      },
+      "fusion_gradient_rms": {
+        "query": 0.000392934495248629,
+        "bag": 0.0002792424097298999,
+        "context": 0.00030514435218196103
+      },
+      "input_gradient_rms_physical_units": {
+        "ready_resources": 0.00019138074360101394,
+        "physical_resources": 3.468538057574199e-05,
+        "source_exhausted": 0.0001916045576379969,
+        "source_deployed": 0.0002364510757028811,
+        "chosen_own": 0.00012205665467959988,
+        "chosen_unit": 4.304805168839757e-05,
+        "chosen_base": 0.00011655468465204421,
+        "chosen_ground": 0.00011723011499983305,
+        "chosen_space": 0.00015284113014333117,
+        "chosen_hp_per30": 6.086884761448552e-06,
+        "chosen_damage_per30": 6.907750460234955e-06,
+        "chosen_remaining_hp_per30": 8.142814482827046e-06,
+        "chosen_shields": 0.00014063945238785222,
+        "own_base_damage_per30": 5.564020223652046e-06,
+        "opponent_base_damage_per30": 6.308104255131925e-06,
+        "own_ground_count": 0.0002907742527451804,
+        "opponent_ground_count": 0.00020213889792287525,
+        "own_space_count": 0.0001110348356213827,
+        "opponent_space_count": 0.00016602933236233605
+      }
+    },
+    {
+      "batch": 4,
+      "name": "saved-correct-baseline",
+      "backward": false,
+      "query_rms": 0.6697802021027915,
+      "bag_rms": 0.011163003780014912,
+      "context_rms": 0.47306673567944657,
+      "max_abs_bag_minus_query_over60": 9.313225746154785e-10,
+      "query_between_rows_rms": 0.19433294864653503,
+      "context_between_rows_rms": 0.39268666762432286
+    },
+    {
+      "batch": 5,
+      "name": "zero-query-and-bag-at-fusion",
+      "backward": false,
+      "logit_delta_rms": 1.9632736557670605,
+      "logit_delta_max": 3.8780429363250732,
+      "per_head_logit_delta_rms": {
+        "source_use": 0.35227095455011925,
+        "target_allowed": 2.365736153152684,
+        "cost_resource": 0.8296710687453414,
+        "damage_delta": 0.6577232855680296,
+        "source_exhausted_after": 3.027848757185485,
+        "followup_source_offered": 2.986006414372319,
+        "terminal": 1.4336126933365365
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 6,
+      "name": "swap-two-known-programs-same-context",
+      "backward": false,
+      "logit_delta_rms": 0.8034472300866203,
+      "logit_delta_max": 1.7456724643707275,
+      "per_head_logit_delta_rms": {
+        "source_use": 0.40690628190739475,
+        "target_allowed": 1.2612414506630376,
+        "cost_resource": 0.3931369506650622,
+        "damage_delta": 0.1499732879472632,
+        "source_exhausted_after": 1.0735612382893769,
+        "followup_source_offered": 1.0655774715837545,
+        "terminal": 0.5452996536130854
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 7,
+      "name": "flip-source-exhausted-public-input",
+      "backward": false,
+      "logit_delta_rms": 2.1340182358491626,
+      "logit_delta_max": 5.9977874755859375,
+      "per_head_logit_delta_rms": {
+        "source_use": 5.024355221549243,
+        "target_allowed": 1.4595665649173661,
+        "cost_resource": 0.8103132796145579,
+        "damage_delta": 0.12819279351069948,
+        "source_exhausted_after": 1.6410996598966852,
+        "followup_source_offered": 0.9728945100610622,
+        "terminal": 0.4370172101597782
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 8,
+      "name": "unit-remaining-hp1-versus2-public-input",
+      "backward": false,
+      "changed_rows": 10,
+      "logit_delta_rms": 0.032048356158659766,
+      "logit_delta_max": 0.15549063682556152,
+      "per_head_logit_delta_rms": {
+        "source_use": 0.07188133275545767,
+        "target_allowed": 0.0074715058616983375,
+        "cost_resource": 0.010765058488649337,
+        "damage_delta": 0.001632081176649908,
+        "source_exhausted_after": 0.01791061166260791,
+        "followup_source_offered": 0.011462376111864195,
+        "terminal": 0.03736581698924989
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 9,
+      "name": "known-amount1-to2-no-native-mutant-label",
+      "backward": false,
+      "edited_program_literals": 2,
+      "logit_delta_rms": 0.0001537211059071403,
+      "logit_delta_max": 0.0003314018249511719,
+      "per_head_logit_delta_rms": {
+        "source_use": 5.401746414331339e-05,
+        "target_allowed": 0.0001848117270985661,
+        "cost_resource": 7.288237495103693e-05,
+        "damage_delta": 4.4228275580263305e-05,
+        "source_exhausted_after": 0.0002263345197589938,
+        "followup_source_offered": 0.0002270015253538751,
+        "terminal": 0.0001353255320209126
+      },
+      "labels_used": false
+    }
+  ],
+  "interpretation": "Posthoc saved-model gradient and label-free intervention diagnostic, not a validation search or training run.",
+  "elapsed_seconds": 1.160326375043951,
+  "weights_unchanged": true,
+  "protected_checkpoint_sha256_before": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27",
+  "protected_checkpoint_sha256_after": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27",
+  "sensitivities": [
+    {
+      "batch": 5,
+      "name": "zero-query-and-bag-at-fusion",
+      "backward": false,
+      "logit_delta_rms": 1.9632736557670605,
+      "logit_delta_max": 3.8780429363250732,
+      "per_head_logit_delta_rms": {
+        "source_use": 0.35227095455011925,
+        "target_allowed": 2.365736153152684,
+        "cost_resource": 0.8296710687453414,
+        "damage_delta": 0.6577232855680296,
+        "source_exhausted_after": 3.027848757185485,
+        "followup_source_offered": 2.986006414372319,
+        "terminal": 1.4336126933365365
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 6,
+      "name": "swap-two-known-programs-same-context",
+      "backward": false,
+      "logit_delta_rms": 0.8034472300866203,
+      "logit_delta_max": 1.7456724643707275,
+      "per_head_logit_delta_rms": {
+        "source_use": 0.40690628190739475,
+        "target_allowed": 1.2612414506630376,
+        "cost_resource": 0.3931369506650622,
+        "damage_delta": 0.1499732879472632,
+        "source_exhausted_after": 1.0735612382893769,
+        "followup_source_offered": 1.0655774715837545,
+        "terminal": 0.5452996536130854
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 7,
+      "name": "flip-source-exhausted-public-input",
+      "backward": false,
+      "logit_delta_rms": 2.1340182358491626,
+      "logit_delta_max": 5.9977874755859375,
+      "per_head_logit_delta_rms": {
+        "source_use": 5.024355221549243,
+        "target_allowed": 1.4595665649173661,
+        "cost_resource": 0.8103132796145579,
+        "damage_delta": 0.12819279351069948,
+        "source_exhausted_after": 1.6410996598966852,
+        "followup_source_offered": 0.9728945100610622,
+        "terminal": 0.4370172101597782
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 8,
+      "name": "unit-remaining-hp1-versus2-public-input",
+      "backward": false,
+      "changed_rows": 10,
+      "logit_delta_rms": 0.032048356158659766,
+      "logit_delta_max": 0.15549063682556152,
+      "per_head_logit_delta_rms": {
+        "source_use": 0.07188133275545767,
+        "target_allowed": 0.0074715058616983375,
+        "cost_resource": 0.010765058488649337,
+        "damage_delta": 0.001632081176649908,
+        "source_exhausted_after": 0.01791061166260791,
+        "followup_source_offered": 0.011462376111864195,
+        "terminal": 0.03736581698924989
+      },
+      "labels_used": false
+    },
+    {
+      "batch": 9,
+      "name": "known-amount1-to2-no-native-mutant-label",
+      "backward": false,
+      "edited_program_literals": 2,
+      "logit_delta_rms": 0.0001537211059071403,
+      "logit_delta_max": 0.0003314018249511719,
+      "per_head_logit_delta_rms": {
+        "source_use": 5.401746414331339e-05,
+        "target_allowed": 0.0001848117270985661,
+        "cost_resource": 7.288237495103693e-05,
+        "damage_delta": 4.4228275580263305e-05,
+        "source_exhausted_after": 0.0002263345197589938,
+        "followup_source_offered": 0.0002270015253538751,
+        "terminal": 0.0001353255320209126
+      },
+      "labels_used": false
+    }
+  ],
+  "source_sha256": "00ea4e648aaf498fcc47c3bdc15bb34cddf8f53f7e6a636e420a6b400103d10f",
+  "prior_source_sha256": "0b0826951cd880e8920e496c54c9a27c7a69032e726ec52f5354cead3e56bece",
+  "dataset_sha256": "fd40fe92108bf89c25299dda1a975a550209283908a54f9c745e0514e9e79865",
+  "effect_of_scaling": "Old token sum/64, synthetic one-copy bag=query/60 exactly, and HP inputs/30. Physical-input gradients divide normalized-coordinate gradients by30 for HP/damage columns.",
+  "limits": {
+    "max_batches": 12,
+    "max_seconds": 20,
+    "cpu_threads": 1,
+    "max_rss_mib": 2048,
+    "optimizer_updates": 0,
+    "native_calls": 0
+  },
+  "caveats": [
+    "Instantaneous post-training gradients do not reconstruct training history or prove which program semantics were learned.",
+    "Zero/swap/quantity interventions are unlabelled synthetic feature edits, not native counterfactual transition labels.",
+    "Parameter gradient size depends on scale/dimension; RMS/nonzero coverage and input sensitivity accompany L2 norms."
+  ],
+  "guard": {
+    "owned_worker_pid": 77038,
+    "worker_peak_rss_mib": 189.96875,
+    "supervisor_peak_rss_mib": 36.65625,
+    "observed_tree_peak_rss_mib": 268.6875,
+    "elapsed_seconds": 1.3804728749673814,
+    "exitcode": 0,
+    "owned_pids": {
+      "supervisor": 77000,
+      "worker": 77038,
+      "resource_tracker": 77037
+    },
+    "per_pid_peak_rss_mib": {
+      "supervisor": 36.65625,
+      "worker": 213.90625,
+      "resource_tracker": 18.125
+    },
+    "sample_interval_seconds": 0.1,
+    "status": "completed",
+    "stop_reason": null,
+    "limitations": "RSS stop guard samples known parent/worker/resource-tracker PIDs via libproc; conservative per-PID peak sum merges rusage peaks. It is not an instantaneous OS memory limit. Worker creates no descendant workers."
+  }
+}

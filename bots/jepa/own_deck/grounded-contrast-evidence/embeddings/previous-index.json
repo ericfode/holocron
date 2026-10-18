@@ -1,0 +1,66 @@
+{
+  "schema": "jepa-embedding-browser-index/1",
+  "updated_at_utc": "2026-10-18T00:42:32.710072+00:00",
+  "status": "available",
+  "spaces": {
+    "deck": {
+      "id": "original-deck-composition-z96",
+      "entity_type": "deck",
+      "status": "available",
+      "entity_count": 27,
+      "dimension": 96,
+      "vector_kind": "actual neural encoder z",
+      "semantic_validated": false,
+      "relative_file": "deck-embeddings.json",
+      "vectors_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "manifest_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json",
+      "checkpoint": {
+        "base": {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/models/tx-t10.safetensors",
+          "sha256": "50b8f9a2c3782c5cf5b23e80b2a65d2a0292523ec9a9213287b86143f99b6d34"
+        },
+        "supplement": {
+          "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/runs/original-eb5c6d9-20261017T2356Z-original-s17/final-deck.safetensors",
+          "sha256": "498f2c9a796ec75879796eb6d43c812f72a7a06b10d0774c74aed328b1315cbc"
+        }
+      },
+      "limitation": "Supplement trained for declared composition readouts; no behavioral similarity, synergy or strength validation.",
+      "artifact_sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+      "manifest_sha256": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090"
+    },
+    "card": {
+      "id": "supported-typed-card-program-z16",
+      "entity_type": "card",
+      "status": "available",
+      "entity_count": 2,
+      "dimension": 16,
+      "vector_kind": "actual learned typed-program encoder output",
+      "semantic_validated": false,
+      "relative_file": "card-embeddings.json",
+      "vectors_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/card-embeddings.json",
+      "manifest_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/card-embeddings.manifest.json",
+      "limitation": "Two identities seen during native-transition training; no validated neighbor-quality, unseen-ID or strength claim.",
+      "artifact_sha256": "cb38796bc31498aac1fde5f91e282bc814a9314ca1c076b02fbc5432f2223f04",
+      "manifest_sha256": "2b00012274e2042ccb46ca8a97a1996f4ee2f0a0ebe657ea5435f48d5a4bc664",
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-2/correct-ir.npz",
+        "sha256": "545ef9b878aacf0b13f95925ed9ab1c5312d2657983489c2223b15460cccce27"
+      }
+    }
+  },
+  "metrics": {
+    "cosine_distance": "1 - dot(unit_vector_a,unit_vector_b); unavailable for zero-norm vectors",
+    "euclidean_raw": "sqrt(sum((vector_a-vector_b)^2)); sensitive to latent scale",
+    "euclidean_unit": "sqrt(sum((unit_vector_a-unit_vector_b)^2)); monotonic with cosine distance",
+    "normalization": "Raw vectors and explicit L2-unit vectors must be labelled separately; no fitted whitening or semantic calibration.",
+    "shared_copies": "sum_c min(query canonical main count[c], candidate canonical main count[c]); excludes leaders/bases/sideboards",
+    "weighted_jaccard": "shared_copies / sum_c max(query canonical main count[c],candidate canonical main count[c]); both-empty convention1",
+    "overlap_query": "shared_copies / query main total; undefined for empty query",
+    "overlap_candidate": "shared_copies / candidate main total; undefined for empty candidate",
+    "overlap_smaller": "shared_copies / min(query main total,candidate main total); undefined if either empty",
+    "count_overlap_scope": "Canonical/reprint-collapsed declared MAIN counts only; composition similarity, not learned or behavioral semantics."
+  },
+  "optimizer_updates": 0,
+  "native_engine_calls": 0,
+  "paid_jobs": 0
+}

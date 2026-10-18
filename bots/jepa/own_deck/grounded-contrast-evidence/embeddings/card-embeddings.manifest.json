@@ -1,0 +1,122 @@
+{
+  "schema": "jepa-grounded-card-embedding-manifest/1",
+  "version": "grounded-contrast-v1",
+  "semantic_validated": false,
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+    "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86"
+  },
+  "schema_artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/schema.json",
+    "sha256": "cf14a6d543dffafc2adc8d7ce60f19c96ab7dbc16f2bd018bc47b210e73e65e6"
+  },
+  "checkpoint": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/correct-ir.npz",
+    "sha256": "4372f17d411f84fea05ce03b871aec30bf0dabb61aa17061b1eeb89af13dbf06"
+  },
+  "saved_golden": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/correct-ir-golden.npz",
+    "sha256": "7925089ab4642f16db38f52448a27dd57fbb8e3521f0be5fb894686138ee4e36"
+  },
+  "encoder_contract": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/correct-ir-contract.json",
+    "sha256": "4637f8ca97789159e5302cf745265218c63ce982f92fe6b7836f72abd8790bfd"
+  },
+  "fit_result": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-1/result.json",
+    "sha256": "733ce9aeecc373d5e17a4363b99970f2076e65ed753a9e5c338d4dad9fc0d68e"
+  },
+  "guard_receipt": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/fit-guard-1/supervisor-receipt.json",
+    "sha256": "56a57f126e588a833839c6aa2b9d72b387e978ffbbfa85afd593c4606a6c07b4"
+  },
+  "dataset": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.npz",
+    "sha256": "83a0ec4125e3d97b54ebd910925558bed0c18b779b706417991a650da1dfed52"
+  },
+  "dataset_manifest": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/grounded-contrast/grounded-contrast.manifest.json",
+    "sha256": "c0206e0638a995b8237574cb11a697c35a0711d9a9f5dd9741314431bd4aea20"
+  },
+  "model_source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_model.py",
+    "sha256": "473bc2324cf62c0437effd631e8fec3cc5930d2aeee0d00255da3bd08747eaf2"
+  },
+  "export_source": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/export_grounded_embeddings.py",
+    "sha256": "57a7fa48f5f061c78d97bd1da439811fec29f6234a2e4054b88dc05b780cbf11"
+  },
+  "training_commit": "fb8853c8a52d0ceed4d7c4221fbef008ccd2e747",
+  "source_revision": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+  "vocabulary_sha256": "e54f57ab828b1c5542d622284c3f31e7cd7504dadafc2adf0eaf62ab6a90704c",
+  "program_order": [
+    "ASH_011",
+    "HMW_170",
+    "IBH_016",
+    "IBH_053",
+    "LOF_004",
+    "LOF_134",
+    "SHD_196",
+    "SOR_007",
+    "SOR_011",
+    "SOR_094",
+    "TWI_056",
+    "TWI_157"
+  ],
+  "training_programs": [
+    "SOR_011",
+    "ASH_011",
+    "IBH_053",
+    "IBH_016",
+    "LOF_134",
+    "TWI_056",
+    "SHD_196",
+    "SOR_094",
+    "LOF_004",
+    "SOR_007"
+  ],
+  "heldout_programs": [
+    "TWI_157",
+    "HMW_170"
+  ],
+  "raw_tensor": {
+    "shape": [
+      12,
+      16
+    ],
+    "dtype": "float32",
+    "little_endian_bytes_sha256": "f8c4197e88313eff8ea716e8cf7714ef868ac215827d507999f08fc3f3cc29e8"
+  },
+  "normalization": {
+    "raw": "unchanged saved float32 vectors",
+    "unit": "float64 raw/L2norm where norm>1e-12; otherwise zeros and cosine unavailable",
+    "fitted": false
+  },
+  "optimizer_updates_during_export": 0,
+  "model_forward_calls": 0,
+  "native_engine_calls": 0,
+  "paid_jobs": 0,
+  "paid_spend_usd": 0,
+  "original_capture": {
+    "per_arm_reference_batches": 1,
+    "total_fit_reference_batches": 4,
+    "combined_status_and_embedding_batch": true
+  },
+  "previous_index": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/previous-index.json",
+    "sha256": "07dc35eec0d8a839a483e87ec0efad64930e6a962c1d5c50e69c81ab45b923f7"
+  },
+  "preserved_files": {
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.manifest.json": "317f3570f679bbb306b3b1c77a155fcd45ff7f4dd063e17d416895dbde019090",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/card-embeddings.json": "cb38796bc31498aac1fde5f91e282bc814a9314ca1c076b02fbc5432f2223f04",
+    "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/card-embeddings.manifest.json": "2b00012274e2042ccb46ca8a97a1996f4ee2f0a0ebe657ea5435f48d5a4bc664"
+  },
+  "limitations": [
+    "Twelve selected already-native-supported activated programs, not whole-card/persistent/deck representations.",
+    "Ten program identities trained, two held out; four held-out state families. Single-seed small native-fixture evidence only.",
+    "Proximity/cosine/Euclidean neighborhoods have not been independently behaviorally validated; semantic_validated remains false.",
+    "Heldout programs target disjoint domains, limiting same-candidate committed-delta comparisons; all joint per-head metrics have low-support flags.",
+    "These16d vectors are a new checkpoint/encoder space; distances across old two-card or96d deck spaces are undefined."
+  ]
+}

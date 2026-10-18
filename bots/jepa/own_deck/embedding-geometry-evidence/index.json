@@ -1,0 +1,32 @@
+{
+  "schema": "jepa-static-embedding-geometry-evidence/1",
+  "files": [
+    {
+      "path": "plan.json",
+      "source": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/plan.json",
+      "bytes": 7474,
+      "sha256": "af15cbc057b76faf4cd185c9495de7b77431abac63763036fbd45b0d35077518"
+    },
+    {
+      "path": "result.json",
+      "source": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/result.json",
+      "bytes": 81625,
+      "sha256": "088ea3b95e8c98b8104ac4291dc3533daec928e51157d66b55c628f903ed980e"
+    },
+    {
+      "path": "receipt.json",
+      "source": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/receipt.json",
+      "bytes": 778,
+      "sha256": "5cf027d5fcb6928cfe13574e196b7c57f0f0efc0b83d5fe311529a56f713183f"
+    },
+    {
+      "path": "train-transform.npz",
+      "source": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-geometry/run-1/train-transform.npz",
+      "bytes": 150064,
+      "sha256": "10c827398345e9d58d1850abcaf97168f17168830508aa4b7771ce6518097325"
+    }
+  ],
+  "raw_vectors_or_checkpoints_included": false,
+  "raw_annotations_included": false,
+  "note": "Byte-identical portable numerical evidence; original review files are identified by frozen input hashes only."
+}
