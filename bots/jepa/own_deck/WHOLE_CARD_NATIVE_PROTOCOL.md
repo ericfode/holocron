@@ -94,6 +94,10 @@ weight decay .0001 and preclip L2 limit 1. ID-only has six trained IDs and held
 UNK0. Its typed encoder is frozen. The unused typed arm freezes the typed
 encoder; correct/wrong freeze the unused identity table. Report allocated and
 actually trainable counts rather than calling these counts identical.
+The reviewed schema has 48 path, 7 type and 68 value symbols. Deterministic
+parameter counts are 11,168 allocated in every arm; 11,056 trainable in correct/
+wrong, 6,752 in ID-only and 6,640 in unused typed. The fitting process asserts
+these counts against the instantiated graph before any forward.
 Wrong inputs freshly draw another training card each update; fixed evaluation
 swaps held cards and cycles training cards. Actual inputs/labels remain aligned.
 
@@ -104,6 +108,13 @@ auxiliary weight .1. No held statistics set scales or head weights. Save every
 head's root support, labels, native values, MAE, signed residual, binary accuracy,
 negative cases and all predictions. A native-label advantage over controls is
 necessary evidence for this limited task; printed reconstruction is insufficient.
+Binary metrics include positive/negative known-coordinate support, sensitivity,
+specificity and balanced accuracy when both classes occur. Two zero-neural
+baselines use literal all-zero decoded heads and training-only per-head means/
+positive rates (fallback zero for unknown training heads). The zero-head
+baseline is not a full unchanged physical state. A wholly unobserved training
+head receives no supervised loss; its held result is not a trained-head binding
+test and remains separate from training-constant-zero heads.
 
 Exactly one all-32-root initialization batch and one final batch per arm yield
 eight evaluation forwards. Final batches also return every 8×16 bank vector;
