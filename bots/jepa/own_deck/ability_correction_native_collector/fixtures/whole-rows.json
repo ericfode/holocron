@@ -1,0 +1,977 @@
+{
+  "cards": [
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "aspects": [
+          "vigilance"
+        ],
+        "cost": null,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 30,
+        "id": "7349221421",
+        "internalName": "fortress-of-the-great-mothers",
+        "keywords": [],
+        "power": null,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 19,
+            "set": "ASH"
+          }
+        ],
+        "setId": {
+          "number": 19,
+          "set": "ASH"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Fortress of the Great Mothers",
+        "traits": [
+          "peridea"
+        ],
+        "types": [
+          "base"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "b1e5d2035bc16d2f0b286e465e728b144797b666fbf180cc510e67ffaefdefc0",
+      "id": "7349221421",
+      "internalName": "fortress-of-the-great-mothers",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:base"
+      ],
+      "setCode": "ASH_019",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [
+          {
+            "costs": [],
+            "effect": {
+              "duration": "phase",
+              "hp": {
+                "kind": "const",
+                "value": 0
+              },
+              "kind": "modifyStats",
+              "power": {
+                "kind": "unary",
+                "op": "-",
+                "value": {
+                  "kind": "const",
+                  "value": 4
+                }
+              },
+              "target": "chosen"
+            },
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "predicate": {
+                "kind": "binary",
+                "left": {
+                  "args": [],
+                  "kind": "query",
+                  "name": "isUnit",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  }
+                },
+                "op": "&&",
+                "right": {
+                  "args": [],
+                  "kind": "query",
+                  "name": "isUpgraded",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  }
+                }
+              },
+              "type": "unit",
+              "zone": "anyAttackable"
+            },
+            "title": "Give an upgraded unit -4/-0 for this phase",
+            "trigger": "onAttack"
+          }
+        ],
+        "leader": [],
+        "unit": []
+      },
+      "baseClass": "NonLeaderUnitCard",
+      "card": {
+        "arena": "ground",
+        "aspects": [
+          "vigilance",
+          "heroism"
+        ],
+        "cost": 2,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 4,
+        "id": "5606840637",
+        "internalName": "huyang#your-aptitude-falls-short",
+        "keywords": [],
+        "power": 2,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 56,
+            "set": "ASH"
+          }
+        ],
+        "setId": {
+          "number": 56,
+          "set": "ASH"
+        },
+        "subtitle": "Your Aptitude Falls Short",
+        "text": "On Attack: You may give an upgraded unit \u20134/\u20130 for this phase.",
+        "title": "Huyang",
+        "traits": [
+          "jedi",
+          "droid"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": true,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "className": "HuyangYourAptitudeFallsShort",
+      "dataHash": "258674277aed448114b06a0d6dc86b16d8a11729f61984dca6ca5aca8817a1e3",
+      "id": "5606840637",
+      "internalName": "huyang#your-aptitude-falls-short",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:&&",
+        "cardType:unit",
+        "ir:binary",
+        "ir:const",
+        "ir:modifyStats",
+        "ir:query",
+        "ir:ref",
+        "ir:unary",
+        "query:isUnit",
+        "query:isUpgraded",
+        "ref:card",
+        "targetType:unit",
+        "targetZone:anyAttackable",
+        "trigger:onAttack",
+        "unary:-"
+      ],
+      "setCode": "ASH_056",
+      "sourceHash": "01779b9b6b7608edae996df06e71bf81c89c95545b9749c6ed61b9e651be08b9",
+      "sourcePath": "game/cards/08_ASH/units/HuyangYourAptitudeFallsShort.ts",
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "arena": "ground",
+        "aspects": [
+          "vigilance",
+          "heroism"
+        ],
+        "cost": 4,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 5,
+        "id": "1029172801",
+        "internalName": "strike-team-vanguard",
+        "keywords": [],
+        "power": 5,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 61,
+            "set": "ASH"
+          }
+        ],
+        "setId": {
+          "number": 61,
+          "set": "ASH"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Strike Team Vanguard",
+        "traits": [
+          "rebel",
+          "trooper"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "cc298cba68428c319e40f970b7ea451838c4e3873ebe05706419e5ddee12e4c8",
+      "id": "1029172801",
+      "internalName": "strike-team-vanguard",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ],
+      "setCode": "ASH_061",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [
+          {
+            "costs": [
+              {
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                },
+                "kind": "resources"
+              },
+              {
+                "kind": "exhaustSelf"
+              }
+            ],
+            "effect": {
+              "amount": {
+                "kind": "const",
+                "value": 1
+              },
+              "kind": "damage",
+              "target": "chosen"
+            },
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "title": "Deal 1 damage to a base",
+            "trigger": "action"
+          }
+        ],
+        "unit": [
+          {
+            "costs": [],
+            "effect": {
+              "amount": {
+                "kind": "const",
+                "value": 2
+              },
+              "kind": "damage",
+              "target": "chosen"
+            },
+            "targetResolver": {
+              "owner": "any",
+              "type": "any",
+              "zone": "base"
+            },
+            "title": "Deal 2 damage to a base",
+            "trigger": "onAttack"
+          }
+        ]
+      },
+      "baseClass": "LeaderUnitCard",
+      "card": {
+        "arena": "ground",
+        "aspects": [
+          "aggression",
+          "villainy"
+        ],
+        "cost": 6,
+        "deployBox": "On Attack: Deal 2 damage to a base.",
+        "epicAction": "Epic Action: If you control 6 or more resources, deploy this leader. (Flip him, ready him, and move him to the ground arena.)",
+        "hp": 8,
+        "id": "9389694773",
+        "internalName": "darth-vader#dont-fail-me-again",
+        "keywords": [],
+        "power": 3,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 53,
+            "set": "IBH"
+          }
+        ],
+        "setId": {
+          "number": 53,
+          "set": "IBH"
+        },
+        "subtitle": "Don't Fail Me Again",
+        "text": "Action [1 resource, Exhaust]: Deal 1 damage to a base.",
+        "title": "Darth Vader",
+        "traits": [
+          "force",
+          "imperial",
+          "sith"
+        ],
+        "types": [
+          "leader"
+        ],
+        "unique": true,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "className": "DarthVaderDontFailMeAgain",
+      "dataHash": "8e008bd17ac55ad59d2cc5ce2a879d3eb070e1d19f990b1c73e3e545ccd8bc8a",
+      "id": "9389694773",
+      "internalName": "darth-vader#dont-fail-me-again",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:leader",
+        "ir:const",
+        "ir:damage",
+        "ir:exhaustSelf",
+        "ir:resources",
+        "targetType:any",
+        "targetZone:base",
+        "trigger:action",
+        "trigger:onAttack"
+      ],
+      "setCode": "IBH_053",
+      "sourceHash": "93cdf6459ac9de34369a172aec6a2729cb608c749f6a0bd847ccea8656987c41",
+      "sourcePath": "game/cards/06_IBH/leaders/DarthVaderDontFailMeAgain.ts",
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [
+          {
+            "costs": [],
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            },
+            "targetResolver": {
+              "count": {
+                "kind": "const",
+                "value": 2
+              },
+              "mode": "upTo",
+              "optional": true,
+              "owner": "opponent",
+              "predicate": {
+                "kind": "binary",
+                "left": {
+                  "args": [],
+                  "kind": "query",
+                  "name": "isUnit",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  }
+                },
+                "op": "&&",
+                "right": {
+                  "kind": "binary",
+                  "left": {
+                    "kind": "ref",
+                    "path": [
+                      "card",
+                      "cost"
+                    ]
+                  },
+                  "op": "<=",
+                  "right": {
+                    "kind": "const",
+                    "value": 3
+                  }
+                }
+              },
+              "type": "unit",
+              "zone": "anyAttackable"
+            },
+            "title": "Defeat up to 2 enemy units that each cost 3 or less",
+            "trigger": "event"
+          }
+        ],
+        "leader": [],
+        "unit": []
+      },
+      "baseClass": "EventCard",
+      "card": {
+        "aspects": [
+          "vigilance"
+        ],
+        "cost": 6,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": null,
+        "id": "4087028261",
+        "internalName": "the-desolation-of-hoth",
+        "keywords": [],
+        "power": null,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 104,
+            "set": "IBH"
+          }
+        ],
+        "setId": {
+          "number": 104,
+          "set": "IBH"
+        },
+        "subtitle": "",
+        "text": "Defeat up to 2 enemy units that each cost 3 or less.",
+        "title": "The Desolation of Hoth",
+        "traits": [
+          "disaster"
+        ],
+        "types": [
+          "event"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "className": "TheDesolationOfHoth",
+      "dataHash": "65a5923db39df2e642daf0d9d6d47b2e1e666e162499a635aa07350a257dd187",
+      "id": "4087028261",
+      "internalName": "the-desolation-of-hoth",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "binary:&&",
+        "binary:<=",
+        "cardType:event",
+        "ir:binary",
+        "ir:const",
+        "ir:defeat",
+        "ir:query",
+        "ir:ref",
+        "query:isUnit",
+        "ref:card",
+        "ref:card.cost",
+        "targetMode:upTo",
+        "targetType:unit",
+        "targetZone:anyAttackable",
+        "trigger:event"
+      ],
+      "setCode": "IBH_104",
+      "sourceHash": "618f250ddd8f0059656e893070f76457591b1635f648041c675447c3fed664dd",
+      "sourcePath": "game/cards/06_IBH/events/TheDesolationOfHoth.ts",
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "arena": "ground",
+        "aspects": [
+          "command"
+        ],
+        "cost": 3,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 6,
+        "id": "4543549467",
+        "internalName": "outer-rim-mystic",
+        "keywords": [],
+        "power": 2,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 112,
+            "set": "LOF"
+          }
+        ],
+        "setId": {
+          "number": 112,
+          "set": "LOF"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Outer Rim Mystic",
+        "traits": [
+          "force",
+          "fringe"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "9798c868afec6f223755a59859598929df8cc44e2dc6ac9d9f0d4e8f7aee2f89",
+      "id": "4543549467",
+      "internalName": "outer-rim-mystic",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ],
+      "setCode": "LOF_112",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "arena": "ground",
+        "aspects": [],
+        "cost": 2,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 4,
+        "id": "9014610567",
+        "internalName": "gifted-urchin",
+        "keywords": [],
+        "power": 1,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 256,
+            "set": "LOF"
+          }
+        ],
+        "setId": {
+          "number": 256,
+          "set": "LOF"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Gifted Urchin",
+        "traits": [
+          "force",
+          "fringe"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "7fb71dd198239ad52b1a405648566d88a668882480d29f82397d13b0ceb646b9",
+      "id": "9014610567",
+      "internalName": "gifted-urchin",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ],
+      "setCode": "LOF_256",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "arena": "ground",
+        "aspects": [
+          "vigilance",
+          "villainy"
+        ],
+        "cost": 2,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 4,
+        "id": "9592786976",
+        "internalName": "trayus-acolyte",
+        "keywords": [],
+        "power": 2,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 28,
+            "set": "SEC"
+          }
+        ],
+        "setId": {
+          "number": 28,
+          "set": "SEC"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Trayus Acolyte",
+        "traits": [
+          "force",
+          "sith"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "1f62dacd3848d9209be98be80b0aa9ffc76d5f9c7a87a4e7bf744b2755e47194",
+      "id": "9592786976",
+      "internalName": "trayus-acolyte",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ],
+      "setCode": "SEC_028",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [
+          {
+            "costs": [],
+            "effect": {
+              "aspectMultiplicity": true,
+              "aspects": [
+                "command",
+                "command",
+                "heroism"
+              ],
+              "kind": "disclose",
+              "mode": "all",
+              "selectedCardsEventField": "disclosedCards",
+              "selectionContext": "targetPlayer",
+              "target": "ownPlayer",
+              "triggeredNoMatchPolicy": "maskWithPauseWithoutEvent"
+            },
+            "ifYouDo": {
+              "costs": [],
+              "effect": {
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                },
+                "kind": "draw",
+                "target": "ownPlayer"
+              },
+              "title": "Draw a card"
+            },
+            "title": "Disclose Command, Command, Heroism to draw a card",
+            "trigger": "whenDefeated"
+          }
+        ],
+        "leader": [],
+        "unit": []
+      },
+      "baseClass": "NonLeaderUnitCard",
+      "card": {
+        "arena": "ground",
+        "aspects": [
+          "command",
+          "heroism"
+        ],
+        "cost": 2,
+        "deployBox": null,
+        "epicAction": "",
+        "hp": 4,
+        "id": "9378249305",
+        "internalName": "mina-bonteri#stop-this-war",
+        "keywords": [
+          "restore"
+        ],
+        "power": 2,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 94,
+            "set": "SEC"
+          }
+        ],
+        "setId": {
+          "number": 94,
+          "set": "SEC"
+        },
+        "subtitle": "Stop This War",
+        "text": "Restore 1 (When this unit attacks, heal 1 damage from your base.)\nWhen Defeated: You may disclose CommandCommandHeroism (reveal cards from your hand with these aspect icons among them). If you do, draw a card.",
+        "title": "Mina Bonteri",
+        "traits": [
+          "separatist",
+          "official"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": true,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "className": "MinaBonteriStopThisWar",
+      "dataHash": "aad57fcf738abe57def5884256f41789248902c9189bf489d73c1ad01e5fa8b4",
+      "id": "9378249305",
+      "internalName": "mina-bonteri#stop-this-war",
+      "keywordValues": {
+        "restore": 1
+      },
+      "requiredCapabilities": [
+        "ability:ifYouDo",
+        "cardType:unit",
+        "ir:const",
+        "ir:disclose",
+        "ir:draw",
+        "keyword:restore",
+        "trigger:whenDefeated"
+      ],
+      "setCode": "SEC_094",
+      "sourceHash": "a56b0a898efe245a87a1a2247a51740245e769b23c9a7e80ad194f616b732192",
+      "sourcePath": "game/cards/06_SEC/units/MinaBonteriStopThisWar.ts",
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "baseClass": "TokenUpgradeCard",
+      "card": {
+        "aspects": [],
+        "cost": 0,
+        "deployBox": null,
+        "epicAction": null,
+        "hp": 0,
+        "id": "8752877738",
+        "internalName": "shield",
+        "keywords": [],
+        "power": 0,
+        "rules": null,
+        "setId": {
+          "set": "SOR"
+        },
+        "subtitle": null,
+        "text": "If damage would be dealt to attached unit, prevent that damage. If you do, defeat a Shield token on it.",
+        "title": "Shield",
+        "traits": [
+          "armor"
+        ],
+        "types": [
+          "token",
+          "upgrade"
+        ],
+        "unique": false,
+        "upgradeHp": 0,
+        "upgradePower": 0
+      },
+      "className": "Shield",
+      "dataHash": "3fe37b5b4c214e1a6971c2ea5e7729a7cad9bf983a384c20b56c404cbf41208b",
+      "id": "8752877738",
+      "internalName": "shield",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:token",
+        "cardType:upgrade"
+      ],
+      "setCode": "TOKEN_SHIELD",
+      "sourceHash": "39f1c6699c36ba309a8fe8e053f9b94ddbb8877991767b6664fcd88d447be91f",
+      "sourcePath": "game/cards/01_SOR/tokens/Shield.ts",
+      "status": "unsupported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "arena": "space",
+        "aspects": [
+          "command"
+        ],
+        "cost": 3,
+        "deployBox": null,
+        "epicAction": null,
+        "hp": 4,
+        "id": "9176356859",
+        "internalName": "republic-arc170",
+        "keywords": [],
+        "power": 3,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 111,
+            "set": "TWI"
+          }
+        ],
+        "setId": {
+          "number": 111,
+          "set": "TWI"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Republic ARC-170",
+        "traits": [
+          "republic",
+          "vehicle",
+          "fighter"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "34d23f5fa7d33563ee6e8b68ee57dea3cf06ba099f4ccca30797ba7180b766bf",
+      "id": "9176356859",
+      "internalName": "republic-arc170",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ],
+      "setCode": "TWI_111",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    },
+    {
+      "abilities": {
+        "card": [],
+        "leader": [],
+        "unit": []
+      },
+      "card": {
+        "arena": "space",
+        "aspects": [],
+        "cost": 2,
+        "deployBox": null,
+        "epicAction": null,
+        "hp": 4,
+        "id": "2574847177",
+        "internalName": "headhunter-squadron",
+        "keywords": [],
+        "power": 1,
+        "rules": null,
+        "setCodes": [
+          {
+            "number": 253,
+            "set": "TWI"
+          }
+        ],
+        "setId": {
+          "number": 253,
+          "set": "TWI"
+        },
+        "subtitle": "",
+        "text": "",
+        "title": "Headhunter Squadron",
+        "traits": [
+          "republic",
+          "vehicle",
+          "fighter"
+        ],
+        "types": [
+          "unit"
+        ],
+        "unique": false,
+        "upgradeHp": null,
+        "upgradePower": null
+      },
+      "dataHash": "702cc22f863b2748b89ead0f3cd8fafb758175bc1c677df77816b5a30ca5a81c",
+      "id": "2574847177",
+      "internalName": "headhunter-squadron",
+      "keywordValues": {},
+      "requiredCapabilities": [
+        "cardType:unit"
+      ],
+      "setCode": "TWI_253",
+      "sourceHash": null,
+      "sourcePath": null,
+      "status": "supported"
+    }
+  ],
+  "original_catalog_pin": {
+    "bytes": 12675831,
+    "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+  },
+  "runtimeAdmittedCards": [
+    {
+      "implementation": "dataOnly",
+      "internalName": "fortress-of-the-great-mothers",
+      "setCode": "ASH_019"
+    },
+    {
+      "implementation": "sourceIr",
+      "internalName": "huyang#your-aptitude-falls-short",
+      "setCode": "ASH_056"
+    },
+    {
+      "implementation": "dataOnly",
+      "internalName": "strike-team-vanguard",
+      "setCode": "ASH_061"
+    },
+    {
+      "implementation": "sourceIr",
+      "internalName": "darth-vader#dont-fail-me-again",
+      "setCode": "IBH_053"
+    },
+    {
+      "implementation": "sourceIr",
+      "internalName": "the-desolation-of-hoth",
+      "setCode": "IBH_104"
+    },
+    {
+      "implementation": "dataOnly",
+      "internalName": "outer-rim-mystic",
+      "setCode": "LOF_112"
+    },
+    {
+      "implementation": "dataOnly",
+      "internalName": "gifted-urchin",
+      "setCode": "LOF_256"
+    },
+    {
+      "implementation": "dataOnly",
+      "internalName": "trayus-acolyte",
+      "setCode": "SEC_028"
+    },
+    {
+      "implementation": "sourceIr",
+      "internalName": "mina-bonteri#stop-this-war",
+      "setCode": "SEC_094"
+    },
+    {
+      "implementation": "nativeAdapter",
+      "internalName": "shield",
+      "setCode": "TOKEN_SHIELD"
+    },
+    {
+      "implementation": "dataOnly",
+      "internalName": "republic-arc170",
+      "setCode": "TWI_111"
+    },
+    {
+      "implementation": "dataOnly",
+      "internalName": "headhunter-squadron",
+      "setCode": "TWI_253"
+    }
+  ],
+  "schema": "jepa-ability-correction-portable-whole-rows/1"
+}

@@ -1,0 +1,21 @@
+[package]
+name = "jepa-kessel-probe"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[[bin]]
+name = "ability-correction-native-collector"
+path = "src/main.rs"
+
+[dependencies]
+kessel = { path = "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel" }
+serde_json = "1"
+sha2 = "0.10"
+
+[profile.dev]
+opt-level = 0
+debug = 0
+incremental = false
