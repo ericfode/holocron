@@ -1,4 +1,5 @@
-Prepared source only. No compilation, collection, or fit has been launched.
+Each compilation, collection, and fit is coordinated by root. Saved attempt
+receipts are the record of executed stages.
 
 This collector reuses the two previously executed complete leader definitions
 ASH_011 and IBH_053 at Kessel source
@@ -57,3 +58,28 @@ the same supervisor with `--stage fit --progress DEDICATED_PROGRESS.jsonl
 `updates_completed`; no other campaign's feed may be used for quota accounting.
 Fit code must itself enforce its fixed update allocation. The parent owns its
 source review and GO. No retry may switch ledger paths to restore quota.
+
+The supervisor now checks that a direct Python main-script path exists before
+creating a stage or reserving updates. Paths are resolved against the collector
+working directory; use an absolute trainer path for fit commands.
+
+A separate, explicit missing-main credit can correct a conservative update
+reservation only when the latest finished failed fit never opened its Python
+main file. Verification requires the exact receipt/stderr hashes, one fit phase
+with exit2, the exact solitary CPython missing-file diagnostic, the derived main
+path still absent, empty stdout, absent declared progress/output, and no events
+for that run ID. Runtime errors, interrupted optimization, any progress/output,
+altered evidence, later stages, and duplicate credits reject. The append-only
+`missing-main-update-credit` event subtracts exactly the original reservation
+from net update debit. It retains the raw failed stage and charge, all elapsed
+time, engine applies, and hashes proving the exception. It cannot increase the
+600-update allocation or credit any time. The next fit uses new paths and run ID.
+
+Read-only proof verification for the recorded startup failure:
+
+```sh
+python3 bots/jepa/own_deck/supported_native_collector/supervise.py --ledger /Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/campaign-ledger.jsonl --credit-missing-main /Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/supported-transition/fit-guard-1/supervisor-receipt.json --receipt-sha256 bf6a91e1709ead9a07afbb48889a9be31c1d3f44b9a8c60464413223e3c82d56 --stderr-sha256 8d807e88ac5751019b8f3829ba925ec419176f9ae8a7077980b6ce8b7c8aa65c
+```
+
+Only the coordinating root appends the checked credit by adding
+`--execute-credit` after source review/commit. This command launches no worker.

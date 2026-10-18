@@ -58,8 +58,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "60f813bd80c60bfd48684bf680a48c01d54ad2561bd06b620168e82c20cad0df",
-      "bytes": 3630
+      "sha256": "b6955dae491ff596dd5d993c74f2aa76992ba67c296d6d223114ffaa8f0a4478",
+      "bytes": 5474
     },
     {
       "path": "src/main.rs",
@@ -68,13 +68,13 @@
     },
     {
       "path": "supervise.py",
-      "sha256": "99baae6ea11d0421332df16802c729dd2c6134103518317dfc7e504aabb1359e",
-      "bytes": 15338
+      "sha256": "79329917b00ed87b4f17e4e1a8b714d7524fcb94925e77b832da6924d8fa8bd5",
+      "bytes": 25735
     },
     {
       "path": "test_supervise.py",
-      "sha256": "2b576ddbc03fd1cc465d9aefd8639feb15428e1b5ef713613a5bd74e2adb81a2",
-      "bytes": 4271
+      "sha256": "b23a9edbd27102ca15984d93c8e7756462f638c2ab0e6c0a0e76f7f04c61e221",
+      "bytes": 10856
     }
   ],
   "pinned_execution_inputs": [
