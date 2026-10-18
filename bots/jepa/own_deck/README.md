@@ -8,6 +8,25 @@ no evidence of improved play. The checked-in initialization, existing competitiv
 bundle and original checkpoint bytes remain frozen. See [measured results](LOCAL_RESULTS.md),
 the [baseline audit](AUDIT.md), and [recovered provenance](PROVENANCE.md).
 
+The later [controlled restoration probe](RESTORATION.md) completed 400 frozen-head
+updates and logged every curve, without an aggregate restoration gain. The
+[independent run audit](final-run-audit.json) verifies the combined 700 updates,
+preserved checkpoint/data hashes and recovery archive. The
+[permutation receipt](permutation-verification.json) verifies structural bag
+invariance through Python, Rust and frozen-model outputs. No playing-strength
+claim, competitive activation or paid job follows these pilots.
+
+[Typed capability/action grounding](TYPED_IR_ALIGNMENT.md) supplies the small
+structured next step: a restricted inspection schema, explicit action bindings,
+eight actual Kessel transitions, and an independently defined behavioral-distance
+evaluation proposal. It adds no text model or trained semantic graph. Production
+deck inputs remain `[2,207]`; selected-ability coverage is separate from
+whole-card admission and current remaining-deck belief is still unknown.
+The [next bounded transition pilot](next-transition-experiment.json) is a
+proposal, not a running job: eight admitted identities, at most 96 engine
+applies and 600 small-encoder updates across three matched controls. Its exact
+card/context/model manifests must pass the listed gates before execution.
+
 ## Information contract
 
 The original bag is the unordered multiset in the actor's `hello.deck.deck`.

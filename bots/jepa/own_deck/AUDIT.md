@@ -13,6 +13,8 @@ The original task4/task5 workspaces and running processes were left untouched.
 The comparison source is WASM parity commit
 `f9cbbd427689081d5f12829b1fe7edd76ca51fab`. The competitive snapshot was
 `jepa_tx_gate_wasm-v1`, initially 3 wins / 7 losses without forfeits.
+Line references below point to the isolated checkout's corresponding legacy
+paths; new opt-in wiring can shift line numbers relative to that baseline.
 
 | Existing feature | Source under `bots/jepa/` | Limit |
 | --- | --- | --- |

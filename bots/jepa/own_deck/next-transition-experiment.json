@@ -1,0 +1,59 @@
+{
+  "schema": "typed-transition-pilot-proposal/1",
+  "status": "proposed-not-launched",
+  "purpose": "Test a small shared typed encoder against independent engine transitions; alignment is auxiliary",
+  "source_commit": "c7ee39554901278cee70f61fd8b26fb1920696b3",
+  "admission_before_launch": [
+    "Pin eight complete runtime-admitted card definitions and reviewed source/program/stage bindings",
+    "Pin public context bank, source hashes, supported constructs and expected boundary cases before collection",
+    "Keep reprints/canonical identity aliases together; six training identities and two held-out identities",
+    "Include familiar mechanics under distinct IDs and confusable printed properties with different mechanics",
+    "Pin model shapes, initialization, target normalization and actual dataset/split manifests",
+    "Stop if coverage cannot meet these gates; do not strip unsupported card sides or invent behavioral labels"
+  ],
+  "collection": {
+    "max_card_identities": 8,
+    "contexts_per_card": 3,
+    "max_context_cases": 24,
+    "max_engine_applies_total_including_failures": 96,
+    "labels": ["source-use and target masks", "paid costs", "visible state deltas", "subsequent affordances"],
+    "private_information": "No hidden order, opponent hands or future outcomes in current inputs"
+  },
+  "fit": {
+    "arms": ["correct typed IR", "matched ID-only control", "partition-local wrong IR control"],
+    "max_trainable_parameters_per_arm": 32768,
+    "seed": 17,
+    "max_updates_per_arm": 200,
+    "max_total_updates": 600,
+    "batch_size": 16,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "selection": "Fixed final step; no hyperparameter or checkpoint search",
+    "objective": "Independent legality/cost/state-delta/follow-up targets, plus a smaller role-masked program/action alignment term",
+    "controls": "Identical architecture shapes, parameter counts, contexts, labels, initialization, batches and update ceilings",
+    "additional_baseline": "Copy-current-state / zero-delta baseline without fitting"
+  },
+  "resource_limits": {
+    "device": "local CPU",
+    "workers": 1,
+    "compute_threads": 1,
+    "max_cumulative_active_collection_and_fit_seconds": 120,
+    "sampled_process_tree_rss_stop_bytes": 2147483648,
+    "max_validation_queries_total": 6,
+    "retry_policy": "Preserve attempts; subtract spent wall time, applies, updates and validation calls rather than reset allocation"
+  },
+  "evaluation": {
+    "primary": "Held-out identity transition and affordance prediction",
+    "distance_labels": "Predeclared mask Hamming and normalized observed-delta distances from shared Kessel contexts, never embedding-feature overlap",
+    "distance_diagnostics": "Cosine/Euclidean rank correlation and neighbor retrieval only when independent labels vary; report two-query support and dependence, without population claims",
+    "global_vs_conditional": "Fixed-context-mixture card distance versus explicit card/context/role query distance",
+    "strength": "No games, win-rate, metagame or policy-strength claim"
+  },
+  "budget": {
+    "modal_batch_cap_usd": 100,
+    "modal_batch_spend_to_date_usd": 0,
+    "new_paid_allocation_usd": 0,
+    "text_model_comparison": false,
+    "note": "Local CPU first. This proposal does not launch a job or create a new spending allowance."
+  }
+}
