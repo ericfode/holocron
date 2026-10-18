@@ -1,0 +1,976 @@
+{
+  "excluded": [
+    {
+      "bytes": 17244672,
+      "path": "ability-correction-v1/build-1/ability-correction-native-collector",
+      "reason": "compiled binary excluded",
+      "sha256": "00282cf9874313d14682b99f2d33e5774b1b907b2ebb8e6af44e3e32dc14e310"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 6706,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/campaign-ledger.jsonl.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/campaign-ledger.jsonl"
+      },
+      "raw_bytes": 31821,
+      "raw_sha256": "5886746015e2eaea05bfbf0c982911ff9109b63a52d3141634a3d8ffc5312e66",
+      "sha256": "81b24dc0575faf39e74281f80804436b1f480462c7e4e599f4728b30701449bb"
+    },
+    {
+      "bytes": 2913,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/campaign-spec.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/campaign-spec.json"
+      },
+      "raw_bytes": 9973,
+      "raw_sha256": "5868fe8f4a3b4c3fcebd30b687657428b3fd05c3677bbaf0de8f67aa353bf9fe",
+      "sha256": "1d8277da7ba9f8c788931a5ad3ec2762df389ec0fbd0e51f0667ad04a1f715b2"
+    },
+    {
+      "bytes": 628,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/forward-journal.jsonl.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/forward-journal.jsonl"
+      },
+      "raw_bytes": 7208,
+      "raw_sha256": "959fee4a948271441843301dbb88d499cf7b647bf276d4c11be979adc8a91905",
+      "sha256": "372980c0bf3e8d144c5fdd02f3c0b8cc963e9d5650bc55ba25de6576d383a789"
+    },
+    {
+      "bytes": 668,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/receipt.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/receipt.json"
+      },
+      "raw_bytes": 1242,
+      "raw_sha256": "3d6e50b315e7f97d41aa1800bca5927a709f6c257f222d470ea343c17635b3d8",
+      "sha256": "585b05933fac6b28092d24acc7c7187bae52b76935999c7b53a190866af1dc26"
+    },
+    {
+      "bytes": 512737,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/result.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/result.json"
+      },
+      "raw_bytes": 9557478,
+      "raw_sha256": "29c870d20cccf2d8a3c5e61bc65afe48d641e6120c695cd595e1ba160d1b7d26",
+      "sha256": "0a3ac373dac111cdc7d26b030c083aa273c56e9cbcaca5d1e54f390b3e9d23c5"
+    },
+    {
+      "bytes": 6646,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-ability-swap-replay-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-ability-swap-replay-predictions.npz"
+      },
+      "raw_bytes": 6646,
+      "raw_sha256": "b4795f7380e8673f58cbf14017e5b947a94fd7fa3fefcb999cc61c6ec0480b11",
+      "sha256": "b4795f7380e8673f58cbf14017e5b947a94fd7fa3fefcb999cc61c6ec0480b11"
+    },
+    {
+      "bytes": 6645,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-candidate-cost2-swap3-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-candidate-cost2-swap3-predictions.npz"
+      },
+      "raw_bytes": 6645,
+      "raw_sha256": "d2f6bf0cb3c40f908052206602079629c876a8e02d76b0d02e988b7cb9e1dcde",
+      "sha256": "d2f6bf0cb3c40f908052206602079629c876a8e02d76b0d02e988b7cb9e1dcde"
+    },
+    {
+      "bytes": 6656,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-coherent-intent-swap-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-coherent-intent-swap-predictions.npz"
+      },
+      "raw_bytes": 6656,
+      "raw_sha256": "85ceadfc29e4cfe7a827d29734762e194c45afd7d9142df20f7ceed19d8780d0",
+      "sha256": "85ceadfc29e4cfe7a827d29734762e194c45afd7d9142df20f7ceed19d8780d0"
+    },
+    {
+      "bytes": 6655,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-cost-cap3-to2-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-cost-cap3-to2-predictions.npz"
+      },
+      "raw_bytes": 6655,
+      "raw_sha256": "277f5111e992e48d73cef412718ee8110824b4afafaa68cd9458f00169cc3454",
+      "sha256": "277f5111e992e48d73cef412718ee8110824b4afafaa68cd9458f00169cc3454"
+    },
+    {
+      "bytes": 5838,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-eligibility-only-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-eligibility-only-neutral-predictions.npz"
+      },
+      "raw_bytes": 5838,
+      "raw_sha256": "f84bc6777a4b4af4ada76eda0860e63ef95f2d514ee4a47822b51b80b035cf0d",
+      "sha256": "f84bc6777a4b4af4ada76eda0860e63ef95f2d514ee4a47822b51b80b035cf0d"
+    },
+    {
+      "bytes": 6658,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-factual-replay-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-factual-replay-predictions.npz"
+      },
+      "raw_bytes": 6658,
+      "raw_sha256": "44b9976f45e882a202f334f9e0009ca79dd07209918cefada33d980a34900581",
+      "sha256": "44b9976f45e882a202f334f9e0009ca79dd07209918cefada33d980a34900581"
+    },
+    {
+      "bytes": 6658,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-heal-amount3-to1-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-heal-amount3-to1-predictions.npz"
+      },
+      "raw_bytes": 6658,
+      "raw_sha256": "409a4beb4c5ded0ca4e2e101736d5ef519ddcf6da596aa2ff69afb713fdc9a2b",
+      "sha256": "409a4beb4c5ded0ca4e2e101736d5ef519ddcf6da596aa2ff69afb713fdc9a2b"
+    },
+    {
+      "bytes": 5777,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-intent-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-intent-neutral-predictions.npz"
+      },
+      "raw_bytes": 5777,
+      "raw_sha256": "1c2d0ddfc3d69c95837cc7504be1bffd1fd457b2365ef5d800d79bdfe97647ad",
+      "sha256": "1c2d0ddfc3d69c95837cc7504be1bffd1fd457b2365ef5d800d79bdfe97647ad"
+    },
+    {
+      "bytes": 41515,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-reference-comparison.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-reference-comparison.json"
+      },
+      "raw_bytes": 1133443,
+      "raw_sha256": "260fb01c2495b801e03331c7bba338503e5178e8d420e79a30716560da7c9e46",
+      "sha256": "1a0218defd85117e5bb9a35f8469e98f0ca523adea6df0cae185de014fbf4606"
+    },
+    {
+      "bytes": 6655,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-selector-opponent-to-any-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-selector-opponent-to-any-predictions.npz"
+      },
+      "raw_bytes": 6655,
+      "raw_sha256": "562246359ec0cbf8448c2329fda4f38f87f5ca7f5961faae9ccc1c70936d54cc",
+      "sha256": "562246359ec0cbf8448c2329fda4f38f87f5ca7f5961faae9ccc1c70936d54cc"
+    },
+    {
+      "bytes": 6653,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-source-hp-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-source-hp-neutral-predictions.npz"
+      },
+      "raw_bytes": 6653,
+      "raw_sha256": "73dfe70b688c40ade54db89e6f5d5bb01ebf45580f9eef7ffcb54351f987675f",
+      "sha256": "73dfe70b688c40ade54db89e6f5d5bb01ebf45580f9eef7ffcb54351f987675f"
+    },
+    {
+      "bytes": 6656,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-source-power-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-source-power-neutral-predictions.npz"
+      },
+      "raw_bytes": 6656,
+      "raw_sha256": "cb7d786aab3bf7ca8faf636174e3e9dd81188f41a0410fb69e2afee7474974b7",
+      "sha256": "cb7d786aab3bf7ca8faf636174e3e9dd81188f41a0410fb69e2afee7474974b7"
+    },
+    {
+      "bytes": 6651,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s17-upTo-count2-to1-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s17-upTo-count2-to1-predictions.npz"
+      },
+      "raw_bytes": 6651,
+      "raw_sha256": "4ccc5bbafa5d4dd7ef66b78554f7c942f597a74c52ea884917ccbf629d42632b",
+      "sha256": "4ccc5bbafa5d4dd7ef66b78554f7c942f597a74c52ea884917ccbf629d42632b"
+    },
+    {
+      "bytes": 6641,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-ability-swap-replay-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-ability-swap-replay-predictions.npz"
+      },
+      "raw_bytes": 6641,
+      "raw_sha256": "ce447b1f9272f52d259a621fb22daf9dc86a5d2c5e6575b7f3ef1c851bde0d87",
+      "sha256": "ce447b1f9272f52d259a621fb22daf9dc86a5d2c5e6575b7f3ef1c851bde0d87"
+    },
+    {
+      "bytes": 6633,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-candidate-cost2-swap3-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-candidate-cost2-swap3-predictions.npz"
+      },
+      "raw_bytes": 6633,
+      "raw_sha256": "49c0d70219d435aac5fdffffbc8b8ecacbfcc264fa655ef7dd7e37879cd0b4a0",
+      "sha256": "49c0d70219d435aac5fdffffbc8b8ecacbfcc264fa655ef7dd7e37879cd0b4a0"
+    },
+    {
+      "bytes": 6644,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-coherent-intent-swap-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-coherent-intent-swap-predictions.npz"
+      },
+      "raw_bytes": 6644,
+      "raw_sha256": "c6471d9d2ccd29f05f4d2349d38dc6697263057dc4f1a65a4385384ca8f78be4",
+      "sha256": "c6471d9d2ccd29f05f4d2349d38dc6697263057dc4f1a65a4385384ca8f78be4"
+    },
+    {
+      "bytes": 6644,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-cost-cap3-to2-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-cost-cap3-to2-predictions.npz"
+      },
+      "raw_bytes": 6644,
+      "raw_sha256": "74d2233edea11c5acdca3096262ef45a8858d9517def75faad8ef7d44457c9a9",
+      "sha256": "74d2233edea11c5acdca3096262ef45a8858d9517def75faad8ef7d44457c9a9"
+    },
+    {
+      "bytes": 5826,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-eligibility-only-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-eligibility-only-neutral-predictions.npz"
+      },
+      "raw_bytes": 5826,
+      "raw_sha256": "da2a2d5b7fc3f2dc35c5c8cd4b490c7dca798411b7774dae7d1b74dbd0c64cd3",
+      "sha256": "da2a2d5b7fc3f2dc35c5c8cd4b490c7dca798411b7774dae7d1b74dbd0c64cd3"
+    },
+    {
+      "bytes": 6643,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-factual-replay-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-factual-replay-predictions.npz"
+      },
+      "raw_bytes": 6643,
+      "raw_sha256": "c107f8443fb9c1720b68068ab092daad1a912a17709812d34d79957d7bb86769",
+      "sha256": "c107f8443fb9c1720b68068ab092daad1a912a17709812d34d79957d7bb86769"
+    },
+    {
+      "bytes": 6643,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-heal-amount3-to1-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-heal-amount3-to1-predictions.npz"
+      },
+      "raw_bytes": 6643,
+      "raw_sha256": "6a66c393f5a39261192f10b7bd56ceebc92edc45172ede8fc799f113c9c4ba3c",
+      "sha256": "6a66c393f5a39261192f10b7bd56ceebc92edc45172ede8fc799f113c9c4ba3c"
+    },
+    {
+      "bytes": 5777,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-intent-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-intent-neutral-predictions.npz"
+      },
+      "raw_bytes": 5777,
+      "raw_sha256": "17d9aeb70f1b28e3ecee29f3504b22d0d2aded791f611ec7dd9279926451a5f8",
+      "sha256": "17d9aeb70f1b28e3ecee29f3504b22d0d2aded791f611ec7dd9279926451a5f8"
+    },
+    {
+      "bytes": 41498,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-reference-comparison.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-reference-comparison.json"
+      },
+      "raw_bytes": 1133443,
+      "raw_sha256": "fce20d7940cc9597b1fab141809566b13b616b89f90ef8f05901cefe46a9d8ca",
+      "sha256": "6941a75f0841ab10c3d5312a876d1001fdb07d69348ecda07c31966c82761097"
+    },
+    {
+      "bytes": 6642,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-selector-opponent-to-any-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-selector-opponent-to-any-predictions.npz"
+      },
+      "raw_bytes": 6642,
+      "raw_sha256": "b869e58da504a5eb8e59f2f1c7dd2cbadc3670c1ef02daf54889f291563011ec",
+      "sha256": "b869e58da504a5eb8e59f2f1c7dd2cbadc3670c1ef02daf54889f291563011ec"
+    },
+    {
+      "bytes": 6640,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-source-hp-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-source-hp-neutral-predictions.npz"
+      },
+      "raw_bytes": 6640,
+      "raw_sha256": "80298ca161bf1b32f5ec9ee06c142cf53f703f93afa5eacaf736be9a504f5977",
+      "sha256": "80298ca161bf1b32f5ec9ee06c142cf53f703f93afa5eacaf736be9a504f5977"
+    },
+    {
+      "bytes": 6640,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-source-power-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-source-power-neutral-predictions.npz"
+      },
+      "raw_bytes": 6640,
+      "raw_sha256": "22add316e73d73fd3be906f489cf1ca865b9c8076e1c5e1190afd631fb4c16b9",
+      "sha256": "22add316e73d73fd3be906f489cf1ca865b9c8076e1c5e1190afd631fb4c16b9"
+    },
+    {
+      "bytes": 6647,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s29-upTo-count2-to1-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s29-upTo-count2-to1-predictions.npz"
+      },
+      "raw_bytes": 6647,
+      "raw_sha256": "6fad9c463e9fb2577b231c4a9f7df87ccd675668054e5eca11f0a2a3105b3b93",
+      "sha256": "6fad9c463e9fb2577b231c4a9f7df87ccd675668054e5eca11f0a2a3105b3b93"
+    },
+    {
+      "bytes": 6641,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-ability-swap-replay-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-ability-swap-replay-predictions.npz"
+      },
+      "raw_bytes": 6641,
+      "raw_sha256": "502e6ebde532a11fc5001c688ddffbae461fb2224322e5717c0950d36801f5c2",
+      "sha256": "502e6ebde532a11fc5001c688ddffbae461fb2224322e5717c0950d36801f5c2"
+    },
+    {
+      "bytes": 6652,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-candidate-cost2-swap3-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-candidate-cost2-swap3-predictions.npz"
+      },
+      "raw_bytes": 6652,
+      "raw_sha256": "102df6dbe7553d6dbd1bd1c7c016b86cabb5fc3d3944be7abe3d2459521ae70c",
+      "sha256": "102df6dbe7553d6dbd1bd1c7c016b86cabb5fc3d3944be7abe3d2459521ae70c"
+    },
+    {
+      "bytes": 6651,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-coherent-intent-swap-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-coherent-intent-swap-predictions.npz"
+      },
+      "raw_bytes": 6651,
+      "raw_sha256": "8f95891e7ec8affe0af946f7550f593211328e47e391e4c6db3cec8a36922d12",
+      "sha256": "8f95891e7ec8affe0af946f7550f593211328e47e391e4c6db3cec8a36922d12"
+    },
+    {
+      "bytes": 6652,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-cost-cap3-to2-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-cost-cap3-to2-predictions.npz"
+      },
+      "raw_bytes": 6652,
+      "raw_sha256": "8da9b7e5d0d5fcc69654aa7c93d5f452213856a61cb6f3b5b8f7008c31219607",
+      "sha256": "8da9b7e5d0d5fcc69654aa7c93d5f452213856a61cb6f3b5b8f7008c31219607"
+    },
+    {
+      "bytes": 5831,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-eligibility-only-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-eligibility-only-neutral-predictions.npz"
+      },
+      "raw_bytes": 5831,
+      "raw_sha256": "44499251a6a5a66822c654352d31a860b9fc5b32938654ff0618f463b068d4f5",
+      "sha256": "44499251a6a5a66822c654352d31a860b9fc5b32938654ff0618f463b068d4f5"
+    },
+    {
+      "bytes": 6649,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-factual-replay-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-factual-replay-predictions.npz"
+      },
+      "raw_bytes": 6649,
+      "raw_sha256": "2e18f252affaaab5116ad63935dfe5fbc698ff25b8e76c230aa7245c288cdee2",
+      "sha256": "2e18f252affaaab5116ad63935dfe5fbc698ff25b8e76c230aa7245c288cdee2"
+    },
+    {
+      "bytes": 6647,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-heal-amount3-to1-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-heal-amount3-to1-predictions.npz"
+      },
+      "raw_bytes": 6647,
+      "raw_sha256": "34de24033acb8bcac4883020da9a15f91d4982448d3dcf69696229c5d46fc925",
+      "sha256": "34de24033acb8bcac4883020da9a15f91d4982448d3dcf69696229c5d46fc925"
+    },
+    {
+      "bytes": 5774,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-intent-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-intent-neutral-predictions.npz"
+      },
+      "raw_bytes": 5774,
+      "raw_sha256": "78f12a8dd860e2438d83d54943e4d229f84e8154fe28fa595f5d850e0acb3e4a",
+      "sha256": "78f12a8dd860e2438d83d54943e4d229f84e8154fe28fa595f5d850e0acb3e4a"
+    },
+    {
+      "bytes": 41517,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-reference-comparison.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-reference-comparison.json"
+      },
+      "raw_bytes": 1133873,
+      "raw_sha256": "da1b67d370bb4d4de5318cd89290c143f66c8774f4d38efca94e514199a473a6",
+      "sha256": "b5a516386b26c57701f2cf6e12927b1e339fecef6e07eb34d5a506472e9b740f"
+    },
+    {
+      "bytes": 6655,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-selector-opponent-to-any-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-selector-opponent-to-any-predictions.npz"
+      },
+      "raw_bytes": 6655,
+      "raw_sha256": "29a15abc14c18eb721eea15ebc632d80ad49685d1a4b027707aecf11ca5b10b3",
+      "sha256": "29a15abc14c18eb721eea15ebc632d80ad49685d1a4b027707aecf11ca5b10b3"
+    },
+    {
+      "bytes": 6655,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-source-hp-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-source-hp-neutral-predictions.npz"
+      },
+      "raw_bytes": 6655,
+      "raw_sha256": "a3232d42e49498948024947a710a89340ac457fb3b83d0e9c207de31a4a3d446",
+      "sha256": "a3232d42e49498948024947a710a89340ac457fb3b83d0e9c207de31a4a3d446"
+    },
+    {
+      "bytes": 6652,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-source-power-neutral-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-source-power-neutral-predictions.npz"
+      },
+      "raw_bytes": 6652,
+      "raw_sha256": "b222baf62a94ea864a6f56f7ca5d4e4a1aabcc83a34aae09a637f1843df03ed6",
+      "sha256": "b222baf62a94ea864a6f56f7ca5d4e4a1aabcc83a34aae09a637f1843df03ed6"
+    },
+    {
+      "bytes": 6655,
+      "encoding": "identity",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/s43-upTo-count2-to1-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/s43-upTo-count2-to1-predictions.npz"
+      },
+      "raw_bytes": 6655,
+      "raw_sha256": "8074f14e7584bec0f88aec5db1af97eb440ba59b0560f31a513cec49c7dc0299",
+      "sha256": "8074f14e7584bec0f88aec5db1af97eb440ba59b0560f31a513cec49c7dc0299"
+    },
+    {
+      "bytes": 3333,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnosis-1/typed-reference.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnosis-1/typed-reference.json"
+      },
+      "raw_bytes": 207023,
+      "raw_sha256": "4eb0dc6ed6ad33653ac721f2af83fd08cc4991c901fe0943d9f7f930d6375b43",
+      "sha256": "92a334af6555223700c81f535252122429623f7a24d0d0cd75e110f0ac4e1af6"
+    },
+    {
+      "bytes": 3049,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/diagnostic-plan.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/diagnostic-plan.json"
+      },
+      "raw_bytes": 13051,
+      "raw_sha256": "c640feb7aa3f9c005f61658cb302b111a9ebef051ba0626b87546e66e9e38b43",
+      "sha256": "ecd3364e242e6301dd52aa1c66bfff320c849641bc3363b1f753b05a531e5c14"
+    },
+    {
+      "bytes": 884,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/experiment-closure.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/experiment-closure.json"
+      },
+      "raw_bytes": 1798,
+      "raw_sha256": "d87c126079350599b18fb83ef9d4ea515bc97ce44b8966eba74d937750db1572",
+      "sha256": "1d10daca90e35de9318bdc66ee499a3cd3287ed5c9d1a3a69fce9bec1701780a"
+    },
+    {
+      "bytes": 30236,
+      "encoding": "gzip",
+      "path": "raw/ability-diagnostic-v1/parent-manifest.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-diagnostic-v1/parent-manifest.json"
+      },
+      "raw_bytes": 126568,
+      "raw_sha256": "ec374a1a09d676a554037ade4211e197ea79ee827f0d10957059cb6eb198e186",
+      "sha256": "23fe0a29623debbc3f39835c36009e9d75f886703ea8a64d3f696666d67890b0"
+    },
+    {
+      "bytes": 2227,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/build-1/stderr.log",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/build-1/stderr.log"
+      },
+      "raw_bytes": 2227,
+      "raw_sha256": "8267cb763de3afe8fdd65040b2c6b72454a3d8a4257077ad9c78d2905029c252",
+      "sha256": "8267cb763de3afe8fdd65040b2c6b72454a3d8a4257077ad9c78d2905029c252"
+    },
+    {
+      "bytes": 0,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/build-1/stdout.log",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/build-1/stdout.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 933,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/build-1/supervisor-receipt.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/build-1/supervisor-receipt.json"
+      },
+      "raw_bytes": 2897,
+      "raw_sha256": "221215a4dca865c7bbfa4330f689a64c143e1cd6b3058a49e1bad355ad765fa8",
+      "sha256": "e2ebff770143251300b3768040bc825be6e8d8a17c9adbd3132c2471e5d6e6af"
+    },
+    {
+      "bytes": 4235,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/campaign-ledger.jsonl.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/campaign-ledger.jsonl"
+      },
+      "raw_bytes": 24632,
+      "raw_sha256": "e50367ee36e949996e413b29eab5fb646df84c90754d98256f591fc86e004c49",
+      "sha256": "d67cd9a657a2ec7253328af4320842d542028afc2811e3de1e4b0d909f3c4ac4"
+    },
+    {
+      "bytes": 10517,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/campaign-spec.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/campaign-spec.json"
+      },
+      "raw_bytes": 41456,
+      "raw_sha256": "204ae6e2ac8eaa3441a5d9a43d4acae443e892608a7ca4c7b4bd337e973a8222",
+      "sha256": "3e5325298732ac8da3bcf839100f88b3762a324ea394695e1aa0f3d315efca25"
+    },
+    {
+      "bytes": 1642,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/consumed-inputs.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/consumed-inputs.npz"
+      },
+      "raw_bytes": 1642,
+      "raw_sha256": "15978c1f0c9b01b91287973c81b3d77de06215812cabceeb0c5fae2c23078849",
+      "sha256": "15978c1f0c9b01b91287973c81b3d77de06215812cabceeb0c5fae2c23078849"
+    },
+    {
+      "bytes": 6498,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/program-inputs.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/program-inputs.npz"
+      },
+      "raw_bytes": 6498,
+      "raw_sha256": "c57c58c7227e31adfbc6a841a8525283321b9e85e2d999af1d6c1367c5b3392e",
+      "sha256": "c57c58c7227e31adfbc6a841a8525283321b9e85e2d999af1d6c1367c5b3392e"
+    },
+    {
+      "bytes": 11036,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/correction-1/result.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/result.json"
+      },
+      "raw_bytes": 237846,
+      "raw_sha256": "d63547a83eb5502c0147a4e3e80f477fca1c9b15daf51aca20691178b40de2f9",
+      "sha256": "c51bcaf4f639bba52709cc0b0f18d1232a4f39229b106fe3db1d72ff62611168"
+    },
+    {
+      "bytes": 2976,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s17-corrected-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s17-corrected-predictions.npz"
+      },
+      "raw_bytes": 2976,
+      "raw_sha256": "46ac49ab31993d15dd06b42406b5b2779bdcc3604907fe5a4ef5afc14f0d2734",
+      "sha256": "46ac49ab31993d15dd06b42406b5b2779bdcc3604907fe5a4ef5afc14f0d2734"
+    },
+    {
+      "bytes": 2772,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s17-neutral_all_heads-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s17-neutral_all_heads-predictions.npz"
+      },
+      "raw_bytes": 2772,
+      "raw_sha256": "39c4f2cbaa98a5145c03f2af0ee5ab09f11be0e1fdc31e1c6f4a2fc89d9afcd5",
+      "sha256": "39c4f2cbaa98a5145c03f2af0ee5ab09f11be0e1fdc31e1c6f4a2fc89d9afcd5"
+    },
+    {
+      "bytes": 2999,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s17-original-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s17-original-predictions.npz"
+      },
+      "raw_bytes": 2999,
+      "raw_sha256": "5455316513f7df6f9aa623184faa9d0d7fdc235e3984dfbe7c1f53ee46ef8d3b",
+      "sha256": "5455316513f7df6f9aa623184faa9d0d7fdc235e3984dfbe7c1f53ee46ef8d3b"
+    },
+    {
+      "bytes": 2963,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s29-corrected-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s29-corrected-predictions.npz"
+      },
+      "raw_bytes": 2963,
+      "raw_sha256": "7a199f820213239d1a2fb5266e71f24b541bfe152f99244233f5e561c8d7d66a",
+      "sha256": "7a199f820213239d1a2fb5266e71f24b541bfe152f99244233f5e561c8d7d66a"
+    },
+    {
+      "bytes": 2769,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s29-neutral_all_heads-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s29-neutral_all_heads-predictions.npz"
+      },
+      "raw_bytes": 2769,
+      "raw_sha256": "76716aac3ac4db36c333f469ac0169b52675ef27cc1d81722f2dd3a1ca77429b",
+      "sha256": "76716aac3ac4db36c333f469ac0169b52675ef27cc1d81722f2dd3a1ca77429b"
+    },
+    {
+      "bytes": 2982,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s29-original-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s29-original-predictions.npz"
+      },
+      "raw_bytes": 2982,
+      "raw_sha256": "6c9e8f59c8a002eb6c7dc8214751dde80811c8f7ae7dfeb145d8048ecb8a076f",
+      "sha256": "6c9e8f59c8a002eb6c7dc8214751dde80811c8f7ae7dfeb145d8048ecb8a076f"
+    },
+    {
+      "bytes": 2969,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s43-corrected-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s43-corrected-predictions.npz"
+      },
+      "raw_bytes": 2969,
+      "raw_sha256": "e6668f26952b2a92cc62fa4b29ff80d7ec703329acc300c7d837e40317e3dc20",
+      "sha256": "e6668f26952b2a92cc62fa4b29ff80d7ec703329acc300c7d837e40317e3dc20"
+    },
+    {
+      "bytes": 2776,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s43-neutral_all_heads-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s43-neutral_all_heads-predictions.npz"
+      },
+      "raw_bytes": 2776,
+      "raw_sha256": "d6e830f93c4cd853d8b994be3830598181b37cc719b321556faaea29b06a0e87",
+      "sha256": "d6e830f93c4cd853d8b994be3830598181b37cc719b321556faaea29b06a0e87"
+    },
+    {
+      "bytes": 2992,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/correction-1/s43-original-predictions.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1/s43-original-predictions.npz"
+      },
+      "raw_bytes": 2992,
+      "raw_sha256": "d40b42cd9a67e8ef7eceb498b434036187c45f592845c5804ad9ea78be1fed44",
+      "sha256": "d40b42cd9a67e8ef7eceb498b434036187c45f592845c5804ad9ea78be1fed44"
+    },
+    {
+      "bytes": 1226,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/correction-1-stage-receipt.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/correction-1-stage-receipt.json"
+      },
+      "raw_bytes": 4180,
+      "raw_sha256": "067c9995b77abbda550da2f6eff4ed1f03caac06b1b6dbdf56257e3df004496b",
+      "sha256": "220d3dbf5acaee9df51a536218e0476acbf850dcaac9237b58511261c235222a"
+    },
+    {
+      "bytes": 660,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/experiment-closure.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/experiment-closure.json"
+      },
+      "raw_bytes": 1306,
+      "raw_sha256": "4a9dbe829610cf86f1231ff4b195c23daa320422367d74a9349ef46e5ccaed45",
+      "sha256": "d484aafa09ef670394525db9ed1574284a31db26dafe4716cdc367540aa6eed5"
+    },
+    {
+      "bytes": 9234,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/metadata-1/native-source-manifest.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/metadata-1/native-source-manifest.json"
+      },
+      "raw_bytes": 38844,
+      "raw_sha256": "67104a1f6f0b8d7ad1f3e3ca20d3b5ff7f3b1e623e9870dd0e5d0cc04e38305e",
+      "sha256": "d38e324eef01b3aa199ea4a08ca23e0848aa490ef006c7251a7cad4de3771e5a"
+    },
+    {
+      "bytes": 56939,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/native-attempt-1/native-receipt.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/native-attempt-1/native-receipt.json"
+      },
+      "raw_bytes": 1971564,
+      "raw_sha256": "9c587b4b4a98ddb6821397225a3bdd921ff5d378a1b4e84acbccb2e9bfa4ee95",
+      "sha256": "68832711320f153c575bd2110503204fda05c47d06879be21ba26be2e1bd9222"
+    },
+    {
+      "bytes": 18775,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/native-attempt-1/native-transitions.jsonl.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/native-attempt-1/native-transitions.jsonl"
+      },
+      "raw_bytes": 1189103,
+      "raw_sha256": "5013a5871ae89a1b8ac3bb4d3593e486c74c8adf0fb3f56982d7ca29ccb413d9",
+      "sha256": "2989b963394f107e0e4b3d333f1510b285b108b9f5b6e754993cc95ead3f2ad4"
+    },
+    {
+      "bytes": 656,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/native-attempt-1/native-verification.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/native-attempt-1/native-verification.json"
+      },
+      "raw_bytes": 1372,
+      "raw_sha256": "e056f50839d5af02fa59ea96a1c4c6ce77797ec9f0d5c8ce32daa7ab2f0b3cb5",
+      "sha256": "ee243fe8ed345eec47eeca1b5bcd0ee6fa776f6a2ce9f2df59b62e562f27a5d3"
+    },
+    {
+      "bytes": 0,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/native-attempt-1/stderr.log",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/native-attempt-1/stderr.log"
+      },
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 215,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/native-attempt-1/stdout.log",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/native-attempt-1/stdout.log"
+      },
+      "raw_bytes": 215,
+      "raw_sha256": "2c4bf5596df49359cf845162c87710843b7653a17f3168024a8f0d01ed46aff8",
+      "sha256": "2c4bf5596df49359cf845162c87710843b7653a17f3168024a8f0d01ed46aff8"
+    },
+    {
+      "bytes": 937,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/native-attempt-1/supervisor-receipt.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/native-attempt-1/supervisor-receipt.json"
+      },
+      "raw_bytes": 2927,
+      "raw_sha256": "c1e79d66b54c758594009ed07b57be72b91da98d460443f6cf53ffffa535c34a",
+      "sha256": "55b3eb8d1f69440c36067f290c7e48fd4074a1a664ce0774b72c1320e4d104d1"
+    },
+    {
+      "bytes": 6715,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/native-plan.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/native-plan.json"
+      },
+      "raw_bytes": 30800,
+      "raw_sha256": "ad0e643a051e3d05442da2d01f05997b459992986ab2c2156406eada87bb50ee",
+      "sha256": "270aa530e65ea067f699c9459e609d9b5eff41c25e8edf60ef2b86afe882c7f4"
+    },
+    {
+      "bytes": 34324,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/parent-manifest.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/parent-manifest.json"
+      },
+      "raw_bytes": 138112,
+      "raw_sha256": "93e51b87d47fe678b363d7919348d73eb6e9f9d1f05eb1dfc69da003066eb070",
+      "sha256": "0dc23a5bda2fb50b49d563cfa66018c399007235d5f7ad94132aa854c39e71df"
+    },
+    {
+      "bytes": 16360,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/prep-1/dataset.manifest.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/prep-1/dataset.manifest.json"
+      },
+      "raw_bytes": 141419,
+      "raw_sha256": "d1e58a76df8271da3982fe86617dde9caef82b380c181fbf9db1de66d555d644",
+      "sha256": "f15fe61f7b8d1bbe589ec922d7a74a863a92d86a215afe69cf0e7f628f63c3c0"
+    },
+    {
+      "bytes": 4023,
+      "encoding": "identity",
+      "path": "raw/ability-correction-v1/prep-1/dataset.npz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/prep-1/dataset.npz"
+      },
+      "raw_bytes": 4023,
+      "raw_sha256": "c48b74c35f056b66f245b5088e54b733d93e7925ca8b2a19dafc8ff89ded34d7",
+      "sha256": "c48b74c35f056b66f245b5088e54b733d93e7925ca8b2a19dafc8ff89ded34d7"
+    },
+    {
+      "bytes": 731,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-v1/prep-1-stage-receipt.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-v1/prep-1-stage-receipt.json"
+      },
+      "raw_bytes": 1913,
+      "raw_sha256": "28e6403972a95306293e5f6c786fb1bf437c6abf462450e4da57062acaf7ffba",
+      "sha256": "87d84aef1e903d202f4d95742b67cae4ca29b89a55641baf31d75b6bda9c03de"
+    },
+    {
+      "bytes": 2135,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-verification-v1/campaign-ledger.jsonl.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-verification-v1/campaign-ledger.jsonl"
+      },
+      "raw_bytes": 7222,
+      "raw_sha256": "81ce1f832eb7bd48318d79a7243d49d37f4925b27104b71bc64835efd10ba15e",
+      "sha256": "92d82d3559a21b3ed12f643045254b000b809c668ce7b15c6a1d50d97a847611"
+    },
+    {
+      "bytes": 1505,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-verification-v1/campaign-spec.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-verification-v1/campaign-spec.json"
+      },
+      "raw_bytes": 4345,
+      "raw_sha256": "cf37f68697a470d20d81dccf88041d3efc0903b9864755882b00e0e8b063e982",
+      "sha256": "12b18019648c42ce607a89eded75abdc341bf6b1329f7ca713b809c552ed58c6"
+    },
+    {
+      "bytes": 687,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-verification-v1/experiment-closure.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-verification-v1/experiment-closure.json"
+      },
+      "raw_bytes": 1382,
+      "raw_sha256": "44bec23f02d7c78373ddf05e1c1f7de291f8d8e3d91064e52bad42e76496bd50",
+      "sha256": "75505d218020412ebcc6c95a85527a005f6a898fb098db8c28139d753ac28856"
+    },
+    {
+      "bytes": 37341,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-verification-v1/parent-manifest.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-verification-v1/parent-manifest.json"
+      },
+      "raw_bytes": 149737,
+      "raw_sha256": "54ee4a88816a30bc06f2b976510b745f0a8f421002c35ac7bafd1b198c70150e",
+      "sha256": "fd6965a70d8ae971f4c56a46c8bdc55d3627a238a18a32bdb674e6c81843bf72"
+    },
+    {
+      "bytes": 1669,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-verification-v1/verify-1/result.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-verification-v1/verify-1/result.json"
+      },
+      "raw_bytes": 15137,
+      "raw_sha256": "5edc38d91be44124d99cac2d4cc710342f720d11f03346b02ab56a338c5ef8e1",
+      "sha256": "47d695a918c9445a7b0a4ca597067c61fe3be981fa0f2d1f95abecd5f69ab1ac"
+    },
+    {
+      "bytes": 555,
+      "encoding": "gzip",
+      "path": "raw/ability-correction-verification-v1/verify-1-stage-receipt.json.gz",
+      "provenance": {
+        "original_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/ability-correction-verification-v1/verify-1-stage-receipt.json"
+      },
+      "raw_bytes": 869,
+      "raw_sha256": "a2dc88e59c439ae57587e678bf015611b333b683b5cc9a5429d646de9255933b",
+      "sha256": "45b4b621a2ea5708ffcf19d91186d45dfaf6b2159ba3ba89b8e8fd4c7a2cc05b"
+    },
+    {
+      "bytes": 564,
+      "encoding": "identity",
+      "path": "index.json",
+      "raw_bytes": 564,
+      "raw_sha256": "0b12195069051aaed02e9c5eb2f4ce173e2ea107cf49c7f45d55c9131b34dedc",
+      "sha256": "0b12195069051aaed02e9c5eb2f4ce173e2ea107cf49c7f45d55c9131b34dedc"
+    }
+  ],
+  "frozen_source_commits": [
+    "66c3780e3452d62078c4e4cb19f952719ba94204",
+    "48215e6717b1cc4f6f271786ae2e70b7a191a5da"
+  ],
+  "historical_reference": {
+    "bytes": 86470,
+    "path": "../semantic-discrimination-evidence/manifest.json",
+    "sha256": "cee8cd7d8ad193057dc3584287f6a4937008391069f4d275d7c8abd95fbcdedb"
+  },
+  "limits": {
+    "files": 1000,
+    "manifest_bytes": 4194304,
+    "single_raw_bytes": 67108864,
+    "single_stored_bytes": 67108864,
+    "total_raw_bytes": 134217728,
+    "total_stored_bytes": 134217728
+  },
+  "packager_source_sha256": "86e292fed1793784490fa05d40b6257529111e1e06a47ac9c6ef7dcb808ab998",
+  "schema": "jepa-ability-diagnostic-evidence-manifest/1",
+  "scope": "Three new campaign trees only; old checkpoints remain in the linked PR41 packet. Packaging is not scientific verification.",
+  "semantic_validated": false
+}

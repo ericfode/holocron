@@ -1,0 +1,19 @@
+{
+  "campaigns": [
+    "ability-diagnostic-v1",
+    "ability-correction-v1",
+    "ability-correction-verification-v1"
+  ],
+  "frozen_source_commits": [
+    "66c3780e3452d62078c4e4cb19f952719ba94204",
+    "48215e6717b1cc4f6f271786ae2e70b7a191a5da"
+  ],
+  "historical_reference": {
+    "bytes": 86470,
+    "path": "../semantic-discrimination-evidence/manifest.json",
+    "sha256": "cee8cd7d8ad193057dc3584287f6a4937008391069f4d275d7c8abd95fbcdedb"
+  },
+  "manifest": "manifest.json",
+  "schema": "jepa-ability-diagnostic-evidence/1",
+  "semantic_validated": false
+}
