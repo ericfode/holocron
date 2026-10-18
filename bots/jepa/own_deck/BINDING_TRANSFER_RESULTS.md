@@ -27,7 +27,7 @@ The new charge is **30.83426066697575 seconds and 48 applications**. The carried
 
 New neural forwards, updates, numerical fits and paid spending are all **0**. The cumulative $100 dollar cap/$25 reserve remains unchanged; this is not an assertion about account-wide billing. Both owned processes ended with verified cleanup. The largest conservative sampled RSS was 472,825,856 bytes, below 1 GiB; the guard does not claim OS CPU affinity or a process-tree memory reservation. Supervisor elapsed clocks are slightly broader than the canonical ledger intervals above.
 
-The five-record ledger has no pending stage. Independent closure review confirmed all **80 protected files and three original workspace HEAD/status records unchanged**, and all unstarted-stage outputs absent. Frozen sources, prelaunch versions, old failures, empty stdout, error log, header-only journal and both receipts remain preserved under `experiments/binding-transfer-v1/`.
+The five-record ledger has no pending stage. Independent read-only closure review confirmed all **80 protected files and three original workspace HEAD/status records unchanged**, and all unstarted-stage outputs absent. This bookkeeping audit is separate from the unstarted saved-prediction verification stage. Frozen sources, prelaunch versions, old failures, empty stdout, error log, header-only journal and both receipts remain preserved under `experiments/binding-transfer-v1/`.
 
 | Evidence | SHA-256 |
 |---|---|
@@ -37,5 +37,6 @@ The five-record ledger has no pending stage. Independent closure review confirme
 | Native header-only journal | `f2351c7a0f9220e71168b5782c24c9935a0079b89dbd6ef5abc3eab5f2674a16` |
 | Native failure receipt | `52f46fc8f68abbdb1fce165ee5a9e442b2c9cceab0f3a7298151d6d9eb7db562` |
 | Build receipt | `955906a3afbde244c52fba4220092f3a1d420869b66d14a87cfb44377e1aa54a` |
+| `postmortem-closure-audit.json` | `74b120d3af7e612e3fb92ecc85e1c83cb056d56b66425c8e2265318530eb219f` |
 
 Final ledger chain: `87c79ce95df5fe332f8c9f634427e4e3b7dcb083c52acbee5258616cbeb05d0f`. The decision is to retain and publish the failed campaign and its null learned results. Any further native attempt requires a distinct reviewed allocation; the closed stage and exhausted native ceiling provide no retry allowance.

@@ -46,6 +46,16 @@ or accounting. It has not been compiled, applied or executed. The frozen Rust
 source remains SHA256
 `e8e698a9d1de4de90670c782076afb0f94e9816162dcd7351569394c836f5429`.
 
+The repository proposal is an equivalent zero-context diff, SHA256
+`465bb453130fec4cd84de3fe8995658ed4f76965058623a6f71287e9d3bef447`
+(1,758 bytes). Future application would require `git apply --unidiff-zero` under
+a new authorization; that command has not been run. The original reviewed diff
+is preserved byte-for-byte at
+`experiments/binding-transfer-v1/prelaunch-patch-v1.diff`, SHA256
+`48b07c59275ceb6b629ff9324740ec5747fdf933e033c88e1ea8e3d5d140a391`
+(2,530 bytes). The conversion checked the original source preimage and produced
+the same proposed replacement entirely in memory.
+
 A future preflight should check a two-upgrade chain and registration projection
 agree before any native apply, retaining the existing exact snapshot/load gate.
 This is a fixture correction, not evidence about representation or transfer.
