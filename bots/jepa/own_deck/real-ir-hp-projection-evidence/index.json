@@ -1,0 +1,128 @@
+{
+  "dependency": {
+    "pin": {
+      "bytes": 83679,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/real-ir-transfer-evidence/manifest.json",
+      "sha256": "1e34895e3011c955c2d539587b8b71baef7fd99ca227e0a7b5d2fd4582f508a4"
+    },
+    "relative_manifest": "../real-ir-transfer-evidence/manifest.json",
+    "scope": "Explicit prior publication dependency; opaque, never recursively fetched or copied."
+  },
+  "histories": {
+    "real-ir-failure-diagnostic-v1": {
+      "carry": {
+        "charged_native_applies": 919,
+        "charged_seconds": 296.03341929172166,
+        "observed_native_applies": null
+      },
+      "charged": {
+        "backwards": 0,
+        "native_applies": 0,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0,
+        "seconds": 0.9130808329209685
+      },
+      "closure": {
+        "bytes": 1187,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-failure-diagnostic-v1/experiment-closure.json",
+        "sha256": "8088960d8582e81c41a100fd0746427407622b399b6eae1784937f6bf63fb0f4"
+      },
+      "closure_status": "closed-saved-diagnostic",
+      "cumulative": {
+        "charged_native_applies": 919,
+        "charged_seconds": 296.9465001246426,
+        "observed_native_applies": null
+      },
+      "disposition": "completed",
+      "final_chain": "8e167d089e6edbd26d8e090741b51193a2c56ec3a7ed03d14e0bcff8d5f0a7ab",
+      "ledger": {
+        "bytes": 2462,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-failure-diagnostic-v1/campaign-ledger.jsonl",
+        "sha256": "3b31e25769b5e83fb52dbaa21c663a9e7330833402beb78cb2e4c92ae6f73e51"
+      },
+      "observed": {
+        "backwards": 0,
+        "native_applies": 0,
+        "neural_forwards": 0,
+        "numerical_fits": 0,
+        "optimizer_updates": 0,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0
+      },
+      "records": 3,
+      "source_freeze_commit": "cb269b0fdeaca42c305d4c2897401deff6fc9971",
+      "stages": [
+        "diagnose"
+      ],
+      "statuses": [
+        "completed"
+      ]
+    },
+    "real-ir-hp-projection-v1": {
+      "carry": {
+        "charged_native_applies": 919,
+        "charged_seconds": 296.9465001246426,
+        "observed_native_applies": null
+      },
+      "charged": {
+        "backwards": 1800,
+        "native_applies": 112,
+        "neural_forwards": 1815,
+        "numerical_fits": 0,
+        "optimizer_updates": 1800,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0,
+        "seconds": 15.562452751328237
+      },
+      "closure": {
+        "bytes": 5268,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-hp-projection-v1/experiment-closure.json",
+        "sha256": "a0374b33de376d8622ab23cd98050dddd26c97893d926488ddfb33de36151b3b"
+      },
+      "closure_status": "closed-verified-hp-projection",
+      "cumulative": {
+        "charged_native_applies": 1031,
+        "charged_seconds": 312.50895287597086,
+        "observed_native_applies": null
+      },
+      "disposition": "completed",
+      "final_chain": "89d525c9d5e14d3b45097df89c1b643ebcda5a8b5e3e4aaf354954aff1d4561b",
+      "ledger": {
+        "bytes": 3263507,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/real-ir-hp-projection-v1/campaign-ledger.jsonl",
+        "sha256": "fb70f211ed48885848ab0be2bb9a27edc51622c5f563edeb164c5f5382cae707"
+      },
+      "observed": {
+        "backwards": 1800,
+        "native_applies": 112,
+        "neural_forwards": 1815,
+        "numerical_fits": 0,
+        "optimizer_updates": 1800,
+        "paid_jobs": 0,
+        "paid_spend_usd": 0
+      },
+      "records": 10843,
+      "source_freeze_commit": "38532e7a1dafbeb55c7b738778a34e295a80e48c",
+      "stages": [
+        "build",
+        "native",
+        "prep",
+        "fit",
+        "verify"
+      ],
+      "statuses": [
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "completed"
+      ]
+    }
+  },
+  "manifest": "manifest.json",
+  "schema": "jepa-real-ir-hp-projection-evidence/1",
+  "semantic_validated": false
+}
