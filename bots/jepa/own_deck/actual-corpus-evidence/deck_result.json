@@ -1,0 +1,634 @@
+{
+  "schema": "actual-corpus-deck-readout/1",
+  "status": "completed",
+  "optimizer_updates": 400,
+  "neural_forwards": 408,
+  "native_applies": 0,
+  "arms": {
+    "correct-typed": {
+      "initial_held": {
+        "all13_mse": 0.22102813527036783,
+        "varying_macro_mse": 0.22102813527036783,
+        "per_head_mse": [
+          0.9193743686518546,
+          0.13194665837333794,
+          0.3286211720958865,
+          0.00029484588539375816,
+          0.02640158072751266,
+          0.246039216491747,
+          0.19854093358381247,
+          0.10087038701569476,
+          0.007137877872516231,
+          0.005461240733184005,
+          0.005686871929883054,
+          0.02197545688927365,
+          0.8810151482646852
+        ],
+        "family_first_varying_macro_mse": 0.21772030987122518,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "final_held": {
+        "all13_mse": 0.01073331250248543,
+        "varying_macro_mse": 0.01073331250248543,
+        "per_head_mse": [
+          0.0015488166639844921,
+          0.005408663238771485,
+          0.04139752187272055,
+          8.15426715250838e-05,
+          0.02384462734897936,
+          0.012729412032599433,
+          0.019449620936252597,
+          0.0034327436570863847,
+          0.004679391995871621,
+          0.0017126119175632074,
+          0.0030916154445135304,
+          0.0014302650432066327,
+          0.020726229709236217
+        ],
+        "family_first_varying_macro_mse": 0.011610738039279695,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "zero_bank_covered_held": {
+        "all13_mse": 0.01893527623913947,
+        "varying_macro_mse": 0.01893527623913947,
+        "per_head_mse": [
+          0.002109262456301448,
+          0.005655132593441997,
+          0.08621396997563391,
+          0.00015050169665423955,
+          0.04794237388224813,
+          0.03027715703609587,
+          0.019280951119350784,
+          0.0021658907542791914,
+          0.005140545705668449,
+          0.002284758867236031,
+          0.005717621653366461,
+          0.0020322410580294673,
+          0.03718818431050715
+        ],
+        "family_first_varying_macro_mse": 0.018935276239139473,
+        "families": 2,
+        "declarations": 2,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "updates": 100,
+      "training_losses": [
+        {
+          "step": 20,
+          "loss": 0.01995764672756195
+        },
+        {
+          "step": 40,
+          "loss": 0.006607946939766407
+        },
+        {
+          "step": 60,
+          "loss": 0.005445406772196293
+        },
+        {
+          "step": 80,
+          "loss": 0.004157586023211479
+        },
+        {
+          "step": 100,
+          "loss": 0.00324890180490911
+        }
+      ],
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed.npz",
+        "sha256": "196ec7a2702956eb6f4d704fcfafa5f5fe438f8515089970a55766dfe7f737ba",
+        "bytes": 28842
+      },
+      "shared_initial_sha256": "4bbdc7d13422cc378c27e18c315f991edffb598d930c2ef6cbb75f4367428587",
+      "initial_invariance": {
+        "permutation_prediction_max_abs": 2.9802322387695312e-08,
+        "permutation_latent_max_abs": 4.470348358154297e-08,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.006455081980675459,
+        "copy_perturbed_prediction_l2": 0.00248251436278224
+      },
+      "final_invariance": {
+        "permutation_prediction_max_abs": 1.7881393432617188e-07,
+        "permutation_latent_max_abs": 1.7881393432617188e-07,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.05539184808731079,
+        "copy_perturbed_prediction_l2": 0.027188921347260475
+      },
+      "final_minus_train_mean": {
+        "all13_mse": -0.004290111403012413,
+        "varying_macro_mse": -0.004290111403012413,
+        "family_first_varying_macro_mse": -0.004218259945338922
+      }
+    },
+    "untrained-typed": {
+      "initial_held": {
+        "all13_mse": 0.2210534808277626,
+        "varying_macro_mse": 0.2210534808277626,
+        "per_head_mse": [
+          0.9199545284795793,
+          0.13155175557919693,
+          0.32876706680564227,
+          0.00029463601997164053,
+          0.026371529717151537,
+          0.2458452977824584,
+          0.19858042021188962,
+          0.10081902593060857,
+          0.0071226192577919815,
+          0.005396659761766924,
+          0.0056531720677618705,
+          0.022118061081310758,
+          0.881220478065784
+        ],
+        "family_first_varying_macro_mse": 0.21771748018000697,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "final_held": {
+        "all13_mse": 0.011117839524690223,
+        "varying_macro_mse": 0.011117839524690223,
+        "per_head_mse": [
+          0.0009535936130231126,
+          0.0070851031982810024,
+          0.04195727954864535,
+          2.6598289246965364e-05,
+          0.024171089951764615,
+          0.01637682177993324,
+          0.018749303733533312,
+          0.0040721848061498,
+          0.0057350932413618326,
+          0.0010378716969703138,
+          0.0034385204946402585,
+          0.0018983447860590988,
+          0.019030108681363976
+        ],
+        "family_first_varying_macro_mse": 0.01172339845649637,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "zero_bank_covered_held": {
+        "all13_mse": 0.019787524639521416,
+        "varying_macro_mse": 0.019787524639521416,
+        "per_head_mse": [
+          0.00138166420216537,
+          0.0075173016643811045,
+          0.08803784258178712,
+          4.66773444729807e-05,
+          0.048767777915962776,
+          0.0371521873076217,
+          0.02124312020173201,
+          0.0028827429980110937,
+          0.005225598379608958,
+          0.0008737708077690212,
+          0.006178032820474039,
+          0.0030768609716788214,
+          0.03485424311811344
+        ],
+        "family_first_varying_macro_mse": 0.019787524639521416,
+        "families": 2,
+        "declarations": 2,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "updates": 100,
+      "training_losses": [
+        {
+          "step": 20,
+          "loss": 0.019892562180757523
+        },
+        {
+          "step": 40,
+          "loss": 0.006683785934001207
+        },
+        {
+          "step": 60,
+          "loss": 0.005644503515213728
+        },
+        {
+          "step": 80,
+          "loss": 0.004559071734547615
+        },
+        {
+          "step": 100,
+          "loss": 0.0035829918924719095
+        }
+      ],
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed.npz",
+        "sha256": "278d3c80a34f6656218a43351ad2c0af9268214de82c76f034b9e451a31d9b1c",
+        "bytes": 28842
+      },
+      "shared_initial_sha256": "4bbdc7d13422cc378c27e18c315f991edffb598d930c2ef6cbb75f4367428587",
+      "initial_invariance": {
+        "permutation_prediction_max_abs": 4.470348358154297e-08,
+        "permutation_latent_max_abs": 2.2351741790771484e-08,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.005446083843708038,
+        "copy_perturbed_prediction_l2": 0.0019228927558287978
+      },
+      "final_invariance": {
+        "permutation_prediction_max_abs": 1.7881393432617188e-07,
+        "permutation_latent_max_abs": 1.7881393432617188e-07,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.07646270841360092,
+        "copy_perturbed_prediction_l2": 0.04517723619937897
+      },
+      "final_minus_train_mean": {
+        "all13_mse": -0.00390558438080762,
+        "varying_macro_mse": -0.00390558438080762,
+        "family_first_varying_macro_mse": -0.004105599528122247
+      }
+    },
+    "id-only": {
+      "initial_held": {
+        "all13_mse": 0.22116815314138258,
+        "varying_macro_mse": 0.22116815314138258,
+        "per_head_mse": [
+          0.9199428772590306,
+          0.1318626413807546,
+          0.3276964866779156,
+          0.000289250162683085,
+          0.026413682914046388,
+          0.2458876215009355,
+          0.19852249578029027,
+          0.10126513440302709,
+          0.007148548543843049,
+          0.005372621427092949,
+          0.005666908227611324,
+          0.022119971795901795,
+          0.882997750764841
+        ],
+        "family_first_varying_macro_mse": 0.21783256688690056,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "final_held": {
+        "all13_mse": 0.01050575480657735,
+        "varying_macro_mse": 0.01050575480657735,
+        "per_head_mse": [
+          0.001413295001465462,
+          0.006178169029341974,
+          0.04320430157103835,
+          5.836108014257544e-05,
+          0.02297451308704516,
+          0.012562909154854723,
+          0.01849056968325807,
+          0.0037006577189520754,
+          0.005003091731816984,
+          0.0012535330269617566,
+          0.003118944213184444,
+          0.001499585045146009,
+          0.01711688214229796
+        ],
+        "family_first_varying_macro_mse": 0.011316403981931851,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "zero_bank_covered_held": {
+        "all13_mse": 0.018870321336407272,
+        "varying_macro_mse": 0.018870321336407272,
+        "per_head_mse": [
+          0.001760638749436833,
+          0.00726295443416684,
+          0.09202333499775403,
+          8.622112909101407e-05,
+          0.046362049467366065,
+          0.028518165705770426,
+          0.01767711798803567,
+          0.0035113235845056928,
+          0.004315257975821403,
+          0.0014013503255541626,
+          0.005735847234341506,
+          0.002333988556616805,
+          0.034325927224834074
+        ],
+        "family_first_varying_macro_mse": 0.01887032133640727,
+        "families": 2,
+        "declarations": 2,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "updates": 100,
+      "training_losses": [
+        {
+          "step": 20,
+          "loss": 0.01980343461036682
+        },
+        {
+          "step": 40,
+          "loss": 0.006439412012696266
+        },
+        {
+          "step": 60,
+          "loss": 0.005168846342712641
+        },
+        {
+          "step": 80,
+          "loss": 0.003907813690602779
+        },
+        {
+          "step": 100,
+          "loss": 0.0029699094593524933
+        }
+      ],
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only.npz",
+        "sha256": "6e2872eacbbc97e4a7e8ad0a0723d535332820e11d5b02bcde431a46dbe0a31f",
+        "bytes": 28842
+      },
+      "shared_initial_sha256": "4bbdc7d13422cc378c27e18c315f991edffb598d930c2ef6cbb75f4367428587",
+      "initial_invariance": {
+        "permutation_prediction_max_abs": 2.9802322387695312e-08,
+        "permutation_latent_max_abs": 3.725290298461914e-08,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.007749118376523256,
+        "copy_perturbed_prediction_l2": 0.0034950613044202328
+      },
+      "final_invariance": {
+        "permutation_prediction_max_abs": 1.1920928955078125e-07,
+        "permutation_latent_max_abs": 1.7881393432617188e-07,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.05277535319328308,
+        "copy_perturbed_prediction_l2": 0.023236412554979324
+      },
+      "final_minus_train_mean": {
+        "all13_mse": -0.0045176690989204935,
+        "varying_macro_mse": -0.0045176690989204935,
+        "family_first_varying_macro_mse": -0.004512594002686766
+      }
+    },
+    "current-deck": {
+      "initial_held": {
+        "all13_mse": 0.2272632654948606,
+        "varying_macro_mse": 0.2272632654948606,
+        "per_head_mse": [
+          0.9364647601922742,
+          0.14103446688997817,
+          0.27462996441397663,
+          2.564473612201923e-05,
+          0.04017578355154947,
+          0.30613117234606296,
+          0.2378309745991039,
+          0.09899494208304133,
+          0.026981912483199,
+          0.01573775179314427,
+          0.007476401985722568,
+          0.012829155135045045,
+          0.8561095212239682
+        ],
+        "family_first_varying_macro_mse": 0.2242536450776098,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "final_held": {
+        "all13_mse": 0.008213457280179632,
+        "varying_macro_mse": 0.008213457280179632,
+        "per_head_mse": [
+          0.001510615548928403,
+          0.0020145734683525303,
+          0.015634181889531883,
+          0.0002026523768184513,
+          0.018457949127612297,
+          0.008888642177948693,
+          0.02189334764826384,
+          0.0026409709701175387,
+          0.006451025198146247,
+          0.0002833371713125893,
+          0.003240599019089338,
+          0.0009589486980757192,
+          0.024598101348137683
+        ],
+        "family_first_varying_macro_mse": 0.00914558197702901,
+        "families": 4,
+        "declarations": 5,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+          "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "zero_bank_covered_held": {
+        "all13_mse": 0.013905308770078116,
+        "varying_macro_mse": 0.013905308770078116,
+        "per_head_mse": [
+          0.002262401983766948,
+          0.0006739423641020695,
+          0.031042667402464776,
+          0.00030137242885472544,
+          0.030939190180991685,
+          0.01996335352751982,
+          0.02374831416447337,
+          0.0025998552880642715,
+          0.0026809288647254735,
+          0.0003333301710374011,
+          0.006448719797069025,
+          0.0005011577037284266,
+          0.05927378013421753
+        ],
+        "family_first_varying_macro_mse": 0.013905308770078117,
+        "families": 2,
+        "declarations": 2,
+        "family_ids": [
+          "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+          "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+        ]
+      },
+      "updates": 100,
+      "training_losses": [
+        {
+          "step": 20,
+          "loss": 0.010212485678493977
+        },
+        {
+          "step": 40,
+          "loss": 0.005364465992897749
+        },
+        {
+          "step": 60,
+          "loss": 0.0032925435807555914
+        },
+        {
+          "step": 80,
+          "loss": 0.002437284681946039
+        },
+        {
+          "step": 100,
+          "loss": 0.001978855114430189
+        }
+      ],
+      "checkpoint": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck.npz",
+        "sha256": "f761afbdc26038ccb39ffd875721535d1b808ffd3b0fc9a27d6d7400dd21c783",
+        "bytes": 28842
+      },
+      "shared_initial_sha256": "4bbdc7d13422cc378c27e18c315f991edffb598d930c2ef6cbb75f4367428587",
+      "initial_invariance": {
+        "permutation_prediction_max_abs": 7.450580596923828e-08,
+        "permutation_latent_max_abs": 5.960464477539063e-08,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.006981417536735535,
+        "copy_perturbed_prediction_l2": 0.0026319273747503757
+      },
+      "final_invariance": {
+        "permutation_prediction_max_abs": 1.7881393432617188e-07,
+        "permutation_latent_max_abs": 4.76837158203125e-07,
+        "duplicate_split_prediction_max_abs": 0.0,
+        "duplicate_split_latent_max_abs": 0.0,
+        "copy_perturbed_latent_l2": 0.035198625177145004,
+        "copy_perturbed_prediction_l2": 0.009499835781753063
+      },
+      "final_minus_train_mean": {
+        "all13_mse": -0.006809966625318211,
+        "varying_macro_mse": -0.006809966625318211,
+        "family_first_varying_macro_mse": -0.006683416007589607
+      }
+    }
+  },
+  "initial_state_sha256": "4bbdc7d13422cc378c27e18c315f991edffb598d930c2ef6cbb75f4367428587",
+  "train_varying_mask": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "target_names": [
+    "total_count_per_60",
+    "mean_cost_per_10",
+    "low_cost_le_2_fraction",
+    "cost_0_fraction",
+    "cost_1_fraction",
+    "cost_2_fraction",
+    "cost_3_fraction",
+    "cost_4_fraction",
+    "cost_5_fraction",
+    "cost_6_fraction",
+    "cost_7_fraction",
+    "cost_8_plus_fraction",
+    "initial_draw_unit_probability"
+  ],
+  "frozen_bank_hashes": {
+    "correct-typed": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc",
+    "untrained-typed": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7",
+    "id-only": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb"
+  },
+  "limitations": [
+    "Printed composition wiring only; semantic deck quality, interactions, synergy and game strength unsupported.",
+    "Only8card vectors/65of1432copies; all1367unknown copies retained. Runtime admission is not conformance.",
+    "Current-deck baseline had earlier composition training; historical pretraining compute unmatched.",
+    "Card encoder weights frozen. All four new deck graphs/data/initialization/updates are matched."
+  ],
+  "constant_train_mean_baseline": {
+    "values": [
+      0.8954545454545454,
+      0.4005401729966595,
+      0.2858332732973589,
+      0.0015907707630166544,
+      0.05304297995751936,
+      0.23119952257682289,
+      0.21907624552583335,
+      0.14682803006518144,
+      0.11864613904214841,
+      0.07088534060458176,
+      0.06856256630558705,
+      0.09016840515930909,
+      0.7520183654114255
+    ],
+    "held": {
+      "all13_mse": 0.015023423905497843,
+      "varying_macro_mse": 0.015023423905497843,
+      "per_head_mse": [
+        0.00385904499540862,
+        0.015020029721256583,
+        0.05325405157203924,
+        2.530551620468589e-06,
+        0.02907808493806683,
+        0.010643909513042523,
+        0.023637803501295206,
+        0.0030535007919637635,
+        0.004533524062865067,
+        0.0037234833381176056,
+        0.004289822315739842,
+        0.008130341288973317,
+        0.03607838418108289
+      ],
+      "family_first_varying_macro_mse": 0.015828997984618617,
+      "families": 4,
+      "declarations": 5,
+      "family_ids": [
+        "family-17b52e9fb2c042793aa6a25f5b55cc3fb9738e8c5b297e6076e0046d2783071a",
+        "family-20c7c9147cf318c51488b208519dc709897314ba35f208473f27caebb0182ac6",
+        "family-26943b376d35cf4d5455560534efddcb471c4f70d9ff4333b273af16899452d4",
+        "family-c8a9ccb9e8fc0217801f2904d489d57e3200e13afce97d2e16bd92cf7e609b8d"
+      ]
+    },
+    "neural_forwards": 0,
+    "optimizer_updates": 0
+  }
+}

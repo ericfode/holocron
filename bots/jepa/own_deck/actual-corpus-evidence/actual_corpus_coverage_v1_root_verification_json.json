@@ -1,0 +1,23 @@
+{
+  "schema": "jepa-actual-corpus-root-verification/1",
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/actual-corpus-coverage.json",
+    "sha256": "3e8d996dc342bab07ea325872a89c627221938bda85f8442cba4a6699b2397f4"
+  },
+  "all_27_deck_denominators_preserved": true,
+  "all_251_identity_counts_preserved": true,
+  "all_source_pins_match": true,
+  "runtime_admitted_copies": 635,
+  "runtime_admitted_ids": 115,
+  "selected_eight_copies": 65,
+  "selected_eight_ids": 8,
+  "zero_current_learned_vector_coverage": true,
+  "runtime_fraction_range": [
+    0.2,
+    0.6615384615384615
+  ],
+  "selected_zero_coverage_decks": 8,
+  "native_calls": 0,
+  "neural_forwards": 0,
+  "optimizer_updates": 0
+}

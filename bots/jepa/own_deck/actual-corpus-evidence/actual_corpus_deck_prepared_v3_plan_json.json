@@ -1,0 +1,141 @@
+{
+  "schema": "actual-corpus-deck-readout/1",
+  "status": "prepared-banks-pending",
+  "config": {
+    "seed": 17,
+    "arms": [
+      "correct-typed",
+      "untrained-typed",
+      "id-only",
+      "current-deck"
+    ],
+    "updates_per_arm": 100,
+    "total_updates": 400,
+    "batch_size": 22,
+    "optimizer": "AdamW",
+    "learning_rate": 0.003,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "weight_decay": 0.0,
+    "training_forwards": 400,
+    "evaluation_forwards": 8,
+    "export_forwards": 0,
+    "seconds": 60,
+    "threads": 1,
+    "evaluation_rows": 82,
+    "invariance_tolerance": 1e-05,
+    "rss_bytes": 1073741824,
+    "input_dim": 130,
+    "trainable_parameters_per_arm": 6829,
+    "loss": "mean MSE over training-only varying13 composition heads; all13/perhead results retained"
+  },
+  "limitations": [
+    "Printed composition wiring only; semantic deck quality, interactions, synergy and game strength unsupported.",
+    "Only8card vectors/65of1432copies; all1367unknown copies retained. Runtime admission is not conformance.",
+    "Current-deck baseline had earlier composition training; historical pretraining compute unmatched.",
+    "Card encoder weights frozen. All four new deck graphs/data/initialization/updates are matched."
+  ],
+  "dataset": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+    "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89",
+    "bytes": 268246
+  },
+  "coverage": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+    "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480",
+    "bytes": 1498747
+  },
+  "inherited_sources": {
+    "catalog": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812",
+      "bytes": 12675831
+    },
+    "admission": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957",
+      "bytes": 725184
+    },
+    "decks": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/deck-embeddings.json",
+      "sha256": "7917ee4d76e86ac1fd3f3d63e546adc07d15da05bb866e14eaccd632b81e5301",
+      "bytes": 295074
+    },
+    "saved_vectors": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/grounded-contrast-v1/card-embeddings.json",
+      "sha256": "145cdedc7ae40dc7bf0a512de3bc27deb2d3de1f3a46c8ac69b4ac7bf068ff86",
+      "bytes": 23069
+    },
+    "split": {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/data/real-decks.manifest.json",
+      "sha256": "1d1f6f413dd116dfd7b6254822136e236e90c52a9026463daf32390be17c4622",
+      "bytes": 20662
+    }
+  },
+  "source_files": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+      "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+      "bytes": 33271
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+      "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "bytes": 14977
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+      "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+      "bytes": 5458
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+      "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "bytes": 7954
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_events.py",
+      "sha256": "ab31179bbae6a65828cdc66c1cc484d0a744193ba6b112cd3b7633a93fb3ef9a",
+      "bytes": 5521
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/run_local_experiments.py",
+      "sha256": "b3826c443bd4a2f8aab2c29bc9d90f74282b3f05baa620e01376a999674d4354",
+      "bytes": 30315
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "bytes": 6305
+    }
+  ],
+  "expected_bank_codes": [
+    "ASH_048",
+    "JTL_078",
+    "JTL_095",
+    "JTL_158",
+    "JTL_217",
+    "LOF_077",
+    "LOF_155",
+    "SEC_163"
+  ],
+  "expected_training_card_codes": [
+    "ASH_048",
+    "JTL_078",
+    "JTL_095",
+    "JTL_158",
+    "LOF_077",
+    "SEC_163"
+  ],
+  "banks_pending": true,
+  "card_weights_frozen": true,
+  "deck_encoder_trainable": true,
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl",
+  "max_campaign_seconds": 240,
+  "root_go_required": true,
+  "neural_forwards_preparation": 0,
+  "native_calls_preparation": 0
+}

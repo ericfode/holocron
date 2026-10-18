@@ -1,0 +1,47 @@
+warning: method `matches` is never used
+   --> /Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/death_hooks.rs:162:19
+    |
+ 87 | impl Predicate {
+    | -------------- method in this implementation
+...
+162 |     pub(crate) fn matches(&self, token: bool, same_controller: bool, same_card: bool) -> bool {
+    |                   ^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `reviewed_entry` is never used
+  --> /Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/advantage.rs:60:8
+   |
+60 | pub fn reviewed_entry(entry: &Value) -> bool {
+   |        ^^^^^^^^^^^^^^
+
+warning: function `default_generated_dir` is never used
+  --> /Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/catalogue_io.rs:13:8
+   |
+13 | pub fn default_generated_dir() -> PathBuf {
+   |        ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `load_catalogue_bytes` is never used
+   --> /Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/catalogue_io.rs:114:8
+    |
+114 | pub fn load_catalogue_bytes(path: &Path) -> Result<Vec<u8>, String> {
+    |        ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `load_catalogue_pretty_bytes` is never used
+   --> /Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/crates/kessel/src/catalogue_io.rs:119:8
+    |
+119 | pub fn load_catalogue_pretty_bytes(path: &Path) -> Result<Vec<u8>, String> {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `kessel` (build script) generated 5 warnings
+   Compiling jepa-kessel-probe v0.1.0 (/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector)
+error[E0609]: no field `traits` on type `CardInfo`
+  --> src/main.rs:69:305
+   |
+69 | ...efs[0]&&e.definitions[s.card(**id).def as usize].info.traits.iter().any(|t|t=="fighter")).count(),"own_aspect_sources":{"base":e....
+   |                                                          ^^^^^^ unknown field
+   |
+   = note: available fields are: `title`, `internal_name`, `cost`, `power`, `hp` ... and 7 others
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `jepa-kessel-probe` (bin "actual-corpus-native-collector") due to 1 previous error

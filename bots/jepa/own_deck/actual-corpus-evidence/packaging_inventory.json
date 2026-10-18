@@ -1,0 +1,738 @@
+{
+  "excluded_provenance_only": [
+    "Build target/cache directories, compiled kernel/rlib artifacts; execution build paths remain in the copied guards/manifests."
+  ],
+  "execution_source_commit": "8fb922bf56869c72f828ee8312a449f3891ed406",
+  "experiment_roots": {
+    "actual-corpus": {
+      "bytes": 14460384,
+      "files": 80
+    },
+    "whole-card": {
+      "bytes": 1311890,
+      "files": 26
+    }
+  },
+  "files": {
+    "actual_corpus_actual_corpus_manifest_json": {
+      "bytes": 3858872,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69"
+    },
+    "actual_corpus_actual_corpus_npz": {
+      "bytes": 4543,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa"
+    },
+    "actual_corpus_campaign_ledger_jsonl": {
+      "bytes": 23240,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl",
+      "sha256": "9bba1ac10052d0c6cd3e58be07904fe6522c3a50c827b246583ac2d7f5039aea"
+    },
+    "actual_corpus_campaign_ledger_jsonl_worker_lock": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl.worker.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_coverage_v1_actual_corpus_coverage_json": {
+      "bytes": 1122014,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/actual-corpus-coverage.json",
+      "sha256": "3e8d996dc342bab07ea325872a89c627221938bda85f8442cba4a6699b2397f4"
+    },
+    "actual_corpus_coverage_v1_receipt_json": {
+      "bytes": 442,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/receipt.json",
+      "sha256": "cc227da11fc4d04d31b987794fe5ccd9a2a0765e2806cdfa4c5f4dabc58a10d4"
+    },
+    "actual_corpus_coverage_v1_root_verification_json": {
+      "bytes": 760,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/root-verification.json",
+      "sha256": "dc5761646235bdfd4694edf22351151b15999c5cb737aa0c390c354986d1855d"
+    },
+    "actual_corpus_coverage_v1_sources_actual_corpus_coverage_py": {
+      "bytes": 14643,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/sources/actual_corpus_coverage.py",
+      "sha256": "0b30959eb87d7c65bb41285921722ae5aee7692519abb8552b460780ba9d7f27"
+    },
+    "actual_corpus_coverage_v2_receipt_json": {
+      "bytes": 442,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/receipt.json",
+      "sha256": "a1bc5de11f5800b92acedf019ddccad0d3433832ea6a91358bd278f7a5d11472"
+    },
+    "actual_corpus_coverage_v2_root_verification_json": {
+      "bytes": 540,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/root-verification.json",
+      "sha256": "4ef0d27699c3af4eaec074a7d2507969eec0069a86a5197652fb7a95bcc1f97a"
+    },
+    "actual_corpus_coverage_v2_sources_actual_corpus_coverage_py": {
+      "bytes": 14977,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/sources/actual_corpus_coverage.py",
+      "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+    },
+    "actual_corpus_deck_fit_1_correct_typed_npz": {
+      "bytes": 28842,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed.npz",
+      "sha256": "196ec7a2702956eb6f4d704fcfafa5f5fe438f8515089970a55766dfe7f737ba"
+    },
+    "actual_corpus_deck_fit_1_correct_typed_predictions_json": {
+      "bytes": 16710,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed-predictions.json",
+      "sha256": "738062c72daec5bb20ce9a3b2c4058357f4c6781ed62fb30cb850602ae2a573d"
+    },
+    "actual_corpus_deck_fit_1_current_deck_npz": {
+      "bytes": 28842,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck.npz",
+      "sha256": "f761afbdc26038ccb39ffd875721535d1b808ffd3b0fc9a27d6d7400dd21c783"
+    },
+    "actual_corpus_deck_fit_1_current_deck_predictions_json": {
+      "bytes": 16714,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck-predictions.json",
+      "sha256": "86596fd05e61c6ae1b472349f232eb7d7f77954584cf84a8bf9a8fbcf0d14a3e"
+    },
+    "actual_corpus_deck_fit_1_current_deck_vectors_json": {
+      "bytes": 115489,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck-vectors.json",
+      "sha256": "767f1caa762b4f222da4ed674c744952010138952f7be57c707ec2d56bc9aa3b"
+    },
+    "actual_corpus_deck_fit_1_guard_json": {
+      "bytes": 738,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/guard.json",
+      "sha256": "d91aea75e3b16421f7523bbc86b430150dedd8ddf4d0cfc405f8d28be88bb7b2"
+    },
+    "actual_corpus_deck_fit_1_id_only_npz": {
+      "bytes": 28842,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only.npz",
+      "sha256": "6e2872eacbbc97e4a7e8ad0a0723d535332820e11d5b02bcde431a46dbe0a31f"
+    },
+    "actual_corpus_deck_fit_1_id_only_predictions_json": {
+      "bytes": 16724,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only-predictions.json",
+      "sha256": "b10ba899d731f4fcb2c3dd386120566625b83a303ddc0e9aa87bc6e4156f1f32"
+    },
+    "actual_corpus_deck_fit_1_id_only_vectors_json": {
+      "bytes": 115374,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only-vectors.json",
+      "sha256": "206fa25b0b0cecd74fc076e383b85ffac8d0387b56389d8de70f070b84fff1fd"
+    },
+    "actual_corpus_deck_fit_1_independent_verification_json": {
+      "bytes": 10645,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1-independent-verification.json",
+      "sha256": "5770050f06721f543577621616f86bb925409b42b84b1c8ef55e4eaa813ff352"
+    },
+    "actual_corpus_deck_fit_1_receipt_json": {
+      "bytes": 11647,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/receipt.json",
+      "sha256": "a32133f865ff0f557425f56bfb4b296672aa95717b4086c2e09cbab683b76faa"
+    },
+    "actual_corpus_deck_fit_1_shared_initial_npz": {
+      "bytes": 28842,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/shared-initial.npz",
+      "sha256": "324143853aa5597fb091eeca8a4e5bc6ac33e648a68358b1acf1d614db9108af"
+    },
+    "actual_corpus_deck_fit_1_untrained_typed_npz": {
+      "bytes": 28842,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed.npz",
+      "sha256": "278d3c80a34f6656218a43351ad2c0af9268214de82c76f034b9e451a31d9b1c"
+    },
+    "actual_corpus_deck_fit_1_untrained_typed_predictions_json": {
+      "bytes": 16706,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed-predictions.json",
+      "sha256": "be243678dd5ef4d1c3ec7fc7a20c5951d7951b17aad7beea110b1d4a308f2dbc"
+    },
+    "actual_corpus_deck_fit_1_untrained_typed_vectors_json": {
+      "bytes": 115343,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed-vectors.json",
+      "sha256": "90a94ac461cc9ae069e7f4318021f1c19d70128e24a9faae7a61b49e30dbadfb"
+    },
+    "actual_corpus_deck_prepared_v1_data_json": {
+      "bytes": 268246,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/data.json",
+      "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+    },
+    "actual_corpus_deck_prepared_v1_plan_json": {
+      "bytes": 5473,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/plan.json",
+      "sha256": "ec45a0421373eb88bdb3c6c174229527c7cbc940470b2064fb9738626dfad487"
+    },
+    "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_protocol_md": {
+      "bytes": 6306,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "sha256": "631d29d85ada10cdfd1bcb9f0064a42c9e6d2853aa91be431b84b698d21eae89"
+    },
+    "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_py": {
+      "bytes": 32929,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/actual_corpus_deck.py",
+      "sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b"
+    },
+    "actual_corpus_deck_prepared_v1_sources_test_actual_corpus_deck_py": {
+      "bytes": 7954,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/test_actual_corpus_deck.py",
+      "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+    },
+    "actual_corpus_deck_prepared_v2_data_json": {
+      "bytes": 268246,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/data.json",
+      "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+    },
+    "actual_corpus_deck_prepared_v2_plan_json": {
+      "bytes": 5473,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/plan.json",
+      "sha256": "6b5a55f30d6a0637087c68b4e287d3700f17a260a810664c9eef60a3cc78816c"
+    },
+    "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_protocol_md": {
+      "bytes": 6305,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+    },
+    "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_py": {
+      "bytes": 32929,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/actual_corpus_deck.py",
+      "sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b"
+    },
+    "actual_corpus_deck_prepared_v2_sources_test_actual_corpus_deck_py": {
+      "bytes": 7954,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/test_actual_corpus_deck.py",
+      "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+    },
+    "actual_corpus_deck_prepared_v3_data_json": {
+      "bytes": 268246,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+      "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+    },
+    "actual_corpus_deck_prepared_v3_plan_json": {
+      "bytes": 5473,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/plan.json",
+      "sha256": "475b25a43f6010a26da42f7d44c2a611ef40c3feb1ccd0403c2cbb9f5d1aead8"
+    },
+    "actual_corpus_deck_progress_1_jsonl": {
+      "bytes": 35654,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-progress-1.jsonl",
+      "sha256": "234c6af0346ef966472919be0e9f36d09482a90610f730d63c7d15dd19d24669"
+    },
+    "actual_corpus_deck_sealed_v1_json": {
+      "bytes": 10176,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-sealed-v1.json",
+      "sha256": "346b7cb0344cdae5a7d3319d09585ba526cf0cf8505c101d39f7d8de17670e77"
+    },
+    "actual_corpus_environment_json": {
+      "bytes": 554,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/environment.json",
+      "sha256": "1cd0863b7b35c036b2aef7c2bbee5155999d706ecc9e7ef06ec7075ef2a91427"
+    },
+    "actual_corpus_independent_review_sources_verify_actual_corpus_deck_py": {
+      "bytes": 7740,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/independent-review-sources/verify_actual_corpus_deck.py",
+      "sha256": "edcbedaded7db1a336395fb7e8e5ed1a636ca24959cf1b6164e96d5326273b78"
+    },
+    "actual_corpus_native_attempt_1_build_stderr_log": {
+      "bytes": 312,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/build.stderr.log",
+      "sha256": "c32efe39fe0e24f0ea4059edd526707681929c492b7e748d3ec6126a795d8679"
+    },
+    "actual_corpus_native_attempt_1_build_stdout_log": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/build.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_native_attempt_1_supervisor_receipt_json": {
+      "bytes": 2841,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
+      "sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087"
+    },
+    "actual_corpus_native_attempt_2_build_stderr_log": {
+      "bytes": 2046,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/build.stderr.log",
+      "sha256": "a3e30a254d1da8a02161b4ccc1a88c03c1a498de4b5c159b19d4d33043f6f1c4"
+    },
+    "actual_corpus_native_attempt_2_build_stdout_log": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/build.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_native_attempt_2_supervisor_receipt_json": {
+      "bytes": 3260,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/supervisor-receipt.json",
+      "sha256": "385462b2ba7ee939682d7b30c67fbf33d411ebff05d9641f52c6458fe2bb62f2"
+    },
+    "actual_corpus_native_attempt_3_build_stderr_log": {
+      "bytes": 2363,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/build.stderr.log",
+      "sha256": "05022fa42dc7ef62788f155ba7ce4c2c9cab237c9c7b616367bc2a7902225808"
+    },
+    "actual_corpus_native_attempt_3_build_stdout_log": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/build.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_native_attempt_3_supervisor_receipt_json": {
+      "bytes": 3315,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/supervisor-receipt.json",
+      "sha256": "266e6fc3bc441df8ba25de213ed9d7a9d0a96b0535b8d609ceac7a79406d0209"
+    },
+    "actual_corpus_native_attempt_4_build_stderr_log": {
+      "bytes": 1838,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/build.stderr.log",
+      "sha256": "d21f96e9493ac4bf3426f3c7e8783ef7f112d95700bb0db10e985d0786f8d76b"
+    },
+    "actual_corpus_native_attempt_4_build_stdout_log": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/build.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_native_attempt_4_collect_stderr_log": {
+      "bytes": 95,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/collect.stderr.log",
+      "sha256": "09d97faad359ded2e8ab289abd51bb49b67eec162749a56feea1b2def7336f72"
+    },
+    "actual_corpus_native_attempt_4_collect_stdout_log": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/collect.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_native_attempt_4_native_transitions_jsonl": {
+      "bytes": 437,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/native-transitions.jsonl",
+      "sha256": "4641c900bbbb72a9a2bc682da1d0ee7c2630b10198719d6f8e145796bd6b1e08"
+    },
+    "actual_corpus_native_attempt_4_supervisor_receipt_json": {
+      "bytes": 3778,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/supervisor-receipt.json",
+      "sha256": "3f5c56f606d1a23c1f4e3c772311df36f52c9f03c53fb72bb899010e4b871102"
+    },
+    "actual_corpus_native_attempt_5_build_stderr_log": {
+      "bytes": 1838,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/build.stderr.log",
+      "sha256": "896618cac74888eaf4b9e54df58a93414c97e3122db21bb806eae8400304de1b"
+    },
+    "actual_corpus_native_attempt_5_build_stdout_log": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/build.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_native_attempt_5_collect_stderr_log": {
+      "bytes": 0,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/collect.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "actual_corpus_native_attempt_5_collect_stdout_log": {
+      "bytes": 164,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/collect.stdout.log",
+      "sha256": "9f33d79bcfaa0843b8c25291aed80e19406a73a25ba9bd2ea77bb3d505ada4f8"
+    },
+    "actual_corpus_native_attempt_5_native_transitions_jsonl": {
+      "bytes": 2065846,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-transitions.jsonl",
+      "sha256": "5310a3821bb3b44eb54b9d125adcf7bd3308ec3fbd6005d10daf637e0c1fa763"
+    },
+    "actual_corpus_native_attempt_5_supervisor_receipt_json": {
+      "bytes": 3784,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/supervisor-receipt.json",
+      "sha256": "1d3b4194276c75e6f102db82e5415cf99e52f7f87c508b2e411a0cdcbdf01df5"
+    },
+    "actual_corpus_native_independent_verification_json": {
+      "bytes": 43067,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-independent-verification.json",
+      "sha256": "09bacac05c3872a68aad9a73e54ead4aeb0b01ad2f1e471d76ead7f830501987"
+    },
+    "actual_corpus_native_independent_verification_py": {
+      "bytes": 16960,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-independent-verification.py",
+      "sha256": "7a3706fd22a9dcb61723e0cc3c36b6997b51570a584671268584d528681718eb"
+    },
+    "actual_corpus_native_plan_json": {
+      "bytes": 86319,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+      "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+    },
+    "actual_corpus_native_source_v1_source_manifest_json": {
+      "bytes": 28897,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v1/source-manifest.json",
+      "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325"
+    },
+    "actual_corpus_native_source_v1_supervise_py": {
+      "bytes": 14516,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v1/supervise.py",
+      "sha256": "bfd155d44ac7e9a21ee40e4714bac727697c20b52b9e19012491094afa01b027"
+    },
+    "actual_corpus_native_source_v2_source_manifest_json": {
+      "bytes": 30248,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v2/source-manifest.json",
+      "sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48"
+    },
+    "actual_corpus_native_source_v2_supervise_py": {
+      "bytes": 15637,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v2/supervise.py",
+      "sha256": "42c5444bf262b9030908d3095b5616bed72c582b84b311624b2afce4500d560c"
+    },
+    "actual_corpus_native_source_v3_source_manifest_json": {
+      "bytes": 32836,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/source-manifest.json",
+      "sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf"
+    },
+    "actual_corpus_native_source_v3_src_main_rs": {
+      "bytes": 18425,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/src/main.rs",
+      "sha256": "f4ea690c28de3cf774435da9fc1be04a7bf75b19e4851806797fb2197135cfe6"
+    },
+    "actual_corpus_native_source_v3_supervise_py": {
+      "bytes": 17124,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/supervise.py",
+      "sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03"
+    },
+    "actual_corpus_native_source_v4_source_manifest_json": {
+      "bytes": 34218,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v4/source-manifest.json",
+      "sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873"
+    },
+    "actual_corpus_native_source_v4_src_main_rs": {
+      "bytes": 19392,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v4/src/main.rs",
+      "sha256": "051f7429edac48b9dcff2bbac62accdc0971e0c78eb78307298a70283d31b62d"
+    },
+    "card_result": {
+      "bytes": 807838,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+      "sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff"
+    },
+    "card_vectors": {
+      "bytes": 8457,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+      "sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc"
+    },
+    "coverage": {
+      "bytes": 1498747,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+      "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+    },
+    "coverage_verification": {
+      "bytes": 569,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/root-complete-verification.json",
+      "sha256": "e995fac3f02fedc74064c2951937bc79495a4148da35f4a68459fec601bdb28a"
+    },
+    "deck_result": {
+      "bytes": 22369,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/result.json",
+      "sha256": "c2ba170720cc00c830f314219cc79fd67fc464e193eba46afe2a3b65e2359c91"
+    },
+    "deck_vectors": {
+      "bytes": 115394,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed-vectors.json",
+      "sha256": "679b7a608628eb9eb60fa47a11bf42e0bf87d72a90706066c6b9f05f5cf68e9e"
+    },
+    "native_result": {
+      "bytes": 3783318,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-receipt.json",
+      "sha256": "ac68c71ea5373206bb461908e155fa2b44fa23b8c365b05c99465841717b2aff"
+    },
+    "source_actual_card_bridge_results_md": {
+      "bytes": 8076,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CARD_BRIDGE_RESULTS.md",
+      "sha256": "a67908568f415bbefdeeba8b851ccdc9b09dcefc53d866780e3e4f3550171075"
+    },
+    "source_actual_card_qualification_results_md": {
+      "bytes": 7511,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CARD_QUALIFICATION_RESULTS.md",
+      "sha256": "07ea7412d6c2078364dc490a0aa6b5e8f76c9ac7a21a190ba06ead39eb715f00"
+    },
+    "source_actual_corpus_admission_audit_md": {
+      "bytes": 28035,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_ADMISSION_AUDIT.md",
+      "sha256": "2123378169711982fcc990937c2019cbb226c8375868caceb8cbe2de6a8a7991"
+    },
+    "source_actual_corpus_coverage_md": {
+      "bytes": 3702,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_COVERAGE.md",
+      "sha256": "8840a1828903a6a62b0242b2645485ff4f044032e0166055734610c610056fe2"
+    },
+    "source_actual_corpus_coverage_py": {
+      "bytes": 14977,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+      "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+    },
+    "source_actual_corpus_deck_protocol_md": {
+      "bytes": 6305,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+    },
+    "source_actual_corpus_deck_py": {
+      "bytes": 33271,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+      "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086"
+    },
+    "source_actual_corpus_deck_results_md": {
+      "bytes": 6879,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_RESULTS.md",
+      "sha256": "1d28db81f12d90e0622758a8fbb1f6cb2ce2b1cb90a720675c1755dec2acfff0"
+    },
+    "source_actual_corpus_export_py": {
+      "bytes": 19554,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_export.py",
+      "sha256": "1c8fa0507c35074cf74065349131bb9666543828ccc1cfe114dd4a1b86f8994d"
+    },
+    "source_actual_corpus_native_collector_cargo_lock": {
+      "bytes": 9567,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.lock",
+      "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+    },
+    "source_actual_corpus_native_collector_cargo_toml": {
+      "bytes": 540,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.toml",
+      "sha256": "05771ce0fbd05e407b91e9289aba5263a82bb875b4d81400c7c4c209a2806adc"
+    },
+    "source_actual_corpus_native_collector_collection_plan_json": {
+      "bytes": 86319,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/collection-plan.json",
+      "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+    },
+    "source_actual_corpus_native_collector_readme_md": {
+      "bytes": 8032,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/README.md",
+      "sha256": "b13c4f001adcf7ca6e2f75ce83d3b082e02910c81187ff673c244cd3f9653ee4"
+    },
+    "source_actual_corpus_native_collector_source_manifest_json": {
+      "bytes": 34724,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest.json",
+      "sha256": "950b2049f04b1ad2808a9eb0365a647d3bd2acd96da64be1c125bfc51e2ab32d"
+    },
+    "source_actual_corpus_native_collector_source_manifest_v1_json": {
+      "bytes": 28897,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v1.json",
+      "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325"
+    },
+    "source_actual_corpus_native_collector_source_manifest_v2_json": {
+      "bytes": 30248,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v2.json",
+      "sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48"
+    },
+    "source_actual_corpus_native_collector_source_manifest_v3_json": {
+      "bytes": 32836,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v3.json",
+      "sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf"
+    },
+    "source_actual_corpus_native_collector_source_manifest_v4_json": {
+      "bytes": 34218,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v4.json",
+      "sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873"
+    },
+    "source_actual_corpus_native_collector_src_main_rs": {
+      "bytes": 19436,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/src/main.rs",
+      "sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13"
+    },
+    "source_actual_corpus_native_collector_supervise_py": {
+      "bytes": 17124,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/supervise.py",
+      "sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03"
+    },
+    "source_actual_corpus_native_collector_test_plan_guard_py": {
+      "bytes": 5025,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/test_plan_guard.py",
+      "sha256": "2268d3a630d80ebb66203453254f9f530f073b0efe5b61d5ef4984d208802d89"
+    },
+    "source_actual_corpus_native_collector_test_public_trait_input_py": {
+      "bytes": 2882,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/test_public_trait_input.py",
+      "sha256": "9128a0c6c44a13fe7f47c40f1173c1d58284e2ec189901b919910276873d8988"
+    },
+    "source_actual_corpus_native_plan_py": {
+      "bytes": 28935,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+    },
+    "source_test_actual_corpus_coverage_py": {
+      "bytes": 5458,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+      "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a"
+    },
+    "source_test_actual_corpus_deck_py": {
+      "bytes": 7954,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+      "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+    },
+    "source_test_actual_corpus_export_py": {
+      "bytes": 10271,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_export.py",
+      "sha256": "92dfbf206f9736c6c76a9a6d976dfdd2e498264685152bb2a39738c53d5e850a"
+    },
+    "source_test_actual_corpus_native_plan_py": {
+      "bytes": 9850,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_native_plan.py",
+      "sha256": "3d8e131d343a8c6860606b2c01ee5896a95faf8522bbb542c1d6e8882661cf6b"
+    },
+    "source_test_whole_card_encoder_py": {
+      "bytes": 8323,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_whole_card_encoder.py",
+      "sha256": "696a88bf220b98b628db2dc4c7286d0327890ef919ba38b058dd8190e9c59243"
+    },
+    "source_whole_card_encoder_py": {
+      "bytes": 40826,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+      "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+    },
+    "source_whole_card_native_protocol_md": {
+      "bytes": 9993,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/WHOLE_CARD_NATIVE_PROTOCOL.md",
+      "sha256": "d5008e2bc1c36edd99cbf20264ae15ab20849aec4dbddb7db47e6f7a3267be11"
+    },
+    "whole_card_card_plan_json": {
+      "bytes": 34674,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+      "sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b"
+    },
+    "whole_card_card_prepared_json": {
+      "bytes": 25485,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-prepared.json",
+      "sha256": "2c026263ca43459eb8b4cfc594176fdf38aa8ded8e48f8741f7c91209d8deadc"
+    },
+    "whole_card_card_progress_jsonl": {
+      "bytes": 111101,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-progress.jsonl",
+      "sha256": "a736fe299b9cbf01d02b41064d3799a409ac297f7402ea48feab786b720c43df"
+    },
+    "whole_card_card_qualification_audit_json": {
+      "bytes": 6035,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-qualification-audit.json",
+      "sha256": "f378dd7ad0849978da5f52203a0b2266da671d1926eff8df4dc7af38edf565a3"
+    },
+    "whole_card_fit_1_card_vectors_npz": {
+      "bytes": 3061,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+      "sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50"
+    },
+    "whole_card_fit_1_contract_json": {
+      "bytes": 9896,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+      "sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141"
+    },
+    "whole_card_fit_1_correct_typed_checkpoint_npz": {
+      "bytes": 48446,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+      "sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11"
+    },
+    "whole_card_fit_1_correct_typed_step0_predictions_npz": {
+      "bytes": 9739,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step0-predictions.npz",
+      "sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98"
+    },
+    "whole_card_fit_1_correct_typed_step200_predictions_npz": {
+      "bytes": 9820,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step200-predictions.npz",
+      "sha256": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857"
+    },
+    "whole_card_fit_1_id_only_checkpoint_npz": {
+      "bytes": 48285,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+      "sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c"
+    },
+    "whole_card_fit_1_id_only_step0_predictions_npz": {
+      "bytes": 9728,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-step0-predictions.npz",
+      "sha256": "c73b70c6caf67d7b580432cefa034530ee5ed3a3aa40b8d1718907b2752348b3"
+    },
+    "whole_card_fit_1_id_only_step200_predictions_npz": {
+      "bytes": 9798,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-step200-predictions.npz",
+      "sha256": "bc1a1907eda9e1d09e4dca57769f6fd762b877c31c074ba722b6eeb32076bb76"
+    },
+    "whole_card_fit_1_id_only_vectors_json": {
+      "bytes": 7959,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+      "sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb"
+    },
+    "whole_card_fit_1_receipt_json": {
+      "bytes": 558,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/receipt.json",
+      "sha256": "eb7c9037171df5fe95f25cda899e62d868b3476015742edcad49f500eb2382ef"
+    },
+    "whole_card_fit_1_schedules_npz": {
+      "bytes": 6337,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/schedules.npz",
+      "sha256": "1675ac2c524bed8cbd741ada378b87632cff33df9d1d741df02a00a7df9d39fc"
+    },
+    "whole_card_fit_1_untrained_typed_checkpoint_npz": {
+      "bytes": 48324,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+      "sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4"
+    },
+    "whole_card_fit_1_untrained_typed_step0_predictions_npz": {
+      "bytes": 9739,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-step0-predictions.npz",
+      "sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98"
+    },
+    "whole_card_fit_1_untrained_typed_step200_predictions_npz": {
+      "bytes": 9806,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-step200-predictions.npz",
+      "sha256": "4e31aa6ed926ed1223d2c64acc75135ab2d964a8bc27523f7ad11b7f1238a80e"
+    },
+    "whole_card_fit_1_untrained_typed_vectors_json": {
+      "bytes": 8458,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+      "sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7"
+    },
+    "whole_card_fit_1_wrong_typed_checkpoint_npz": {
+      "bytes": 48451,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-checkpoint.npz",
+      "sha256": "83df18b83ddbc409350ddf2929e34e4dd6455b1f06141928f27021bb5e02d4bc"
+    },
+    "whole_card_fit_1_wrong_typed_step0_predictions_npz": {
+      "bytes": 9733,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-step0-predictions.npz",
+      "sha256": "a38efda9f7915bd290563302be52fc6e50fb24d6173e302f8e30f1c578434b02"
+    },
+    "whole_card_fit_1_wrong_typed_step200_predictions_npz": {
+      "bytes": 9798,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-step200-predictions.npz",
+      "sha256": "ab19be57b02d2528b6820b74f53e8a6aa4efd173f862b20101d70cd113bb56a5"
+    },
+    "whole_card_fit_1_wrong_typed_vectors_json": {
+      "bytes": 8431,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-vectors.json",
+      "sha256": "819c2004c9816ea2506e2ceccf3716901d9dd5769f0397f0e57728e4d21a146c"
+    },
+    "whole_card_prefit_audit_json": {
+      "bytes": 1933,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/prefit-audit.json",
+      "sha256": "c59343820fc4e33f0949e079a251bc1624fb12eb2c30fb884b52197225a921a2"
+    }
+  },
+  "frozen_documents": {
+    "ACTUAL_CARD_BRIDGE_RESULTS.md": "a67908568f415bbefdeeba8b851ccdc9b09dcefc53d866780e3e4f3550171075",
+    "ACTUAL_CARD_QUALIFICATION_RESULTS.md": "07ea7412d6c2078364dc490a0aa6b5e8f76c9ac7a21a190ba06ead39eb715f00",
+    "ACTUAL_CORPUS_ADMISSION_AUDIT.md": "2123378169711982fcc990937c2019cbb226c8375868caceb8cbe2de6a8a7991",
+    "ACTUAL_CORPUS_DECK_RESULTS.md": "1d28db81f12d90e0622758a8fbb1f6cb2ce2b1cb90a720675c1755dec2acfff0"
+  },
+  "native_calls": 0,
+  "neural_forwards": 0,
+  "optimizer_updates": 0,
+  "paid_jobs": 0,
+  "protected_before": {
+    "experiments/embedding-export/index.json": {
+      "bytes": 12471,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/embedding-export/index.json",
+      "sha256": "d5bc6bbab7a9b194ce5b0d724c2bed97dc1eb48e62473ec8bacaef6604aa87a3"
+    },
+    "experiments/publication-current.json": {
+      "bytes": 1841,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/publication-current.json",
+      "sha256": "6deeca07ad4e5e4cbc23189c54b21e2064723f25952e5f22761e1e92ecd7adb5"
+    },
+    "experiments/research-index.json": {
+      "bytes": 12845,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/research-index.json",
+      "sha256": "fa99f01a41f1dfb8cb26952bcbf7c9a609ca8a29d33b21672d98c3f11144f496"
+    },
+    "experiments/sites-publication/6c0c150998f6-fa99f01a41f1-9df4d86d29a9-v1.zip": {
+      "bytes": 45978716,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/6c0c150998f6-fa99f01a41f1-9df4d86d29a9-v1.zip",
+      "sha256": "6bb2f4d3285ebab4f4e814dae68616fe9659308a459c9b144a21fcd01dd93282"
+    },
+    "experiments/sites-publication/6c0c150998f6-fa99f01a41f1-9df4d86d29a9-v1/manifest.json": {
+      "bytes": 4022,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/sites-publication/6c0c150998f6-fa99f01a41f1-9df4d86d29a9-v1/manifest.json",
+      "sha256": "4e11ad9d332f491f5c2dd47aa7bcaf774aab3cc1a785091aa17b16ddf2b9bcf8"
+    }
+  },
+  "schema": "jepa-actual-corpus-package-inventory/1",
+  "selected_source_report_files": 30,
+  "status": "frozen"
+}
