@@ -1,0 +1,166 @@
+{
+  "schema": "actual-card-qualification-independent-audit/1",
+  "status": "PASS_ACCOUNTING_FAIL_SEMANTIC_QUALIFICATION",
+  "result_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+  "plan_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+  "source_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+  "checks": {
+    "all_eight_saved_prediction_metrics_exact": true,
+    "both_zero_neural_baselines_exact": true,
+    "id_and_untrained_frozen_initial_encoder_exact": true,
+    "correct_untrained_initial_predictions_exact": true,
+    "all_vector_json_npz_exact_and_held_id_zero": true,
+    "durable_800_updates_exact": true,
+    "protected_provenance_pins_current": true,
+    "matched_schedule_train_only_and_fresh_wrong_excludes_actual": true
+  },
+  "counts": {
+    "training_forwards": 800,
+    "backwards": 800,
+    "optimizer_updates": 800,
+    "evaluation_forwards": 8,
+    "export_forwards": 0,
+    "native_calls": 0,
+    "paid_jobs": 0
+  },
+  "receipt": {
+    "status": "completed",
+    "counts": {
+      "training_forwards": 800,
+      "backwards": 800,
+      "optimizer_updates": 800,
+      "evaluation_forwards": 8,
+      "export_forwards": 0,
+      "native_calls": 0,
+      "paid_jobs": 0
+    },
+    "result_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+    "progress_sha256": "a736fe299b9cbf01d02b41064d3799a409ac297f7402ea48feab786b720c43df",
+    "guard": {
+      "wall_seconds": 3.304105417104438,
+      "cpu_seconds": 2.880299,
+      "peak_rss_bytes": 325943296,
+      "samples": 55,
+      "threads": 1
+    }
+  },
+  "artifact_sha256": {
+    "correct-typed-checkpoint.npz": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+    "correct-typed-step0-predictions.npz": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98",
+    "correct-typed-step200-predictions.npz": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857",
+    "id-only-checkpoint.npz": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c",
+    "id-only-step0-predictions.npz": "c73b70c6caf67d7b580432cefa034530ee5ed3a3aa40b8d1718907b2752348b3",
+    "id-only-step200-predictions.npz": "bc1a1907eda9e1d09e4dca57769f6fd762b877c31c074ba722b6eeb32076bb76",
+    "untrained-typed-checkpoint.npz": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4",
+    "untrained-typed-step0-predictions.npz": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98",
+    "untrained-typed-step200-predictions.npz": "4e31aa6ed926ed1223d2c64acc75135ab2d964a8bc27523f7ad11b7f1238a80e",
+    "wrong-typed-checkpoint.npz": "83df18b83ddbc409350ddf2929e34e4dd6455b1f06141928f27021bb5e02d4bc",
+    "wrong-typed-step0-predictions.npz": "a38efda9f7915bd290563302be52fc6e50fb24d6173e302f8e30f1c578434b02",
+    "wrong-typed-step200-predictions.npz": "ab19be57b02d2528b6820b74f53e8a6aa4efd173f862b20101d70cd113bb56a5"
+  },
+  "encoder_weight_change": {
+    "reference": "Saved unused-typed encoder is the frozen cloned initial encoder; no separate complete initial checkpoint was stored. ID-only frozen encoder equals it exactly.",
+    "decay_factor": 0.9999400017909739,
+    "groups": {
+      "depth": {
+        "coordinates": 512,
+        "changed_exact": 512,
+        "delta_l2": 1.326205672382431,
+        "residual_l2_after_decay_only": 1.326251786101605
+      },
+      "edge": {
+        "coordinates": 768,
+        "changed_exact": 752,
+        "delta_l2": 2.3383938101257526,
+        "residual_l2_after_decay_only": 2.3385390380231676
+      },
+      "kind": {
+        "coordinates": 112,
+        "changed_exact": 96,
+        "delta_l2": 0.4452498869192035,
+        "residual_l2_after_decay_only": 0.4452198101811552
+      },
+      "value": {
+        "coordinates": 1088,
+        "changed_exact": 1072,
+        "delta_l2": 2.8845417041714483,
+        "residual_l2_after_decay_only": 2.8845762103920367
+      },
+      "numeric": {
+        "coordinates": 48,
+        "changed_exact": 48,
+        "delta_l2": 0.22580541055980755,
+        "residual_l2_after_decay_only": 0.22575889073728353
+      },
+      "leaf": {
+        "coordinates": 1584,
+        "changed_exact": 1584,
+        "delta_l2": 2.163014815639517,
+        "residual_l2_after_decay_only": 2.163035220409066
+      },
+      "card_projection": {
+        "coordinates": 304,
+        "changed_exact": 304,
+        "delta_l2": 1.3193127111013585,
+        "residual_l2_after_decay_only": 1.3194297801651529
+      }
+    }
+  },
+  "vector_row_changes": [
+    {
+      "code": "ASH_048",
+      "training_card": true,
+      "l2": 4.765926770078784,
+      "max_absolute": 2.0795925855636597
+    },
+    {
+      "code": "JTL_095",
+      "training_card": true,
+      "l2": 5.309867661031355,
+      "max_absolute": 2.386377051472664
+    },
+    {
+      "code": "SEC_163",
+      "training_card": true,
+      "l2": 4.489939861062901,
+      "max_absolute": 2.0189385414123535
+    },
+    {
+      "code": "LOF_077",
+      "training_card": true,
+      "l2": 4.633974435315723,
+      "max_absolute": 2.4788879454135895
+    },
+    {
+      "code": "JTL_078",
+      "training_card": true,
+      "l2": 5.688086689025473,
+      "max_absolute": 2.917434588074684
+    },
+    {
+      "code": "JTL_158",
+      "training_card": true,
+      "l2": 3.023881281292612,
+      "max_absolute": 1.5141848623752594
+    },
+    {
+      "code": "LOF_155",
+      "training_card": false,
+      "l2": 3.807864659395706,
+      "max_absolute": 1.6686822772026062
+    },
+    {
+      "code": "JTL_217",
+      "training_card": false,
+      "l2": 4.5123140030211175,
+      "max_absolute": 2.261468529701233
+    }
+  ],
+  "interpretation": "Encoder parameters and vectors changed beyond decay-only movement. This is not proof of useful semantics; held native errors regress against controls. Five candidate delta heads have no training observations.",
+  "audit_execution": {
+    "neural_forwards": 0,
+    "native_applies": 0,
+    "optimizer_updates": 0,
+    "torch_imported": false
+  }
+}

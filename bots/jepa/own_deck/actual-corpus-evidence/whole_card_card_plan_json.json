@@ -1,0 +1,1393 @@
+{
+  "schema": "whole-card-native-pilot/1",
+  "status": "sealed-awaiting-root-GO",
+  "source_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+  "config": {
+    "seed": 17,
+    "arms": [
+      "correct-typed",
+      "id-only",
+      "untrained-typed",
+      "wrong-typed"
+    ],
+    "updates_per_arm": 200,
+    "total_updates": 800,
+    "batch_size": 18,
+    "learning_rate": 0.003,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "clip_l2": 1.0,
+    "training_forwards": 800,
+    "backwards": 800,
+    "evaluation_forwards": 8,
+    "export_forwards": 0,
+    "loss": "root-mean BCE/smoothL1, macro over training-varying heads; constant observed heads auxiliary0.1",
+    "seconds": 60,
+    "threads": 1,
+    "rss_bytes": 1073741824,
+    "paid_jobs": 0
+  },
+  "codes": [
+    "ASH_048",
+    "JTL_095",
+    "SEC_163",
+    "LOF_077",
+    "JTL_078",
+    "JTL_158",
+    "LOF_155",
+    "JTL_217"
+  ],
+  "train_codes": [
+    "ASH_048",
+    "JTL_095",
+    "SEC_163",
+    "LOF_077",
+    "JTL_078",
+    "JTL_158"
+  ],
+  "held_codes": [
+    "LOF_155",
+    "JTL_217"
+  ],
+  "abi": {
+    "candidate_order": [
+      "source",
+      "friendly_ground",
+      "enemy_vehicle_cheap",
+      "enemy_vehicle_expensive",
+      "nonunique_upgrade",
+      "unique_upgrade",
+      "own_base",
+      "opponent_base"
+    ],
+    "context_feature_names": [
+      "ready_resources",
+      "source_in_hand",
+      "own_aspect_vigilance",
+      "own_aspect_command",
+      "own_aspect_aggression",
+      "own_aspect_cunning",
+      "own_aspect_heroism",
+      "own_aspect_villainy",
+      "other_friendly_space_count",
+      "other_friendly_fighter_count",
+      "source_power",
+      "source_hp",
+      "source_damage",
+      "source_exhausted",
+      "known_source_power",
+      "known_source_hp",
+      "known_source_damage",
+      "known_source_exhausted"
+    ],
+    "candidate_feature_names": [
+      "owner_self",
+      "owner_opponent",
+      "is_unit",
+      "is_base",
+      "zone_ground",
+      "zone_space",
+      "same_source",
+      "present",
+      "damage",
+      "hp",
+      "remaining_hp",
+      "power",
+      "exhausted",
+      "shield_count",
+      "xp_count",
+      "known_damage",
+      "known_hp",
+      "known_remaining_hp",
+      "known_power",
+      "known_exhausted",
+      "known_shield_count",
+      "known_xp_count",
+      "trait_imperial",
+      "trait_creature",
+      "trait_spectre",
+      "known_traits",
+      "printed_cost",
+      "known_printed_cost",
+      "unique",
+      "known_unique",
+      "is_upgrade",
+      "is_leader",
+      "trait_vehicle",
+      "trait_fighter"
+    ],
+    "source_head_names": [
+      "play_available",
+      "play_committed",
+      "cost_resource",
+      "source_in_arena",
+      "source_in_discard",
+      "source_in_hand_after",
+      "source_damage_delta",
+      "source_shield_delta",
+      "source_exhausted_after"
+    ],
+    "source_binary_heads": [
+      "play_available",
+      "play_committed",
+      "source_in_arena",
+      "source_in_discard",
+      "source_in_hand_after",
+      "source_exhausted_after"
+    ],
+    "target_names": [
+      "target_allowed",
+      "target_removed",
+      "target_damage_delta",
+      "target_exhausted_delta",
+      "target_shield_delta",
+      "target_power_delta",
+      "target_hp_delta"
+    ],
+    "binary_heads": [
+      "target_allowed",
+      "target_removed"
+    ]
+  },
+  "parameters": {
+    "allocated": 11168,
+    "trainable": {
+      "correct-typed": 11056,
+      "wrong-typed": 11056,
+      "id-only": 6752,
+      "untrained-typed": 6640
+    }
+  },
+  "documents": [
+    {
+      "role": "main",
+      "printed": {
+        "cost": 4,
+        "hp": 3,
+        "power": 4,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "vigilance",
+          "villainy"
+        ],
+        "traits": [
+          "imperial",
+          "trooper"
+        ],
+        "arena": "ground",
+        "keywords": [
+          "sentinel",
+          "shielded"
+        ],
+        "types": [
+          "unit"
+        ]
+      },
+      "keywordValues": {
+        "sentinel": 1,
+        "shielded": 1
+      },
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      }
+    },
+    {
+      "role": "main",
+      "printed": {
+        "cost": 2,
+        "hp": 2,
+        "power": 3,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "command",
+          "heroism"
+        ],
+        "traits": [
+          "rebel",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ]
+      },
+      "keywordValues": {},
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": []
+      }
+    },
+    {
+      "role": "main",
+      "printed": {
+        "cost": 2,
+        "hp": 1,
+        "power": 3,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "aggression"
+        ],
+        "traits": [
+          "fringe",
+          "official"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ]
+      },
+      "keywordValues": {},
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "costs": [],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "upgrade",
+              "zone": "anyAttackable"
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "role": "main",
+      "printed": {
+        "cost": 3,
+        "hp": null,
+        "power": null,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "tactic"
+        ],
+        "arena": null,
+        "keywords": [],
+        "types": [
+          "event"
+        ]
+      },
+      "keywordValues": {},
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "event",
+            "costs": [],
+            "targetResolver": {
+              "owner": "any",
+              "type": "nonLeaderUnit",
+              "zone": "anyAttackable",
+              "predicate": {
+                "kind": "binary",
+                "op": "&&",
+                "left": {
+                  "kind": "query",
+                  "name": "isUnit",
+                  "receiver": {
+                    "kind": "ref",
+                    "path": [
+                      "card"
+                    ]
+                  },
+                  "args": []
+                },
+                "right": {
+                  "kind": "binary",
+                  "op": "<=",
+                  "left": {
+                    "kind": "ref",
+                    "path": [
+                      "card",
+                      "cost"
+                    ]
+                  },
+                  "right": {
+                    "kind": "const",
+                    "value": 2
+                  }
+                }
+              }
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "role": "main",
+      "printed": {
+        "cost": 4,
+        "hp": null,
+        "power": null,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "vigilance"
+        ],
+        "traits": [
+          "tactic"
+        ],
+        "arena": null,
+        "keywords": [],
+        "types": [
+          "event"
+        ]
+      },
+      "keywordValues": {},
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "event",
+            "costs": [],
+            "targetResolver": {
+              "owner": "any",
+              "type": "nonLeaderUnit",
+              "zone": "anyAttackable",
+              "predicate": {
+                "kind": "query",
+                "name": "hasSomeTrait",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "card"
+                  ]
+                },
+                "args": [
+                  {
+                    "kind": "const",
+                    "value": "vehicle"
+                  }
+                ]
+              }
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "role": "main",
+      "printed": {
+        "cost": 1,
+        "hp": 2,
+        "power": 2,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "aggression"
+        ],
+        "traits": [
+          "republic",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ]
+      },
+      "keywordValues": {},
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "costs": [],
+            "effect": {
+              "kind": "conditional",
+              "condition": {
+                "kind": "query",
+                "name": "hasSomeArenaUnit",
+                "receiver": {
+                  "kind": "ref",
+                  "path": [
+                    "player"
+                  ]
+                },
+                "args": [
+                  {
+                    "kind": "binary",
+                    "op": "&&",
+                    "left": {
+                      "kind": "binary",
+                      "op": "&&",
+                      "left": {
+                        "kind": "const",
+                        "value": true
+                      },
+                      "right": {
+                        "kind": "query",
+                        "name": "hasSomeTrait",
+                        "receiver": {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        },
+                        "args": [
+                          {
+                            "kind": "const",
+                            "value": "fighter"
+                          }
+                        ]
+                      }
+                    },
+                    "right": {
+                      "kind": "binary",
+                      "op": "||",
+                      "left": {
+                        "kind": "unary",
+                        "op": "!",
+                        "value": {
+                          "kind": "ref",
+                          "path": [
+                            "source"
+                          ]
+                        }
+                      },
+                      "right": {
+                        "kind": "binary",
+                        "op": "!==",
+                        "left": {
+                          "kind": "ref",
+                          "path": [
+                            "card"
+                          ]
+                        },
+                        "right": {
+                          "kind": "ref",
+                          "path": [
+                            "source"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "onTrue": {
+                "kind": "noAction"
+              },
+              "onFalse": {
+                "kind": "damage",
+                "target": "self",
+                "amount": {
+                  "kind": "const",
+                  "value": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "role": "main",
+      "printed": {
+        "cost": 2,
+        "hp": 3,
+        "power": 2,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "aggression"
+        ],
+        "traits": [
+          "droid"
+        ],
+        "arena": "ground",
+        "keywords": [],
+        "types": [
+          "unit"
+        ]
+      },
+      "keywordValues": {},
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "costs": [],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "upgrade",
+              "zone": "anyAttackable",
+              "predicate": {
+                "kind": "unary",
+                "op": "!",
+                "value": {
+                  "kind": "ref",
+                  "path": [
+                    "card",
+                    "unique"
+                  ]
+                }
+              }
+            },
+            "effect": {
+              "kind": "defeat",
+              "target": "chosen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "role": "main",
+      "printed": {
+        "cost": 3,
+        "hp": 3,
+        "power": 3,
+        "unique": false,
+        "upgradePower": null,
+        "upgradeHp": null,
+        "aspects": [
+          "cunning"
+        ],
+        "traits": [
+          "underworld",
+          "vehicle",
+          "fighter"
+        ],
+        "arena": "space",
+        "keywords": [],
+        "types": [
+          "unit"
+        ]
+      },
+      "keywordValues": {},
+      "attachCondition": null,
+      "abilities": {
+        "leader": [],
+        "unit": [],
+        "card": [
+          {
+            "trigger": "whenPlayed",
+            "costs": [],
+            "optional": true,
+            "targetResolver": {
+              "owner": "any",
+              "type": "unit",
+              "zone": "anyAttackable"
+            },
+            "effect": {
+              "kind": "conditional",
+              "condition": {
+                "kind": "binary",
+                "op": ">",
+                "left": {
+                  "kind": "arenaLength",
+                  "receiver": {
+                    "kind": "arenaFilter",
+                    "receiver": {
+                      "kind": "arenaList",
+                      "receiver": {
+                        "kind": "ref",
+                        "path": [
+                          "player"
+                        ]
+                      },
+                      "predicate": {
+                        "kind": "binary",
+                        "op": "&&",
+                        "left": {
+                          "kind": "const",
+                          "value": true
+                        },
+                        "right": {
+                          "kind": "binary",
+                          "op": "||",
+                          "left": {
+                            "kind": "unary",
+                            "op": "!",
+                            "value": {
+                              "kind": "const",
+                              "value": "spaceArena"
+                            }
+                          },
+                          "right": {
+                            "kind": "binary",
+                            "op": "||",
+                            "left": {
+                              "kind": "binary",
+                              "op": "===",
+                              "left": {
+                                "kind": "const",
+                                "value": "spaceArena"
+                              },
+                              "right": {
+                                "kind": "const",
+                                "value": "anyArena"
+                              }
+                            },
+                            "right": {
+                              "kind": "binary",
+                              "op": "===",
+                              "left": {
+                                "kind": "ref",
+                                "path": [
+                                  "card",
+                                  "zoneName"
+                                ]
+                              },
+                              "right": {
+                                "kind": "const",
+                                "value": "spaceArena"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "predicate": {
+                      "kind": "binary",
+                      "op": "!==",
+                      "left": {
+                        "kind": "ref",
+                        "path": [
+                          "card"
+                        ]
+                      },
+                      "right": {
+                        "kind": "ref",
+                        "path": [
+                          "source"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "kind": "const",
+                  "value": 0
+                }
+              },
+              "onTrue": {
+                "kind": "exhaust",
+                "target": "chosen"
+              },
+              "onFalse": {
+                "kind": "noAction"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "document_sha256": [
+    "2a9c1a3318dec081027d853fc5bdb0d12b47940865755b7cc9f1b0b39e494872",
+    "ff8c19391bcc166ba84e33fbf340efec19dc6e7f80ed9e0ab52858252c37e983",
+    "0b36d842ba9107cf739349c249a234d92dac2c09bdaeb83f841570cb470ea7a4",
+    "80940af58429013cd1ec523e0cdbcb1234ff6d21d282d714bd22750f79a7c35a",
+    "0454a603f3d4d77e700715acb00b1fd246bb971a6e2d9fcfcf4eb0805abbf72b",
+    "866e57370f0e27655cf7eb587d408d394e7cc46d59ab71fbbf0a27f5b9e921fd",
+    "45aca602bed3391c52c34440180dc03154c75a0d463d7bfacdedbb4cd583b612",
+    "3a5ad033dc57aeca3da4ac50a074bc7c9a5a11dd304a01fea93a16c60040eff9"
+  ],
+  "semantic_tensor_sha256": [
+    "c3a8af379c94e04c8bb2730129a57a7b28b81c0c87248737600ce6f5330d7072",
+    "65cf78706112f67acc8cc6aa6f68ea75429a1c37877eadfb5e1e241e8515a590",
+    "b05586a7115274338da54d09b000bd325711803a009d08b1fb38d44473c860e5",
+    "2b37c2c2759681b849de556e4d16e0b7686b98b9aada76fb6445201535a6bfbc",
+    "2314253f5b69fd1992a1e0967df75ac104f0105ec99aff44a23472d97f0fefad",
+    "05362e3507b3491ac5d22eb3937f0c707f0bf4d3dfa9e6a209181afb7f49012e",
+    "4054e5beb0ea9e3f886bb9a443d9200c2e998698678c0ee1057a756209476f7b",
+    "4988ca11f03d6c9eb5b6aec3194902a2cbb14147e5d7ab05c856a8e4c0ffd165"
+  ],
+  "vocabularies": {
+    "path": [
+      "PAD",
+      "index:0",
+      "index:1",
+      "index:2",
+      "key:abilities",
+      "key:amount",
+      "key:arena",
+      "key:args",
+      "key:aspects",
+      "key:attachCondition",
+      "key:card",
+      "key:condition",
+      "key:cost",
+      "key:costs",
+      "key:effect",
+      "key:hp",
+      "key:keywordValues",
+      "key:keywords",
+      "key:kind",
+      "key:leader",
+      "key:left",
+      "key:name",
+      "key:onFalse",
+      "key:onTrue",
+      "key:op",
+      "key:optional",
+      "key:owner",
+      "key:path",
+      "key:power",
+      "key:predicate",
+      "key:printed",
+      "key:receiver",
+      "key:right",
+      "key:role",
+      "key:sentinel",
+      "key:shielded",
+      "key:target",
+      "key:targetResolver",
+      "key:traits",
+      "key:trigger",
+      "key:type",
+      "key:types",
+      "key:unique",
+      "key:unit",
+      "key:upgradeHp",
+      "key:upgradePower",
+      "key:value",
+      "key:zone"
+    ],
+    "type": [
+      "PAD",
+      "node",
+      "length",
+      "number",
+      "boolean",
+      "enum",
+      "null"
+    ],
+    "value": [
+      "PAD",
+      "NUMBER",
+      "boolean:False",
+      "boolean:True",
+      "enum:!",
+      "enum:!==",
+      "enum:&&",
+      "enum:<=",
+      "enum:===",
+      "enum:>",
+      "enum:aggression",
+      "enum:any",
+      "enum:anyArena",
+      "enum:anyAttackable",
+      "enum:arenaFilter",
+      "enum:arenaLength",
+      "enum:arenaList",
+      "enum:binary",
+      "enum:card",
+      "enum:chosen",
+      "enum:command",
+      "enum:conditional",
+      "enum:const",
+      "enum:cost",
+      "enum:cunning",
+      "enum:damage",
+      "enum:defeat",
+      "enum:droid",
+      "enum:event",
+      "enum:exhaust",
+      "enum:fighter",
+      "enum:fringe",
+      "enum:ground",
+      "enum:hasSomeArenaUnit",
+      "enum:hasSomeTrait",
+      "enum:heroism",
+      "enum:imperial",
+      "enum:isUnit",
+      "enum:main",
+      "enum:noAction",
+      "enum:nonLeaderUnit",
+      "enum:official",
+      "enum:player",
+      "enum:query",
+      "enum:rebel",
+      "enum:ref",
+      "enum:republic",
+      "enum:self",
+      "enum:sentinel",
+      "enum:shielded",
+      "enum:source",
+      "enum:space",
+      "enum:spaceArena",
+      "enum:tactic",
+      "enum:trooper",
+      "enum:unary",
+      "enum:underworld",
+      "enum:unique",
+      "enum:unit",
+      "enum:upgrade",
+      "enum:vehicle",
+      "enum:vigilance",
+      "enum:villainy",
+      "enum:whenPlayed",
+      "enum:zoneName",
+      "enum:||",
+      "node:object",
+      "null:null"
+    ]
+  },
+  "numeric_scale": 1.0633500347481502,
+  "native_plan": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+  "selected_public_intent": {
+    "ASH_048:0": 0,
+    "ASH_048:1": 0,
+    "ASH_048:2": 0,
+    "ASH_048:3": 0,
+    "JTL_095:0": 0,
+    "JTL_095:1": 0,
+    "JTL_095:2": 0,
+    "JTL_095:3": 0,
+    "SEC_163:0": 4,
+    "SEC_163:1": 4,
+    "SEC_163:2": 5,
+    "SEC_163:3": 4,
+    "LOF_077:0": 2,
+    "LOF_077:1": 2,
+    "LOF_077:2": 3,
+    "LOF_077:3": 2,
+    "JTL_078:0": 2,
+    "JTL_078:1": 2,
+    "JTL_078:2": 3,
+    "JTL_078:3": 2,
+    "JTL_158:0": 0,
+    "JTL_158:1": 0,
+    "JTL_158:2": 0,
+    "JTL_158:3": 0,
+    "LOF_155:0": 4,
+    "LOF_155:1": 4,
+    "LOF_155:2": 5,
+    "LOF_155:3": 4,
+    "JTL_217:0": 1,
+    "JTL_217:1": 1,
+    "JTL_217:2": 1,
+    "JTL_217:3": 1
+  },
+  "pins": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+      "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/cards.json",
+      "sha256": "0219449c7fbd14cd974f6d496bf05a585807aa1204eac86aefe231e79f87a812"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-5/kessel-pilot-source/compiler/generated/runtime-admission.json",
+      "sha256": "91553fdcd7862ebe473bfbbddaf4f17fdf37c2fc7fad7319bf2686d82122a957"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+      "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/grounded_contrast_data.py",
+      "sha256": "ffef3fb99bdb3e3f3c0586eb2f5b45a25dec3948b9a89a421e9f21054c739d21"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa"
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69"
+    }
+  ],
+  "scopes": {
+    "runtime_admitted_actual_corpus": 115,
+    "runtime_admitted_copies": 635,
+    "fixture_planned": 8,
+    "training_cards": 6,
+    "held_cards": 2,
+    "actual_copies_in_pilot": 65,
+    "total_corpus_copies": 1432,
+    "whole_card_frontend": true,
+    "whole_card_behavior_verified": false,
+    "all115_encoded": false
+  },
+  "split": {
+    "train_states": [
+      0,
+      1,
+      2
+    ],
+    "held_states": [
+      3
+    ],
+    "expected_cells": {
+      "train": 18,
+      "card_held": 6,
+      "state_held": 6,
+      "joint": 2
+    },
+    "held_cases": {
+      "LOF_155": "seen-defeat/upgrade family; unseen nonunique restriction",
+      "JTL_217": "single wholly held exhaust-primitive OOD card; no family-population claim"
+    }
+  },
+  "controls": "Allocated graph/init/schedule equal; ID table trained6/heldUNK0; untrained typed encoder frozen; wrong typed independently permuted to another training semantic group each update.",
+  "intent_contract": "All9 source predictions condition on the predeclared intended candidate public features. Availability is generally a source-only fact; this shared head must learn invariance. No offeredness/after labels enter inputs.",
+  "vocabulary_scope": "Reviewed categorical schema from all8 public definitions before labels; held-only rows allocated but receive no held-token training gradient because every held bank field is zero in training. This is not a train-only vocabulary.",
+  "qualification": "Eight actual cards/65copies; full runtime machine semantics represented for these8, only sampled native consequences qualify. Printed reconstruction does not establish semantic quality.",
+  "prepared_sha256": "2c026263ca43459eb8b4cfc594176fdf38aa8ded8e48f8741f7c91209d8deadc",
+  "dataset": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+  "manifest": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+  "scalers": {
+    "context_features": {
+      "center": [
+        5.333333492279053,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.3333333432674408,
+        0.3333333432674408,
+        2.0,
+        1.3333333730697632,
+        0.0,
+        0.0,
+        0.6666666865348816,
+        0.6666666865348816,
+        0.6666666865348816,
+        0.6666666865348816
+      ],
+      "scale": [
+        3.7712361812591553,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.5275251865386963,
+        1.1055415868759155,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "candidate_features": {
+      "center": [
+        0.5,
+        0.5,
+        0.4583333432674408,
+        0.25,
+        0.125,
+        0.25,
+        0.125,
+        1.0,
+        0.0,
+        9.541666984558105,
+        9.541666984558105,
+        1.375,
+        0.125,
+        0.0,
+        0.0,
+        0.7083333134651184,
+        0.7083333134651184,
+        0.7083333134651184,
+        0.4583333432674408,
+        0.4583333432674408,
+        0.4583333432674408,
+        0.4583333432674408,
+        0.02083333395421505,
+        0.0,
+        0.0,
+        1.0,
+        1.8333333730697632,
+        0.75,
+        0.25,
+        1.0,
+        0.25,
+        0.0,
+        0.2916666567325592,
+        0.2916666567325592
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        12.01900577545166,
+        12.01900577545166,
+        1.8099838495254517,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.1960583925247192,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "source_targets": [
+      {
+        "name": "play_available",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 18,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "play_committed",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 12,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "cost_resource",
+        "binary": false,
+        "center": 3.0833332538604736,
+        "scale": 1.846543312072754,
+        "known": 12,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          6.0
+        ]
+      },
+      {
+        "name": "source_in_arena",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 12,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "source_in_discard",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 12,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "source_in_hand_after",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 12,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "source_damage_delta",
+        "binary": false,
+        "center": 0.125,
+        "scale": 1.0,
+        "known": 8,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "source_shield_delta",
+        "binary": false,
+        "center": 0.25,
+        "scale": 1.0,
+        "known": 8,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "source_exhausted_after",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 8,
+        "varying": false,
+        "training_values": [
+          1.0
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "name": "target_allowed",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 48,
+        "varying": true,
+        "training_values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "target_removed",
+        "binary": true,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 5,
+        "varying": false,
+        "training_values": [
+          1.0
+        ]
+      },
+      {
+        "name": "target_damage_delta",
+        "binary": false,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 0,
+        "varying": false,
+        "training_values": []
+      },
+      {
+        "name": "target_exhausted_delta",
+        "binary": false,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 0,
+        "varying": false,
+        "training_values": []
+      },
+      {
+        "name": "target_shield_delta",
+        "binary": false,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 0,
+        "varying": false,
+        "training_values": []
+      },
+      {
+        "name": "target_power_delta",
+        "binary": false,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 0,
+        "varying": false,
+        "training_values": []
+      },
+      {
+        "name": "target_hp_delta",
+        "binary": false,
+        "center": 0.0,
+        "scale": 1.0,
+        "known": 0,
+        "varying": false,
+        "training_values": []
+      }
+    ]
+  },
+  "native_support": {
+    "ASH_048": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 3,
+      "settled_paid_roots": 3,
+      "known_source_coordinates": 28,
+      "known_target_coordinates": 0,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    },
+    "JTL_095": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 3,
+      "settled_paid_roots": 3,
+      "known_source_coordinates": 28,
+      "known_target_coordinates": 0,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    },
+    "SEC_163": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 3,
+      "settled_paid_roots": 3,
+      "known_source_coordinates": 28,
+      "known_target_coordinates": 27,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    },
+    "LOF_077": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 2,
+      "settled_paid_roots": 2,
+      "known_source_coordinates": 19,
+      "known_target_coordinates": 26,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    },
+    "JTL_078": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 3,
+      "settled_paid_roots": 3,
+      "known_source_coordinates": 19,
+      "known_target_coordinates": 27,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    },
+    "JTL_158": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 3,
+      "settled_paid_roots": 3,
+      "known_source_coordinates": 28,
+      "known_target_coordinates": 0,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    },
+    "LOF_155": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 3,
+      "settled_paid_roots": 3,
+      "known_source_coordinates": 28,
+      "known_target_coordinates": 26,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    },
+    "JTL_217": {
+      "declared_roots": 4,
+      "availability_roots": 4,
+      "committed_roots": 3,
+      "settled_paid_roots": 3,
+      "known_source_coordinates": 28,
+      "known_target_coordinates": 28,
+      "completions": {
+        "settled": 3,
+        "play-unavailable": 1
+      },
+      "native_fixture_observed": true
+    }
+  }
+}

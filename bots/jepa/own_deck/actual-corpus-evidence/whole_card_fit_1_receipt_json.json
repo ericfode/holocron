@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "counts": {
+    "training_forwards": 800,
+    "backwards": 800,
+    "optimizer_updates": 800,
+    "evaluation_forwards": 8,
+    "export_forwards": 0,
+    "native_calls": 0,
+    "paid_jobs": 0
+  },
+  "result_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+  "progress_sha256": "a736fe299b9cbf01d02b41064d3799a409ac297f7402ea48feab786b720c43df",
+  "guard": {
+    "wall_seconds": 3.304105417104438,
+    "cpu_seconds": 2.880299,
+    "peak_rss_bytes": 325943296,
+    "samples": 55,
+    "threads": 1
+  }
+}

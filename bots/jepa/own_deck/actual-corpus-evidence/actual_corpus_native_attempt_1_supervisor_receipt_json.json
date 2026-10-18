@@ -1,0 +1,88 @@
+{
+  "phase": "native",
+  "stage": "collect",
+  "commands": [
+    [
+      "build",
+      [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.toml",
+        "--bin",
+        "actual-corpus-native-collector",
+        "-j",
+        "1"
+      ]
+    ],
+    [
+      "collect",
+      [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/actual-corpus-native-collector",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/native-receipt.json"
+      ]
+    ]
+  ],
+  "source_manifest_sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl",
+  "max_active_seconds": 90.0,
+  "max_engine_apply_attempts": 256,
+  "max_updates": 0,
+  "reserved_engine_applies": 256,
+  "reserved_updates": 0,
+  "max_sampled_bytes": 1073741824,
+  "sample_interval_seconds": 0.05,
+  "scope": "one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals",
+  "prior_campaign_debits": {
+    "active_seconds": 0.0,
+    "engine_apply_attempts": 0,
+    "updates": 0
+  },
+  "status": "failed",
+  "phases": [
+    {
+      "name": "build",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.toml",
+        "--bin",
+        "actual-corpus-native-collector",
+        "-j",
+        "1"
+      ],
+      "owned_pgid": 26601
+    }
+  ],
+  "observed_per_pid_peak_bytes": {
+    "26593": 37748736,
+    "26601": 40960000,
+    "26602": 153485312,
+    "26603": 118046720,
+    "26605": 2375680,
+    "26606": 79642624,
+    "26607": 261341184,
+    "26608": 161251328,
+    "26609": 53166080,
+    "26610": 39829504,
+    "26611": 146489344
+  },
+  "sample_count": 31,
+  "attempt_active_seconds": 1.72030420799274,
+  "observed_conservative_peak_sum_bytes": 1094336512,
+  "error": "final owned supervisor/child rusage RSS threshold exceeded",
+  "supervisor_maxrss_bytes": 37748736,
+  "children_maxrss_bytes": 290848768,
+  "elapsed_seconds": 1.7203014169353992,
+  "native_applies": 0,
+  "optimizer_updates": 0,
+  "neural_forwards": 0,
+  "engine_apply_attempts": 0,
+  "completed_or_reserved_updates": 0,
+  "guard_limitation": "Sampled known-owned process-group RSS and rusage peaks; not an instantaneous OS memory reservation. Failed update stages conservatively debit reservation. Unfinished ledger stages forbid resets."
+}

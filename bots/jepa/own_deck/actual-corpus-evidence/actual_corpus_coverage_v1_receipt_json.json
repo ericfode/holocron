@@ -1,0 +1,10 @@
+{
+  "schema": "jepa-actual-corpus-coverage/1/receipt",
+  "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/actual-corpus-coverage.json",
+  "sha256": "3e8d996dc342bab07ea325872a89c627221938bda85f8442cba4a6699b2397f4",
+  "bytes": 1122014,
+  "source_sha256": "0b30959eb87d7c65bb41285921722ae5aee7692519abb8552b460780ba9d7f27",
+  "native_calls": 0,
+  "model_forwards": 0,
+  "optimizer_updates": 0
+}

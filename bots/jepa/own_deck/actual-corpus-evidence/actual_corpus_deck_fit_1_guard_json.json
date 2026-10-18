@@ -1,0 +1,22 @@
+{
+  "owned_worker_pid": 31073,
+  "worker_peak_rss_mib": 278.453125,
+  "supervisor_peak_rss_mib": 56.46875,
+  "observed_tree_peak_rss_mib": 353.171875,
+  "elapsed_seconds": 2.140172207960859,
+  "exitcode": 0,
+  "owned_pids": {
+    "supervisor": 31064,
+    "worker": 31073,
+    "resource_tracker": 31072
+  },
+  "per_pid_peak_rss_mib": {
+    "supervisor": 56.46875,
+    "worker": 278.453125,
+    "resource_tracker": 18.25
+  },
+  "sample_interval_seconds": 0.1,
+  "status": "completed",
+  "stop_reason": null,
+  "limitations": "RSS stop guard samples known parent/worker/resource-tracker PIDs via libproc; conservative per-PID peak sum merges rusage peaks. It is not an instantaneous OS memory limit. Worker creates no descendant workers."
+}

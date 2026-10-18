@@ -1,0 +1,106 @@
+{
+  "phase": "native",
+  "stage": "collect",
+  "commands": [
+    [
+      "build",
+      [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.toml",
+        "--bin",
+        "actual-corpus-native-collector",
+        "-j",
+        "1"
+      ]
+    ],
+    [
+      "collect",
+      [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/actual-corpus-native-collector",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-receipt.json"
+      ]
+    ]
+  ],
+  "source_manifest_sha256": "950b2049f04b1ad2808a9eb0365a647d3bd2acd96da64be1c125bfc51e2ab32d",
+  "campaign_ledger": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl",
+  "max_active_seconds": 90.0,
+  "max_engine_apply_attempts": 256,
+  "max_updates": 0,
+  "reserved_engine_applies": 256,
+  "reserved_updates": 0,
+  "max_sampled_bytes": 1073741824,
+  "sample_interval_seconds": 0.05,
+  "scope": "one fresh owned process group at a time, supervisor plus owned members only; no unrelated process signals",
+  "build_profile": {
+    "opt_level": 0,
+    "debug": 0,
+    "incremental": false,
+    "codegen_units": "prior cached default (unset;16 archived codegen objects)",
+    "rustflags": [],
+    "cargo_build_workers": 1,
+    "os_single_core_affinity": false,
+    "semantic_features_changed": false
+  },
+  "prior_campaign_debits": {
+    "active_seconds": 9.125112208072096,
+    "engine_apply_attempts": 0,
+    "updates": 0
+  },
+  "remaining_active_seconds": 80.8748877919279,
+  "status": "completed",
+  "phases": [
+    {
+      "name": "build",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.toml",
+        "--bin",
+        "actual-corpus-native-collector",
+        "-j",
+        "1"
+      ],
+      "owned_pgid": 30605,
+      "exit_code": 0
+    },
+    {
+      "name": "collect",
+      "command": [
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/typed-ir-microprobe/target/debug/actual-corpus-native-collector",
+        "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-receipt.json"
+      ],
+      "owned_pgid": 30618,
+      "exit_code": 0
+    }
+  ],
+  "observed_per_pid_peak_bytes": {
+    "30597": 37650432,
+    "30605": 40091648,
+    "30606": 159973376,
+    "30614": 16941056,
+    "30618": 192970752
+  },
+  "sample_count": 82,
+  "attempt_active_seconds": 4.651310083921999,
+  "observed_live_sum_bytes": 37650432,
+  "observed_peak_live_sum_bytes": 237715456,
+  "observed_conservative_peak_sum_bytes": 255754240,
+  "engine_apply_attempts": 38,
+  "native_receipt_sha256": "ac68c71ea5373206bb461908e155fa2b44fa23b8c365b05c99465841717b2aff",
+  "supervisor_maxrss_bytes": 55820288,
+  "children_maxrss_bytes": 199933952,
+  "memory_accounting": "max(sampled concurrent live owned RSS sum including supervisor, supervisor rusage peak + max single child rusage peak); historical per-PID peaks are metadata only",
+  "elapsed_seconds": 4.651307916967198,
+  "native_applies": 38,
+  "optimizer_updates": 0,
+  "neural_forwards": 0,
+  "completed_or_reserved_updates": 0,
+  "guard_limitation": "Live owned-process RSS is sampled; rusage adds supervisor plus maximum single-child peak, not an instantaneous process-tree OS reservation. Historical per-PID peaks are metadata only. Unfinished ledger stages forbid resets."
+}

@@ -1,0 +1,2541 @@
+{
+  "counters": {
+    "native_calls": 0,
+    "neural_forwards": 0,
+    "optimizer_updates": 0,
+    "paid_jobs": 0
+  },
+  "files": [
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_actual_corpus_manifest_json.json.gz",
+      "role": "actual_corpus_actual_corpus_manifest_json",
+      "source_bytes": 3858872,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "source_sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+      "stored_bytes": 135646,
+      "stored_sha256": "044a01ccc6ee333d9eb1362b1816515df339e363f8abc371fc6579cfda614405",
+      "uncompressed_bytes": 3858872,
+      "uncompressed_sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_actual_corpus_npz.npz",
+      "role": "actual_corpus_actual_corpus_npz",
+      "source_bytes": 4543,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "source_sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+      "stored_bytes": 4543,
+      "stored_sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+      "uncompressed_bytes": 4543,
+      "uncompressed_sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_campaign_ledger_jsonl.jsonl",
+      "role": "actual_corpus_campaign_ledger_jsonl",
+      "source_bytes": 23240,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl",
+      "source_sha256": "9bba1ac10052d0c6cd3e58be07904fe6522c3a50c827b246583ac2d7f5039aea",
+      "stored_bytes": 23240,
+      "stored_sha256": "9bba1ac10052d0c6cd3e58be07904fe6522c3a50c827b246583ac2d7f5039aea",
+      "uncompressed_bytes": 23240,
+      "uncompressed_sha256": "9bba1ac10052d0c6cd3e58be07904fe6522c3a50c827b246583ac2d7f5039aea"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_campaign_ledger_jsonl_worker_lock.lock",
+      "role": "actual_corpus_campaign_ledger_jsonl_worker_lock",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl.worker.lock",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_coverage_v1_actual_corpus_coverage_json.json.gz",
+      "role": "actual_corpus_coverage_v1_actual_corpus_coverage_json",
+      "source_bytes": 1122014,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/actual-corpus-coverage.json",
+      "source_sha256": "3e8d996dc342bab07ea325872a89c627221938bda85f8442cba4a6699b2397f4",
+      "stored_bytes": 68712,
+      "stored_sha256": "37c11b981e6dc3c3b772cb947281fb43d709bc7d404db2cd6a2f8e0fd5b652e1",
+      "uncompressed_bytes": 1122014,
+      "uncompressed_sha256": "3e8d996dc342bab07ea325872a89c627221938bda85f8442cba4a6699b2397f4"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_coverage_v1_receipt_json.json",
+      "role": "actual_corpus_coverage_v1_receipt_json",
+      "source_bytes": 442,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/receipt.json",
+      "source_sha256": "cc227da11fc4d04d31b987794fe5ccd9a2a0765e2806cdfa4c5f4dabc58a10d4",
+      "stored_bytes": 442,
+      "stored_sha256": "cc227da11fc4d04d31b987794fe5ccd9a2a0765e2806cdfa4c5f4dabc58a10d4",
+      "uncompressed_bytes": 442,
+      "uncompressed_sha256": "cc227da11fc4d04d31b987794fe5ccd9a2a0765e2806cdfa4c5f4dabc58a10d4"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_coverage_v1_root_verification_json.json",
+      "role": "actual_corpus_coverage_v1_root_verification_json",
+      "source_bytes": 760,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/root-verification.json",
+      "source_sha256": "dc5761646235bdfd4694edf22351151b15999c5cb737aa0c390c354986d1855d",
+      "stored_bytes": 760,
+      "stored_sha256": "dc5761646235bdfd4694edf22351151b15999c5cb737aa0c390c354986d1855d",
+      "uncompressed_bytes": 760,
+      "uncompressed_sha256": "dc5761646235bdfd4694edf22351151b15999c5cb737aa0c390c354986d1855d"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_coverage_v1_sources_actual_corpus_coverage_py.py",
+      "role": "actual_corpus_coverage_v1_sources_actual_corpus_coverage_py",
+      "source_bytes": 14643,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/sources/actual_corpus_coverage.py",
+      "source_sha256": "0b30959eb87d7c65bb41285921722ae5aee7692519abb8552b460780ba9d7f27",
+      "stored_bytes": 14643,
+      "stored_sha256": "0b30959eb87d7c65bb41285921722ae5aee7692519abb8552b460780ba9d7f27",
+      "uncompressed_bytes": 14643,
+      "uncompressed_sha256": "0b30959eb87d7c65bb41285921722ae5aee7692519abb8552b460780ba9d7f27"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_coverage_v2_receipt_json.json",
+      "role": "actual_corpus_coverage_v2_receipt_json",
+      "source_bytes": 442,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/receipt.json",
+      "source_sha256": "a1bc5de11f5800b92acedf019ddccad0d3433832ea6a91358bd278f7a5d11472",
+      "stored_bytes": 442,
+      "stored_sha256": "a1bc5de11f5800b92acedf019ddccad0d3433832ea6a91358bd278f7a5d11472",
+      "uncompressed_bytes": 442,
+      "uncompressed_sha256": "a1bc5de11f5800b92acedf019ddccad0d3433832ea6a91358bd278f7a5d11472"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_coverage_v2_root_verification_json.json",
+      "role": "actual_corpus_coverage_v2_root_verification_json",
+      "source_bytes": 540,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/root-verification.json",
+      "source_sha256": "4ef0d27699c3af4eaec074a7d2507969eec0069a86a5197652fb7a95bcc1f97a",
+      "stored_bytes": 540,
+      "stored_sha256": "4ef0d27699c3af4eaec074a7d2507969eec0069a86a5197652fb7a95bcc1f97a",
+      "uncompressed_bytes": 540,
+      "uncompressed_sha256": "4ef0d27699c3af4eaec074a7d2507969eec0069a86a5197652fb7a95bcc1f97a"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_coverage_v2_sources_actual_corpus_coverage_py.py",
+      "role": "actual_corpus_coverage_v2_sources_actual_corpus_coverage_py",
+      "source_bytes": 14977,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/sources/actual_corpus_coverage.py",
+      "source_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "stored_bytes": 14977,
+      "stored_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "uncompressed_bytes": 14977,
+      "uncompressed_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_correct_typed_npz.npz",
+      "role": "actual_corpus_deck_fit_1_correct_typed_npz",
+      "source_bytes": 28842,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed.npz",
+      "source_sha256": "196ec7a2702956eb6f4d704fcfafa5f5fe438f8515089970a55766dfe7f737ba",
+      "stored_bytes": 28842,
+      "stored_sha256": "196ec7a2702956eb6f4d704fcfafa5f5fe438f8515089970a55766dfe7f737ba",
+      "uncompressed_bytes": 28842,
+      "uncompressed_sha256": "196ec7a2702956eb6f4d704fcfafa5f5fe438f8515089970a55766dfe7f737ba"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_correct_typed_predictions_json.json",
+      "role": "actual_corpus_deck_fit_1_correct_typed_predictions_json",
+      "source_bytes": 16710,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed-predictions.json",
+      "source_sha256": "738062c72daec5bb20ce9a3b2c4058357f4c6781ed62fb30cb850602ae2a573d",
+      "stored_bytes": 16710,
+      "stored_sha256": "738062c72daec5bb20ce9a3b2c4058357f4c6781ed62fb30cb850602ae2a573d",
+      "uncompressed_bytes": 16710,
+      "uncompressed_sha256": "738062c72daec5bb20ce9a3b2c4058357f4c6781ed62fb30cb850602ae2a573d"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_current_deck_npz.npz",
+      "role": "actual_corpus_deck_fit_1_current_deck_npz",
+      "source_bytes": 28842,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck.npz",
+      "source_sha256": "f761afbdc26038ccb39ffd875721535d1b808ffd3b0fc9a27d6d7400dd21c783",
+      "stored_bytes": 28842,
+      "stored_sha256": "f761afbdc26038ccb39ffd875721535d1b808ffd3b0fc9a27d6d7400dd21c783",
+      "uncompressed_bytes": 28842,
+      "uncompressed_sha256": "f761afbdc26038ccb39ffd875721535d1b808ffd3b0fc9a27d6d7400dd21c783"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_current_deck_predictions_json.json",
+      "role": "actual_corpus_deck_fit_1_current_deck_predictions_json",
+      "source_bytes": 16714,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck-predictions.json",
+      "source_sha256": "86596fd05e61c6ae1b472349f232eb7d7f77954584cf84a8bf9a8fbcf0d14a3e",
+      "stored_bytes": 16714,
+      "stored_sha256": "86596fd05e61c6ae1b472349f232eb7d7f77954584cf84a8bf9a8fbcf0d14a3e",
+      "uncompressed_bytes": 16714,
+      "uncompressed_sha256": "86596fd05e61c6ae1b472349f232eb7d7f77954584cf84a8bf9a8fbcf0d14a3e"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_deck_fit_1_current_deck_vectors_json.json.gz",
+      "role": "actual_corpus_deck_fit_1_current_deck_vectors_json",
+      "source_bytes": 115489,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck-vectors.json",
+      "source_sha256": "767f1caa762b4f222da4ed674c744952010138952f7be57c707ec2d56bc9aa3b",
+      "stored_bytes": 16626,
+      "stored_sha256": "0a2436d326e38a42e05847deabe504bc7c3847f2344416c274bac7e79b853279",
+      "uncompressed_bytes": 115489,
+      "uncompressed_sha256": "767f1caa762b4f222da4ed674c744952010138952f7be57c707ec2d56bc9aa3b"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_guard_json.json",
+      "role": "actual_corpus_deck_fit_1_guard_json",
+      "source_bytes": 738,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/guard.json",
+      "source_sha256": "d91aea75e3b16421f7523bbc86b430150dedd8ddf4d0cfc405f8d28be88bb7b2",
+      "stored_bytes": 738,
+      "stored_sha256": "d91aea75e3b16421f7523bbc86b430150dedd8ddf4d0cfc405f8d28be88bb7b2",
+      "uncompressed_bytes": 738,
+      "uncompressed_sha256": "d91aea75e3b16421f7523bbc86b430150dedd8ddf4d0cfc405f8d28be88bb7b2"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_id_only_npz.npz",
+      "role": "actual_corpus_deck_fit_1_id_only_npz",
+      "source_bytes": 28842,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only.npz",
+      "source_sha256": "6e2872eacbbc97e4a7e8ad0a0723d535332820e11d5b02bcde431a46dbe0a31f",
+      "stored_bytes": 28842,
+      "stored_sha256": "6e2872eacbbc97e4a7e8ad0a0723d535332820e11d5b02bcde431a46dbe0a31f",
+      "uncompressed_bytes": 28842,
+      "uncompressed_sha256": "6e2872eacbbc97e4a7e8ad0a0723d535332820e11d5b02bcde431a46dbe0a31f"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_id_only_predictions_json.json",
+      "role": "actual_corpus_deck_fit_1_id_only_predictions_json",
+      "source_bytes": 16724,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only-predictions.json",
+      "source_sha256": "b10ba899d731f4fcb2c3dd386120566625b83a303ddc0e9aa87bc6e4156f1f32",
+      "stored_bytes": 16724,
+      "stored_sha256": "b10ba899d731f4fcb2c3dd386120566625b83a303ddc0e9aa87bc6e4156f1f32",
+      "uncompressed_bytes": 16724,
+      "uncompressed_sha256": "b10ba899d731f4fcb2c3dd386120566625b83a303ddc0e9aa87bc6e4156f1f32"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_deck_fit_1_id_only_vectors_json.json.gz",
+      "role": "actual_corpus_deck_fit_1_id_only_vectors_json",
+      "source_bytes": 115374,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only-vectors.json",
+      "source_sha256": "206fa25b0b0cecd74fc076e383b85ffac8d0387b56389d8de70f070b84fff1fd",
+      "stored_bytes": 16475,
+      "stored_sha256": "b38687685448ab1ca311e7d374651e5e991ab2bbcaff4e556e40d4ce142079af",
+      "uncompressed_bytes": 115374,
+      "uncompressed_sha256": "206fa25b0b0cecd74fc076e383b85ffac8d0387b56389d8de70f070b84fff1fd"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_independent_verification_json.json",
+      "role": "actual_corpus_deck_fit_1_independent_verification_json",
+      "source_bytes": 10645,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1-independent-verification.json",
+      "source_sha256": "5770050f06721f543577621616f86bb925409b42b84b1c8ef55e4eaa813ff352",
+      "stored_bytes": 10645,
+      "stored_sha256": "5770050f06721f543577621616f86bb925409b42b84b1c8ef55e4eaa813ff352",
+      "uncompressed_bytes": 10645,
+      "uncompressed_sha256": "5770050f06721f543577621616f86bb925409b42b84b1c8ef55e4eaa813ff352"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_receipt_json.json",
+      "role": "actual_corpus_deck_fit_1_receipt_json",
+      "source_bytes": 11647,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/receipt.json",
+      "source_sha256": "a32133f865ff0f557425f56bfb4b296672aa95717b4086c2e09cbab683b76faa",
+      "stored_bytes": 11647,
+      "stored_sha256": "a32133f865ff0f557425f56bfb4b296672aa95717b4086c2e09cbab683b76faa",
+      "uncompressed_bytes": 11647,
+      "uncompressed_sha256": "a32133f865ff0f557425f56bfb4b296672aa95717b4086c2e09cbab683b76faa"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_shared_initial_npz.npz",
+      "role": "actual_corpus_deck_fit_1_shared_initial_npz",
+      "source_bytes": 28842,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/shared-initial.npz",
+      "source_sha256": "324143853aa5597fb091eeca8a4e5bc6ac33e648a68358b1acf1d614db9108af",
+      "stored_bytes": 28842,
+      "stored_sha256": "324143853aa5597fb091eeca8a4e5bc6ac33e648a68358b1acf1d614db9108af",
+      "uncompressed_bytes": 28842,
+      "uncompressed_sha256": "324143853aa5597fb091eeca8a4e5bc6ac33e648a68358b1acf1d614db9108af"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_untrained_typed_npz.npz",
+      "role": "actual_corpus_deck_fit_1_untrained_typed_npz",
+      "source_bytes": 28842,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed.npz",
+      "source_sha256": "278d3c80a34f6656218a43351ad2c0af9268214de82c76f034b9e451a31d9b1c",
+      "stored_bytes": 28842,
+      "stored_sha256": "278d3c80a34f6656218a43351ad2c0af9268214de82c76f034b9e451a31d9b1c",
+      "uncompressed_bytes": 28842,
+      "uncompressed_sha256": "278d3c80a34f6656218a43351ad2c0af9268214de82c76f034b9e451a31d9b1c"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_fit_1_untrained_typed_predictions_json.json",
+      "role": "actual_corpus_deck_fit_1_untrained_typed_predictions_json",
+      "source_bytes": 16706,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed-predictions.json",
+      "source_sha256": "be243678dd5ef4d1c3ec7fc7a20c5951d7951b17aad7beea110b1d4a308f2dbc",
+      "stored_bytes": 16706,
+      "stored_sha256": "be243678dd5ef4d1c3ec7fc7a20c5951d7951b17aad7beea110b1d4a308f2dbc",
+      "uncompressed_bytes": 16706,
+      "uncompressed_sha256": "be243678dd5ef4d1c3ec7fc7a20c5951d7951b17aad7beea110b1d4a308f2dbc"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_deck_fit_1_untrained_typed_vectors_json.json.gz",
+      "role": "actual_corpus_deck_fit_1_untrained_typed_vectors_json",
+      "source_bytes": 115343,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed-vectors.json",
+      "source_sha256": "90a94ac461cc9ae069e7f4318021f1c19d70128e24a9faae7a61b49e30dbadfb",
+      "stored_bytes": 16495,
+      "stored_sha256": "a8341668f5b0107f9b6de0457444169d13da870bd0b435876716e792e3100123",
+      "uncompressed_bytes": 115343,
+      "uncompressed_sha256": "90a94ac461cc9ae069e7f4318021f1c19d70128e24a9faae7a61b49e30dbadfb"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_deck_prepared_v1_data_json.json.gz",
+      "role": "actual_corpus_deck_prepared_v1_data_json",
+      "source_bytes": 268246,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/data.json",
+      "source_sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89",
+      "stored_bytes": 37867,
+      "stored_sha256": "d0f4fdfa74b3d121d1660a36815b502f92d2cae24c474849aa4ea4a7f3d026e3",
+      "uncompressed_bytes": 268246,
+      "uncompressed_sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v1_plan_json.json",
+      "role": "actual_corpus_deck_prepared_v1_plan_json",
+      "source_bytes": 5473,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/plan.json",
+      "source_sha256": "ec45a0421373eb88bdb3c6c174229527c7cbc940470b2064fb9738626dfad487",
+      "stored_bytes": 5473,
+      "stored_sha256": "ec45a0421373eb88bdb3c6c174229527c7cbc940470b2064fb9738626dfad487",
+      "uncompressed_bytes": 5473,
+      "uncompressed_sha256": "ec45a0421373eb88bdb3c6c174229527c7cbc940470b2064fb9738626dfad487"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_protocol_md.md",
+      "role": "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_protocol_md",
+      "source_bytes": 6306,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "source_sha256": "631d29d85ada10cdfd1bcb9f0064a42c9e6d2853aa91be431b84b698d21eae89",
+      "stored_bytes": 6306,
+      "stored_sha256": "631d29d85ada10cdfd1bcb9f0064a42c9e6d2853aa91be431b84b698d21eae89",
+      "uncompressed_bytes": 6306,
+      "uncompressed_sha256": "631d29d85ada10cdfd1bcb9f0064a42c9e6d2853aa91be431b84b698d21eae89"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_py.py",
+      "role": "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_py",
+      "source_bytes": 32929,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/actual_corpus_deck.py",
+      "source_sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b",
+      "stored_bytes": 32929,
+      "stored_sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b",
+      "uncompressed_bytes": 32929,
+      "uncompressed_sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v1_sources_test_actual_corpus_deck_py.py",
+      "role": "actual_corpus_deck_prepared_v1_sources_test_actual_corpus_deck_py",
+      "source_bytes": 7954,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/test_actual_corpus_deck.py",
+      "source_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "stored_bytes": 7954,
+      "stored_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "uncompressed_bytes": 7954,
+      "uncompressed_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_deck_prepared_v2_data_json.json.gz",
+      "role": "actual_corpus_deck_prepared_v2_data_json",
+      "source_bytes": 268246,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/data.json",
+      "source_sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89",
+      "stored_bytes": 37867,
+      "stored_sha256": "d0f4fdfa74b3d121d1660a36815b502f92d2cae24c474849aa4ea4a7f3d026e3",
+      "uncompressed_bytes": 268246,
+      "uncompressed_sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v2_plan_json.json",
+      "role": "actual_corpus_deck_prepared_v2_plan_json",
+      "source_bytes": 5473,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/plan.json",
+      "source_sha256": "6b5a55f30d6a0637087c68b4e287d3700f17a260a810664c9eef60a3cc78816c",
+      "stored_bytes": 5473,
+      "stored_sha256": "6b5a55f30d6a0637087c68b4e287d3700f17a260a810664c9eef60a3cc78816c",
+      "uncompressed_bytes": 5473,
+      "uncompressed_sha256": "6b5a55f30d6a0637087c68b4e287d3700f17a260a810664c9eef60a3cc78816c"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_protocol_md.md",
+      "role": "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_protocol_md",
+      "source_bytes": 6305,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "source_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "stored_bytes": 6305,
+      "stored_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "uncompressed_bytes": 6305,
+      "uncompressed_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_py.py",
+      "role": "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_py",
+      "source_bytes": 32929,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/actual_corpus_deck.py",
+      "source_sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b",
+      "stored_bytes": 32929,
+      "stored_sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b",
+      "uncompressed_bytes": 32929,
+      "uncompressed_sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v2_sources_test_actual_corpus_deck_py.py",
+      "role": "actual_corpus_deck_prepared_v2_sources_test_actual_corpus_deck_py",
+      "source_bytes": 7954,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/test_actual_corpus_deck.py",
+      "source_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "stored_bytes": 7954,
+      "stored_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "uncompressed_bytes": 7954,
+      "uncompressed_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_deck_prepared_v3_data_json.json.gz",
+      "role": "actual_corpus_deck_prepared_v3_data_json",
+      "source_bytes": 268246,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+      "source_sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89",
+      "stored_bytes": 37867,
+      "stored_sha256": "d0f4fdfa74b3d121d1660a36815b502f92d2cae24c474849aa4ea4a7f3d026e3",
+      "uncompressed_bytes": 268246,
+      "uncompressed_sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_prepared_v3_plan_json.json",
+      "role": "actual_corpus_deck_prepared_v3_plan_json",
+      "source_bytes": 5473,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/plan.json",
+      "source_sha256": "475b25a43f6010a26da42f7d44c2a611ef40c3feb1ccd0403c2cbb9f5d1aead8",
+      "stored_bytes": 5473,
+      "stored_sha256": "475b25a43f6010a26da42f7d44c2a611ef40c3feb1ccd0403c2cbb9f5d1aead8",
+      "uncompressed_bytes": 5473,
+      "uncompressed_sha256": "475b25a43f6010a26da42f7d44c2a611ef40c3feb1ccd0403c2cbb9f5d1aead8"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_progress_1_jsonl.jsonl",
+      "role": "actual_corpus_deck_progress_1_jsonl",
+      "source_bytes": 35654,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-progress-1.jsonl",
+      "source_sha256": "234c6af0346ef966472919be0e9f36d09482a90610f730d63c7d15dd19d24669",
+      "stored_bytes": 35654,
+      "stored_sha256": "234c6af0346ef966472919be0e9f36d09482a90610f730d63c7d15dd19d24669",
+      "uncompressed_bytes": 35654,
+      "uncompressed_sha256": "234c6af0346ef966472919be0e9f36d09482a90610f730d63c7d15dd19d24669"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_deck_sealed_v1_json.json",
+      "role": "actual_corpus_deck_sealed_v1_json",
+      "source_bytes": 10176,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-sealed-v1.json",
+      "source_sha256": "346b7cb0344cdae5a7d3319d09585ba526cf0cf8505c101d39f7d8de17670e77",
+      "stored_bytes": 10176,
+      "stored_sha256": "346b7cb0344cdae5a7d3319d09585ba526cf0cf8505c101d39f7d8de17670e77",
+      "uncompressed_bytes": 10176,
+      "uncompressed_sha256": "346b7cb0344cdae5a7d3319d09585ba526cf0cf8505c101d39f7d8de17670e77"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_environment_json.json",
+      "role": "actual_corpus_environment_json",
+      "source_bytes": 554,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/environment.json",
+      "source_sha256": "1cd0863b7b35c036b2aef7c2bbee5155999d706ecc9e7ef06ec7075ef2a91427",
+      "stored_bytes": 554,
+      "stored_sha256": "1cd0863b7b35c036b2aef7c2bbee5155999d706ecc9e7ef06ec7075ef2a91427",
+      "uncompressed_bytes": 554,
+      "uncompressed_sha256": "1cd0863b7b35c036b2aef7c2bbee5155999d706ecc9e7ef06ec7075ef2a91427"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_independent_review_sources_verify_actual_corpus_deck_py.py",
+      "role": "actual_corpus_independent_review_sources_verify_actual_corpus_deck_py",
+      "source_bytes": 7740,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/independent-review-sources/verify_actual_corpus_deck.py",
+      "source_sha256": "edcbedaded7db1a336395fb7e8e5ed1a636ca24959cf1b6164e96d5326273b78",
+      "stored_bytes": 7740,
+      "stored_sha256": "edcbedaded7db1a336395fb7e8e5ed1a636ca24959cf1b6164e96d5326273b78",
+      "uncompressed_bytes": 7740,
+      "uncompressed_sha256": "edcbedaded7db1a336395fb7e8e5ed1a636ca24959cf1b6164e96d5326273b78"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_1_build_stderr_log.log",
+      "role": "actual_corpus_native_attempt_1_build_stderr_log",
+      "source_bytes": 312,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/build.stderr.log",
+      "source_sha256": "c32efe39fe0e24f0ea4059edd526707681929c492b7e748d3ec6126a795d8679",
+      "stored_bytes": 312,
+      "stored_sha256": "c32efe39fe0e24f0ea4059edd526707681929c492b7e748d3ec6126a795d8679",
+      "uncompressed_bytes": 312,
+      "uncompressed_sha256": "c32efe39fe0e24f0ea4059edd526707681929c492b7e748d3ec6126a795d8679"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_1_build_stdout_log.log",
+      "role": "actual_corpus_native_attempt_1_build_stdout_log",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/build.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_1_supervisor_receipt_json.json",
+      "role": "actual_corpus_native_attempt_1_supervisor_receipt_json",
+      "source_bytes": 2841,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
+      "source_sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087",
+      "stored_bytes": 2841,
+      "stored_sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087",
+      "uncompressed_bytes": 2841,
+      "uncompressed_sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_2_build_stderr_log.log",
+      "role": "actual_corpus_native_attempt_2_build_stderr_log",
+      "source_bytes": 2046,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/build.stderr.log",
+      "source_sha256": "a3e30a254d1da8a02161b4ccc1a88c03c1a498de4b5c159b19d4d33043f6f1c4",
+      "stored_bytes": 2046,
+      "stored_sha256": "a3e30a254d1da8a02161b4ccc1a88c03c1a498de4b5c159b19d4d33043f6f1c4",
+      "uncompressed_bytes": 2046,
+      "uncompressed_sha256": "a3e30a254d1da8a02161b4ccc1a88c03c1a498de4b5c159b19d4d33043f6f1c4"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_2_build_stdout_log.log",
+      "role": "actual_corpus_native_attempt_2_build_stdout_log",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/build.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_2_supervisor_receipt_json.json",
+      "role": "actual_corpus_native_attempt_2_supervisor_receipt_json",
+      "source_bytes": 3260,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/supervisor-receipt.json",
+      "source_sha256": "385462b2ba7ee939682d7b30c67fbf33d411ebff05d9641f52c6458fe2bb62f2",
+      "stored_bytes": 3260,
+      "stored_sha256": "385462b2ba7ee939682d7b30c67fbf33d411ebff05d9641f52c6458fe2bb62f2",
+      "uncompressed_bytes": 3260,
+      "uncompressed_sha256": "385462b2ba7ee939682d7b30c67fbf33d411ebff05d9641f52c6458fe2bb62f2"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_3_build_stderr_log.log",
+      "role": "actual_corpus_native_attempt_3_build_stderr_log",
+      "source_bytes": 2363,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/build.stderr.log",
+      "source_sha256": "05022fa42dc7ef62788f155ba7ce4c2c9cab237c9c7b616367bc2a7902225808",
+      "stored_bytes": 2363,
+      "stored_sha256": "05022fa42dc7ef62788f155ba7ce4c2c9cab237c9c7b616367bc2a7902225808",
+      "uncompressed_bytes": 2363,
+      "uncompressed_sha256": "05022fa42dc7ef62788f155ba7ce4c2c9cab237c9c7b616367bc2a7902225808"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_3_build_stdout_log.log",
+      "role": "actual_corpus_native_attempt_3_build_stdout_log",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/build.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_3_supervisor_receipt_json.json",
+      "role": "actual_corpus_native_attempt_3_supervisor_receipt_json",
+      "source_bytes": 3315,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/supervisor-receipt.json",
+      "source_sha256": "266e6fc3bc441df8ba25de213ed9d7a9d0a96b0535b8d609ceac7a79406d0209",
+      "stored_bytes": 3315,
+      "stored_sha256": "266e6fc3bc441df8ba25de213ed9d7a9d0a96b0535b8d609ceac7a79406d0209",
+      "uncompressed_bytes": 3315,
+      "uncompressed_sha256": "266e6fc3bc441df8ba25de213ed9d7a9d0a96b0535b8d609ceac7a79406d0209"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_4_build_stderr_log.log",
+      "role": "actual_corpus_native_attempt_4_build_stderr_log",
+      "source_bytes": 1838,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/build.stderr.log",
+      "source_sha256": "d21f96e9493ac4bf3426f3c7e8783ef7f112d95700bb0db10e985d0786f8d76b",
+      "stored_bytes": 1838,
+      "stored_sha256": "d21f96e9493ac4bf3426f3c7e8783ef7f112d95700bb0db10e985d0786f8d76b",
+      "uncompressed_bytes": 1838,
+      "uncompressed_sha256": "d21f96e9493ac4bf3426f3c7e8783ef7f112d95700bb0db10e985d0786f8d76b"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_4_build_stdout_log.log",
+      "role": "actual_corpus_native_attempt_4_build_stdout_log",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/build.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_4_collect_stderr_log.log",
+      "role": "actual_corpus_native_attempt_4_collect_stderr_log",
+      "source_bytes": 95,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/collect.stderr.log",
+      "source_sha256": "09d97faad359ded2e8ab289abd51bb49b67eec162749a56feea1b2def7336f72",
+      "stored_bytes": 95,
+      "stored_sha256": "09d97faad359ded2e8ab289abd51bb49b67eec162749a56feea1b2def7336f72",
+      "uncompressed_bytes": 95,
+      "uncompressed_sha256": "09d97faad359ded2e8ab289abd51bb49b67eec162749a56feea1b2def7336f72"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_4_collect_stdout_log.log",
+      "role": "actual_corpus_native_attempt_4_collect_stdout_log",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/collect.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_4_native_transitions_jsonl.jsonl",
+      "role": "actual_corpus_native_attempt_4_native_transitions_jsonl",
+      "source_bytes": 437,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/native-transitions.jsonl",
+      "source_sha256": "4641c900bbbb72a9a2bc682da1d0ee7c2630b10198719d6f8e145796bd6b1e08",
+      "stored_bytes": 437,
+      "stored_sha256": "4641c900bbbb72a9a2bc682da1d0ee7c2630b10198719d6f8e145796bd6b1e08",
+      "uncompressed_bytes": 437,
+      "uncompressed_sha256": "4641c900bbbb72a9a2bc682da1d0ee7c2630b10198719d6f8e145796bd6b1e08"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_4_supervisor_receipt_json.json",
+      "role": "actual_corpus_native_attempt_4_supervisor_receipt_json",
+      "source_bytes": 3778,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/supervisor-receipt.json",
+      "source_sha256": "3f5c56f606d1a23c1f4e3c772311df36f52c9f03c53fb72bb899010e4b871102",
+      "stored_bytes": 3778,
+      "stored_sha256": "3f5c56f606d1a23c1f4e3c772311df36f52c9f03c53fb72bb899010e4b871102",
+      "uncompressed_bytes": 3778,
+      "uncompressed_sha256": "3f5c56f606d1a23c1f4e3c772311df36f52c9f03c53fb72bb899010e4b871102"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_5_build_stderr_log.log",
+      "role": "actual_corpus_native_attempt_5_build_stderr_log",
+      "source_bytes": 1838,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/build.stderr.log",
+      "source_sha256": "896618cac74888eaf4b9e54df58a93414c97e3122db21bb806eae8400304de1b",
+      "stored_bytes": 1838,
+      "stored_sha256": "896618cac74888eaf4b9e54df58a93414c97e3122db21bb806eae8400304de1b",
+      "uncompressed_bytes": 1838,
+      "uncompressed_sha256": "896618cac74888eaf4b9e54df58a93414c97e3122db21bb806eae8400304de1b"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_5_build_stdout_log.log",
+      "role": "actual_corpus_native_attempt_5_build_stdout_log",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/build.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_5_collect_stderr_log.log",
+      "role": "actual_corpus_native_attempt_5_collect_stderr_log",
+      "source_bytes": 0,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/collect.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_5_collect_stdout_log.log",
+      "role": "actual_corpus_native_attempt_5_collect_stdout_log",
+      "source_bytes": 164,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/collect.stdout.log",
+      "source_sha256": "9f33d79bcfaa0843b8c25291aed80e19406a73a25ba9bd2ea77bb3d505ada4f8",
+      "stored_bytes": 164,
+      "stored_sha256": "9f33d79bcfaa0843b8c25291aed80e19406a73a25ba9bd2ea77bb3d505ada4f8",
+      "uncompressed_bytes": 164,
+      "uncompressed_sha256": "9f33d79bcfaa0843b8c25291aed80e19406a73a25ba9bd2ea77bb3d505ada4f8"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_native_attempt_5_native_transitions_jsonl.jsonl.gz",
+      "role": "actual_corpus_native_attempt_5_native_transitions_jsonl",
+      "source_bytes": 2065846,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-transitions.jsonl",
+      "source_sha256": "5310a3821bb3b44eb54b9d125adcf7bd3308ec3fbd6005d10daf637e0c1fa763",
+      "stored_bytes": 32209,
+      "stored_sha256": "e9e1e826628d61d0f716dc0c829a54650167fdc0ec68d37cf24909c56744c2ec",
+      "uncompressed_bytes": 2065846,
+      "uncompressed_sha256": "5310a3821bb3b44eb54b9d125adcf7bd3308ec3fbd6005d10daf637e0c1fa763"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_attempt_5_supervisor_receipt_json.json",
+      "role": "actual_corpus_native_attempt_5_supervisor_receipt_json",
+      "source_bytes": 3784,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/supervisor-receipt.json",
+      "source_sha256": "1d3b4194276c75e6f102db82e5415cf99e52f7f87c508b2e411a0cdcbdf01df5",
+      "stored_bytes": 3784,
+      "stored_sha256": "1d3b4194276c75e6f102db82e5415cf99e52f7f87c508b2e411a0cdcbdf01df5",
+      "uncompressed_bytes": 3784,
+      "uncompressed_sha256": "1d3b4194276c75e6f102db82e5415cf99e52f7f87c508b2e411a0cdcbdf01df5"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_independent_verification_json.json",
+      "role": "actual_corpus_native_independent_verification_json",
+      "source_bytes": 43067,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-independent-verification.json",
+      "source_sha256": "09bacac05c3872a68aad9a73e54ead4aeb0b01ad2f1e471d76ead7f830501987",
+      "stored_bytes": 43067,
+      "stored_sha256": "09bacac05c3872a68aad9a73e54ead4aeb0b01ad2f1e471d76ead7f830501987",
+      "uncompressed_bytes": 43067,
+      "uncompressed_sha256": "09bacac05c3872a68aad9a73e54ead4aeb0b01ad2f1e471d76ead7f830501987"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_independent_verification_py.py",
+      "role": "actual_corpus_native_independent_verification_py",
+      "source_bytes": 16960,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-independent-verification.py",
+      "source_sha256": "7a3706fd22a9dcb61723e0cc3c36b6997b51570a584671268584d528681718eb",
+      "stored_bytes": 16960,
+      "stored_sha256": "7a3706fd22a9dcb61723e0cc3c36b6997b51570a584671268584d528681718eb",
+      "uncompressed_bytes": 16960,
+      "uncompressed_sha256": "7a3706fd22a9dcb61723e0cc3c36b6997b51570a584671268584d528681718eb"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "actual_corpus_native_plan_json.json.gz",
+      "role": "actual_corpus_native_plan_json",
+      "source_bytes": 86319,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+      "source_sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8",
+      "stored_bytes": 14101,
+      "stored_sha256": "3ad9749f6a25252b8b96161114704326f465735f54c14dd359a606aae9b0a754",
+      "uncompressed_bytes": 86319,
+      "uncompressed_sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v1_source_manifest_json.json",
+      "role": "actual_corpus_native_source_v1_source_manifest_json",
+      "source_bytes": 28897,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v1/source-manifest.json",
+      "source_sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
+      "stored_bytes": 28897,
+      "stored_sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
+      "uncompressed_bytes": 28897,
+      "uncompressed_sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v1_supervise_py.py",
+      "role": "actual_corpus_native_source_v1_supervise_py",
+      "source_bytes": 14516,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v1/supervise.py",
+      "source_sha256": "bfd155d44ac7e9a21ee40e4714bac727697c20b52b9e19012491094afa01b027",
+      "stored_bytes": 14516,
+      "stored_sha256": "bfd155d44ac7e9a21ee40e4714bac727697c20b52b9e19012491094afa01b027",
+      "uncompressed_bytes": 14516,
+      "uncompressed_sha256": "bfd155d44ac7e9a21ee40e4714bac727697c20b52b9e19012491094afa01b027"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v2_source_manifest_json.json",
+      "role": "actual_corpus_native_source_v2_source_manifest_json",
+      "source_bytes": 30248,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v2/source-manifest.json",
+      "source_sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48",
+      "stored_bytes": 30248,
+      "stored_sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48",
+      "uncompressed_bytes": 30248,
+      "uncompressed_sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v2_supervise_py.py",
+      "role": "actual_corpus_native_source_v2_supervise_py",
+      "source_bytes": 15637,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v2/supervise.py",
+      "source_sha256": "42c5444bf262b9030908d3095b5616bed72c582b84b311624b2afce4500d560c",
+      "stored_bytes": 15637,
+      "stored_sha256": "42c5444bf262b9030908d3095b5616bed72c582b84b311624b2afce4500d560c",
+      "uncompressed_bytes": 15637,
+      "uncompressed_sha256": "42c5444bf262b9030908d3095b5616bed72c582b84b311624b2afce4500d560c"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v3_source_manifest_json.json",
+      "role": "actual_corpus_native_source_v3_source_manifest_json",
+      "source_bytes": 32836,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/source-manifest.json",
+      "source_sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf",
+      "stored_bytes": 32836,
+      "stored_sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf",
+      "uncompressed_bytes": 32836,
+      "uncompressed_sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v3_src_main_rs.rs",
+      "role": "actual_corpus_native_source_v3_src_main_rs",
+      "source_bytes": 18425,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/src/main.rs",
+      "source_sha256": "f4ea690c28de3cf774435da9fc1be04a7bf75b19e4851806797fb2197135cfe6",
+      "stored_bytes": 18425,
+      "stored_sha256": "f4ea690c28de3cf774435da9fc1be04a7bf75b19e4851806797fb2197135cfe6",
+      "uncompressed_bytes": 18425,
+      "uncompressed_sha256": "f4ea690c28de3cf774435da9fc1be04a7bf75b19e4851806797fb2197135cfe6"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v3_supervise_py.py",
+      "role": "actual_corpus_native_source_v3_supervise_py",
+      "source_bytes": 17124,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/supervise.py",
+      "source_sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03",
+      "stored_bytes": 17124,
+      "stored_sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03",
+      "uncompressed_bytes": 17124,
+      "uncompressed_sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v4_source_manifest_json.json",
+      "role": "actual_corpus_native_source_v4_source_manifest_json",
+      "source_bytes": 34218,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v4/source-manifest.json",
+      "source_sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873",
+      "stored_bytes": 34218,
+      "stored_sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873",
+      "uncompressed_bytes": 34218,
+      "uncompressed_sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873"
+    },
+    {
+      "encoding": "identity",
+      "path": "actual_corpus_native_source_v4_src_main_rs.rs",
+      "role": "actual_corpus_native_source_v4_src_main_rs",
+      "source_bytes": 19392,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v4/src/main.rs",
+      "source_sha256": "051f7429edac48b9dcff2bbac62accdc0971e0c78eb78307298a70283d31b62d",
+      "stored_bytes": 19392,
+      "stored_sha256": "051f7429edac48b9dcff2bbac62accdc0971e0c78eb78307298a70283d31b62d",
+      "uncompressed_bytes": 19392,
+      "uncompressed_sha256": "051f7429edac48b9dcff2bbac62accdc0971e0c78eb78307298a70283d31b62d"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "card_result.json.gz",
+      "role": "card_result",
+      "source_bytes": 807838,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+      "source_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff",
+      "stored_bytes": 28226,
+      "stored_sha256": "8a24aaeee384df9e79fa2cc37b7de9469bce2ac34ff30846b02fe2bcef262352",
+      "uncompressed_bytes": 807838,
+      "uncompressed_sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff"
+    },
+    {
+      "encoding": "identity",
+      "path": "card_vectors.json",
+      "role": "card_vectors",
+      "source_bytes": 8457,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+      "source_sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc",
+      "stored_bytes": 8457,
+      "stored_sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc",
+      "uncompressed_bytes": 8457,
+      "uncompressed_sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "coverage.json.gz",
+      "role": "coverage",
+      "source_bytes": 1498747,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+      "source_sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480",
+      "stored_bytes": 93115,
+      "stored_sha256": "5f3e1864df1a5dbb8c34a5b0a9e5a06e86cea533da634ce2ed685a2f22d9ea53",
+      "uncompressed_bytes": 1498747,
+      "uncompressed_sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+    },
+    {
+      "encoding": "identity",
+      "path": "coverage_verification.json",
+      "role": "coverage_verification",
+      "source_bytes": 569,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/root-complete-verification.json",
+      "source_sha256": "e995fac3f02fedc74064c2951937bc79495a4148da35f4a68459fec601bdb28a",
+      "stored_bytes": 569,
+      "stored_sha256": "e995fac3f02fedc74064c2951937bc79495a4148da35f4a68459fec601bdb28a",
+      "uncompressed_bytes": 569,
+      "uncompressed_sha256": "e995fac3f02fedc74064c2951937bc79495a4148da35f4a68459fec601bdb28a"
+    },
+    {
+      "encoding": "identity",
+      "path": "deck_result.json",
+      "role": "deck_result",
+      "source_bytes": 22369,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/result.json",
+      "source_sha256": "c2ba170720cc00c830f314219cc79fd67fc464e193eba46afe2a3b65e2359c91",
+      "stored_bytes": 22369,
+      "stored_sha256": "c2ba170720cc00c830f314219cc79fd67fc464e193eba46afe2a3b65e2359c91",
+      "uncompressed_bytes": 22369,
+      "uncompressed_sha256": "c2ba170720cc00c830f314219cc79fd67fc464e193eba46afe2a3b65e2359c91"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "deck_vectors.json.gz",
+      "role": "deck_vectors",
+      "source_bytes": 115394,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed-vectors.json",
+      "source_sha256": "679b7a608628eb9eb60fa47a11bf42e0bf87d72a90706066c6b9f05f5cf68e9e",
+      "stored_bytes": 16492,
+      "stored_sha256": "cab608b4ed9ddf8319c88efe0cb2178ad01c5dbf648b5b7c3d0c8ba007e0a1dc",
+      "uncompressed_bytes": 115394,
+      "uncompressed_sha256": "679b7a608628eb9eb60fa47a11bf42e0bf87d72a90706066c6b9f05f5cf68e9e"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "native_result.json.gz",
+      "role": "native_result",
+      "source_bytes": 3783318,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-receipt.json",
+      "source_sha256": "ac68c71ea5373206bb461908e155fa2b44fa23b8c365b05c99465841717b2aff",
+      "stored_bytes": 131023,
+      "stored_sha256": "6117bbe764bb02b1a000450e56658a7022d42b62eb32c416b07bc544fbe321b2",
+      "uncompressed_bytes": 3783318,
+      "uncompressed_sha256": "ac68c71ea5373206bb461908e155fa2b44fa23b8c365b05c99465841717b2aff"
+    },
+    {
+      "encoding": "identity",
+      "path": "packaging_inventory.json",
+      "role": "packaging_inventory",
+      "source_bytes": 42798,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus-export/inventory.json",
+      "source_sha256": "c09fdcd53c9e0c441ff768f7685f2b7a81cab5f88cd90b725a7defe16476dbf7",
+      "stored_bytes": 42798,
+      "stored_sha256": "c09fdcd53c9e0c441ff768f7685f2b7a81cab5f88cd90b725a7defe16476dbf7",
+      "uncompressed_bytes": 42798,
+      "uncompressed_sha256": "c09fdcd53c9e0c441ff768f7685f2b7a81cab5f88cd90b725a7defe16476dbf7"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_card_bridge_results_md.md",
+      "role": "source_actual_card_bridge_results_md",
+      "source_bytes": 8076,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CARD_BRIDGE_RESULTS.md",
+      "source_sha256": "a67908568f415bbefdeeba8b851ccdc9b09dcefc53d866780e3e4f3550171075",
+      "stored_bytes": 8076,
+      "stored_sha256": "a67908568f415bbefdeeba8b851ccdc9b09dcefc53d866780e3e4f3550171075",
+      "uncompressed_bytes": 8076,
+      "uncompressed_sha256": "a67908568f415bbefdeeba8b851ccdc9b09dcefc53d866780e3e4f3550171075"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_card_qualification_results_md.md",
+      "role": "source_actual_card_qualification_results_md",
+      "source_bytes": 7511,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CARD_QUALIFICATION_RESULTS.md",
+      "source_sha256": "07ea7412d6c2078364dc490a0aa6b5e8f76c9ac7a21a190ba06ead39eb715f00",
+      "stored_bytes": 7511,
+      "stored_sha256": "07ea7412d6c2078364dc490a0aa6b5e8f76c9ac7a21a190ba06ead39eb715f00",
+      "uncompressed_bytes": 7511,
+      "uncompressed_sha256": "07ea7412d6c2078364dc490a0aa6b5e8f76c9ac7a21a190ba06ead39eb715f00"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_admission_audit_md.md",
+      "role": "source_actual_corpus_admission_audit_md",
+      "source_bytes": 28035,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_ADMISSION_AUDIT.md",
+      "source_sha256": "2123378169711982fcc990937c2019cbb226c8375868caceb8cbe2de6a8a7991",
+      "stored_bytes": 28035,
+      "stored_sha256": "2123378169711982fcc990937c2019cbb226c8375868caceb8cbe2de6a8a7991",
+      "uncompressed_bytes": 28035,
+      "uncompressed_sha256": "2123378169711982fcc990937c2019cbb226c8375868caceb8cbe2de6a8a7991"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_coverage_md.md",
+      "role": "source_actual_corpus_coverage_md",
+      "source_bytes": 3702,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_COVERAGE.md",
+      "source_sha256": "8840a1828903a6a62b0242b2645485ff4f044032e0166055734610c610056fe2",
+      "stored_bytes": 3702,
+      "stored_sha256": "8840a1828903a6a62b0242b2645485ff4f044032e0166055734610c610056fe2",
+      "uncompressed_bytes": 3702,
+      "uncompressed_sha256": "8840a1828903a6a62b0242b2645485ff4f044032e0166055734610c610056fe2"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_coverage_py.py",
+      "role": "source_actual_corpus_coverage_py",
+      "source_bytes": 14977,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+      "source_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "stored_bytes": 14977,
+      "stored_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5",
+      "uncompressed_bytes": 14977,
+      "uncompressed_sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_deck_protocol_md.md",
+      "role": "source_actual_corpus_deck_protocol_md",
+      "source_bytes": 6305,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+      "source_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "stored_bytes": 6305,
+      "stored_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837",
+      "uncompressed_bytes": 6305,
+      "uncompressed_sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_deck_py.py",
+      "role": "source_actual_corpus_deck_py",
+      "source_bytes": 33271,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+      "source_sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+      "stored_bytes": 33271,
+      "stored_sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086",
+      "uncompressed_bytes": 33271,
+      "uncompressed_sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_deck_results_md.md",
+      "role": "source_actual_corpus_deck_results_md",
+      "source_bytes": 6879,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_RESULTS.md",
+      "source_sha256": "1d28db81f12d90e0622758a8fbb1f6cb2ce2b1cb90a720675c1755dec2acfff0",
+      "stored_bytes": 6879,
+      "stored_sha256": "1d28db81f12d90e0622758a8fbb1f6cb2ce2b1cb90a720675c1755dec2acfff0",
+      "uncompressed_bytes": 6879,
+      "uncompressed_sha256": "1d28db81f12d90e0622758a8fbb1f6cb2ce2b1cb90a720675c1755dec2acfff0"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_export_py.py",
+      "role": "source_actual_corpus_export_py",
+      "source_bytes": 19554,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_export.py",
+      "source_sha256": "1c8fa0507c35074cf74065349131bb9666543828ccc1cfe114dd4a1b86f8994d",
+      "stored_bytes": 19554,
+      "stored_sha256": "1c8fa0507c35074cf74065349131bb9666543828ccc1cfe114dd4a1b86f8994d",
+      "uncompressed_bytes": 19554,
+      "uncompressed_sha256": "1c8fa0507c35074cf74065349131bb9666543828ccc1cfe114dd4a1b86f8994d"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_cargo_lock.lock",
+      "role": "source_actual_corpus_native_collector_cargo_lock",
+      "source_bytes": 9567,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.lock",
+      "source_sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "stored_bytes": 9567,
+      "stored_sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a",
+      "uncompressed_bytes": 9567,
+      "uncompressed_sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_cargo_toml.toml",
+      "role": "source_actual_corpus_native_collector_cargo_toml",
+      "source_bytes": 540,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.toml",
+      "source_sha256": "05771ce0fbd05e407b91e9289aba5263a82bb875b4d81400c7c4c209a2806adc",
+      "stored_bytes": 540,
+      "stored_sha256": "05771ce0fbd05e407b91e9289aba5263a82bb875b4d81400c7c4c209a2806adc",
+      "uncompressed_bytes": 540,
+      "uncompressed_sha256": "05771ce0fbd05e407b91e9289aba5263a82bb875b4d81400c7c4c209a2806adc"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "source_actual_corpus_native_collector_collection_plan_json.json.gz",
+      "role": "source_actual_corpus_native_collector_collection_plan_json",
+      "source_bytes": 86319,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/collection-plan.json",
+      "source_sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8",
+      "stored_bytes": 14101,
+      "stored_sha256": "3ad9749f6a25252b8b96161114704326f465735f54c14dd359a606aae9b0a754",
+      "uncompressed_bytes": 86319,
+      "uncompressed_sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_readme_md.md",
+      "role": "source_actual_corpus_native_collector_readme_md",
+      "source_bytes": 8032,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/README.md",
+      "source_sha256": "b13c4f001adcf7ca6e2f75ce83d3b082e02910c81187ff673c244cd3f9653ee4",
+      "stored_bytes": 8032,
+      "stored_sha256": "b13c4f001adcf7ca6e2f75ce83d3b082e02910c81187ff673c244cd3f9653ee4",
+      "uncompressed_bytes": 8032,
+      "uncompressed_sha256": "b13c4f001adcf7ca6e2f75ce83d3b082e02910c81187ff673c244cd3f9653ee4"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_source_manifest_json.json",
+      "role": "source_actual_corpus_native_collector_source_manifest_json",
+      "source_bytes": 34724,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest.json",
+      "source_sha256": "950b2049f04b1ad2808a9eb0365a647d3bd2acd96da64be1c125bfc51e2ab32d",
+      "stored_bytes": 34724,
+      "stored_sha256": "950b2049f04b1ad2808a9eb0365a647d3bd2acd96da64be1c125bfc51e2ab32d",
+      "uncompressed_bytes": 34724,
+      "uncompressed_sha256": "950b2049f04b1ad2808a9eb0365a647d3bd2acd96da64be1c125bfc51e2ab32d"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_source_manifest_v1_json.json",
+      "role": "source_actual_corpus_native_collector_source_manifest_v1_json",
+      "source_bytes": 28897,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v1.json",
+      "source_sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
+      "stored_bytes": 28897,
+      "stored_sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325",
+      "uncompressed_bytes": 28897,
+      "uncompressed_sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_source_manifest_v2_json.json",
+      "role": "source_actual_corpus_native_collector_source_manifest_v2_json",
+      "source_bytes": 30248,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v2.json",
+      "source_sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48",
+      "stored_bytes": 30248,
+      "stored_sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48",
+      "uncompressed_bytes": 30248,
+      "uncompressed_sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_source_manifest_v3_json.json",
+      "role": "source_actual_corpus_native_collector_source_manifest_v3_json",
+      "source_bytes": 32836,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v3.json",
+      "source_sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf",
+      "stored_bytes": 32836,
+      "stored_sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf",
+      "uncompressed_bytes": 32836,
+      "uncompressed_sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_source_manifest_v4_json.json",
+      "role": "source_actual_corpus_native_collector_source_manifest_v4_json",
+      "source_bytes": 34218,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v4.json",
+      "source_sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873",
+      "stored_bytes": 34218,
+      "stored_sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873",
+      "uncompressed_bytes": 34218,
+      "uncompressed_sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_src_main_rs.rs",
+      "role": "source_actual_corpus_native_collector_src_main_rs",
+      "source_bytes": 19436,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/src/main.rs",
+      "source_sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13",
+      "stored_bytes": 19436,
+      "stored_sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13",
+      "uncompressed_bytes": 19436,
+      "uncompressed_sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_supervise_py.py",
+      "role": "source_actual_corpus_native_collector_supervise_py",
+      "source_bytes": 17124,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/supervise.py",
+      "source_sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03",
+      "stored_bytes": 17124,
+      "stored_sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03",
+      "uncompressed_bytes": 17124,
+      "uncompressed_sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_test_plan_guard_py.py",
+      "role": "source_actual_corpus_native_collector_test_plan_guard_py",
+      "source_bytes": 5025,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/test_plan_guard.py",
+      "source_sha256": "2268d3a630d80ebb66203453254f9f530f073b0efe5b61d5ef4984d208802d89",
+      "stored_bytes": 5025,
+      "stored_sha256": "2268d3a630d80ebb66203453254f9f530f073b0efe5b61d5ef4984d208802d89",
+      "uncompressed_bytes": 5025,
+      "uncompressed_sha256": "2268d3a630d80ebb66203453254f9f530f073b0efe5b61d5ef4984d208802d89"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_collector_test_public_trait_input_py.py",
+      "role": "source_actual_corpus_native_collector_test_public_trait_input_py",
+      "source_bytes": 2882,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/test_public_trait_input.py",
+      "source_sha256": "9128a0c6c44a13fe7f47c40f1173c1d58284e2ec189901b919910276873d8988",
+      "stored_bytes": 2882,
+      "stored_sha256": "9128a0c6c44a13fe7f47c40f1173c1d58284e2ec189901b919910276873d8988",
+      "uncompressed_bytes": 2882,
+      "uncompressed_sha256": "9128a0c6c44a13fe7f47c40f1173c1d58284e2ec189901b919910276873d8988"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_actual_corpus_native_plan_py.py",
+      "role": "source_actual_corpus_native_plan_py",
+      "source_bytes": 28935,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+      "source_sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+      "stored_bytes": 28935,
+      "stored_sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e",
+      "uncompressed_bytes": 28935,
+      "uncompressed_sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_test_actual_corpus_coverage_py.py",
+      "role": "source_test_actual_corpus_coverage_py",
+      "source_bytes": 5458,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+      "source_sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+      "stored_bytes": 5458,
+      "stored_sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a",
+      "uncompressed_bytes": 5458,
+      "uncompressed_sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_test_actual_corpus_deck_py.py",
+      "role": "source_test_actual_corpus_deck_py",
+      "source_bytes": 7954,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+      "source_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "stored_bytes": 7954,
+      "stored_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2",
+      "uncompressed_bytes": 7954,
+      "uncompressed_sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_test_actual_corpus_export_py.py",
+      "role": "source_test_actual_corpus_export_py",
+      "source_bytes": 10271,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_export.py",
+      "source_sha256": "92dfbf206f9736c6c76a9a6d976dfdd2e498264685152bb2a39738c53d5e850a",
+      "stored_bytes": 10271,
+      "stored_sha256": "92dfbf206f9736c6c76a9a6d976dfdd2e498264685152bb2a39738c53d5e850a",
+      "uncompressed_bytes": 10271,
+      "uncompressed_sha256": "92dfbf206f9736c6c76a9a6d976dfdd2e498264685152bb2a39738c53d5e850a"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_test_actual_corpus_native_plan_py.py",
+      "role": "source_test_actual_corpus_native_plan_py",
+      "source_bytes": 9850,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_native_plan.py",
+      "source_sha256": "3d8e131d343a8c6860606b2c01ee5896a95faf8522bbb542c1d6e8882661cf6b",
+      "stored_bytes": 9850,
+      "stored_sha256": "3d8e131d343a8c6860606b2c01ee5896a95faf8522bbb542c1d6e8882661cf6b",
+      "uncompressed_bytes": 9850,
+      "uncompressed_sha256": "3d8e131d343a8c6860606b2c01ee5896a95faf8522bbb542c1d6e8882661cf6b"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_test_whole_card_encoder_py.py",
+      "role": "source_test_whole_card_encoder_py",
+      "source_bytes": 8323,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_whole_card_encoder.py",
+      "source_sha256": "696a88bf220b98b628db2dc4c7286d0327890ef919ba38b058dd8190e9c59243",
+      "stored_bytes": 8323,
+      "stored_sha256": "696a88bf220b98b628db2dc4c7286d0327890ef919ba38b058dd8190e9c59243",
+      "uncompressed_bytes": 8323,
+      "uncompressed_sha256": "696a88bf220b98b628db2dc4c7286d0327890ef919ba38b058dd8190e9c59243"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_whole_card_encoder_py.py",
+      "role": "source_whole_card_encoder_py",
+      "source_bytes": 40826,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+      "source_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+      "stored_bytes": 40826,
+      "stored_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+      "uncompressed_bytes": 40826,
+      "uncompressed_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+    },
+    {
+      "encoding": "identity",
+      "path": "source_whole_card_native_protocol_md.md",
+      "role": "source_whole_card_native_protocol_md",
+      "source_bytes": 9993,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/WHOLE_CARD_NATIVE_PROTOCOL.md",
+      "source_sha256": "d5008e2bc1c36edd99cbf20264ae15ab20849aec4dbddb7db47e6f7a3267be11",
+      "stored_bytes": 9993,
+      "stored_sha256": "d5008e2bc1c36edd99cbf20264ae15ab20849aec4dbddb7db47e6f7a3267be11",
+      "uncompressed_bytes": 9993,
+      "uncompressed_sha256": "d5008e2bc1c36edd99cbf20264ae15ab20849aec4dbddb7db47e6f7a3267be11"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_card_plan_json.json",
+      "role": "whole_card_card_plan_json",
+      "source_bytes": 34674,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+      "source_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+      "stored_bytes": 34674,
+      "stored_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b",
+      "uncompressed_bytes": 34674,
+      "uncompressed_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_card_prepared_json.json",
+      "role": "whole_card_card_prepared_json",
+      "source_bytes": 25485,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-prepared.json",
+      "source_sha256": "2c026263ca43459eb8b4cfc594176fdf38aa8ded8e48f8741f7c91209d8deadc",
+      "stored_bytes": 25485,
+      "stored_sha256": "2c026263ca43459eb8b4cfc594176fdf38aa8ded8e48f8741f7c91209d8deadc",
+      "uncompressed_bytes": 25485,
+      "uncompressed_sha256": "2c026263ca43459eb8b4cfc594176fdf38aa8ded8e48f8741f7c91209d8deadc"
+    },
+    {
+      "encoding": "gzip;mtime=0;filename=empty",
+      "path": "whole_card_card_progress_jsonl.jsonl.gz",
+      "role": "whole_card_card_progress_jsonl",
+      "source_bytes": 111101,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-progress.jsonl",
+      "source_sha256": "a736fe299b9cbf01d02b41064d3799a409ac297f7402ea48feab786b720c43df",
+      "stored_bytes": 22046,
+      "stored_sha256": "7874c565634f79daf1c0fc8aae4570e85815d0168bf390fa95e6c143d02b62ef",
+      "uncompressed_bytes": 111101,
+      "uncompressed_sha256": "a736fe299b9cbf01d02b41064d3799a409ac297f7402ea48feab786b720c43df"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_card_qualification_audit_json.json",
+      "role": "whole_card_card_qualification_audit_json",
+      "source_bytes": 6035,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-qualification-audit.json",
+      "source_sha256": "f378dd7ad0849978da5f52203a0b2266da671d1926eff8df4dc7af38edf565a3",
+      "stored_bytes": 6035,
+      "stored_sha256": "f378dd7ad0849978da5f52203a0b2266da671d1926eff8df4dc7af38edf565a3",
+      "uncompressed_bytes": 6035,
+      "uncompressed_sha256": "f378dd7ad0849978da5f52203a0b2266da671d1926eff8df4dc7af38edf565a3"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_card_vectors_npz.npz",
+      "role": "whole_card_fit_1_card_vectors_npz",
+      "source_bytes": 3061,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+      "source_sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50",
+      "stored_bytes": 3061,
+      "stored_sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50",
+      "uncompressed_bytes": 3061,
+      "uncompressed_sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_contract_json.json",
+      "role": "whole_card_fit_1_contract_json",
+      "source_bytes": 9896,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+      "source_sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141",
+      "stored_bytes": 9896,
+      "stored_sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141",
+      "uncompressed_bytes": 9896,
+      "uncompressed_sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_correct_typed_checkpoint_npz.npz",
+      "role": "whole_card_fit_1_correct_typed_checkpoint_npz",
+      "source_bytes": 48446,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+      "source_sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+      "stored_bytes": 48446,
+      "stored_sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11",
+      "uncompressed_bytes": 48446,
+      "uncompressed_sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_correct_typed_step0_predictions_npz.npz",
+      "role": "whole_card_fit_1_correct_typed_step0_predictions_npz",
+      "source_bytes": 9739,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step0-predictions.npz",
+      "source_sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98",
+      "stored_bytes": 9739,
+      "stored_sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98",
+      "uncompressed_bytes": 9739,
+      "uncompressed_sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_correct_typed_step200_predictions_npz.npz",
+      "role": "whole_card_fit_1_correct_typed_step200_predictions_npz",
+      "source_bytes": 9820,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step200-predictions.npz",
+      "source_sha256": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857",
+      "stored_bytes": 9820,
+      "stored_sha256": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857",
+      "uncompressed_bytes": 9820,
+      "uncompressed_sha256": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_id_only_checkpoint_npz.npz",
+      "role": "whole_card_fit_1_id_only_checkpoint_npz",
+      "source_bytes": 48285,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+      "source_sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c",
+      "stored_bytes": 48285,
+      "stored_sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c",
+      "uncompressed_bytes": 48285,
+      "uncompressed_sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_id_only_step0_predictions_npz.npz",
+      "role": "whole_card_fit_1_id_only_step0_predictions_npz",
+      "source_bytes": 9728,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-step0-predictions.npz",
+      "source_sha256": "c73b70c6caf67d7b580432cefa034530ee5ed3a3aa40b8d1718907b2752348b3",
+      "stored_bytes": 9728,
+      "stored_sha256": "c73b70c6caf67d7b580432cefa034530ee5ed3a3aa40b8d1718907b2752348b3",
+      "uncompressed_bytes": 9728,
+      "uncompressed_sha256": "c73b70c6caf67d7b580432cefa034530ee5ed3a3aa40b8d1718907b2752348b3"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_id_only_step200_predictions_npz.npz",
+      "role": "whole_card_fit_1_id_only_step200_predictions_npz",
+      "source_bytes": 9798,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-step200-predictions.npz",
+      "source_sha256": "bc1a1907eda9e1d09e4dca57769f6fd762b877c31c074ba722b6eeb32076bb76",
+      "stored_bytes": 9798,
+      "stored_sha256": "bc1a1907eda9e1d09e4dca57769f6fd762b877c31c074ba722b6eeb32076bb76",
+      "uncompressed_bytes": 9798,
+      "uncompressed_sha256": "bc1a1907eda9e1d09e4dca57769f6fd762b877c31c074ba722b6eeb32076bb76"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_id_only_vectors_json.json",
+      "role": "whole_card_fit_1_id_only_vectors_json",
+      "source_bytes": 7959,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+      "source_sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb",
+      "stored_bytes": 7959,
+      "stored_sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb",
+      "uncompressed_bytes": 7959,
+      "uncompressed_sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_receipt_json.json",
+      "role": "whole_card_fit_1_receipt_json",
+      "source_bytes": 558,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/receipt.json",
+      "source_sha256": "eb7c9037171df5fe95f25cda899e62d868b3476015742edcad49f500eb2382ef",
+      "stored_bytes": 558,
+      "stored_sha256": "eb7c9037171df5fe95f25cda899e62d868b3476015742edcad49f500eb2382ef",
+      "uncompressed_bytes": 558,
+      "uncompressed_sha256": "eb7c9037171df5fe95f25cda899e62d868b3476015742edcad49f500eb2382ef"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_schedules_npz.npz",
+      "role": "whole_card_fit_1_schedules_npz",
+      "source_bytes": 6337,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/schedules.npz",
+      "source_sha256": "1675ac2c524bed8cbd741ada378b87632cff33df9d1d741df02a00a7df9d39fc",
+      "stored_bytes": 6337,
+      "stored_sha256": "1675ac2c524bed8cbd741ada378b87632cff33df9d1d741df02a00a7df9d39fc",
+      "uncompressed_bytes": 6337,
+      "uncompressed_sha256": "1675ac2c524bed8cbd741ada378b87632cff33df9d1d741df02a00a7df9d39fc"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_untrained_typed_checkpoint_npz.npz",
+      "role": "whole_card_fit_1_untrained_typed_checkpoint_npz",
+      "source_bytes": 48324,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+      "source_sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4",
+      "stored_bytes": 48324,
+      "stored_sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4",
+      "uncompressed_bytes": 48324,
+      "uncompressed_sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_untrained_typed_step0_predictions_npz.npz",
+      "role": "whole_card_fit_1_untrained_typed_step0_predictions_npz",
+      "source_bytes": 9739,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-step0-predictions.npz",
+      "source_sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98",
+      "stored_bytes": 9739,
+      "stored_sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98",
+      "uncompressed_bytes": 9739,
+      "uncompressed_sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_untrained_typed_step200_predictions_npz.npz",
+      "role": "whole_card_fit_1_untrained_typed_step200_predictions_npz",
+      "source_bytes": 9806,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-step200-predictions.npz",
+      "source_sha256": "4e31aa6ed926ed1223d2c64acc75135ab2d964a8bc27523f7ad11b7f1238a80e",
+      "stored_bytes": 9806,
+      "stored_sha256": "4e31aa6ed926ed1223d2c64acc75135ab2d964a8bc27523f7ad11b7f1238a80e",
+      "uncompressed_bytes": 9806,
+      "uncompressed_sha256": "4e31aa6ed926ed1223d2c64acc75135ab2d964a8bc27523f7ad11b7f1238a80e"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_untrained_typed_vectors_json.json",
+      "role": "whole_card_fit_1_untrained_typed_vectors_json",
+      "source_bytes": 8458,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+      "source_sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7",
+      "stored_bytes": 8458,
+      "stored_sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7",
+      "uncompressed_bytes": 8458,
+      "uncompressed_sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_wrong_typed_checkpoint_npz.npz",
+      "role": "whole_card_fit_1_wrong_typed_checkpoint_npz",
+      "source_bytes": 48451,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-checkpoint.npz",
+      "source_sha256": "83df18b83ddbc409350ddf2929e34e4dd6455b1f06141928f27021bb5e02d4bc",
+      "stored_bytes": 48451,
+      "stored_sha256": "83df18b83ddbc409350ddf2929e34e4dd6455b1f06141928f27021bb5e02d4bc",
+      "uncompressed_bytes": 48451,
+      "uncompressed_sha256": "83df18b83ddbc409350ddf2929e34e4dd6455b1f06141928f27021bb5e02d4bc"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_wrong_typed_step0_predictions_npz.npz",
+      "role": "whole_card_fit_1_wrong_typed_step0_predictions_npz",
+      "source_bytes": 9733,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-step0-predictions.npz",
+      "source_sha256": "a38efda9f7915bd290563302be52fc6e50fb24d6173e302f8e30f1c578434b02",
+      "stored_bytes": 9733,
+      "stored_sha256": "a38efda9f7915bd290563302be52fc6e50fb24d6173e302f8e30f1c578434b02",
+      "uncompressed_bytes": 9733,
+      "uncompressed_sha256": "a38efda9f7915bd290563302be52fc6e50fb24d6173e302f8e30f1c578434b02"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_wrong_typed_step200_predictions_npz.npz",
+      "role": "whole_card_fit_1_wrong_typed_step200_predictions_npz",
+      "source_bytes": 9798,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-step200-predictions.npz",
+      "source_sha256": "ab19be57b02d2528b6820b74f53e8a6aa4efd173f862b20101d70cd113bb56a5",
+      "stored_bytes": 9798,
+      "stored_sha256": "ab19be57b02d2528b6820b74f53e8a6aa4efd173f862b20101d70cd113bb56a5",
+      "uncompressed_bytes": 9798,
+      "uncompressed_sha256": "ab19be57b02d2528b6820b74f53e8a6aa4efd173f862b20101d70cd113bb56a5"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_fit_1_wrong_typed_vectors_json.json",
+      "role": "whole_card_fit_1_wrong_typed_vectors_json",
+      "source_bytes": 8431,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-vectors.json",
+      "source_sha256": "819c2004c9816ea2506e2ceccf3716901d9dd5769f0397f0e57728e4d21a146c",
+      "stored_bytes": 8431,
+      "stored_sha256": "819c2004c9816ea2506e2ceccf3716901d9dd5769f0397f0e57728e4d21a146c",
+      "uncompressed_bytes": 8431,
+      "uncompressed_sha256": "819c2004c9816ea2506e2ceccf3716901d9dd5769f0397f0e57728e4d21a146c"
+    },
+    {
+      "encoding": "identity",
+      "path": "whole_card_prefit_audit_json.json",
+      "role": "whole_card_prefit_audit_json",
+      "source_bytes": 1933,
+      "source_kind": "byte-copy",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/prefit-audit.json",
+      "source_sha256": "c59343820fc4e33f0949e079a251bc1624fb12eb2c30fb884b52197225a921a2",
+      "stored_bytes": 1933,
+      "stored_sha256": "c59343820fc4e33f0949e079a251bc1624fb12eb2c30fb884b52197225a921a2",
+      "uncompressed_bytes": 1933,
+      "uncompressed_sha256": "c59343820fc4e33f0949e079a251bc1624fb12eb2c30fb884b52197225a921a2"
+    },
+    {
+      "encoding": "identity",
+      "path": "card-embeddings.json",
+      "role": "browser_card",
+      "source_bytes": 8457,
+      "source_kind": "saved-vector-serialization",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+      "source_sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc",
+      "stored_bytes": 14922,
+      "stored_sha256": "c6c015b964be3a35975fe54a20c06457da91c01450050d2bb219dd8d990ccee9",
+      "uncompressed_bytes": 14922,
+      "uncompressed_sha256": "c6c015b964be3a35975fe54a20c06457da91c01450050d2bb219dd8d990ccee9"
+    },
+    {
+      "encoding": "identity",
+      "path": "deck-embeddings.json",
+      "role": "browser_deck",
+      "source_bytes": 115394,
+      "source_kind": "saved-vector-serialization",
+      "source_path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed-vectors.json",
+      "source_sha256": "679b7a608628eb9eb60fa47a11bf42e0bf87d72a90706066c6b9f05f5cf68e9e",
+      "stored_bytes": 195130,
+      "stored_sha256": "c293bd72d5b011028f28f63793fbcfef73a024935725e5e8f0a8ee4851340995",
+      "uncompressed_bytes": 195130,
+      "uncompressed_sha256": "c293bd72d5b011028f28f63793fbcfef73a024935725e5e8f0a8ee4851340995"
+    }
+  ],
+  "original_sources_modified": false,
+  "sampled_corpus": {
+    "ids": 8,
+    "known_copies": 65,
+    "total_copies": 1432,
+    "unknown_copies": 1367
+  },
+  "schema": "jepa-actual-corpus-evidence/1",
+  "selection": "Every supplied raw artifact is preserved in full; no per-head filtering or recomputation.",
+  "semantic_validated": false,
+  "source_commit": "8fb922bf56869c72f828ee8312a449f3891ed406",
+  "source_plan": {
+    "artifacts": {
+      "actual_corpus_actual_corpus_manifest_json": {
+        "bytes": 3858872,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+        "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69"
+      },
+      "actual_corpus_actual_corpus_npz": {
+        "bytes": 4543,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+        "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa"
+      },
+      "actual_corpus_campaign_ledger_jsonl": {
+        "bytes": 23240,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl",
+        "sha256": "9bba1ac10052d0c6cd3e58be07904fe6522c3a50c827b246583ac2d7f5039aea"
+      },
+      "actual_corpus_campaign_ledger_jsonl_worker_lock": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/campaign-ledger.jsonl.worker.lock",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_coverage_v1_actual_corpus_coverage_json": {
+        "bytes": 1122014,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/actual-corpus-coverage.json",
+        "sha256": "3e8d996dc342bab07ea325872a89c627221938bda85f8442cba4a6699b2397f4"
+      },
+      "actual_corpus_coverage_v1_receipt_json": {
+        "bytes": 442,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/receipt.json",
+        "sha256": "cc227da11fc4d04d31b987794fe5ccd9a2a0765e2806cdfa4c5f4dabc58a10d4"
+      },
+      "actual_corpus_coverage_v1_root_verification_json": {
+        "bytes": 760,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/root-verification.json",
+        "sha256": "dc5761646235bdfd4694edf22351151b15999c5cb737aa0c390c354986d1855d"
+      },
+      "actual_corpus_coverage_v1_sources_actual_corpus_coverage_py": {
+        "bytes": 14643,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v1/sources/actual_corpus_coverage.py",
+        "sha256": "0b30959eb87d7c65bb41285921722ae5aee7692519abb8552b460780ba9d7f27"
+      },
+      "actual_corpus_coverage_v2_receipt_json": {
+        "bytes": 442,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/receipt.json",
+        "sha256": "a1bc5de11f5800b92acedf019ddccad0d3433832ea6a91358bd278f7a5d11472"
+      },
+      "actual_corpus_coverage_v2_root_verification_json": {
+        "bytes": 540,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/root-verification.json",
+        "sha256": "4ef0d27699c3af4eaec074a7d2507969eec0069a86a5197652fb7a95bcc1f97a"
+      },
+      "actual_corpus_coverage_v2_sources_actual_corpus_coverage_py": {
+        "bytes": 14977,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/sources/actual_corpus_coverage.py",
+        "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+      },
+      "actual_corpus_deck_fit_1_correct_typed_npz": {
+        "bytes": 28842,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed.npz",
+        "sha256": "196ec7a2702956eb6f4d704fcfafa5f5fe438f8515089970a55766dfe7f737ba"
+      },
+      "actual_corpus_deck_fit_1_correct_typed_predictions_json": {
+        "bytes": 16710,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed-predictions.json",
+        "sha256": "738062c72daec5bb20ce9a3b2c4058357f4c6781ed62fb30cb850602ae2a573d"
+      },
+      "actual_corpus_deck_fit_1_current_deck_npz": {
+        "bytes": 28842,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck.npz",
+        "sha256": "f761afbdc26038ccb39ffd875721535d1b808ffd3b0fc9a27d6d7400dd21c783"
+      },
+      "actual_corpus_deck_fit_1_current_deck_predictions_json": {
+        "bytes": 16714,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck-predictions.json",
+        "sha256": "86596fd05e61c6ae1b472349f232eb7d7f77954584cf84a8bf9a8fbcf0d14a3e"
+      },
+      "actual_corpus_deck_fit_1_current_deck_vectors_json": {
+        "bytes": 115489,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/current-deck-vectors.json",
+        "sha256": "767f1caa762b4f222da4ed674c744952010138952f7be57c707ec2d56bc9aa3b"
+      },
+      "actual_corpus_deck_fit_1_guard_json": {
+        "bytes": 738,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/guard.json",
+        "sha256": "d91aea75e3b16421f7523bbc86b430150dedd8ddf4d0cfc405f8d28be88bb7b2"
+      },
+      "actual_corpus_deck_fit_1_id_only_npz": {
+        "bytes": 28842,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only.npz",
+        "sha256": "6e2872eacbbc97e4a7e8ad0a0723d535332820e11d5b02bcde431a46dbe0a31f"
+      },
+      "actual_corpus_deck_fit_1_id_only_predictions_json": {
+        "bytes": 16724,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only-predictions.json",
+        "sha256": "b10ba899d731f4fcb2c3dd386120566625b83a303ddc0e9aa87bc6e4156f1f32"
+      },
+      "actual_corpus_deck_fit_1_id_only_vectors_json": {
+        "bytes": 115374,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/id-only-vectors.json",
+        "sha256": "206fa25b0b0cecd74fc076e383b85ffac8d0387b56389d8de70f070b84fff1fd"
+      },
+      "actual_corpus_deck_fit_1_independent_verification_json": {
+        "bytes": 10645,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1-independent-verification.json",
+        "sha256": "5770050f06721f543577621616f86bb925409b42b84b1c8ef55e4eaa813ff352"
+      },
+      "actual_corpus_deck_fit_1_receipt_json": {
+        "bytes": 11647,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/receipt.json",
+        "sha256": "a32133f865ff0f557425f56bfb4b296672aa95717b4086c2e09cbab683b76faa"
+      },
+      "actual_corpus_deck_fit_1_shared_initial_npz": {
+        "bytes": 28842,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/shared-initial.npz",
+        "sha256": "324143853aa5597fb091eeca8a4e5bc6ac33e648a68358b1acf1d614db9108af"
+      },
+      "actual_corpus_deck_fit_1_untrained_typed_npz": {
+        "bytes": 28842,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed.npz",
+        "sha256": "278d3c80a34f6656218a43351ad2c0af9268214de82c76f034b9e451a31d9b1c"
+      },
+      "actual_corpus_deck_fit_1_untrained_typed_predictions_json": {
+        "bytes": 16706,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed-predictions.json",
+        "sha256": "be243678dd5ef4d1c3ec7fc7a20c5951d7951b17aad7beea110b1d4a308f2dbc"
+      },
+      "actual_corpus_deck_fit_1_untrained_typed_vectors_json": {
+        "bytes": 115343,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/untrained-typed-vectors.json",
+        "sha256": "90a94ac461cc9ae069e7f4318021f1c19d70128e24a9faae7a61b49e30dbadfb"
+      },
+      "actual_corpus_deck_prepared_v1_data_json": {
+        "bytes": 268246,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/data.json",
+        "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+      },
+      "actual_corpus_deck_prepared_v1_plan_json": {
+        "bytes": 5473,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/plan.json",
+        "sha256": "ec45a0421373eb88bdb3c6c174229527c7cbc940470b2064fb9738626dfad487"
+      },
+      "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_protocol_md": {
+        "bytes": 6306,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+        "sha256": "631d29d85ada10cdfd1bcb9f0064a42c9e6d2853aa91be431b84b698d21eae89"
+      },
+      "actual_corpus_deck_prepared_v1_sources_actual_corpus_deck_py": {
+        "bytes": 32929,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/actual_corpus_deck.py",
+        "sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b"
+      },
+      "actual_corpus_deck_prepared_v1_sources_test_actual_corpus_deck_py": {
+        "bytes": 7954,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v1/sources/test_actual_corpus_deck.py",
+        "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+      },
+      "actual_corpus_deck_prepared_v2_data_json": {
+        "bytes": 268246,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/data.json",
+        "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+      },
+      "actual_corpus_deck_prepared_v2_plan_json": {
+        "bytes": 5473,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/plan.json",
+        "sha256": "6b5a55f30d6a0637087c68b4e287d3700f17a260a810664c9eef60a3cc78816c"
+      },
+      "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_protocol_md": {
+        "bytes": 6305,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+        "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+      },
+      "actual_corpus_deck_prepared_v2_sources_actual_corpus_deck_py": {
+        "bytes": 32929,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/actual_corpus_deck.py",
+        "sha256": "8593bd5e3060e06b12451b96dfd08ef510574496eab13396aad249735d7ef50b"
+      },
+      "actual_corpus_deck_prepared_v2_sources_test_actual_corpus_deck_py": {
+        "bytes": 7954,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v2/sources/test_actual_corpus_deck.py",
+        "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+      },
+      "actual_corpus_deck_prepared_v3_data_json": {
+        "bytes": 268246,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/data.json",
+        "sha256": "2d6b1b116a7c9e0f50f0127a45bba091d0697e163f3ce6ac34698a5f78ac5a89"
+      },
+      "actual_corpus_deck_prepared_v3_plan_json": {
+        "bytes": 5473,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-prepared-v3/plan.json",
+        "sha256": "475b25a43f6010a26da42f7d44c2a611ef40c3feb1ccd0403c2cbb9f5d1aead8"
+      },
+      "actual_corpus_deck_progress_1_jsonl": {
+        "bytes": 35654,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-progress-1.jsonl",
+        "sha256": "234c6af0346ef966472919be0e9f36d09482a90610f730d63c7d15dd19d24669"
+      },
+      "actual_corpus_deck_sealed_v1_json": {
+        "bytes": 10176,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-sealed-v1.json",
+        "sha256": "346b7cb0344cdae5a7d3319d09585ba526cf0cf8505c101d39f7d8de17670e77"
+      },
+      "actual_corpus_environment_json": {
+        "bytes": 554,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/environment.json",
+        "sha256": "1cd0863b7b35c036b2aef7c2bbee5155999d706ecc9e7ef06ec7075ef2a91427"
+      },
+      "actual_corpus_independent_review_sources_verify_actual_corpus_deck_py": {
+        "bytes": 7740,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/independent-review-sources/verify_actual_corpus_deck.py",
+        "sha256": "edcbedaded7db1a336395fb7e8e5ed1a636ca24959cf1b6164e96d5326273b78"
+      },
+      "actual_corpus_native_attempt_1_build_stderr_log": {
+        "bytes": 312,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/build.stderr.log",
+        "sha256": "c32efe39fe0e24f0ea4059edd526707681929c492b7e748d3ec6126a795d8679"
+      },
+      "actual_corpus_native_attempt_1_build_stdout_log": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/build.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_native_attempt_1_supervisor_receipt_json": {
+        "bytes": 2841,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
+        "sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087"
+      },
+      "actual_corpus_native_attempt_2_build_stderr_log": {
+        "bytes": 2046,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/build.stderr.log",
+        "sha256": "a3e30a254d1da8a02161b4ccc1a88c03c1a498de4b5c159b19d4d33043f6f1c4"
+      },
+      "actual_corpus_native_attempt_2_build_stdout_log": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/build.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_native_attempt_2_supervisor_receipt_json": {
+        "bytes": 3260,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/supervisor-receipt.json",
+        "sha256": "385462b2ba7ee939682d7b30c67fbf33d411ebff05d9641f52c6458fe2bb62f2"
+      },
+      "actual_corpus_native_attempt_3_build_stderr_log": {
+        "bytes": 2363,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/build.stderr.log",
+        "sha256": "05022fa42dc7ef62788f155ba7ce4c2c9cab237c9c7b616367bc2a7902225808"
+      },
+      "actual_corpus_native_attempt_3_build_stdout_log": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/build.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_native_attempt_3_supervisor_receipt_json": {
+        "bytes": 3315,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/supervisor-receipt.json",
+        "sha256": "266e6fc3bc441df8ba25de213ed9d7a9d0a96b0535b8d609ceac7a79406d0209"
+      },
+      "actual_corpus_native_attempt_4_build_stderr_log": {
+        "bytes": 1838,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/build.stderr.log",
+        "sha256": "d21f96e9493ac4bf3426f3c7e8783ef7f112d95700bb0db10e985d0786f8d76b"
+      },
+      "actual_corpus_native_attempt_4_build_stdout_log": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/build.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_native_attempt_4_collect_stderr_log": {
+        "bytes": 95,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/collect.stderr.log",
+        "sha256": "09d97faad359ded2e8ab289abd51bb49b67eec162749a56feea1b2def7336f72"
+      },
+      "actual_corpus_native_attempt_4_collect_stdout_log": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/collect.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_native_attempt_4_native_transitions_jsonl": {
+        "bytes": 437,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/native-transitions.jsonl",
+        "sha256": "4641c900bbbb72a9a2bc682da1d0ee7c2630b10198719d6f8e145796bd6b1e08"
+      },
+      "actual_corpus_native_attempt_4_supervisor_receipt_json": {
+        "bytes": 3778,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/supervisor-receipt.json",
+        "sha256": "3f5c56f606d1a23c1f4e3c772311df36f52c9f03c53fb72bb899010e4b871102"
+      },
+      "actual_corpus_native_attempt_5_build_stderr_log": {
+        "bytes": 1838,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/build.stderr.log",
+        "sha256": "896618cac74888eaf4b9e54df58a93414c97e3122db21bb806eae8400304de1b"
+      },
+      "actual_corpus_native_attempt_5_build_stdout_log": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/build.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_native_attempt_5_collect_stderr_log": {
+        "bytes": 0,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/collect.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_corpus_native_attempt_5_collect_stdout_log": {
+        "bytes": 164,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/collect.stdout.log",
+        "sha256": "9f33d79bcfaa0843b8c25291aed80e19406a73a25ba9bd2ea77bb3d505ada4f8"
+      },
+      "actual_corpus_native_attempt_5_native_transitions_jsonl": {
+        "bytes": 2065846,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-transitions.jsonl",
+        "sha256": "5310a3821bb3b44eb54b9d125adcf7bd3308ec3fbd6005d10daf637e0c1fa763"
+      },
+      "actual_corpus_native_attempt_5_supervisor_receipt_json": {
+        "bytes": 3784,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/supervisor-receipt.json",
+        "sha256": "1d3b4194276c75e6f102db82e5415cf99e52f7f87c508b2e411a0cdcbdf01df5"
+      },
+      "actual_corpus_native_independent_verification_json": {
+        "bytes": 43067,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-independent-verification.json",
+        "sha256": "09bacac05c3872a68aad9a73e54ead4aeb0b01ad2f1e471d76ead7f830501987"
+      },
+      "actual_corpus_native_independent_verification_py": {
+        "bytes": 16960,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-independent-verification.py",
+        "sha256": "7a3706fd22a9dcb61723e0cc3c36b6997b51570a584671268584d528681718eb"
+      },
+      "actual_corpus_native_plan_json": {
+        "bytes": 86319,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+        "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+      },
+      "actual_corpus_native_source_v1_source_manifest_json": {
+        "bytes": 28897,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v1/source-manifest.json",
+        "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325"
+      },
+      "actual_corpus_native_source_v1_supervise_py": {
+        "bytes": 14516,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v1/supervise.py",
+        "sha256": "bfd155d44ac7e9a21ee40e4714bac727697c20b52b9e19012491094afa01b027"
+      },
+      "actual_corpus_native_source_v2_source_manifest_json": {
+        "bytes": 30248,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v2/source-manifest.json",
+        "sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48"
+      },
+      "actual_corpus_native_source_v2_supervise_py": {
+        "bytes": 15637,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v2/supervise.py",
+        "sha256": "42c5444bf262b9030908d3095b5616bed72c582b84b311624b2afce4500d560c"
+      },
+      "actual_corpus_native_source_v3_source_manifest_json": {
+        "bytes": 32836,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/source-manifest.json",
+        "sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf"
+      },
+      "actual_corpus_native_source_v3_src_main_rs": {
+        "bytes": 18425,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/src/main.rs",
+        "sha256": "f4ea690c28de3cf774435da9fc1be04a7bf75b19e4851806797fb2197135cfe6"
+      },
+      "actual_corpus_native_source_v3_supervise_py": {
+        "bytes": 17124,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v3/supervise.py",
+        "sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03"
+      },
+      "actual_corpus_native_source_v4_source_manifest_json": {
+        "bytes": 34218,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v4/source-manifest.json",
+        "sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873"
+      },
+      "actual_corpus_native_source_v4_src_main_rs": {
+        "bytes": 19392,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-source-v4/src/main.rs",
+        "sha256": "051f7429edac48b9dcff2bbac62accdc0971e0c78eb78307298a70283d31b62d"
+      },
+      "card_result": {
+        "bytes": 807838,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/result.json",
+        "sha256": "593314724ee98d1b2e81cd2910dd7485b17d32ea36665b61e4d86e5af3e20cff"
+      },
+      "card_vectors": {
+        "bytes": 8457,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-vectors.json",
+        "sha256": "19ba75fce2ca73a5521d08fde7ffc36e609bc99db9de2b726e42db4ef4dbadbc"
+      },
+      "coverage": {
+        "bytes": 1498747,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+        "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+      },
+      "coverage_verification": {
+        "bytes": 569,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/root-complete-verification.json",
+        "sha256": "e995fac3f02fedc74064c2951937bc79495a4148da35f4a68459fec601bdb28a"
+      },
+      "deck_result": {
+        "bytes": 22369,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/result.json",
+        "sha256": "c2ba170720cc00c830f314219cc79fd67fc464e193eba46afe2a3b65e2359c91"
+      },
+      "deck_vectors": {
+        "bytes": 115394,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/deck-fit-1/correct-typed-vectors.json",
+        "sha256": "679b7a608628eb9eb60fa47a11bf42e0bf87d72a90706066c6b9f05f5cf68e9e"
+      },
+      "native_result": {
+        "bytes": 3783318,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-receipt.json",
+        "sha256": "ac68c71ea5373206bb461908e155fa2b44fa23b8c365b05c99465841717b2aff"
+      },
+      "packaging_inventory": {
+        "bytes": 42798,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus-export/inventory.json",
+        "sha256": "c09fdcd53c9e0c441ff768f7685f2b7a81cab5f88cd90b725a7defe16476dbf7"
+      },
+      "source_actual_card_bridge_results_md": {
+        "bytes": 8076,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CARD_BRIDGE_RESULTS.md",
+        "sha256": "a67908568f415bbefdeeba8b851ccdc9b09dcefc53d866780e3e4f3550171075"
+      },
+      "source_actual_card_qualification_results_md": {
+        "bytes": 7511,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CARD_QUALIFICATION_RESULTS.md",
+        "sha256": "07ea7412d6c2078364dc490a0aa6b5e8f76c9ac7a21a190ba06ead39eb715f00"
+      },
+      "source_actual_corpus_admission_audit_md": {
+        "bytes": 28035,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_ADMISSION_AUDIT.md",
+        "sha256": "2123378169711982fcc990937c2019cbb226c8375868caceb8cbe2de6a8a7991"
+      },
+      "source_actual_corpus_coverage_md": {
+        "bytes": 3702,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_COVERAGE.md",
+        "sha256": "8840a1828903a6a62b0242b2645485ff4f044032e0166055734610c610056fe2"
+      },
+      "source_actual_corpus_coverage_py": {
+        "bytes": 14977,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_coverage.py",
+        "sha256": "c93ffc307824010f00eff4ea046ef053d648c386d0e2a5a7a32917809377c4f5"
+      },
+      "source_actual_corpus_deck_protocol_md": {
+        "bytes": 6305,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_PROTOCOL.md",
+        "sha256": "5787bfde6ee5965eeb094b5c19205120e4c271a9b6ee9b348add6ca3da652837"
+      },
+      "source_actual_corpus_deck_py": {
+        "bytes": 33271,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_deck.py",
+        "sha256": "904ff7197c8fcad2700b6bd7eb00f141af689c9a911a25bf57142ef97cb63086"
+      },
+      "source_actual_corpus_deck_results_md": {
+        "bytes": 6879,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/ACTUAL_CORPUS_DECK_RESULTS.md",
+        "sha256": "1d28db81f12d90e0622758a8fbb1f6cb2ce2b1cb90a720675c1755dec2acfff0"
+      },
+      "source_actual_corpus_export_py": {
+        "bytes": 19554,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_export.py",
+        "sha256": "1c8fa0507c35074cf74065349131bb9666543828ccc1cfe114dd4a1b86f8994d"
+      },
+      "source_actual_corpus_native_collector_cargo_lock": {
+        "bytes": 9567,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.lock",
+        "sha256": "1e807c215b0bbd7932bfc8bff6b3e465ec00db7d96df1a5f09541c8e48952b6a"
+      },
+      "source_actual_corpus_native_collector_cargo_toml": {
+        "bytes": 540,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/Cargo.toml",
+        "sha256": "05771ce0fbd05e407b91e9289aba5263a82bb875b4d81400c7c4c209a2806adc"
+      },
+      "source_actual_corpus_native_collector_collection_plan_json": {
+        "bytes": 86319,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/collection-plan.json",
+        "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8"
+      },
+      "source_actual_corpus_native_collector_readme_md": {
+        "bytes": 8032,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/README.md",
+        "sha256": "b13c4f001adcf7ca6e2f75ce83d3b082e02910c81187ff673c244cd3f9653ee4"
+      },
+      "source_actual_corpus_native_collector_source_manifest_json": {
+        "bytes": 34724,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest.json",
+        "sha256": "950b2049f04b1ad2808a9eb0365a647d3bd2acd96da64be1c125bfc51e2ab32d"
+      },
+      "source_actual_corpus_native_collector_source_manifest_v1_json": {
+        "bytes": 28897,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v1.json",
+        "sha256": "30166b521327616e894f4be7ac8afbd5eafc2edd7c5969f64ffd7215f381f325"
+      },
+      "source_actual_corpus_native_collector_source_manifest_v2_json": {
+        "bytes": 30248,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v2.json",
+        "sha256": "36511d4b5eaaf8d516bde269255302fa04eaf3e00a1083970a1906fc4d6afd48"
+      },
+      "source_actual_corpus_native_collector_source_manifest_v3_json": {
+        "bytes": 32836,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v3.json",
+        "sha256": "4630367fabc319a62bfe562723cf7e169d1bdfd3f883059f3503204570370aaf"
+      },
+      "source_actual_corpus_native_collector_source_manifest_v4_json": {
+        "bytes": 34218,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest-v4.json",
+        "sha256": "455bdba578f35b029405abe613be548362ddb6f929926c85b2b1d6aa7059c873"
+      },
+      "source_actual_corpus_native_collector_src_main_rs": {
+        "bytes": 19436,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/src/main.rs",
+        "sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13"
+      },
+      "source_actual_corpus_native_collector_supervise_py": {
+        "bytes": 17124,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/supervise.py",
+        "sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03"
+      },
+      "source_actual_corpus_native_collector_test_plan_guard_py": {
+        "bytes": 5025,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/test_plan_guard.py",
+        "sha256": "2268d3a630d80ebb66203453254f9f530f073b0efe5b61d5ef4984d208802d89"
+      },
+      "source_actual_corpus_native_collector_test_public_trait_input_py": {
+        "bytes": 2882,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/test_public_trait_input.py",
+        "sha256": "9128a0c6c44a13fe7f47c40f1173c1d58284e2ec189901b919910276873d8988"
+      },
+      "source_actual_corpus_native_plan_py": {
+        "bytes": 28935,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_plan.py",
+        "sha256": "2277c46cacb54e35b5c18fc434693dc0ea7f51a1ea922f2171f4b4e405950b8e"
+      },
+      "source_test_actual_corpus_coverage_py": {
+        "bytes": 5458,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_coverage.py",
+        "sha256": "a55e5bbaca6b3342ee7cd67966886d09e671f08157e442a0cb4b2197d9e1c70a"
+      },
+      "source_test_actual_corpus_deck_py": {
+        "bytes": 7954,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_deck.py",
+        "sha256": "8fbbb2d9ecb13115eed9e3a73ced814415352bb0f49040c8a094b3e37fc322e2"
+      },
+      "source_test_actual_corpus_export_py": {
+        "bytes": 10271,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_export.py",
+        "sha256": "92dfbf206f9736c6c76a9a6d976dfdd2e498264685152bb2a39738c53d5e850a"
+      },
+      "source_test_actual_corpus_native_plan_py": {
+        "bytes": 9850,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_actual_corpus_native_plan.py",
+        "sha256": "3d8e131d343a8c6860606b2c01ee5896a95faf8522bbb542c1d6e8882661cf6b"
+      },
+      "source_test_whole_card_encoder_py": {
+        "bytes": 8323,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/test_whole_card_encoder.py",
+        "sha256": "696a88bf220b98b628db2dc4c7286d0327890ef919ba38b058dd8190e9c59243"
+      },
+      "source_whole_card_encoder_py": {
+        "bytes": 40826,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/whole_card_encoder.py",
+        "sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2"
+      },
+      "source_whole_card_native_protocol_md": {
+        "bytes": 9993,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/WHOLE_CARD_NATIVE_PROTOCOL.md",
+        "sha256": "d5008e2bc1c36edd99cbf20264ae15ab20849aec4dbddb7db47e6f7a3267be11"
+      },
+      "whole_card_card_plan_json": {
+        "bytes": 34674,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-plan.json",
+        "sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b"
+      },
+      "whole_card_card_prepared_json": {
+        "bytes": 25485,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-prepared.json",
+        "sha256": "2c026263ca43459eb8b4cfc594176fdf38aa8ded8e48f8741f7c91209d8deadc"
+      },
+      "whole_card_card_progress_jsonl": {
+        "bytes": 111101,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-progress.jsonl",
+        "sha256": "a736fe299b9cbf01d02b41064d3799a409ac297f7402ea48feab786b720c43df"
+      },
+      "whole_card_card_qualification_audit_json": {
+        "bytes": 6035,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/card-qualification-audit.json",
+        "sha256": "f378dd7ad0849978da5f52203a0b2266da671d1926eff8df4dc7af38edf565a3"
+      },
+      "whole_card_fit_1_card_vectors_npz": {
+        "bytes": 3061,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/card-vectors.npz",
+        "sha256": "939a2ffaf9e67390f23d5f36b0a6ba9488903776447a9229b5066e4d68768c50"
+      },
+      "whole_card_fit_1_contract_json": {
+        "bytes": 9896,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/contract.json",
+        "sha256": "7beab74914110c5f380e188976f263afd6d843ebf07468d27e3d7152034f0141"
+      },
+      "whole_card_fit_1_correct_typed_checkpoint_npz": {
+        "bytes": 48446,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-checkpoint.npz",
+        "sha256": "3c8305262a94526026e6d4d1c978e34404887ae2e42fff5a31724a3ba9cdba11"
+      },
+      "whole_card_fit_1_correct_typed_step0_predictions_npz": {
+        "bytes": 9739,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step0-predictions.npz",
+        "sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98"
+      },
+      "whole_card_fit_1_correct_typed_step200_predictions_npz": {
+        "bytes": 9820,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/correct-typed-step200-predictions.npz",
+        "sha256": "6c0a457bfcae2b0c2f0d64c3d851d0c0ca77dde586dea5e453d8e472ac560857"
+      },
+      "whole_card_fit_1_id_only_checkpoint_npz": {
+        "bytes": 48285,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-checkpoint.npz",
+        "sha256": "b89b6804b2f01a4e30b1179358e06fc0ddd7f19ffb0db8d763dbf0e1780e0b6c"
+      },
+      "whole_card_fit_1_id_only_step0_predictions_npz": {
+        "bytes": 9728,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-step0-predictions.npz",
+        "sha256": "c73b70c6caf67d7b580432cefa034530ee5ed3a3aa40b8d1718907b2752348b3"
+      },
+      "whole_card_fit_1_id_only_step200_predictions_npz": {
+        "bytes": 9798,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-step200-predictions.npz",
+        "sha256": "bc1a1907eda9e1d09e4dca57769f6fd762b877c31c074ba722b6eeb32076bb76"
+      },
+      "whole_card_fit_1_id_only_vectors_json": {
+        "bytes": 7959,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/id-only-vectors.json",
+        "sha256": "2bbc2eafc4aed8f2019b1ebf6e8aa9add4142c6e8ad6baecac53dab1b51916fb"
+      },
+      "whole_card_fit_1_receipt_json": {
+        "bytes": 558,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/receipt.json",
+        "sha256": "eb7c9037171df5fe95f25cda899e62d868b3476015742edcad49f500eb2382ef"
+      },
+      "whole_card_fit_1_schedules_npz": {
+        "bytes": 6337,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/schedules.npz",
+        "sha256": "1675ac2c524bed8cbd741ada378b87632cff33df9d1d741df02a00a7df9d39fc"
+      },
+      "whole_card_fit_1_untrained_typed_checkpoint_npz": {
+        "bytes": 48324,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-checkpoint.npz",
+        "sha256": "29c6fc46d30a4b643156bca6b309281530e75efbe083d7136dda79b5554fc8f4"
+      },
+      "whole_card_fit_1_untrained_typed_step0_predictions_npz": {
+        "bytes": 9739,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-step0-predictions.npz",
+        "sha256": "c4a27ab57143eafceb1b83daaa2f1cd7618043fd60152cb94f10b0245ac6db98"
+      },
+      "whole_card_fit_1_untrained_typed_step200_predictions_npz": {
+        "bytes": 9806,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-step200-predictions.npz",
+        "sha256": "4e31aa6ed926ed1223d2c64acc75135ab2d964a8bc27523f7ad11b7f1238a80e"
+      },
+      "whole_card_fit_1_untrained_typed_vectors_json": {
+        "bytes": 8458,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/untrained-typed-vectors.json",
+        "sha256": "a4eb04a0b3647b5cb70a21c89b941c282e1a595aa1a3c4bba38c2d91b6d6d9a7"
+      },
+      "whole_card_fit_1_wrong_typed_checkpoint_npz": {
+        "bytes": 48451,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-checkpoint.npz",
+        "sha256": "83df18b83ddbc409350ddf2929e34e4dd6455b1f06141928f27021bb5e02d4bc"
+      },
+      "whole_card_fit_1_wrong_typed_step0_predictions_npz": {
+        "bytes": 9733,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-step0-predictions.npz",
+        "sha256": "a38efda9f7915bd290563302be52fc6e50fb24d6173e302f8e30f1c578434b02"
+      },
+      "whole_card_fit_1_wrong_typed_step200_predictions_npz": {
+        "bytes": 9798,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-step200-predictions.npz",
+        "sha256": "ab19be57b02d2528b6820b74f53e8a6aa4efd173f862b20101d70cd113bb56a5"
+      },
+      "whole_card_fit_1_wrong_typed_vectors_json": {
+        "bytes": 8431,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/fit-1/wrong-typed-vectors.json",
+        "sha256": "819c2004c9816ea2506e2ceccf3716901d9dd5769f0397f0e57728e4d21a146c"
+      },
+      "whole_card_prefit_audit_json": {
+        "bytes": 1933,
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/whole-card/prefit-audit.json",
+        "sha256": "c59343820fc4e33f0949e079a251bc1624fb12eb2c30fb884b52197225a921a2"
+      }
+    },
+    "counters": {
+      "native_calls": 0,
+      "neural_forwards": 0,
+      "optimizer_updates": 0,
+      "paid_jobs": 0
+    },
+    "expected": {
+      "cards": 8,
+      "decks": 27,
+      "supported_main_copies": 65,
+      "total_main_copies": 1432
+    },
+    "policy": "Copy ALL supplied raw artifacts and full head/negative/unknown results. Never mutate existing indexes or publications.",
+    "schema": "jepa-actual-corpus-export-plan/1",
+    "source_code": {
+      "bytes": 19554,
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_export.py",
+      "sha256": "1c8fa0507c35074cf74065349131bb9666543828ccc1cfe114dd4a1b86f8994d"
+    },
+    "source_commit": "8fb922bf56869c72f828ee8312a449f3891ed406",
+    "status": "frozen-export-inputs-verified",
+    "version": "actual-corpus-v1"
+  },
+  "status": "packaged-raw-artifacts-preserved",
+  "version": "actual-corpus-v1"
+}

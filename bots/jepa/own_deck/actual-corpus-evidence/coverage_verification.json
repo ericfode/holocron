@@ -1,0 +1,15 @@
+{
+  "schema": "jepa-actual-corpus-root-complete-verification/1",
+  "status": "verified",
+  "artifact": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/coverage-v2/actual-corpus-coverage.json",
+    "sha256": "dd3ec9dc77f1f888d070f7e8ed0ab20290c347c75c75f6fe01f5504ce43f0480"
+  },
+  "all_27_deck_denominators_preserved": true,
+  "all_251_identity_counts_preserved": true,
+  "all_115_complete_catalog_rows_preserved": true,
+  "all_source_pins_match": true,
+  "native_calls": 0,
+  "neural_forwards": 0,
+  "optimizer_updates": 0
+}

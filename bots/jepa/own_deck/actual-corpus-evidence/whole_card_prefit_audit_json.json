@@ -1,0 +1,59 @@
+{
+  "schema": "whole-card-independent-prefit-audit/1",
+  "status": "PASS_FOR_FROZEN_LIMITED_SCOPE",
+  "execution": {
+    "neural_forwards": 0,
+    "backwards": 0,
+    "optimizer_updates": 0,
+    "native_applies": 0,
+    "torch_imported": false
+  },
+  "pins": {
+    "source_sha256": "b310315d153b3cdfe3439c4f242d9b07e07a1c2ce16c46ede4cf9084a8e0d8a2",
+    "dataset_sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+    "manifest_sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+    "sealed_plan_sha256": "88da6979813a3a655d6dba1779da476c8447bc9b584e42f3ba81c12d72d55e4b"
+  },
+  "independent_checks": {
+    "all_protected_pins_current": true,
+    "recomputed_train_only_scalers_exact": true,
+    "recomputed_native_witness_support_exact": true,
+    "manifest_plan_equals_frozen_native_plan": true,
+    "all_eight_have_paid_settled_witnesses": true,
+    "minimum_paid_settled_per_card": 2,
+    "paid_settled_roots": 23,
+    "settled_roots": 24,
+    "unavailable_roots": 8,
+    "native_error_roots": 0,
+    "split_counts": {
+      "train": 18,
+      "card_held": 6,
+      "state_held": 6,
+      "joint": 2
+    }
+  },
+  "training_head_limits": {
+    "no_known_labels": [
+      "target_damage_delta",
+      "target_exhausted_delta",
+      "target_shield_delta",
+      "target_power_delta",
+      "target_hp_delta"
+    ],
+    "constant_positive": {
+      "target_removed": 5,
+      "source_exhausted_after": 8
+    },
+    "class_support": {
+      "play_available": {
+        "positive": 12,
+        "negative": 6
+      },
+      "target_allowed": {
+        "positive": 12,
+        "negative": 36
+      }
+    }
+  },
+  "interpretation": "No fit blocker for bounded sampled native task. Wholly unobserved output heads are not trained binding tests. Held exhaust is a one-card primitive OOD diagnostic. Whole-card semantics, all115 admitted cards, strategy and synergy remain unqualified."
+}

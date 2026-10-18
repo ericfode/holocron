@@ -1,0 +1,2384 @@
+{
+  "schema": "actual-corpus-independent-native-verification/1",
+  "created_utc": "2026-10-18T02:46:43.442070+00:00",
+  "status": "passed",
+  "source_commit": "8fb922bf56869c72f828ee8312a449f3891ed406",
+  "script": {
+    "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-independent-verification.py",
+    "sha256": "7a3706fd22a9dcb61723e0cc3c36b6997b51570a584671268584d528681718eb",
+    "bytes": 16960
+  },
+  "inputs": [
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-receipt.json",
+      "sha256": "ac68c71ea5373206bb461908e155fa2b44fa23b8c365b05c99465841717b2aff",
+      "bytes": 3783318
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.npz",
+      "sha256": "e3f8cc1227f59fa61bbbea230780afec61ebb3f5c9bba2fb3a7be906533187aa",
+      "bytes": 4543
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/actual-corpus.manifest.json",
+      "sha256": "34f24d5a0739c42feb4ab5e6d58fa3ad55970ebfe10941f2494bbad5692ffd69",
+      "bytes": 3858872
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-plan.json",
+      "sha256": "5c6c528448c4e4ca83de6b11154fccb03dd0414aeae4fa0692fb92a45cec3ae8",
+      "bytes": 86319
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/source-manifest.json",
+      "sha256": "950b2049f04b1ad2808a9eb0365a647d3bd2acd96da64be1c125bfc51e2ab32d",
+      "bytes": 34724
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/src/main.rs",
+      "sha256": "5c0ed464c4cf03090449d22f265511e04edc2c64cbbebd573b000ee10e3d6f13",
+      "bytes": 19436
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/holocron-deck-context/bots/jepa/own_deck/actual_corpus_native_collector/supervise.py",
+      "sha256": "326869d7318a156b15f20977564828196fb027326a79dac6e477aa851d47bd03",
+      "bytes": 17124
+    },
+    {
+      "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/native-transitions.jsonl",
+      "sha256": "5310a3821bb3b44eb54b9d125adcf7bd3308ec3fbd6005d10daf637e0c1fa763",
+      "bytes": 2065846
+    }
+  ],
+  "method": "Independent raw snapshot/offer arithmetic; no converter/model import, no native calls or neural forwards.",
+  "check_counts": {
+    "artifact": 2,
+    "plan": 2,
+    "source": 2,
+    "source_pins": 116,
+    "roots": 3,
+    "array_finite": 7,
+    "mask_domain": 3,
+    "attachment": 64,
+    "action_chain": 38,
+    "last_observed_alias": 24,
+    "intent": 32,
+    "source_labels": 56,
+    "settled_endpoint": 24,
+    "source_masks": 24,
+    "unknown_target_offer": 18,
+    "chosen_commit_count": 32,
+    "unknown_target_future": 20,
+    "unselected_target_future": 32,
+    "target_prompt_witness": 14,
+    "target_offer_labels": 112,
+    "chosen_commit_binding": 12,
+    "target_removal_label": 12,
+    "target_delta_masks": 60,
+    "unknown_source_future": 8,
+    "target_delta_labels": 10,
+    "privacy": 210,
+    "settlement_witness": 210,
+    "printed_trait_scope": 421,
+    "head_support": 64,
+    "durable_journal": 3,
+    "native_ledger": 18,
+    "preserved_failure": 4,
+    "per_card_observation": 8
+  },
+  "mismatch_count": 0,
+  "mismatches": [],
+  "capture_occurrences_checked": 210,
+  "last_observed_aliases_verified": 24,
+  "total_snapshot_occurrences_covered": 234,
+  "terminal_capture_occurrences": 0,
+  "root_completion_counts": {
+    "settled": 24,
+    "play-unavailable": 8
+  },
+  "root_count": 32,
+  "native_error_roots": 0,
+  "pending_roots": 0,
+  "native_apply_count": 38,
+  "native_action_tally": {
+    "play-own-hand": 24,
+    "chosen-target": 12,
+    "decline-unoffered-target": 2
+  },
+  "per_card": {
+    "ASH_048": {
+      "roots": 4,
+      "paid_settled_plays": 3,
+      "paid_root_indices": [
+        0,
+        16,
+        24
+      ]
+    },
+    "JTL_095": {
+      "roots": 4,
+      "paid_settled_plays": 3,
+      "paid_root_indices": [
+        2,
+        18,
+        26
+      ]
+    },
+    "SEC_163": {
+      "roots": 4,
+      "paid_settled_plays": 3,
+      "paid_root_indices": [
+        7,
+        23,
+        31
+      ]
+    },
+    "LOF_077": {
+      "roots": 4,
+      "paid_settled_plays": 2,
+      "paid_root_indices": [
+        5,
+        29
+      ]
+    },
+    "JTL_078": {
+      "roots": 4,
+      "paid_settled_plays": 3,
+      "paid_root_indices": [
+        1,
+        17,
+        25
+      ]
+    },
+    "JTL_158": {
+      "roots": 4,
+      "paid_settled_plays": 3,
+      "paid_root_indices": [
+        3,
+        19,
+        27
+      ]
+    },
+    "LOF_155": {
+      "roots": 4,
+      "paid_settled_plays": 3,
+      "paid_root_indices": [
+        6,
+        22,
+        30
+      ]
+    },
+    "JTL_217": {
+      "roots": 4,
+      "paid_settled_plays": 3,
+      "paid_root_indices": [
+        4,
+        20,
+        28
+      ]
+    }
+  },
+  "root_checks": [
+    {
+      "code": "ASH_048",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        4.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_078",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        4.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_cheap",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "JTL_095",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_158",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_217",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        5.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "friendly_ground",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "LOF_077",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        3.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_cheap",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "LOF_155",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "nonunique_upgrade",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "SEC_163",
+      "state_family": 0,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "nonunique_upgrade",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "ASH_048",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "JTL_078",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_cheap",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "JTL_095",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "JTL_158",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "JTL_217",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "friendly_ground",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "LOF_077",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_cheap",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "LOF_155",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "nonunique_upgrade",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "SEC_163",
+      "state_family": 1,
+      "completion": "play-unavailable",
+      "source_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "nonunique_upgrade",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": []
+    },
+    {
+      "code": "ASH_048",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        4.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_078",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        4.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_expensive",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "JTL_095",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_158",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_217",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        5.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "friendly_ground",
+      "selected_target_values": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "LOF_077",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_expensive",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "decline-unoffered-target"
+      ]
+    },
+    {
+      "code": "LOF_155",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "unique_upgrade",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "decline-unoffered-target"
+      ]
+    },
+    {
+      "code": "SEC_163",
+      "state_family": 2,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "unique_upgrade",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "ASH_048",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        4.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_078",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        4.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_cheap",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "JTL_095",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_158",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "source",
+      "selected_target_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand"
+      ]
+    },
+    {
+      "code": "JTL_217",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        5.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "friendly_ground",
+      "selected_target_values": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "LOF_077",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        3.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chosen_ref": "enemy_vehicle_cheap",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "LOF_155",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "nonunique_upgrade",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    },
+    {
+      "code": "SEC_163",
+      "state_family": 3,
+      "completion": "settled",
+      "source_values": [
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_mask": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "chosen_ref": "nonunique_upgrade",
+      "selected_target_values": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "selected_target_mask": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": [
+        "play-own-hand",
+        "chosen-target"
+      ]
+    }
+  ],
+  "head_support": {
+    "train": {
+      "play_available": {
+        "known": 18,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 12,
+        "negative": 6
+      },
+      "play_committed": {
+        "known": 12,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 11,
+        "negative": 1
+      },
+      "cost_resource": {
+        "known": 12,
+        "values": [
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          6.0
+        ],
+        "positive": 2,
+        "negative": 1
+      },
+      "source_in_arena": {
+        "known": 12,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 8,
+        "negative": 4
+      },
+      "source_in_discard": {
+        "known": 12,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 3,
+        "negative": 9
+      },
+      "source_in_hand_after": {
+        "known": 12,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 1,
+        "negative": 11
+      },
+      "source_damage_delta": {
+        "known": 8,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 1,
+        "negative": 7
+      },
+      "source_shield_delta": {
+        "known": 8,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 2,
+        "negative": 6
+      },
+      "source_exhausted_after": {
+        "known": 8,
+        "values": [
+          1.0
+        ],
+        "positive": 8,
+        "negative": 0
+      },
+      "target_allowed": {
+        "known": 48,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 12,
+        "negative": 36
+      },
+      "target_removed": {
+        "known": 5,
+        "values": [
+          1.0
+        ],
+        "positive": 5,
+        "negative": 0
+      },
+      "target_damage_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_exhausted_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_shield_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_power_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_hp_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      }
+    },
+    "program-held": {
+      "play_available": {
+        "known": 6,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 4,
+        "negative": 2
+      },
+      "play_committed": {
+        "known": 4,
+        "values": [
+          1.0
+        ],
+        "positive": 4,
+        "negative": 0
+      },
+      "cost_resource": {
+        "known": 4,
+        "values": [
+          2.0,
+          5.0
+        ],
+        "positive": 0,
+        "negative": 0
+      },
+      "source_in_arena": {
+        "known": 4,
+        "values": [
+          1.0
+        ],
+        "positive": 4,
+        "negative": 0
+      },
+      "source_in_discard": {
+        "known": 4,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 4
+      },
+      "source_in_hand_after": {
+        "known": 4,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 4
+      },
+      "source_damage_delta": {
+        "known": 4,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 4
+      },
+      "source_shield_delta": {
+        "known": 4,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 4
+      },
+      "source_exhausted_after": {
+        "known": 4,
+        "values": [
+          1.0
+        ],
+        "positive": 4,
+        "negative": 0
+      },
+      "target_allowed": {
+        "known": 24,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 6,
+        "negative": 18
+      },
+      "target_removed": {
+        "known": 2,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 1,
+        "negative": 1
+      },
+      "target_damage_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      },
+      "target_exhausted_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      },
+      "target_shield_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      },
+      "target_power_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      },
+      "target_hp_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      }
+    },
+    "state-held": {
+      "play_available": {
+        "known": 6,
+        "values": [
+          1.0
+        ],
+        "positive": 6,
+        "negative": 0
+      },
+      "play_committed": {
+        "known": 6,
+        "values": [
+          1.0
+        ],
+        "positive": 6,
+        "negative": 0
+      },
+      "cost_resource": {
+        "known": 6,
+        "values": [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          6.0
+        ],
+        "positive": 1,
+        "negative": 0
+      },
+      "source_in_arena": {
+        "known": 6,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 4,
+        "negative": 2
+      },
+      "source_in_discard": {
+        "known": 6,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 2,
+        "negative": 4
+      },
+      "source_in_hand_after": {
+        "known": 6,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 6
+      },
+      "source_damage_delta": {
+        "known": 4,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 1,
+        "negative": 3
+      },
+      "source_shield_delta": {
+        "known": 4,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 1,
+        "negative": 3
+      },
+      "source_exhausted_after": {
+        "known": 4,
+        "values": [
+          1.0
+        ],
+        "positive": 4,
+        "negative": 0
+      },
+      "target_allowed": {
+        "known": 24,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 6,
+        "negative": 18
+      },
+      "target_removed": {
+        "known": 3,
+        "values": [
+          1.0
+        ],
+        "positive": 3,
+        "negative": 0
+      },
+      "target_damage_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_exhausted_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_shield_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_power_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      },
+      "target_hp_delta": {
+        "known": 0,
+        "values": [],
+        "positive": 0,
+        "negative": 0
+      }
+    },
+    "joint": {
+      "play_available": {
+        "known": 2,
+        "values": [
+          1.0
+        ],
+        "positive": 2,
+        "negative": 0
+      },
+      "play_committed": {
+        "known": 2,
+        "values": [
+          1.0
+        ],
+        "positive": 2,
+        "negative": 0
+      },
+      "cost_resource": {
+        "known": 2,
+        "values": [
+          2.0,
+          5.0
+        ],
+        "positive": 0,
+        "negative": 0
+      },
+      "source_in_arena": {
+        "known": 2,
+        "values": [
+          1.0
+        ],
+        "positive": 2,
+        "negative": 0
+      },
+      "source_in_discard": {
+        "known": 2,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 2
+      },
+      "source_in_hand_after": {
+        "known": 2,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 2
+      },
+      "source_damage_delta": {
+        "known": 2,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 2
+      },
+      "source_shield_delta": {
+        "known": 2,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 2
+      },
+      "source_exhausted_after": {
+        "known": 2,
+        "values": [
+          1.0
+        ],
+        "positive": 2,
+        "negative": 0
+      },
+      "target_allowed": {
+        "known": 16,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 5,
+        "negative": 11
+      },
+      "target_removed": {
+        "known": 2,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "positive": 1,
+        "negative": 1
+      },
+      "target_damage_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      },
+      "target_exhausted_delta": {
+        "known": 1,
+        "values": [
+          1.0
+        ],
+        "positive": 1,
+        "negative": 0
+      },
+      "target_shield_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      },
+      "target_power_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      },
+      "target_hp_delta": {
+        "known": 1,
+        "values": [
+          0.0
+        ],
+        "positive": 0,
+        "negative": 1
+      }
+    }
+  },
+  "printed_trait_scope": {
+    "selected_complete_rows": 19,
+    "trait_mutating_kinds_found": [],
+    "lookup": "Actual current arena definition code -> pinned public full-row card.traits; source excluded.",
+    "limitation": "Valid for these unchanged-trait fixtures; printed traits are not assumed current for arbitrary trait-changing games."
+  },
+  "support_limits": {
+    "train_zero_known_heads": [
+      "target_damage_delta",
+      "target_exhausted_delta",
+      "target_shield_delta",
+      "target_power_delta",
+      "target_hp_delta"
+    ],
+    "train_constant_heads": [
+      "source_exhausted_after",
+      "target_removed"
+    ],
+    "positive_exhaust_delta": "One joint-held coordinate; this output has no supervised training labels.",
+    "qualification": "Eight actual cards/65 declared copies and selected play paths, not all115 admitted IDs, all card abilities, gameplay strength or semantic validation."
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-1/supervisor-receipt.json",
+        "sha256": "9badc39ae64cb2d823881c120706a8ea83145495cd86da4430bd34f99f9b8087",
+        "bytes": 2841
+      },
+      "status": "failed",
+      "canonical_active_seconds": 1.7202060000272468,
+      "receipt_elapsed_seconds": 1.7203014169353992,
+      "native_applies": 0,
+      "recorded_memory_bound_bytes": 1094336512
+    },
+    {
+      "attempt": 2,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-2/supervisor-receipt.json",
+        "sha256": "385462b2ba7ee939682d7b30c67fbf33d411ebff05d9641f52c6458fe2bb62f2",
+        "bytes": 3260
+      },
+      "status": "failed",
+      "canonical_active_seconds": 6.014138875063509,
+      "receipt_elapsed_seconds": 6.014248959021643,
+      "native_applies": 0,
+      "recorded_memory_bound_bytes": 1095303168
+    },
+    {
+      "attempt": 3,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-3/supervisor-receipt.json",
+        "sha256": "266e6fc3bc441df8ba25de213ed9d7a9d0a96b0535b8d609ceac7a79406d0209",
+        "bytes": 3315
+      },
+      "status": "failed",
+      "canonical_active_seconds": 0.17764929099939764,
+      "receipt_elapsed_seconds": 0.17775145801715553,
+      "native_applies": 0,
+      "recorded_memory_bound_bytes": 208945152
+    },
+    {
+      "attempt": 4,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-4/supervisor-receipt.json",
+        "sha256": "3f5c56f606d1a23c1f4e3c772311df36f52c9f03c53fb72bb899010e4b871102",
+        "bytes": 3778
+      },
+      "status": "failed",
+      "canonical_active_seconds": 1.213118041981943,
+      "receipt_elapsed_seconds": 1.2131933749187738,
+      "native_applies": 0,
+      "recorded_memory_bound_bytes": 279691264
+    },
+    {
+      "attempt": 5,
+      "receipt": {
+        "path": "/Users/ericfode/Documents/Codex/2026-10-17/task-7/experiments/actual-corpus/native-attempt-5/supervisor-receipt.json",
+        "sha256": "1d3b4194276c75e6f102db82e5415cf99e52f7f87c508b2e411a0cdcbdf01df5",
+        "bytes": 3784
+      },
+      "status": "completed",
+      "canonical_active_seconds": 4.651173916994594,
+      "receipt_elapsed_seconds": 4.651307916967198,
+      "native_applies": 38,
+      "recorded_memory_bound_bytes": 255754240
+    }
+  ],
+  "failed_attempt_count": 4,
+  "native_ledger_prefix": {
+    "sha256": "df68d0ca82f8eb25f9ae17d51d07148790766ab80b55b73f25406730789804e1",
+    "bytes": 10087,
+    "canonical_active_seconds": 13.77628612506669,
+    "native_applies": 38,
+    "optimizer_updates": 0,
+    "neural_forwards": 0
+  },
+  "resource_limit_caveat": "The genuine attempt2 over-limit sample remains preserved; successful-attempt RSS is not an all-attempt cap pass.",
+  "audit_execution": {
+    "native_calls": 0,
+    "neural_forwards": 0,
+    "optimizer_updates": 0,
+    "paid_jobs": 0
+  }
+}
