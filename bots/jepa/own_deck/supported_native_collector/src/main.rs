@@ -120,7 +120,7 @@ impl Budget {
 }
 
 fn ready_resources(s: &State) -> i64 {
-    s.player(Seat::P1).resources.iter().filter(|id| !s.card(**id).exhausted).count() as i64
+    s.player(Seat::P1).resources.as_slice().iter().filter(|id| !s.card(**id).exhausted).count() as i64
 }
 
 fn run_case(e: &Engine, budget: &mut Budget, code: &str, family: usize) -> Result<Value,String> {
