@@ -1,0 +1,12 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const {fixture,validateProbe,dependencies}=require('../pipeline/blade-base-damage-probe-fixture');
+const fillers=['ASH_061','ASH_131','ASH_190','ASH_201','ASH_242','ASH_261','HMW_082','HMW_093','HMW_116','HMW_128','HMW_135','HMW_155','HMW_163','HMW_174','HMW_178','HMW_219','HMW_258'];
+const probe=(owner=0,scenario='paid-play-damage1')=>({family:'blade-base-damage',cardId:'ASH_204',owner,scenario,sourceArena:'space',resourceCount:12,leaderCode:'SOR_014',enemyLeaderCode:'SOR_014',baseCode:'ASH_025',enemyBaseCode:'ASH_025',fillerCodes:[...fillers]});
+const names=['paid-play-damage1','damage3','separate-events','enemy-base-negative','friendly-unit-negative','shield-cancel-unit','zero-base-combat','source-gone-before','source-gone-within-cinder','terminal-own-base','advantage-attack-expiry','advantage-phase-persistence'];
+test('all twelve source constructions accept both owners without changing raw input',()=>{for(const name of names)for(const owner of [0,1]){const p=probe(owner,name),before=structuredClone(p);assert.equal(validateProbe(p),p);assert.deepEqual(p,before);}});
+test('reject unsupported donor diagnostics and unknown probe fields',()=>{assert.throws(()=>validateProbe(probe(0,'partial-prevention-base-cap')));assert.throws(()=>validateProbe({...probe(),synthetic:true}));assert.throws(()=>validateProbe(null));});
+test('source identity, owner, arena, aspect setup and resource construction are closed',()=>{for(const change of [{family:'other'},{cardId:'ASH_197'},{owner:2},{sourceArena:'ground'},{resourceCount:24},{leaderCode:'SOR_001'},{enemyLeaderCode:'SOR_001'},{baseCode:'SOR_023'},{enemyBaseCode:'SOR_023'}])assert.throws(()=>validateProbe({...probe(),...change}));});
+test('filler order, membership and duplicates are bound',()=>{for(const f of [[...fillers].reverse(),fillers.slice(1),[fillers[0],...fillers.slice(0,-1)]])assert.throws(()=>validateProbe({...probe(),fillerCodes:f}));});
+test('invalid raw probe rejects before actual game construction',async()=>{await assert.rejects(fixture({newGame(){throw Error('engine touched');}},null,{probe:{...probe(),resourceCount:99}},1),/12/);});
+test('terminal completion helper is an explicit recording dependency',()=>assert(dependencies.includes('lab/kessel-reference/pipeline/terminal-completion.js')));

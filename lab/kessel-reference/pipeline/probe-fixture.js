@@ -165,6 +165,8 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'weakness-continuation') return require('./weakness-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-defeat-attack') return require('./arena-defeat-attack-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'blade-base-damage') return require('./blade-base-damage-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'collective-trigger') return require('./collective-trigger-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'defeat-cause') return require('./defeat-cause-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'executor-upgrade-count') return require('./executor-upgrade-count-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'variable-payment') return require('./variable-payment-probe-fixture').fixture(env, pool, scenario, seed);
@@ -454,6 +456,13 @@ module.exports = {
         'kessel:cards/pipeline/arena-defeat-attack-probes.js',
         'lab/kessel-reference/pipeline/arena-defeat-attack-probe-fixture.js',
         'kessel:crates/kessel/src/arena_defeat_attack_contract.rs',
+        'kessel:cards/pipeline/blade-base-damage-probes.js',
+        'lab/kessel-reference/pipeline/blade-base-damage-probe-fixture.js',
+        'kessel:crates/kessel/src/blade_base_damage_contract.rs',
+        'kessel:cards/pipeline/collective-trigger-probes.js',
+        'lab/kessel-reference/pipeline/collective-trigger-probe-fixture.js',
+        'kessel:crates/kessel/src/collective_trigger_contract.rs',
+        'bots/players/random.js',
         'kessel:cards/pipeline/defeat-cause-probes.js',
         'lab/kessel-reference/pipeline/defeat-cause-probe-fixture.js',
         'kessel:crates/kessel/src/defeat_cause_contract.rs',
