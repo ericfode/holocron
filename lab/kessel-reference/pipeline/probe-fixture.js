@@ -164,6 +164,10 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'force-continuation') return require('./force-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'weakness-continuation') return require('./weakness-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'arena-defeat-attack') return require('./arena-defeat-attack-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'variable-payment') return require('./variable-payment-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'unit-entry') return require('./unit-entry-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'ambush-context') return require('./ambush-context-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'self-base-arena-damage') return require('./self-base-arena-damage-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'terminal-continuation') return require('./terminal-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-damage') return require('./arena-damage-probe-fixture').fixture(env, pool, scenario, seed);
@@ -445,6 +449,20 @@ module.exports = {
         'lab/kessel-reference/pipeline/chosen-hand-discard-probe-fixture.js',
         'kessel:cards/pipeline/distributed-damage-probes.js',
         'lab/kessel-reference/pipeline/distributed-damage-probe-fixture.js',
+        'kessel:cards/pipeline/arena-defeat-attack-probes.js',
+        'lab/kessel-reference/pipeline/arena-defeat-attack-probe-fixture.js',
+        'kessel:crates/kessel/src/arena_defeat_attack_contract.rs',
+        'kessel:cards/pipeline/variable-payment-probes.js',
+        'lab/kessel-reference/pipeline/variable-payment-probe-fixture.js',
+        'lab/kessel-reference/pipeline/terminal-completion.js',
+        'kessel:crates/kessel/src/variable_payment_contract.rs',
+        'kessel:cards/pipeline/unit-entry-probes.js',
+        'lab/kessel-reference/pipeline/unit-entry-probe-fixture.js',
+        'bots/omni/rs/unit-entry-state.js',
+        'kessel:crates/kessel/src/unit_entry_contract.rs',
+        'kessel:cards/pipeline/ambush-context-probes.js',
+        'lab/kessel-reference/pipeline/ambush-context-probe-fixture.js',
+        'kessel:crates/kessel/src/ambush_context_contract.rs',
         'kessel:cards/pipeline/self-base-arena-damage-probes.js',
         'lab/kessel-reference/pipeline/self-base-arena-damage-probe-fixture.js',
         'kessel:crates/kessel/src/cinder_contract.rs',
