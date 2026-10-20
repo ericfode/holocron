@@ -154,6 +154,7 @@ function observe(card, eg) {
     };
 }
 async function fixture(env, pool, scenario, seed) {
+    if (scenario.probe?.family === 'chosen-hand-discard') return require('./chosen-hand-discard-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'distributed-damage') return require('./distributed-damage-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-query') return require('./arena-query-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'base-zone') return require('./base-zone-probe-fixture').fixture(env, pool, scenario, seed);
@@ -438,6 +439,8 @@ module.exports = {
         'lab/kessel-reference/pipeline/base-zone-probe-fixture.js',
         'kessel:cards/pipeline/arena-token-probes.js',
         'lab/kessel-reference/pipeline/arena-token-probe-fixture.js',
+        'kessel:cards/pipeline/chosen-hand-discard-probes.js',
+        'lab/kessel-reference/pipeline/chosen-hand-discard-probe-fixture.js',
         'kessel:cards/pipeline/distributed-damage-probes.js',
         'lab/kessel-reference/pipeline/distributed-damage-probe-fixture.js',
         'kessel:cards/pipeline/arena-damage-probes.js',
