@@ -1,0 +1,9 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const {terminalCompletion}=require('../pipeline/terminal-completion');
+function game(){return {ids:['p1','p2'],over:false,winner:null,round:1,game:{currentPhase:'action'},legalActions(pid){return this.actions[pid]??[]},isActionWindow(pid){return this.windows.includes(pid)},actions:{p1:[{}]},windows:['p1']};}
+test('winner drains both committed public choices and excludes an earlier action actor',()=>{const g=game(),c=terminalCompletion(g,10);assert.equal(c.nextActor(0),'p1');g.over=true;g.winner='p2';g.game.currentPhase='regroup';g.actions.p2=[{}];assert.equal(c.nextActor(1),'p2');assert.throws(()=>c.assertComplete(),/Pending committed/);g.actions.p2=[];g.actions.p1=[{}];g.windows=[];assert.equal(c.nextActor(2),'p1');g.actions.p1=[];g.round++;g.game.currentPhase='action';g.actions.p2=[{}];g.windows=['p2'];assert.equal(c.nextActor(3),null);assert.deepEqual(c.assertComplete(),{winner:'p2',winnerLatchedAt:{round:1,phase:'regroup'},completedAt:{round:2,phase:'action'},postWinnerChoices:2});});
+test('actor absence before winner and exhausted step budget fail even with winner',()=>{const g=game(),c=terminalCompletion(g,2);g.actions={};assert.throws(()=>c.nextActor(0),/No public actor/);g.over=true;g.winner='p1';assert.throws(()=>c.nextActor(2),/step limit/);});
+test('winner cannot change during mandatory continuation',()=>{const g=game(),c=terminalCompletion(g,10);g.over=true;g.winner='p1';c.nextActor(0);g.winner='p2';assert.throws(()=>c.nextActor(1),/changed latched winner/);});
+
+test('all four recorders bind the actual shared completion helper',()=>{for(const name of ['ambush-context','unit-entry','arena-defeat-attack','variable-payment'])assert.ok(require('../pipeline/'+name+'-probe-fixture').dependencies.includes('lab/kessel-reference/pipeline/terminal-completion.js'));});
