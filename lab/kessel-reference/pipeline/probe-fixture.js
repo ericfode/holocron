@@ -165,6 +165,8 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'weakness-continuation') return require('./weakness-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-defeat-attack') return require('./arena-defeat-attack-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'defeat-cause') return require('./defeat-cause-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'executor-upgrade-count') return require('./executor-upgrade-count-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'variable-payment') return require('./variable-payment-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'unit-entry') return require('./unit-entry-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'ambush-context') return require('./ambush-context-probe-fixture').fixture(env, pool, scenario, seed);
@@ -452,6 +454,12 @@ module.exports = {
         'kessel:cards/pipeline/arena-defeat-attack-probes.js',
         'lab/kessel-reference/pipeline/arena-defeat-attack-probe-fixture.js',
         'kessel:crates/kessel/src/arena_defeat_attack_contract.rs',
+        'kessel:cards/pipeline/defeat-cause-probes.js',
+        'lab/kessel-reference/pipeline/defeat-cause-probe-fixture.js',
+        'kessel:crates/kessel/src/defeat_cause_contract.rs',
+        'kessel:cards/pipeline/executor-upgrade-count-probes.js',
+        'lab/kessel-reference/pipeline/executor-upgrade-count-probe-fixture.js',
+        'kessel:crates/kessel/src/executor_upgrade_count_contract.rs',
         'kessel:cards/pipeline/variable-payment-probes.js',
         'lab/kessel-reference/pipeline/variable-payment-probe-fixture.js',
         'lab/kessel-reference/pipeline/terminal-completion.js',
@@ -516,6 +524,7 @@ module.exports = {
         'kessel:cards/pipeline/upgrade-return-probes.js',
         'lab/kessel-reference/pipeline/upgrade-return-probe-fixture.js',
         'engine/env.js',
+        'engine/rng.js',
         'bots/omni/rs/state.js',
         'bots/omni/rs/state-evidence.js',
         'bots/omni/rs/support-state.js',
