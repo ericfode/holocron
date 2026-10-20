@@ -9,7 +9,7 @@ const path = require('node:path');
 const { hasKessel, kessel, kesselPath } = require('../kessel');
 if (!hasKessel()) { test('probe fixtures need a Kessel checkout', { skip: 'set KESSEL_DIR' }, () => {}); return; }
 
-const catalogue = kessel('compiler/generated/catalog.json');
+const catalogue = kessel('compiler/load-catalog').loadCatalog();
 const runtimePool = kesselPath('compiler/generated/runtime-pool.json');
 const copy = (value) => JSON.parse(JSON.stringify(value));
 const find = (id) => catalogue.cards.find((c) => c.setCode === id);
