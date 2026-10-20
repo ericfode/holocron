@@ -1,5 +1,6 @@
 'use strict';
 
+const { supportProjection, supportGrants } = require('./support-state');
 const observations = new WeakMap();
 const arena = zone => zone === 'groundArena' || zone === 'spaceArena';
 const ordinaryUpgrade = card => card.isUpgrade?.() && !card.isToken?.();
@@ -91,7 +92,7 @@ function instrumentStateEvidence(eg) {
     evidence.instrument();
 }
 
-function stateEvidence(eg) {
+function stateEvidence(eg, support = supportProjection(eg)) {
     const evidence = observations.get(eg);
     if (!evidence) throw new Error('State evidence observer must be installed before game initialization');
     const live = eg.game.allCards.filter(c => arena(c.zoneName) && registered(c));
@@ -129,16 +130,7 @@ function stateEvidence(eg) {
     const played = evidence.played.getCurrentValue();
     const playCounts = eg.ids.map(pid => played.filter(entry => entry.playedBy.id === pid).length);
     if (playCounts.some(n => n > 65535)) throw new Error('Phase play count exceeds simulator bounds');
-    // Current Support wire records contain compiled executable programs. An
-    // empty list is justified by the engine's effect registry, never by whether
-    // the selected pool happens to contain a Support card. Active grants need
-    // an explicit reviewed program binding; refusing them avoids losing effects.
-    for (const effect of eg.game.ongoingEffectEngine.effects) {
-        if (effect.duration === 'untilEndOfAttack') {
-            throw new Error('Active Support grant needs reviewed compiled program binding');
-        }
-    }
-    return { supportStateVersion: 1, supportGrants: [], registrationOrder: { version: 1, cards: evidence.cards.map(id) },
+    return { supportStateVersion: 1, supportGrants: supportGrants(eg, support), registrationOrder: { version: 1, cards: evidence.cards.map(id) },
         phaseHistory: { version: 1, entered: entries(evidence.entered.getCurrentValue()), played: entries(played), playCounts } };
 }
 module.exports = { observeStateEvidence, instrumentStateEvidence, stateEvidence };
