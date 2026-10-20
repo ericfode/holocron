@@ -163,6 +163,7 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'weakness-continuation') return require('./weakness-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-damage') return require('./arena-damage-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'han-advantage') return require('./han-advantage-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'selection-exhaust') return require('./selection-exhaust-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'exhaust-resources') return require('./exhaust-resources-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'resource-self') return require('./resource-self-probe-fixture').fixture(env, pool, scenario, seed);
@@ -437,6 +438,8 @@ module.exports = {
         'kessel:cards/pipeline/arena-damage-probes.js',
         'lab/kessel-reference/pipeline/arena-damage-probe-fixture.js',
         'kessel:cards/pipeline/probes.js',
+        'kessel:cards/pipeline/han-advantage-probes.js',
+        'lab/kessel-reference/pipeline/han-advantage-probe-fixture.js',
         'kessel:cards/pipeline/selection-exhaust-probes.js',
         'lab/kessel-reference/pipeline/selection-exhaust-probe-fixture.js',
         'kessel:cards/pipeline/exhaust-resources-probes.js',
