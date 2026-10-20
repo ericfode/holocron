@@ -13,7 +13,7 @@ const prepared = process.env.SWU_STATE_EVIDENCE_PREPARED;
 
 test('real engine witnesses global physical registration, attachments and re-entry before first export', { skip: !prepared && 'set SWU_STATE_EVIDENCE_PREPARED to a prepared native runtime' }, async () => {
     const pool = JSON.parse(fs.readFileSync(path.join(prepared, 'pool.json')));
-    const scenario = { probe: { cardId: 'ASH_061', targets: [{code:'ASH_201',owner:'self',zone:'hand'},{code:'SHD_070',owner:'opponent',zone:'hand'}], sourceInPlay: false } };
+    const scenario = { probe: { cardId: 'ASH_061', targets: [{code:'ASH_201',owner:'self',zone:'hand'},{code:'IC27_093',owner:'opponent',zone:'hand'}], sourceInPlay: false } };
     const { eg, own, enemy } = await constructProbeFixture(new Env(), pool, scenario, 917812);
     const take = (player, code, used = []) => eg.game.allCards.filter(c => c.owner === player).find(c => !used.includes(c) &&
         [c.cardData.setId, ...(c.cardData.setCodes ?? [])].some(s => s.set + '_' + String(s.number).padStart(3, '0') === code));
@@ -22,12 +22,12 @@ test('real engine witnesses global physical registration, attachments and re-ent
     const a = take(enemy, 'ASH_061'), b = take(own, 'ASH_201'), c = take(own, 'ASH_061');
     assert.ok(a && b && c);
     a.moveTo('groundArena'); b.moveTo('spaceArena'); c.moveTo('groundArena');
-    const upgrade = take(enemy, 'SHD_070');
+    const upgrade = take(enemy, 'IC27_093');
     assert.ok(upgrade, 'test deck must include ordinary upgrade');
     upgrade.attachTo(c);
     eg.game.resolveGameState(true);
     assert.deepEqual(stateEvidence(eg).registrationOrder.cards, [a,b,c,upgrade].map(x => eg.cardId(x.uuid)));
-    const d = take(own,'ASH_061',[c]), upgrade2 = take(enemy,'SHD_070',[upgrade]);
+    const d = take(own,'ASH_061',[c]), upgrade2 = take(enemy,'IC27_093',[upgrade]);
     d.moveTo('groundArena'); upgrade2.attachTo(c); eg.game.resolveGameState(true);
     upgrade.unattach(); upgrade.attachTo(c);
     assert.deepEqual(stateEvidence(eg).registrationOrder.cards, [a,b,c,d,upgrade2,upgrade].map(x => eg.cardId(x.uuid)), 'same-zone reattachment appends the earlier upgrade after interleaved sources');
@@ -108,7 +108,9 @@ test('real engine witnesses global physical registration, attachments and re-ent
     eg.game.emitEvent('onPhaseEnded');
     assert.deepEqual(stateEvidence(eg).phaseHistory,{version:1,entered:[],played:[],playCounts:[0,0]});
     eg.game.ongoingEffectEngine.effects.push({duration:'untilEndOfAttack',type:'modifyStats'});
-    assert.throws(() => fullState(eg), /compiled program binding/);
+    // An unbound attack-duration effect is rejected by the earlier Support
+    // projection boundary before ordinary lasting-effect export can run.
+    assert.throws(() => fullState(eg), /Unsupported Support projection: unaccounted attack-duration effect/);
 });
 
 test('snapshot refuses an observer attached after initialization', () => {

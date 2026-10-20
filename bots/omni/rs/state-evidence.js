@@ -92,9 +92,20 @@ function instrumentStateEvidence(eg) {
     evidence.instrument();
 }
 
-function stateEvidence(eg, support = supportProjection(eg)) {
+function stateEvidence(eg, support) {
     const evidence = observations.get(eg);
     if (!evidence) throw new Error('State evidence observer must be installed before game initialization');
+    // Unit rows currently encode controller by arena membership, but have no
+    // independent physical-owner field. Refuse a state whose later departure
+    // would otherwise silently change which player's discard receives the unit.
+    // Ordinary attached upgrades have explicit owner/controller fields; Credit
+    // transfers change both identities together and do not cross this boundary.
+    for (const card of eg.game.allCards) {
+        if (arena(card.zoneName) && card.isUnit?.() && card.owner !== card.controller) {
+            throw new Error('Unsupported foreign-controlled unit physical ownership before export: ' + card.internalName);
+        }
+    }
+    support ??= supportProjection(eg);
     const live = eg.game.allCards.filter(c => arena(c.zoneName) && registered(c));
     if (live.length !== evidence.cards.length || live.some(c => !evidence.cards.includes(c))) {
         throw new Error('Registration observer did not witness every live physical card: ' + JSON.stringify({live:live.map(c=>[eg.cardId(c.uuid),c.internalName,c.zoneName]),observed:evidence.cards.map(c=>[eg.cardId(c.uuid),c.internalName,c.zoneName])}));
