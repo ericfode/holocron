@@ -163,6 +163,8 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'weakness-continuation') return require('./weakness-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-damage') return require('./arena-damage-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'recipient-heal') return require('./recipient-heal-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'cross-arena') return require('./cross-arena-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'han-advantage') return require('./han-advantage-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'selection-exhaust') return require('./selection-exhaust-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'exhaust-resources') return require('./exhaust-resources-probe-fixture').fixture(env, pool, scenario, seed);
@@ -438,6 +440,10 @@ module.exports = {
         'kessel:cards/pipeline/arena-damage-probes.js',
         'lab/kessel-reference/pipeline/arena-damage-probe-fixture.js',
         'kessel:cards/pipeline/probes.js',
+        'kessel:cards/pipeline/recipient-heal-probes.js',
+        'lab/kessel-reference/pipeline/recipient-heal-probe-fixture.js',
+        'kessel:cards/pipeline/cross-arena-probes.js',
+        'lab/kessel-reference/pipeline/cross-arena-probe-fixture.js',
         'kessel:cards/pipeline/han-advantage-probes.js',
         'lab/kessel-reference/pipeline/han-advantage-probe-fixture.js',
         'kessel:cards/pipeline/selection-exhaust-probes.js',
@@ -481,6 +487,7 @@ module.exports = {
         'engine/env.js',
         'bots/omni/rs/state.js',
         'bots/omni/rs/state-evidence.js',
+        'bots/omni/rs/support-state.js',
         'bots/players/index.js',
     ],
 };

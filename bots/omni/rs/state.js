@@ -1,12 +1,14 @@
 'use strict';
 const { stateEvidence } = require('./state-evidence');
+const { supportProjection, consumesSupportEffect } = require('./support-state');
 
-function phaseStats(card) {
+function phaseStats(card, support = null) {
     let power = 0, hp = 0;
     const phaseKeywords = {}, phaseLostKeywords = new Set();
     const keywordOrder = ['sentinel', 'overwhelm', 'saboteur', 'ambush', 'grit', 'shielded', 'raid', 'restore', 'hidden'];
     const supported = new Set(keywordOrder);
     for (const effect of card.getOngoingEffects()) {
+        if (consumesSupportEffect(support, effect)) continue;
         // Constant stat programs are derived from arena sources by Rust; they are
         // not stored as phase deltas. Persistent lasting effects are a different rule.
         if (effect.duration === 'persistent' && ['modifyStats', 'gainKeyword', 'loseKeyword'].includes(effect.type) &&
@@ -67,6 +69,7 @@ function arenaUnitOrder(eg) {
         eg.game.getArenaUnits({ arena: `${arena}Arena` }).map((card) => eg.cardId(card.uuid))]));
 }
 function fullState(eg, actor = null) {
+    const support = supportProjection(eg);
     const players = {};
     for (const pid of eg.ids) {
         const p = eg.player(pid);
@@ -76,7 +79,7 @@ function fullState(eg, actor = null) {
         const bs = p.base.getSummary(p, true);
         const unit = (c) => {
             const s = c.getSummary(p, true);
-            return { ...ref(eg, c), ...phaseStats(c), hiddenQualified: c.wasPlayedDeployedOrCreatedThisPhase(), damage: s.damage ?? 0, exhausted: !!s.exhausted, power: s.power ?? c.cardData.power, hp: s.hp ?? c.cardData.hp, upgrades: (c.upgrades ?? []).map((u) => {
+            return { ...ref(eg, c), ...phaseStats(c, support), hiddenQualified: c.wasPlayedDeployedOrCreatedThisPhase(), damage: s.damage ?? 0, exhausted: !!s.exhausted, power: s.power ?? c.cardData.power, hp: s.hp ?? c.cardData.hp, upgrades: (c.upgrades ?? []).map((u) => {
                 const token = !!u.isToken?.();
                 // An enemy unit's attached upgrade keeps its own controller and
                 // physical owner. Tokens retain the original compact trace shape.
@@ -100,7 +103,7 @@ function fullState(eg, actor = null) {
             out: !!p.passedActionPhase
         };
     }
-    return { ...stateEvidence(eg), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
+    return { ...stateEvidence(eg, support), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
 }
 function normalizeArg(eg, value) {
     if (typeof value === 'string' && eg.game.state.allCards.includes(value)) return eg.cardId(value);
