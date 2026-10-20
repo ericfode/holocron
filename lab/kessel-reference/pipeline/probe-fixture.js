@@ -164,6 +164,8 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'force-continuation') return require('./force-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'weakness-continuation') return require('./weakness-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'self-base-arena-damage') return require('./self-base-arena-damage-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'terminal-continuation') return require('./terminal-continuation-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-damage') return require('./arena-damage-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'recipient-heal') return require('./recipient-heal-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'cross-arena') return require('./cross-arena-probe-fixture').fixture(env, pool, scenario, seed);
@@ -443,6 +445,11 @@ module.exports = {
         'lab/kessel-reference/pipeline/chosen-hand-discard-probe-fixture.js',
         'kessel:cards/pipeline/distributed-damage-probes.js',
         'lab/kessel-reference/pipeline/distributed-damage-probe-fixture.js',
+        'kessel:cards/pipeline/self-base-arena-damage-probes.js',
+        'lab/kessel-reference/pipeline/self-base-arena-damage-probe-fixture.js',
+        'kessel:crates/kessel/src/cinder_contract.rs',
+        'kessel:cards/pipeline/terminal-continuation-probes.js',
+        'lab/kessel-reference/pipeline/terminal-continuation-probe-fixture.js',
         'kessel:cards/pipeline/arena-damage-probes.js',
         'lab/kessel-reference/pipeline/arena-damage-probe-fixture.js',
         'kessel:cards/pipeline/probes.js',

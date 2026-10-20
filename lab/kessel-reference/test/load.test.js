@@ -10,6 +10,22 @@ const { holocron } = require('../kessel');
 
 const pipeline = path.resolve(__dirname, '../pipeline'), scenarios = path.resolve(__dirname, '../reference/scenarios');
 
+// External dependencies are checked without requiring a sibling Kessel checkout.
+// Keep both supported source namespaces closed, including the Rust basename.
+const externalDependency = /^kessel:(?:cards\/pipeline\/[a-z-]+\.js|crates\/kessel\/src\/[a-z_]+_contract\.rs)$/;
+
+test('external dependency namespaces reject traversal and unrelated source files', () => {
+    for (const file of ['kessel:cards/pipeline/cinder-probes.js', 'kessel:crates/kessel/src/cinder_contract.rs'])
+        assert.match(file, externalDependency);
+    for (const file of [
+        'kessel:cards/pipeline/../compiler.js', 'kessel:crates/kessel/src/../cinder_contract.rs',
+        'kessel:crates/kessel/src/cinder_contract.rs/extra', 'kessel:crates/kessel/src/simulator.rs',
+        'kessel:crates/kessel/src/nested/cinder_contract.rs', 'kessel:crates/kessel/src/Cinder_contract.rs',
+        'kessel:/crates/kessel/src/cinder_contract.rs', 'kessel:crates\\kessel\\src\\cinder_contract.rs',
+        'kessel:compiler/compiler.js', 'kessel:cards/pipeline/cinder-probes.js.bak',
+    ]) assert.doesNotMatch(file, externalDependency, file);
+});
+
 test('every probe fixture loads and exports fixture()', () => {
     const files = fs.readdirSync(pipeline).filter((f) => f.endsWith('-fixture.js'));
     assert.ok(files.length >= 27);
@@ -29,7 +45,7 @@ test('the fixture dependency inventory names files in this repository or in Kess
     const named = new Set(fs.readdirSync(pipeline).filter((f) => f.endsWith('-fixture.js')).flatMap((f) => require(path.join(pipeline, f)).dependencies ?? []));
     assert.ok(named.size > 0);
     for (const file of named) {
-        if (file.startsWith('kessel:')) assert.match(file, /^kessel:cards\/pipeline\/[a-z-]+\.js$/);
+        if (file.startsWith('kessel:')) assert.match(file, externalDependency);
         else assert.ok(fs.existsSync(path.join(holocron, file)), file);
     }
 });
