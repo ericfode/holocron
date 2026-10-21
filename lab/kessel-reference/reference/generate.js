@@ -26,6 +26,10 @@ function sourceIdentity() {
         engineRevision = execFileSync('git', ['-C', actualRoot, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(); } catch {}
     const expectedEngineRevision = pinnedEngine(repo);
     const sources = {};
+    for (const file of ["kessel:crates/kessel/src/attack_base_history_contract.rs", "kessel:crates/kessel/src/attack_base_history_state.rs", "kessel:crates/kessel/src/attack_base_history_runtime.rs", "kessel:crates/kessel/src/attack_base_history_wire.rs"])
+        sources[file] = sha256(fs.readFileSync(kesselPath(file.slice(7))));
+    for (const file of ["lab/kessel-reference/pipeline/attack-base-history-probe-fixture.js", "lab/kessel-reference/test/attack-base-history-probe-fixture.test.js", "bots/omni/rs/attack-base-history-state.js", "bots/omni/rs/attack-base-history-state.test.js", "kessel:cards/pipeline/attack-base-history-probes.js", "kessel:cards/test/attack-base-history-probes.test.js"])
+        sources[file] = sha256(fs.readFileSync(file.startsWith('kessel:') ? kesselPath(file.slice(7)) : path.join(repo, file)));
     for (const file of ['lab/kessel-reference/pipeline/modal-deck-movement-probe-fixture.js', 'lab/kessel-reference/test/modal-deck-movement-probe-fixture.test.js', 'kessel:cards/pipeline/modal-deck-movement-probes.js', 'kessel:cards/test/modal-deck-movement-probes.test.js'])
         sources[file] = sha256(fs.readFileSync(file.startsWith('kessel:') ? kesselPath(file.slice(7)) : path.join(repo, file)));
     sources['kessel:crates/kessel/src/modal_deck_movement_contract.rs'] = sha256(fs.readFileSync(kesselPath('crates/kessel/src/modal_deck_movement_contract.rs')));

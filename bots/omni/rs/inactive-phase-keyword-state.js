@@ -2,12 +2,13 @@
 const fs=require('node:fs'),path=require('node:path'),{createHash}=require('node:crypto'),{isDeepStrictEqual}=require('node:util');
 const engine=path.join(__dirname,'../../../forceteki');
 const sha=b=>createHash('sha256').update(b).digest('hex');
-let ChooseYourPath, RegisteredChooseYourPath, RegisteredMandalorian, RazorCrest, FullOfSurprises, RegisteredRazor, RegisteredSurprises, RegisteredShield, RegisteredExperience, RegisteredWeakness, BuyTime, Helgait, RegisteredHelgait, Advantage, RegisteredAdvantage, FrameworkCardAbilityStep, CreateTokenUnitSystem, CardPhaseLastingEffectSystem;
+let GreefCreator, VaneCreator, RegisteredGreefCreator, RegisteredVaneCreator, ChooseYourPath, RegisteredChooseYourPath, RegisteredMandalorian, RazorCrest, FullOfSurprises, RegisteredRazor, RegisteredSurprises, RegisteredShield, RegisteredExperience, RegisteredWeakness, BuyTime, Helgait, RegisteredHelgait, Advantage, RegisteredAdvantage, FrameworkCardAbilityStep, CreateTokenUnitSystem, CardPhaseLastingEffectSystem;
 function loadEngineTypes() {
 ChooseYourPath=require(path.join(engine,'build/server/game/cards/08_ASH/events/ChooseYourPath')).default;
 Helgait=require(path.join(engine,'build/server/game/cards/08_ASH/units/HelgaitDookuWasAVisionary')).default;
 Advantage=require(path.join(engine,'build/server/game/cards/08_ASH/tokens/Advantage')).default;
 const registered=require(path.join(engine,'build/server/game/cards/Index')).cards;
+GreefCreator=require(path.join(engine,'build/server',creatorProfiles[0].sourcePath.replace(/\.ts$/,'.js'))).default;VaneCreator=require(path.join(engine,'build/server',creatorProfiles[1].sourcePath.replace(/\.ts$/,'.js'))).default;RegisteredGreefCreator=registered.get(creatorProfiles[0].profile.id);RegisteredVaneCreator=registered.get(creatorProfiles[1].profile.id);
 RazorCrest=require(path.join(engine,'build/server/game/cards/08_ASH/units/RazorCrestOutfittedArmament')).default;
 FullOfSurprises=require(path.join(engine,'build/server/game/cards/08_ASH/events/FullOfSurprises')).default;
 RegisteredChooseYourPath=registered.get(choosePathProfile.id);RegisteredMandalorian=registered.get(mandalorianProfile.id);
@@ -104,6 +105,9 @@ function proveChoosePathInputs(){
  for(const row of choosePathHelperInputs)check(keys(row,['file','sha256']) && row.file.startsWith('server/') && !row.file.startsWith('server/game/cards/'),'closed helper input row');
  if(!choosePathPinned){for(const[file,hash]of Object.entries(choosePathPhysicalInputs))check(sha(fs.readFileSync(path.join(engine,file)))===hash,'changed Choose Your Path physical input '+file);choosePathPinned=true;}
 }
+const creatorProfiles=[{"code":"ASH_119","profile":{"title":"Greef Karga","subtitle":"Introductions are in Order","cost":2,"hp":3,"power":2,"text":"Action [1 resource, Exhaust]: If your base was attacked this phase, create a Mandalorian token.","deployBox":null,"epicAction":"","unique":true,"rules":null,"upgradePower":null,"upgradeHp":null,"id":"4885389871","aspects":["command"],"traits":["official"],"arena":"ground","keywords":[],"types":["unit"],"setId":{"set":"ASH","number":119},"setCodes":[{"set":"ASH","number":119}],"internalName":"greef-karga#introductions-are-in-order"},"sourcePath":"game/cards/08_ASH/units/GreefKargaIntroductionsAreInOrder.ts"},{"code":"ASH_144","profile":{"title":"Vane's Snub Fighter","subtitle":"Brash and Proud","cost":3,"hp":4,"power":2,"text":"When a friendly unit's attack ends: If it dealt combat damage to a base, give an Advantage token to this unit.","deployBox":null,"epicAction":"","unique":true,"rules":"When Attack Ends abilities trigger at the same time as units deal combat damage. The attacking unit doesn't need to survive in order to give an Advantage token, so long as it dealt combat damage to a base.\n“Combat damage” is only the damage dealt during the “End attack” step of an attack.\n","upgradePower":null,"upgradeHp":null,"id":"3024525867","aspects":["aggression","villainy"],"traits":["underworld","vehicle","fighter"],"arena":"space","keywords":[],"types":["unit"],"setId":{"set":"ASH","number":144},"setCodes":[{"set":"ASH","number":144}],"internalName":"vanes-snub-fighter#brash-and-proud"},"sourcePath":"game/cards/08_ASH/units/VanesSnubFighterBrashAndProud.ts"}];
+const creatorPhysicalInputs={"server/game/cards/08_ASH/units/GreefKargaIntroductionsAreInOrder.ts":"38f17f62bcbb0125d06a0cd74ba39483574fee4e7ed8f39f2282a82f6f03164e","build/server/game/cards/08_ASH/units/GreefKargaIntroductionsAreInOrder.js":"d5d080dc9bb42f97676be4ea92042fafa65156cdf6ab3f1f8de8d3a487ff936b","test/json/Card/greef-karga#introductions-are-in-order.json":"5670978866b121ffda1d3a589fd6132479796e3b450fee542baf5f9f501236ad","server/game/cards/08_ASH/units/VanesSnubFighterBrashAndProud.ts":"4cdf2acb18d484b1ed3e33c817d2b66ae5a1cb485856c8a08edb36b74e4ee8b4","build/server/game/cards/08_ASH/units/VanesSnubFighterBrashAndProud.js":"5f6ecfe6feca81bfa7bb4ce90484a0246a6e24d38b8129d8654c98a6e519e4bc","test/json/Card/vanes-snub-fighter#brash-and-proud.json":"b862dcfda1554d64bfdab9f9ec0a7e71de745253d9b6ae6c768ba4c18bb321f4"};
+function proveCreatorInputs(){proveChoosePathInputs();for(const[file,expected]of Object.entries(creatorPhysicalInputs))check(sha(fs.readFileSync(path.join(engine,file)))===expected,'changed creator physical source/build/metadata '+file);}
 const observations = new WeakMap(), companions = new WeakMap();
 const fail = message => { throw Error('Unsupported inactive phase keyword state: ' + message); };
 const check = (condition, message) => { if (!condition) fail(message); };
@@ -123,7 +127,7 @@ function hasInactiveInventorySource(eg) {
     loadEngineTypes();
     return (eg.game?.state?.allCards??[]).some(uuid=>{
         const card=eg.game.getFromId(uuid);
-        return [[buyTimeProfile,BuyTime],[helgaitProfile,Helgait],[razorProfile,RazorCrest],[surprisesProfile,FullOfSurprises],[choosePathProfile,ChooseYourPath]].some(([profile,raw])=>physicalSourceHint(card,profile,raw));
+        return [[buyTimeProfile,BuyTime],[helgaitProfile,Helgait],[razorProfile,RazorCrest],[surprisesProfile,FullOfSurprises],[choosePathProfile,ChooseYourPath],[creatorProfiles[0].profile,GreefCreator],[creatorProfiles[1].profile,VaneCreator]].some(([profile,raw])=>physicalSourceHint(card,profile,raw));
     });
 }
 function sourceProof(source, ability) {
@@ -235,10 +239,11 @@ function inactivePhaseKeywordProjection(eg, players) {
     check(new Set(all).size === all.length && objects.every((c, i) => c && c.uuid === all[i]) && new Set(objects).size === all.length, 'complete allocated identity registry');
     if (state.initialIds) check(all.length >= state.initialIds.length && state.initialIds.every((uuid, i) => all[i] === uuid), 'allocation rollback or identity drift');
     state.initialIds = all.slice();
+    const creators=[{...creatorProfiles[0],raw:GreefCreator,registered:RegisteredGreefCreator},{...creatorProfiles[1],raw:VaneCreator,registered:RegisteredVaneCreator}],creatorMatch=c=>creators.find(p=>physicalSourceHint(c,p.profile,p.raw));
     const newProfiles=[{profile:razorProfile,raw:RazorCrest,registered:RegisteredRazor,unit:true},{profile:surprisesProfile,raw:FullOfSurprises,registered:RegisteredSurprises,unit:false}];
     const newMatch=c=>newProfiles.find(p=>physicalSourceHint(c,p.profile,p.raw));
     const reviewedTokens=[{profile:shieldProfile,registered:RegisteredShield},{profile:experienceProfile,registered:RegisteredExperience},{profile:advantageProfile,registered:RegisteredAdvantage},{profile:weaknessProfile,registered:RegisteredWeakness}];
-    const sources = objects.filter(c => physicalSourceHint(c,choosePathProfile,ChooseYourPath) || newMatch(c) || physicalSourceHint(c,buyTimeProfile,BuyTime) || physicalSourceHint(c,helgaitProfile,Helgait));
+    const sources = objects.filter(c => physicalSourceHint(c,choosePathProfile,ChooseYourPath) || creatorMatch(c) || newMatch(c) || physicalSourceHint(c,buyTimeProfile,BuyTime) || physicalSourceHint(c,helgaitProfile,Helgait));
     for (const source of sources) {
         check(source.owner === source.controller, 'unsupported allocated inventory source control transfer');
         const candidate=newMatch(source);
@@ -249,6 +254,7 @@ function inactivePhaseKeywordProjection(eg, players) {
             const ability=source.getEventAbility();
             check(ability.card===source && ability.printedAbility===true && ability.gainAbilitySource==null && ability.cost.length===0 && ability.optional===false,'printed Choose Your Path registration identity');
             for(const token of [mandalorianProfile,advantageProfile,shieldProfile])check(isDeepStrictEqual(eg.game.cardDataGetter.getCardSync(token.id),token),'reviewed Choose Your Path native token definition');
+        }else if(creatorMatch(source)){const {profile,raw,registered}=creatorMatch(source);proveCreatorInputs();check(Object.getPrototypeOf(source)===registered.prototype&&isDeepStrictEqual(source.cardData,profile)&&source.game===eg.game&&eg.game.getFromId(source.uuid)===source&&eg.game.allCards.includes(source)&&source.isUnit?.()&&!source.isToken?.()&&!source.isLeader?.()&&!source.isUpgrade?.(),'complete allocated Greef/Vane creator physical profile');check(source.setupCardAbilities===raw.prototype.setupCardAbilities&&source.setupStateWatchers===raw.prototype.setupStateWatchers&&source.getImplementationId===raw.prototype.getImplementationId,'closed Greef/Vane creator registration methods');for(const token of [mandalorianProfile,shieldProfile,advantageProfile])check(isDeepStrictEqual(eg.game.cardDataGetter.getCardSync(token.id),token),'reviewed Greef/Vane native token definition');
         }else if(candidate){
             const {profile,raw,registered,unit}=candidate;
             check(Object.getPrototypeOf(source)===registered.prototype && isDeepStrictEqual(source.cardData,profile) && !source.isToken?.() && !source.isLeader?.() && (unit ? source.isUnit?.() && !source.isUpgrade?.() : source.isEvent?.() && !source.isUnit?.() && !source.isUpgrade?.()), 'complete allocated closed172/232 profile');
@@ -293,6 +299,7 @@ function inactivePhaseKeywordProjection(eg, players) {
             check((card.getOngoingEffects?.()??[]).length===0 && !registry.some(e=>e.matchTarget===card || e.targets?.includes(card)),'unrepresented retired token upgrade effect state');
         } else check(!card.isUpgrade?.(),'unreviewed retired token upgrade definition');
         if(sources.some(source=>physicalSourceHint(source,choosePathProfile,ChooseYourPath)) && card.isUnit?.())check(Object.getPrototypeOf(card)===RegisteredMandalorian.prototype && isDeepStrictEqual(card.cardData,mandalorianProfile) && !card.isLeader?.() && !card.isUpgrade?.(),'complete retired Choose Your Path native unit identity');
+        if(sources.some(source=>creatorMatch(source))&&card.isUnit?.())check(Object.getPrototypeOf(card)===RegisteredMandalorian.prototype&&isDeepStrictEqual(card.cardData,mandalorianProfile)&&!card.isLeader?.()&&!card.isUpgrade?.(),'complete retired Greef/Vane native Mandalorian identity');
         const phaseKeywords = {}, relevant = e => ['gainKeyword', 'loseKeyword'].includes(e.type), keywordEffects = [...new Set([...(card.getOngoingEffects?.() ?? []).filter(relevant), ...registry.filter(e => relevant(e) && (e.matchTarget === card || e.targets?.includes(card)))])];
         for (const effect of keywordEffects) {
             const receipt = state.effects.get(effect);

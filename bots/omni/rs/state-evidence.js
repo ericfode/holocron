@@ -1,6 +1,7 @@
 'use strict';
 
 const { supportProjection, supportGrants } = require('./support-state');
+const { observeAttackBaseHistory, attackBaseHistoryState } = require('./attack-base-history-state');
 const observations = new WeakMap();
 const arena = zone => zone === 'groundArena' || zone === 'spaceArena';
 const ordinaryUpgrade = card => card.isUpgrade?.() && !card.isToken?.();
@@ -26,6 +27,7 @@ function observeStateEvidence(eg, watchers) {
         if (!value || !Array.isArray(value.cards) || !Array.isArray(value.processedUnits)) throw new Error('Registration history missing from native state');
         return value;
     };
+    observeAttackBaseHistory(eg, watchers);
     const evidence = { wrapped: new WeakSet(), entered: watchers.cardsEnteredPlayThisPhase(), played: watchers.cardsPlayedThisPhase() };
     for (const field of ['cards', 'processedUnits']) Object.defineProperty(evidence, field, {
         get: () => {
@@ -141,7 +143,7 @@ function stateEvidence(eg, support) {
     const played = evidence.played.getCurrentValue();
     const playCounts = eg.ids.map(pid => played.filter(entry => entry.playedBy.id === pid).length);
     if (playCounts.some(n => n > 65535)) throw new Error('Phase play count exceeds simulator bounds');
-    return { supportStateVersion: 1, supportGrants: supportGrants(eg, support), registrationOrder: { version: 1, cards: evidence.cards.map(id) },
+    return { ...attackBaseHistoryState(eg), supportStateVersion: 1, supportGrants: supportGrants(eg, support), registrationOrder: { version: 1, cards: evidence.cards.map(id) },
         phaseHistory: { version: 1, entered: entries(evidence.entered.getCurrentValue()), played: entries(played), playCounts } };
 }
 module.exports = { observeStateEvidence, instrumentStateEvidence, stateEvidence };

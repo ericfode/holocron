@@ -157,11 +157,12 @@ function observe(card, eg) {
 }
 async function fixture(env, pool, scenario, seed) {
     // These leaves own exact raw case definitions; routing metadata belongs here.
-    if (['modal-deck-movement', 'resource-number-target-experience', 'generated-token-continuation'].includes(scenario.probe?.family) && Object.hasOwn(scenario, 'source')) {
+    if (['attack-base-history', 'modal-deck-movement', 'resource-number-target-experience', 'generated-token-continuation'].includes(scenario.probe?.family) && Object.hasOwn(scenario, 'source')) {
         assert.deepEqual(scenario.source, { module: '../pipeline/probe-fixture.js', scenario: scenario.name }, 'Exact canonical probe routing source required');
         const { source, ...rawScenario } = scenario;
         scenario = rawScenario;
     }
+    if (scenario.probe?.family === 'attack-base-history') return require('./attack-base-history-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'modal-deck-movement') return require('./modal-deck-movement-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'resource-number-target-experience') return require('./resource-number-target-experience-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'generated-token-continuation') return require('./generated-token-continuation-fixture').fixture(env, pool, scenario, seed);
