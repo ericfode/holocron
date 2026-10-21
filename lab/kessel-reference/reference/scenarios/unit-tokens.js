@@ -17,6 +17,7 @@ function deckFor(pool, scenario) {
 }
 async function tokenFixture(env, pool, scenario, seed) {
     const deck = deckFor(pool, scenario), eg = env.newGame({ selectionToggles: true, seed, deck1: deck, deck2: deck }), rng = seededRng('group-fixture-' + seed), bot = makeBot('random');
+    if(Object.hasOwn(pool,'provenance'))require('../../../bots/omni/rs/direct-play-credit-state').bindNativePool(eg,pool);
     await eg.start();
     while (!eg.ids.some((pid) => eg.isActionWindow(pid))) {
         const pid = eg.ids.find((id) => eg.legalActions(id).length), actions = expandActions(eg, eg.legalActions(pid));

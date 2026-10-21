@@ -61,6 +61,7 @@ async function constructProbeFixture(env, pool, scenario, seed) {
     const rng = seededRng('automatic-probe-' + seed),
         bot = makeBot('random');
     require('../../../bots/omni/rs/inactive-phase-keyword-state').observeInactivePhaseKeywords(eg);
+    if(Object.hasOwn(pool,'provenance'))require('../../../bots/omni/rs/direct-play-credit-state').bindNativePool(eg,pool);
     await eg.start();
     for (let i = 0; !eg.ids.some((id) => eg.isActionWindow(id)); i++) {
         assert.ok(i < 100, 'Startup did not reach action window');
@@ -175,6 +176,9 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-defeat-attack') return require('./arena-defeat-attack-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'blade-base-damage') return require('./blade-base-damage-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'player-phase-effect') return require('./player-phase-effect-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'hand-card-cost') return require('./hand-card-cost-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'arena-payment-exhaust') return require('./arena-payment-exhaust-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'round-limit') return require('./round-limit-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'collective-trigger') return require('./collective-trigger-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'defeat-cause') return require('./defeat-cause-probe-fixture').fixture(env, pool, scenario, seed);
@@ -438,7 +442,11 @@ module.exports = {
     fixture,
     constructProbeFixture,
     buildDeck,
-    dependencies: [
+    dependencies: ['lab/kessel-reference/pipeline/player-phase-effect-probe-fixture.js', 'kessel:cards/pipeline/player-phase-effect-probes.js', 'bots/omni/rs/player-phase-state.js', 'bots/omni/rs/direct-play-credit-state.js',
+        'lab/kessel-reference/pipeline/hand-card-cost-probe-fixture.js',
+        'kessel:cards/pipeline/hand-card-cost-probes.js',
+        'lab/kessel-reference/pipeline/arena-payment-exhaust-probe-fixture.js',
+        'kessel:cards/pipeline/arena-payment-exhaust-probes.js',
         'kessel:cards/pipeline/created-token-phase-keyword-probes.js',
         'kessel:cards/pipeline/defeat-advantage-distribution-probes.js',
         'lab/kessel-reference/pipeline/created-token-phase-keyword-fixture.js',

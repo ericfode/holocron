@@ -22,6 +22,7 @@ function deckFor(pool, scenario) {
 }
 async function tokenFixture(env, pool, scenario, seed) {
     const deck = deckFor(pool, scenario), eg = env.newGame({ selectionToggles: true, seed, deck1: deck, deck2: deck }), rng = seededRng('group-fixture-' + seed), bot = makeBot('random');
+    if(Object.hasOwn(pool,'provenance'))require('../../../bots/omni/rs/direct-play-credit-state').bindNativePool(eg,pool);
     await eg.start();
     while (!eg.ids.some((pid) => eg.isActionWindow(pid))) {
         const pid = eg.ids.find((id) => eg.legalActions(id).length), actions = expandActions(eg, eg.legalActions(pid));
@@ -278,4 +279,4 @@ function makeScenario(p,scenario){
  },assertAfter:c=>verify(c,p,s)};
 }
 async function fixture(env,pool,scenario,seed){const p=validateProbe(scenario.probe),game=await tokenFixture(env,pool,makeScenario(p,scenario),seed);game.records[0].constructionParameters.rawProbe=JSON.parse(JSON.stringify(p));game.records[0].fixtureConstruction='At first natural action window, stage declared actual units, move declared script cards into their actual acting-owner hand, place up to24 remaining deck cards as resources and ready existing resources, set bases damage0. Empty-deck draw variant additionally stages own remaining deck in discard. No later state edits; all script, regroup and committed post-winner choices are legal engine inputs. Read-only event-window IDs are object identities, not action counters.';game.witness.rawProbe=JSON.parse(JSON.stringify(p));game.witness.coverageObligationIds=[...(scenario.coverageObligationIds??[])];return game;}
-module.exports={fixture,validateProbe,dependencies:['kessel:cards/pipeline/collective-trigger-probes.js','lab/kessel-reference/pipeline/collective-trigger-probe-fixture.js','lab/kessel-reference/pipeline/terminal-completion.js','engine/env.js','engine/rng.js','bots/omni/rs/state.js','bots/omni/rs/state-evidence.js','bots/omni/rs/unit-entry-state.js','bots/omni/rs/support-state.js','bots/players/index.js','bots/players/random.js']};
+module.exports={fixture,validateProbe,dependencies:['bots/omni/rs/player-phase-state.js', 'bots/omni/rs/direct-play-credit-state.js', 'kessel:cards/pipeline/collective-trigger-probes.js','lab/kessel-reference/pipeline/collective-trigger-probe-fixture.js','lab/kessel-reference/pipeline/terminal-completion.js','engine/env.js','engine/rng.js','bots/omni/rs/state.js','bots/omni/rs/state-evidence.js','bots/omni/rs/unit-entry-state.js','bots/omni/rs/support-state.js','bots/players/index.js','bots/players/random.js']};
