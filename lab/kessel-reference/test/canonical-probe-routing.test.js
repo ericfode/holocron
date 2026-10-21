@@ -4,7 +4,7 @@ const {kesselDir} = require('../kessel');
 const router = require('../pipeline/probe-fixture');
 const {loadPool} = require('../../../bots/omni/rs/pool');
 const pool = loadPool(process.env.SWU_CANONICAL_ROUTING_POOL || path.join(kesselDir(), 'compiler/generated/runtime-pool.json'));
-const leaves = ['modal-deck-movement-probe-fixture', 'resource-number-target-experience-fixture', 'generated-token-continuation-fixture'];
+const leaves = ['attack-base-history-probe-fixture', 'modal-deck-movement-probe-fixture', 'resource-number-target-experience-fixture', 'generated-token-continuation-fixture'];
 for (const name of leaves) test(name + ': canonical routing preserves exact raw validation', async () => {
     const leaf = require('../pipeline/' + name), before = structuredClone(leaf.RAW_CASES), raw = structuredClone(before[0]);
     const wrapped = {...structuredClone(raw), source: {module: '../pipeline/probe-fixture.js', scenario: raw.name}};
