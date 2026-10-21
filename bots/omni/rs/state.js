@@ -2,6 +2,8 @@
 const { stateEvidence } = require('./state-evidence');
 const { roundLimitState } = require('./round-limit-state');
 const { unitEntryProjection } = require('./unit-entry-state');
+const { playerPhaseState } = require('./player-phase-state');
+const { creditState } = require('./direct-play-credit-state');
 const { hasInactiveInventorySource, inactivePhaseKeywordProjection } = require('./inactive-phase-keyword-state');
 const { supportProjection, consumesSupportEffect } = require('./support-state');
 
@@ -74,6 +76,9 @@ function arenaUnitOrder(eg) {
 function fullState(eg, actor = null) {
     const limits = roundLimitState(eg);
     const support = supportProjection(eg);
+    const playerPhase = playerPhaseState(eg);
+    if (playerPhase.directUnitPlayCreditState && actor !== null) throw new Error('Direct UnitPlay Credit snapshots require neutral actor');
+    const credits = creditState(eg);
     const players = {};
     for (const pid of eg.ids) {
         const p = eg.player(pid);
@@ -104,11 +109,12 @@ function fullState(eg, actor = null) {
             ground: cards('groundArena').filter((c) => c.isUnit()).map(unit),
             space: cards('spaceArena').filter((c) => c.isUnit()).map(unit),
             forceToken: { id: eg.cardId(forceToken.uuid), held },
+            ...(credits ? credits.players[eg.seatOf(pid)] : {}),
             out: !!p.passedActionPhase
         };
     }
     const inactive = hasInactiveInventorySource(eg) ? inactivePhaseKeywordProjection(eg, players) : null;
-    return { ...stateEvidence(eg, support), ...limits, ...(inactive ?? {}), ...unitEntryProjection(eg, phaseStats, support, ref, inactive), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
+    return { ...(credits ? { creditStateVersion: credits.creditStateVersion } : {}), ...playerPhase, ...stateEvidence(eg, support), ...limits, ...(inactive ?? {}), ...unitEntryProjection(eg, phaseStats, support, ref, inactive), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
 }
 function normalizeArg(eg, value) {
     if (typeof value === 'string' && eg.game.state.allCards.includes(value)) return eg.cardId(value);

@@ -12,6 +12,7 @@ async function fixture(env,pool,scenario,seed){
  const deck={metadata:{name:'Full of Surprises literal probe',author:'card pipeline'},leader:{id:p.leaderCode,count:1},base:{id:p.baseCode,count:1},deck:p.deckCodes.map((id,i)=>({id,count:i===16?2:3})),isPresentInDb:false};
  const eg=env.newGame({selectionToggles:true,seed,deck1:deck,deck2:deck}),rng=seededRng('upgrade-return-shield-'+seed),bot=makeBot('random');
  require('../../../bots/omni/rs/inactive-phase-keyword-state').observeInactivePhaseKeywords(eg);
+    if(Object.hasOwn(pool,'provenance'))require('../../../bots/omni/rs/direct-play-credit-state').bindNativePool(eg,pool);
     await eg.start();const own=eg.player(eg.ids[p.sourceSeat-1]),enemy=eg.player(eg.ids[2-p.sourceSeat]);
  for(let n=0;!eg.ids.some(pid=>eg.isActionWindow(pid));n++){assert.ok(n<100);const pid=eg.ids.find(pid=>eg.legalActions(pid).length),actions=expandActions(eg,eg.legalActions(pid));const initiative=actions.find(a=>a.label===(pid===own.id?'Yourself':'Opponent'));eg.apply(pid,initiative??bot.choose({game:eg,pid,actions,rng}),rng);}
  const allocated=new Set(),matches=(c,code)=>[c.cardData.setId,...(c.cardData.setCodes??[])].some(s=>s.set+'_'+String(s.number).padStart(3,'0')===code);
@@ -66,4 +67,4 @@ async function fixture(env,pool,scenario,seed){
  }assert.ok(settled);witness.terminalCompletion=completion.assertComplete();records.push({type:'result',step,winner:eg.winner,state:fullState(eg)});witness.coverageObligationIds=[...scenario.coverageObligationIds];return{records,witness};
  }catch(error){error.diagnostic={records,witness,summary:obs()};throw error;}finally{bot.close?.();}
 }
-module.exports={fixture,validateProbe,scenarios,dependencies:['bots/omni/rs/inactive-phase-keyword-state.js', 'kessel:cards/pipeline/simultaneous-upgrade-return-shield-probes.js','lab/kessel-reference/pipeline/simultaneous-upgrade-return-shield-probe-fixture.js','lab/kessel-reference/pipeline/terminal-completion.js','engine/env.js','bots/omni/rs/state.js','bots/players/index.js']};
+module.exports={fixture,validateProbe,scenarios,dependencies:['bots/omni/rs/player-phase-state.js', 'bots/omni/rs/direct-play-credit-state.js', 'bots/omni/rs/inactive-phase-keyword-state.js', 'kessel:cards/pipeline/simultaneous-upgrade-return-shield-probes.js','lab/kessel-reference/pipeline/simultaneous-upgrade-return-shield-probe-fixture.js','lab/kessel-reference/pipeline/terminal-completion.js','engine/env.js','bots/omni/rs/state.js','bots/players/index.js']};

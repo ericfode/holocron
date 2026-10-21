@@ -22,6 +22,7 @@ function deckFor(pool, scenario) {
 }
 async function tokenFixture(env, pool, scenario, seed) {
     const deck = deckFor(pool, scenario), eg = env.newGame({ selectionToggles: true, seed, deck1: deck, deck2: deck }), rng = seededRng('group-fixture-' + seed), bot = makeBot('random');
+    if(Object.hasOwn(pool,'provenance'))require('../../../bots/omni/rs/direct-play-credit-state').bindNativePool(eg,pool);
     await eg.start();
     while (!eg.ids.some((pid) => eg.isActionWindow(pid))) {
         const pid = eg.ids.find((id) => eg.legalActions(id).length), actions = expandActions(eg, eg.legalActions(pid));
@@ -197,7 +198,7 @@ async function fixture(env,pool,scenario,seed){
  game.witness.coverageObligationIds=[...(scenario.coverageObligationIds??[])];
  return game;
 }
-module.exports={fixture,validateProbe,dependencies:[
+module.exports={fixture,validateProbe,dependencies:['bots/omni/rs/player-phase-state.js', 'bots/omni/rs/direct-play-credit-state.js',
  'kessel:cards/pipeline/blade-base-damage-probes.js','lab/kessel-reference/pipeline/blade-base-damage-probe-fixture.js',
  'lab/kessel-reference/pipeline/terminal-completion.js','engine/env.js','engine/rng.js',
  'bots/omni/rs/state.js','bots/omni/rs/state-evidence.js','bots/omni/rs/support-state.js','bots/omni/rs/unit-entry-state.js','bots/players/index.js','bots/players/random.js'

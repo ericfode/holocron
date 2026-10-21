@@ -18,6 +18,7 @@ function deckFor(pool, scenario) {
 }
 async function tokenFixture(env, pool, scenario, seed) {
     const deck = deckFor(pool, scenario), eg = env.newGame({ selectionToggles: true, seed, deck1: deck, deck2: deck }), rng = seededRng('group-fixture-' + seed), bot = makeBot('random');
+    if(Object.hasOwn(pool,'provenance'))require('../../../bots/omni/rs/direct-play-credit-state').bindNativePool(eg,pool);
     await eg.start();
     while (!eg.ids.some((pid) => eg.isActionWindow(pid))) {
         const pid = eg.ids.find((id) => eg.legalActions(id).length), actions = expandActions(eg, eg.legalActions(pid));
@@ -248,7 +249,7 @@ async function fixture(env,pool,scenario,seed) {
  if(p.engineOnlyDiagnostic) r.records[0].evidenceStatus='Engine-only diagnostic; setup donor or action protocol not native admitted; no conformance credit';
  return r;
 }
-module.exports={fixture,definition,donorCodes,diagnosticVariants,variants:Object.keys(variantMap).filter(v=>!diagnosticVariants.includes(v)),dependencies:['lab/kessel-reference/pipeline/terminal-completion.js',
+module.exports={fixture,definition,donorCodes,diagnosticVariants,variants:Object.keys(variantMap).filter(v=>!diagnosticVariants.includes(v)),dependencies:['bots/omni/rs/player-phase-state.js', 'bots/omni/rs/direct-play-credit-state.js', 'lab/kessel-reference/pipeline/terminal-completion.js',
  'lab/kessel-reference/pipeline/unit-entry-probe-fixture.js','engine/env.js','engine/rng.js',
  'bots/omni/rs/state.js','bots/omni/rs/unit-entry-state.js','bots/omni/rs/state-evidence.js',
  'bots/omni/rs/support-state.js','bots/players/index.js'
