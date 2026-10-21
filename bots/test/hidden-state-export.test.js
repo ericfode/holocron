@@ -16,7 +16,7 @@ test('versioned snapshots export pinned watcher evidence for all units before Hi
  const forceTokens=Object.entries(players).map(([id,p])=>({uuid:id+'force',owner:p,isForceToken:()=>true,zoneName:'outsideTheGame'}));
  fresh.zoneName='hand';fresh.resolveAbilitiesForNewZone=()=>{};
  const allCards=[...forceTokens,fresh];
- const game=Object.assign(new EventEmitter(),{allCards,state:{allCards:allCards.map(c=>c.uuid)},ongoingEffectEngine:{effects:[]},getArenaUnits:({arena})=>arena==='groundArena'?units:[]});
+ const game=Object.assign(new EventEmitter(),{allCards,state:{allCards:allCards.map(c=>c.uuid)},getFromId:uuid=>allCards.find(c=>c.uuid===uuid),ongoingEffectEngine:{effects:[]},getArenaUnits:({arena})=>arena==='groundArena'?units:[]});
  const eg={ids:['p1','p2'],player:id=>players[id],seatOf:id=>id,cardId:id=>id,phase:'action',round:1,winner:null,game};
  // Supply the exporter's required evidence lifecycle without inventing Hidden
  // qualification: the pinned card method below still reads its own watchers.

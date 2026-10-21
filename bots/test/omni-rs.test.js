@@ -89,3 +89,28 @@ test('state hashes preserve card order while ignoring object insertion order', (
     assert.notEqual(stateHash({ hand: ['c1', 'c2'] }), stateHash({ hand: ['c2', 'c1'] }));
     assert.notEqual(stateHash({ resources: [{ id: 'c1', exhausted: false }] }), stateHash({ resources: [{ id: 'c1', exhausted: true }] }));
 });
+
+test('Advantage allocations preserve physical recipient order and every exact composition', () => {
+    const prompt = { kind: 'distribute', label: 'distribute 6', spec: { type: 'distributeTokenUpgrade', tokenType: 'advantage', amount: 6, canChooseNoTargets: true, canDistributeLess: false, isIndirectDamage: false, maxTargets: null }, targets: ['uuid-one', 'uuid-two'], caps: [Infinity, Infinity] };
+    const actions = expandActions(eg, [prompt]);
+    assert.equal(actions.length, 13);
+    const a = actions.find(a => JSON.stringify(a.split) === JSON.stringify([{id:'uuid-one',amount:2},{id:'uuid-two',amount:4}]));
+    const b = actions.find(a => JSON.stringify(a.split) === JSON.stringify([{id:'uuid-two',amount:4},{id:'uuid-one',amount:2}]));
+    assert.ok(a && b);
+    assert.deepEqual(canonicalAction(eg, a).arg, [['c0', 2], ['c1', 4]]);
+    assert.deepEqual(canonicalAction(eg, b).arg, [['c1', 4], ['c0', 2]]);
+    assert.notEqual(canonicalAction(eg, a).key, canonicalAction(eg, b).key);
+    assert.equal(new Set(actions.map(a => canonicalAction(eg,a).key)).size,13);
+    assert.equal(expandActions(eg,[{...prompt,targets:[...prompt.targets,'uuid-three'],caps:[Infinity,Infinity,Infinity]}]).length,94);
+    assert.throws(()=>expandActions(eg,[prompt],12),/without pruning/);
+    assert.throws(()=>expandActions(eg,[{...prompt,spec:{...prompt.spec,tokenType:'shield'}}]),/Unsupported ordered/);
+});
+
+test('ordered token expansion has no 64 amount or recipient shortcut', () => {
+    const spec = { type:'distributeTokenUpgrade', tokenType:'advantage', amount:1, canChooseNoTargets:true, canDistributeLess:false, isIndirectDamage:false, maxTargets:null };
+    const prompt={kind:'distribute',label:'distribute 1',spec,targets:Array.from({length:65},(_,i)=>'unit'+i),caps:Array(65).fill(Infinity)};
+    assert.equal(expandActions(eg,[prompt]).length,66);
+    assert.equal(expandActions(eg,[{...prompt,spec:{...spec,amount:65},targets:['uuid-one','uuid-two'],caps:[Infinity,Infinity]}]).length,131);
+    assert.throws(()=>expandActions(eg,[{...prompt,targets:['uuid-one','uuid-one'],caps:[Infinity,Infinity]}]),/Unsupported ordered/);
+    assert.throws(()=>expandActions(eg,[{...prompt,caps:Array(65).fill(1)}]),/Unsupported ordered/);
+});

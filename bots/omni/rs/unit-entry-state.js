@@ -1,14 +1,18 @@
 'use strict';
 /** Inactive entry grants are real lasting effects on a physical card, not an arena buff.
  * Read the engine's attached effects; do not infer history from a defeat or card type. */
-function unitEntryProjection(eg, phaseStats, support, ref) {
+function unitEntryProjection(eg, phaseStats, support, ref, inactivePhaseCompanion = null) {
     const rows = [];
     for (const card of eg.game.allCards) {
         if (['groundArena', 'spaceArena'].includes(card.zoneName)) continue;
         const effects = card.getOngoingEffects?.() ?? [];
         if (!effects.some(e => e.duration === 'untilEndOfPhase' && e.type === 'modifyStats')) continue;
         const stats = phaseStats(card, support);
-        if (!card.isUnit?.() || !stats.phaseStats || stats.phaseKeywords || stats.phaseLostKeywords ||
+        // Keep the original keyword guard unless a current private source receipt
+        // proves these exact keywords on this same allocated physical card.
+        const provenKeywords = stats.phaseKeywords && inactivePhaseCompanion !== null &&
+            require('./inactive-phase-keyword-state').validatesInactivePhaseKeywordCompanion(inactivePhaseCompanion, eg, card, stats.phaseKeywords);
+        if (!card.isUnit?.() || !stats.phaseStats || (stats.phaseKeywords && !provenKeywords) || stats.phaseLostKeywords ||
             !Number.isSafeInteger(stats.phaseStats.power) || stats.phaseStats.power < 1 || stats.phaseStats.power > 65535 || stats.phaseStats.hp !== 0) {
             throw new Error('Unsupported inactive unit-entry stat effect on ' + card.internalName);
         }

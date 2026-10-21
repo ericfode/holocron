@@ -60,6 +60,7 @@ async function constructProbeFixture(env, pool, scenario, seed) {
         eg = env.newGame({ selectionToggles: true, seed, deck1: deck, deck2: enemyDeck });
     const rng = seededRng('automatic-probe-' + seed),
         bot = makeBot('random');
+    require('../../../bots/omni/rs/inactive-phase-keyword-state').observeInactivePhaseKeywords(eg);
     await eg.start();
     for (let i = 0; !eg.ids.some((id) => eg.isActionWindow(id)); i++) {
         assert.ok(i < 100, 'Startup did not reach action window');
@@ -154,6 +155,10 @@ function observe(card, eg) {
     };
 }
 async function fixture(env, pool, scenario, seed) {
+    if (scenario.probe?.family === 'created-token-phase-keyword') return require('./created-token-phase-keyword-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'defeat-advantage-distribution') return require('./defeat-advantage-distribution-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'discard-attack-stat') return require('./discard-attack-stat-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'simultaneous-upgrade-return-shield') return require('./simultaneous-upgrade-return-shield-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'named-exhaust-contingent') return require('./named-exhaust-contingent-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'captured-hand-cost') return require('./captured-hand-cost-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'exhaustedLiveCount') return require('./exhausted-live-count-fixture').fixture(env, pool, scenario, seed);
@@ -434,6 +439,15 @@ module.exports = {
     constructProbeFixture,
     buildDeck,
     dependencies: [
+        'kessel:cards/pipeline/created-token-phase-keyword-probes.js',
+        'kessel:cards/pipeline/defeat-advantage-distribution-probes.js',
+        'lab/kessel-reference/pipeline/created-token-phase-keyword-fixture.js',
+        'lab/kessel-reference/pipeline/defeat-advantage-distribution-fixture.js',
+        'bots/omni/rs/inactive-phase-keyword-state.js',
+        'kessel:cards/pipeline/discard-attack-stat-probes.js',
+        'kessel:cards/pipeline/simultaneous-upgrade-return-shield-probes.js',
+        'lab/kessel-reference/pipeline/discard-attack-stat-fixture.js',
+        'lab/kessel-reference/pipeline/simultaneous-upgrade-return-shield-probe-fixture.js',
         'kessel:cards/pipeline/named-exhaust-contingent-probes.js',
         'kessel:cards/pipeline/captured-hand-cost-probes.js',
         'lab/kessel-reference/pipeline/named-exhaust-contingent-fixture.js',

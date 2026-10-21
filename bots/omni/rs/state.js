@@ -2,6 +2,7 @@
 const { stateEvidence } = require('./state-evidence');
 const { roundLimitState } = require('./round-limit-state');
 const { unitEntryProjection } = require('./unit-entry-state');
+const { hasInactiveInventorySource, inactivePhaseKeywordProjection } = require('./inactive-phase-keyword-state');
 const { supportProjection, consumesSupportEffect } = require('./support-state');
 
 function phaseStats(card, support = null) {
@@ -106,7 +107,8 @@ function fullState(eg, actor = null) {
             out: !!p.passedActionPhase
         };
     }
-    return { ...stateEvidence(eg, support), ...limits, ...unitEntryProjection(eg, phaseStats, support, ref), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
+    const inactive = hasInactiveInventorySource(eg) ? inactivePhaseKeywordProjection(eg, players) : null;
+    return { ...stateEvidence(eg, support), ...limits, ...(inactive ?? {}), ...unitEntryProjection(eg, phaseStats, support, ref, inactive), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
 }
 function normalizeArg(eg, value) {
     if (typeof value === 'string' && eg.game.state.allCards.includes(value)) return eg.cardId(value);
@@ -114,9 +116,42 @@ function normalizeArg(eg, value) {
 }
 function canonicalAction(eg, a) {
     const card = a.cardUuid ? eg.cardId(a.cardUuid) : a.kind === 'displayCard' ? eg.cardId(a.arg) : null;
-    const arg = a.kind === 'distribute' ? (a.split ?? []).filter((e) => e.amount > 0).map((e) => [eg.cardId(e.id), e.amount]).sort((a, b) => a[0].localeCompare(b[0])) : normalizeArg(eg, a.arg);
+    const pairs = a.kind === 'distribute' ? (a.split ?? []).filter((e) => e.amount > 0).map((e) => [eg.cardId(e.id), e.amount]) : null;
+    // Token allocation order assigns physical identities and attachment order.
+    const arg = pairs === null ? normalizeArg(eg, a.arg) : a.spec?.type === 'distributeTokenUpgrade' ? pairs : pairs.sort((a, b) => a[0].localeCompare(b[0]));
     const method = a.method ?? null;
     return { key: JSON.stringify([a.kind, card, arg, method, a.label]), kind: a.kind, card, arg, method, label: a.label };
+}
+// The pinned Advantage selector accepts every ordered full allocation or an
+// explicit empty choice. Abort on a work/storage bound; never sample its menu.
+function expandOrderedTokenActions(action, maxAllocations) {
+    const { spec, targets, caps } = action;
+    if (spec.tokenType !== 'advantage' || spec.canChooseNoTargets !== true ||
+        spec.canDistributeLess !== false || spec.isIndirectDamage !== false || spec.maxTargets !== null ||
+        !Number.isSafeInteger(spec.amount) || spec.amount < 0 ||
+        !Array.isArray(targets) || new Set(targets).size !== targets.length ||
+        !Array.isArray(caps) || caps.length !== targets.length || caps.some(cap => cap !== Infinity)) {
+        throw new Error('Unsupported ordered token distribution shape');
+    }
+    const result = [];
+    let work = 0;
+    const add = split => {
+        if (result.length >= maxAllocations) throw new Error('Ordered token distribution exceeds exact allocation bound; trace aborted without pruning');
+        result.push({ ...action, split });
+    };
+    add([]);
+    const walk = (used, sum, split) => {
+        if (++work > 1000000) throw new Error('Ordered token distribution exceeds exact work bound; trace aborted without pruning');
+        if (sum === spec.amount) { if (sum > 0) add(split); return; }
+        for (let i = 0; i < targets.length; i++) if (!used.has(i)) {
+            for (let amount = 1; amount <= spec.amount - sum; amount++) {
+                const next = new Set(used); next.add(i);
+                walk(next, sum + amount, [...split, { id: targets[i], amount }]);
+            }
+        }
+    };
+    walk(new Set(), 0, []);
+    return result;
 }
 /** A distribution prompt represents every legal integer allocation, not a sample.
  * Refuse a combinatorial explosion explicitly so a conformance trace can never
@@ -127,6 +162,10 @@ function expandActions(eg, actions, maxAllocations = 4096) {
     for (const a of actions) {
         if (a.kind !== 'distribute') { out.push(a); continue; }
         const { spec, targets, caps } = a;
+        if (spec.type === 'distributeTokenUpgrade') {
+            out.push(...expandOrderedTokenActions(a, maxAllocations));
+            continue;
+        }
         if (!['distributeHealing', 'distributeDamage', 'distributeIndirectDamage'].includes(spec.type) ||
             !Number.isSafeInteger(spec.amount) || spec.amount < 0 || spec.amount > 64 ||
             targets.length > 64 || new Set(targets).size !== targets.length || caps.length !== targets.length ||
