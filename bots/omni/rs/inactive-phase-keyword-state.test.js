@@ -130,3 +130,23 @@ test('actual paid172 Shield defeat and all four232 token returns preserve retire
  // never supply this run's captured state functions through a cached harness.
  require('node:child_process').execFileSync(process.execPath,['-e',"require(process.env.INACTIVE_INVENTORY_FOUR_DRIVER).runFour(JSON.parse(process.env.FOUR_RUN_OPTIONS)).catch(e=>{console.error(e);process.exitCode=1;})"],{env:{...process.env,FOUR_RUN_OPTIONS:JSON.stringify(options)},stdio:'pipe'});const r=JSON.parse(fs.readFileSync(path.join(options.outDir,'result.json')));assert.equal(r.results.length,10);assert.equal(r.results.filter(x=>x.kind==='172-paid-saboteur'&&x.paid===4).length,2);for(const x of r.results){assert.ok(x.winner);assert.deepEqual(x.retired.phaseKeywords,{});}
 });
+
+test('Choose Your Path exact ordered415 envelope and physical closure reject omission/reordering/contradiction',()=>{
+ const file=require.resolve('./inactive-phase-keyword-state'),text=fs.readFileSync(file,'utf8');
+ function probe(edit){const m=new Module(file,module);m.filename=file;m.paths=Module._nodeModulePaths(path.dirname(file));m._compile(text+"\nmodule.exports.__probe=()=>{ "+edit+"; proveChoosePathInputs(); };",file);return m.exports.__probe;}
+ probe('')();
+ for(const edit of ['choosePathHelperInputs.pop()','choosePathHelperInputs.reverse()',"choosePathHelperInputs[0].sha256='0'.repeat(64)","choosePathHelperInputs[0].unknown=true"]){assert.throws(probe(edit),/ordered415|closed helper/);}
+ assert.throws(probe("choosePathPhysicalInputs['server/game/core/Game.ts']='0'.repeat(64)"),/physical input/);
+});
+test('actual257 Snoke identity and lifecycle rows reject foreign definitions, missing live refs and non091 Sentinel',{skip:!process.env.ASH257_WIRE_POOL},async()=>{
+ const H=path.resolve(__dirname,'../../..'),{Env}=require(H+'/engine/env'),m=require(H+'/lab/kessel-reference/pipeline/generated-token-continuation-fixture'),pool=require('./pool').loadPool(process.env.ASH257_WIRE_POOL),records=[];
+ for(const index of [18,19,20,21])await m.fixture(new Env(),pool,m.RAW_CASES[index],257000+index,{onComplete({eg,records:trace}){
+  const current=require('./state').fullState(eg),rows=current.inactiveAllocatedCards;assert.equal(current.inactivePhaseKeywordStateVersion,1);assert(rows.every(r=>Object.keys(r.phaseKeywords).length===0));records.push({index,rows});
+  const source=eg.game.allCards.find(c=>c.internalName==='choose-your-path'),old=source.cardData;source.cardData={...old,unknown:true};try{assert.throws(()=>require('./state').fullState(eg),/complete allocated Choose Your Path/);}finally{source.cardData=old;}
+  if(index===18||index===19){const row=rows.find(r=>r.id==='c106');assert(row);assert.equal(row.setCode,'TOKEN_MANDALORIAN');assert.deepEqual(row.phaseKeywords,{});const card=eg.game.getFromId(eg.game.state.allCards[106]),data=card.cardData;card.cardData={...data,power:99};try{assert.throws(()=>require('./state').fullState(eg),/retired Choose Your Path native unit/);}finally{card.cardData=data;}
+   const old=card.getOngoingEffects,e={type:'gainKeyword',duration:'untilEndOfPhase',matchTarget:card,targets:[card]};card.getOngoingEffects=()=>[e];eg.game.ongoingEffectEngine.effects.push(e);try{assert.throws(()=>require('./state').fullState(eg),/inactive keyword origin/);}finally{card.getOngoingEffects=old;eg.game.ongoingEffectEngine.effects.pop();}
+  }
+  if(index===20||index===21){assert(rows.some(r=>r.id==='c107'&&r.setCode==='TOKEN_ADVANTAGE'));const projected=structuredClone(current.players),host=['p1','p2'].flatMap(p=>projected[p].ground).find(c=>c.upgrades?.some(u=>u.name==='shield'));assert(host,'live native Shield identity retained');host.upgrades.find(u=>u.name==='shield').setCode='TOKEN_ADVANTAGE';assert.throws(()=>leaf.inactivePhaseKeywordProjection(eg,projected),/contradictory live definition/);}
+  const players=structuredClone(current.players),pid=['p1','p2'].find(p=>players[p].discard.some(c=>c.name==='choose-your-path'));players[pid].discard=players[pid].discard.filter(c=>c.name!=='choose-your-path');assert.throws(()=>leaf.inactivePhaseKeywordProjection(eg,players),/omitted live/);
+ }});assert.equal(records.length,4);
+});
