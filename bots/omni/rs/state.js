@@ -1,5 +1,6 @@
 'use strict';
 const { stateEvidence } = require('./state-evidence');
+const { roundLimitState } = require('./round-limit-state');
 const { unitEntryProjection } = require('./unit-entry-state');
 const { supportProjection, consumesSupportEffect } = require('./support-state');
 
@@ -70,6 +71,7 @@ function arenaUnitOrder(eg) {
         eg.game.getArenaUnits({ arena: `${arena}Arena` }).map((card) => eg.cardId(card.uuid))]));
 }
 function fullState(eg, actor = null) {
+    const limits = roundLimitState(eg);
     const support = supportProjection(eg);
     const players = {};
     for (const pid of eg.ids) {
@@ -104,7 +106,7 @@ function fullState(eg, actor = null) {
             out: !!p.passedActionPhase
         };
     }
-    return { ...stateEvidence(eg, support), ...unitEntryProjection(eg, phaseStats, support, ref), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
+    return { ...stateEvidence(eg, support), ...limits, ...unitEntryProjection(eg, phaseStats, support, ref), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
 }
 function normalizeArg(eg, value) {
     if (typeof value === 'string' && eg.game.state.allCards.includes(value)) return eg.cardId(value);
