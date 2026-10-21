@@ -3,8 +3,8 @@ const { stateEvidence } = require('./state-evidence');
 const { roundLimitState } = require('./round-limit-state');
 const { unitEntryProjection } = require('./unit-entry-state');
 const { playerPhaseState } = require('./player-phase-state');
-const { creditState } = require('./direct-play-credit-state');
-const { hasInactiveInventorySource, inactivePhaseKeywordProjection } = require('./inactive-phase-keyword-state');
+const { creditState, nativePoolBinding } = require('./direct-play-credit-state');
+const { exactInactiveInventoryProjection, hasInactiveInventorySource, inactivePhaseKeywordProjection } = require('./inactive-phase-keyword-state');
 const { supportProjection, consumesSupportEffect } = require('./support-state');
 
 function phaseStats(card, support = null) {
@@ -113,7 +113,7 @@ function fullState(eg, actor = null) {
             out: !!p.passedActionPhase
         };
     }
-    const inactive = hasInactiveInventorySource(eg) ? inactivePhaseKeywordProjection(eg, players) : null;
+    const inactive = nativePoolBinding(eg) ? exactInactiveInventoryProjection(eg, players) : hasInactiveInventorySource(eg) ? inactivePhaseKeywordProjection(eg, players) : null;
     return { ...(credits ? { creditStateVersion: credits.creditStateVersion } : {}), ...playerPhase, ...stateEvidence(eg, support), ...limits, ...(inactive ?? {}), ...unitEntryProjection(eg, phaseStats, support, ref, inactive), forceStateVersion: 1, hiddenHistoryVersion: 1, arenaUnitOrder: arenaUnitOrder(eg), nextCardId: eg.game.state.allCards.length, round: eg.round, phase: eg.phase, initiative: eg.game.initiativePlayer ? eg.seatOf(eg.game.initiativePlayer.id) : null, initiativeClaimed: !!eg.game.isInitiativeClaimed, prevPassed: !!eg.game.prevActionPhasePlayerPassed, activePlayer: eg.game.actionPhaseActivePlayer ? eg.seatOf(eg.game.actionPhaseActivePlayer.id) : null, actor: actor ? eg.seatOf(actor) : null, winner: eg.winner, players };
 }
 function normalizeArg(eg, value) {

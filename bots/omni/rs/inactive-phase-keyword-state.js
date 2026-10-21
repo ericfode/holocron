@@ -231,14 +231,15 @@ function descriptor(eg, card, index) {
  * complement includes EVERY already allocated omitted identity, even after expiry.
  * Source/origin is internal proof only, never serialized as unsupported history.
  */
-function inactivePhaseKeywordProjection(eg, players) {
-    const state = observations.get(eg); check(state, 'preplay observation missing');
+function projectInactiveInventory(eg, players, exact) {
+    const state = observations.get(eg); if (!exact) check(state, 'preplay observation missing');
     check(eg.game?.isUndoEnabled === false, 'undo-enabled games require chronological state proof');
-    check(eg.ids.some(pid => eg.isActionWindow(pid)) || (eg.over && !eg.game.currentAbilityResolver && !eg.game.currentAttack), 'projection outside stable window');
+    const stable = eg.ids.some(pid => eg.isActionWindow(pid)) || (eg.over && !eg.game.currentAbilityResolver && !eg.game.currentAttack);
+    if (!exact) check(stable, 'projection outside stable window');
     const all = eg.game.state.allCards, objects = all.map(uuid => eg.game.getFromId(uuid));
     check(new Set(all).size === all.length && objects.every((c, i) => c && c.uuid === all[i]) && new Set(objects).size === all.length, 'complete allocated identity registry');
-    if (state.initialIds) check(all.length >= state.initialIds.length && state.initialIds.every((uuid, i) => all[i] === uuid), 'allocation rollback or identity drift');
-    state.initialIds = all.slice();
+    if (state?.initialIds) check(all.length >= state.initialIds.length && state.initialIds.every((uuid, i) => all[i] === uuid), 'allocation rollback or identity drift');
+    if (state) state.initialIds = all.slice();
     const creators=[{...creatorProfiles[0],raw:GreefCreator,registered:RegisteredGreefCreator},{...creatorProfiles[1],raw:VaneCreator,registered:RegisteredVaneCreator}],creatorMatch=c=>creators.find(p=>physicalSourceHint(c,p.profile,p.raw));
     const newProfiles=[{profile:razorProfile,raw:RazorCrest,registered:RegisteredRazor,unit:true},{profile:surprisesProfile,raw:FullOfSurprises,registered:RegisteredSurprises,unit:false}];
     const newMatch=c=>newProfiles.find(p=>physicalSourceHint(c,p.profile,p.raw));
@@ -271,8 +272,11 @@ function inactivePhaseKeywordProjection(eg, players) {
         }
     }
     const hasSource = sources.length > 0;
+    if (hasSource) { check(state, 'preplay observation missing'); check(stable, 'projection outside stable window'); }
+    const genericAllocated = new Map();
+    if (exact) for (const [index,card] of objects.entries()) if (genericHint(card)) genericAllocated.set(card, genericAllocationProof(eg,card,index,exact));
     const rows = [], registry = eg.game.ongoingEffectEngine.effects;
-    if (!hasSource) {
+    if (!hasSource && !exact) {
         for (const card of objects.filter(c => !arena(c))) {
             check(!(card.getOngoingEffects?.() ?? []).some(e => ['gainKeyword', 'loseKeyword'].includes(e.type) && e.duration === 'untilEndOfPhase'), 'unproved inactive keyword without source');
             check(!registry.some(e => ['gainKeyword', 'loseKeyword'].includes(e.type) && e.duration === 'untilEndOfPhase' && (e.matchTarget === card || e.targets?.includes(card))), 'unproved inactive registry keyword without source');
@@ -288,6 +292,11 @@ function inactivePhaseKeywordProjection(eg, players) {
             }
             continue;
         }
+        if (exact && genericAllocated.has(card)) {
+            genericRetiredUpgradeProof(eg,card,genericAllocated.get(card),registry);
+            const physical=descriptor(eg,card,index); rows.push({...physical,phaseKeywords:{}}); continue;
+        }
+        check(!exact || hasSource, 'unsupported non-upgrade exact inventory gap');
         check((card.zoneName === 'outsideTheGame' || card.zoneName == null) && card.isToken?.() && !card.isForceToken?.(), 'omitted live/unsupported identity');
         if (card instanceof Advantage || card.internalName === advantageProfile.internalName || card.cardData?.id === advantageProfile.id) {
             check(Object.getPrototypeOf(card) === RegisteredAdvantage.prototype && isDeepStrictEqual(card.cardData, advantageProfile) && card.isToken?.() && card.isUpgrade?.() && !card.isAttached?.(), 'complete detached Advantage profile');
@@ -332,4 +341,118 @@ function validatesInactivePhaseKeywordCompanion(projection, eg, card, keywords) 
     } catch { return false; }
     return true;
 }
-module.exports = { hasInactiveInventorySource, observeInactivePhaseKeywords, inactivePhaseKeywordProjection, validatesInactivePhaseKeywordCompanion };
+
+const genericUpgradeProfiles=[{key:"shield",code:"TOKEN_SHIELD",profile:shieldProfile,sourcePath:"game/cards/01_SOR/tokens/Shield.ts"},{key:"experience",code:"TOKEN_EXPERIENCE",profile:experienceProfile,sourcePath:"game/cards/01_SOR/tokens/Experience.ts"},{key:"advantage",code:"TOKEN_ADVANTAGE",profile:advantageProfile,sourcePath:"game/cards/08_ASH/tokens/Advantage.ts"},{key:"weakness",code:"TOKEN_WEAKNESS",profile:weaknessProfile,sourcePath:"game/cards/09_HMW/tokens/Weakness.ts"}];
+const genericUpgradePhysicalInputs={"server/game/cards/01_SOR/tokens/Shield.ts":"39f1c6699c36ba309a8fe8e053f9b94ddbb8877991767b6664fcd88d447be91f","build/server/game/cards/01_SOR/tokens/Shield.js":"7390ebebb568cb308b28126557c50c6ddf996049815d6ee2dd319d0b27cda5aa","test/json/Card/shield.json":"3fe37b5b4c214e1a6971c2ea5e7729a7cad9bf983a384c20b56c404cbf41208b","server/game/cards/01_SOR/tokens/Experience.ts":"fccf00d13061bfc15447101a0dc82fc360f9b5d2e28a9da678684e8c93bc9d67","build/server/game/cards/01_SOR/tokens/Experience.js":"8bba7b98315d5ae7d2f60471faafa81fe4cfa01819e4ea6fd5d6d68c06ada305","test/json/Card/experience.json":"cc1d7a3bf3344d8a95afdbba8607659ec1edd07e5282bb9eb9d3497b0f7f332b","server/game/cards/08_ASH/tokens/Advantage.ts":"1280861b9a94572ecce2c1d62fb5fd93c11b08609495c3d9f60e656d153e3119","build/server/game/cards/08_ASH/tokens/Advantage.js":"68cb736da5bfa06b1ed23cd5b508de62202efe008b28e21ccbd6ae3839694646","test/json/Card/advantage.json":"9a81c2d083caa13d2a5a173bdeedf76e837d62fb413496e8539338b42d71ce94","server/game/cards/09_HMW/tokens/Weakness.ts":"dd546e4886757d77fffeb8be6e7381144fa7378b6493ce444aa87e4ba1202778","build/server/game/cards/09_HMW/tokens/Weakness.js":"aeadb902e97f36b6bc515c8633f22b1530381341cc38e8503040acd5e25d4298","test/json/Card/weakness.json":"6a8e3afbc95ff1ddbceb2edf8aafdfd558a8ce5b148c375e45f250792ae96fd7"};
+
+// Pool binding is the exact-mode opt-in. It is distinct from the existing
+// physical producer predicate: unbound callers keep their explicit legacy route.
+let genericUpgradeTypes, genericUpgradePinsChecked = false;
+function genericProfileTree(value, seen = new Map()) {
+    if (value === undefined) return ['undefined'];
+    if (typeof value === 'function') return ['function', sha(Function.prototype.toString.call(value))];
+    if (!value || typeof value !== 'object') return value;
+    if (seen.has(value)) return ['ref', seen.get(value)];
+    seen.set(value, seen.size);
+    if (Array.isArray(value)) return ['array', value.map(v => genericProfileTree(v, seen))];
+    return ['object', Object.getPrototypeOf(value)?.constructor?.name ?? null, Object.keys(value).sort().map(k => [k, genericProfileTree(value[k], seen)])];
+}
+function genericTypes() {
+    if (!genericUpgradeTypes) {
+        const registered = require(path.join(engine, 'build/server/game/cards/Index')).cards;
+        genericUpgradeTypes = genericUpgradeProfiles.map(p => ({ ...p,
+            raw: require(path.join(engine, 'build/server', p.sourcePath.replace(/\.ts$/, '.js'))).default,
+            registered: registered.get(p.profile.id) }));
+    }
+    return genericUpgradeTypes;
+}
+function genericHint(card) {
+    const data = card?.cardData;
+    return genericTypes().some(p => card instanceof p.raw || data?.id === p.profile.id || card?.internalName === p.profile.internalName || data?.internalName === p.profile.internalName)
+        || card?.isTokenUpgrade?.() === true || (Array.isArray(data?.types) && data.types.includes('token') && data.types.includes('upgrade'));
+}
+function exactUpgradeContext(eg) {
+    const binding = require('./direct-play-credit-state').nativePoolBinding(eg);
+    check(binding && typeof binding.path === 'string' && /^[a-f0-9]{64}$/.test(binding.sha256), 'exact inventory requires actual native pool binding');
+    proveChoosePathInputs();
+    if (!genericUpgradePinsChecked) {
+        for (const [file, expected] of Object.entries(genericUpgradePhysicalInputs)) check(sha(fs.readFileSync(path.join(engine, file))) === expected, 'changed generic upgrade physical source/build/metadata ' + file);
+        genericUpgradePinsChecked = true;
+    }
+    const { Game } = require(path.join(engine, 'build/server/game/core/Game'));
+    const { EnvGame } = require('../../../engine/env');
+    check(eg.started === true && eg instanceof EnvGame && Object.getPrototypeOf(eg) === EnvGame.prototype && eg.game instanceof Game && Object.getPrototypeOf(eg.game) === Game.prototype, 'authentic exact inventory Game');
+    for (const name of ['player', 'seatOf', 'cardId']) check(eg[name] === EnvGame.prototype[name], 'substituted exact bridge method ' + name);
+    for (const name of ['getFromId', 'removeTokenFromPlay']) check(eg.game[name] === Game.prototype[name], 'substituted native allocation method ' + name);
+    // These pinned-owner/text checks corroborate the expected bridge shape only.
+    // They cannot prove a closure captured the genuine allocator. Current identity
+    // authority comes from the concrete objects and physical/owner registries below;
+    // this projection neither invokes nor certifies future allocator continuations.
+    check(sha(fs.readFileSync(path.resolve(__dirname,'../../../engine/env.js'))) === '66e28fc412df0acfc77cfe35517232da9a00d38db184af2d4bd297f208943469', 'changed exact bridge allocation owner');
+    check(sha(fs.readFileSync(path.resolve(__dirname,'./state-evidence.js'))) === '3207edb3e673a14180f8c998d1448c4b08f7ca30563a4c53bcbf11a9225db621', 'changed exact bridge allocation owner');
+    check(sha(Function.prototype.toString.call(eg.game.generateToken)) === 'b8bda8cdb6bc4619c2fed2812ad9f14558f040a75974e1a21591a76598307252', 'unexpected native allocator wrapper shape');
+    check(eg.game.isUndoEnabled === false, 'undo-enabled games require chronological state proof');
+    const bytes = fs.readFileSync(binding.path); check(sha(bytes) === binding.sha256, 'stale exact inventory selected pool');
+    const pool = JSON.parse(bytes); check(pool?.schema === 'omni-rs-pool-v1' && Array.isArray(pool.cards), 'complete exact selected pool');
+    const codes = new Set(), selected = new Map();
+    for (const row of pool.cards) {
+        check(row && typeof row.setCode === 'string' && !codes.has(row.setCode), 'unique exact selected definitions'); codes.add(row.setCode);
+        const hints = genericTypes().filter(p => row.setCode === p.code || row.id === p.profile.id || row.internalName === p.profile.internalName);
+        if (hints.length || Array.isArray(row.types) && row.types.includes('token') && row.types.includes('upgrade')) {
+            check(hints.length === 1, 'unknown selected native token upgrade');
+            const p = hints[0], { setCode, ...data } = row;
+            check(setCode === p.code && isDeepStrictEqual(data, p.profile) && !selected.has(p.key), 'complete selected native upgrade profile');
+            selected.set(p.key, p);
+        }
+    }
+    const players = eg.ids.map(pid => eg.player(pid));
+    check(players.length === 2 && new Set(players).size === 2 && players.every(p => p?.game === eg.game && eg.game.getPlayers().includes(p)), 'actual exact inventory players');
+    const allocated = eg.game.state.allCards, owned = players.flatMap(p => p.decklist.allCards);
+    check(Array.isArray(allocated) && Array.from(allocated).every(id => typeof id === 'string') && new Set(allocated).size === allocated.length && owned.length === allocated.length && new Set(owned).size === owned.length && owned.every(id => allocated.includes(id)), 'complete exact allocation/owner registry union');
+    for (const player of players) {
+        check(player.decklist.allCards.every(id => eg.game.getFromId(id)?.game === eg.game && eg.game.getFromId(id)?.owner === player), 'physical owner registry identity');
+        check(new Set(player.decklist.tokens).size === player.decklist.tokens.length && player.decklist.tokens.every(id => player.decklist.allCards.includes(id) && eg.game.getFromId(id)?.isToken?.()), 'complete native owner token registry');
+    }
+    for (const p of genericTypes()) {
+        check(typeof eg.game.tokenFactories?.[p.key] === 'function' && sha(Function.prototype.toString.call(eg.game.tokenFactories[p.key])) === '8dcddebfa1d0846a3e810a17a26971be9ab2b87ef795a5081858edbabfc8a0f2', 'complete generic upgrade factory');
+        check(Object.getPrototypeOf(p.registered.prototype) === p.raw.prototype, 'registered generic upgrade class');
+        check(isDeepStrictEqual(eg.game.cardDataGetter.getCardSync(p.profile.id), p.profile), 'complete raw generic upgrade definition');
+    }
+    return { selected, players };
+}
+function genericAllocationProof(eg, card, index, exact) {
+    const p = genericTypes().find(p => card instanceof p.raw || card.cardData?.id === p.profile.id || card.internalName === p.profile.internalName);
+    const { TokenUpgradeCard } = require(path.join(engine, 'build/server/game/core/card/TokenCards'));
+    check(p && exact.selected.has(p.key) && Object.getPrototypeOf(card) === p.registered.prototype && card instanceof TokenUpgradeCard && isDeepStrictEqual(card.cardData, p.profile), 'complete allocated generic upgrade profile/class/selection');
+    check(card.game === eg.game && eg.game.state.allCards[index] === card.uuid && eg.game.getFromId(card.uuid) === card && eg.game.allCards.includes(card), 'actual generic upgrade allocation');
+    check(exact.players.includes(card.owner) && card.owner === card.controller && card.owner.decklist.tokens.filter(id => id === card.uuid).length === 1 && card.owner.decklist.allCards.filter(id => id === card.uuid).length === 1 && exact.players.filter(player => player.decklist.tokens.includes(card.uuid)).length === 1, 'generic upgrade owner allocation registry/control');
+    for (const name of ['getImplementationId', 'setupCardAbilities', 'setupStateWatchers', 'getTriggeredAbilities', 'getConstantAbilities', 'getActionAbilities', 'isToken', 'isTokenUpgrade', 'isUpgrade', 'isUnit', 'isLeader', 'isBase', 'isForceToken', 'isCreditToken', 'removeFromGame']) check(card[name] === p.raw.prototype[name], 'substituted generic upgrade native method ' + name);
+    check(card.tokenName === p.key && card.isToken() && card.isTokenUpgrade() && card.isUpgrade() && !card.isUnit() && !card.isLeader() && !card.isBase() && !card.isForceToken() && !card.isCreditToken(), 'exact generic upgrade type');
+    check(p.key !== 'shield' || card.highPriorityRemoval === false, 'unsupported Shield priority');
+    return p;
+}
+function genericRetiredUpgradeProof(eg, card, p, registry) {
+    check((card.zoneName === 'outsideTheGame' || card.zoneName == null) && !card.isAttached() && card._parentCard == null, 'retired unattached generic upgrade');
+    check(card._exhausted == null && card.facedown === false && card._pendingDefeat == null && card._disableOngoingEffectsForDefeat == null, 'inert retired generic upgrade fields');
+    check(card._whenAttackOrDefenseEndsAbilities == null, 'orphan retired Advantage JIT registration');
+    check(card.actionAbilities.length === 0 && card.constantAbilities.length === 0 && card.triggeredAbilities.length === (p.key === 'shield' ? 1 : 0) && card.nextAbilityIdx === (p.key === 'shield' ? 1 : 0), 'closed retired generic upgrade registrations');
+    check(card.getOngoingEffects().length === 0 && !registry.some(e => e.source === card || e.context?.source === card || e.matchTarget === card || e.targets?.includes(card) || e.ongoingEffect?.target === card || e.ongoingEffect?.target?.includes?.(card)), 'unrepresented generic upgrade source/target effect');
+    if (p.key === 'shield') {
+        const a = card.triggeredAbilities[0], { default: DamageModificationAbility } = require(path.join(engine, 'build/server/game/core/ability/DamageModificationAbility'));
+        const { UnlimitedAbilityLimit } = require(path.join(engine, 'build/server/game/core/ability/AbilityLimit'));
+        const { DamageModificationSystem } = require(path.join(engine, 'build/server/game/gameSystems/DamageModificationSystem'));
+        const { DefeatCardSystem } = require(path.join(engine, 'build/server/game/gameSystems/DefeatCardSystem'));
+        check(Object.getPrototypeOf(a) === DamageModificationAbility.prototype && a.card === card && a.game === eg.game && a.printedAbility === true && a.gainAbilitySource == null && a.abilityIdentifier === 'shield_replacement_0' && a.type === 'replacementEffect' && a.optional === false && a.cost.length === 0 && a.targetResolvers.length === 0, 'closed printed Shield replacement');
+        check(a.isRegistered === false && a.eventRegistrations == null && a.registeredEffects == null && a.limit instanceof UnlimitedAbilityLimit && a.limit.ability === a && a.limit.game === eg.game && a.limit.useCount instanceof Map && a.limit.useCount.size === 0, 'inactive Shield handler/limit');
+        check(a.properties.immediateEffect === a.immediateEffect && Object.getPrototypeOf(a.immediateEffect) === DamageModificationSystem.prototype && Object.getPrototypeOf(a.properties.replaceWithEffect) === DefeatCardSystem.prototype, 'native Shield replacement systems');
+        check(sha(JSON.stringify(genericProfileTree(a.properties))) === 'cf24876098d94ec1a658ba6af792482f6662f4c7ec85c8db476c502e1c5195b1' && sha(JSON.stringify(genericProfileTree(a.immediateEffect))) === '0c34044fe3d3ea6db05c2f0af54b27837c830f1e4590f12b864c5022d5fcb0c0', 'complete printed Shield property/default envelope');
+    }
+}
+function exactInactiveInventoryProjection(eg, players) {
+    return projectInactiveInventory(eg, players, exactUpgradeContext(eg));
+}
+function inactivePhaseKeywordProjection(eg, players) {
+    return projectInactiveInventory(eg, players, null);
+}
+
+module.exports = { exactInactiveInventoryProjection, hasInactiveInventorySource, observeInactivePhaseKeywords, inactivePhaseKeywordProjection, validatesInactivePhaseKeywordCompanion };

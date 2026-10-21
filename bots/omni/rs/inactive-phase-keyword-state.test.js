@@ -160,3 +160,98 @@ test('actual Vane attacks retire prior Advantage while retaining every physical 
 test('creator physical source build and metadata proofs reject changed reviewed bytes',()=>{const file=require.resolve('./inactive-phase-keyword-state'),text=fs.readFileSync(file,'utf8');function probe(edit){const m=new Module(file,module);m.filename=file;m.paths=Module._nodeModulePaths(path.dirname(file));m._compile(text+"\nmodule.exports.__probe=()=>{ "+edit+"; proveCreatorInputs(); };",file);return m.exports.__probe;}probe('')();for(const rel of Object.keys(JSON.parse(text.match(/const creatorPhysicalInputs=(.*);/)[1])))assert.throws(probe("creatorPhysicalInputs["+JSON.stringify(rel)+"]='0'.repeat(64)"),/creator physical/);});
 
 test('raw pool membership and copied creator registration do not authorize a foreign native card',async()=>{const {Env}=require('../../../engine/env'),{constructProbeFixture}=require('../../../lab/kessel-reference/pipeline/probe-fixture'),pool=creatorSelectedPool(),s=await constructProbeFixture(new Env(),pool,{probe:{cardId:'SOR_095',sourceInPlay:false,resourceCount:24,leaderCode:'SOR_014',enemyLeaderCode:'SOR_014',baseCode:'SOR_023',targets:[]}},119144999),players=require('./state').fullState(s.eg).players;assert.equal(leaf.hasInactiveInventorySource(s.eg),false);assert.deepEqual(leaf.inactivePhaseKeywordProjection(s.eg,players),{});const profile=pool.cards.find(c=>c.setCode==='ASH_119'),raw=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../../forceteki/test/json/Card/greef-karga#introductions-are-in-order.json'))),type=require('../../../forceteki/build/server/game/cards/08_ASH/units/GreefKargaIntroductionsAreInOrder').default,old=s.source.cardData;assert(profile);s.source.setupCardAbilities=type.prototype.setupCardAbilities;assert.equal(leaf.hasInactiveInventorySource(s.eg),false,'Copied printed registration alone is not physical creator authority');delete s.source.setupCardAbilities;s.source.cardData=raw;try{assert.equal(leaf.hasInactiveInventorySource(s.eg),true);assert.throws(()=>leaf.inactivePhaseKeywordProjection(s.eg,players),/creator physical profile/);}finally{s.source.cardData=old;}assert.deepEqual(leaf.inactivePhaseKeywordProjection(s.eg,players),{});});
+
+
+// Exact generic identity diagnostics use real pinned allocations. Factory-created
+// inert objects here are serializer evidence, not claims about card gameplay.
+async function genericFixture(seed=901000){
+ const {Env}=require('../../../engine/env'),{constructProbeFixture}=require('../../../lab/kessel-reference/pipeline/probe-fixture'),K=require('../../../lab/kessel-reference/kessel').kesselDir();
+ return constructProbeFixture(new Env(),require('./pool').loadPool(path.join(K,'compiler/generated/runtime-pool.json')),{probe:{cardId:'SOR_095',sourceInPlay:false,leaderCode:'SOR_014',enemyLeaderCode:'SOR_014',baseCode:'SOR_023',resourceCount:20,targets:[]}},seed);
+}
+test('bound genuine pool opts into exact empty inventory and all four inert physical upgrade classes',async()=>{
+ const state=require('./state');
+ for(const owner of[0,1]){
+  const s=await genericFixture(901000+owner),eg=s.eg,who=eg.player(eg.ids[owner]);
+  const initial=state.fullState(eg);assert.equal(initial.inactivePhaseKeywordStateVersion,1);assert.deepEqual(initial.inactiveAllocatedCards,[]);
+  const tokens=['shield','experience','advantage','weakness'].map(kind=>eg.game.generateToken(who,kind));
+  const snapshot=state.fullState(eg),rows=snapshot.inactiveAllocatedCards;
+  assert.equal(rows.length,4);
+  for(const token of tokens){const row=rows.find(r=>r.id===eg.cardId(token.uuid));assert(row);assert.equal(row.owner,eg.seatOf(eg.ids[owner]));assert.equal(row.controller,row.owner);assert.deepEqual(row.phaseKeywords,{});assert.equal(eg.game.getFromId(token.uuid),token);assert(who.decklist.tokens.includes(token.uuid));}
+  assert.deepEqual(rows.map(r=>r.setCode),['TOKEN_SHIELD','TOKEN_EXPERIENCE','TOKEN_ADVANTAGE','TOKEN_WEAKNESS']);
+ }
+});
+test('generic identity rejects incomplete allocation, foreign ownership, changed raw class and effects',async()=>{
+ const s=await genericFixture(901010),eg=s.eg,state=require('./state'),token=eg.game.generateToken(s.own,'experience');
+ const reject=(edit,restore,pattern)=>{edit();try{assert.throws(()=>state.fullState(eg),pattern);}finally{restore();}assert.equal(state.fullState(eg).inactiveAllocatedCards.length,1);};
+ const data=token.cardData;reject(()=>{token.cardData={...data,unknown:true};},()=>{token.cardData=data;},/profile\/class\/selection/);
+ const controller=token.controller;reject(()=>{token.controller=eg.player(eg.ids[1]);},()=>{token.controller=controller;},/owner allocation registry\/control/);
+ const all=eg.game.state.allCards;reject(()=>{all.pop();},()=>{all.push(token.uuid);},/allocation\/owner registry union/);
+ const tokens=s.own.decklist.tokens;reject(()=>{tokens.splice(tokens.indexOf(token.uuid),1);},()=>{tokens.push(token.uuid);},/owner allocation registry\/control/);
+ const prototype=Object.getPrototypeOf(token);reject(()=>{Object.setPrototypeOf(token,Object.create(prototype));},()=>{Object.setPrototypeOf(token,prototype);},/profile\/class\/selection/);
+ reject(()=>{token._whenAttackOrDefenseEndsAbilities=[];},()=>{token._whenAttackOrDefenseEndsAbilities=null;},/orphan retired Advantage/);
+ reject(()=>{token.actionAbilities.push({});},()=>{token.actionAbilities.pop();},/closed retired generic upgrade registrations/);
+ const effects=eg.game.ongoingEffectEngine.effects;reject(()=>{effects.push({source:token});},()=>{effects.pop();},/unrepresented generic upgrade source\/target effect/);
+});
+test('matching allocator text does not prove its captured continuation',async()=>{
+ const s=await genericFixture(901011),eg=s.eg,original=eg.game.generateToken,text=String(original);let invoked=false;
+ const generateToken=()=>{invoked=true;throw Error('different captured allocator');},wrapCard=()=>{};
+ const substitute=eval('('+text+')');assert.notEqual(substitute,original);assert.equal(String(substitute),text);
+ eg.game.generateToken=substitute;
+ // Current inert-object projection reads actual registries and invokes no allocator.
+ assert.deepEqual(leaf.exactInactiveInventoryProjection(eg,require('./state').fullState(eg).players).inactiveAllocatedCards,[]);
+ assert.equal(invoked,false);assert.throws(()=>substitute.call(eg.game,s.own,'shield'),/different captured allocator/);assert.equal(invoked,true);
+ eg.game.generateToken=original;
+});
+test('selected per-kind membership, stale binding and missing explicit binding fail closed',async()=>{
+ const {Env}=require('../../../engine/env'),{constructProbeFixture}=require('../../../lab/kessel-reference/pipeline/probe-fixture'),{loadPool}=require('./pool'),K=require('../../../lab/kessel-reference/kessel').kesselDir();
+ const raw=JSON.parse(fs.readFileSync(path.join(K,'compiler/generated/runtime-pool.json'))),dir=fs.mkdtempSync('/private/tmp/generic-upgrade-selected-'),file=path.join(dir,'pool.json');
+ raw.cards=raw.cards.filter(c=>!['TOKEN_SHIELD','TOKEN_EXPERIENCE','TOKEN_ADVANTAGE','TOKEN_WEAKNESS'].includes(c.setCode));const bytes=JSON.stringify(raw);fs.writeFileSync(file,bytes);const pool=loadPool(file);
+ let args;const env=new Env(),newGame=env.newGame.bind(env);env.newGame=x=>{args=x;return newGame(x);};
+ const s=await constructProbeFixture(env,pool,{probe:{cardId:'SOR_095',sourceInPlay:false,leaderCode:'SOR_014',enemyLeaderCode:'SOR_014',baseCode:'SOR_023',resourceCount:20,targets:[]}},901012),state=require('./state');
+ assert.deepEqual(state.fullState(s.eg).inactiveAllocatedCards,[],'empty exact proof requires no fabricated token membership');
+ fs.writeFileSync(file,bytes+' ');assert.throws(()=>state.fullState(s.eg),/stale exact inventory selected pool/);fs.writeFileSync(file,bytes);
+ s.eg.game.generateToken(s.own,'experience');assert.throws(()=>state.fullState(s.eg),/profile\/class\/selection/);
+ const unbound=new Env().newGame(args);await unbound.start();
+ assert.throws(()=>leaf.exactInactiveInventoryProjection(unbound,{}),/actual native pool binding/);
+ assert.equal(leaf.hasInactiveInventorySource(unbound),false);assert.equal(Object.hasOwn(state.fullState(unbound),'inactivePhaseKeywordStateVersion'),false,'ordinary authentic unbound source retains legacy absence');
+});
+test('actual paid Wing Leader experience survives ordinary lethal combat as retired physical identity in both seats',async()=>{
+ const {Env}=require('../../../engine/env'),{constructProbeFixture}=require('../../../lab/kessel-reference/pipeline/probe-fixture'),{terminalCompletion}=require('../../../lab/kessel-reference/pipeline/terminal-completion'),state=require('./state'),K=require('../../../lab/kessel-reference/kessel').kesselDir(),pool=require('./pool').loadPool(path.join(K,'compiler/generated/runtime-pool.json'));
+ for(const owner of[0,1]){
+  const side=owner?'opponent':'self',other=owner?'self':'opponent',s=await constructProbeFixture(new Env(),pool,{probe:{cardId:'SOR_241',sourceInPlay:false,resourceCount:24,leaderCode:'SOR_014',enemyLeaderCode:'SOR_014',baseCode:'SOR_023',targets:[...(owner?[{code:'SOR_241',owner:side,zone:'hand'}]:[]),{code:'SOR_095',owner:side,arena:'ground',exhausted:false},{code:'ASH_131',owner:other,arena:'ground',exhausted:false}]}},901100+owner),{eg,rng}=s,own=owner?s.enemy:s.own,enemy=owner?s.own:s.enemy,source=owner?s.targets[0]:s.source,target=s.targets[owner?1:0],attacker=s.targets[owner?2:1],records=[];let step=0;
+  if(owner){s.source.moveTo('deckBottom');eg.game.resolveGameState(true);eg.game.continue();}
+  function operate(player,card,pick){let committed=false;for(let n=0;n<100;n++){const pid=eg.ids.find(p=>eg.legalActions(p).length),actions=state.expandActions(eg,eg.legalActions(pid));if(committed&&eg.isActionWindow(pid))return;let a;if(eg.isActionWindow(pid)){if(pid===player.id&&!committed){a=actions.find(a=>a.cardUuid===card.uuid);assert(a);committed=true;}else a=actions.find(a=>a.arg==='pass');}else a=actions.find(a=>a.cardUuid===pick.uuid)??actions.find(a=>a.arg==='trigger')??actions.find(a=>a.arg==='done')??actions[0];assert(a);records.push({actor:eg.seatOf(pid),action:state.canonicalAction(eg,a)});eg.apply(pid,a,rng);step++;}assert.fail('Wing Leader operation did not settle');}
+  const ready=own.readyResourceCount;operate(own,source,target);const paid=ready-own.readyResourceCount;assert(paid>0,'normally paid source play');const xp=target.upgrades.filter(c=>c.internalName==='experience');assert.equal(xp.length,2);const initial=state.fullState(eg,eg.ids.find(p=>eg.legalActions(p).length));assertEveryPhysicalIdentity(eg,initial);
+  operate(enemy,attacker,target);assert.equal(target.zoneName,'discard');assert(xp.every(t=>!t.isAttached()));const retired=state.fullState(eg,eg.ids.find(p=>eg.legalActions(p).length));for(const t of xp){const row=retired.inactiveAllocatedCards.find(r=>r.id===eg.cardId(t.uuid));assert(row);assert.equal(row.setCode,'TOKEN_EXPERIENCE');assert.equal(row.owner,eg.seatOf(own.id));assert.deepEqual(row.phaseKeywords,{});}assertEveryPhysicalIdentity(eg,retired);
+  const terminal=terminalCompletion(eg,5000);for(;;){const pid=terminal.nextActor(step);if(!pid)break;const actions=state.expandActions(eg,eg.legalActions(pid)),a=actions.find(a=>a.arg==='done')??actions.find(a=>a.arg==='pass')??actions.find(a=>a.arg==='passAbility')??actions[0];assert(a);eg.apply(pid,a,rng);step++;}const completion=terminal.assertComplete(),final=state.fullState(eg);assertEveryPhysicalIdentity(eg,final);saveCreatorReceipt('generic-wing-leader-'+owner,{sourceOnly:true,pool:pool.provenance,owner,paid,initial,retired,final,records,terminal:completion});
+ }
+});
+test('actual GiveTokenUpgrade event preallocation remains physical after cancellation',async()=>{
+ const s=await genericFixture(901020),eg=s.eg,{GiveTokenUpgradeSystem}=require('../../../forceteki/build/server/game/gameSystems/GiveTokenUpgradeSystem');
+ // Typed engine event-construction diagnostic; moving this setup target is not
+ // presented as a paid gameplay path or card-conformance evidence.
+ s.source.moveTo('groundArena');eg.game.resolveGameState(true);eg.game.continue();
+ const context=eg.game.getFrameworkContext(s.own),system=new GiveTokenUpgradeSystem({tokenType:'experience',amount:2,target:s.source}),event=system.generateEvent(context);
+ assert.equal(event.generatedTokens.length,2);assert(event.generatedTokens.every(t=>!t.isAttached()));event.cancel();assert(event.isCancelled);
+ const state=require('./state').fullState(eg);for(const token of event.generatedTokens){const row=state.inactiveAllocatedCards.find(r=>r.id===eg.cardId(token.uuid));assert(row);assert.equal(row.setCode,'TOKEN_EXPERIENCE');assert.deepEqual(row.phaseKeywords,{});}
+});
+test('actual paid Calm Shield replacement and later lethal combat retain Shield and experience in both seats',async()=>{
+ const {Env}=require('../../../engine/env'),{constructProbeFixture}=require('../../../lab/kessel-reference/pipeline/probe-fixture'),{terminalCompletion}=require('../../../lab/kessel-reference/pipeline/terminal-completion'),state=require('./state'),K=require('../../../lab/kessel-reference/kessel').kesselDir(),pool=require('./pool').loadPool(path.join(K,'compiler/generated/runtime-pool.json'));
+ for(const owner of[0,1]){
+  const side=owner?'opponent':'self',other=owner?'self':'opponent',s=await constructProbeFixture(new Env(),pool,{probe:{cardId:'LOF_054',sourceInPlay:false,resourceCount:24,leaderCode:'SOR_014',enemyLeaderCode:'SOR_014',baseCode:'SOR_023',targets:[...(owner?[{code:'LOF_054',owner:side,zone:'hand'}]:[]),{code:'SOR_095',owner:side,arena:'ground',exhausted:false},{code:'ASH_131',owner:other,arena:'ground',exhausted:false},{code:'ASH_131',owner:other,arena:'ground',exhausted:false}]}},901200+owner),{eg,rng}=s,own=owner?s.enemy:s.own,enemy=owner?s.own:s.enemy,source=owner?s.targets[0]:s.source,target=s.targets[owner?1:0],attacker=s.targets[owner?2:1],records=[];let step=0;
+  if(owner){s.source.moveTo('deckBottom');eg.game.resolveGameState(true);eg.game.continue();}
+  function operate(player,card,pick){let committed=false;for(let n=0;n<100;n++){const pid=eg.ids.find(p=>eg.legalActions(p).length),actions=state.expandActions(eg,eg.legalActions(pid));if(committed&&eg.isActionWindow(pid))return;let a;if(eg.isActionWindow(pid)){if(pid===player.id&&!committed){a=actions.find(a=>a.cardUuid===card.uuid);assert(a);committed=true;}else a=actions.find(a=>a.arg==='pass');}else a=actions.find(a=>a.cardUuid===pick.uuid)??actions.find(a=>a.arg==='trigger')??actions.find(a=>a.arg==='done')??actions[0];assert(a);records.push({actor:eg.seatOf(pid),action:state.canonicalAction(eg,a)});eg.apply(pid,a,rng);step++;}assert.fail('Wing Leader operation did not settle');}
+  const ready=own.readyResourceCount;operate(own,source,target);const paid=ready-own.readyResourceCount;assert(paid>0,'normally paid source play');const xp=target.upgrades.filter(c=>c.internalName==='experience');assert.equal(xp.length,2);const initial=state.fullState(eg,eg.ids.find(p=>eg.legalActions(p).length));assertEveryPhysicalIdentity(eg,initial);
+  const shield=target.upgrades.find(c=>c.internalName==='shield');assert(shield);operate(enemy,attacker,target);assert.equal(target.damage,0);assert.equal(shield.isAttached(),false);const afterShield=state.fullState(eg);assert(afterShield.inactiveAllocatedCards.some(r=>r.id===eg.cardId(shield.uuid)&&r.setCode==='TOKEN_SHIELD'));operate(enemy,s.targets[owner?3:2],target);assert.equal(target.zoneName,'discard');assert(xp.every(t=>!t.isAttached()));const retired=state.fullState(eg,eg.ids.find(p=>eg.legalActions(p).length));for(const t of xp){const row=retired.inactiveAllocatedCards.find(r=>r.id===eg.cardId(t.uuid));assert(row);assert.equal(row.setCode,'TOKEN_EXPERIENCE');assert.equal(row.owner,eg.seatOf(own.id));assert.deepEqual(row.phaseKeywords,{});}assertEveryPhysicalIdentity(eg,retired);
+  const terminal=terminalCompletion(eg,5000);for(;;){const pid=terminal.nextActor(step);if(!pid)break;const actions=state.expandActions(eg,eg.legalActions(pid)),a=actions.find(a=>a.arg==='done')??actions.find(a=>a.arg==='pass')??actions.find(a=>a.arg==='passAbility')??actions[0];assert(a);eg.apply(pid,a,rng);step++;}const completion=terminal.assertComplete(),final=state.fullState(eg);assertEveryPhysicalIdentity(eg,final);saveCreatorReceipt('generic-calm-'+owner,{sourceOnly:true,pool:pool.provenance,owner,paid,initial,retired,final,records,terminal:completion});
+ }
+});
+test('valid generic upgrades never bypass any malformed physical producer hint or factory/raw profile',async()=>{
+ const s=await genericFixture(901030),eg=s.eg,state=require('./state');eg.game.generateToken(s.own,'experience');const source=s.source,old=source.cardData;
+ for(const name of['buy-time','helgait#dooku-was-a-visionary','razor-crest#outfitted-armament','full-of-surprises','choose-your-path','greef-karga#introductions-are-in-order','vanes-snub-fighter#brash-and-proud']){
+  const raw=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../../forceteki/test/json/Card/'+name+'.json')));source.cardData={id:raw.id};try{assert.equal(leaf.hasInactiveInventorySource(eg),true);assert.throws(()=>state.fullState(eg),/complete allocated|creator physical profile/);}finally{source.cardData=old;}
+ }
+ const factory=eg.game.tokenFactories.experience;eg.game.tokenFactories.experience=()=>null;try{assert.throws(()=>state.fullState(eg),/generic upgrade factory/);}finally{eg.game.tokenFactories.experience=factory;}
+ const get=eg.game.cardDataGetter.getCardSync;eg.game.cardDataGetter.getCardSync=function(id){const row=get.call(this,id);return row.internalName==='experience'?{...row,unknown:true}:row;};try{assert.throws(()=>state.fullState(eg),/raw generic upgrade definition/);}finally{eg.game.cardDataGetter.getCardSync=get;}
+ assert.equal(state.fullState(eg).inactiveAllocatedCards.length,1);
+});
