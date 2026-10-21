@@ -1,0 +1,11 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const {validateProbe,fixture}=require('../pipeline/round-limit-probe-fixture');
+const base={"family":"round-limit","cardId":"ASH_047","owner":0,"mode":"played-upgrade","scenario":"paid-first-second","resourceCount":24,"leaderCode":"SOR_014","enemyLeaderCode":"SOR_014","baseCode":"SOR_023","enemyBaseCode":"SOR_023","fillerCodes":["ASH_061","ASH_131","ASH_190","ASH_201","ASH_242","ASH_261","HMW_082","HMW_093","HMW_116","HMW_128","HMW_135","HMW_155","HMW_163","HMW_174","HMW_178","HMW_219","HMW_258"]};
+test('raw physical construction accepts both seat domains',()=>{for(const owner of [0,1])assert.equal(validateProbe({...base,owner}).owner,owner);});
+test('closed construction rejects injected setup and noncanonical limits',()=>{for(const patch of [{units:[]},{limit:2},{resourceCount:25},{sourceArena:'ground'}])assert.throws(()=>validateProbe({...base,...patch}));});
+test('source mode, lifecycle case and exact deck order are bound',()=>{for(const patch of [{mode:'other-unique-defeat'},{scenario:'invented'},{cardId:'ASH_204'},{fillerCodes:[...base.fillerCodes].reverse()}])assert.throws(()=>validateProbe({...base,...patch}));});
+test('owner and baseline metadata cannot drift',()=>{for(const patch of [{owner:2},{owner:'0'},{leaderCode:'ASH_003'},{enemyLeaderCode:'ASH_003'},{baseCode:'ASH_025'},{enemyBaseCode:'ASH_025'}])assert.throws(()=>validateProbe({...base,...patch}));});
+test('malformed input rejected before engine construction',async()=>{let called=false;await assert.rejects(fixture({newGame(){called=true;}},{cards:[]},{probe:{...base,callback:'injection'}},1));assert.equal(called,false);});
+
+test('interaction delegation retains closed source discriminator',()=>{const p={"family":"round-limit","cardId":"SOR_115","owner":0,"mode":"other-unique-defeat","scenario":"simultaneous-unique-next","resourceCount":24,"leaderCode":"SOR_014","enemyLeaderCode":"SOR_014","baseCode":"SOR_023","enemyBaseCode":"SOR_023","fillerCodes":["ASH_061","ASH_131","ASH_190","ASH_201","ASH_242","ASH_261","HMW_082","HMW_093","HMW_116","HMW_128","HMW_135","HMW_155","HMW_163","HMW_174","HMW_178","HMW_219","HMW_258"],"interaction":"multiplicity"};assert.equal(validateProbe(p),p);assert.throws(()=>validateProbe({...p,interaction:'unknown'}));});

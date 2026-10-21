@@ -166,6 +166,7 @@ async function fixture(env, pool, scenario, seed) {
     if (scenario.probe?.family === 'arena-keyword-set') return require('./arena-keyword-set-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'arena-defeat-attack') return require('./arena-defeat-attack-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'blade-base-damage') return require('./blade-base-damage-probe-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'round-limit') return require('./round-limit-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'collective-trigger') return require('./collective-trigger-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'defeat-cause') return require('./defeat-cause-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'executor-upgrade-count') return require('./executor-upgrade-count-probe-fixture').fixture(env, pool, scenario, seed);
@@ -429,6 +430,24 @@ module.exports = {
     constructProbeFixture,
     buildDeck,
     dependencies: [
+        'lab/kessel-reference/pipeline/round-limit-probe-fixture.js',
+        'engine/view.js',
+        'engine/stdio.js',
+        'engine/recorder.js',
+        'bots/omni/rs/round-limit-state.js',
+        'bots/omni/rs/pool.js',
+        'bots/players/rush.js',
+        'bots/players/heuristic.js',
+        'bots/players/profiles.js',
+        'bots/players/ismcts.js',
+        'bots/players/belief.js',
+        'bots/players/omniscient.js',
+        'bots/examples/random-bot.js',
+        'bots/examples/search-bot.js',
+        'bots/omni/search.js',
+        'bots/omni/evaluate.js',
+        'kessel:cards/pipeline/round-limit-probes.js',
+
         'kessel:cards/pipeline/disclose-probes.js',
         'lab/kessel-reference/pipeline/disclose-probe-fixture.js',
         'kessel:cards/pipeline/keyword-inventory-probes.js',
