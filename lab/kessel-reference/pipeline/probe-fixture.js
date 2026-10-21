@@ -154,6 +154,8 @@ function observe(card, eg) {
     };
 }
 async function fixture(env, pool, scenario, seed) {
+    if (scenario.probe?.family === 'named-exhaust-contingent') return require('./named-exhaust-contingent-fixture').fixture(env, pool, scenario, seed);
+    if (scenario.probe?.family === 'captured-hand-cost') return require('./captured-hand-cost-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'exhaustedLiveCount') return require('./exhausted-live-count-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'defeat-token-creation') return require('./defeat-token-creation-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'chosen-hand-discard') return require('./chosen-hand-discard-probe-fixture').fixture(env, pool, scenario, seed);
@@ -432,6 +434,10 @@ module.exports = {
     constructProbeFixture,
     buildDeck,
     dependencies: [
+        'kessel:cards/pipeline/named-exhaust-contingent-probes.js',
+        'kessel:cards/pipeline/captured-hand-cost-probes.js',
+        'lab/kessel-reference/pipeline/named-exhaust-contingent-fixture.js',
+        'lab/kessel-reference/pipeline/captured-hand-cost-fixture.js',
         'kessel:cards/pipeline/exhausted-live-count-probes.js',
         'kessel:cards/pipeline/defeat-token-creation-probes.js',
         'lab/kessel-reference/pipeline/exhausted-live-count-fixture.js',

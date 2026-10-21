@@ -44,6 +44,8 @@ function sourceIdentity() {
     sources['kessel:crates/kessel/src/cinder_contract.rs'] = sha256(fs.readFileSync(kesselPath('crates/kessel/src/cinder_contract.rs')));
     for (const file of ['lab/kessel-reference/pipeline/exhausted-live-count-fixture.js', 'lab/kessel-reference/pipeline/defeat-token-creation-fixture.js', 'kessel:cards/pipeline/exhausted-live-count-probes.js', 'kessel:cards/pipeline/defeat-token-creation-probes.js', 'kessel:crates/kessel/src/exhausted_live_count_contract.rs', 'kessel:crates/kessel/src/defeat_token_creation_contract.rs'])
         sources[file] = sha256(fs.readFileSync(file.startsWith('kessel:') ? kesselPath(file.slice(7)) : path.join(repo, file)));
+    for (const file of ['lab/kessel-reference/pipeline/named-exhaust-contingent-fixture.js', 'lab/kessel-reference/pipeline/captured-hand-cost-fixture.js', 'kessel:cards/pipeline/named-exhaust-contingent-probes.js', 'kessel:cards/pipeline/captured-hand-cost-probes.js', 'kessel:crates/kessel/src/named_exhaust_contingent_contract.rs', 'kessel:crates/kessel/src/captured_hand_cost_contract.rs'])
+        sources[file] = sha256(fs.readFileSync(file.startsWith('kessel:') ? kesselPath(file.slice(7)) : path.join(repo, file)));
     return { engineRevision, expectedEngineRevision, engineSourceSha256: treeHash(path.join(engine, 'server')), engineBuildSha256: treeHash(path.join(engine, 'build/server')),
         cardDataSha256: treeHash(path.join(engine, 'test/json')), scenarioLibrarySha256: treeHash(path.join(__dirname, 'scenarios')),
         playerCodeSha256: treeHash(path.join(repo, 'bots/players')), pipelineCodeSha256: treeHash(path.join(repo, 'lab/kessel-reference/pipeline')),
