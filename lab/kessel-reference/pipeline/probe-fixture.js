@@ -51,10 +51,10 @@ function buildDeck(pool, probe) {
         isPresentInDb: false,
     };
 }
-async function constructProbeFixture(env, pool, scenario, seed) {
+async function constructProbeFixture(env, pool, scenario, seed, explicitDeck) {
     const p = scenario.probe;
     assert.ok(p, 'Missing pure probe construction');
-    const deck = buildDeck(pool, p),
+    const deck = explicitDeck ?? buildDeck(pool, p),
         enemyDeck = {...deck, base:{id:p.enemyBaseCode ?? deck.base.id,count:1},
             leader:{id:p.enemyLeaderCode ?? deck.leader.id,count:1}},
         eg = env.newGame({ selectionToggles: true, seed, deck1: deck, deck2: enemyDeck });
@@ -157,11 +157,12 @@ function observe(card, eg) {
 }
 async function fixture(env, pool, scenario, seed) {
     // These leaves own exact raw case definitions; routing metadata belongs here.
-    if (['attack-base-history', 'modal-deck-movement', 'resource-number-target-experience', 'generated-token-continuation'].includes(scenario.probe?.family) && Object.hasOwn(scenario, 'source')) {
+    if (['damaged-target-phase-history', 'attack-base-history', 'modal-deck-movement', 'resource-number-target-experience', 'generated-token-continuation'].includes(scenario.probe?.family) && Object.hasOwn(scenario, 'source')) {
         assert.deepEqual(scenario.source, { module: '../pipeline/probe-fixture.js', scenario: scenario.name }, 'Exact canonical probe routing source required');
         const { source, ...rawScenario } = scenario;
         scenario = rawScenario;
     }
+    if (scenario.probe?.family === 'damaged-target-phase-history') return require('./damaged-target-phase-history-probe-fixture').fixture(env,pool,scenario,seed);
     if (scenario.probe?.family === 'attack-base-history') return require('./attack-base-history-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'modal-deck-movement') return require('./modal-deck-movement-probe-fixture').fixture(env, pool, scenario, seed);
     if (scenario.probe?.family === 'resource-number-target-experience') return require('./resource-number-target-experience-fixture').fixture(env, pool, scenario, seed);
@@ -452,7 +453,7 @@ module.exports = {
     fixture,
     constructProbeFixture,
     buildDeck,
-    dependencies: ['lab/kessel-reference/pipeline/player-phase-effect-probe-fixture.js', 'kessel:cards/pipeline/player-phase-effect-probes.js', 'bots/omni/rs/player-phase-state.js', 'bots/omni/rs/direct-play-credit-state.js',
+    dependencies: ['lab/kessel-reference/pipeline/damaged-target-phase-history-probe-fixture.js','bots/omni/rs/damaged-target-phase-history-state.js','kessel:cards/pipeline/damaged-target-phase-history-probes.js','kessel:crates/kessel/src/damaged_target_history_contract.rs','lab/kessel-reference/pipeline/player-phase-effect-probe-fixture.js', 'kessel:cards/pipeline/player-phase-effect-probes.js', 'bots/omni/rs/player-phase-state.js', 'bots/omni/rs/direct-play-credit-state.js',
         'lab/kessel-reference/pipeline/hand-card-cost-probe-fixture.js',
         'kessel:cards/pipeline/hand-card-cost-probes.js',
         'lab/kessel-reference/pipeline/arena-payment-exhaust-probe-fixture.js',
